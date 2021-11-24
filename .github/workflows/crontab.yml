@@ -42,7 +42,9 @@ jobs:
             npx pkg-jq -i '.version = "$VERSION"'
             echo "Updated version to $VERSION"
       - name: Re class-dump WeChat.app
-        run: npx npm-run-all clean generate
+        run: |
+            npm run clean
+            npm run generate
 
       - name: Track
         run: npm run track
