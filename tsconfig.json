@@ -9,6 +9,6 @@
     "tests/fixtures/",
   ],
   "include": [
-    "track.ts",
+    "bin/*.ts",
   ],
 }
