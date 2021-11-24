@@ -1,6 +1,6 @@
 {
   "name": "mac-wechat-app-tracker",
-  "version": "3.2.1",
+  "version": "3.2.1.17",
   "description": "macOS WeChat.app Header Tracker",
   "type": "module",
   "scripts": {
