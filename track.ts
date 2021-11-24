@@ -17,7 +17,7 @@ function getWeChatVersion () {
    * @link https://stackoverflow.com/a/61563525/1123955
    */
   return execSync('defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString')
-    .toString()
+    .toString().replace(/\n.+$/, '')
 }
 
 function gitDiff() {
