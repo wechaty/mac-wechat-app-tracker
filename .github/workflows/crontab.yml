@@ -40,10 +40,9 @@ jobs:
         run: |
             export VERSION=$(defaults read /Applications/WeChat.app/Contents/Info MMBundleVersion)
             npx pkg-jq -i '.version = "$VERSION"'
+            echo "Updated version to $VERSION"
       - name: Re class-dump WeChat.app
-        run: |
-            npm run clean
-            class-dump -H -o class-dump/ /Applications/WeChat.app
+        run: npx npm-run-all clean generate
 
       - name: Track
         run: npm run track
