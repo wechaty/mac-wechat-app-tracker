@@ -5,9 +5,12 @@
  *  https://github.com/wechaty/mac-wechat-app-tracker/
  *
  */
-import { execSync }      from 'child_process'
-import { writeFileSync } from 'fs'
-import { format }        from 'util'
+import { execSync }   from 'child_process'
+import {
+  writeFileSync,
+  readFileSync,
+}                     from 'fs'
+import { format }     from 'util'
 
 function getWeChatVersion () {
   /**
@@ -24,7 +27,7 @@ function gitDiff() {
   return Number(n) > 0
 }
 
-function gitCommit(message) {
+function gitCommit(message: string) {
   execSync('git -c "user.name=Mike BO" -c "user.email=mike@zixia.net" commit -am "' + message + '"')
 }
 
@@ -63,7 +66,7 @@ function log(...args: any[]) {
 
 async function main () {
   const VERSION_HISTORY = './history-version.json'
-  const verHistory  = await import(VERSION_HISTORY)
+  const verHistory  = JSON.parse(readFileSync(VERSION_HISTORY, 'utf-8'))
 
   const wechatyVer = getWeChatVersion()
 

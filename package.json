@@ -8,7 +8,7 @@
     "version": "defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString",
     "generate": "class-dump -H -o class-dump/ /Applications/WeChat.app",
     "test": "echo test test",
-    "track": "node bin/track.js"
+    "track": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" node track.ts"
   },
   "engines": {
     "node": ">= 16",
