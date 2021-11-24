@@ -7,24 +7,50 @@
 #import "MMService.h"
 
 #import "MMService-Protocol.h"
+#import "SPUUpdaterDelegate-Protocol.h"
 
-@class NSAlert, NSString;
+@class NSAlert, NSString, SPUUpdater;
+@protocol SPUUserDriver><SPUStandardUserDriverProtocol;
 
-@interface MMUpdateMgr : MMService <MMService>
+@interface MMUpdateMgr : MMService <SPUUpdaterDelegate, MMService>
 {
     BOOL _isGrayReleaseAvailable;
     NSAlert *_expiredAlert;
     NSString *_customXmlUrl;
     double _updateCheckInterval;
+    SPUUpdater *_sparkleUpdater;
+    id <SPUUserDriver><SPUStandardUserDriverProtocol> _userDriver;
+    double _lastCheckTime;
 }
 
 + (id)previousVersionInfo;
 + (BOOL)isVersionChange;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isGrayReleaseAvailable; // @synthesize isGrayReleaseAvailable=_isGrayReleaseAvailable;
+@property(nonatomic) double lastCheckTime; // @synthesize lastCheckTime=_lastCheckTime;
+@property(retain, nonatomic) id <SPUUserDriver><SPUStandardUserDriverProtocol> userDriver; // @synthesize userDriver=_userDriver;
+@property(retain, nonatomic) SPUUpdater *sparkleUpdater; // @synthesize sparkleUpdater=_sparkleUpdater;
 @property(nonatomic) double updateCheckInterval; // @synthesize updateCheckInterval=_updateCheckInterval;
 @property(retain, nonatomic) NSString *customXmlUrl; // @synthesize customXmlUrl=_customXmlUrl;
 @property(nonatomic) __weak NSAlert *expiredAlert; // @synthesize expiredAlert=_expiredAlert;
+- (void)updater:(id)arg1 scheduledUpdateCheckDidAbortWithError:(id)arg2;
+- (void)updater:(id)arg1 didAbortWithError:(id)arg2;
+- (void)updater:(id)arg1 didCancelInstallUpdateOnQuit:(id)arg2;
+- (void)updaterWillRelaunchApplication:(id)arg1;
+- (void)userDidCancelDownload:(id)arg1;
+- (void)updater:(id)arg1 failedToDownloadUpdate:(id)arg2 error:(id)arg3;
+- (void)updater:(id)arg1 willDownloadUpdate:(id)arg2 withRequest:(id)arg3;
+- (void)updaterDidNotFindUpdate:(id)arg1;
+- (void)updater:(id)arg1 didFindValidUpdate:(id)arg2;
+- (void)updater:(id)arg1 didFinishLoadingAppcast:(id)arg2;
+- (BOOL)updaterShouldPromptForPermissionToCheckForUpdates:(id)arg1;
+- (id)feedURLStringForUpdater:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)installUpdatesIfAvailable;
+- (void)checkForUpdatesInBackground;
+- (void)startBackgroundUpdatesCheck;
+- (void)checkForUpdates:(id)arg1;
+- (void)setupUpdater;
 - (void)saveToDiskWithVersion:(unsigned int)arg1;
 - (void)saveCurrentVersionToDisk;
 - (id)checkVersionFilePath;
