@@ -38,12 +38,16 @@ fi
 
 pushd class-dump
 
-# class-dump -H /Applications/WeChat.app
+class-dump -H /Applications/WeChat.app
 
 for file in *.h; do
   folder=$(subFolder "$file")
   if [ ! -d "$folder" ]; then
     mkdir "$folder"
+  fi
+
+  if [ "$file" == '*.h' ]; then
+    continue
   fi
 
   echo "Moving $file -> $folder/"

@@ -155,7 +155,6 @@
 + (void)KernelOnBackground;
 + (void)KernelOnForeground;
 + (void)KernelOnAppExit;
-+ (id)getSoftTypeInfo;
 + (BOOL)AppMsgCannotAddToDB:(id)arg1;
 + (BOOL)IsFilterSysMsg:(id)arg1;
 + (BOOL)IsFilterStatusNotify:(id)arg1 chatName:(id)arg2;
