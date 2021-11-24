@@ -16,7 +16,7 @@ function getWeChatVersion () {
   /**
    * @link https://stackoverflow.com/a/61563525/1123955
    */
-  return execSync('defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString')
+  return execSync('defaults read /Applications/WeChat.app/Contents/Info MMBundleVersion')
     .toString().replace(/\n.*$/, '')
 }
 

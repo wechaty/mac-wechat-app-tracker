@@ -38,7 +38,7 @@ jobs:
 
       - name: Update WeChat.app Version
         run: |
-            export VERSION=$(defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString)
+            export VERSION=$(defaults read /Applications/WeChat.app/Contents/Info MMBundleVersion)
             npx pkg-jq -i '.version = "$VERSION"'
       - name: Re class-dump WeChat.app
         run: |
