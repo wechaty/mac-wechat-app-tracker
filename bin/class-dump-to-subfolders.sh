@@ -13,6 +13,12 @@ function subFolder () {
   then
     # echo 2/"${BASH_REMATCH[1]}"/${file##*/}
     echo ${BASH_REMATCH[1]}
+  elif [[ $file =~ ^([A-Z]+)\. ]]
+  then  # GSGPU.h
+    echo ${BASH_REMATCH[1]}
+  elif [[ $file =~ ^([A-Z]+)[A-Z_-][a-z0-9_-] ]]
+  then # CUtility.h
+    echo ${BASH_REMATCH[1]}
   else
     echo Symbol
   fi
@@ -32,7 +38,7 @@ fi
 
 pushd class-dump
 
-class-dump -H /Applications/WeChat.app
+# class-dump -H /Applications/WeChat.app
 
 for file in *.h; do
   folder=$(subFolder "$file")
