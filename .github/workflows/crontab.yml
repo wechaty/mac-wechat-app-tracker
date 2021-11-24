@@ -1,0 +1,50 @@
+name: "Track macOS WeChat.app Update"
+on:
+  push:
+  schedule:
+  - cron: 0 5 * * *
+
+jobs:
+  build:
+    name: Track
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
+          cache-dependency-path: package.json
+
+      - name: Install WeChat.app
+        # https://zeckli.github.io/en/2017/10/06/mac-install-dmg-through-command-line-en.html
+        run: |
+            export DL_URL='https://dldir1.qq.com/weixin/mac/WeChatMac.dmg'
+            wget "$DL_URL" -O /tmp/WeChat.dmg
+            sudo hdiutil attach /tmp/WeChat.dmg
+            sudo cp -r /Volumes/微信\ WeChat/WeChat.app /Applications/
+            sudo hdiutil detach /Volumes/微信\ WeChat
+            rm /tmp/WeChat.dmg
+      - name: Install class-dump
+        # https://github.com/AloneMonkey/MonkeyDev/blob/master/bin/class-dump
+        run: |
+            wget https://github.com/AloneMonkey/MonkeyDev/raw/master/bin/class-dump -O /tmp/class-dump
+            sudo mv /tmp/class-dump /usr/local/bin/class-dump
+            sudo chmod +x /usr/local/bin/class-dump
+
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Update WeChat.app Version
+        run: |
+            export VERSION=$(defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString)
+            npx pkg-jq -i '.version = "$VERSION"'
+      - name: Re class-dump WeChat.app
+        run: |
+            npm run clean
+            class-dump -H -o class-dump/ /Applications/WeChat.app
+
+      - name: Track
+        run: npm run track
+

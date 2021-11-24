@@ -1,0 +1,38 @@
+{
+  "name": "mac-wechat-app-tracker",
+  "version": "3.2.1",
+  "description": "macOS WeChat.app Header Tracker",
+  "type": "module",
+  "scripts": {
+    "clean": "shx rm -fr class-dump/*",
+    "version": "defaults read /Applications/WeChat.app/Contents/Info CFBundleShortVersionString",
+    "generate": "class-dump -H -o class-dump/ /Applications/WeChat.app",
+    "test": "echo test test",
+    "track": "node bin/track.js"
+  },
+  "engines": {
+    "node": ">= 16",
+    "npm": ">=7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wechaty/mac-wechat-app-tracker.git"
+  },
+  "keywords": [
+    "wechat",
+    "macos",
+    "objc",
+    "class-dump"
+  ],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/wechaty/mac-wechat-app-tracker/issues"
+  },
+  "homepage": "https://github.com/wechaty/mac-wechat-app-tracker#readme",
+  "dependencies": {
+    "js-beautify": "^1.6.10"
+  },
+  "devDependencies": {
+    "@chatie/tsconfig": "^4.5.3"
+  }
+}
