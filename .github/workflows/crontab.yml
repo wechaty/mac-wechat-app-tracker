@@ -44,7 +44,7 @@ jobs:
       - name: Re class-dump WeChat.app
         run: |
             npm run clean
-            npm run generate
+            npm run class-dump
 
       - name: Track
         run: npm run track
