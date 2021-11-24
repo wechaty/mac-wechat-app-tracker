@@ -11,7 +11,7 @@ $ class-dump -H /Applications/WeChat.app
 2021-11-23 19:16:08.696 class-dump[7205:59612] Error: Cannot find offset for address 0x7800000001046f1c in stringAtAddress:
 ```
 
-> WeChat MacOS Version 3.2.1 (19797)
+> WeChat MacOS Version 3.2.1
 
 ### Solution
 
