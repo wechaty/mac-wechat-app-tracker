@@ -1,4 +1,4 @@
-name: "Update macOS WeChat.app"
+name: "Track macOS WeChat.app"
 on:
   push:
   schedule:

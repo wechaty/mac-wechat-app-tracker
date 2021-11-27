@@ -1,8 +1,8 @@
 # macos-wechat-app-tracker
 
-[![Update macOS WeChat.app](https://github.com/wechaty/mac-wechat-app-tracker/actions/workflows/crontab.yml/badge.svg)](https://github.com/wechaty/mac-wechat-app-tracker/actions/workflows/crontab.yml)
+[![Track macOS WeChat.app](https://github.com/wechaty/mac-wechat-app-tracker/actions/workflows/crontab.yml/badge.svg)](https://github.com/wechaty/mac-wechat-app-tracker/actions/workflows/crontab.yml)
 
-macOS WeChat.app header files version history (automatic updated)
+Track macOS WeChat.app header file changes (automatic updated with GitHub Actions)
 
 ## Troubleshooting
 
