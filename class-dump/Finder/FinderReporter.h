@@ -6,21 +6,36 @@
 
 #import <objc/NSObject.h>
 
+@class MMTimer;
+
 @interface FinderReporter : NSObject
 {
-    unsigned long long _lastExpTime;
+    unsigned int _sidebarExpTimes;
+    unsigned int _reportSidebarExposeInterval;
+    unsigned long long _sidebarLastReportTime;
+    MMTimer *_reportSidebarExposeTimer;
 }
 
++ (void)reportFinderMsgCardShare:(id)arg1 shareStatus:(unsigned long long)arg2;
 + (void)reportFinderCardExpose:(id)arg1;
 + (void)reportFinderMsgCardExpose:(id)arg1;
-+ (void)reportFinderSnsCardExpose:(id)arg1 userName:(id)arg2 isLiveRoom:(BOOL)arg3;
++ (void)reportFinderSnsCardExpose:(id)arg1 userName:(id)arg2 reqTime:(unsigned int)arg3 isLiveRoom:(BOOL)arg4;
++ (id)reportFinderBrandEntry:(unsigned long long)arg1;
 + (void)reportFinderCardEntry:(id)arg1;
-+ (id)reportFinderSnsCardEntry:(id)arg1 userName:(id)arg2 isLiveRoom:(BOOL)arg3;
++ (id)reportFinderSnsCardEntry:(id)arg1 userName:(id)arg2 reqTime:(unsigned int)arg3 isLiveRoom:(BOOL)arg4;
 + (id)reportFinderMsgCardEntry:(id)arg1;
 + (id)sharedInstance;
-@property(nonatomic) unsigned long long lastExpTime; // @synthesize lastExpTime=_lastExpTime;
-- (void)reportFinderSidebarEntry:(unsigned long long)arg1;
-- (void)reportFinderSidebarExpose:(unsigned long long)arg1;
+- (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *reportSidebarExposeTimer; // @synthesize reportSidebarExposeTimer=_reportSidebarExposeTimer;
+@property(nonatomic) unsigned int reportSidebarExposeInterval; // @synthesize reportSidebarExposeInterval=_reportSidebarExposeInterval;
+@property(nonatomic) unsigned int sidebarExpTimes; // @synthesize sidebarExpTimes=_sidebarExpTimes;
+@property(nonatomic) unsigned long long sidebarLastReportTime; // @synthesize sidebarLastReportTime=_sidebarLastReportTime;
+- (void)reportFinderSidebarEntry:(id)arg1;
+- (void)reportFinderSidebarExpTimes;
+- (void)reportFinderSidebarExpose;
+- (void)stopTimer;
+- (void)starTimer;
+- (void)dealloc;
 
 @end
 

@@ -47,7 +47,7 @@
 - (BOOL)isOverLimitMergeMsgList:(id)arg1;
 - (BOOL)isLargeFileWithDataList:(id)arg1;
 - (BOOL)isLargeFileForForward:(id)arg1;
-- (BOOL)isLargeFileForFav:(id)arg1;
+- (BOOL)isLargeFileForFavOrRecord:(id)arg1;
 - (unsigned long long)getMulitSelectMaxCount;
 - (unsigned long long)getShareChatRoomMemberMaxCount;
 - (void)onServiceClearData;

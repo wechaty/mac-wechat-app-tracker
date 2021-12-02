@@ -17,6 +17,11 @@
 + (id)imageWithName:(id)arg1 withSize:(struct CGSize)arg2;
 + (id)imageWithName:(id)arg1 withColor:(id)arg2;
 + (id)imageWithName:(id)arg1;
++ (double)adjustLimitDiameter:(double)arg1;
++ (double)adjustDiameter:(double)arg1;
++ (struct CGSize)adjustLimitSize:(struct CGSize)arg1;
++ (struct CGSize)adjustSize:(struct CGSize)arg1;
++ (long long)fontClass;
 + (void)setFontClass:(long long)arg1;
 + (double)fontClassFactor;
 + (id)currentBundle;

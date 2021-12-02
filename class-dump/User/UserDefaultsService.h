@@ -32,6 +32,7 @@
 - (void)flushIntoDB;
 - (BOOL)synchronize;
 - (void)asynchronize;
+- (void)removeKey:(id)arg1;
 - (void)setDouble:(double)arg1 forKey:(id)arg2;
 - (void)setInteger:(long long)arg1 forKey:(id)arg2;
 - (void)setBool:(BOOL)arg1 forKey:(id)arg2;

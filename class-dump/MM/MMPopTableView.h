@@ -7,22 +7,24 @@
 #import "MMViewController.h"
 
 #import "AccountServiceExt-Protocol.h"
+#import "NSPopoverDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMTableView, NSData, NSMutableArray, NSString;
+@class MMTableView, NSData, NSMutableArray, NSPopover, NSString;
 @protocol MMPopTableViewDelegate;
 
-@interface MMPopTableView : MMViewController <AccountServiceExt, NSTableViewDelegate, NSTableViewDataSource>
+@interface MMPopTableView : MMViewController <AccountServiceExt, NSTableViewDelegate, NSTableViewDataSource, NSPopoverDelegate>
 {
     NSData *_kvRowPrototype;
     id <MMPopTableViewDelegate> _delegate;
     MMTableView *_tableView;
     NSMutableArray *_dataSouce;
+    NSPopover *_popover;
 }
 
-+ (id)sharedInspector;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSMutableArray *dataSouce; // @synthesize dataSouce=_dataSouce;
 @property(nonatomic) __weak MMTableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) __weak id <MMPopTableViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -34,8 +36,9 @@
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)showRelativeToRect:(struct CGRect)arg1 ofView:(id)arg2 withTableItemList:(id)arg3 preferredEdge:(unsigned long long)arg4;
 - (void)onUserLogout;
-- (void)addBubbleMaskToView:(id)arg1;
-- (struct CGPath *)newShapeMaskPathForRect:(struct CGRect)arg1;
+- (void)popoverWillShow:(id)arg1;
+- (void)popoverWillClose:(id)arg1;
+- (void)setupPopover;
 - (void)viewDidLoad;
 - (void)destroy;
 - (void)dealloc;

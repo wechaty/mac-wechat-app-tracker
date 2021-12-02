@@ -27,7 +27,7 @@
     NSString *_iconUrl;
 }
 
-+ (id)dataWithXMLString:(id)arg1;
++ (id)dataWithMsgData:(id)arg1;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *iconUrl; // @synthesize iconUrl=_iconUrl;
 @property(copy, nonatomic) NSString *company; // @synthesize company=_company;

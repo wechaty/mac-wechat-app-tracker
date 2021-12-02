@@ -8,10 +8,12 @@
 
 @interface FinderExposureReport : FinderReport
 {
+    unsigned int _sidebarExposeTimes;
+    unsigned int _reportInterval;
 }
 
-- (id)finderExposureReportSuffixString;
-- (void)generateContextId;
+@property(nonatomic) unsigned int reportInterval; // @synthesize reportInterval=_reportInterval;
+@property(nonatomic) unsigned int sidebarExposeTimes; // @synthesize sidebarExposeTimes=_sidebarExposeTimes;
 - (void)report;
 
 @end

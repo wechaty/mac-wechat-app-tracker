@@ -10,7 +10,8 @@
 {
 }
 
-+ (void)genPreviewThumbWithItem:(id)arg1 originData:(id)arg2 newThumb:(char *)arg3;
++ (BOOL)isTouchPreviewThumbLimit:(struct CGSize)arg1;
++ (id)genPreviewThumbWithItem:(id)arg1 originData:(id)arg2;
 + (BOOL)isProportionalThumbSize:(struct CGSize)arg1 originalSize:(struct CGSize)arg2;
 + (BOOL)isPreviewLongImage:(struct CGSize)arg1;
 + (id)formatVideoTime:(double)arg1;

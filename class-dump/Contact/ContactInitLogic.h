@@ -22,14 +22,14 @@
     NSRecursiveLock *m_lock;
     unsigned int m_sessionID;
     BOOL _hasStop;
-    id <ContactInitLogicDelegate> _contactInitdelegate;
+    id <ContactInitLogicDelegate> _delegate;
 }
 
 + (void)setContactInitedStatus:(BOOL)arg1;
 + (BOOL)isContactInited;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL hasStop; // @synthesize hasStop=_hasStop;
-@property(nonatomic) __weak id <ContactInitLogicDelegate> contactInitdelegate; // @synthesize contactInitdelegate=_contactInitdelegate;
+@property(nonatomic) __weak id <ContactInitLogicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)handleGetContactsRsp:(id)arg1;
 - (BOOL)tryGetContacts;
@@ -43,6 +43,7 @@
 - (void)stopContactInitLogic;
 - (BOOL)startContactInitLogic;
 - (void)dealloc;
+- (id)initWithUsernames:(id)arg1;
 - (id)init;
 
 // Remaining properties

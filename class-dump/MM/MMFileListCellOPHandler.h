@@ -42,6 +42,7 @@
 - (void)contextMenuOpenFolder:(id)arg1;
 - (void)contextMenuOpen:(id)arg1;
 - (void)contextMenuDelete:(id)arg1;
+- (void)sendAddFavoritesEvent:(id)arg1;
 - (void)contextMenuFavorites:(id)arg1;
 - (void)contextMenuSave:(id)arg1;
 - (void)contextMenuMergeForwardToWeWork:(id)arg1;

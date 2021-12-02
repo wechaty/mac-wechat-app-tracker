@@ -31,6 +31,8 @@
     MMChatsCellAvatarView *_avatar;
     MMBadgeOverlayView *_badgeView;
     MMSidebarLabelTextField *_summary;
+    MMSidebarLabelTextField *_groupChatNameTextField;
+    MMSidebarLabelTextField *_groupChatContentTextField;
     MMSidebarLabelTextField *_timeLabel;
     MMTextField *_nickName;
     NSString *_messageTime;
@@ -55,6 +57,8 @@
 @property(retain, nonatomic) NSString *messageTime; // @synthesize messageTime=_messageTime;
 @property(retain, nonatomic) MMTextField *nickName; // @synthesize nickName=_nickName;
 @property(retain, nonatomic) MMSidebarLabelTextField *timeLabel; // @synthesize timeLabel=_timeLabel;
+@property(retain, nonatomic) MMSidebarLabelTextField *groupChatContentTextField; // @synthesize groupChatContentTextField=_groupChatContentTextField;
+@property(retain, nonatomic) MMSidebarLabelTextField *groupChatNameTextField; // @synthesize groupChatNameTextField=_groupChatNameTextField;
 @property(retain, nonatomic) MMSidebarLabelTextField *summary; // @synthesize summary=_summary;
 @property(retain, nonatomic) MMBadgeOverlayView *badgeView; // @synthesize badgeView=_badgeView;
 @property(retain, nonatomic) MMChatsCellAvatarView *avatar; // @synthesize avatar=_avatar;
@@ -79,6 +83,7 @@
 - (void)updateSummaryContentAfterSelectionDidChange;
 - (void)contextMenuRemoveFromContactBook:(id)arg1;
 - (void)contextMenuSaveToContactBook:(id)arg1;
+- (void)contextMenuGroupBox:(id)arg1;
 - (void)contextMenuChangeNickname:(id)arg1;
 - (void)contextMenuChangeRemark:(id)arg1;
 - (void)contextMenuMarkUnRead:(id)arg1;
@@ -99,7 +104,11 @@
 - (BOOL)prepareForDragOperation:(id)arg1;
 - (id)acceptableDragTypes;
 - (id)summaryAttributedString;
+- (id)groupBoxSummaryAttributedString;
+- (id)getChatNameWithMsgData:(id)arg1;
+- (void)twinkleForTimes:(unsigned long long)arg1;
 - (BOOL)shouldUseSelectedColorForText;
+- (void)layoutGroupBoxSummaryViews;
 - (void)layoutSummaryViews;
 - (void)updateSummary;
 - (void)updateMultiTalk;

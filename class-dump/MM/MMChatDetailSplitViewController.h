@@ -91,6 +91,7 @@
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
 - (void)viewChangedEffectiveAppearance;
+- (void)updateComposeTextViewDelegate:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

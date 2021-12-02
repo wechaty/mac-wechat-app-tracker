@@ -23,7 +23,7 @@
 @property(copy, nonatomic) CDUnknownBlockType failureBlock; // @synthesize failureBlock=_failureBlock;
 @property(copy, nonatomic) CDUnknownBlockType successBlock; // @synthesize successBlock=_successBlock;
 @property(retain, nonatomic) SendPatWrap *sendPatWrap; // @synthesize sendPatWrap=_sendPatWrap;
-- (void)didGetResponse:(id)arg1 withCGIWrap:(id)arg2;
+- (void)doSendRequest;
 - (void)setSendPatRequest:(id)arg1;
 - (void)retrievePatSuffixWithSuccessBlock:(CDUnknownBlockType)arg1;
 - (void)sendPatWithSuccessBlock:(CDUnknownBlockType)arg1 andFailureBlock:(CDUnknownBlockType)arg2;

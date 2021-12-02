@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <GetEmotionFavMD5ListCGIDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL isGetting; // @synthesize isGetting=_isGetting;
+- (void)handleBatchEmojiDownLoadFailed;
 - (void)startGetEmojiList;
 - (void)dealloc;
 - (id)init;

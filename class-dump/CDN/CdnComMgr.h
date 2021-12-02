@@ -41,6 +41,8 @@
 - (BOOL)StartDownloadTpDataFile:(struct C2CDownloadRequest *)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
 - (void)StopUploadRecordMedia:(id)arg1;
 - (BOOL)StartUploadRecordMedia:(id)arg1 enableHitCheck:(BOOL)arg2;
+- (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;
+- (BOOL)StartDownloadRecordMedia:(id)arg1;
 - (BOOL)CheckAppAttachExist:(id)arg1 IsLargeFile:(BOOL)arg2;
 - (void)CheckCdnInfo;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;

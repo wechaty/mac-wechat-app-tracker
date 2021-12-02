@@ -27,9 +27,9 @@
 + (id)filterAllowMergeForwardToWework:(id)arg1;
 + (id)filterAllowMergeForward:(id)arg1;
 + (id)filterAllowForward:(id)arg1;
-+ (BOOL)containOnlyUndowloadRecordMessage:(id)arg1 needCheckUndownloadRecord:(BOOL)arg2;
-+ (id)filiterUnuploadMessage:(id)arg1;
-+ (id)filterUndowloadMessage:(id)arg1 needCheckUndownloadRecord:(BOOL)arg2;
++ (id)filterUnCanForwardMessage:(id)arg1;
++ (id)filterUnuploadMessage:(id)arg1;
++ (id)filterUndownloadMessage:(id)arg1;
 + (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3;
 + (id)getFileWithURLType:(id)arg1;
 - (void).cxx_destruct;
@@ -37,7 +37,7 @@
 @property(retain, nonatomic) WCContactData *currnetChatContact; // @synthesize currnetChatContact=_currnetChatContact;
 - (BOOL)sendAppReferMessage:(id)arg1 withText:(id)arg2 mentionedUsers:(id)arg3;
 - (BOOL)sendAttachmentObject:(id)arg1 toContact:(id)arg2;
-- (void)AddFavoritesWithMultipleMsgList:(id)arg1;
+- (BOOL)AddFavoritesWithMultipleMsgList:(id)arg1;
 - (void)ForwardWithMultipleMsgList:(id)arg1 toContacts:(id)arg2 leavedMessage:(id)arg3;
 - (void)SendOneByOneWithMultipleSelectMsgList:(id)arg1 toCtontacts:(id)arg2 leavedMessage:(id)arg3;
 - (void)ForwardMessage:(id)arg1 toContacts:(id)arg2;

@@ -11,11 +11,11 @@
 @protocol IMMWeWorkRecordDownloadCDNMgrExt <NSObject>
 
 @optional
-- (void)OnRecordMessageDownloadRetryFailedImageRecordData:(NSString *)arg1;
-- (void)OnRecordMessageDownloadOK:(MessageData *)arg1;
-- (void)OnDownloadRecordMessagePart:(MessageData *)arg1 DataId:(NSString *)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordMessageOK:(MessageData *)arg1 DataId:(NSString *)arg2 totalLen:(unsigned int)arg3 bThumb:(BOOL)arg4;
-- (void)OnDownloadRecordMessageFail:(MessageData *)arg1 DataId:(NSString *)arg2;
-- (void)OnDownloadRecordMessageExpired:(MessageData *)arg1 DataId:(NSString *)arg2;
+- (void)OnWeWorkRecordMessageDownloadRetryFailedImageRecordData:(NSString *)arg1;
+- (void)OnWeWorkRecordMessageDownloadOK:(MessageData *)arg1;
+- (void)OnWeWorkDownloadRecordMessagePart:(MessageData *)arg1 DataId:(NSString *)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
+- (void)OnWeWorkDownloadRecordMessageOK:(MessageData *)arg1 DataId:(NSString *)arg2 totalLen:(unsigned int)arg3 bThumb:(BOOL)arg4;
+- (void)OnWeWorkDownloadRecordMessageFail:(MessageData *)arg1 DataId:(NSString *)arg2;
+- (void)OnWeWorkDownloadRecordMessageExpired:(MessageData *)arg1 DataId:(NSString *)arg2;
 @end
 

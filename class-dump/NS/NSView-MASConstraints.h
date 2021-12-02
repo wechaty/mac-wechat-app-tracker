@@ -48,6 +48,9 @@
 - (id)makeToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic) BOOL clickToDismissToast;
 @property(retain, nonatomic) MMToastView *toastView;
+- (void)ccn_bringSubviewToFront:(id)arg1;
+- (BOOL)ccn_hasSubView:(id)arg1;
+@property(nonatomic) BOOL isMovingFromParentViewController;
 - (BOOL)isMouseReallyInside;
 - (id)firstSubviewOfClass:(id)arg1;
 - (id)rootDescWithLevel6;

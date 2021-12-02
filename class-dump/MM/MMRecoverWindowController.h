@@ -31,6 +31,7 @@
 - (void)openLocalLogDir:(id)arg1;
 - (void)openLocalCacheDir:(id)arg1;
 - (void)openLocalDataDir:(id)arg1;
+- (void)refreshGroupSession:(id)arg1;
 - (void)clearNeverReminder:(id)arg1;
 - (void)recoverSessionListFromLocal:(id)arg1;
 - (void)repairSessionList:(id)arg1;

@@ -6,31 +6,39 @@
 
 #import <objc/NSObject.h>
 
-@class WCTDatabase, WCTTable;
+@class NSMutableSet, NSRecursiveLock, WCTDatabase;
 
 @interface WCFavoritesDB : NSObject
 {
     WCTDatabase *_favoritesDB;
-    WCTTable *_favoritesItemTable;
-    WCTTable *_favoritesCdnInfoTable;
-    WCTTable *_favoritesDownloadCndInfoTable;
-    WCTTable *_favoritesSessionTable;
-    WCTTable *_favoritesFileRetainCountTable;
-    WCTTable *_favoritesSearchTable;
-    WCTTable *_favoritesTagTable;
+    NSRecursiveLock *m_oTableLock;
+    NSMutableSet *m_tableSet;
 }
 
 + (void)deleteFavoritesDB;
 - (void).cxx_destruct;
 - (void)recordDBFileInfo;
-- (void)clearTables;
 - (void)closeDBBeforeInit;
 - (void)closeDB;
 - (BOOL)rollbackTransaction;
 - (BOOL)commitTransaction;
 - (BOOL)beginTransaction;
 - (void)dealloc;
-- (BOOL)initDB;
+- (BOOL)createFavoriteTagTable;
+- (id)getFavoriteTagTableName;
+- (BOOL)createFavoriteSessionTable;
+- (id)getFavoriteSessionTableName;
+- (BOOL)createFavoritesSearchItemTable;
+- (id)getFavoritesSearchItemTableName;
+- (BOOL)createFavoriteFileRetainCntTable;
+- (id)getFavoriteFileRetainCntTableName;
+- (BOOL)createFavoritesDownloadCDNInfoTable;
+- (id)getFavoritesDownloadCDNInfoTableName;
+- (BOOL)createFavoritesCdnInfoTable;
+- (id)getFavoritesCdnInfoTableName;
+- (BOOL)createFavoritesItemTable;
+- (id)getFavoritesItemTableName;
+- (BOOL)setupDB;
 - (id)init;
 - (void)fillFavItemUpdateProperties:(list_2812bee2 *)arg1;
 - (void)fillFavItemUpdatePropertiesForFavObject:(list_2812bee2 *)arg1;

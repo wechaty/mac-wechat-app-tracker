@@ -35,6 +35,7 @@
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurDataField;
 - (void)StartDownloadByDataField:(id)arg1 withParentMsg:(id)arg2;
+- (BOOL)isRecordMsgInUploadQueue:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

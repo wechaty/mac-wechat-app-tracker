@@ -133,6 +133,7 @@
 - (void)CloseMultipleSelect:(id)arg1;
 - (void)DeleteByMultipleSelect:(id)arg1;
 - (void)SaveByMultipleSelect:(id)arg1;
+- (void)sendAddFavoritesEvent:(id)arg1;
 - (void)AddFavoritesByMultipleSelect:(id)arg1;
 - (void)ForwardWeWorkByMergeMutipleSelect:(id)arg1;
 - (void)ForwardByMergeMutipleSelect:(id)arg1;

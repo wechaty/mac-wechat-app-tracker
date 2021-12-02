@@ -10,7 +10,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, NSArray, NSString, WCFinderLiveShareItem, WCFinderShareItem;
+@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, NSArray, NSString, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem;
 
 @interface FavoritesItemDataField : NSObject <NSPasteboardItemDataProvider, NSCoding, NSCopying>
 {
@@ -72,11 +72,31 @@
     NSString *_tpThumbUrl;
     WCFinderShareItem *_finderShareItem;
     WCFinderLiveShareItem *_finderLiveShareItem;
+    WCFinderMessageShareNameCard *_finderMessageShareNameCard;
 }
 
 + (id)GetPathByMd5:(id)arg1 isThumb:(BOOL)arg2 DataFmt:(id)arg3;
 + (id)dataTypeStringWithType:(unsigned int)arg1;
++ (id)getContactHeadImage:(id)arg1;
++ (id)translateUrlItem:(id)arg1;
++ (id)translateTextItem:(id)arg1;
++ (id)getFavDataItemSourceByMsg:(id)arg1 AndReader:(id)arg2;
++ (id)translateReaderWrapItem:(id)arg1 readerWrap:(id)arg2;
++ (id)translateOpenSDKBrand:(id)arg1;
++ (id)translateAppBrand:(id)arg1;
++ (id)translateFeedNameCardMsg2FavData:(id)arg1;
++ (id)translateFinderLiveItem:(id)arg1;
++ (id)translateFinderItem:(id)arg1;
++ (id)translateMusicItem:(id)arg1;
++ (id)translateProductItem:(id)arg1;
++ (id)translateImageItem:(id)arg1;
++ (id)translateVideoItem:(id)arg1;
++ (id)translateLocationItem:(id)arg1;
++ (id)translateFileUploadItem:(id)arg1;
++ (id)translateFileItem:(id)arg1;
++ (id)translateVoiceItem:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem=_finderLiveShareItem;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
 @property(retain, nonatomic) NSString *tpThumbUrl; // @synthesize tpThumbUrl=_tpThumbUrl;
@@ -151,6 +171,7 @@
 - (id)GenFavItemDataClientIDByCreateTime:(long long)arg1 Index:(int)arg2;
 - (BOOL)isWeWorkCdnUrl;
 - (BOOL)IsDataFileDownloaded;
+- (unsigned long long)getCreateTime;
 - (id)GetDataFilePreviewPath;
 - (id)GetDataFilePath;
 - (id)GetDataClientMediaID;
@@ -158,11 +179,14 @@
 - (id)GetThumbImage;
 - (id)GetThumbClientMediaID;
 - (id)GetPreviewThumbFilePath;
+- (void)clearCDNInfo;
 - (id)GetThumbFilePath;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
+- (BOOL)isCanAddToFav;
+- (BOOL)isCanForward;
 - (id)fixDownloadedPath:(id)arg1 isThumb:(BOOL)arg2;
 - (id)downloadedTmpThumbFilePath;
 - (id)downloadedTmpDataFilePath;

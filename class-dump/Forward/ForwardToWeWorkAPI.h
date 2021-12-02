@@ -14,9 +14,9 @@
 + (BOOL)sendMessagesToWeWork:(id)arg1 appType:(long long)arg2 andKey:(id)arg3 andMsgType:(long long)arg4 andErrCode:(int)arg5;
 + (BOOL)openWeWorkBySchema:(id)arg1 andSendMsgType:(long long)arg2;
 + (BOOL)openWeWork;
++ (BOOL)requestForwardMessagesFromWeWork:(id)arg1;
 + (BOOL)isCanIgnoreUpload:(id)arg1 andFieldDepth:(unsigned int)arg2 andIsHDImage:(BOOL)arg3;
 + (BOOL)isCanIgnoreUpload:(id)arg1 andFieldDepth:(unsigned int)arg2;
-+ (BOOL)requestForwardMessagesFromWeWork:(id)arg1;
 + (BOOL)isWeWorkRunning:(long long)arg1;
 + (id)readVersionFromInfoPlistString:(id)arg1;
 + (id)getWeWorkVersion:(long long)arg1;

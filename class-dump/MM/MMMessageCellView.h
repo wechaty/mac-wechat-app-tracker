@@ -193,6 +193,8 @@
 - (void)updateAvatarImage;
 - (void)updateAccessibilityContent:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
+- (id)formattedDefaultAttr:(id)arg1 font:(id)arg2;
+- (id)hightLightedText:(id)arg1 font:(id)arg2;
 - (id)hightLightedAttrString:(id)arg1;
 - (void)updateHighlightMaskView;
 - (void)redrawLocalView;

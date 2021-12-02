@@ -54,7 +54,6 @@
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)setImageView:(id)arg1 WithFilePath:(id)arg2;
-- (id)imageWithImagePath:(id)arg1;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (id)getSection1MenuItem;

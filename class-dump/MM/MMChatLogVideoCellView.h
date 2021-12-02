@@ -20,7 +20,6 @@
     NSTextField *_detailTextField;
     NSString *_videoFilePath;
     NSString *_videoThumbPath;
-    long long _scene;
     NSImageView *_iconImageView;
 }
 
@@ -29,7 +28,6 @@
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(nonatomic) BOOL isDownloadFailed; // @synthesize isDownloadFailed=_isDownloadFailed;
 @property(nonatomic) BOOL isExpired; // @synthesize isExpired=_isExpired;
-@property(nonatomic) long long scene; // @synthesize scene=_scene;
 @property(nonatomic) BOOL isWebStreamVideo; // @synthesize isWebStreamVideo=_isWebStreamVideo;
 @property(retain, nonatomic) NSString *videoThumbPath; // @synthesize videoThumbPath=_videoThumbPath;
 @property(retain, nonatomic) NSString *videoFilePath; // @synthesize videoFilePath=_videoFilePath;

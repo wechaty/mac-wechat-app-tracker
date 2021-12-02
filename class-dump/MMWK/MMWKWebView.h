@@ -8,10 +8,10 @@
 
 @interface MMWKWebView : WKWebView
 {
-    unsigned long long _preloadStatus;
+    unsigned int _preloadStatus;
 }
 
-@property(nonatomic) unsigned long long preloadStatus; // @synthesize preloadStatus=_preloadStatus;
+@property(nonatomic) unsigned int preloadStatus; // @synthesize preloadStatus=_preloadStatus;
 - (void)evaluateJavaScriptFromString:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)willOpenMenu:(id)arg1 withEvent:(id)arg2;
 - (void)customLoadRequest:(id)arg1;

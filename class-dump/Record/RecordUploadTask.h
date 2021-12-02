@@ -7,46 +7,52 @@
 #import <objc/NSObject.h>
 
 #import "ICdnComMgrExt-Protocol.h"
+#import "MMAppAttachFileMgrExt-Protocol.h"
 
-@class CdnRecordMediaInfo, CdnUploadTaskInfo, FavoritesItemDataField, MessageData, NSString;
+@class CdnFavMediaInfo, CdnRecordMediaInfo, CdnUploadTaskInfo, FavoritesItemDataField, MessageData, NSString;
 @protocol RecordUploadTaskDelegate;
 
-@interface RecordUploadTask : NSObject <ICdnComMgrExt>
+@interface RecordUploadTask : NSObject <ICdnComMgrExt, MMAppAttachFileMgrExt>
 {
-    BOOL m_hasDownload;
-    BOOL m_enableHitCheck;
-    BOOL m_isThumb;
-    BOOL m_fromFav;
-    FavoritesItemDataField *m_recordData;
-    MessageData *m_sourceMsg;
-    MessageData *m_recordMsg;
+    BOOL _isThumb;
     BOOL _isMsgThumb;
-    CdnRecordMediaInfo *_cdnInfo;
-    CdnUploadTaskInfo *_uploadResult;
+    BOOL _isToWeCom;
+    BOOL _isFromFav;
+    BOOL _m_hasDownload;
+    BOOL _m_enableHitCheck;
     id <RecordUploadTaskDelegate> _delegate;
+    CdnRecordMediaInfo *_cdnInfo;
+    CdnFavMediaInfo *_favCdnInfo;
+    MessageData *_recordMsg;
+    FavoritesItemDataField *_recordData;
+    CdnUploadTaskInfo *_uploadResult;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <RecordUploadTaskDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL isMsgThumb; // @synthesize isMsgThumb=_isMsgThumb;
+@property(nonatomic) BOOL m_enableHitCheck; // @synthesize m_enableHitCheck=_m_enableHitCheck;
+@property(nonatomic) BOOL m_hasDownload; // @synthesize m_hasDownload=_m_hasDownload;
 @property(retain, nonatomic) CdnUploadTaskInfo *uploadResult; // @synthesize uploadResult=_uploadResult;
+@property(retain, nonatomic) FavoritesItemDataField *recordData; // @synthesize recordData=_recordData;
+@property(retain, nonatomic) MessageData *recordMsg; // @synthesize recordMsg=_recordMsg;
+@property(retain, nonatomic) CdnFavMediaInfo *favCdnInfo; // @synthesize favCdnInfo=_favCdnInfo;
 @property(retain, nonatomic) CdnRecordMediaInfo *cdnInfo; // @synthesize cdnInfo=_cdnInfo;
-@property(nonatomic) BOOL isThumb; // @synthesize isThumb=m_isThumb;
-@property(retain, nonatomic) FavoritesItemDataField *recordData; // @synthesize recordData=m_recordData;
-- (void)handleCheckMd5Response:(id)arg1;
+@property(nonatomic) BOOL isFromFav; // @synthesize isFromFav=_isFromFav;
+@property(nonatomic) BOOL isToWeCom; // @synthesize isToWeCom=_isToWeCom;
+@property(nonatomic) BOOL isMsgThumb; // @synthesize isMsgThumb=_isMsgThumb;
+@property(nonatomic) BOOL isThumb; // @synthesize isThumb=_isThumb;
+@property(nonatomic) __weak id <RecordUploadTaskDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
 - (void)checkMd5:(id)arg1;
-- (void)onDownloadCancel:(id)arg1;
-- (void)onDownloadCommonFail:(id)arg1;
-- (void)onDownloadExpireFail:(id)arg1;
-- (void)onDownloadSuccess:(id)arg1;
+- (void)OnCdnUpload:(id)arg1;
+- (void)handleSourceFileDownload;
+- (void)handleThumbFileDownload;
+- (void)OnCdnDownloadFinished:(id)arg1;
+- (void)OnCdnDownloadProgress:(id)arg1;
 - (void)realDownload;
 - (void)startDownload;
-- (void)OnCdnUpload:(id)arg1;
-- (void)startUpload;
+- (void)execute;
+- (void)setup;
 - (void)dealloc;
-- (id)initWithThumbInMsg:(id)arg1 fromFav:(BOOL)arg2;
-- (id)initWithMsg:(id)arg1 recordData:(id)arg2 isThumb:(BOOL)arg3 isToWeWork:(BOOL)arg4 fromFav:(BOOL)arg5;
-- (id)initWithMsg:(id)arg1 recordData:(id)arg2 isThumb:(BOOL)arg3 isToWeWork:(BOOL)arg4;
 - (id)init;
 
 // Remaining properties

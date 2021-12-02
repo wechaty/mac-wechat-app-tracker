@@ -10,6 +10,7 @@
 
 @interface FinderReport : NSObject
 {
+    unsigned int _reqTime;
     unsigned long long _cTime;
     NSString *_eventId;
     NSString *_eleId;
@@ -26,6 +27,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int reqTime; // @synthesize reqTime=_reqTime;
 @property(retain, nonatomic) NSString *finderUserName; // @synthesize finderUserName=_finderUserName;
 @property(retain, nonatomic) NSString *feedId; // @synthesize feedId=_feedId;
 @property(nonatomic) unsigned long long subEntranceId; // @synthesize subEntranceId=_subEntranceId;
@@ -39,6 +41,8 @@
 @property(retain, nonatomic) NSString *eleId; // @synthesize eleId=_eleId;
 @property(nonatomic) NSString *eventId; // @synthesize eventId=_eventId;
 @property(nonatomic) unsigned long long cTime; // @synthesize cTime=_cTime;
+- (void)generateContextId;
+- (BOOL)shouldReport;
 - (void)report;
 
 @end

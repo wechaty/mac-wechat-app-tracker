@@ -15,7 +15,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "WeChatInstance-Protocol.h"
 
-@class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMComposeTextView, MMDockItem, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
+@class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMComposeTextView, MMDockItem, MMMachPortsMonitor, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
 
 @interface WeChat : NSObject <DebugMessageSourceViewDelegate, NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, WeChatInstance>
 {
@@ -53,6 +53,7 @@
     _TtC6WeChat11DiskMonitor *_diskMonitor;
     VisualizationMonitor *_visualizationMonitor;
     FocusMonitor *_focusMonitor;
+    MMMachPortsMonitor *_portsMonitor;
     NSAlert *_oomAlert;
     NSImageView *_flagView;
     MMTimer *_timer;
@@ -65,6 +66,7 @@
 @property(retain, nonatomic) NSImageView *flagView; // @synthesize flagView=_flagView;
 @property(nonatomic) BOOL hasClearAndExitApp; // @synthesize hasClearAndExitApp=_hasClearAndExitApp;
 @property(retain, nonatomic) NSAlert *oomAlert; // @synthesize oomAlert=_oomAlert;
+@property(retain, nonatomic) MMMachPortsMonitor *portsMonitor; // @synthesize portsMonitor=_portsMonitor;
 @property(retain, nonatomic) FocusMonitor *focusMonitor; // @synthesize focusMonitor=_focusMonitor;
 @property(retain, nonatomic) VisualizationMonitor *visualizationMonitor; // @synthesize visualizationMonitor=_visualizationMonitor;
 @property(retain, nonatomic) _TtC6WeChat11DiskMonitor *diskMonitor; // @synthesize diskMonitor=_diskMonitor;
@@ -122,6 +124,7 @@
 - (void)onAuthFaildWithWrongPasswordOrUsername;
 - (void)onAuthAlphaVersion:(id)arg1;
 - (void)onAuthKeyInfoInvalid:(id)arg1;
+- (void)updateAllSessionsFromServerIfNeeded;
 - (void)updateAllContactsFromServerIfNeeded;
 - (void)delayRestoreSnsPublishTask;
 - (void)delayReportSettingsData;
@@ -142,7 +145,6 @@
 - (void)initDBMonitor;
 - (void)FFAddRecvFavZZ:(BOOL)arg1;
 - (void)onLoginAuthOK;
-- (void)onPreAuthOKOfUser:(id)arg1;
 - (void)performDelayCleanUpExtension;
 - (void)onUserManualLogout;
 - (void)onUserStopInit:(CDUnknownBlockType)arg1;
@@ -185,6 +187,7 @@
 - (id)init;
 - (void)showSettingsWindow:(id)arg1;
 - (void)showProxySettingsWindow:(id)arg1;
+- (void)showFtsToolWindow;
 - (void)showBetaWindow;
 - (void)showWhatNewWindow;
 - (void)uploadCov;
@@ -235,7 +238,7 @@
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerException:(id)arg1;
 - (void)_showMpDebug:(id)arg1;
-- (void)_showSnsDebug:(id)arg1;
+- (void)_showGroupBoxDebug:(id)arg1;
 - (void)_showWeUI:(id)arg1;
 - (void)_showRecover:(id)arg1;
 - (void)_showLiveRoom:(id)arg1;
@@ -278,6 +281,7 @@
 - (void)startANewChatWithContact:(id)arg1;
 - (void)selectChatWithUserName:(id)arg1;
 - (void)showContactsTabWithUserName:(id)arg1;
+- (void)goToChatAndTwinkleWithUserName:(id)arg1;
 - (void)goToNextUnreadChat:(id)arg1;
 - (id)currentChatListViewController;
 - (long long)chatLastSelectedRow;

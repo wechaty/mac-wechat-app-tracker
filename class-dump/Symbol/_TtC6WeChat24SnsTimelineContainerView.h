@@ -25,9 +25,10 @@
     // Error parsing type: , name: locationPoint
     // Error parsing type: , name: mouseEntering
     // Error parsing type: , name: focusRing
+    // Error parsing type: , name: scene
     // Error parsing type: , name: dataItem
     // Error parsing type: , name: player
-    // Error parsing type: , name: loadVideoRetryCount
+    // Error parsing type: , name: videoRetried
     // Error parsing type: , name: skippedBlackIntro
     // Error parsing type: , name: shouldPlay
     // Error parsing type: , name: reopenPreview

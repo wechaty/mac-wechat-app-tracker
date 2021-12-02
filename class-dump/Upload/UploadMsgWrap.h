@@ -6,20 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MessageData, NSMutableArray;
+@class MessageData;
 
 @interface UploadMsgWrap : NSObject
 {
-    BOOL _isToWeWork;
+    unsigned int _scene;
     MessageData *_msgData;
-    NSMutableArray *_arrUploadExtendInfos;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableArray *arrUploadExtendInfos; // @synthesize arrUploadExtendInfos=_arrUploadExtendInfos;
-@property(nonatomic) BOOL isToWeWork; // @synthesize isToWeWork=_isToWeWork;
+@property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=_msgData;
-- (id)init;
+- (id)description;
 
 @end
 

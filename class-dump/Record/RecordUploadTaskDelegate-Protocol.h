@@ -6,10 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class CdnUploadTaskInfo;
+@class CdnProgressInfo, CdnUploadTaskInfo;
 
 @protocol RecordUploadTaskDelegate <NSObject>
 - (void)OnRecordUploadTaskFail;
 - (void)OnRecordUploadTaskFinish:(CdnUploadTaskInfo *)arg1;
+- (void)OnRecordUploadTaskProcess:(CdnProgressInfo *)arg1;
 @end
 

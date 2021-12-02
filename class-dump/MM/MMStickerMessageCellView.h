@@ -19,9 +19,9 @@
     NSButton *_downloadErrorIndicatorAccessory;
 }
 
-+ (struct CGSize)displaySizeWithStickerImgData:(id)arg1;
-+ (struct CGSize)displaySizeWithStickerImg:(id)arg1;
++ (struct CGSize)displaySizeWithOriginSize:(struct CGSize)arg1;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
++ (struct CGSize)getDisplaySize:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *downloadErrorIndicatorAccessory; // @synthesize downloadErrorIndicatorAccessory=_downloadErrorIndicatorAccessory;
 @property(nonatomic) BOOL isNeedSyncReloadImage; // @synthesize isNeedSyncReloadImage=_isNeedSyncReloadImage;

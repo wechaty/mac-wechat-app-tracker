@@ -41,6 +41,7 @@
 - (void)addItemWithTitle:(id)arg1;
 @property(readonly, nonatomic) long long numberOfItems;
 - (void)initSubViews;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)dealloc;
 - (id)init;
 

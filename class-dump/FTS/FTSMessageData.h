@@ -16,6 +16,7 @@
     unsigned int mesLocalID;
     unsigned int msgType;
     unsigned int msgCreateTime;
+    unsigned int _docId;
     unsigned int _reservedInt;
     NSString *chatName;
     NSString *realChatName;
@@ -38,6 +39,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *reservedText; // @synthesize reservedText=_reservedText;
 @property(nonatomic) unsigned int reservedInt; // @synthesize reservedInt=_reservedInt;
+@property(nonatomic) unsigned int docId; // @synthesize docId=_docId;
 @property(retain, nonatomic) NSString *ftsMsgContent; // @synthesize ftsMsgContent;
 @property(retain, nonatomic) NSString *realChatName; // @synthesize realChatName;
 @property(nonatomic) unsigned int msgCreateTime; // @synthesize msgCreateTime;

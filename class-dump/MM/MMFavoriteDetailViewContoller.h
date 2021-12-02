@@ -101,7 +101,7 @@
 - (void)openItem:(id)arg1;
 - (void)_downloadSelectedFiles;
 - (void)_shareItemsAtIndexPaths:(id)arg1;
-- (BOOL)checkAllItemIsDownloadWithDataList:(id)arg1;
+- (BOOL)checkAllItemIsDownloadWithDataList:(id)arg1 deep:(int)arg2;
 - (void)_actuallyDeleteItems:(id)arg1;
 - (void)_deleteItems:(id)arg1;
 - (void)paste:(id)arg1;

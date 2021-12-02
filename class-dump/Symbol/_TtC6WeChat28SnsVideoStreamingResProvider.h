@@ -10,7 +10,7 @@
 
 @interface _TtC6WeChat28SnsVideoStreamingResProvider : NSObject <AVAssetResourceLoaderDelegate>
 {
-    // Error parsing type: , name: mediaAsset
+    // Error parsing type: , name: mediaURL
     // Error parsing type: , name: mediaItem
     // Error parsing type: , name: streamStateChanged
     // Error parsing type: , name: strategy
@@ -21,6 +21,7 @@
     // Error parsing type: , name: pendingRequestsLock
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: downloadMode
+    // Error parsing type: , name: resourceLength
 }
 
 - (void).cxx_destruct;

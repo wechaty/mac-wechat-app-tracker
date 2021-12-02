@@ -29,7 +29,6 @@
 + (id)SafeUnarchive:(id)arg1;
 + (unsigned int)GenID;
 + (id)getCompressExtensionSet;
-+ (id)getColorFromhexStr:(id)arg1;
 + (id)DecodeWithBase64:(id)arg1;
 + (id)EncodeWithBase64:(id)arg1;
 + (id)DecodeBase64:(id)arg1;
@@ -127,7 +126,11 @@
 + (BOOL)IsWeiboContact:(id)arg1;
 + (BOOL)IsUnsupportSubscription:(id)arg1;
 + (BOOL)IsInChatTableBlacklist:(id)arg1;
++ (BOOL)IsStickyChatsFolder:(id)arg1;
++ (BOOL)IsGroupBox:(id)arg1;
 + (BOOL)IsEncodeUserName:(id)arg1;
++ (BOOL)IsLocalSupportPlaceholderUsrName:(id)arg1;
++ (BOOL)IsLocalPlaceholderUsrName:(id)arg1;
 + (BOOL)IsLocalHardCodeUsrName:(id)arg1;
 + (BOOL)IsOfficialPluginUsrName:(id)arg1;
 + (BOOL)IsLocalizedPluginUsrName:(id)arg1;
@@ -146,7 +149,6 @@
 + (void)kernelInitServiceObjects;
 + (void)kernelLazyRegisterExtensionLister;
 + (void)kernelRegisterClsMethod;
-+ (void)RemoveServiceOnPreAuthOK:(id)arg1;
 + (void)KernelRemoveMMKVFileWithUserName:(id)arg1;
 + (void)KernelRemoveUserPrivacyFilesWithUserName:(id)arg1;
 + (void)KernelRemoveUserAppGroupFolderAndKeyValueDB;
@@ -160,8 +162,6 @@
 + (BOOL)IsFilterSysMsg:(id)arg1;
 + (BOOL)IsFilterStatusNotify:(id)arg1 chatName:(id)arg2;
 + (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2;
-+ (id)ConvertVideoFavItem2MsgWrap:(id)arg1;
-+ (id)ConvertFavData2FavItem:(id)arg1;
 + (id)GenMsgDataFromAddMsg:(id)arg1;
 + (void)CleanupAllMediaRes:(id)arg1;
 + (id)GetMsgLocalUsrName:(id)arg1;
@@ -182,10 +182,13 @@
 + (id)filterWhiteSpaceAndNewLineString:(id)arg1;
 + (unsigned long long)getFreeBackupDiskSpace;
 + (void)OnDeleteContacts_Thread:(id)arg1;
++ (void)OnModContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 + (void)OnModContacts_Thread:(id)arg1;
 + (void)CopyLocalFieldToNewMemberContact:(id)arg1 oldContact:(id)arg2;
 + (void)CopyLocalFieldToNewContact:(id)arg1 oldContact:(id)arg2;
 + (id)GenGroupContactFromModContact:(id)arg1;
++ (void)updateBasicChatroomInfo:(id)arg1 byModContact:(id)arg2;
++ (id)GenGroupContactByMergeBriefModContactAndCreateIfNotExist:(id)arg1;
 + (id)GenContactDataFromModContact:(id)arg1;
 + (id)GenOpenIMGroupMemberFromRoomMemberInfo:(id)arg1;
 + (id)GenGroupMemberFromRoomMemberInfo:(id)arg1;

@@ -12,16 +12,13 @@
 
 @interface MMSessionSortCache : NSObject <PBCoding>
 {
-    NSMutableDictionary *dicUsrNameTopTime;
-    NSMutableDictionary *dicUsrNameUntopTime;
+    NSMutableDictionary *dicUsrNamePersistentCorrectionTime;
 }
 
 + (void)initialize;
-+ (void)PBArrayAdd_dicUsrNameUntopTime;
-+ (void)PBArrayAdd_dicUsrNameTopTime;
++ (void)PBArrayAdd_dicUsrNamePersistentCorrectionTime;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableDictionary *dicUsrNameUntopTime; // @synthesize dicUsrNameUntopTime;
-@property(retain, nonatomic) NSMutableDictionary *dicUsrNameTopTime; // @synthesize dicUsrNameTopTime;
+@property(retain, nonatomic) NSMutableDictionary *dicUsrNamePersistentCorrectionTime; // @synthesize dicUsrNamePersistentCorrectionTime;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (const map_f8690629 *)getValueTagIndexMap;

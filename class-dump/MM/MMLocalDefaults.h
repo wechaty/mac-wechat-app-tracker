@@ -35,6 +35,7 @@
 - (BOOL)boolForKey:(id)arg1;
 - (void)setInteger:(long long)arg1 forKey:(id)arg2;
 - (long long)integerForKey:(id)arg1;
+- (void)removeKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
 - (BOOL)synchronize;

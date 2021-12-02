@@ -6,25 +6,20 @@
 
 #import "MMTextMessageCellView.h"
 
-@class MessageData, NSButton;
-
 @interface MMUnsupportedCellView : MMTextMessageCellView
 {
-    MessageData *_originalMessage;
-    NSButton *_contextMenuButton;
 }
 
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (id)makeUnsupportedTableItemWithItem:(id)arg1;
-- (void).cxx_destruct;
-@property(retain, nonatomic) NSButton *contextMenuButton; // @synthesize contextMenuButton=_contextMenuButton;
-@property(retain, nonatomic) MessageData *originalMessage; // @synthesize originalMessage=_originalMessage;
-- (BOOL)allowMultipleSelect;
 - (BOOL)allowRefer;
-- (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
-- (struct CGRect)rectForContextMenuButton;
-- (void)_contextMenuShowSourceDebugTool;
+- (BOOL)allowMultipleSelect;
+- (id)getSection1MenuItem;
+- (id)getSection0MenuItem;
+- (id)getOperationMenuItem;
+- (void)setChoosable:(BOOL)arg1;
+- (void)contextMenuShowSourceDebugTool;
 - (void)populateWithMessage:(id)arg1;
 
 @end

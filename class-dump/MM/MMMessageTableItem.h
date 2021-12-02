@@ -77,6 +77,7 @@
 - (void)dealloc;
 - (id)initWithCreateTime:(unsigned int)arg1;
 - (id)initWithMessageData:(id)arg1;
+- (id)initWithMessageDataInType:(id)arg1;
 - (id)initStripDividerWithCreateTime:(unsigned int)arg1;
 - (id)initNewMessageDividerWithCreateTime:(unsigned int)arg1;
 - (id)initChatSyncDividerWithCreateTime:(unsigned int)arg1;

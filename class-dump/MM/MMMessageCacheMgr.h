@@ -53,7 +53,7 @@
 - (id)cachedTextMessageStringForKey:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)onDelAllMsg:(id)arg1;
-- (void)onSessionDeletedWithUserName:(id)arg1 atIndex:(long long)arg2;
+- (void)onSessionDeletedWithUserName:(id)arg1 inSessions:(unsigned long long)arg2 atIndex:(long long)arg3;
 - (void)clearAllCache;
 - (void)onServiceClearData;
 - (void)onServiceInit;

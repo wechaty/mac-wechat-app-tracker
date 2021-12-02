@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) MMImageView *loadingImageView; // @synthesize loadingImageView=_loadingImageView;
 @property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
-- (void)setupImaegViewWithImage:(id)arg1;
+- (void)setupImageViewWithImage:(id)arg1;
 - (void)setupTextFieldForTextToast;
 - (void)setupTextField;
 - (void)setupActivityView;

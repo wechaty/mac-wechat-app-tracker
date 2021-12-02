@@ -17,11 +17,14 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak MMContactProfileController *activeProfileController; // @synthesize activeProfileController=_activeProfileController;
+- (BOOL)supportFinderProfile;
 - (id)getTagContacts:(id)arg1;
 - (id)convert2WCFeedLive:(id)arg1;
 - (id)convert2WCFinder:(id)arg1;
-- (void)openFeedLive:(id)arg1 withTid:(id)arg2;
-- (void)openFinderFeed:(id)arg1 withTid:(id)arg2;
+- (void)openFinderProfileWithFeed:(id)arg1 withTid:(id)arg2;
+- (void)openFinderProfileWithLive:(id)arg1 withTid:(id)arg2;
+- (void)openFeedLive:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
+- (void)openFinderFeed:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
 - (void)openUrlWithDataItem:(id)arg1;
 - (void)hideContactProfile;
 - (void)showContactProfile:(id)arg1 aView:(id)arg2 positionRect:(struct CGRect)arg3;
@@ -38,9 +41,6 @@
 - (id)formatterTimeLineTextContent2:(id)arg1;
 - (id)formatterTimeLineTextContent:(id)arg1;
 - (id)formatterNotificationFeedTextContent:(id)arg1;
-- (long long)getFontSizeClass;
-- (double)getAdjustAvatarSize:(double)arg1;
-- (double)getFontAdjustLineHeight:(double)arg1;
 - (BOOL)isContainEmoji:(id)arg1;
 - (void)getAvatarImageWithUsername:(id)arg1 callBlackBlock:(CDUnknownBlockType)arg2;
 - (id)getSignature:(id)arg1;

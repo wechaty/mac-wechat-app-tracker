@@ -12,7 +12,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "WeChatSearchProtocol-Protocol.h"
 
-@class MMSessionChoosenView, MMSessionListView, NSString, NSWindow, WCContactData;
+@class MMSessionChoosenView, MMSessionPickerLeftViewController, NSString, NSWindow, WCContactData;
 
 @interface MMSessionPickerWindow : NSWindowController <AccountServiceExt, WeChatSearchProtocol, NSWindowDelegate, IMessageExt, MMFavoritesMgrExt>
 {
@@ -20,7 +20,7 @@
     NSString *_headingText;
     NSWindow *_spawningWindow;
     WCContactData *_sharedContact;
-    MMSessionListView *_listViewController;
+    MMSessionPickerLeftViewController *_listViewController;
     MMSessionChoosenView *_choosenViewController;
     struct CGSize _originalSize;
 }
@@ -30,7 +30,7 @@
 @property(nonatomic) BOOL isObserverAppearance; // @synthesize isObserverAppearance=_isObserverAppearance;
 @property(nonatomic) struct CGSize originalSize; // @synthesize originalSize=_originalSize;
 @property(retain, nonatomic) MMSessionChoosenView *choosenViewController; // @synthesize choosenViewController=_choosenViewController;
-@property(retain, nonatomic) MMSessionListView *listViewController; // @synthesize listViewController=_listViewController;
+@property(retain, nonatomic) MMSessionPickerLeftViewController *listViewController; // @synthesize listViewController=_listViewController;
 @property(retain, nonatomic) WCContactData *sharedContact; // @synthesize sharedContact=_sharedContact;
 @property(nonatomic) __weak NSWindow *spawningWindow; // @synthesize spawningWindow=_spawningWindow;
 @property(retain, nonatomic) NSString *headingText; // @synthesize headingText=_headingText;
@@ -73,6 +73,7 @@
 - (void)beginNewChatSheetForWindow:(id)arg1 confirmButtonText:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 showsGroupChats:(BOOL)arg3 showsOtherNonhumanChats:(BOOL)arg4 messageCannotBeOpened:(BOOL)arg5 confirmButtonText:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 confirmButtonText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 cancelHandler:(CDUnknownBlockType)arg5;
+- (void)listViewControllerDidChanged;
 - (void)clearDataOnWindowDidEndSheet;
 - (void)windowDidResize:(id)arg1;
 - (void)adjustWindowFrame:(long long)arg1;

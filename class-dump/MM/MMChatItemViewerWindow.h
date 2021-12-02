@@ -17,17 +17,18 @@
 {
     MessageData *_message;
     ReaderWrap *_readerWrap;
+    unsigned long long _scene;
     NSString *_windowID;
 }
 
-+ (id)windowIDForSessionpicker:(id)arg1;
-+ (Class)subclassForMessage:(id)arg1;
++ (id)windowID:(id)arg1 scene:(unsigned long long)arg2;
 + (BOOL)hasWindowOpenForWindowID:(id)arg1;
-+ (id)viewerWindowForMessage:(id)arg1 windowID:(id)arg2 useSingleWindow:(BOOL)arg3;
-+ (id)viewerWindowForMessage:(id)arg1 useSingleWindow:(BOOL)arg2;
++ (id)viewerWindowForMessage:(id)arg1 scene:(unsigned long long)arg2 useSingleWindow:(BOOL)arg3;
++ (Class)subclassForMessage:(id)arg1;
 + (void)initialize;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *windowID; // @synthesize windowID=_windowID;
+@property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
 @property(retain, nonatomic) ReaderWrap *readerWrap; // @synthesize readerWrap=_readerWrap;
 @property(retain) MessageData *message; // @synthesize message=_message;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
@@ -44,6 +45,7 @@
 - (void)sharingService:(id)arg1 didFailToShareItems:(id)arg2 error:(id)arg3;
 - (void)sharingService:(id)arg1 willShareItems:(id)arg2;
 - (void)share:(id)arg1;
+- (id)getFavoritesItemDataField;
 - (void)forwardContentToContactsWithUserNames:(id)arg1 leaveMessage:(id)arg2;
 - (void)forwardContent:(id)arg1;
 - (void)copyContent;
@@ -52,7 +54,7 @@
 - (void)windowDidLoad;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)dealloc;
-- (id)initWithMessage:(id)arg1 windowID:(id)arg2;
+- (id)initWithMessage:(id)arg1 scene:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

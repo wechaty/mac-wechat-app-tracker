@@ -16,16 +16,36 @@
     unsigned int hasBigHeadImgUrl:1;
     unsigned int hasSmallHeadImgUrl:1;
     unsigned int hasChatroomMemberFlag:1;
+    unsigned int hasInviterUserName:1;
+    unsigned int hasStatus:1;
+    unsigned int hasTextStatus:1;
+    unsigned int hasAssociateOpenImappId:1;
+    unsigned int hasAssociateOpenImdescId:1;
     unsigned int chatroomMemberFlag;
+    unsigned int status;
     NSString *userName;
     NSString *nickName;
     NSString *displayName;
     NSString *bigHeadImgUrl;
     NSString *smallHeadImgUrl;
+    NSString *inviterUserName;
+    NSString *textStatus;
+    NSString *associateOpenImappId;
+    NSString *associateOpenImdescId;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetAssociateOpenImdescId:) NSString *associateOpenImdescId; // @synthesize associateOpenImdescId;
+@property(readonly, nonatomic) BOOL hasAssociateOpenImdescId; // @synthesize hasAssociateOpenImdescId;
+@property(retain, nonatomic, setter=SetAssociateOpenImappId:) NSString *associateOpenImappId; // @synthesize associateOpenImappId;
+@property(readonly, nonatomic) BOOL hasAssociateOpenImappId; // @synthesize hasAssociateOpenImappId;
+@property(retain, nonatomic, setter=SetTextStatus:) NSString *textStatus; // @synthesize textStatus;
+@property(readonly, nonatomic) BOOL hasTextStatus; // @synthesize hasTextStatus;
+@property(nonatomic, setter=SetStatus:) unsigned int status; // @synthesize status;
+@property(readonly, nonatomic) BOOL hasStatus; // @synthesize hasStatus;
+@property(retain, nonatomic, setter=SetInviterUserName:) NSString *inviterUserName; // @synthesize inviterUserName;
+@property(readonly, nonatomic) BOOL hasInviterUserName; // @synthesize hasInviterUserName;
 @property(nonatomic, setter=SetChatroomMemberFlag:) unsigned int chatroomMemberFlag; // @synthesize chatroomMemberFlag;
 @property(readonly, nonatomic) BOOL hasChatroomMemberFlag; // @synthesize hasChatroomMemberFlag;
 @property(retain, nonatomic, setter=SetSmallHeadImgUrl:) NSString *smallHeadImgUrl; // @synthesize smallHeadImgUrl;

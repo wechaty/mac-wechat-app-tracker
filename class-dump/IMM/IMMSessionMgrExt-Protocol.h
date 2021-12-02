@@ -6,7 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMSessionInfo, NSString;
+@class MMSessionInfo, NSArray, NSString;
 
 @protocol IMMSessionMgrExt <NSObject>
 
@@ -14,12 +14,12 @@
 - (void)getComparer:(id *)arg1 forSelector:(int)arg2;
 - (void)askSessionByUserName:(NSString *)arg1 isHandled:(char *)arg2;
 - (void)onSessionScrollRowToVisible:(MMSessionInfo *)arg1;
-- (void)onSessionReorderedFromIndex:(long long)arg1 toIndex:(long long)arg2;
 - (void)onSessionReordered;
-- (void)onSessionReloadData;
-- (void)onSessionSyncedWithSource:(int)arg1 count:(unsigned long long)arg2;
-- (void)onSessionTotalUnreadCountChanged:(unsigned int)arg1;
-- (void)onSessionDeletedWithUserName:(NSString *)arg1 atIndex:(long long)arg2;
+- (void)onSessionSynced;
+- (void)onSessionTotalUnreadCountChanged;
+- (void)onSessionDeletedWithUserName:(NSString *)arg1 inSessions:(unsigned long long)arg2 atIndex:(long long)arg3;
+- (void)onSessionsUnfolded:(NSArray *)arg1 isAnimated:(BOOL)arg2;
+- (void)onSessionsFolded:(NSArray *)arg1 isAnimated:(BOOL)arg2;
 - (void)onSessionUpdated:(MMSessionInfo *)arg1;
 @end
 

@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *draftCache; // @synthesize draftCache=_draftCache;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
-- (void)onSessionDeletedWithUserName:(id)arg1 atIndex:(long long)arg2;
+- (void)onSessionDeletedWithUserName:(id)arg1 inSessions:(unsigned long long)arg2 atIndex:(long long)arg3;
 - (void)removeDraftForUserName:(id)arg1;
 - (BOOL)hasDraftWithUserName:(id)arg1;
 - (id)draftWithUserName:(id)arg1;

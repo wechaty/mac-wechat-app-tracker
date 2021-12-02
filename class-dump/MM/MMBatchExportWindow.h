@@ -9,16 +9,13 @@
 #import "AccountServiceExt-Protocol.h"
 #import "MMPopTableViewDelegate-Protocol.h"
 
-@class MMImageView, MMOutlineButton, MMPopTableView, MMProgressView, MMView, NSArray, NSDictionary, NSString, RBLPopover, RBLPopoverBackgroundView;
+@class MMImageView, MMOutlineButton, MMProgressView, MMView, NSArray, NSDictionary, NSString;
 
 @interface MMBatchExportWindow : NSWindowController <AccountServiceExt, MMPopTableViewDelegate>
 {
     MMImageView *_multiFileIcon;
     MMProgressView *_progressView;
     MMOutlineButton *_batchExportProgressLabel;
-    MMPopTableView *_exportFailedFilePopView;
-    RBLPopover *_exportFailedPopover;
-    RBLPopoverBackgroundView *_exportFailedPopoverBgView;
     MMView *_whiteColorbgView;
     NSArray *_failedMsgList;
     NSDictionary *_reasons;
@@ -29,16 +26,10 @@
 @property(retain, nonatomic) NSDictionary *reasons; // @synthesize reasons=_reasons;
 @property(retain, nonatomic) NSArray *failedMsgList; // @synthesize failedMsgList=_failedMsgList;
 @property(retain, nonatomic) MMView *whiteColorbgView; // @synthesize whiteColorbgView=_whiteColorbgView;
-@property(retain, nonatomic) RBLPopoverBackgroundView *exportFailedPopoverBgView; // @synthesize exportFailedPopoverBgView=_exportFailedPopoverBgView;
-@property(retain, nonatomic) RBLPopover *exportFailedPopover; // @synthesize exportFailedPopover=_exportFailedPopover;
-@property(retain, nonatomic) MMPopTableView *exportFailedFilePopView; // @synthesize exportFailedFilePopView=_exportFailedFilePopView;
 @property __weak MMOutlineButton *batchExportProgressLabel; // @synthesize batchExportProgressLabel=_batchExportProgressLabel;
 @property __weak MMProgressView *progressView; // @synthesize progressView=_progressView;
 @property __weak MMImageView *multiFileIcon; // @synthesize multiFileIcon=_multiFileIcon;
 @property(nonatomic) struct CGPoint initialOriginPoint; // @synthesize initialOriginPoint=_initialOriginPoint;
-- (void)showInView:(id)arg1 withRelativeRect:(struct CGRect)arg2 preferredEdge:(unsigned int)arg3;
-- (void)hidePopTableViewPopover;
-- (BOOL)isPopTableViewPopoverShown;
 - (void)doClear;
 - (void)onUserLogout;
 - (void)showBatchExportResultWithTotalCount:(unsigned long long)arg1 failedMsgList:(id)arg2 reasons:(id)arg3;

@@ -13,8 +13,6 @@
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType terminateCompletion; // @synthesize terminateCompletion=_terminateCompletion;
-- (void)terminateCGICallback;
-- (void)sendAppTerminatedCGIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)sendLockCGIWithCompletion:(CDUnknownBlockType)arg1;
 
 @end

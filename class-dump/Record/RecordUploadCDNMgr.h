@@ -4,26 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import "MMService.h"
 
 #import "ICdnComMgrExt-Protocol.h"
-#import "IMMWeWorkRecordDownloadCDNMgrExt-Protocol.h"
 #import "MMAppAttachFileMgrExt-Protocol.h"
+#import "MMService-Protocol.h"
 #import "RecordUploadTaskDelegate-Protocol.h"
 
 @class NSMutableArray, NSRecursiveLock, NSString, RecordUploadTask, UploadMsgWrap;
-@protocol RecordUploadCDNMgrDelegate;
 
-@interface RecordUploadCDNMgr : NSObject <RecordUploadTaskDelegate, MMAppAttachFileMgrExt, IMMWeWorkRecordDownloadCDNMgrExt, ICdnComMgrExt>
+@interface RecordUploadCDNMgr : MMService <RecordUploadTaskDelegate, MMAppAttachFileMgrExt, ICdnComMgrExt, MMService>
 {
     RecordUploadTask *m_curUploadTask;
     NSMutableArray *m_arrRecordData;
     NSMutableArray *m_arrCDNUploadInfo;
     NSRecursiveLock *m_oLockForDictDownloadTask;
     NSMutableArray *m_bigFileTasks;
-    NSMutableArray *m_tempUploadExtendInfo;
     BOOL m_isWaitingDownload;
-    id <RecordUploadCDNMgrDelegate> m_delegate;
     UploadMsgWrap *m_curMsgWrap;
     NSMutableArray *m_arrMsgWrap;
 }
@@ -31,38 +28,33 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *m_arrMsgWrap; // @synthesize m_arrMsgWrap;
 @property(retain, nonatomic) UploadMsgWrap *m_curMsgWrap; // @synthesize m_curMsgWrap;
-@property(nonatomic) __weak id <RecordUploadCDNMgrDelegate> m_delegate; // @synthesize m_delegate;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 totalLen:(unsigned int)arg3 bThumb:(BOOL)arg4;
-- (void)OnRecordMessageDownloadOK:(id)arg1;
-- (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)onBatchCheckBigFileUploadResult:(BOOL)arg1 respList:(id)arg2 wrapMsg:(id)arg3 errMsg:(id)arg4;
 - (void)checkBigFileTaskAndUpload;
 - (void)OnRecordUploadTaskFinish:(id)arg1;
-- (id)findRecordDataInList:(id)arg1 WithLocalDataId:(id)arg2;
 - (void)OnRecordUploadTaskFail;
-- (void)OnCdnUploadProgress:(id)arg1;
+- (void)OnRecordUploadTaskProcess:(id)arg1;
 - (void)OnSetCdnDnsInfo;
+- (id)genBatchTransCDNItemArrayWithDataList:(id)arg1;
+- (void)batchTransCDNItemForFav;
+- (void)genUploadTaskForDataList:(id)arg1 isFromRecord:(BOOL)arg2 andDepth:(unsigned int)arg3;
+- (void)batchTransCDNItemForMsg:(BOOL)arg1;
 - (void)HandleSendMsgResp:(id)arg1;
 - (void)HandleBatchTransCDNResp:(id)arg1;
 - (void)TryNextMsgWrap;
-- (void)uploadMsgOK;
 - (void)SendMsgOK:(long long)arg1;
 - (void)SendMsgFail;
 - (BOOL)SendCurAppMsg;
 - (void)RemoveMsgWrap:(id)arg1;
-- (void)BatchTransCDNItemForFav;
-- (id)genBatchTransCDNItemArrayWithDataList:(id)arg1 withClientStrId:(id)arg2;
-- (void)BatchTransCDNItemForMsg:(BOOL)arg1;
-- (void)AddUploadTaskForDataList:(id)arg1 isFromRecord:(BOOL)arg2 andDepth:(unsigned int)arg3;
 - (void)UploadRecordData;
 - (void)CheckCDNUploadMsgQueue;
 - (void)StopCurUpload;
 - (void)StopUploadRecordMsgByUsername:(id)arg1;
 - (void)StopUploadRecordMsg:(id)arg1;
-- (void)StartUploadRecordMsg:(id)arg1 andUploadExtendInfos:(id)arg2 andIsToWeWork:(BOOL)arg3;
-- (void)StartUploadRecordMsg:(id)arg1 isToWeWork:(BOOL)arg2;
+- (void)StartUploadRecordMsg:(id)arg1 scene:(unsigned int)arg2;
 - (BOOL)IsRecordMsgUploading:(id)arg1;
 - (void)dealloc;
+- (void)onServiceClearData;
+- (void)onServiceInit;
 - (id)init;
 
 // Remaining properties

@@ -18,6 +18,7 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <GetEmoticonByMD5ListCGIDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)handleBatchEmojiDownLoadFailed;
 - (void)startRequestWithMd5List:(id)arg1;
 - (void)startRequestWithMsgInfo:(id)arg1;
 - (id)init;

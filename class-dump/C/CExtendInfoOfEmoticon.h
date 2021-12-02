@@ -18,6 +18,8 @@
     unsigned int _m_uiGameType;
     unsigned int _m_uiGameContent;
     unsigned int _m_uiUploadStatus;
+    unsigned int _m_uiEmoticonWidth;
+    unsigned int _m_uiEmoticonHeight;
     MessageData *m_refMessageData;
     NSString *_m_nsEmoticonMD5;
     NSString *_m_nsEmoticonBelongToProductID;
@@ -29,6 +31,8 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *m_authKey; // @synthesize m_authKey=_m_authKey;
 @property(copy, nonatomic) NSString *m_tpUrlString; // @synthesize m_tpUrlString=_m_tpUrlString;
+@property(nonatomic) unsigned int m_uiEmoticonHeight; // @synthesize m_uiEmoticonHeight=_m_uiEmoticonHeight;
+@property(nonatomic) unsigned int m_uiEmoticonWidth; // @synthesize m_uiEmoticonWidth=_m_uiEmoticonWidth;
 @property(copy, nonatomic) NSString *m_nsEmoticonBelongToProductID; // @synthesize m_nsEmoticonBelongToProductID=_m_nsEmoticonBelongToProductID;
 @property(nonatomic) unsigned int m_uiUploadStatus; // @synthesize m_uiUploadStatus=_m_uiUploadStatus;
 @property(nonatomic) unsigned int m_uiGameContent; // @synthesize m_uiGameContent=_m_uiGameContent;

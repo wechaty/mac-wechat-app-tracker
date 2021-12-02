@@ -25,6 +25,7 @@
 - (BOOL)saveSyncKeyBuffer:(id)arg1;
 - (void)clearSyncKey;
 - (void)_handleCmdList:(id)arg1 response:(id)arg2;
+- (void)_handleFailRequest;
 - (void)syncByNotify:(unsigned int)arg1;
 - (void)sync;
 - (void)dealloc;

@@ -6,14 +6,19 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
+
 @interface MMGetA8KeyConfig : NSObject
 {
     BOOL _useFullUrl;
     unsigned int _scene;
     int _reason;
+    NSString *_username;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) int reason; // @synthesize reason=_reason;
+@property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 @property(nonatomic) BOOL useFullUrl; // @synthesize useFullUrl=_useFullUrl;
 @property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 - (id)description;

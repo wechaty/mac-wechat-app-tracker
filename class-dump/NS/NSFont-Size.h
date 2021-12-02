@@ -7,11 +7,11 @@
 #import <AppKit/NSFont.h>
 
 @interface NSFont (Size)
-+ (id)dynamicSystemFontOfSize:(long long)arg1;
-+ (id)dynamicSystemFontOfSize:(long long)arg1 forModule:(int)arg2;
 + (id)thinSystemFontOfSize:(double)arg1;
 + (id)lightSystemFontOfSize:(double)arg1;
 + (id)mediumSystemFontOfSize:(double)arg1;
 - (double)lineHeight;
+- (double)emoji;
+- (double)line;
 @end
 

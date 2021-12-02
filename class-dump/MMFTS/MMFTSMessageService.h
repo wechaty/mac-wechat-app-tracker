@@ -6,14 +6,18 @@
 
 #import "MMService.h"
 
+#import "FTSMessageEx-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class FTSMessageDB, NSMutableDictionary, NSObject, NSOperationQueue, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMFTSMessageService : MMService <IMessageExt, MMService>
+@interface MMFTSMessageService : MMService <IMessageExt, FTSMessageEx, MMService>
 {
+    BOOL _isLoadDocFinish;
+    BOOL _canLoadToRelate;
+    unsigned int _loadFailureCount;
     NSOperationQueue *_m_ftsIndexMaintainQueue;
     NSRecursiveLock *_m_oLock;
     NSMutableDictionary *_m_dictForQueueTask;
@@ -25,12 +29,16 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) FTSMessageDB *m_ftsdb; // @synthesize m_ftsdb=_m_ftsdb;
+@property(nonatomic) unsigned int loadFailureCount; // @synthesize loadFailureCount=_loadFailureCount;
+@property(nonatomic) BOOL canLoadToRelate; // @synthesize canLoadToRelate=_canLoadToRelate;
+@property(nonatomic) BOOL isLoadDocFinish; // @synthesize isLoadDocFinish=_isLoadDocFinish;
 @property(retain, nonatomic) NSRecursiveLock *indexMemCacheLock; // @synthesize indexMemCacheLock=_indexMemCacheLock;
 @property(retain, nonatomic) NSMutableDictionary *dicUnIndexMsgCache; // @synthesize dicUnIndexMsgCache=_dicUnIndexMsgCache;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_ftsTaskCheckQueue; // @synthesize m_ftsTaskCheckQueue=_m_ftsTaskCheckQueue;
 @property(retain, nonatomic) NSMutableDictionary *m_dictForQueueTask; // @synthesize m_dictForQueueTask=_m_dictForQueueTask;
 @property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock=_m_oLock;
 @property(retain, nonatomic) NSOperationQueue *m_ftsIndexMaintainQueue; // @synthesize m_ftsIndexMaintainQueue=_m_ftsIndexMaintainQueue;
+- (void)onMarkReloadRelateTable;
 - (void)cancelQuery;
 - (BOOL)shouldOpenChatMgr;
 - (BOOL)isFtsIndexTargetMsg:(id)arg1;
@@ -49,6 +57,10 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
+- (void)onMarkReloadRelateTable;
+- (void)checkFTSDocData;
+- (void)doLoadDocRelateData;
+- (void)loadFTSDocData;
 - (void)onDelAllMsg:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)findOneTableToOptimize;
@@ -68,6 +80,7 @@
 - (BOOL)isStopFTSService;
 - (void)suspendQueue;
 - (void)resumeQueue;
+- (void)onServiceInit;
 - (void)onServiceTerminate;
 - (void)onServiceEnterForeground;
 - (void)onServiceEnterBackground;

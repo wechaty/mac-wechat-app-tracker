@@ -6,24 +6,32 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class MMButton, MMView, NSString, NSTextField, NSView;
+@class MMButton, MMView, NSStackView, NSString, NSTextField, NSView, SVGImageView;
 
 @interface MMSessionPickerListSwitchSelectMode : NSTableRowView
 {
     NSString *_title;
     NSString *_switchButtonTitle;
     MMButton *_switchButton;
+    SVGImageView *_backBtn;
     NSTextField *_titleField;
     NSView *_switchView;
     MMView *_bgView;
+    NSStackView *_stackView;
+    MMButton *_backResponseBtn;
     CDUnknownBlockType _didClickSwitchButtonBlock;
+    CDUnknownBlockType _didClickBackBtnBlock;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) CDUnknownBlockType didClickBackBtnBlock; // @synthesize didClickBackBtnBlock=_didClickBackBtnBlock;
 @property(copy, nonatomic) CDUnknownBlockType didClickSwitchButtonBlock; // @synthesize didClickSwitchButtonBlock=_didClickSwitchButtonBlock;
+@property(retain, nonatomic) MMButton *backResponseBtn; // @synthesize backResponseBtn=_backResponseBtn;
+@property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MMView *bgView; // @synthesize bgView=_bgView;
 @property(retain, nonatomic) NSView *switchView; // @synthesize switchView=_switchView;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
+@property(retain, nonatomic) SVGImageView *backBtn; // @synthesize backBtn=_backBtn;
 @property(retain, nonatomic) MMButton *switchButton; // @synthesize switchButton=_switchButton;
 @property(retain, nonatomic) NSString *switchButtonTitle; // @synthesize switchButtonTitle=_switchButtonTitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;

@@ -6,15 +6,26 @@
 
 #import "MMChatLogWebPageCellView.h"
 
-@interface MMChatLogMusicCellView : MMChatLogWebPageCellView
+#import "IMMRecordDownloadMgrExt-Protocol.h"
+
+@class NSString;
+
+@interface MMChatLogMusicCellView : MMChatLogWebPageCellView <IMMRecordDownloadMgrExt>
 {
 }
 
+- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)layoutAppMsgMusicCellView;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

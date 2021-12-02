@@ -6,9 +6,11 @@
 
 #import "MMChatLogBaseCellView.h"
 
-@class MMTextField, NSImageView;
+#import "IMMRecordDownloadMgrExt-Protocol.h"
 
-@interface MMChatLogWeAppCellView : MMChatLogBaseCellView
+@class MMTextField, NSImageView, NSString;
+
+@interface MMChatLogWeAppCellView : MMChatLogBaseCellView <IMMRecordDownloadMgrExt>
 {
     NSImageView *_iconImageView;
     MMTextField *_titleTextField;
@@ -20,6 +22,9 @@
 @property(retain, nonatomic) MMTextField *descTextField; // @synthesize descTextField=_descTextField;
 @property(retain, nonatomic) MMTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
+- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;
@@ -30,8 +35,16 @@
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)layoutThumbnail:(BOOL)arg1;
 - (void)layoutSubViews:(id)arg1;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

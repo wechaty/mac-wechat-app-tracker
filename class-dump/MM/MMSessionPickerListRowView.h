@@ -25,6 +25,7 @@
     id _context;
     MMSearchResultItem *_searchResultItem;
     NSString *_searchKeyword;
+    NSString *_descriptionText;
     SVGButton *_checkbox;
     MMAvatarImageView *_avatarView;
     NSTextField *_sessionNameField;
@@ -42,6 +43,7 @@
 @property(retain, nonatomic) NSTextField *sessionNameField; // @synthesize sessionNameField=_sessionNameField;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) SVGButton *checkbox; // @synthesize checkbox=_checkbox;
+@property(retain, nonatomic) NSString *descriptionText; // @synthesize descriptionText=_descriptionText;
 @property(retain, nonatomic) NSString *searchKeyword; // @synthesize searchKeyword=_searchKeyword;
 @property(retain, nonatomic) MMSearchResultItem *searchResultItem; // @synthesize searchResultItem=_searchResultItem;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
@@ -57,13 +59,17 @@
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 - (void)layoutOpenIMIcon;
 - (void)layoutChatRoomUserCount;
+- (void)layoutContentFields:(BOOL)arg1;
 - (void)layoutLabels;
 - (void)layoutAvatar;
 - (void)setupWithSessionPickerRow:(id)arg1 keyword:(id)arg2;
 - (void)_callDelegate;
 - (void)checkboxChecked:(id)arg1;
 - (void)_updateRollover;
+- (void)refreshDescriptionTextIfNeeded:(id)arg1;
+- (void)hideDescriptionTextField;
 @property(nonatomic) BOOL chosen;
+- (void)updateSessionInfoButtonStyle;
 - (void)hideSessionInfoButton;
 - (void)showSessionInfoButton;
 - (id)currentBgColor;

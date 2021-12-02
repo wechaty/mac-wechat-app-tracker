@@ -55,7 +55,7 @@
 @property(copy, nonatomic) NSString *m_nsCommentUrl; // @synthesize m_nsCommentUrl;
 @property(copy, nonatomic) NSString *m_nsAesKey; // @synthesize m_nsAesKey;
 - (BOOL)saveImgDataToFile:(id)arg1 filePath:(id)arg2;
-- (BOOL)isLargeFileForFav;
+- (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLargeFileForForward;
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)cleanupMediaRes;

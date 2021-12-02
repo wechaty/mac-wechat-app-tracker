@@ -6,30 +6,26 @@
 
 #import "MessageHandler.h"
 
-#import "RecordUploadCDNMgrDelegate-Protocol.h"
+#import "RecordUploadCDNMgrExt-Protocol.h"
 
-@class NSString, RecordUploadCDNMgr;
+@class NSString;
 @protocol RecordMessageHandlerDelegate;
 
-@interface RecordMessageHandler : MessageHandler <RecordUploadCDNMgrDelegate>
+@interface RecordMessageHandler : MessageHandler <RecordUploadCDNMgrExt>
 {
     id <RecordMessageHandlerDelegate> _delegate;
-    RecordUploadCDNMgr *_recordUploadCDNMgr;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) RecordUploadCDNMgr *recordUploadCDNMgr; // @synthesize recordUploadCDNMgr=_recordUploadCDNMgr;
 @property(nonatomic) __weak id <RecordMessageHandlerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)onAllNeedDownlownRecordMessageOK;
-- (void)onOneNeedDownlownRecordMessageFinish:(unsigned int)arg1 andLocalDataID:(id)arg2;
-- (void)onOneNeedDownloadRecordMessageProgress:(unsigned int)arg1 andLocalDataID:(id)arg2;
 - (void)onUploadCDNRecordMsgModMsgByBitSet:(id)arg1 MsgWrap:(id)arg2 BitSet:(unsigned int)arg3;
-- (void)onCurrentFileUploadFinish:(unsigned int)arg1 andLocalDataID:(id)arg2;
-- (void)onCurrentFileUploadProgress:(unsigned int)arg1 andLocalDataID:(id)arg2;
+- (void)justSendAppMsg:(id)arg1 scene:(unsigned int)arg2;
+- (void)cancelUpload:(id)arg1;
 - (BOOL)IsMsgSending:(id)arg1;
 - (void)stopMsgUpload:(id)arg1;
-- (void)addMsgToUploadQueueForWeWork:(id)arg1 msgData:(id)arg2 andUploadExtendInfos:(id)arg3;
+- (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2 scene:(unsigned int)arg3;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

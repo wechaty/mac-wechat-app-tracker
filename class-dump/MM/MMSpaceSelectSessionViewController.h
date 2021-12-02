@@ -70,6 +70,8 @@
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
+- (void)stopLoading;
+- (void)startLoading;
 - (void)setupSessions;
 - (void)setResumeFromLock:(BOOL)arg1;
 - (void)viewDidAppear;

@@ -14,6 +14,7 @@
 - (void)createBG;
 - (void)createFG;
 - (void)initSubViews;
+- (void)viewDidChangeEffectiveAppearance;
 
 @end
 

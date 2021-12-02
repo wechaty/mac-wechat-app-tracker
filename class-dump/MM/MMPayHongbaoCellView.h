@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MMAppBaseMessageCellView.h"
+#import "MMFakeTextMessageCellView.h"
 
-@interface MMPayHongbaoCellView : MMAppBaseMessageCellView
+@interface MMPayHongbaoCellView : MMFakeTextMessageCellView
 {
 }
 
++ (id)makeCurrentTableItemDesc:(id)arg1;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
-+ (id)makePayHongBaoTableItemWithItem:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
 - (BOOL)allowChoose;
 - (BOOL)allowMultipleSelect;

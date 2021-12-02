@@ -45,10 +45,14 @@
 - (BOOL)isNotificationMessageUserName;
 - (BOOL)isSearchableUserName;
 - (BOOL)isHiddenRawUserName;
+- (BOOL)isLocalPlaceholderUsrName;
+- (BOOL)isLocalSupportedPlaceholderUsrName;
+- (BOOL)isStickyFolderUsrName;
 - (BOOL)isLocalHardCodeUsrName;
 - (BOOL)isOfficialPluginUsrName;
 - (BOOL)isLocalizedPluginUsrName;
 - (BOOL)isPluginUsrName;
+- (BOOL)isGroupBoxUserName;
 - (BOOL)isFileHelperUserName;
 - (BOOL)isQQMailUserName;
 - (BOOL)isTencentNewsUserName;

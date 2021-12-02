@@ -22,8 +22,8 @@
 @property(nonatomic) unsigned long long sessionTotalUnreadCount; // @synthesize sessionTotalUnreadCount=_sessionTotalUnreadCount;
 @property(nonatomic) unsigned long long unreadCount; // @synthesize unreadCount=_unreadCount;
 - (void)friendRequestMgr:(id)arg1 didChangeFriendRequestUnreadCount:(unsigned long long)arg2;
-- (void)onSessionSyncedWithSource:(int)arg1 count:(unsigned long long)arg2;
-- (void)onSessionTotalUnreadCountChanged:(unsigned int)arg1;
+- (void)onSessionSynced;
+- (void)onSessionTotalUnreadCountChanged;
 - (void)clearUnreadCount;
 - (void)dealloc;
 - (id)init;

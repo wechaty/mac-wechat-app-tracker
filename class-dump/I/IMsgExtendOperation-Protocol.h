@@ -22,6 +22,7 @@
 - (BOOL)isFinishUploadOrDownload;
 - (void)ChangeForBackup;
 - (BOOL)cleanupMediaRes;
+- (BOOL)isNonSupportedMessageData;
 - (void)clearReaderWraps;
 - (BOOL)isAppHDImageExist;
 - (NSString *)getAppHDImagePath;
@@ -31,6 +32,7 @@
 - (void)parseReaderContent;
 - (NSString *)getSingleReaderCoverUrl;
 - (NSArray *)getReaderWraps;
+- (BOOL)isAppFeedNameCardMsg;
 - (BOOL)isAppFeedMsg;
 - (BOOL)isAppPatMsg;
 - (BOOL)isAppSoliataireMsg;
@@ -41,7 +43,7 @@
 - (BOOL)isAppBrandMsg;
 - (BOOL)isAppRecordOverLimit;
 - (BOOL)isLargeFileForForward;
-- (BOOL)isLargeFileForFav;
+- (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isMusic;
 - (BOOL)isNoteMsg;
 - (BOOL)isCustomEmojiMsg;

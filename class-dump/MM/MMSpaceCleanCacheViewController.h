@@ -23,7 +23,6 @@
 @property(retain, nonatomic) NSTextField *totalSpaceTipsLabel; // @synthesize totalSpaceTipsLabel=_totalSpaceTipsLabel;
 @property(retain, nonatomic) NSTextField *cleanStatusLabel; // @synthesize cleanStatusLabel=_cleanStatusLabel;
 @property(retain, nonatomic) NSTextField *totalSizeLabel; // @synthesize totalSizeLabel=_totalSizeLabel;
-- (void)showSessionViewController;
 - (void)updateTotalSizeLabel;
 - (void)clickManageSessionBtn:(id)arg1;
 - (void)stopLoadData;

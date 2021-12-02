@@ -13,13 +13,17 @@
     unsigned int hasFeedId:1;
     unsigned int hasSessionBuffer:1;
     unsigned int hasTagId:1;
+    unsigned int hasShareTime:1;
     unsigned int tagId;
+    unsigned int shareTime;
     unsigned long long feedId;
     NSString *sessionBuffer;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetShareTime:) unsigned int shareTime; // @synthesize shareTime;
+@property(readonly, nonatomic) BOOL hasShareTime; // @synthesize hasShareTime;
 @property(nonatomic, setter=SetTagId:) unsigned int tagId; // @synthesize tagId;
 @property(readonly, nonatomic) BOOL hasTagId; // @synthesize hasTagId;
 @property(retain, nonatomic, setter=SetSessionBuffer:) NSString *sessionBuffer; // @synthesize sessionBuffer;

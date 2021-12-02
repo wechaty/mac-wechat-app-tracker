@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSRecursiveLock, NSString, TSDictionary, WCTDatabase, WCTTable;
+@class NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString, WCTDatabase;
 @protocol OS_dispatch_queue;
 
 @interface MessageDB : NSObject
@@ -16,11 +16,13 @@
     unsigned int m_dbTag;
     NSRecursiveLock *m_oLock;
     NSString *m_nsDBFilePath;
-    TSDictionary *m_dictUnreadcount;
+    NSRecursiveLock *m_oUnreadCountLock;
+    NSMutableDictionary *m_dictUnreadcount;
+    NSRecursiveLock *m_oMsgTableDicLock;
     NSMutableDictionary *m_dictMsgTable;
     NSMutableDictionary *m_dictMsgDeletionTable;
+    NSMutableSet *m_setHistoryTable;
     NSObject<OS_dispatch_queue> *m_queue;
-    WCTTable *m_historyTable;
     NSRecursiveLock *_tableLocksMapLock;
     NSMutableDictionary *_tableLocks;
 }
@@ -72,7 +74,8 @@
 - (unsigned int)addNewMsgToDB:(id)arg1 chatName:(id)arg2 shouldAutoIncreaseLocalID:(BOOL)arg3;
 - (unsigned int)addNewMsgToDB:(id)arg1 chatName:(id)arg2;
 - (unsigned int)convertToLocalCreateTime:(id)arg1 createTime:(unsigned int)arg2;
-- (BOOL)createMsgTableWithTableName:(id)arg1;
+- (id)getRoomHistoryMsgTable;
+- (BOOL)createRoomHistoryMsgTable;
 - (BOOL)createMsgTable:(id)arg1;
 - (void)removeTableLock:(id)arg1;
 - (id)getTableLock:(id)arg1;

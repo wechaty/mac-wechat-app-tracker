@@ -15,8 +15,6 @@
     MMCGIRequester *_requester;
     int _reason;
     BOOL _useFullUrl;
-    unsigned int __getA8KeyScene;
-    MMCGIRequester *__requester;
     id <MMGetA8KeyLogicDelegate> _delegate;
     NSString *_bundleID;
     NSString *_getA8KeyUserName;
@@ -29,8 +27,6 @@
 @property(retain, nonatomic) NSString *getA8KeyUserName; // @synthesize getA8KeyUserName=_getA8KeyUserName;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(nonatomic) __weak id <MMGetA8KeyLogicDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) MMCGIRequester *_requester; // @synthesize _requester=__requester;
-@property(nonatomic) unsigned int _getA8KeyScene; // @synthesize _getA8KeyScene=__getA8KeyScene;
 - (void)getA8KeyWithURLString:(id)arg1 config:(id)arg2;
 - (void)getA8KeyWithURLString:(id)arg1;
 - (id)init;

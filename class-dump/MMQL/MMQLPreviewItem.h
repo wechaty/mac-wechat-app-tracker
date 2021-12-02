@@ -8,7 +8,7 @@
 
 #import "QLPreviewItem-Protocol.h"
 
-@class FavoritesItem, FavoritesItemDataField, MMSnsMediaItem, MessageData, NSImage, NSString, NSURL, WCContactData, WCMPlayer;
+@class FavoritesItem, FavoritesItemDataField, MMSnsMediaItem, MessageData, NSImage, NSString, NSURL, SnsVideoPlayer, WCContactData;
 
 @interface MMQLPreviewItem : NSObject <QLPreviewItem>
 {
@@ -16,11 +16,12 @@
     NSURL *_itemUrl;
     NSString *_itemTitle;
     NSString *_itemUrlString;
+    NSImage *_animatedImage;
     NSString *_videoThumbPath;
     unsigned long long _previewType;
     unsigned long long _previewScene;
     MMSnsMediaItem *_snsItem;
-    WCMPlayer *_player;
+    SnsVideoPlayer *_player;
     NSImage *_videoThumb;
     NSString *_fromUser;
     NSString *_appId;
@@ -48,18 +49,19 @@
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *fromUser; // @synthesize fromUser=_fromUser;
 @property(retain, nonatomic) NSImage *videoThumb; // @synthesize videoThumb=_videoThumb;
-@property(retain, nonatomic) WCMPlayer *player; // @synthesize player=_player;
+@property(retain, nonatomic) SnsVideoPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) MMSnsMediaItem *snsItem; // @synthesize snsItem=_snsItem;
 @property(nonatomic) unsigned long long previewScene; // @synthesize previewScene=_previewScene;
 @property(nonatomic) unsigned long long previewType; // @synthesize previewType=_previewType;
 @property(retain, nonatomic) NSString *videoThumbPath; // @synthesize videoThumbPath=_videoThumbPath;
+@property(retain, nonatomic) NSImage *animatedImage; // @synthesize animatedImage=_animatedImage;
 @property(nonatomic) struct CGSize originalImageSize; // @synthesize originalImageSize=_originalImageSize;
 @property(retain, nonatomic) NSString *itemUrlString; // @synthesize itemUrlString=_itemUrlString;
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
 @property(retain, nonatomic) NSURL *itemUrl; // @synthesize itemUrl=_itemUrl;
 - (BOOL)canSaveToFavorite;
 - (BOOL)canForward;
-- (id)itemMessageThumbImage;
+- (id)itemMessagePreviewThumbImage;
 @property(readonly, copy) NSString *description;
 @property(readonly) NSURL *previewItemURL;
 @property(readonly) NSString *previewItemTitle;

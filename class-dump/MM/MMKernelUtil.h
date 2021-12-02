@@ -10,7 +10,6 @@
 {
 }
 
-+ (BOOL)IsBrandContact:(id)arg1;
 + (BOOL)IsFBFriend:(id)arg1;
 + (BOOL)IsBottleContact:(id)arg1;
 + (BOOL)IsQQContact:(id)arg1;

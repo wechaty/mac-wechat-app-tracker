@@ -140,7 +140,6 @@
 - (void)reportAddMsg:(id)arg1;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)shouldShowUnreadTipsButton;
-- (unsigned char)isMoreThanLimitWith:(int)arg1;
 - (BOOL)shouldShowGroupChatNickName;
 - (id)getNextVoiceMsgToPlay:(unsigned int)arg1;
 - (long long)getVisibleUnreadMessageCount;
@@ -200,6 +199,7 @@
 - (void)messageCellView:(id)arg1 showDetailWindowWithItem:(id)arg2;
 - (void)messageCellView:(id)arg1 multiSelectWithEvent:(id)arg2;
 - (void)messageCellViewDidStartMultiSelection:(id)arg1;
+- (int)updateChosenStyle:(BOOL)arg1 cellView:(id)arg2;
 - (id)makeCellViewWithMessage:(id)arg1;
 - (id)cellViewWithMessage:(id)arg1;
 - (id)cellIdentifierWithMessage:(id)arg1;
@@ -239,6 +239,7 @@
 - (void)setupEffectView;
 - (void)copySelectedMessageContent;
 - (void)keyDown:(id)arg1;
+- (void)showAlert:(int)arg1;
 - (void)mouseDragSelectedMessageCellView;
 - (void)autoWheelDetails;
 - (void)stopAutoWheel;

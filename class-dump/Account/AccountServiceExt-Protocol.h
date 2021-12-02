@@ -26,7 +26,6 @@
 - (void)onAuthOkNeedReload;
 - (void)onAuthKickOutWithReason:(NSString *)arg1 errorMsg:(NSString *)arg2;
 - (void)onAuthKeyInfoInvalid:(NSString *)arg1;
-- (void)onPreAuthOKOfUser:(NSString *)arg1;
 - (void)onAuthFaildForInvalidCGISessionID;
 - (void)onAuthFaildWithWrongPasswordOrUsername;
 - (void)onAuthFaild:(NSString *)arg1;

@@ -6,6 +6,8 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
+
 @interface _TtC6WeChat9WCMPlayer : NSObject
 {
     // Error parsing type: , name: playPercentageChange
@@ -17,9 +19,11 @@
     // Error parsing type: , name: expectedCaptureAspectRatio
     // Error parsing type: , name: playProgressTriggered
     // Error parsing type: , name: forbidPause
+    // Error parsing type: , name: resURL
     // Error parsing type: , name: player
     // Error parsing type: , name: playerView
     // Error parsing type: , name: playerItem
+    // Error parsing type: , name: asset
     // Error parsing type: , name: videoOutput
     // Error parsing type: , name: timeObserver
     // Error parsing type: , name: resProvider
@@ -39,8 +43,10 @@
 - (void)pause;
 - (void)play;
 - (void)setPlayRateWithRate:(float)arg1;
+- (BOOL)loadWithLocalFilePath:(id)arg1 async:(BOOL)arg2;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic, copy) NSString *resURL;
 @property(nonatomic) BOOL forbidPause; // @synthesize forbidPause;
 
 @end

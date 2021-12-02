@@ -15,9 +15,11 @@
 
 - (void).cxx_destruct;
 - (BOOL)isTopSessionCountExceed;
-- (id)getUntopTime:(id)arg1;
-- (id)getTopTime:(id)arg1;
+- (id)getPersistentCorrectionTime:(id)arg1;
 - (void)clearSession:(id)arg1;
+- (void)setPersistentCorrectionTime:(id)arg1 newDate:(id)arg2;
+- (void)setPersistentCorrectionTime:(id)arg1;
+- (void)untopSession:(id)arg1 untopDate:(id)arg2;
 - (void)untopSession:(id)arg1;
 - (void)topSession:(id)arg1;
 - (id)getCurrentDate;

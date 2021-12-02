@@ -15,6 +15,7 @@
 @interface MMChatLogBaseCellView : NSTableCellView <NSDraggingSource, IContactMgrExt>
 {
     BOOL _selected;
+    unsigned long long _scene;
     FavoritesItemDataField *_currentDataField;
     MessageData *_parentMessage;
     FavoritesItem *_parentFavItem;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) FavoritesItem *parentFavItem; // @synthesize parentFavItem=_parentFavItem;
 @property(retain, nonatomic) MessageData *parentMessage; // @synthesize parentMessage=_parentMessage;
 @property(retain, nonatomic) FavoritesItemDataField *currentDataField; // @synthesize currentDataField=_currentDataField;
+@property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 - (BOOL)allowShareItem;
 - (BOOL)notMoveFar:(id)arg1;

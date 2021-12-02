@@ -9,13 +9,6 @@
 @class MessageData, NSString;
 
 @protocol RecordMessageHandlerDelegate <NSObject>
-
-@optional
-- (void)onAllNeedDownlownRecordMessageOK;
-- (void)onOneNeedDownlownRecordMessageFinish:(unsigned int)arg1 andLocalDataID:(NSString *)arg2;
-- (void)onOneNeedDownloadRecordMessageProgress:(unsigned int)arg1 andLocalDataID:(NSString *)arg2;
 - (void)onRecordMsgUploadCDNModMsgByBitSet:(NSString *)arg1 MsgWrap:(MessageData *)arg2 BitSet:(unsigned int)arg3;
-- (void)onCurrentFileUploadFinish:(unsigned int)arg1 andLocalDataID:(NSString *)arg2;
-- (void)onCurrentFileUploadProgress:(unsigned int)arg1 andLocalDataID:(NSString *)arg2;
 @end
 

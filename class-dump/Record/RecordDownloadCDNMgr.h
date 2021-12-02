@@ -35,7 +35,7 @@
 - (void)DownloadFail:(int)arg1 Expired:(BOOL)arg2;
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurMsg;
-- (id)getDownloadInfo:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (id)genDownloadInfos:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)removeMsgWrap:(id)arg1;
 - (void)tryNextMsgWrap;
 - (void)checkDownloadCDNMsgQueue;
@@ -44,6 +44,7 @@
 - (void)StartDownloadByRecordData:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)StartDownloadByRecordData:(id)arg1 DataId:(id)arg2;
 - (void)StartDownloadByRecordMsg:(id)arg1;
+- (BOOL)isRecordMsgInUploadQueue:(id)arg1;
 - (void)dealloc;
 - (void)onServiceClearData;
 - (void)onServiceInit;

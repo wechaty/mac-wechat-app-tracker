@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AppProductItem, FavoritesItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, FavoritesItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 
 @interface CExtendInfoOfAPP : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -81,6 +81,7 @@
     PatMessageWrap *m_oPatMessageWrap;
     WCFinderShareItem *finderShareItem;
     WCFinderLiveShareItem *finderLiveShareItem;
+    WCFinderMessageShareNameCard *finderMessageShareNameCard;
     unsigned int m_uiContinueUploadCount;
     BOOL bAppMsgCompleteFlag;
     unsigned int _m_uiWeAppState;
@@ -104,6 +105,7 @@
 @property(nonatomic) long long m_overwriteNewMsgId; // @synthesize m_overwriteNewMsgId;
 @property(retain, nonatomic) NSString *m_nsMsgFileUploadToken; // @synthesize m_nsMsgFileUploadToken;
 @property(nonatomic) BOOL bAppMsgCompleteFlag; // @synthesize bAppMsgCompleteFlag;
+@property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem;
 @property(retain, nonatomic) PatMessageWrap *m_oPatMessageWrap; // @synthesize m_oPatMessageWrap;
@@ -189,7 +191,7 @@
 - (int)getFileExpiredDays;
 - (BOOL)isAppFileExpired;
 - (BOOL)isAppRecordFinishDownload;
-- (BOOL)checkSourceFileFinishDownload:(id)arg1;
+- (BOOL)checkSourceFileFinishDownload:(id)arg1 deep:(int)arg2;
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)isAppFileExist;
 - (BOOL)cleanupMediaRes;
@@ -203,9 +205,10 @@
 - (void)clearReaderWraps;
 - (id)getReaderWraps;
 - (BOOL)isAppRecordOverLimit;
-- (BOOL)isLargeFileForFav;
+- (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLiveMsg;
 - (BOOL)isLargeFileForForward;
+- (BOOL)isAppFeedNameCardMsg;
 - (BOOL)isAppFeedMsg;
 - (BOOL)isAppPatMsg;
 - (BOOL)isMusic;

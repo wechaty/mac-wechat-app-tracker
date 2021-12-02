@@ -8,9 +8,17 @@
 
 @interface PCWebReportInfo_EntranceInfo : PBGeneratedMessage
 {
+    unsigned int hasReportInterval:1;
+    unsigned int hasEntryExposeCount:1;
+    unsigned int reportInterval;
+    unsigned int entryExposeCount;
 }
 
 + (id)parseFromData:(id)arg1;
+@property(nonatomic, setter=SetEntryExposeCount:) unsigned int entryExposeCount; // @synthesize entryExposeCount;
+@property(readonly, nonatomic) BOOL hasEntryExposeCount; // @synthesize hasEntryExposeCount;
+@property(nonatomic, setter=SetReportInterval:) unsigned int reportInterval; // @synthesize reportInterval;
+@property(readonly, nonatomic) BOOL hasReportInterval; // @synthesize hasReportInterval;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;

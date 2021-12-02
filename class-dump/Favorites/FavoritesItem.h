@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class FavLocationItem, FavProductItem, FavTVItem, FavURLItem, FavWeAppItem, NSArray, NSDate, NSMutableArray, NSString, WCFinderShareItem;
+@class FavLocationItem, FavProductItem, FavTVItem, FavURLItem, FavWeAppItem, NSArray, NSDate, NSMutableArray, NSString, WCFinderMessageShareNameCard, WCFinderShareItem;
 
 @interface FavoritesItem : NSObject <NSPasteboardItemDataProvider, NSCoding>
 {
@@ -60,18 +60,22 @@
     NSString *_m_nsFavUsername;
     FavWeAppItem *_weAppItem;
     WCFinderShareItem *_finderShareItem;
+    WCFinderMessageShareNameCard *_finderMessageShareNameCard;
 }
 
 + (void)parseStreamVideoNode:(struct XmlReaderNode_t *)arg1 dataField:(id)arg2;
-+ (id)FavoritesDataFieldToXML:(id)arg1 item:(id)arg2;
++ (id)FavoritesDataFieldToXML:(id)arg1 item:(id)arg2 deep:(int)arg3;
 + (id)FavritesItemToXML:(id)arg1 autoIncreaseVersion:(BOOL)arg2;
 + (id)parseTagXml:(struct XmlReaderNode_t *)arg1;
 + (id)parseDataNodeFromXml:(struct XmlReaderNode_t *)arg1 deep:(int)arg2;
 + (BOOL)ParseItemXML:(id)arg1 ToItem:(id)arg2;
++ (id)dataTypeStringWithType:(unsigned int)arg1;
 + (id)getFavTextCellText:(id)arg1;
-+ (id)GetRecordDataDesc:(id)arg1;
 + (id)unarchiveItemFromPasteboardItem:(id)arg1;
 + (id)unarchiveItemsFromPasteboard:(id)arg1;
++ (id)convertVideoDataField2MsgData:(id)arg1;
++ (id)convertFileDataField2MsgData:(id)arg1;
++ (id)convertImageDataField2MsgData:(id)arg1;
 + (id)itemWithFilePath:(id)arg1 fileName:(id)arg2;
 + (id)itemWithFilePath:(id)arg1;
 + (id)itemWithUrlString:(id)arg1 urlName:(id)arg2;
@@ -83,26 +87,19 @@
 + (id)checkImageTypeWithItem:(id)arg1;
 + (id)favoritesItemsFromPasteboard:(id)arg1;
 + (id)createItemFromPasteboardItem:(id)arg1;
-+ (id)sourceDataIDWithMessage:(id)arg1;
++ (id)itemWithFinderNameCardMessageData:(id)arg1;
 + (id)itemWithFeedMessageData:(id)arg1;
-+ (id)convertRecordMsg2FavData:(id)arg1 isFav:(BOOL)arg2 isToWeWork:(BOOL)arg3;
 + (id)itemWithRecordMessageData:(id)arg1;
 + (id)urlItemWithURLMessage:(id)arg1 urlString:(id *)arg2;
 + (id)urlItemWithReaderWrap:(id)arg1 urlString:(id *)arg2;
 + (id)itemWithSnsUrl:(id)arg1;
-+ (id)urlItemConvertToFavoritesItemDataField:(id)arg1;
 + (id)itemWithMusicURLMessageData:(id)arg1;
 + (id)itemWithURLMessageData:(id)arg1;
 + (id)itemWithVideoSnsItem:(id)arg1 fromUser:(id)arg2;
-+ (id)videoItemConvertToFavoritesItemDataField:(id)arg1;
 + (id)itemWithVideoMessageData:(id)arg1;
 + (id)itemWithImageSnsItem:(id)arg1 fromUser:(id)arg2 appId:(id)arg3;
-+ (id)imageItemConvertToFavoritesItemDataField:(id)arg1;
 + (id)itemWithImageMessageData:(id)arg1;
-+ (id)fileUploadItemConvertToFavoritesItemDataField:(id)arg1;
-+ (id)fileItemConvertToFavoritesItemDataField:(id)arg1;
 + (id)itemWithFileMessageData:(id)arg1;
-+ (id)voiceItemConvertToFavoritesItemDataField:(id)arg1;
 + (id)itemWithVoiceMessageData:(id)arg1;
 + (id)itemWithLocationMessageData:(id)arg1;
 + (id)convertMusicSNS2FavItem:(id)arg1 singer:(id)arg2 webUrl:(id)arg3 lowUrl:(id)arg4 dataUrl:(id)arg5 fromUser:(id)arg6 eventId:(id)arg7 mediaId:(id)arg8 appId:(id)arg9 thumbUrl:(id)arg10 srcCreateTime:(unsigned int)arg11 songLyric:(id)arg12 songAlbumUrl:(id)arg13;
@@ -113,8 +110,10 @@
 + (id)itemWithMessageData:(id)arg1;
 + (id)itemWithMessageData:(id)arg1 readerWrap:(id)arg2;
 + (id)itemWithAppUrl:(id)arg1 urlTitle:(id)arg2 urlDesc:(id)arg3 thumbUrl:(id)arg4 sourceId:(id)arg5;
++ (id)ConvertFavData2FavItem:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isFromFavToChat; // @synthesize isFromFavToChat=_isFromFavToChat;
+@property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
 @property(retain, nonatomic) FavWeAppItem *weAppItem; // @synthesize weAppItem=_weAppItem;
 @property(nonatomic) unsigned int m_preMsgIndex; // @synthesize m_preMsgIndex=_m_preMsgIndex;
@@ -161,6 +160,7 @@
 @property(retain, nonatomic) NSString *deviceid; // @synthesize deviceid=_deviceid;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(nonatomic) unsigned int favId; // @synthesize favId=_favId;
+- (BOOL)isCanForward;
 - (BOOL)checkIfHaveWeWorkCdnUr:(id)arg1;
 - (BOOL)isHaveWeWorkCdnUrl;
 - (BOOL)isRecordItem;
@@ -168,11 +168,11 @@
 - (BOOL)hasCDNData;
 - (unsigned int)itemServerSize;
 - (BOOL)needBatchGet;
-- (id)dataWithDataID:(id)arg1;
+- (id)findRecordDataInList:(id)arg1 WithLocalDataId:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (void)addData:(id)arg1 Index:(int)arg2;
-- (BOOL)dataHasBeenCopyedToTarget;
-- (unsigned int)itemTotalSize;
+- (BOOL)dataHasBeenCopyedToTarget:(id)arg1;
+- (unsigned int)itemTotalSize:(unsigned int)arg1 withDataList:(id)arg2;
 - (BOOL)canAutoDownload;
 - (BOOL)canAutoUpload;
 - (id)firstDataFieldWithThumbnail;
@@ -184,13 +184,13 @@
 - (void)generateFavItemDescription;
 - (id)getChatName;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)GetNoteDesc:(id)arg1;
 - (id)recordTitleString;
 - (void)writeToPasteboard:(id)arg1;
 - (void)writeToPasteboardItem:(id)arg1;
 - (id)UICacheKey;
 @property(nonatomic) int searchResultType;
 - (void)downloadFavoritesItemDataIfNeedWhenHighlight;
+- (id)fakeMsgDataWithType;
 - (BOOL)exportToPath:(id)arg1;
 - (id)fileNameForExportWithFormat:(id)arg1;
 - (id)fileNameForExport;
@@ -198,6 +198,7 @@
 - (void)pasteboard:(id)arg1 item:(id)arg2 provideDataForType:(id)arg3;
 - (void)writeFullRepresentationToPasteboardItem:(id)arg1;
 - (void)writeFullRepresentationToPasteboard:(id)arg1;
+- (id)convertFavTxtItem2FavItemTxtDataField;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

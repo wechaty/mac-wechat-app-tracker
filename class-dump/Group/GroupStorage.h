@@ -55,6 +55,7 @@
 - (void)UpdateGroupChatMemberDetailWithGroupUserName:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (BOOL)ModifyShouldShowGroupDisplayName:(BOOL)arg1 withGroupUsrName:(id)arg2 selfUsrName:(id)arg3 syncToServer:(BOOL)arg4;
 - (BOOL)ModifyChatStatusNotifyOpen:(BOOL)arg1 withGroupUserName:(id)arg2 syncToServer:(BOOL)arg3;
+- (BOOL)ModifyGroupBoxSwitch:(id)arg1 isOn:(BOOL)arg2;
 - (BOOL)ModifyIsTop:(BOOL)arg1 withGroupUsrName:(id)arg2 syncToServer:(BOOL)arg3;
 - (BOOL)ModifyGroupChatRemark:(id)arg1 withGroupUserName:(id)arg2;
 - (BOOL)ModifyGroupChatName:(id)arg1 withGroupUserName:(id)arg2;
@@ -92,13 +93,17 @@
 - (int)handleCreateNormalChatRoomResponse:(id)arg1;
 - (void)createNormalChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)UICreateGroup:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleDelOpenIMChatRoomMemberFailed:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteMemberFromOpenIMChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleDelChatRoomMemberFailed:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteMemberFromChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (BOOL)UIDeleteGroupMember:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)inviteNormalGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)inviteOpenIMMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (BOOL)UIInviteGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleAddChatRoomMemberFailed:(id)arg1;
 - (void)addGroupMemberToChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleAddOpenIMChatRoomMemberFailed:(id)arg1;
 - (void)addGroupMemberToOpenIMChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (BOOL)UIAddGroupMember:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)contactWithOpenImMemberResp:(id)arg1;
@@ -114,6 +119,7 @@
 - (void)getChatRoomAnnouncementWithUserName:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (BOOL)OnDelGroupContacts_Thread:(id)arg1;
 - (void)OnModGroupMemberContacts_Thread:(id)arg1;
+- (void)OnModGroupContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 - (void)OnModGroupContacts_Thread:(id)arg1;
 - (BOOL)quitOpenIMGroupChatRoom:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpenIMChatRoomToContactBook:(id)arg1 inContactBook:(BOOL)arg2 sync:(BOOL)arg3;
@@ -122,6 +128,7 @@
 - (BOOL)addOpenIMOplogChatRoom:(id)arg1 withTopic:(id)arg2 sync:(BOOL)arg3;
 - (BOOL)addOpenIMOplogChatRoom:(id)arg1 top:(BOOL)arg2 sync:(BOOL)arg3;
 - (BOOL)addOpenIMOplogChatRoom:(id)arg1 mute:(BOOL)arg2 sync:(BOOL)arg3;
+- (BOOL)addOpLog_ModifyGroupBoxSwitch:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)addOplog_ModifyShowDisplayNameWithGroupChatUserName:(id)arg1 usrName:(id)arg2 flag:(unsigned int)arg3 open:(BOOL)arg4 sync:(BOOL)arg5;
 - (BOOL)addOplog_ModifyNotifyStatus:(id)arg1 withStatus:(unsigned int)arg2 sync:(BOOL)arg3;
 - (unsigned int)ChatNotifyC2S:(unsigned int)arg1;

@@ -31,8 +31,8 @@
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurFav;
 - (void)addDownloadItem:(id)arg1 withDataList:(id)arg2;
-- (id)getDownloadInfo:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
-- (id)getFavoritesItemDataFiledWithDataId:(id)arg1 withDataList:(id)arg2;
+- (id)genDownloadInfo:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (id)genFavoritesItemDataFiledWithDataId:(id)arg1 withDataList:(id)arg2;
 - (void)StopDownloadFavItemRecord:(id)arg1;
 - (void)StartDownloadByRecordData:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)StartDownloadByRecordData:(id)arg1 DataId:(id)arg2;

@@ -27,11 +27,17 @@
     NSString *_webUrl;
     NSString *_authIconUrl;
     NSString *_authIconType;
+    NSString *_bizAvatar;
+    NSString *_bizNickname;
+    NSString *_bizUsername;
     NSArray *_mediaList;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *mediaList; // @synthesize mediaList=_mediaList;
+@property(copy, nonatomic) NSString *bizUsername; // @synthesize bizUsername=_bizUsername;
+@property(copy, nonatomic) NSString *bizNickname; // @synthesize bizNickname=_bizNickname;
+@property(copy, nonatomic) NSString *bizAvatar; // @synthesize bizAvatar=_bizAvatar;
 @property(copy, nonatomic) NSString *authIconType; // @synthesize authIconType=_authIconType;
 @property(copy, nonatomic) NSString *authIconUrl; // @synthesize authIconUrl=_authIconUrl;
 @property(copy, nonatomic) NSString *webUrl; // @synthesize webUrl=_webUrl;

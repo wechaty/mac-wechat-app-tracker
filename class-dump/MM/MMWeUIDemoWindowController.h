@@ -42,7 +42,7 @@
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (void)seupTableView;
+- (void)setupTableView;
 - (void)setUpToolbar;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;

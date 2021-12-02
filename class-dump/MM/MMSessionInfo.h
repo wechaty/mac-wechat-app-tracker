@@ -17,15 +17,15 @@
     BOOL m_bShowUnReadAsRedDot;
     unsigned int m_uLastTime;
     BOOL m_bIsTop;
-    unsigned int m_uTopTime;
-    unsigned int m_uUnTopTime;
-    unsigned int m_enterSessionTime;
+    double m_enterSessionTime;
+    double m_persistentCorrectionTime;
     BOOL m_bMemOnly;
     NSString *m_nsFilePath;
     BOOL m_bMarkUnread;
     BOOL _m_bIsDeletion;
     BOOL _m_isMentionedUnread;
     BOOL _m_isPattedUnread;
+    BOOL _isInGroupBox;
     unsigned int _intRes1;
     unsigned int _intRes2;
     unsigned int _intRes3;
@@ -53,6 +53,7 @@
 + (const struct WCTBinding *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int chatSyncFirstLocalId; // @synthesize chatSyncFirstLocalId=_chatSyncFirstLocalId;
+@property BOOL isInGroupBox; // @synthesize isInGroupBox=_isInGroupBox;
 @property(nonatomic) BOOL m_isPattedUnread; // @synthesize m_isPattedUnread=_m_isPattedUnread;
 @property(nonatomic) BOOL m_isMentionedUnread; // @synthesize m_isMentionedUnread=_m_isMentionedUnread;
 @property unsigned int intRes3; // @synthesize intRes3=_intRes3;
@@ -63,9 +64,8 @@
 @property(retain) NSString *strRes1; // @synthesize strRes1=_strRes1;
 @property(nonatomic) BOOL m_bIsDeletion; // @synthesize m_bIsDeletion=_m_bIsDeletion;
 @property(nonatomic) BOOL m_bMemOnly; // @synthesize m_bMemOnly;
-@property(nonatomic) unsigned int m_enterSessionTime; // @synthesize m_enterSessionTime;
-@property unsigned int m_uUnTopTime; // @synthesize m_uUnTopTime;
-@property unsigned int m_uTopTime; // @synthesize m_uTopTime;
+@property(nonatomic) double m_enterSessionTime; // @synthesize m_enterSessionTime;
+@property double m_persistentCorrectionTime; // @synthesize m_persistentCorrectionTime;
 @property BOOL m_bIsTop; // @synthesize m_bIsTop;
 @property(retain, nonatomic) MMSessionInfoPackedInfo *m_packedInfo; // @synthesize m_packedInfo;
 @property(nonatomic) unsigned int m_uLastTime; // @synthesize m_uLastTime;

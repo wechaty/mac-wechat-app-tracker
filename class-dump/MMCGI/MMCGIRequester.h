@@ -8,14 +8,13 @@
 
 #import "MMCGIDelegate-Protocol.h"
 
-@class MMCondition, NSString;
+@class NSString;
 
 @interface MMCGIRequester : NSObject <MMCGIDelegate>
 {
     unsigned int _cgiSessionId;
     unsigned int _functionID;
     CDUnknownBlockType _onResponse;
-    MMCondition *_condition;
 }
 
 + (id)requestCGI:(unsigned int)arg1 Body:(id)arg2 decryptKey:(id)arg3 Response:(CDUnknownBlockType)arg4;
@@ -23,12 +22,10 @@
 + (id)requestCGI:(unsigned int)arg1 Body:(id)arg2 Response:(CDUnknownBlockType)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int functionID; // @synthesize functionID=_functionID;
-@property(retain, nonatomic) MMCondition *condition; // @synthesize condition=_condition;
 @property(nonatomic) unsigned int cgiSessionId; // @synthesize cgiSessionId=_cgiSessionId;
 @property(copy, nonatomic) CDUnknownBlockType onResponse; // @synthesize onResponse=_onResponse;
+- (void)OnResponseCGIFailedWithSessionId:(unsigned int)arg1 cgiWrap:(id)arg2 errType:(unsigned int)arg3 errCode:(unsigned int)arg4;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
-- (void)waitForResponseForever;
-- (BOOL)waitForResponseWithTimeout:(double)arg1;
 - (void)cancel;
 - (BOOL)startRequestWithFunctionID:(unsigned int)arg1 Request:(id)arg2 UserData:(id)arg3 decryptKey:(id)arg4 OnResponse:(CDUnknownBlockType)arg5;
 - (void)dealloc;

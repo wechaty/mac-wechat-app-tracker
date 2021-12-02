@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MMTraitsViewController.h"
 
 #import "NSTabViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
@@ -12,7 +12,7 @@
 @class NSArray, NSString, NSTableView, NSView, RBLPopover, RBLPopoverBackgroundView, RFOverlayScrollView;
 @protocol MMPopUpPopoverDelegate;
 
-@interface MMPopUpPopover : NSViewController <NSTabViewDelegate, NSTableViewDataSource>
+@interface MMPopUpPopover : MMTraitsViewController <NSTabViewDelegate, NSTableViewDataSource>
 {
     NSArray *_titles;
     long long _itemIndex;
@@ -49,6 +49,7 @@
 - (void)setupTableView;
 - (void)setupPopoverView;
 - (struct CGSize)viewSize;
+- (void)viewChangedEffectiveAppearance;
 - (void)viewDidLoad;
 - (void)loadView;
 

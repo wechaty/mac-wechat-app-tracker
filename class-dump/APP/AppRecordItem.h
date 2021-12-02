@@ -26,6 +26,7 @@
 + (id)GetRecordDataDir:(id)arg1 LocalID:(unsigned int)arg2;
 + (id)GetRecordDataPreviewPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3 DataExt:(id)arg4;
 + (id)GetRecordPreviewPathByDataPath:(id)arg1;
++ (id)GetRecordDataTempPathByPath:(id)arg1;
 + (id)GetRecordDataPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3 DataExt:(id)arg4;
 + (id)GetRecordDataPathByParentMessage:(id)arg1 dataField:(id)arg2;
 + (id)GetRecordDataTempPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3;

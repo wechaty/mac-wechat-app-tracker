@@ -36,12 +36,14 @@
 @property(retain, nonatomic) NSString *informativeText; // @synthesize informativeText=_informativeText;
 @property(retain, nonatomic) NSString *messageText; // @synthesize messageText=_messageText;
 - (void)dismiss;
-- (double)getButtonsWidth;
 - (void)showInModal;
 - (void)showInSheet;
-- (id)createCancleButton;
+- (double)getButtonAdjustWidth;
+- (struct CGSize)intrinsicContentSize;
+- (id)createCancelButton;
 - (id)createSedConfirmButton;
 - (id)createConfirmButton;
+- (id)createSingleButton;
 - (void)setupButtons:(double)arg1;
 - (void)setupTitleView;
 - (void)windowWillClose:(id)arg1;

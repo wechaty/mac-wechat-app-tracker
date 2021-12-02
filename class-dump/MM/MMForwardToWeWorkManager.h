@@ -8,13 +8,14 @@
 
 #import "AccountServiceExt-Protocol.h"
 #import "AppMessageHandlerDelegate-Protocol.h"
+#import "IMMWeWorkRecordDownloadCDNMgrExt-Protocol.h"
 #import "MMForwardToWeWorkLogicDelegate-Protocol.h"
 #import "MMUploadProgressWindowDelegate-Protocol.h"
-#import "RecordMessageHandlerDelegate-Protocol.h"
+#import "WeComRecordHandlerDelegate-Protocol.h"
 
-@class AppMessageHandler, FFProcessReqsvrLogicZZ, MMForwardToWeWorkLogic, MMUploadProgressWindow, MessageData, NSMutableArray, NSRecursiveLock, NSString, NSTimer, RecordMessageHandler;
+@class AppMessageHandler, FFProcessReqsvrLogicZZ, MMForwardToWeWorkLogic, MMUploadProgressWindow, MessageData, NSMutableArray, NSRecursiveLock, NSString, NSTimer, WeComRecordHandler;
 
-@interface MMForwardToWeWorkManager : NSObject <MMForwardToWeWorkLogicDelegate, AccountServiceExt, RecordMessageHandlerDelegate, AppMessageHandlerDelegate, MMUploadProgressWindowDelegate>
+@interface MMForwardToWeWorkManager : NSObject <MMForwardToWeWorkLogicDelegate, AccountServiceExt, IMMWeWorkRecordDownloadCDNMgrExt, WeComRecordHandlerDelegate, MMUploadProgressWindowDelegate, AppMessageHandlerDelegate>
 {
     BOOL _isForwarding;
     BOOL _isAccepting;
@@ -28,30 +29,32 @@
     MessageData *_forwardingMessage;
     unsigned long long _currentHandleFileSizeCount;
     unsigned long long _needHandleFileSizeCount;
-    unsigned long long _needDownloadFileSizeCount;
     unsigned long long _currentProgress;
     NSTimer *_encodeWaitTimer;
     NSTimer *_randomProgressTimer;
-    RecordMessageHandler *_recordMessageHandler;
+    WeComRecordHandler *_recordMessageHandler;
     AppMessageHandler *_appMessageHandle;
     FFProcessReqsvrLogicZZ *_messageSendLogic;
     MMUploadProgressWindow *_uploadProgressWindow;
-    NSMutableArray *_tempUploadExtendInfos;
     NSMutableArray *_needHandleDataID;
+    NSMutableArray *_canIgnoreUploadList;
+    NSMutableArray *_ignoreUploadParams;
+    NSMutableArray *_sendMessageIds;
 }
 
 + (id)shareInstance;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *sendMessageIds; // @synthesize sendMessageIds=_sendMessageIds;
+@property(retain, nonatomic) NSMutableArray *ignoreUploadParams; // @synthesize ignoreUploadParams=_ignoreUploadParams;
+@property(retain, nonatomic) NSMutableArray *canIgnoreUploadList; // @synthesize canIgnoreUploadList=_canIgnoreUploadList;
 @property(retain, nonatomic) NSMutableArray *needHandleDataID; // @synthesize needHandleDataID=_needHandleDataID;
-@property(retain, nonatomic) NSMutableArray *tempUploadExtendInfos; // @synthesize tempUploadExtendInfos=_tempUploadExtendInfos;
 @property(retain, nonatomic) MMUploadProgressWindow *uploadProgressWindow; // @synthesize uploadProgressWindow=_uploadProgressWindow;
 @property(retain, nonatomic) FFProcessReqsvrLogicZZ *messageSendLogic; // @synthesize messageSendLogic=_messageSendLogic;
 @property(retain, nonatomic) AppMessageHandler *appMessageHandle; // @synthesize appMessageHandle=_appMessageHandle;
-@property(retain, nonatomic) RecordMessageHandler *recordMessageHandler; // @synthesize recordMessageHandler=_recordMessageHandler;
+@property(retain, nonatomic) WeComRecordHandler *recordMessageHandler; // @synthesize recordMessageHandler=_recordMessageHandler;
 @property(retain, nonatomic) NSTimer *randomProgressTimer; // @synthesize randomProgressTimer=_randomProgressTimer;
 @property(retain, nonatomic) NSTimer *encodeWaitTimer; // @synthesize encodeWaitTimer=_encodeWaitTimer;
 @property(nonatomic) unsigned long long currentProgress; // @synthesize currentProgress=_currentProgress;
-@property(nonatomic) unsigned long long needDownloadFileSizeCount; // @synthesize needDownloadFileSizeCount=_needDownloadFileSizeCount;
 @property(nonatomic) unsigned long long needHandleFileSizeCount; // @synthesize needHandleFileSizeCount=_needHandleFileSizeCount;
 @property(nonatomic) unsigned long long currentHandleFileSizeCount; // @synthesize currentHandleFileSizeCount=_currentHandleFileSizeCount;
 @property(nonatomic) BOOL isAccepting; // @synthesize isAccepting=_isAccepting;
@@ -64,18 +67,18 @@
 @property(nonatomic) long long sendMsgType; // @synthesize sendMsgType=_sendMsgType;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
 @property(retain, nonatomic) MMForwardToWeWorkLogic *forwardLogic; // @synthesize forwardLogic=_forwardLogic;
-- (void)onAllNeedDownlownRecordMessageOK;
-- (void)onOneNeedDownlownRecordMessageFinish:(unsigned int)arg1 andLocalDataID:(id)arg2;
-- (void)onOneNeedDownloadRecordMessageProgress:(unsigned int)arg1 andLocalDataID:(id)arg2;
+- (void)OnWeWorkDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
+- (void)OnWeWorkDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)OnWeWorkDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 totalLen:(unsigned int)arg3 bThumb:(BOOL)arg4;
+- (void)OnWeWorkDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)onRecordMsgUploadCDNModMsgByBitSet:(id)arg1 MsgWrap:(id)arg2 BitSet:(unsigned int)arg3;
 - (void)onCurrentFileUploadFinish:(unsigned int)arg1 andLocalDataID:(id)arg2;
-- (void)onCurrentFileUploadProgress:(unsigned int)arg1 andLocalDataID:(id)arg2;
+- (void)onCurrentFileUploadProgress:(unsigned int)arg1 andTotalLength:(unsigned int)arg2 andLocalDataID:(id)arg3;
 - (void)onAppMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;
 - (int)calculateMessageCount:(id)arg1 andCount:(int)arg2;
 - (int)calculateNeedHandleSizeCount:(id)arg1 andCount:(int)arg2 andDepth:(unsigned int)arg3;
-- (void)calculateNeedHandleSizeCount:(id)arg1 andCount:(int)arg2 andDepth:(unsigned int)arg3 andIsHDImage:(BOOL)arg4;
 - (unsigned long long)calculateMessageSizeCount:(id)arg1 andCount:(unsigned long long)arg2;
 - (void)sumMessageSize:(id)arg1;
 - (void)sumNeedHandleSize:(id)arg1;
@@ -94,7 +97,6 @@
 - (BOOL)decryptForwardMessage:(id)arg1;
 - (BOOL)openWeWorkBySchema;
 - (id)dealCannotSendMessageType:(id)arg1;
-- (void)getUploadExtendInfos:(id)arg1;
 - (id)getWeWorkVersionFromSystem;
 - (BOOL)checkAndEncryptMessageData:(id)arg1;
 - (BOOL)checkAndEncryptMessageDatas:(id)arg1;
@@ -104,6 +106,7 @@
 - (BOOL)isAcceptingForwardMessage;
 - (BOOL)isForwardingMessage;
 - (id)randomGeneratedKey;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

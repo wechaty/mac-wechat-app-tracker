@@ -13,7 +13,7 @@
 #import "MMService-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class MMSessionSortLogic, MMSessionStorage, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString;
+@class MMSessionSortLogic, MMSessionStorage, MMSessionsWrapper, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MMSessionMgr : MMService <IGroupMgrExt, SyncExt, IMessageExt, IContactMgrExt, IChatSyncMgrExt, MMService>
@@ -22,8 +22,7 @@
     BOOL _bDoingSync;
     unsigned int _m_totalUnReadCount;
     unsigned int _m_maxMsgCreateTime;
-    NSString *_m_currentSessionName;
-    NSMutableArray *_m_arrSession;
+    MMSessionsWrapper *_sessionsWrapper;
     MMSessionStorage *_m_storage;
     MMSessionSortLogic *_m_sortLogic;
     NSRecursiveLock *_m_arrSessionLock;
@@ -41,10 +40,9 @@
 @property BOOL m_hasClearData; // @synthesize m_hasClearData=_m_hasClearData;
 @property(retain, nonatomic) MMSessionSortLogic *m_sortLogic; // @synthesize m_sortLogic=_m_sortLogic;
 @property(retain, nonatomic) MMSessionStorage *m_storage; // @synthesize m_storage=_m_storage;
-@property(retain, nonatomic) NSMutableArray *m_arrSession; // @synthesize m_arrSession=_m_arrSession;
+@property(retain, nonatomic) MMSessionsWrapper *sessionsWrapper; // @synthesize sessionsWrapper=_sessionsWrapper;
 @property unsigned int m_maxMsgCreateTime; // @synthesize m_maxMsgCreateTime=_m_maxMsgCreateTime;
 @property unsigned int m_totalUnReadCount; // @synthesize m_totalUnReadCount=_m_totalUnReadCount;
-@property(retain) NSString *m_currentSessionName; // @synthesize m_currentSessionName=_m_currentSessionName;
 - (void)onInitFinish;
 - (void)chatDelete;
 - (void)chatMuteOrUnmute;
@@ -56,6 +54,10 @@
 - (void)unmuteSessionByUserName:(id)arg1;
 - (void)muteSessionByUserName:(id)arg1 syncToServer:(BOOL)arg2;
 - (void)muteSessionByUserName:(id)arg1;
+- (void)switchSession:(id)arg1 isFolding:(BOOL)arg2 isAnimated:(BOOL)arg3;
+- (void)switchAllReadedSessionsFoldingStatus:(BOOL)arg1 isAnimated:(BOOL)arg2;
+- (BOOL)shouldFoldSession:(id)arg1;
+- (void)processSessionWithUserName:(id)arg1 isInGroupBox:(BOOL)arg2 syncToServer:(BOOL)arg3;
 - (void)processSessionWithUserName:(id)arg1 isTop:(BOOL)arg2 syncToServer:(BOOL)arg3;
 - (void)topDraftSessionBySessionInfo:(id)arg1;
 - (BOOL)isTopSessionCountExceed;
@@ -75,14 +77,22 @@
 - (id)getAllGroupSession;
 - (id)getAllGroupSessionContact;
 - (id)getNextUnreadSessionWithCurIndex:(unsigned long long)arg1;
+- (id)getNextUnreadSessionWithCurIndex:(unsigned long long)arg1 forType:(unsigned long long)arg2;
 - (id)getFirstUnreadSession;
+- (id)getFirstUnreadSessionWithType:(unsigned long long)arg1;
 - (long long)getFirstUntopSessionIndex;
 - (BOOL)ignoreMutedChatsWhileAutoScroll;
+- (BOOL)ignoreMutedChatsWhileAutoScrollWithType:(unsigned long long)arg1;
 - (id)getSessionByUserName:(id)arg1;
+- (id)getSessionAtIndex:(unsigned long long)arg1 forType:(unsigned long long)arg2;
 - (id)getSessionAtIndex:(unsigned long long)arg1;
+- (long long)getSessionIndexByUserName:(id)arg1 forType:(unsigned long long)arg2;
 - (long long)getSessionIndexByUserName:(id)arg1;
+- (unsigned long long)getSessionCountForType:(unsigned long long)arg1;
 - (unsigned long long)getSessionCount;
+- (id)getAllSessionsForType:(unsigned long long)arg1;
 - (id)getAllSessions;
+@property(retain, nonatomic) NSString *m_currentSessionName;
 - (void)dealloc;
 - (void)onServiceClearData;
 - (void)onServiceInit;
@@ -96,7 +106,6 @@
 - (void)onChatSyncMsgs:(id)arg1 msgList:(id)arg2;
 - (void)onAddMsgListForSession:(id)arg1;
 - (void)processOnModifyContact:(id)arg1;
-- (void)processOnSyncSessionList:(id)arg1 source:(int)arg2;
 - (void)processOnEnterSession:(id)arg1 isFromLocal:(BOOL)arg2;
 - (void)processOnMsgDeleted:(id)arg1;
 - (BOOL)isVoiceMessagePlayed:(id)arg1;
@@ -104,7 +113,6 @@
 - (void)processOnModMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)isNeedCallNewMsgArrival:(id)arg1;
 - (id)onChatSyncNeedAddSession:(id)arg1;
-- (void)onModMsgNeedAddSession:(id)arg1;
 - (void)processOnAddMsgListForSession:(id)arg1;
 - (void)checkUpdate;
 - (void)stopUpdateTimer;
@@ -112,34 +120,66 @@
 - (void)doRecoverSessionList;
 - (void)recoverSessionListFromLocalMsg;
 - (id)genSessionInfo:(id)arg1 withLastMsg:(id)arg2;
-- (unsigned int)getMaxEnterTime;
+- (double)getMaxEnterTime;
 - (void)updateMaxMsgCreateTime;
 - (unsigned int)sumUnreadCount;
 - (void)pushFrontSessionInfo:(id)arg1;
 - (unsigned char)FFDataSvrMgrSvrFavZZ;
 - (void)syncSessionOrder:(id)arg1;
+- (void)removeSessionInfoInArray:(id)arg1;
 - (void)removeSessionInfo:(id)arg1;
 - (void)updateSessionInfo:(id)arg1;
 - (void)addOrUpdateSessionInfo:(id)arg1 isNew:(char *)arg2;
 - (long long)indexInSessionArray:(id)arg1 withUserName:(id)arg2;
 - (long long)indexInSessionArrayWithUserName:(id)arg1;
+- (long long)indexInSessionArrayWithUserName:(id)arg1 forType:(unsigned long long)arg2;
 - (id)sessionInfoByUserName:(id)arg1;
-- (id)sessionInfoAtIndex:(unsigned long long)arg1;
-- (unsigned long long)sessionArraryCount;
+- (id)sessionInfoAtIndex:(unsigned long long)arg1 forType:(unsigned long long)arg2;
 - (void)resetSessionArray;
+- (id)doStickyChatsTypeStatistic;
+- (void)updateStickyFolderSessionInfo;
+- (long long)groupBoxAdjustStrategy;
+- (void)setGroupBoxAdjustStrategy:(long long)arg1;
+- (long long)lastGroupBoxPos;
+- (void)setLastGroupBoxPos:(long long)arg1;
+- (long long)groupBoxThreshold;
+- (void)setGroupBoxThreshold:(long long)arg1;
+- (void)setGuidanceWindowController:(id)arg1;
+- (id)guidanceWindowController;
+- (void)setContactInitLogic:(id)arg1;
+- (id)contactInitLogic;
+- (void)onContactInitSuccess;
+- (void)onContactInitProcessUpdate:(unsigned int)arg1;
+- (void)onContactInitFail;
+- (BOOL)deleteGroupBoxSessionIfNeed;
+- (void)safeCallOnSessionUpdatedAndUpdateGroupBoxRedDot:(id)arg1;
+- (void)updateGroupBoxSessionRedDotStatusIfNeeded;
+- (void)updateGroupBoxSessionRedDotStatus:(BOOL)arg1;
+- (void)checkGenerateGroupBoxDigest;
+- (void)generateGroupBoxDigestWithMessageData:(id)arg1 isShowUnReadAsRedDot:(BOOL)arg2;
+- (void)generateGroupBoxDigestWithMessageData:(id)arg1;
+- (void)generateGroupBoxDigest:(id)arg1 isShowUnReadAsRedDot:(BOOL)arg2;
+- (void)generateGroupBoxDigestByLatestGroupBoxMsg;
+- (void)markUpdateSessionsContactFinished;
+- (void)clearUpdateSessionsContactFinishedFlag;
+- (void)syncPersistentCorrectionTime:(id)arg1 pctime:(double)arg2;
+- (double)getSessionInfoMaxTime:(id)arg1;
+- (id)checkTimeStampOrder:(long long)arg1;
+- (id)calcGroupBoxParams:(long long)arg1;
+- (void)adjustGroupBoxSessionPos;
+- (void)updateSessionsContactIfNeeded;
+- (void)showGroupBoxGuidanceIfNeededWithContact:(id)arg1;
 - (void)mergeSessionTasksIfNeeded:(id)arg1;
-- (void)onSessionReorderWhenSessionList:(id)arg1;
-- (void)onSessionReorderWhenDraftChange:(id)arg1;
-- (void)onSessionReorderWhenModifyContact:(id)arg1;
-- (void)onSessionReorderWhenModMsg:(id)arg1;
-- (void)onSessionReorderWhenUpdateSession:(id)arg1;
-- (void)onSessionReorderWhenMutedSession:(id)arg1;
-- (void)onSessionReorderWhenStickSession:(id)arg1;
-- (void)onSessionReorderWhenModifySession:(id)arg1;
-- (void)onSessionReorderWhenEnterSession:(id)arg1;
+- (BOOL)p_handleSessionReorderWhenSessionList:(id)arg1;
+- (id)p_handleSessionReorderWhenDraftChange:(id)arg1;
+- (id)p_handleSessionReorderWhenModifyContact:(id)arg1 orderChanged:(char *)arg2 redDotChanged:(char *)arg3;
+- (id)p_handleSessionReorderTaskWhenModMsg:(id)arg1 lastMsgChanged:(char *)arg2;
+- (id)p_handleSessionReorderWhenUpdateSession:(id)arg1;
+- (BOOL)isSessionMsgDataNeeded:(id)arg1;
+- (BOOL)p_handleSessionReorderTaskWhenModifySession:(id)arg1;
+- (BOOL)p_handleSessionReorderTaskWhenEnterSession:(id)arg1 shouldClearUnread:(BOOL)arg2;
 - (void)doSyncSessionList:(id)arg1 source:(int)arg2;
 - (void)doSyncExecuteTask:(id)arg1;
-- (void)restoreOldSortedSessionList;
 - (void)executeTask;
 - (void)addExecuteQueue:(id)arg1;
 - (void)stopTimer;
@@ -175,6 +215,7 @@
 - (void)loadExtendedMsgData:(id)arg1;
 - (void)loadBrandSessionData;
 - (void)loadSessionData;
+- (void)updateGroupBoxSessionthreshold;
 - (void)loadDataWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties

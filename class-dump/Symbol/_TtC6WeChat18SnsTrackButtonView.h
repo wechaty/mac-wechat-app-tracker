@@ -6,6 +6,8 @@
 
 #import <AppKit/NSView.h>
 
+@class NSColor, NSString;
+
 @interface _TtC6WeChat18SnsTrackButtonView : NSView
 {
     // Error parsing type: , name: mouseEvent
@@ -37,6 +39,9 @@
 - (void)setFrameSize:(struct CGSize)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic, retain) NSColor *imageColor; // @synthesize imageColor;
+@property(nonatomic, copy) NSString *imageName;
+@property(nonatomic) struct CGSize imageSize; // @synthesize imageSize;
 
 @end
 

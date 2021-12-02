@@ -28,6 +28,7 @@
 - (void)setupTrackingArea;
 - (void)updateContent:(id)arg1;
 - (void)initSubView;
+- (void)viewDidChangeEffectiveAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -72,6 +72,7 @@
 - (BOOL)unzipPackageAtPath:(id)arg1 withPid:(id)arg2;
 - (void)installPackageFromZip:(id)arg1 storeInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealWithResponse:(id)arg1;
+- (void)handleGetEmoticonListFailed;
 - (void)fetchAndDownloadPurchasedStickerStoreListWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updatePurchasedStickerStoreList;
 - (id)_storeItemsFromResponse:(id)arg1;

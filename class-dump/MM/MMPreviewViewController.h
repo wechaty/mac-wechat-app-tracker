@@ -80,10 +80,10 @@
 - (id)getOriginFilePath;
 - (unsigned int)getOriginDataSize;
 - (id)updateToOriginFileInfo:(id)arg1;
-- (BOOL)isFavoriteFilePath:(id)arg1;
 - (BOOL)isLargeImageForLoad;
 - (BOOL)isDelayLoadOriginImage;
-- (void)updatePreviveImageView;
+- (void)updatePreviewImageView;
+- (void)refreshOriginImageWithPageInfo:(id)arg1 ignoreCache:(BOOL)arg2;
 - (void)refreshOriginImageWithPageInfo:(id)arg1;
 - (void)setupWithPageInfo:(id)arg1;
 - (void)addFullScreenToolBar:(id)arg1;

@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AppProductItem, DownloadVideoReportData, FavoritesItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, DownloadVideoReportData, FavoritesItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -146,6 +146,13 @@
 + (void)GetPathOfAppData:(id)arg1 LocalID:(unsigned int)arg2 FileExt:(id)arg3 retStrPath:(id *)arg4;
 + (void)GetPathOfAppDir:(id)arg1 retStrPath:(id *)arg2;
 + (void)RegisterClsMethod_AppMsgPath;
++ (id)convertWebVideoItem2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)checkSourcePathFileFromMsg:(id)arg1 withDataList:(id)arg2;
++ (id)convertNoteItem2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertRecordItem2MsgData:(id)arg1 toUser:(id)arg2 fromScene:(unsigned long long)arg3;
++ (id)convertRecordDataField2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertFeed2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
 @property(retain, nonatomic) SecondMsgNode *secondMsgNode; // @synthesize secondMsgNode=_secondMsgNode;
@@ -227,6 +234,7 @@
 - (id)getRealMessageContent;
 - (id)getSubMsgContent;
 - (id)getChatRoomContent;
+- (BOOL)isNonSupportedMessageData;
 - (id)getChatRoomUsrName;
 - (id)getChatNameForCurMsg;
 - (void)ChangeForMsgSource;
@@ -263,6 +271,8 @@
 - (id)getValueTypeTable;
 - (id)fileSender;
 - (id)fileContent;
+- (id)finderUserName;
+- (id)finderDesc;
 - (id)content;
 - (BOOL)doRevokeHistoryRecord;
 - (BOOL)hasRevokedHistoryRecord;
@@ -279,7 +289,7 @@
 - (BOOL)allowMergeForwardToWework;
 - (BOOL)allowMergeForward;
 - (BOOL)allowForward;
-- (BOOL)isUploadedIfNeed;
+- (BOOL)isFinishSending;
 - (BOOL)isDownloadedIfNeed;
 - (BOOL)isFileExist;
 - (BOOL)hasFileForUpload;
@@ -328,6 +338,7 @@
 - (id)mapsURLWithProvider:(unsigned long long)arg1;
 - (int)yoType;
 - (unsigned long long)yoCount;
+- (double)originImageSize;
 - (BOOL)isLargeImageForPreview;
 - (BOOL)isWideOrLongImg;
 
@@ -338,6 +349,7 @@
 @property(nonatomic) BOOL bHasAttachment; // @dynamic bHasAttachment;
 @property(readonly, copy) NSString *debugDescription;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @dynamic finderLiveShareItem;
+@property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @dynamic finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @dynamic finderShareItem;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SendImageInfo *imageInfo; // @dynamic imageInfo;
@@ -430,7 +442,9 @@
 @property(nonatomic) unsigned int m_uiAppVersion; // @dynamic m_uiAppVersion;
 @property(nonatomic) unsigned int m_uiCameraType; // @dynamic m_uiCameraType;
 @property(nonatomic) unsigned int m_uiContinueUploadCount; // @dynamic m_uiContinueUploadCount;
+@property(nonatomic) unsigned int m_uiEmoticonHeight; // @dynamic m_uiEmoticonHeight;
 @property(nonatomic) unsigned int m_uiEmoticonType; // @dynamic m_uiEmoticonType;
+@property(nonatomic) unsigned int m_uiEmoticonWidth; // @dynamic m_uiEmoticonWidth;
 @property(nonatomic) unsigned int m_uiEncryVer; // @dynamic m_uiEncryVer;
 @property(nonatomic) unsigned int m_uiGameContent; // @dynamic m_uiGameContent;
 @property(nonatomic) unsigned int m_uiGameType; // @dynamic m_uiGameType;

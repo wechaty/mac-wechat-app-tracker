@@ -6,11 +6,24 @@
 
 #import "DemoBaseView.h"
 
+@class MMCTTextView, MMTextField, MMTextView, NSTextField;
+
 @interface DemoWCTextView : DemoBaseView
 {
+    MMTextField *textFiled;
+    MMTextView *textFiled1;
+    MMCTTextView *textFiled2;
+    NSTextField *textFiled3;
+    NSTextField *textFiled31;
+    MMTextField *textFiled4;
+    MMTextField *textFiled5;
 }
 
+- (void).cxx_destruct;
 - (void)initSubViews;
+- (void)layoutSubViews;
+- (void)fontSizeClassChanged:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

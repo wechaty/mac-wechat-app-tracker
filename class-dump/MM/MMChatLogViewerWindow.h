@@ -56,7 +56,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)windowDidLoad;
 - (id)initWithFavoritesItemDataField:(id)arg1;
-- (id)initWithMessage:(id)arg1 windowID:(id)arg2;
+- (id)initWithMessage:(id)arg1 scene:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

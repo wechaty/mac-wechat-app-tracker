@@ -188,6 +188,7 @@
 - (id)getMultiSelectedMessageTableItems;
 - (id)getMultiSelectedMessages;
 - (void)layoutForMultiSelection:(BOOL)arg1;
+- (void)showAlert:(int)arg1;
 - (void)mouseDragMultiSelectedCellView;
 - (void)handleEventDuringDragging:(id)arg1;
 - (void)handleEventBeforeDragging:(id)arg1;
@@ -208,6 +209,7 @@
 - (void)CloseMultipleSelect:(id)arg1;
 - (void)DeleteByMultipleSelect:(id)arg1;
 - (void)SaveByMultipleSelect:(id)arg1;
+- (void)sendAddFavoritesEvent:(id)arg1;
 - (void)AddFavoritesByMultipleSelect:(id)arg1;
 - (void)ForwardToWeWorkByMergeMutipleSelect:(id)arg1;
 - (void)ForwardByMergeMutipleSelect:(id)arg1;
@@ -233,6 +235,7 @@
 - (void)messageCellView:(id)arg1 multiSelectWithEvent:(id)arg2;
 - (void)messageCellViewDidStartMultiSelection:(id)arg1;
 - (id)replaceLastShowLocateTipsCellViewWith:(id)arg1;
+- (int)updateChosenStyle:(BOOL)arg1 cellView:(id)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;

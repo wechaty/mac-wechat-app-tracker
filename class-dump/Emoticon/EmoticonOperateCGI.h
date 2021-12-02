@@ -20,7 +20,6 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isWorking; // @synthesize isWorking=_isWorking;
 @property(nonatomic) __weak id <EmoticonOperateCGIDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)stopCGI;
 - (void)startCGI;
 - (id)initWithMD5:(id)arg1 operateType:(int)arg2;
 

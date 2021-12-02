@@ -67,7 +67,6 @@
 @property(nonatomic) __weak MMView *tabbarContainer; // @synthesize tabbarContainer=_tabbarContainer;
 @property(retain, nonatomic) MMChatsViewController *chatsViewController; // @synthesize chatsViewController=_chatsViewController;
 - (void)showPreloadwebView:(id)arg1;
-- (void)preloadFeedHomePage;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
 - (void)onUserLogout;
 - (void)onGetOnlineInfoFinished;
@@ -102,6 +101,11 @@
 - (id)tabButtonAtIndex:(int)arg1;
 - (void)updateDetailViewWithController:(id)arg1 inLeftViewController:(id)arg2;
 - (void)setDetailViewWithController:(id)arg1;
+- (void)setupSubviews;
+- (void)setupDetailViewController;
+- (void)setupFavoritesViewController;
+- (void)setupContactsViewController;
+- (void)setupChatsViewController;
 - (void)setupTabbarController;
 - (void)cleanTabbarController;
 - (void)handleAppFontSize;

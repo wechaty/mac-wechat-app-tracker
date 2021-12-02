@@ -48,6 +48,7 @@
 - (void)startDownloadEmoticonWithMD5List:(id)arg1;
 - (void)storeItemDidFinishedDownload;
 - (void)storeItemDidFailedDownload;
+- (void)getEmoticonDescWithCdnUrl:(id)arg1 storeItem:(id)arg2;
 - (void)startDownloadNextStoreItemTask;
 - (void)startDownloadStoreItemWithItemList:(id)arg1;
 - (void)storeIconDidFinishedDownload;

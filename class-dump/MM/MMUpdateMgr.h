@@ -23,6 +23,12 @@
     double _lastCheckTime;
 }
 
++ (void)setUserLoginVersionChange:(BOOL)arg1;
++ (void)updateUserLoginVersion;
++ (BOOL)isUserLoginVersionChange;
++ (BOOL)isUseGreaterThanOrEqualsVersion:(id)arg1;
++ (BOOL)isUseVersion:(id)arg1;
++ (long long)getCurrentUserLoginVersion;
 + (id)previousVersionInfo;
 + (BOOL)isVersionChange;
 - (void).cxx_destruct;
@@ -51,6 +57,8 @@
 - (void)startBackgroundUpdatesCheck;
 - (void)checkForUpdates:(id)arg1;
 - (void)setupUpdater;
+- (long long)getCurrentUserLoginVersion;
+- (void)saveUserLoginVersion;
 - (void)saveToDiskWithVersion:(unsigned int)arg1;
 - (void)saveCurrentVersionToDisk;
 - (id)checkVersionFilePath;

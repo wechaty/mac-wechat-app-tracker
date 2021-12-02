@@ -6,10 +6,12 @@
 
 #import "FTSBaseDB.h"
 
-@class MemoryMappedKV, NSDictionary, NSMutableDictionary, NSObject, NSRecursiveLock, WCTTable;
-@protocol OS_dispatch_queue;
+#import "DocReader-Protocol.h"
 
-@interface FTSMessageDB : FTSBaseDB
+@class FTSDocDB, MemoryMappedKV, NSDictionary, NSMutableDictionary, NSObject, NSRecursiveLock, NSString, WCTTable;
+@protocol FTSMessageEx, OS_dispatch_queue;
+
+@interface FTSMessageDB : FTSBaseDB <DocReader>
 {
     NSObject<OS_dispatch_queue> *_queryQueue;
     BOOL m_stopQuery;
@@ -20,10 +22,14 @@
     NSMutableDictionary *m_dictChatContext;
     MemoryMappedKV *m_markKV;
     long long dbSize;
+    id <FTSMessageEx> _delegate;
+    FTSDocDB *_m_docRelateDB;
 }
 
 + (void)deleteFTSMessageDB;
 - (void).cxx_destruct;
+@property(retain, nonatomic) FTSDocDB *m_docRelateDB; // @synthesize m_docRelateDB=_m_docRelateDB;
+@property(nonatomic) __weak id <FTSMessageEx> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long dbSize; // @synthesize dbSize;
 @property(nonatomic) BOOL isFtsOptimizing; // @synthesize isFtsOptimizing;
 @property(retain, nonatomic) MemoryMappedKV *m_markKV; // @synthesize m_markKV;
@@ -31,6 +37,18 @@
 @property(retain, nonatomic) WCTTable *m_tableChatContext; // @synthesize m_tableChatContext;
 @property(retain, nonatomic) NSDictionary *m_dictCreateTable; // @synthesize m_dictCreateTable;
 @property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock;
+- (int)tableCount:(int)arg1;
+- (int)totalTableCount;
+- (void)onMarkRelateDataReload;
+- (id)readDocData:(int)arg1 startDocId:(int)arg2 len:(int)arg3;
+- (void)cancelLoadFTSToDocRelateTable;
+- (void)markReloadDocTable;
+- (BOOL)isStartLoadDocRelate;
+- (BOOL)isCanLoadFTSToDocRelateTable;
+- (BOOL)isLoadDocRelateFinish;
+- (void)checkDocRelateTables;
+- (BOOL)loadFTSToDocRelateTable;
+- (id)innerQueryDocIdListWithCondition:(struct WCTExpr)arg1 msgTable:(id)arg2;
 - (void)markAndOptimize:(id)arg1 index:(unsigned int)arg2;
 - (BOOL)markWriteBack:(id)arg1 result:(unsigned int)arg2 opValue:(id)arg3;
 - (void)findOneTableToOptimize;
@@ -49,7 +67,13 @@
 - (unsigned long long)getLastMesLocalID:(id)arg1;
 - (id)selectMsgsWithChatName:(id)arg1 limit:(unsigned int)arg2;
 - (void)cancelQuery;
+- (void)reportDocInfoTotalCostTime:(unsigned long long)arg1;
+- (void)reportDocListCostTime:(unsigned long long)arg1;
 - (void)reportCostTime:(unsigned long long)arg1;
+- (int)innerQueryMessLocalIdByDocId:(int)arg1 tableId:(int)arg2;
+- (id)innerQueryDocIdList:(id)arg1 tableId:(int)arg2;
+- (id)innerQueryMsgsByDocInfo:(id)arg1 tableIndex:(unsigned int)arg2;
+- (id)innerQueryMsgsBySelectRowsWithDocIds:(id)arg1 tableIndex:(unsigned int)arg2;
 - (id)innerQueryMsgsBySelectRowsWithKeyword:(id)arg1 tableIndex:(unsigned int)arg2 chatNameId:(unsigned int)arg3 maxTime:(unsigned int)arg4 limit:(unsigned int)arg5;
 - (id)innerQueryMsgsWithKeyword:(id)arg1 tableIndex:(unsigned int)arg2;
 - (void)transformSessionResult:(id)arg1 exitMsgIds:(id)arg2 resultDic:(id)arg3;
@@ -59,6 +83,7 @@
 - (BOOL)deleteRowInChatTable:(id)arg1 arrMsgData:(id)arg2;
 - (BOOL)deleteRowInChatTable:(id)arg1 msgData:(id)arg2;
 - (id)innerSelectRowInChatTable:(id)arg1 msgData:(id)arg2;
+- (BOOL)insertFTSToRelateDatas:(unsigned int)arg1 latestCount:(unsigned int)arg2;
 - (BOOL)innerInsertRowsInChatTable:(id)arg1 arrMsgData:(id)arg2;
 - (BOOL)insertRowsInChatTable:(id)arg1 arrMsgData:(id)arg2;
 - (unsigned int)tableIndexOfChatName:(id)arg1;
@@ -66,7 +91,14 @@
 - (id)msgTableWithIndex:(unsigned int)arg1;
 - (id)msgTableNameWithIndex:(unsigned int)arg1;
 - (BOOL)createFTSMsgTables;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

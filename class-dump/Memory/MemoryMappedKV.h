@@ -20,24 +20,19 @@
     unsigned long long m_size;
     unsigned long long m_actualSize;
     struct CodedOutputData *m_output;
-    BOOL m_isInBackground;
     BOOL m_needLoadFromFile;
     unsigned int m_crcDigest;
     int m_crcFd;
     char *m_crcPtr;
 }
 
-+ (id)memoryMappedKVWithID:(id)arg1 withApplicationState:(long long)arg2;
-+ (id)sharedDefaultMemoryMappedKVWithApplicationState:(long long)arg1 withID:(id)arg2;
-+ (id)sharedDefaultMemoryMappedKVWithApplicationState:(long long)arg1;
-+ (id)defaultMemoryMappedKVWithApplicationState:(long long)arg1 withID:(id)arg2;
-+ (id)defaultMemoryMappedKVWithApplicationState:(long long)arg1;
 + (BOOL)isFileValid:(id)arg1;
 + (id)crcPathWithMappedKVPath:(id)arg1;
 + (id)mappedKVPathWithID:(id)arg1;
 + (id)mappedKVDir;
-+ (id)currentUserName;
++ (void)setCurrentAppState:(long long)arg1;
 + (void)setCurrentUserName:(id)arg1;
++ (id)currentUserName;
 + (void)initialize;
 + (id)memoryMappedKVWithID:(id)arg1;
 + (id)sharedDefaultMemoryMappedKVWithID:(id)arg1;
@@ -92,7 +87,7 @@
 - (void)didEnterBackground;
 - (void)onMemoryWarning;
 - (void)dealloc;
-- (id)initWithMMapID:(id)arg1 withApplicationState:(long long)arg2;
+- (id)initWithMMapID:(id)arg1;
 
 @end
 

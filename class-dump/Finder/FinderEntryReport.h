@@ -11,7 +11,6 @@
 }
 
 - (id)finderEntryReportSuffixString;
-- (void)generateContextId;
 - (void)report;
 
 @end

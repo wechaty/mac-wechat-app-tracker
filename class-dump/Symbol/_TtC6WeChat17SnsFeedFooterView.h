@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6WeChat18SnsFeedBaseRowView.h"
+#import "_TtC6WeChat19SnsFeedBaseCellView.h"
 
-@interface _TtC6WeChat17SnsFeedFooterView : _TtC6WeChat18SnsFeedBaseRowView
+@interface _TtC6WeChat17SnsFeedFooterView : _TtC6WeChat19SnsFeedBaseCellView
 {
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: $__lazy_storage_$_titleField

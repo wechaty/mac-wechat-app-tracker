@@ -202,6 +202,7 @@
 - (void)updateExtraInfo;
 - (BOOL)enableFeed;
 - (void)preloadWebViewWithDataItem:(unsigned long long)arg1 andUrl:(id)arg2;
+- (void)tryReloadUrl:(id)arg1;
 - (void)showWebViewWithDataItem:(id)arg1 initialShowing:(BOOL)arg2;
 - (void)showAlertSheetWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resetViewInfo;

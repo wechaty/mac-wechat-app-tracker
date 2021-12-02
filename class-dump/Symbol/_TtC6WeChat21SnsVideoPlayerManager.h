@@ -9,6 +9,8 @@
 @interface _TtC6WeChat21SnsVideoPlayerManager : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: currentPlaying
+    // Error parsing type: , name: currentPlayingFeedID
+    // Error parsing type: , name: disposeBag
     // Error parsing type: , name: playersCache
     // Error parsing type: , name: lock
 }

@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <ExchangeEmoticonPackCgiDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)handleExchangeEmotionPackFailed:(int)arg1;
 - (void)startRequestWithProductId:(id)arg1 reqScene:(int)arg2;
 - (id)init;
 

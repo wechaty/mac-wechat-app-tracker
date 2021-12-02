@@ -38,10 +38,13 @@
 - (id)getFont:(id)arg1;
 - (id)getFont:(id)arg1 forModule:(int)arg2;
 - (id)getColorFromXML:(id)arg1;
+- (id)getColorInDarkMode:(id)arg1;
+- (id)getColorInAquaMode:(id)arg1;
 - (id)getColor:(id)arg1;
 - (id)colorNames;
 - (void)loadColorFromXML;
 - (void)setFontClass:(long long)arg1;
+- (long long)fontClass;
 - (id)init;
 
 // Remaining properties

@@ -25,7 +25,7 @@
 @property(retain, nonatomic) NSMutableArray *m_arrBrandInfo; // @synthesize m_arrBrandInfo=_m_arrBrandInfo;
 @property(retain, nonatomic) NSRecursiveLock *m_brandSessionLock; // @synthesize m_brandSessionLock=_m_brandSessionLock;
 - (id)getBrandSessionContact:(id)arg1 msgData:(id)arg2;
-- (unsigned int)getMaxEnterTime;
+- (double)getMaxEnterTime;
 - (id)genBrandSessionInfo:(id)arg1 withAddMsg:(id)arg2;
 - (id)createBrandSessionWithContact:(id)arg1;
 - (void)removeBrandSessionInfo:(id)arg1;

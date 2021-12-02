@@ -26,7 +26,6 @@
 + (double)containerHeightWithMessage:(id)arg1;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (id)_formattedChatLogContentWithMsg:(id)arg1;
-+ (id)_genSenderAndContentString:(id)arg1 isLastOne:(BOOL)arg2;
 + (id)_formattedChatLogBottomWithStr:(id)arg1;
 + (id)_formattedChatLogTitleWithMsg:(id)arg1;
 - (void).cxx_destruct;
