@@ -75,8 +75,11 @@
 - (id)innerQueryMsgsByDocInfo:(id)arg1 tableIndex:(unsigned int)arg2;
 - (id)innerQueryMsgsBySelectRowsWithDocIds:(id)arg1 tableIndex:(unsigned int)arg2;
 - (id)innerQueryMsgsBySelectRowsWithKeyword:(id)arg1 tableIndex:(unsigned int)arg2 chatNameId:(unsigned int)arg3 maxTime:(unsigned int)arg4 limit:(unsigned int)arg5;
+- (id)getChatContextDataByIds:(id)arg1;
+- (id)getChatNameById:(id)arg1 chatContextId:(unsigned int)arg2;
 - (id)innerQueryMsgsWithKeyword:(id)arg1 tableIndex:(unsigned int)arg2;
-- (void)transformSessionResult:(id)arg1 exitMsgIds:(id)arg2 resultDic:(id)arg3;
+- (void)transformSessionResultWithoutRepeat:(id)arg1 exitMsgIds:(id)arg2 resultDic:(id)arg3;
+- (void)setChatNameByChatContextIds:(id)arg1;
 - (id)queryWithKeyword:(id)arg1 chatName:(id)arg2 maxTime:(unsigned int)arg3 limit:(unsigned int)arg4;
 - (id)queryWithKeyword:(id)arg1 chatName:(id)arg2;
 - (BOOL)deleteAllRowsInChatTable:(id)arg1;

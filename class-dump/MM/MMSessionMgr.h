@@ -183,6 +183,7 @@
 - (void)executeTask;
 - (void)addExecuteQueue:(id)arg1;
 - (void)stopTimer;
+- (void)clearTaskArrayAndStopTimer;
 - (void)startWithInterval:(double)arg1;
 @property(retain, nonatomic) NSArray *oldSortedSessionArray; // @dynamic oldSortedSessionArray;
 @property(retain, nonatomic) MMTimer *myTimer; // @dynamic myTimer;

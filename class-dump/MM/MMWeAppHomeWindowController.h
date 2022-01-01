@@ -11,7 +11,7 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class JWCTableView, NSArray, NSButton, NSString, RFOverlayScrollView;
+@class JWCTableView, NSArray, NSString, RFOverlayScrollView;
 
 @interface MMWeAppHomeWindowController : NSWindowController <JWCTableViewDelegate, JWCTableViewDataSource, NSWindowDelegate, NSToolbarDelegate>
 {
@@ -19,11 +19,9 @@
     NSArray *_remainWeAppList;
     JWCTableView *_tableView;
     RFOverlayScrollView *_scrollView;
-    NSButton *_allowMultiProcess;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak NSButton *allowMultiProcess; // @synthesize allowMultiProcess=_allowMultiProcess;
 @property(nonatomic) __weak RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) __weak JWCTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) NSArray *remainWeAppList; // @synthesize remainWeAppList=_remainWeAppList;
@@ -39,7 +37,6 @@
 - (BOOL)tableView:(id)arg1 hasHeaderViewForSection:(long long)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (void)onAllowMultiProcessValueChange:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;

@@ -398,6 +398,7 @@
 @property(retain, nonatomic) NSString *m_nsDesc; // @dynamic m_nsDesc;
 @property(copy, nonatomic) NSString *m_nsEmoticonBelongToProductID; // @dynamic m_nsEmoticonBelongToProductID;
 @property(copy, nonatomic) NSString *m_nsEmoticonMD5; // @dynamic m_nsEmoticonMD5;
+@property(retain, nonatomic) NSString *m_nsGuardianTicket;
 @property(copy, nonatomic) NSString *m_nsImgHDUrl; // @dynamic m_nsImgHDUrl;
 @property(copy, nonatomic) NSString *m_nsImgMidUrl; // @dynamic m_nsImgMidUrl;
 @property(retain, nonatomic) NSString *m_nsJsAppId; // @dynamic m_nsJsAppId;
@@ -422,6 +423,7 @@
 @property(retain, nonatomic) NSString *m_nsStreamVideoUrl; // @dynamic m_nsStreamVideoUrl;
 @property(retain, nonatomic) NSString *m_nsStreamVideoWebUrl; // @dynamic m_nsStreamVideoWebUrl;
 @property(retain, nonatomic) NSString *m_nsStreamVideoWording; // @dynamic m_nsStreamVideoWording;
+@property(retain, nonatomic) NSString *m_nsTempAccessBizKey;
 @property(retain, nonatomic) NSString *m_nsThumbUrl; // @dynamic m_nsThumbUrl;
 @property(retain, nonatomic) NSString *m_nsTitle; // @dynamic m_nsTitle;
 @property(retain, nonatomic) AppProductItem *m_oAppProductItem; // @dynamic m_oAppProductItem;
@@ -463,6 +465,8 @@
 @property(nonatomic) unsigned int m_uiRemindTime; // @dynamic m_uiRemindTime;
 @property(nonatomic) unsigned int m_uiShowType; // @dynamic m_uiShowType;
 @property(nonatomic) unsigned int m_uiStreamVideoTime; // @dynamic m_uiStreamVideoTime;
+@property(nonatomic) unsigned int m_uiTempAccessAgreenTime;
+@property(nonatomic) unsigned int m_uiTempAccessBizType;
 @property(nonatomic) unsigned int m_uiUploadStatus; // @dynamic m_uiUploadStatus;
 @property(nonatomic) unsigned int m_uiVideoCompressStatus; // @dynamic m_uiVideoCompressStatus;
 @property(nonatomic) unsigned int m_uiVideoLen; // @dynamic m_uiVideoLen;

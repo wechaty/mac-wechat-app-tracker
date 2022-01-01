@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)canLaunchMiniProgramWithContact:(id)arg1;
 - (void)requestContact:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 // Remaining properties

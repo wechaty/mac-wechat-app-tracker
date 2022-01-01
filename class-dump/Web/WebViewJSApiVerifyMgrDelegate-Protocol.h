@@ -11,6 +11,7 @@
 @protocol WebViewJSApiVerifyMgrDelegate <NSObject>
 
 @optional
+- (void)onJSApiPermissionsUpdate:(NSString *)arg1;
 - (JSFunctionDef *)getJSFunctionDef:(NSString *)arg1;
 @end
 

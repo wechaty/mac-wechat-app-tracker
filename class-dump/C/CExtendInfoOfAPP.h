@@ -83,24 +83,36 @@
     WCFinderLiveShareItem *finderLiveShareItem;
     WCFinderMessageShareNameCard *finderMessageShareNameCard;
     unsigned int m_uiContinueUploadCount;
+    NSString *m_nsGuardianTicket;
+    NSString *m_nsTempAccessBizKey;
+    unsigned int m_uiTempAccessBizType;
+    unsigned int m_uiTempAccessAgreenTime;
     BOOL bAppMsgCompleteFlag;
     unsigned int _m_uiWeAppState;
     unsigned int _m_uiWeAppVersion;
+    unsigned int _m_uiTempAccessBizType;
+    unsigned int _m_uiTempAccessAgreenTime;
     NSString *m_nsCommentUrl;
     MessageData *m_refMessageData;
     OpenSDKAppBrandItem *m_openSDKAppBrandItem;
-    MessageData *_referingMessageWrap;
+    MessageData *referingMessageWrap;
     NSString *_referMessageSenderUsrname;
     NSString *_referMessageSenderDisplayName;
+    NSString *_m_nsGuardianTicket;
+    NSString *_m_nsTempAccessBizKey;
 }
 
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int m_uiTempAccessAgreenTime; // @synthesize m_uiTempAccessAgreenTime=_m_uiTempAccessAgreenTime;
+@property(nonatomic) unsigned int m_uiTempAccessBizType; // @synthesize m_uiTempAccessBizType=_m_uiTempAccessBizType;
+@property(retain, nonatomic) NSString *m_nsTempAccessBizKey; // @synthesize m_nsTempAccessBizKey=_m_nsTempAccessBizKey;
+@property(retain, nonatomic) NSString *m_nsGuardianTicket; // @synthesize m_nsGuardianTicket=_m_nsGuardianTicket;
 @property(nonatomic) unsigned int m_uiWeAppVersion; // @synthesize m_uiWeAppVersion=_m_uiWeAppVersion;
 @property(nonatomic) unsigned int m_uiWeAppState; // @synthesize m_uiWeAppState=_m_uiWeAppState;
 @property(retain, nonatomic) NSString *referMessageSenderDisplayName; // @synthesize referMessageSenderDisplayName=_referMessageSenderDisplayName;
 @property(retain, nonatomic) NSString *referMessageSenderUsrname; // @synthesize referMessageSenderUsrname=_referMessageSenderUsrname;
-@property(retain, nonatomic) MessageData *referingMessageWrap; // @synthesize referingMessageWrap=_referingMessageWrap;
+@property(retain, nonatomic) MessageData *referingMessageWrap; // @synthesize referingMessageWrap;
 @property(nonatomic) unsigned int m_uiContinueUploadCount; // @synthesize m_uiContinueUploadCount;
 @property(nonatomic) long long m_overwriteNewMsgId; // @synthesize m_overwriteNewMsgId;
 @property(retain, nonatomic) NSString *m_nsMsgFileUploadToken; // @synthesize m_nsMsgFileUploadToken;
@@ -204,6 +216,7 @@
 - (id)getSingleReaderCoverUrl;
 - (void)clearReaderWraps;
 - (id)getReaderWraps;
+- (BOOL)isTeenApplyMsg;
 - (BOOL)isAppRecordOverLimit;
 - (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLiveMsg;

@@ -13,22 +13,22 @@
     int _downloadType;
     NSMutableArray *_dataStorageList;
     NSMutableArray *_dataList;
-    NSMutableArray *_downloadQueue;
     NSURLSession *_downloadMgr;
     NSMutableArray *_emojiList;
     MMCache *_imageCache;
     MMCache *_dataCache;
     NSString *_dataPath;
+    NSMutableArray *_downloadQueue;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
 @property(retain, nonatomic) NSString *dataPath; // @synthesize dataPath=_dataPath;
 @property(retain, nonatomic) MMCache *dataCache; // @synthesize dataCache=_dataCache;
 @property(retain, nonatomic) MMCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
 @property(retain, nonatomic) NSMutableArray *emojiList; // @synthesize emojiList=_emojiList;
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
-@property(retain, nonatomic) NSMutableArray *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
 @property(retain, nonatomic) NSMutableArray *dataList; // @synthesize dataList=_dataList;
 @property(retain, nonatomic) NSMutableArray *dataStorageList; // @synthesize dataStorageList=_dataStorageList;
 - (id)getEmotionThumbWithPackageID:(id)arg1;

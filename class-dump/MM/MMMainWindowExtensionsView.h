@@ -6,13 +6,14 @@
 
 #import "MMView.h"
 
-#import "ISyncCmdHandlerMgrExt-Protocol.h"
+#import "IAccountStorageExt-Protocol.h"
+#import "MMConfigMgrExt-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
 @class NSMutableArray, NSMutableDictionary, NSString, NSTableView;
 
-@interface MMMainWindowExtensionsView : MMView <NSTableViewDelegate, NSTableViewDataSource, ISyncCmdHandlerMgrExt>
+@interface MMMainWindowExtensionsView : MMView <NSTableViewDelegate, NSTableViewDataSource, IAccountStorageExt, MMConfigMgrExt>
 {
     NSTableView *_tableView;
     NSMutableDictionary *_extensionInfos;

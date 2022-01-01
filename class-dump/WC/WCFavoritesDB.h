@@ -15,6 +15,8 @@
     NSMutableSet *m_tableSet;
 }
 
++ (BOOL)isWalFileShouldCheckpoint;
++ (BOOL)isWalFileValid;
 + (void)deleteFavoritesDB;
 - (void).cxx_destruct;
 - (void)recordDBFileInfo;
@@ -38,8 +40,8 @@
 - (id)getFavoritesCdnInfoTableName;
 - (BOOL)createFavoritesItemTable;
 - (id)getFavoritesItemTableName;
-- (BOOL)setupDB;
-- (id)init;
+- (BOOL)setupDB:(id)arg1 encryptKey:(id)arg2 pageSize:(int)arg3;
+- (id)initWithCheckpoint:(BOOL)arg1;
 - (void)fillFavItemUpdateProperties:(list_2812bee2 *)arg1;
 - (void)fillFavItemUpdatePropertiesForFavObject:(list_2812bee2 *)arg1;
 - (id)getNeedBatchGetFavoritesItemListByType:(int)arg1 andMinUpdateTime:(unsigned int)arg2;

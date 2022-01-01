@@ -119,6 +119,11 @@
 - (id)getContactWithAppId:(id)arg1;
 - (id)getContact:(id)arg1;
 - (id)getContactWithKey:(id)arg1 type:(unsigned long long)arg2;
+- (BOOL)deleteAllAppStarItem;
+- (BOOL)insertAppStarItemList:(id)arg1;
+- (BOOL)isItemStared:(id)arg1;
+- (id)getAllAppStarItem;
+- (BOOL)mergeAppStarItems:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

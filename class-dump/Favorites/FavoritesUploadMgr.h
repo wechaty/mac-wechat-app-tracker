@@ -51,9 +51,11 @@
 - (BOOL)addUploadDataList:(id)arg1 localId:(unsigned int)arg2;
 - (BOOL)addUploadItem:(id)arg1 delayUpload:(BOOL)arg2;
 - (BOOL)addUploadItem:(id)arg1;
+- (void)startCountMd5AndUpload:(BOOL)arg1;
 - (void)startCountMd5AndUpload;
 - (BOOL)doCopyFile:(id)arg1 withDataList:(id)arg2;
 - (void)doCopyFile:(id)arg1;
+- (BOOL)checkAndCopyFile:(id)arg1 andDataField:(id)arg2 isThumb:(BOOL)arg3;
 - (void)saveMd5ToCdnInfoTable:(id)arg1 withDataList:(id)arg2;
 - (BOOL)fileMD5WithPath:(id)arg1 md5:(id *)arg2 md5Head:(id *)arg3;
 - (BOOL)countItemDataMD5:(id)arg1 withDataList:(id)arg2;

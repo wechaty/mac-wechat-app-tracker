@@ -6,9 +6,9 @@
 
 #import "_TtC6WeChat25SnsFeedListViewController.h"
 
-#import "ISyncCmdHandlerMgrExt-Protocol.h"
+#import "IAccountStorageExt-Protocol.h"
 
-@interface _TtC6WeChat25SnsFeedListViewController (WeChat) <ISyncCmdHandlerMgrExt>
+@interface _TtC6WeChat25SnsFeedListViewController (WeChat) <IAccountStorageExt>
 - (void)onUserFocus:(id)arg1;
 - (void)onScrollStop:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;

@@ -67,6 +67,7 @@
 - (void)handleExposeUrl:(id)arg1 messageData:(id)arg2;
 - (void)handleDlFeedbackUrl:(id)arg1 messageData:(id)arg2;
 - (void)handleNextFeedbackUrl:(id)arg1;
+- (void)handleLimitModeUrl:(id)arg1 A8KeyConfig:(id)arg2;
 - (long long)getMsgIdByReTransferUrl:(id)arg1;
 - (id)getContactUserNameByReTransferURL:(id)arg1;
 - (id)getContactByReTransferURL:(id)arg1;

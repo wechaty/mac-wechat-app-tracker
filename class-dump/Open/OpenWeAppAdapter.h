@@ -42,6 +42,7 @@
 - (void)openWeAppWithOfficalBrandDict:(id)arg1;
 - (void)openDebugWeApp:(id)arg1;
 - (void)openWeApp:(id)arg1 withScene:(int)arg2;
+- (void)handleLaunchError:(id)arg1;
 - (void)launchWeAppWithHost:(id)arg1;
 - (void)hideInitializeWindow;
 - (unsigned long long)getFromPreScene:(int)arg1;

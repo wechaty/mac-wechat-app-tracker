@@ -154,9 +154,11 @@
 - (void)cleanProperties;
 - (void)doSomethingWhenLogout;
 - (void)doSomethingWhenAppEnterBackground;
-- (void)doSomethindWhenAppEnterForeground;
+- (void)doSomethingWhenAppEnterForeground;
 - (void)applicationWillHide:(id)arg1;
+- (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2 scene:(long long)arg3;
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
+- (void)resignKeyWindows;
 - (void)applicationWillResignActive:(id)arg1;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillBecomeActive:(id)arg1;
@@ -298,7 +300,6 @@
 - (void)showWeAppLogDir:(id)arg1;
 - (void)showWeAppLatestWindow:(id)arg1;
 - (void)showWeAppDebugWindow:(id)arg1;
-- (void)menuWillOpen:(id)arg1;
 - (void)showWeAppMenuIfNeeded;
 
 // Remaining properties

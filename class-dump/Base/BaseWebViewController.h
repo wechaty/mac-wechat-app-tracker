@@ -120,6 +120,7 @@
 - (void)webView:(id)arg1 runJavaScriptAlertPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)webView:(id)arg1 runOpenPanelWithParameters:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
+- (void)onJSApiPermissionsUpdate:(id)arg1;
 - (id)getJSFunctionDef:(id)arg1;
 - (unsigned int)currentGetA8KeyScene;
 - (void)removeUrlPermissionForUrl:(id)arg1;

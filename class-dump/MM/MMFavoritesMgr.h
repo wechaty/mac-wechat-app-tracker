@@ -18,6 +18,7 @@
 
 @interface MMFavoritesMgr : MMService <FavoritesBatchGetMgrDelegate, FavoritesSyncManagerDelegate, FavoritesBatchDelMgrDelegate, AccountServiceExt, MMNetExt, FavoritesUploadMgrDelegate, MMService>
 {
+    BOOL m_invalidWalFlag;
     WCFavoritesDB *_favItemDB;
     FavoritesSyncManager *_syncMgr;
     FavoritesUploadMgr *_uploadMgr;
@@ -109,9 +110,11 @@
 - (void)addFavIDsToBatchGetQueue:(id)arg1;
 - (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 addedItems:(id)arg2 deletedItemFavIds:(id)arg3 updatedItemFavIds:(id)arg4 totalCountChanged:(BOOL)arg5;
 - (void)sync;
+- (void)checkShouldShowFavErrorHint;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;
+- (void)p_initObjects;
 - (id)init;
 
 // Remaining properties

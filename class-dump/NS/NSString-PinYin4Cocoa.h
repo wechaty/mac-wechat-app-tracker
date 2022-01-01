@@ -71,6 +71,11 @@
 - (BOOL)isQQContactUserName;
 - (BOOL)isLBSRoomUserName;
 - (BOOL)isGroupChatUserName;
+- (BOOL)teen_IsStringContainNumber;
+- (unsigned long long)teen_ExtractNumber;
+- (id)teen_Base64UrlDecoder;
+- (id)teen_Base64UrlEncoder;
+- (id)teen_URLStringByAppendingQueryString:(id)arg1;
 - (id)stringByReplacingOccurrencesOfRegex:(id)arg1 options:(unsigned int)arg2 inRange:(struct _NSRange)arg3 error:(id *)arg4 enumerationOptions:(unsigned long long)arg5 usingBlock:(CDUnknownBlockType)arg6;
 - (id)stringByReplacingOccurrencesOfRegex:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (BOOL)enumerateStringsSeparatedByRegex:(id)arg1 options:(unsigned int)arg2 inRange:(struct _NSRange)arg3 error:(id *)arg4 enumerationOptions:(unsigned long long)arg5 usingBlock:(CDUnknownBlockType)arg6;

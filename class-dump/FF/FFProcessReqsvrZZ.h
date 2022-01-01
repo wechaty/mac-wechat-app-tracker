@@ -198,6 +198,7 @@
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4;
 - (void)DelRevokedMsg:(id)arg1 msgData:(id)arg2;
+- (BOOL)UpdateTeenApplyTitleWithMessage:(id)arg1;
 - (BOOL)UpdateUnReadStateWithPatMessage:(id)arg1;
 - (BOOL)UpdateCreateTimeWithMessage:(id)arg1;
 - (BOOL)UpdateDataMd5WithMessage:(id)arg1;

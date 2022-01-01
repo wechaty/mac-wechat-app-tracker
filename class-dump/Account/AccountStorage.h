@@ -34,7 +34,6 @@
 - (id)modUserInfo;
 - (void)ClearDBEncryptInfo;
 - (void)SaveDBEncryptInfo;
-- (void)SaveTaskEncryptInfo:(id)arg1;
 - (id)GetDBEncryptInfo;
 - (void)SaveLocalUserInfo;
 - (id)GetLocalUserInfo;
