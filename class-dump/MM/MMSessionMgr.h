@@ -21,7 +21,6 @@
     BOOL _m_hasClearData;
     BOOL _bDoingSync;
     unsigned int _m_totalUnReadCount;
-    unsigned int _m_maxMsgCreateTime;
     MMSessionsWrapper *_sessionsWrapper;
     MMSessionStorage *_m_storage;
     MMSessionSortLogic *_m_sortLogic;
@@ -41,7 +40,6 @@
 @property(retain, nonatomic) MMSessionSortLogic *m_sortLogic; // @synthesize m_sortLogic=_m_sortLogic;
 @property(retain, nonatomic) MMSessionStorage *m_storage; // @synthesize m_storage=_m_storage;
 @property(retain, nonatomic) MMSessionsWrapper *sessionsWrapper; // @synthesize sessionsWrapper=_sessionsWrapper;
-@property unsigned int m_maxMsgCreateTime; // @synthesize m_maxMsgCreateTime=_m_maxMsgCreateTime;
 @property unsigned int m_totalUnReadCount; // @synthesize m_totalUnReadCount=_m_totalUnReadCount;
 - (void)onInitFinish;
 - (void)chatDelete;
@@ -121,7 +119,6 @@
 - (void)recoverSessionListFromLocalMsg;
 - (id)genSessionInfo:(id)arg1 withLastMsg:(id)arg2;
 - (double)getMaxEnterTime;
-- (void)updateMaxMsgCreateTime;
 - (unsigned int)sumUnreadCount;
 - (void)pushFrontSessionInfo:(id)arg1;
 - (unsigned char)FFDataSvrMgrSvrFavZZ;

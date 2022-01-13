@@ -27,6 +27,7 @@
 }
 
 + (struct Config)GetWxConfig;
++ (unsigned long long)getFileMaxSizeWithType:(int)arg1;
 + (id)GetCdnRootPath;
 - (id).cxx_construct;
 - (void).cxx_destruct;

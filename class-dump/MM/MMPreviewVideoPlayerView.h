@@ -14,6 +14,7 @@
 @interface MMPreviewVideoPlayerView : NSView <IMessageServiceVideoExt, MMFavoriteFileServiceExt>
 {
     BOOL _shouldPlayVideo;
+    CDUnknownBlockType _finishDownloadBlock;
     TKStateMachine *_stateMachine;
     MMQLPreviewItem *_previewItem;
     MMImageView *_thumbnailImageView;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 @property(retain, nonatomic) MMQLPreviewItem *previewItem; // @synthesize previewItem=_previewItem;
 @property(retain, nonatomic) TKStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
+@property(copy, nonatomic) CDUnknownBlockType finishDownloadBlock; // @synthesize finishDownloadBlock=_finishDownloadBlock;
 @property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;

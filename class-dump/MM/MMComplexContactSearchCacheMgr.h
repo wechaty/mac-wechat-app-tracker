@@ -15,6 +15,14 @@
 }
 
 + (unsigned long long)getCacheVersion;
++ (void)setSearchOnePartChineseCache:(id)arg1;
++ (id)searchOnePartChineseCache;
++ (void)setSearchOnePartChineseShortPinyinCache:(id)arg1;
++ (id)searchOnePartChineseShortPinyinCache;
++ (void)setChineseArrayCache:(id)arg1;
++ (id)chineseArrayCache;
++ (void)setPinyinCache:(id)arg1;
++ (id)pinyinCache;
 + (id)sharedInstance;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSData *encryptKey; // @synthesize encryptKey=_encryptKey;

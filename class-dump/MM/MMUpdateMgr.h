@@ -9,17 +9,16 @@
 #import "MMService-Protocol.h"
 #import "SPUUpdaterDelegate-Protocol.h"
 
-@class NSAlert, NSString, SPUUpdater;
-@protocol SPUUserDriver><SPUStandardUserDriverProtocol;
+@class NSString, SPUUpdater;
+@protocol SPUUserDriver;
 
 @interface MMUpdateMgr : MMService <SPUUpdaterDelegate, MMService>
 {
     BOOL _isGrayReleaseAvailable;
-    NSAlert *_expiredAlert;
     NSString *_customXmlUrl;
     double _updateCheckInterval;
     SPUUpdater *_sparkleUpdater;
-    id <SPUUserDriver><SPUStandardUserDriverProtocol> _userDriver;
+    id <SPUUserDriver> _userDriver;
     double _lastCheckTime;
 }
 
@@ -34,11 +33,10 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isGrayReleaseAvailable; // @synthesize isGrayReleaseAvailable=_isGrayReleaseAvailable;
 @property(nonatomic) double lastCheckTime; // @synthesize lastCheckTime=_lastCheckTime;
-@property(retain, nonatomic) id <SPUUserDriver><SPUStandardUserDriverProtocol> userDriver; // @synthesize userDriver=_userDriver;
+@property(retain, nonatomic) id <SPUUserDriver> userDriver; // @synthesize userDriver=_userDriver;
 @property(retain, nonatomic) SPUUpdater *sparkleUpdater; // @synthesize sparkleUpdater=_sparkleUpdater;
 @property(nonatomic) double updateCheckInterval; // @synthesize updateCheckInterval=_updateCheckInterval;
 @property(retain, nonatomic) NSString *customXmlUrl; // @synthesize customXmlUrl=_customXmlUrl;
-@property(nonatomic) __weak NSAlert *expiredAlert; // @synthesize expiredAlert=_expiredAlert;
 - (void)updater:(id)arg1 scheduledUpdateCheckDidAbortWithError:(id)arg2;
 - (void)updater:(id)arg1 didAbortWithError:(id)arg2;
 - (void)updater:(id)arg1 didCancelInstallUpdateOnQuit:(id)arg2;

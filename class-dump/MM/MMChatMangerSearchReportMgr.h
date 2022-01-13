@@ -19,9 +19,11 @@
     NSMutableArray *_brandContactSearchResults;
     NSMutableArray *_groupContactSearchResults;
     NSMutableArray *_chatLogSearchResults;
+    NSMutableArray *_functionSearchResults;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *functionSearchResults; // @synthesize functionSearchResults=_functionSearchResults;
 @property(retain, nonatomic) NSMutableArray *chatLogSearchResults; // @synthesize chatLogSearchResults=_chatLogSearchResults;
 @property(retain, nonatomic) NSMutableArray *groupContactSearchResults; // @synthesize groupContactSearchResults=_groupContactSearchResults;
 @property(retain, nonatomic) NSMutableArray *brandContactSearchResults; // @synthesize brandContactSearchResults=_brandContactSearchResults;

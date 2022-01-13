@@ -86,6 +86,7 @@
 - (void)onServiceTerminate;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

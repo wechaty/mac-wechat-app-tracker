@@ -17,13 +17,15 @@
 
 @interface MMComposeTextView : MMRichAttachmentBaseTextView <NSTextViewDelegate, MMMentionViewControllerDelegate, NSTextStorageDelegate, NSMenuDelegate, NSFileManagerDelegate>
 {
-    int _sendMsgShortCutType;
+    BOOL _canShowAlert;
+    unsigned int _sendMsgShortCutType;
     id <MMComposeTextViewDelegate> _mmDelegate;
     id <MMComposeTextEmotionProtDelegate> _mmEmotionDelegate;
     id <MMComposeTextChangeDelegate> _textChangeDelegate;
     id <MMComposeTextViewReferDelegate> _referDelegate;
     CDUnknownBlockType _didClickSendBlock;
     CDUnknownBlockType _didPasteFilesBlock;
+    CDUnknownBlockType _didDragFilesBlock;
     CDUnknownBlockType _didPasteMessagesBlock;
     CDUnknownBlockType _didConfirmForwardMessageBlock;
     CDUnknownBlockType _didConfirmForwardFavoritesItemBlock;
@@ -46,6 +48,7 @@
 + (id)getFontSizeAdjustTextAttributes;
 + (id)_textEntryParagraphStyle;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL canShowAlert; // @synthesize canShowAlert=_canShowAlert;
 @property(retain, nonatomic) NSString *dragImgFolder; // @synthesize dragImgFolder=_dragImgFolder;
 @property(retain, nonatomic) NSString *dragImgPath; // @synthesize dragImgPath=_dragImgPath;
 @property(retain, nonatomic) MMTimeChecker *timeChecker; // @synthesize timeChecker=_timeChecker;
@@ -56,13 +59,14 @@
 @property(retain, nonatomic) NSMutableArray *mentionUserList; // @synthesize mentionUserList=_mentionUserList;
 @property(nonatomic) struct _NSRange mentionMatchedRange; // @synthesize mentionMatchedRange=_mentionMatchedRange;
 @property(retain, nonatomic) NSMutableArray *mentionTokenRanges; // @synthesize mentionTokenRanges=_mentionTokenRanges;
-@property(nonatomic) int sendMsgShortCutType; // @synthesize sendMsgShortCutType=_sendMsgShortCutType;
+@property(nonatomic) unsigned int sendMsgShortCutType; // @synthesize sendMsgShortCutType=_sendMsgShortCutType;
 @property(copy, nonatomic) CDUnknownBlockType didHandleClearBlock; // @synthesize didHandleClearBlock=_didHandleClearBlock;
 @property(copy, nonatomic) CDUnknownBlockType didHandleEscapeKeyEventBlock; // @synthesize didHandleEscapeKeyEventBlock=_didHandleEscapeKeyEventBlock;
 @property(copy, nonatomic) CDUnknownBlockType didDragContactBlock; // @synthesize didDragContactBlock=_didDragContactBlock;
 @property(copy, nonatomic) CDUnknownBlockType didConfirmForwardFavoritesItemBlock; // @synthesize didConfirmForwardFavoritesItemBlock=_didConfirmForwardFavoritesItemBlock;
 @property(copy, nonatomic) CDUnknownBlockType didConfirmForwardMessageBlock; // @synthesize didConfirmForwardMessageBlock=_didConfirmForwardMessageBlock;
 @property(copy, nonatomic) CDUnknownBlockType didPasteMessagesBlock; // @synthesize didPasteMessagesBlock=_didPasteMessagesBlock;
+@property(copy, nonatomic) CDUnknownBlockType didDragFilesBlock; // @synthesize didDragFilesBlock=_didDragFilesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didPasteFilesBlock; // @synthesize didPasteFilesBlock=_didPasteFilesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didClickSendBlock; // @synthesize didClickSendBlock=_didClickSendBlock;
 @property(nonatomic) __weak id <MMComposeTextViewReferDelegate> referDelegate; // @synthesize referDelegate=_referDelegate;
@@ -91,6 +95,9 @@
 - (id)mentionTextCellEscapedAttributedString:(id)arg1;
 - (void)SettingsDidChangeSendMessageShortcut;
 - (void)pasteMessages:(id)arg1;
+- (BOOL)shouldShowFileCountExceedAlert;
+- (void)showFileCountExceedAlertIfNeed;
+- (long long)fileAndImageAttachmentCount;
 - (void)pasteFileURLWithItems:(id)arg1 names:(id)arg2 type:(id)arg3;
 - (void)pasteImageWithItem:(id)arg1 type:(id)arg2 withLineFeed:(unsigned char)arg3;
 - (unsigned char)pastePlainTextWithItem:(id)arg1 type:(id)arg2;
@@ -103,6 +110,7 @@
 - (BOOL)handleDropFilesPromiseType:(id)arg1;
 - (id)propertyListFromPasteboard:(id)arg1 item:(id)arg2 withType:(id)arg3;
 - (id)dataFromPasteboard:(id)arg1 item:(id)arg2 withType:(id)arg3;
+- (BOOL)desposeDragOperation:(id)arg1 isDragToSelfView:(BOOL)arg2;
 - (BOOL)performDragOperation:(id)arg1;
 - (void)handleForwardContact:(id)arg1;
 - (void)handleForwardMessages:(id)arg1;

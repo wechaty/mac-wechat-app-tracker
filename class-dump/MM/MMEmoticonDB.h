@@ -36,7 +36,6 @@
 - (void)close;
 - (void)closeDBBeforeInit;
 - (BOOL)createTable;
-- (void)removeEmotionsFolder;
 - (void)recreateDb;
 - (void)dealloc;
 - (id)init;

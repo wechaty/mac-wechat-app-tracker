@@ -62,6 +62,7 @@
 - (BOOL)isJsbOrDiceEmoticonMd5:(id)arg1;
 - (BOOL)isGameEmoticonWith:(id)arg1;
 - (BOOL)resetEmoticonDB;
+- (BOOL)hasDBFlag;
 - (void)insertDBFlag;
 - (void)checkEmotionEncryptKeyFromFile;
 - (void)emojiBase64tools;

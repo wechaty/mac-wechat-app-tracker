@@ -32,6 +32,7 @@
 + (id)LoadDataFromPath:(id)arg1 Offset:(unsigned int)arg2 Len:(unsigned int)arg3;
 + (BOOL)CreateHardLink:(id)arg1 LinkName:(id)arg2;
 + (BOOL)CreateSymbolLink:(id)arg1 LinkName:(id)arg2;
++ (void)ClearFolderOnRemove:(id)arg1;
 + (void)ClearFolder:(id)arg1;
 + (BOOL)RemoveFile:(id)arg1;
 + (BOOL)LoadSubFolders:(id)arg1 SubFiles:(id)arg2 fromFolderPath:(const char *)arg3;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MMCache, NSMutableArray, NSString, NSURLSession;
+@class MMCache, NSMutableArray, NSRecursiveLock, NSString, NSURLSession;
 
 @interface MMBaseEmoticonMgrLogic : NSObject
 {
@@ -19,9 +19,11 @@
     MMCache *_dataCache;
     NSString *_dataPath;
     NSMutableArray *_downloadQueue;
+    NSRecursiveLock *_downloadQueueLock;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *downloadQueueLock; // @synthesize downloadQueueLock=_downloadQueueLock;
 @property(retain, nonatomic) NSMutableArray *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
 @property(retain, nonatomic) NSString *dataPath; // @synthesize dataPath=_dataPath;
 @property(retain, nonatomic) MMCache *dataCache; // @synthesize dataCache=_dataCache;
@@ -45,6 +47,7 @@
 - (void)startDownloadNextEmotionTask;
 - (void)startDownloadEmoticonFromMD5List;
 - (void)downloadEmotionWithEmotionData:(id)arg1;
+- (BOOL)addToDownloadQueue:(id)arg1;
 - (void)loadEmoticonDataFromFile;
 - (void)saveEmoticonDataListToFile;
 - (void)dealloc;

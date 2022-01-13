@@ -11,7 +11,7 @@
 @interface MMComplexContactSearchResult : MMBasicSearchResult
 {
     BOOL _isMatched;
-    BOOL _isDiaplayName;
+    BOOL _isDisplayName;
     unsigned short _firstChar;
     unsigned int _lastMsgCreateTime;
     unsigned long long _keywordType;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 @property(nonatomic) unsigned int lastMsgCreateTime; // @synthesize lastMsgCreateTime=_lastMsgCreateTime;
 @property(nonatomic) unsigned short firstChar; // @synthesize firstChar=_firstChar;
-@property(nonatomic) BOOL isDiaplayName; // @synthesize isDiaplayName=_isDiaplayName;
+@property(nonatomic) BOOL isDisplayName; // @synthesize isDisplayName=_isDisplayName;
 @property(retain, nonatomic) NSString *fieldPinyinTranslateInfo; // @synthesize fieldPinyinTranslateInfo=_fieldPinyinTranslateInfo;
 @property(retain, nonatomic) NSString *fieldValue; // @synthesize fieldValue=_fieldValue;
 @property(nonatomic) unsigned long long charType; // @synthesize charType=_charType;

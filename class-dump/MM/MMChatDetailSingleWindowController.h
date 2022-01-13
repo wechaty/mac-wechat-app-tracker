@@ -56,6 +56,9 @@
 - (void)setupChatMessageView;
 - (void)setUpContentView;
 - (void)windowDidChangedEffectiveAppearance;
+- (void)setHiddenWindowTitleBar:(BOOL)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
 - (void)windowDidLoad;
 - (void)windowDidResize:(id)arg1;
 - (void)dealloc;

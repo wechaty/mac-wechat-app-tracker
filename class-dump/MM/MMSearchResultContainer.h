@@ -15,11 +15,13 @@
     NSMutableArray *_oaResults;
     NSMutableArray *_favResults;
     NSMutableArray *_chatLogResults;
+    NSMutableArray *_functionResults;
     unsigned long long _logicSearchResultFlag;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long logicSearchResultFlag; // @synthesize logicSearchResultFlag=_logicSearchResultFlag;
+@property(retain, nonatomic) NSMutableArray *functionResults; // @synthesize functionResults=_functionResults;
 @property(retain, nonatomic) NSMutableArray *chatLogResults; // @synthesize chatLogResults=_chatLogResults;
 @property(retain, nonatomic) NSMutableArray *favResults; // @synthesize favResults=_favResults;
 @property(retain, nonatomic) NSMutableArray *oaResults; // @synthesize oaResults=_oaResults;

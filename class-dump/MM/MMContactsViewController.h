@@ -11,6 +11,7 @@
 #import "IMMFriendRequestMgrExt-Protocol.h"
 #import "MMContactListContactRowViewDelegate-Protocol.h"
 #import "MMCustomSearchFieldDelegate-Protocol.h"
+#import "MMFriendNewVerifyMessageWindowControllerExt-Protocol.h"
 #import "MMFriendRequestRowViewDelegate-Protocol.h"
 #import "MMSidebarRowViewDelegate-Protocol.h"
 #import "MMTableViewDelegate-Protocol.h"
@@ -21,17 +22,20 @@
 #import "OpenIMResourceMgrExt-Protocol.h"
 #import "WeChatSearchProtocol-Protocol.h"
 
-@class MMContactListContactRowView, MMContactListLogic, MMCustomSearchField, MMDragEventView, MMSearchViewController, MMTableView, NSArray, NSObject, NSString;
+@class MMButton, MMContactListContactRowView, MMContactListLogic, MMCustomSearchField, MMDragEventView, MMSearchViewController, MMTableView, NSArray, NSButton, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMContactsViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, NSTextFieldDelegate, NSSearchFieldDelegate, IContactMgrExt, IMMFriendRequestMgrExt, AccountServiceExt, OpenIMResourceMgrExt, MMSidebarRowViewDelegate, MMContactListContactRowViewDelegate, MMFriendRequestRowViewDelegate, MMCustomSearchFieldDelegate, WeChatSearchProtocol>
+@interface MMContactsViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, NSTextFieldDelegate, NSSearchFieldDelegate, IContactMgrExt, IMMFriendRequestMgrExt, AccountServiceExt, OpenIMResourceMgrExt, MMSidebarRowViewDelegate, MMContactListContactRowViewDelegate, MMFriendRequestRowViewDelegate, MMCustomSearchFieldDelegate, MMFriendNewVerifyMessageWindowControllerExt, WeChatSearchProtocol>
 {
     MMContactListLogic *_logic;
     MMContactListContactRowView *_rowViewForContextMenu;
     NSObject<OS_dispatch_queue> *_asyncLoadDataQueue;
     BOOL _isSearching;
+    BOOL _isOnlyVerifyScene;
     MMDragEventView *_topView;
     MMCustomSearchField *_searchField;
+    NSButton *_searchFriendButton;
+    MMButton *_cancelSearchButton;
     MMSearchViewController *_searchViewController;
     long long _lastSelectedRow;
     MMTableView *_listTableView;
@@ -39,12 +43,16 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isOnlyVerifyScene; // @synthesize isOnlyVerifyScene=_isOnlyVerifyScene;
 @property(retain, nonatomic) NSArray *listTableViewDataSource; // @synthesize listTableViewDataSource=_listTableViewDataSource;
 @property(nonatomic) __weak MMTableView *listTableView; // @synthesize listTableView=_listTableView;
 @property(nonatomic) long long lastSelectedRow; // @synthesize lastSelectedRow=_lastSelectedRow;
 @property(retain, nonatomic) MMSearchViewController *searchViewController; // @synthesize searchViewController=_searchViewController;
+@property __weak MMButton *cancelSearchButton; // @synthesize cancelSearchButton=_cancelSearchButton;
+@property __weak NSButton *searchFriendButton; // @synthesize searchFriendButton=_searchFriendButton;
 @property __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) __weak MMDragEventView *topView; // @synthesize topView=_topView;
+- (void)onVerifyWindowWillOpen;
 - (void)reportMenuShowToKVWithMenuId:(unsigned int)arg1;
 - (void)handleAppFontSize;
 - (void)windowDidResignKeyAction:(id)arg1;
@@ -88,8 +96,13 @@
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
 - (void)onSearchFiledWillBegin:(id)arg1;
+- (void)onClickStartSearchFriend;
+- (void)onClickCancelSearchButton;
+- (void)showTopViewSearchNewContactButton;
+- (void)showTopViewCancelButton;
 - (void)viewDidAppear;
 - (void)viewChangedEffectiveAppearance;
+- (void)layoutSubView;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

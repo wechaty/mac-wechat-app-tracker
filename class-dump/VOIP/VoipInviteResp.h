@@ -39,6 +39,7 @@
     unsigned int hasQosLocalMaxBr:1;
     unsigned int hasAudioEnableXnoiseSup:1;
     unsigned int hasIntStrategyIssued:1;
+    unsigned int hasSwitchFlagExt:1;
     int roomId;
     int addrCount;
     int roomMemberId;
@@ -70,10 +71,13 @@
     VoipMultiRelayData *relayData;
     NSMutableArray *mutableNetQualityListList;
     SKBuiltinBuffer_t *intStrategyIssued;
+    unsigned long long switchFlagExt;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetSwitchFlagExt:) unsigned long long switchFlagExt; // @synthesize switchFlagExt;
+@property(readonly, nonatomic) BOOL hasSwitchFlagExt; // @synthesize hasSwitchFlagExt;
 @property(retain, nonatomic, setter=SetIntStrategyIssued:) SKBuiltinBuffer_t *intStrategyIssued; // @synthesize intStrategyIssued;
 @property(readonly, nonatomic) BOOL hasIntStrategyIssued; // @synthesize hasIntStrategyIssued;
 @property(nonatomic, setter=SetAudioEnableXnoiseSup:) int audioEnableXnoiseSup; // @synthesize audioEnableXnoiseSup;

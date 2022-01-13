@@ -32,6 +32,7 @@
 - (void)layoutIcon;
 - (void)layoutThumb;
 - (void)dealloc;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithIdentifier:(id)arg1;
 
 // Remaining properties

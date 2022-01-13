@@ -199,6 +199,7 @@
 - (int)inviteUserType:(id)arg1;
 - (unsigned long long)maxMultiTalkMemberCount;
 - (void)onServiceTerminate;
+- (void)onServiceWillSleep;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;

@@ -56,7 +56,6 @@
 - (void)OnAuthOK:(id)arg1;
 - (void)OnMMCGIInTaskProcess:(id)arg1;
 - (void)OnBeforeAuth;
-- (BOOL)isSessionCmd:(unsigned int)arg1;
 - (BOOL)isCommonRsaEncrypt:(unsigned int)arg1;
 - (BOOL)isKVCommRSAEncrypt:(unsigned int)arg1;
 - (BOOL)isAuthRSAEncrypt:(unsigned int)arg1;

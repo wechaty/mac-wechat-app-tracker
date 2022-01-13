@@ -17,7 +17,7 @@
 
 @class MMResBatchDownloadMgr, MMResInfoMgr, MMResourceDownloadMgr, NSString;
 
-@interface MMResourceService : MMService <MMResDownloadMgrDelegate, MMResBatchDownloadMgrDelegate, IMessageExt, AccountServiceExt, MMService, MMResInfoMgr, MMResourceDownloadMgr, MMResBatchDownloadMgr>
+@interface MMResourceService : MMService <MMResInfoMgr, MMResourceDownloadMgr, MMResBatchDownloadMgr, MMResDownloadMgrDelegate, MMResBatchDownloadMgrDelegate, IMessageExt, AccountServiceExt, MMService>
 {
     MMResInfoMgr *_resInfoMgr;
     MMResourceDownloadMgr *_resDownloadMgr;
@@ -38,6 +38,7 @@
 - (void)handleDownloadTask:(id)arg1 downloadData:(id)arg2;
 - (void)OnResUpdateFinishOnMainThread:(long long)arg1 resType:(unsigned int)arg2 subResType:(unsigned int)arg3;
 - (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
+- (BOOL)isResDependOnClientVersion:(unsigned int)arg1;
 - (id)parseCacheNode:(struct XmlReaderNode_t *)arg1;
 - (id)parseDecryptNode:(struct XmlReaderNode_t *)arg1;
 - (id)parseDeleteNode:(struct XmlReaderNode_t *)arg1;
@@ -55,6 +56,7 @@
 - (void)checkResUpdate:(unsigned int)arg1;
 - (void)checkAllTestResUpdate;
 - (void)checkAllResUpdate;
+- (void)getCheckResUpdateRequest:(id)arg1 withoutLogin:(BOOL)arg2;
 - (void)getCheckResUpdateRequest:(id)arg1;
 - (id)getResData:(unsigned int)arg1 WithSubRestype:(unsigned int)arg2 ErrorCode:(long long *)arg3;
 - (id)getResPath:(unsigned int)arg1 WithSubRestype:(unsigned int)arg2 getVersion:(unsigned int *)arg3;

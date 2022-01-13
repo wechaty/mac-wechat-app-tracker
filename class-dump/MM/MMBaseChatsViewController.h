@@ -9,6 +9,7 @@
 #import "AccountServiceExt-Protocol.h"
 #import "MMComposeTextViewDelegate-Protocol.h"
 #import "MMCustomSearchFieldDelegate-Protocol.h"
+#import "MMFriendNewVerifyMessageWindowControllerExt-Protocol.h"
 #import "MMViewerWindowDelegate-Protocol.h"
 #import "NSSearchFieldDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
@@ -16,7 +17,7 @@
 
 @class FavoritesItem, MMCustomSearchField, MMSearchViewController, MMTableView, NSString;
 
-@interface MMBaseChatsViewController : MMViewController <NSTextFieldDelegate, AccountServiceExt, NSSearchFieldDelegate, MMViewerWindowDelegate, WeChatSearchProtocol, MMComposeTextViewDelegate, MMCustomSearchFieldDelegate>
+@interface MMBaseChatsViewController : MMViewController <NSTextFieldDelegate, AccountServiceExt, NSSearchFieldDelegate, MMViewerWindowDelegate, MMFriendNewVerifyMessageWindowControllerExt, WeChatSearchProtocol, MMComposeTextViewDelegate, MMCustomSearchFieldDelegate>
 {
     MMCustomSearchField *_searchField;
     MMTableView *_tableView;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) NSString *selectedUserName; // @synthesize selectedUserName=_selectedUserName;
 @property(nonatomic) __weak MMTableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
+- (void)onVerifyWindowWillOpen;
 - (void)handleLockStateChanges:(BOOL)arg1;
 - (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;

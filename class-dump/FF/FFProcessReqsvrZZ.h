@@ -31,9 +31,6 @@
     NSRecursiveLock *m_dbCacheLock;
     NSMutableDictionary *m_dictMsgDB;
     BOOL _m_hasClearData;
-    unsigned int _timeStamp;
-    NSString *_sessionid;
-    NSString *_contentid;
     NSOperationQueue *_batchSyncImagesDownloadQueue;
     NSMutableArray *_arrStashedMsgs;
     FastSyncMsgFilter *_filter;
@@ -67,9 +64,6 @@
 @property(retain, nonatomic) FastSyncMsgFilter *filter; // @synthesize filter=_filter;
 @property(retain, nonatomic) NSMutableArray *arrStashedMsgs; // @synthesize arrStashedMsgs=_arrStashedMsgs;
 @property(retain, nonatomic) NSOperationQueue *batchSyncImagesDownloadQueue; // @synthesize batchSyncImagesDownloadQueue=_batchSyncImagesDownloadQueue;
-@property(retain, nonatomic) NSString *contentid; // @synthesize contentid=_contentid;
-@property(retain, nonatomic) NSString *sessionid; // @synthesize sessionid=_sessionid;
-@property(nonatomic) unsigned int timeStamp; // @synthesize timeStamp=_timeStamp;
 @property BOOL m_hasClearData; // @synthesize m_hasClearData=_m_hasClearData;
 - (void)filterAtUserWithMsg:(id)arg1;
 - (int)delMultiSelectMsg:(id)arg1;
@@ -169,13 +163,6 @@
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;
-- (void)reportAppFeedLiveWithInfo:(id)arg1;
-- (void)reportAppFeed:(id)arg1 withAction:(int)arg2 withInfo:(id)arg3;
-- (id)getFinderFeedLiveWebUrl:(id)arg1 withSuffix:(id)arg2;
-- (id)getFinderFeedWebUrl:(id)arg1 withSuffix:(id)arg2;
-- (id)getFinderNameCardWebUrl:(id)arg1 withSuffix:(id)arg2;
-- (BOOL)supportFinderFeedNameCard;
-- (BOOL)supportFinderFeed;
 - (void)notifyMsgResendOnMainThread:(id)arg1 msgData:(id)arg2;
 - (void)notifyUnreadCntChangeOnMainThread:(id)arg1;
 - (void)notifyAddMsgListForSessionOnMainThread:(id)arg1;
@@ -330,6 +317,7 @@
 - (void)sendChatSyncNewXml:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3 sessionName:(id)arg4 identifier:(id)arg5 limit:(unsigned int)arg6;
 - (BOOL)insertMsgList:(id)arg1 chatName:(id)arg2 toDB:(id)arg3 oldMsgList:(id)arg4;
 - (id)genMsgDataFromBakChatMsgItem:(id)arg1;
+- (BOOL)shouldFilterMsgRead:(id)arg1;
 - (void)updateSession:(id)arg1 chatName:(id)arg2 toDB:(id)arg3;
 - (BOOL)isInMessageException:(id)arg1 chatName:(id)arg2 toDB:(id)arg3 sender:(id)arg4;
 - (id)getAdjustMessage:(id)arg1 chatName:(id)arg2 toDB:(id)arg3 oldMsgList:(id)arg4;

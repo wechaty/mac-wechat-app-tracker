@@ -23,6 +23,7 @@
     BOOL _executedFirstResize;
     NSString *_windowId;
     unsigned long long _type;
+    unsigned long long _openTime;
     MMWebViewController *_webView;
     NSTextField *_textField;
     NSImageView *_iconImageView;
@@ -50,6 +51,7 @@
 @property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
 @property(retain, nonatomic) MMWebViewController *webView; // @synthesize webView=_webView;
 @property(nonatomic) BOOL isFullScreen; // @synthesize isFullScreen=_isFullScreen;
+@property(nonatomic) unsigned long long openTime; // @synthesize openTime=_openTime;
 @property(nonatomic) BOOL isMiniMode; // @synthesize isMiniMode=_isMiniMode;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *windowId; // @synthesize windowId=_windowId;
@@ -68,6 +70,7 @@
 - (void)updateTitle:(id)arg1;
 - (void)exitMiniMode;
 - (void)enterMiniModeWithWidth:(int)arg1 andHeight:(int)arg2;
+- (void)hideMiniButton;
 - (void)showMiniButton;
 - (void)onPageStateChaged:(id)arg1;
 - (BOOL)shouldUpdateWindowTitle;

@@ -10,15 +10,6 @@
 {
 }
 
-+ (void)reportBusinessWithDBTag:(unsigned int)arg1 identifier:(id)arg2 type:(unsigned int)arg3 opcode:(unsigned int)arg4 cost:(double)arg5 funcName:(id)arg6;
-+ (void)reportMessageDBType:(unsigned long long)arg1 withTag:(unsigned int)arg2;
-+ (void)reportTableCount:(unsigned int)arg1 dbIdentifier:(id)arg2 dbTag:(unsigned int)arg3;
-+ (void)reportCheckpoint:(id)arg1;
-+ (void)reportTotalCheckpoint;
-+ (void)reportDBFileSize;
-+ (unsigned long long)calDBFileSizeInBytes:(unsigned int)arg1;
-+ (void)reportAddSyncMsgList:(id)arg1 chatName:(id)arg2;
-+ (void)reportAddSendMsgList:(id)arg1 chatName:(id)arg2;
 + (id)GetRecoverFilePath:(unsigned int)arg1 identifier:(id)arg2;
 + (id)GetDBFilePath:(unsigned int)arg1 identifier:(id)arg2;
 + (id)GetRecoverFilePath:(unsigned int)arg1;
@@ -28,6 +19,15 @@
 + (id)CipherKey;
 + (int)DefaultPageSize;
 + (int)CompatiblePageSize;
++ (id)genFileInfoItemWithDBTag:(unsigned int)arg1 identifier:(id)arg2;
++ (unsigned long long)calDBFileSizeInBytes:(unsigned int)arg1;
++ (void)reportBusinessWithDBTag:(unsigned int)arg1 identifier:(id)arg2 type:(unsigned int)arg3 cost:(double)arg4 funcName:(id)arg5;
++ (void)reportDBOpType:(unsigned int)arg1 dbTag:(unsigned int)arg2;
++ (void)reportTableCount:(unsigned int)arg1 dbIdentifier:(id)arg2 dbTag:(unsigned int)arg3;
++ (void)reportCheckpoint:(unsigned int)arg1 identifier:(id)arg2 opTime:(unsigned int)arg3;
++ (void)reportDBFileInfo;
++ (void)reportAddSyncMsgList:(id)arg1 chatName:(id)arg2;
++ (void)reportAddSendMsgList:(id)arg1 chatName:(id)arg2;
 
 @end
 

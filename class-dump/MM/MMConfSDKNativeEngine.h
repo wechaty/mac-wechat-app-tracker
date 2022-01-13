@@ -27,13 +27,13 @@
 + (int)getVoiceActivity:(int)arg1;
 + (int)sendVideoData:(char *)arg1 dataLen:(int)arg2 width:(int)arg3 height:(int)arg4 format:(int)arg5;
 + (int)getAudioData:(char *)arg1 dataLength:(int)arg2;
-+ (int)sendAudioData:(id)arg1 delay:(int)arg2;
++ (int)sendAudioData:(id)arg1;
 + (int)joinRoomWithGroupID:(id)arg1 roomType:(int)arg2 networkType:(int)arg3;
 + (int)joinRoomWithRoomID:(long long)arg1 roomType:(int)arg2 networkType:(int)arg3;
 + (int)updateSessionKey:(id)arg1;
-+ (id)generateInitInfo:(id)arg1 sessionKey:(id)arg2 audioType:(int)arg3 videoRatio:(int)arg4 videoLength:(int)arg5;
++ (id)generateInitInfo:(id)arg1 sessionKey:(id)arg2 idcInfo:(id)arg3 audioType:(int)arg4 videoRatio:(int)arg5 videoLength:(int)arg6;
 + (int)GetCPUCapacity;
-+ (int)initEngine:(id)arg1 sessionKey:(id)arg2 audioType:(int)arg3 videoRatio:(int)arg4 videoLength:(int)arg5 nCallback:(struct IWXConfCallback *)arg6;
++ (int)initEngine:(id)arg1 sessionKey:(id)arg2 idcInfo:(id)arg3 audioType:(int)arg4 videoRatio:(int)arg5 videoLength:(int)arg6 nCallback:(struct IWXConfCallback *)arg7;
 + (struct IWXConfService *)getConfInst;
 
 @end

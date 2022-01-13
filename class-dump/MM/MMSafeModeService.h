@@ -14,6 +14,7 @@
 @interface MMSafeModeService : MMService <MMService>
 {
     BOOL _useSafeMode;
+    BOOL _hasLoadBD;
     NSMutableArray *_crashModels;
     unsigned long long _crashCountThreshold;
     double _minximunCrashInterval;
@@ -26,6 +27,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL hasLoadBD; // @synthesize hasLoadBD=_hasLoadBD;
 @property(retain, nonatomic) MMSafeModeConfigModel *configModel; // @synthesize configModel=_configModel;
 @property(retain, nonatomic) NSArray *binaryImages; // @synthesize binaryImages=_binaryImages;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *writeLogQueue; // @synthesize writeLogQueue=_writeLogQueue;
@@ -49,10 +51,13 @@
 - (void)loadXMLConfigWithCompletion:(CDUnknownBlockType)arg1;
 - (void)uploadLog;
 - (void)reset;
+- (unsigned long long)latestCrashTimesWithBD:(BOOL)arg1;
 - (void)removeFirstCrash;
 - (void)addCrash:(struct __siginfo *)arg1;
 - (BOOL)shouldShowSafeMode;
 - (id)init;
+- (void)doRecoverFromThirdParty;
+- (BOOL)canRecoverFromThirdParty;
 - (BOOL)isNamesInImages:(id)arg1;
 - (void)detect;
 @property(nonatomic) BOOL hasThirdParty;

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) MMImageView *iconView; // @synthesize iconView=_iconView;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
+- (id)makeDescLabelAttrString:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;

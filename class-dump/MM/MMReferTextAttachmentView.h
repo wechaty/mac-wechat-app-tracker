@@ -6,7 +6,7 @@
 
 #import "MMAttachmentReusableView.h"
 
-@class MMAppReferCoverView, MMButton, MMCTTextView, MMReferBGView, MMReferCTTextView, NSImageView;
+@class MMAppReferCoverView, MMButton, MMCTTextView, MMImageView, MMReferBGView, MMReferCTTextView, NSImageView;
 @protocol MMReferTextAttachmentViewDelegate;
 
 @interface MMReferTextAttachmentView : MMAttachmentReusableView
@@ -20,7 +20,7 @@
     NSImageView *_iconImageView;
     MMCTTextView *_summaryTextView;
     NSImageView *_moreHintView;
-    NSImageView *_thumbImageView;
+    MMImageView *_thumbImageView;
     NSImageView *_thumbIconImageView;
     MMButton *_clearButton;
 }
@@ -28,7 +28,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMButton *clearButton; // @synthesize clearButton=_clearButton;
 @property(retain, nonatomic) NSImageView *thumbIconImageView; // @synthesize thumbIconImageView=_thumbIconImageView;
-@property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
+@property(retain, nonatomic) MMImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
 @property(retain, nonatomic) NSImageView *moreHintView; // @synthesize moreHintView=_moreHintView;
 @property(retain, nonatomic) MMCTTextView *summaryTextView; // @synthesize summaryTextView=_summaryTextView;
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;

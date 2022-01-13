@@ -66,6 +66,8 @@
 @property(retain, nonatomic) NSVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
 @property(nonatomic) __weak MMView *tabbarContainer; // @synthesize tabbarContainer=_tabbarContainer;
 @property(retain, nonatomic) MMChatsViewController *chatsViewController; // @synthesize chatsViewController=_chatsViewController;
+- (void)openFav;
+- (void)openGroupBox;
 - (void)showPreloadwebView:(id)arg1;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
 - (void)onUserLogout;
@@ -101,6 +103,8 @@
 - (id)tabButtonAtIndex:(int)arg1;
 - (void)updateDetailViewWithController:(id)arg1 inLeftViewController:(id)arg2;
 - (void)setDetailViewWithController:(id)arg1;
+- (void)showGroupBox;
+- (void)showFav;
 - (void)setupSubviews;
 - (void)setupDetailViewController;
 - (void)setupFavoritesViewController;

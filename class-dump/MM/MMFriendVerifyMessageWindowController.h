@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSWindowController.h>
+#import "MMWindowController.h"
 
 @class MMAvatarImageView, MMTextField, NSButton, NSString, NSTextField, NSWindow, WCContactData;
 
-@interface MMFriendVerifyMessageWindowController : NSWindowController
+@interface MMFriendVerifyMessageWindowController : MMWindowController
 {
     WCContactData *_contactData;
+    WCContactData *_oContact;
+    long long _scene;
     NSWindow *_spawningWindow;
     NSTextField *_messageTextField;
     MMAvatarImageView *_avatarView;
@@ -32,6 +34,8 @@
 @property(nonatomic) __weak MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(nonatomic) __weak NSTextField *messageTextField; // @synthesize messageTextField=_messageTextField;
 @property(nonatomic) __weak NSWindow *spawningWindow; // @synthesize spawningWindow=_spawningWindow;
+@property(nonatomic) long long scene; // @synthesize scene=_scene;
+@property(retain, nonatomic) WCContactData *oContact; // @synthesize oContact=_oContact;
 @property(retain, nonatomic) WCContactData *contactData; // @synthesize contactData=_contactData;
 - (void)didClickConfirm:(id)arg1;
 - (void)didClickCancel:(id)arg1;

@@ -97,6 +97,9 @@
 - (void)showInModal;
 - (void)showWindow:(id)arg1;
 - (void)windowDidChangedEffectiveAppearance;
+- (void)setHiddenWindowTitleBar:(BOOL)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
 - (void)windowDidLoad;
 - (id)init;
 

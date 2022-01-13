@@ -8,24 +8,45 @@
 
 #import "MMService-Protocol.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface MMSpaceCleanerService : MMService <MMService>
 {
-    BOOL _m_isCleaning;
+    BOOL _m_isComputingSize;
+    BOOL _m_isCleaningSession;
+    BOOL _m_isCleaningCache;
     NSMutableDictionary *_m_moduleCacheList;
     unsigned long long _m_totalSessionSize;
+    unsigned long long _m_totalBackupSize;
+    unsigned long long _m_totalCacheSize;
     unsigned long long _m_totalSpaceSize;
     unsigned long long _m_favoritesCacheSize;
+    unsigned long long _m_snsCacheSize;
+    unsigned long long _m_totalMacSpace;
+    double _m_wechatSpaceRate;
+    double _m_othersSpaceRate;
+    NSObject<OS_dispatch_queue> *_m_cacheCleanerQueue;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) BOOL m_isCleaning; // @synthesize m_isCleaning=_m_isCleaning;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_cacheCleanerQueue; // @synthesize m_cacheCleanerQueue=_m_cacheCleanerQueue;
+@property(nonatomic) BOOL m_isCleaningCache; // @synthesize m_isCleaningCache=_m_isCleaningCache;
+@property(nonatomic) BOOL m_isCleaningSession; // @synthesize m_isCleaningSession=_m_isCleaningSession;
+@property(nonatomic) BOOL m_isComputingSize; // @synthesize m_isComputingSize=_m_isComputingSize;
+@property(nonatomic) double m_othersSpaceRate; // @synthesize m_othersSpaceRate=_m_othersSpaceRate;
+@property(nonatomic) double m_wechatSpaceRate; // @synthesize m_wechatSpaceRate=_m_wechatSpaceRate;
+@property(nonatomic) unsigned long long m_totalMacSpace; // @synthesize m_totalMacSpace=_m_totalMacSpace;
+@property(nonatomic) unsigned long long m_snsCacheSize; // @synthesize m_snsCacheSize=_m_snsCacheSize;
 @property(nonatomic) unsigned long long m_favoritesCacheSize; // @synthesize m_favoritesCacheSize=_m_favoritesCacheSize;
 @property(nonatomic) unsigned long long m_totalSpaceSize; // @synthesize m_totalSpaceSize=_m_totalSpaceSize;
+@property(nonatomic) unsigned long long m_totalCacheSize; // @synthesize m_totalCacheSize=_m_totalCacheSize;
+@property(nonatomic) unsigned long long m_totalBackupSize; // @synthesize m_totalBackupSize=_m_totalBackupSize;
 @property(nonatomic) unsigned long long m_totalSessionSize; // @synthesize m_totalSessionSize=_m_totalSessionSize;
 @property(retain, nonatomic) NSMutableDictionary *m_moduleCacheList; // @synthesize m_moduleCacheList=_m_moduleCacheList;
+- (void)clearCache;
 - (id)getSizeStringWithSize:(unsigned long long)arg1;
+- (id)getSizeStringWithStorageType:(unsigned int)arg1;
 - (id)getTotalSessionSizeString;
 - (id)getTotalSpaceSizeString;
 - (unsigned long long)computeSingleSessionThumbnailSize:(id)arg1;
@@ -33,7 +54,11 @@
 - (unsigned long long)computeSingleSessionSizeWithoutThumbnailInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
 - (unsigned long long)computeSingleSessionSizeWithoutThumbnail:(id)arg1;
 - (void)computeTotalSessionSizeWithoutThumbnail;
+- (void)computeTotalCacheSize;
+- (void)computeTotalBackupSize;
+- (unsigned long long)getSpaceSizeWithStorageType:(unsigned int)arg1;
 - (unsigned long long)getTotalSpaceSize;
+- (void)computeSpaceRates;
 - (void)computeTotalSpaceSize;
 - (void)updateCacheSize:(unsigned long long)arg1 moduleName:(id)arg2;
 - (void)destroy;

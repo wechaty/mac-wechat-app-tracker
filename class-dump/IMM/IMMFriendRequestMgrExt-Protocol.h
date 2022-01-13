@@ -6,12 +6,14 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMFriendRequestMgr;
+@class MMFriendRequestMgr, NSString;
 
 @protocol IMMFriendRequestMgrExt <NSObject>
 
 @optional
 - (void)friendRequestMgr:(MMFriendRequestMgr *)arg1 didDeleteFriendRequestMsgWithIndex:(unsigned long long)arg2;
 - (void)friendRequestMgr:(MMFriendRequestMgr *)arg1 didChangeFriendRequestUnreadCount:(unsigned long long)arg2;
+- (void)acceptFriendFinish:(int)arg1 userName:(NSString *)arg2;
+- (void)requestFriendFinish:(int)arg1 userName:(NSString *)arg2;
 @end
 

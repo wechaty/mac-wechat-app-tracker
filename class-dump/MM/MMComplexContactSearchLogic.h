@@ -6,28 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class MMSimAndTraSearchLogic, NSArray, NSString, StringCharDetectResult, WCContactData;
+@class MMGeneralSearchTask, NSString, WCContactData;
 
 @interface MMComplexContactSearchLogic : NSObject
 {
     BOOL _ignorePinYin;
     WCContactData *_contact;
     NSString *_keyword;
-    NSArray *_keywords;
-    unsigned long long _keywordsCount;
-    StringCharDetectResult *_keywordCharDetectResult;
-    MMSimAndTraSearchLogic *_simAndtraSearchLogic;
-    CDUnknownBlockType _progress;
+    MMGeneralSearchTask *_searchTask;
 }
 
-+ (void)setPinyinCache:(id)arg1;
-+ (id)pinyinCache;
-+ (void)setSearchOnePartChineseShortPinyinCache:(id)arg1;
-+ (id)searchOnePartChineseShortPinyinCache;
-+ (void)setSearchOnePartChineseCache:(id)arg1;
-+ (id)searchOnePartChineseCache;
-+ (void)setChineseArrayCache:(id)arg1;
-+ (id)chineseArrayCache;
 + (id)prefixStringFormatWithTypeForGroup:(unsigned long long)arg1;
 + (id)prefixStringFormatWithType:(unsigned long long)arg1;
 + (void)resetComplexContactSearchTotalCount;
@@ -35,29 +23,13 @@
 + (void)resetComplexGroupMemberSearchCacheHitCount;
 + (unsigned long long)complexGroupMemberSearchCacheHitCount;
 + (void)resetComplexGroupMemberSearchCache;
++ (id)convertWithGeneralResult:(id)arg1 andContact:(id)arg2 andFieldType:(unsigned long long)arg3 andIsDisplayName:(BOOL)arg4;
 - (void).cxx_destruct;
-@property(copy, nonatomic) CDUnknownBlockType progress; // @synthesize progress=_progress;
-@property(retain, nonatomic) MMSimAndTraSearchLogic *simAndtraSearchLogic; // @synthesize simAndtraSearchLogic=_simAndtraSearchLogic;
-@property(retain, nonatomic) StringCharDetectResult *keywordCharDetectResult; // @synthesize keywordCharDetectResult=_keywordCharDetectResult;
-@property(nonatomic) unsigned long long keywordsCount; // @synthesize keywordsCount=_keywordsCount;
-@property(retain, nonatomic) NSArray *keywords; // @synthesize keywords=_keywords;
+@property(retain, nonatomic) MMGeneralSearchTask *searchTask; // @synthesize searchTask=_searchTask;
 @property(nonatomic) BOOL ignorePinYin; // @synthesize ignorePinYin=_ignorePinYin;
 @property(retain, nonatomic) NSString *keyword; // @synthesize keyword=_keyword;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
-- (id)_detectChar:(id)arg1;
 - (BOOL)isFieldDisplayName:(unsigned long long)arg1;
-- (unsigned short)getFirstChar:(id)arg1;
-- (BOOL)hasChinese:(id)arg1;
-- (id)transformOneChineseToPinyin:(id)arg1;
-- (id)_searchOnePartChineseShortPinyinOneKeyword:(id)arg1 rangeInOriginalField:(struct _NSRange)arg2 keyword:(id)arg3;
-- (id)_searchAllChinesePartsShortPinyinOneKeyword:(id)arg1 chineseRangeArray:(id)arg2 keyword:(id)arg3;
-- (id)searchFieldShortPinyinByField:(id)arg1 chineseArray:(id)arg2 chineseRangeArray:(id)arg3 isFullMatched:(BOOL)arg4;
-- (id)_searchOnePartChineseFullPinyinOneKeyword:(id)arg1 rangeInOriginalField:(struct _NSRange)arg2 keyword:(id)arg3;
-- (id)matchingKeywordParamByDFS:(id)arg1 andKeywordParam:(id)arg2 andCurrentDepth:(unsigned long long)arg3 andIsCompleteKeyword:(BOOL)arg4 andPinyinInfo:(id)arg5;
-- (id)_searchAllChinesePartsFullPinyinOneKeyword:(id)arg1 chineseRangeArray:(id)arg2 keyword:(id)arg3;
-- (id)searchFieldFullPinyinByField:(id)arg1 chineseArray:(id)arg2 chineseRangeArray:(id)arg3 isFullMatched:(BOOL)arg4;
-- (id)_searchFieldOneKeyword:(id)arg1 keyword:(id)arg2;
-- (id)searchField:(id)arg1 isFullMatched:(BOOL)arg2;
 - (id)NSStringFromRangeArray:(id)arg1;
 - (id)searchWithFieldType:(unsigned long long)arg1 field:(id)arg2 shouldSearchFieldPy:(BOOL)arg3 isFullMatched:(BOOL)arg4;
 - (id)searchFieldWXWork:(BOOL)arg1;

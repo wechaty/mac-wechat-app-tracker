@@ -6,27 +6,70 @@
 
 #import "MMViewController.h"
 
-@class MMOutlineButton, NSProgressIndicator, NSTextField;
+@class MMView, NSButton, NSMutableDictionary, NSTextField;
 
 @interface MMSpaceCleanCacheViewController : MMViewController
 {
+    BOOL _needReloadData;
+    NSTextField *_wechatSpaceLabel;
     NSTextField *_totalSizeLabel;
-    NSTextField *_cleanStatusLabel;
-    NSTextField *_totalSpaceTipsLabel;
-    MMOutlineButton *_manageSessionBtn;
-    NSProgressIndicator *_loadingIndicator;
+    NSTextField *_totalSizeDescLabel;
+    MMView *_rateBarContainerView;
+    MMView *_rateBarView;
+    MMView *_wechatRateBarView;
+    MMView *_othersRateBarView;
+    MMView *_freeRateBarView;
+    double _wechatSpaceRate;
+    double _othersSpaceRate;
+    MMView *_wechatColorSampleView;
+    NSTextField *_wechatColorLabelView;
+    MMView *_othersColorSampleView;
+    NSTextField *_othersColorLabelView;
+    MMView *_freeColorSampleView;
+    NSTextField *_freeColorLabelView;
+    NSButton *_refreshButton;
+    MMView *_seperater;
+    NSTextField *_storageListTitle;
+    NSMutableDictionary *_storages;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSProgressIndicator *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
-@property(retain, nonatomic) MMOutlineButton *manageSessionBtn; // @synthesize manageSessionBtn=_manageSessionBtn;
-@property(retain, nonatomic) NSTextField *totalSpaceTipsLabel; // @synthesize totalSpaceTipsLabel=_totalSpaceTipsLabel;
-@property(retain, nonatomic) NSTextField *cleanStatusLabel; // @synthesize cleanStatusLabel=_cleanStatusLabel;
-@property(retain, nonatomic) NSTextField *totalSizeLabel; // @synthesize totalSizeLabel=_totalSizeLabel;
+@property(retain, nonatomic) NSMutableDictionary *storages; // @synthesize storages=_storages;
+@property(retain, nonatomic) NSTextField *storageListTitle; // @synthesize storageListTitle=_storageListTitle;
+@property(retain, nonatomic) MMView *seperater; // @synthesize seperater=_seperater;
+@property __weak NSButton *refreshButton; // @synthesize refreshButton=_refreshButton;
+@property(retain, nonatomic) NSTextField *freeColorLabelView; // @synthesize freeColorLabelView=_freeColorLabelView;
+@property(retain, nonatomic) MMView *freeColorSampleView; // @synthesize freeColorSampleView=_freeColorSampleView;
+@property(retain, nonatomic) NSTextField *othersColorLabelView; // @synthesize othersColorLabelView=_othersColorLabelView;
+@property(retain, nonatomic) MMView *othersColorSampleView; // @synthesize othersColorSampleView=_othersColorSampleView;
+@property(retain, nonatomic) NSTextField *wechatColorLabelView; // @synthesize wechatColorLabelView=_wechatColorLabelView;
+@property(retain, nonatomic) MMView *wechatColorSampleView; // @synthesize wechatColorSampleView=_wechatColorSampleView;
+@property(nonatomic) double othersSpaceRate; // @synthesize othersSpaceRate=_othersSpaceRate;
+@property(nonatomic) double wechatSpaceRate; // @synthesize wechatSpaceRate=_wechatSpaceRate;
+@property(retain, nonatomic) MMView *freeRateBarView; // @synthesize freeRateBarView=_freeRateBarView;
+@property(retain, nonatomic) MMView *othersRateBarView; // @synthesize othersRateBarView=_othersRateBarView;
+@property(retain, nonatomic) MMView *wechatRateBarView; // @synthesize wechatRateBarView=_wechatRateBarView;
+@property(retain, nonatomic) MMView *rateBarView; // @synthesize rateBarView=_rateBarView;
+@property(nonatomic) __weak MMView *rateBarContainerView; // @synthesize rateBarContainerView=_rateBarContainerView;
+@property(nonatomic) __weak NSTextField *totalSizeDescLabel; // @synthesize totalSizeDescLabel=_totalSizeDescLabel;
+@property(nonatomic) __weak NSTextField *totalSizeLabel; // @synthesize totalSizeLabel=_totalSizeLabel;
+@property(nonatomic) __weak NSTextField *wechatSpaceLabel; // @synthesize wechatSpaceLabel=_wechatSpaceLabel;
+@property(nonatomic) BOOL needReloadData; // @synthesize needReloadData=_needReloadData;
+- (void)onSpaceSizeChange;
+- (void)onCacheCleared;
+- (void)clickClearCacheBtn;
+- (void)clickManageBackupBtn;
+- (void)clickManageSessionBtn;
+- (void)setupStorageList;
+- (id)getStorageViewWithType:(unsigned int)arg1;
+- (void)reloadData;
+- (void)computeAllSpaceSizes;
 - (void)updateTotalSizeLabel;
-- (void)clickManageSessionBtn:(id)arg1;
-- (void)stopLoadData;
-- (void)startLoadData;
+- (void)drawRateBar;
+- (void)updateSpaceRates;
+- (void)setupRateBarContainerView;
+- (void)dealloc;
+- (void)viewChangedEffectiveAppearance;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 - (id)init;

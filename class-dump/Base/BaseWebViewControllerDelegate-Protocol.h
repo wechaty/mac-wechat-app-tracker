@@ -15,6 +15,7 @@
 - (void)canGoBackStatusChange:(BOOL)arg1;
 - (void)exitMiniMode;
 - (void)enterMiniModeWithWidth:(int)arg1 andHeight:(int)arg2;
+- (void)hideMiniButton;
 - (void)showMiniButton;
 - (void)onPageStateChaged:(NSString *)arg1;
 - (void)showTitleWithValue:(double)arg1;

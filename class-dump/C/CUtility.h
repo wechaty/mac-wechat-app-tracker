@@ -18,6 +18,9 @@
 + (void)addSubView:(id)arg1 toViewStyleCenter:(id)arg2;
 + (BOOL)hasRetinaScreen;
 + (BOOL)isBeingDebugged;
++ (BOOL)hasChinese:(id)arg1;
++ (unsigned short)getFirstChar:(id)arg1;
++ (id)transformOneChineseToPinyin:(id)arg1;
 + (BOOL)isEnterpriseSingleUsrName:(id)arg1;
 + (BOOL)isArchivedUsrName:(id)arg1;
 + (BOOL)isEnterpriseUsrName:(id)arg1;
@@ -138,12 +141,12 @@
 + (BOOL)IsWeAppSessionHolder:(id)arg1;
 + (BOOL)IsTemplateMsgHolder:(id)arg1;
 + (BOOL)IsOfficialAccountFolder:(id)arg1;
++ (BOOL)IsBrandContactUserName:(id)arg1;
 + (BOOL)IsBrandSessionHolder:(id)arg1;
 + (BOOL)IsWeixinTeamContact:(id)arg1;
-+ (BOOL)IsWeiXinValidContact:(id)arg1;
++ (BOOL)IsMsgFromEnterpriseContact:(id)arg1;
 + (BOOL)IsWeiXinMsgContact:(id)arg1;
 + (id)PreHandleUserName:(id)arg1;
-+ (BOOL)IsNormalContact:(id)arg1;
 + (unsigned int)GetChatNameType:(id)arg1;
 + (void)kernelRemoveAccountRelateService;
 + (void)kernelInitServiceObjects;
@@ -159,7 +162,7 @@
 + (void)KernelOnAppExit;
 + (id)getSoftTypeInfo;
 + (BOOL)AppMsgCannotAddToDB:(id)arg1;
-+ (BOOL)IsFilterSysMsg:(id)arg1;
++ (BOOL)IsFilterSpecialSysMsg:(id)arg1;
 + (BOOL)IsFilterStatusNotify:(id)arg1 chatName:(id)arg2;
 + (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2;
 + (id)GenMsgDataFromAddMsg:(id)arg1;
@@ -181,6 +184,7 @@
 + (id)filterAllWhiteSpaceAndNewLineString:(id)arg1;
 + (id)filterWhiteSpaceAndNewLineString:(id)arg1;
 + (unsigned long long)getFreeBackupDiskSpace;
++ (BOOL)isNormalBrandContact:(id)arg1;
 + (void)OnDeleteContacts_Thread:(id)arg1;
 + (void)OnModContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 + (void)OnModContacts_Thread:(id)arg1;

@@ -81,6 +81,7 @@
     ChatRoomDetail *m_chatRoomDetail;
     NSString *m_nsChatRoomAdminList;
     NSString *m_patSuffix;
+    NSArray *_m_arrPhoneItem;
     NSData *_m_dtUsrImg;
     NSString *_m_nsDisplayNamePY;
     NSDictionary *_m_externalInfoJSONCache;
@@ -197,6 +198,7 @@
 @property(retain, nonatomic) NSDictionary *m_externalInfoJSONCache; // @synthesize m_externalInfoJSONCache=_m_externalInfoJSONCache;
 @property(copy, nonatomic) NSString *m_nsDisplayNamePY; // @synthesize m_nsDisplayNamePY=_m_nsDisplayNamePY;
 @property(retain, nonatomic) NSData *m_dtUsrImg; // @synthesize m_dtUsrImg=_m_dtUsrImg;
+@property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem=_m_arrPhoneItem;
 @property(retain, nonatomic) NSString *m_patSuffix; // @synthesize m_patSuffix;
 @property(retain, nonatomic) NSString *m_nsChatRoomAdminList; // @synthesize m_nsChatRoomAdminList;
 @property(retain, nonatomic) ChatRoomDetail *m_chatRoomDetail; // @synthesize m_chatRoomDetail;

@@ -6,19 +6,15 @@
 
 #import "MMService.h"
 
-#import "AccountServiceExt-Protocol.h"
 #import "IExptServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class NSMutableDictionary, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface WCDBMonitorMgr : MMService <AccountServiceExt, IExptServiceExt, MMService>
+@interface WCDBMonitorMgr : MMService <IExptServiceExt, MMService>
 {
     NSObject<OS_dispatch_queue> *m_reportQueue;
-    BOOL m_stopReport;
-    unsigned int m_errorLastReportTime;
-    unsigned int m_performanceLastReportTime;
     unsigned int m_appLaunchTime;
     NSRecursiveLock *m_lock;
     NSMutableDictionary *m_dbExtInfoDictionary;
@@ -31,12 +27,11 @@
 - (void).cxx_destruct;
 - (void)updatePerformanceSampleConfig;
 - (void)onExptItemListChange;
-- (void)onUserLogout;
+- (BOOL)shouldStopReport;
 - (id)parseError:(id)arg1;
 - (void)reportErrorToIDKey:(id)arg1;
 - (void)reportWithIDKey:(int)arg1 dbKey:(id)arg2 errorCode:(int)arg3;
 - (void)reportErrorToKV:(id)arg1;
-- (void)reportSqlInfoToIDKey:(id)arg1;
 - (void)reportSqlInfoToKV:(id)arg1;
 - (void)reportPerformanceToKV:(id)arg1;
 - (void)updateWCDBMonitorDBTableCount:(long long)arg1 withIdentifier:(id)arg2;
@@ -44,6 +39,8 @@
 - (void)onServiceTerminate;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (void)dealloc;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

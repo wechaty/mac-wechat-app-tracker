@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface ConfInviteInfo : PBGeneratedMessage
 {
@@ -14,13 +14,21 @@
     unsigned int hasMuteVideo:1;
     unsigned int muteVideo_:1;
     unsigned int hasNetType:1;
+    unsigned int hasOwnerGroupid:1;
+    unsigned int hasToken:1;
     unsigned int roomType;
     unsigned int netType;
     NSMutableArray *mutableCalleeListList;
+    NSString *ownerGroupid;
+    NSString *token;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetToken:) NSString *token; // @synthesize token;
+@property(readonly, nonatomic) BOOL hasToken; // @synthesize hasToken;
+@property(retain, nonatomic, setter=SetOwnerGroupid:) NSString *ownerGroupid; // @synthesize ownerGroupid;
+@property(readonly, nonatomic) BOOL hasOwnerGroupid; // @synthesize hasOwnerGroupid;
 @property(nonatomic, setter=SetNetType:) unsigned int netType; // @synthesize netType;
 @property(readonly, nonatomic) BOOL hasNetType; // @synthesize hasNetType;
 @property(readonly, nonatomic) BOOL hasMuteVideo; // @synthesize hasMuteVideo;

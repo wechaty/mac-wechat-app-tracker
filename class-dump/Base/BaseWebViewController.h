@@ -145,6 +145,7 @@
 - (void)sendFeedH5EventAuthEvent:(id)arg1 withParams:(id)arg2;
 - (void)exitMiniMode;
 - (void)enterMiniModeWithWidth:(int)arg1 andHeight:(int)arg2;
+- (void)hideMiniButton;
 - (void)showMiniButton;
 - (void)doShareWithDefault;
 - (void)doShareWithData:(id)arg1;
@@ -201,7 +202,7 @@
 - (void)openInWebView:(id)arg1;
 - (void)initJsInitInfo:(id)arg1;
 - (void)updateExtraInfo;
-- (BOOL)enableFeed;
+- (BOOL)sholudAddFinderSuffix;
 - (void)preloadWebViewWithDataItem:(unsigned long long)arg1 andUrl:(id)arg2;
 - (void)tryReloadUrl:(id)arg1;
 - (void)showWebViewWithDataItem:(id)arg1 initialShowing:(BOOL)arg2;

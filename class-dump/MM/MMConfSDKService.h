@@ -131,7 +131,7 @@
 - (void)callbackAccept:(CDUnknownBlockType)arg1 errType:(int)arg2 errCode:(int)arg3 errMsg:(id)arg4;
 - (void)callbackInvite:(CDUnknownBlockType)arg1 errType:(int)arg2 errCode:(int)arg3 errMsg:(id)arg4;
 - (void)callbackJoin:(CDUnknownBlockType)arg1 errType:(int)arg2 errCode:(int)arg3 errMsg:(id)arg4;
-- (int)initWithSession:(id)arg1 refreshCallback:(BOOL)arg2;
+- (int)initWithSession:(id)arg1 idcInfo:(id)arg2 refreshCallback:(BOOL)arg3;
 - (void)stopListenNetworkChange;
 - (void)startListenNetworkChange;
 - (void)cleanUpJoinStatus;

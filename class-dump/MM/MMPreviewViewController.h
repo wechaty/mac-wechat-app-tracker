@@ -20,6 +20,7 @@
     CDUnknownBlockType _restoreImageBlock;
     CDUnknownBlockType _restoreActionBlock;
     CDUnknownBlockType _retryDownloadImageBlock;
+    CDUnknownBlockType _finishDownloadVideoBlock;
     MMQLPreviewPageInfo *_pageInfo;
     MMPreviewIKScrollView *_ikScrollView;
     NSImageView *_thumbImageView;
@@ -49,6 +50,7 @@
 @property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
 @property __weak MMPreviewIKScrollView *ikScrollView; // @synthesize ikScrollView=_ikScrollView;
 @property(retain, nonatomic) MMQLPreviewPageInfo *pageInfo; // @synthesize pageInfo=_pageInfo;
+@property(copy, nonatomic) CDUnknownBlockType finishDownloadVideoBlock; // @synthesize finishDownloadVideoBlock=_finishDownloadVideoBlock;
 @property(copy, nonatomic) CDUnknownBlockType retryDownloadImageBlock; // @synthesize retryDownloadImageBlock=_retryDownloadImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreActionBlock; // @synthesize restoreActionBlock=_restoreActionBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreImageBlock; // @synthesize restoreImageBlock=_restoreImageBlock;

@@ -85,6 +85,9 @@
 - (void)windowDidLoad;
 - (void)toggleFullScreen:(id)arg1;
 - (void)_setupTrafficlightButtons;
+- (void)setHiddenWindowTitleBar:(BOOL)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
 - (void)dealloc;
 - (void)loadWindow;
 

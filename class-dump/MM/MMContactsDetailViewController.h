@@ -13,7 +13,7 @@
 #import "OpenIMContactVerifyMgrDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 
-@class MMFriendRequestData, MMMouseEventView, MMOutlineButton, MMView, NSBox, NSData, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSTextView, NSView, WCContactData, _TtC6WeChat17SnsAlbumThumbView;
+@class MMFriendNewVerifyMessageWindowController, MMFriendRequestData, MMMouseEventView, MMOutlineButton, MMView, NSBox, NSData, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSTextView, NSView, WCContactData, _TtC6WeChat17SnsAlbumThumbView;
 
 @interface MMContactsDetailViewController : MMViewController <NSTextFieldDelegate, MMViewerWindowDelegate, IContactMgrExt, MMCGIDelegate, OpenIMResourceMgrExt, OpenIMContactVerifyMgrDelegate>
 {
@@ -43,6 +43,7 @@
     NSString *_originalRemark;
     NSTextField *_remarkInput;
     MMOutlineButton *_sendMsgButton;
+    MMFriendNewVerifyMessageWindowController *_friendVerifyMsgWinController;
     NSData *_kvRowPrototype;
     NSData *_kvGreetingRowPrototype;
     NSData *_kvSNSRowPrototype;
@@ -77,6 +78,7 @@
 @property(retain, nonatomic) NSData *kvSNSRowPrototype; // @synthesize kvSNSRowPrototype=_kvSNSRowPrototype;
 @property(retain, nonatomic) NSData *kvGreetingRowPrototype; // @synthesize kvGreetingRowPrototype=_kvGreetingRowPrototype;
 @property(retain, nonatomic) NSData *kvRowPrototype; // @synthesize kvRowPrototype=_kvRowPrototype;
+@property(retain, nonatomic) MMFriendNewVerifyMessageWindowController *friendVerifyMsgWinController; // @synthesize friendVerifyMsgWinController=_friendVerifyMsgWinController;
 @property(nonatomic) int addedHeight; // @synthesize addedHeight=_addedHeight;
 @property(retain, nonatomic) MMOutlineButton *sendMsgButton; // @synthesize sendMsgButton=_sendMsgButton;
 @property(retain, nonatomic) NSTextField *remarkInput; // @synthesize remarkInput=_remarkInput;

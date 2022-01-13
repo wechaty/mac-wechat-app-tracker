@@ -21,6 +21,7 @@
     // Error parsing type: , name: activeWindowController
     // Error parsing type: , name: movingDelta
     // Error parsing type: , name: movingTimer
+    // Error parsing type: , name: shouldStopService
 }
 
 - (void).cxx_destruct;

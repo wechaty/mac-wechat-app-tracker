@@ -9,7 +9,7 @@
 #import "MMCTTextViewDelegate-Protocol.h"
 #import "MMVoiceTranslateExt-Protocol.h"
 
-@class CAShapeLayer, MMCTTextView, MMRoundedRectangleView, MMTextField, MMTimer, NSImageView, NSProgressIndicator, NSString, NSTextField;
+@class CAShapeLayer, MMCTTextView, MMRoundedRectangleView, MMTextField, MMTimer, NSImageView, NSProgressIndicator, NSString, NSTextField, SVGImageView;
 
 @interface MMVoiceMessageCellView : MMMessageCellView <MMVoiceTranslateExt, MMCTTextViewDelegate>
 {
@@ -17,7 +17,7 @@
     BOOL _mouseDown;
     MMRoundedRectangleView *_unreadTip;
     MMTextField *_voiceTimeLabel;
-    NSImageView *_voiceWavImageView;
+    SVGImageView *_voiceWavImageView;
     NSImageView *_voiceToTextFailedImageView;
     MMTimer *_animationTimer;
     unsigned long long _animationCount;
@@ -45,7 +45,7 @@
 @property(nonatomic) unsigned long long animationCount; // @synthesize animationCount=_animationCount;
 @property(retain, nonatomic) MMTimer *animationTimer; // @synthesize animationTimer=_animationTimer;
 @property(retain, nonatomic) NSImageView *voiceToTextFailedImageView; // @synthesize voiceToTextFailedImageView=_voiceToTextFailedImageView;
-@property(retain, nonatomic) NSImageView *voiceWavImageView; // @synthesize voiceWavImageView=_voiceWavImageView;
+@property(retain, nonatomic) SVGImageView *voiceWavImageView; // @synthesize voiceWavImageView=_voiceWavImageView;
 @property(retain, nonatomic) MMTextField *voiceTimeLabel; // @synthesize voiceTimeLabel=_voiceTimeLabel;
 @property(retain, nonatomic) MMRoundedRectangleView *unreadTip; // @synthesize unreadTip=_unreadTip;
 - (void)onVoiceTranslateEnd:(id)arg1 voiceText:(id)arg2 voiceToTextStatus:(unsigned int)arg3;

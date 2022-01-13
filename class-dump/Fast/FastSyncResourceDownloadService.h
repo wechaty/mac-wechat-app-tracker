@@ -21,8 +21,8 @@
 @property(nonatomic) int concurrentCount; // @synthesize concurrentCount=_concurrentCount;
 @property(retain, nonatomic) TSDictionary *waitingItems; // @synthesize waitingItems=_waitingItems;
 @property(retain, nonatomic) NSOperationQueue *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
-- (BOOL)isImageExit:(id)arg1;
 - (void)loadExptConfig;
+- (BOOL)doesTaskExist:(id)arg1;
 - (void)cancelTaskIfExist:(id)arg1;
 - (void)downloadThumbWithUsername:(id)arg1 svrId:(long long)arg2;
 - (void)onServiceClearData;

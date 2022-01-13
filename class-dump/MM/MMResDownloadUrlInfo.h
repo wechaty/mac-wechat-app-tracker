@@ -9,7 +9,7 @@
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
-@class NSData, NSMutableArray, NSString;
+@class MMResSignatureDataInfos, NSData, NSString;
 
 @interface MMResDownloadUrlInfo : NSObject <PBCoding, WCTColumnCoding>
 {
@@ -27,7 +27,7 @@
     NSString *version;
     NSString *md5;
     NSData *signatureData;
-    NSMutableArray *arrSignatureDataInfo;
+    MMResSignatureDataInfos *arrSignatureDataInfo;
     NSString *originalMd5;
 }
 
@@ -54,7 +54,7 @@
 @property(nonatomic) unsigned int retryCnt; // @synthesize retryCnt;
 @property(nonatomic) unsigned int downloadPriority; // @synthesize downloadPriority;
 @property(retain, nonatomic) NSString *originalMd5; // @synthesize originalMd5;
-@property(retain, nonatomic) NSMutableArray *arrSignatureDataInfo; // @synthesize arrSignatureDataInfo;
+@property(retain, nonatomic) MMResSignatureDataInfos *arrSignatureDataInfo; // @synthesize arrSignatureDataInfo;
 @property(retain, nonatomic) NSData *signatureData; // @synthesize signatureData;
 @property(nonatomic) BOOL isDownloaded; // @synthesize isDownloaded;
 @property(nonatomic) unsigned int supportVersion; // @synthesize supportVersion;

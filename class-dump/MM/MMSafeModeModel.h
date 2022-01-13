@@ -12,6 +12,7 @@
 
 @interface MMSafeModeModel : NSObject <NSCoding>
 {
+    BOOL _hasLoadBD;
     unsigned int _crashUin;
     NSDate *_crashTime;
     long long _crashType;
@@ -19,6 +20,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL hasLoadBD; // @synthesize hasLoadBD=_hasLoadBD;
 @property(nonatomic) unsigned int crashUin; // @synthesize crashUin=_crashUin;
 @property(retain, nonatomic) NSString *crashUsername; // @synthesize crashUsername=_crashUsername;
 @property(nonatomic) long long crashType; // @synthesize crashType=_crashType;

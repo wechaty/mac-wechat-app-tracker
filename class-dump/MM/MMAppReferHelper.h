@@ -18,6 +18,10 @@
 + (id)cacheKeyForMessage:(id)arg1;
 + (id)getRecordDataDesc:(id)arg1;
 + (id)noteTitleWithMessage:(id)arg1;
++ (id)getReferAttributedString:(id)arg1 icon:(id)arg2 summary:(id)arg3;
++ (id)getReferAttributedString:(id)arg1 icon:(id)arg2 summaryAttri:(id)arg3;
++ (id)getReferContentWithMessageData:(id)arg1;
++ (void)getThumbnailWithMessageData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)defaultImageThumbnail;
 + (id)defaultVideoIconThumbnailWithMessage:(id)arg1;
 + (id)defaultVideoThumbnailWithSize:(struct CGSize)arg1;
@@ -25,8 +29,11 @@
 + (struct CGSize)thumbDisplaySizeWithImage:(id)arg1 sizeConstraint:(struct CGSize)arg2;
 + (struct CGSize)thumbDisplaySizeWithMessage:(id)arg1 sizeConstraint:(struct CGSize)arg2;
 + (BOOL)hasReferAttachment:(id)arg1 foundReferRange:(struct _NSRange *)arg2;
++ (id)estimatedReferMessageSizeWithContent:(id)arg1 hasReferThumb:(BOOL)arg2 hasReferIcon:(BOOL)arg3 constrainedToWidth:(double)arg4;
 + (struct CGSize)referCellSizeWithAttachmentObject:(id)arg1 constrainedToWidth:(double)arg2;
 + (id)formattedPreviewSimpleReferTextAttrStringWithContent:(id)arg1 handleEmoji:(BOOL)arg2;
++ (id)makeReferTextAttrStringWithContent:(id)arg1 font:(id)arg2 handleEmoji:(BOOL)arg3;
++ (id)makeAttributeStringWithImg:(id)arg1 imgWidth:(double)arg2 imgHeight:(double)arg3 leftPadding:(double)arg4 verticalAlignment:(long long)arg5;
 + (id)formattedPreviewReferTextAttrStringWithContent:(id)arg1;
 + (id)formattedNormalReferTextInForwardAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2;
 + (id)formattedNormalReferTextAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2;

@@ -11,13 +11,12 @@
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class ContactVerifyLogic, MMFriendRequestDataCollection, MMFriendVerifyMessageWindowController, NSRecursiveLock, NSString, OpenIMContactVerifyMgr;
+@class ContactVerifyLogic, MMFriendRequestDataCollection, NSRecursiveLock, NSString, OpenIMContactVerifyMgr;
 
 @interface MMFriendRequestMgr : MMService <IMessageExt, IMMSessionMgrExt, AccountServiceExt, MMService>
 {
     MMFriendRequestDataCollection *_friendRequestDataCollection;
     ContactVerifyLogic *_contactVerifyLogic;
-    MMFriendVerifyMessageWindowController *_friendVerifyMsgWinController;
     OpenIMContactVerifyMgr *_openimVerifyMgr;
     NSRecursiveLock *_sumLock;
 }
@@ -25,7 +24,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSRecursiveLock *sumLock; // @synthesize sumLock=_sumLock;
 @property(retain, nonatomic) OpenIMContactVerifyMgr *openimVerifyMgr; // @synthesize openimVerifyMgr=_openimVerifyMgr;
-@property(retain, nonatomic) MMFriendVerifyMessageWindowController *friendVerifyMsgWinController; // @synthesize friendVerifyMsgWinController=_friendVerifyMsgWinController;
 @property(retain, nonatomic) ContactVerifyLogic *contactVerifyLogic; // @synthesize contactVerifyLogic=_contactVerifyLogic;
 @property(retain, nonatomic) MMFriendRequestDataCollection *friendRequestDataCollection; // @synthesize friendRequestDataCollection=_friendRequestDataCollection;
 - (void)onUserLogout;
@@ -34,13 +32,14 @@
 - (void)sendVerifyUserRequestWithUserName:(id)arg1 opCode:(int)arg2 verifyMsg:(id)arg3 ticket:(id)arg4 verifyContactWrap:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)deleteFriendRequestWithFriendRequestUserName:(id)arg1;
 - (void)deleteFriendRequestWithFriendRequestData:(id)arg1;
-- (void)acceptFriendRequestWithFriendRequestData:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)acceptFriendRequestWithFriendRequestData:(id)arg1 andVerifyContactWrap:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)acceptFriendRequestWithContact:(id)arg1 contactData:(id)arg2 finishCompletion:(CDUnknownBlockType)arg3;
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 verifyMsg:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 verifyMsg:(id)arg3 opcode:(int)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)addOpenIMFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 verifyMsg:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)sendFriendVerifyMessage:(id)arg1 withVerifyContactWrap:(id)arg2;
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2;
-- (void)showFriendVerifyWindowWithContact:(id)arg1 groupChatUserName:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)showFriendVerifyWindowWithContact:(id)arg1 verifyContactWrap:(id)arg2;
 - (unsigned long long)calculateUnreadRequestSum;
 - (void)clearUnreadFriendRequestCount;
 - (id)friendRequests;

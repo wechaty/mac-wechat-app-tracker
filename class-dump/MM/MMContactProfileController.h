@@ -90,6 +90,7 @@
 - (void)onButtonClick:(int)arg1;
 - (BOOL)isShown;
 - (void)hide;
+- (void)setCanBecomeKey:(BOOL)arg1;
 - (void)showInView:(id)arg1;
 - (void)sendGetAppBrandContact:(id)arg1;
 - (void)sendGetOpenIMContact:(id)arg1 withGroupName:(id)arg2;

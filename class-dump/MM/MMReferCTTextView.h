@@ -21,6 +21,7 @@
     unsigned long long _numberOfLines;
     NSString *_string;
     NSAttributedString *_attributedString;
+    long long _lineVerticalLayout;
     NSMutableArray *_linkRanges;
     NSMutableArray *_linkStrings;
     MMCTTextViewSession *_session;
@@ -35,7 +36,6 @@
 }
 
 + (struct CGSize)suggestedSizeWithAttributedString:(id)arg1 widthConstraint:(double)arg2;
-+ (BOOL)_hasQQEmoji:(struct __CFArray *)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *accessibleTextField; // @synthesize accessibleTextField=_accessibleTextField;
 @property(nonatomic) unsigned long long scrollTime; // @synthesize scrollTime=_scrollTime;
@@ -46,6 +46,7 @@
 @property(retain, nonatomic) MMCTTextViewSession *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableArray *linkStrings; // @synthesize linkStrings=_linkStrings;
 @property(retain, nonatomic) NSMutableArray *linkRanges; // @synthesize linkRanges=_linkRanges;
+@property(nonatomic) long long lineVerticalLayout; // @synthesize lineVerticalLayout=_lineVerticalLayout;
 @property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 @property(retain, nonatomic) NSString *string; // @synthesize string=_string;
 @property(nonatomic) BOOL isForceDrawLine; // @synthesize isForceDrawLine=_isForceDrawLine;
@@ -87,8 +88,11 @@
 - (BOOL)becomeFirstResponder;
 - (BOOL)canBecomeKeyView;
 - (void)_calLastLineOriginOfTail:(struct __CTLine *)arg1 lastLineY:(double)arg2;
-- (struct CGPoint)drawLastTruncatingLine:(struct CGContext *)arg1 line:(struct __CTLine *)arg2 point:(struct CGPoint)arg3 count:(unsigned long long)arg4 preLineOffsetY:(double)arg5;
+- (struct __CTLine *)makeLastTruncatingLine:(struct CGContext *)arg1 line:(struct __CTLine *)arg2 point:(struct CGPoint)arg3 count:(unsigned long long)arg4 preLineOffsetY:(double)arg5;
+- (void)drawCTLine:(struct __CTLine *)arg1 context:(struct CGContext *)arg2 origin:(struct CGPoint)arg3 lineIndex:(long long)arg4 lineCount:(long long)arg5;
 - (void)drawTextWithContext:(struct CGContext *)arg1 lines:(struct __CFArray *)arg2 lineOrigins:(struct CGPoint *)arg3 count:(unsigned long long)arg4;
+- (double)findSuitableY:(struct __CTLine *)arg1 lineOrigin:(struct CGPoint)arg2 lineLayoutParams:(struct CTLineLayoutParams)arg3 index:(long long)arg4;
+- (struct CTLineLayoutParams)makeCTLineLayoutParams:(struct __CTLine *)arg1;
 - (void)drawSelectionBackgroundWithLines:(struct __CFArray *)arg1 lineOrigins:(struct CGPoint *)arg2 count:(unsigned long long)arg3;
 - (void)drawLinesWithContext:(struct CGContext *)arg1 frame:(struct __CTFrame *)arg2;
 - (void)drawRect:(struct CGRect)arg1;

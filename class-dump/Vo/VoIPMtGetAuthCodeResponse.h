@@ -12,12 +12,16 @@
 {
     unsigned int hasBaseResponse:1;
     unsigned int hasIlink3RdappAuthCode:1;
+    unsigned int hasClientInfo:1;
     BaseResponse *baseResponse;
     NSData *ilink3RdappAuthCode;
+    NSData *clientInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetClientInfo:) NSData *clientInfo; // @synthesize clientInfo;
+@property(readonly, nonatomic) BOOL hasClientInfo; // @synthesize hasClientInfo;
 @property(retain, nonatomic, setter=SetIlink3RdappAuthCode:) NSData *ilink3RdappAuthCode; // @synthesize ilink3RdappAuthCode;
 @property(readonly, nonatomic) BOOL hasIlink3RdappAuthCode; // @synthesize hasIlink3RdappAuthCode;
 @property(retain, nonatomic, setter=SetBaseResponse:) BaseResponse *baseResponse; // @synthesize baseResponse;

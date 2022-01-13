@@ -12,18 +12,16 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMOutlineButton, MMSpaceCleanerSelectSessionLogic, MMTableView, MMTextField, NSBox, NSButton, NSProgressIndicator, NSString, NSTextField, NSView;
+@class MMOutlineButton, MMSpaceCleanerSelectSessionLogic, MMTableView, NSBox, NSButton, NSProgressIndicator, NSString, NSTextField, NSView;
 
 @interface MMSpaceSelectSessionViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMSpaceCleanSessionRowViewDelegate, IMMSpaceCleanSelectSessionExt>
 {
     BOOL _isSelectAll;
     BOOL _isResumeFromLock;
-    MMTextField *_descLabel;
     MMTableView *_tableView;
     NSButton *_selectAllBtn;
     NSTextField *_allLabel;
     MMOutlineButton *_clearBtn;
-    NSButton *_returnButton;
     NSProgressIndicator *_loadingIndicator;
     NSTextField *_loadingLabel;
     NSView *_bottomView;
@@ -49,15 +47,12 @@
 @property(retain, nonatomic) NSView *bottomView; // @synthesize bottomView=_bottomView;
 @property(retain, nonatomic) NSTextField *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
 @property(retain, nonatomic) NSProgressIndicator *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
-@property(retain, nonatomic) NSButton *returnButton; // @synthesize returnButton=_returnButton;
 @property(retain, nonatomic) MMOutlineButton *clearBtn; // @synthesize clearBtn=_clearBtn;
 @property(retain, nonatomic) NSTextField *allLabel; // @synthesize allLabel=_allLabel;
 @property(retain, nonatomic) NSButton *selectAllBtn; // @synthesize selectAllBtn=_selectAllBtn;
 @property(retain, nonatomic) MMTableView *tableView; // @synthesize tableView=_tableView;
-@property(retain, nonatomic) MMTextField *descLabel; // @synthesize descLabel=_descLabel;
 - (void)showToastViewCleanComplete;
 - (void)unHighLightAllRows;
-- (void)onBackButtonClick:(id)arg1;
 - (void)enableClearBtn;
 - (void)disableClearBtn;
 - (void)resumeControls;

@@ -8,18 +8,38 @@
 
 #import "MMNavigationControllerDelegate-Protocol.h"
 
-@class MMNavigationController, NSString;
+@class MMBorderView, MMNavigationController, MMPopUpButton, MMSpaceCleanCacheViewController, MMView, NSString, NSTextField, SVGButton;
 
 @interface MMSpaceCleanViewController : MMViewController <MMNavigationControllerDelegate>
 {
+    unsigned int _headerViewStyle;
     MMNavigationController *_navController;
+    MMSpaceCleanCacheViewController *_cacheViewController;
+    MMView *_headerView;
+    MMBorderView *_headerSeperator;
+    SVGButton *_backBtn;
+    NSTextField *_titleField;
+    MMPopUpButton *_fileTypeSelector;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMPopUpButton *fileTypeSelector; // @synthesize fileTypeSelector=_fileTypeSelector;
+@property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
+@property(retain, nonatomic) SVGButton *backBtn; // @synthesize backBtn=_backBtn;
+@property(retain, nonatomic) MMBorderView *headerSeperator; // @synthesize headerSeperator=_headerSeperator;
+@property(retain, nonatomic) MMView *headerView; // @synthesize headerView=_headerView;
+@property(nonatomic) unsigned int headerViewStyle; // @synthesize headerViewStyle=_headerViewStyle;
+@property(retain, nonatomic) MMSpaceCleanCacheViewController *cacheViewController; // @synthesize cacheViewController=_cacheViewController;
 @property(retain, nonatomic) MMNavigationController *navController; // @synthesize navController=_navController;
+- (void)adaptWindowWithViewSize:(struct CGSize)arg1;
+- (void)adaptWindowWithViewSize:(struct CGSize)arg1 identifier:(id)arg2;
 - (void)showSessionViewController;
 - (void)showCacheViewController;
 - (void)updateNavigationTitle:(id)arg1;
+- (void)layoutSubviews;
+- (void)layoutHeaderItems;
+- (void)setupHeaderView;
+- (void)viewChangedEffectiveAppearance;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 - (void)loadView;

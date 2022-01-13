@@ -10,6 +10,7 @@
 
 @interface NSObject (Aspects)
 + (id)aspect_hookSelector:(SEL)arg1 withOptions:(unsigned long long)arg2 usingBlock:(id)arg3 error:(id *)arg4;
++ (void)jp_fixMethodSignature;
 + (void)safe_swizzleClassMethod:(SEL)arg1 tarSel:(SEL)arg2;
 + (void)safe_swizzleMethod:(Class)arg1 srcSel:(SEL)arg2 tarClass:(Class)arg3 tarSel:(SEL)arg4;
 + (void)safe_swizzleMethod:(SEL)arg1 tarClass:(id)arg2 tarSel:(SEL)arg3;
@@ -41,6 +42,7 @@
 + (id)rac_signalFor:(id)arg1 keyPath:(id)arg2 observer:(id)arg3;
 + (id)event_logging_alloc;
 - (id)aspect_hookSelector:(SEL)arg1 withOptions:(unsigned long long)arg2 usingBlock:(id)arg3 error:(id *)arg4;
+- (id)jp_methodSignatureForSelector:(SEL)arg1;
 - (id)bk_ensuredDynamicDelegateForProtocol:(id)arg1;
 - (id)bk_ensuredDynamicDelegate;
 - (id)bk_dynamicDelegateWithClass:(Class)arg1 forProtocol:(id)arg2;

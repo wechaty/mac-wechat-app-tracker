@@ -33,6 +33,7 @@
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
+- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)resignSearch;
 - (void)startSearch;
 @property(retain, nonatomic) NSAttributedString *placeholderAttributedString;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSAttributedString *attributedString;
 @property(retain, nonatomic) NSString *stringValue;
 - (void)mouseDown:(id)arg1;
+- (void)onSearchSceneChange:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

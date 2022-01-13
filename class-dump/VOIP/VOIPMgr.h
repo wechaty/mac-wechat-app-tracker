@@ -58,6 +58,7 @@
     BOOL mIsStopHWEnc;
     int mPrevFrmType;
     int mHWBR;
+    int mHWFPS;
     int mHWIGap;
     int mHWWidth;
     int mHWHeight;
@@ -164,6 +165,7 @@
     unsigned long long mRealAcceptCallTime;
     unsigned long long mStartTalkingTime;
     unsigned long long mRecvFirstAVDataPacketTime;
+    unsigned long long mSwitchFlagExt;
     struct VOIPSpeedTestChannelAdapter *mSpeedTestAdapter;
     struct OpaqueVTDecompressionSession *mVTDecompressionSession;
     struct __CVBuffer *decodedFrameBuffer;
@@ -199,6 +201,7 @@
 @property(nonatomic) unsigned int mInviteId; // @synthesize mInviteId;
 @property(nonatomic) int mLastSwitchTimer; // @synthesize mLastSwitchTimer;
 @property(nonatomic) int bIsGotFirstValidSample; // @synthesize bIsGotFirstValidSample;
+@property(nonatomic) unsigned long long mSwitchFlagExt; // @synthesize mSwitchFlagExt;
 @property(nonatomic) unsigned int mSwitchFlag; // @synthesize mSwitchFlag;
 @property(nonatomic) int mHWCloseCmd; // @synthesize mHWCloseCmd;
 @property(nonatomic) int iAudioEnableSpkec; // @synthesize iAudioEnableSpkec;

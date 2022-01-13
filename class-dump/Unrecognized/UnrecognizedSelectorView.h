@@ -6,17 +6,22 @@
 
 #import "DemoBaseView.h"
 
-@class NSButton;
+@class NSButton, NSRecursiveLock;
 
 @interface UnrecognizedSelectorView : DemoBaseView
 {
+    NSRecursiveLock *m_oLock;
     NSButton *_testButton;
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
 - (void).cxx_destruct;
 @property(retain) NSButton *testButton; // @synthesize testButton=_testButton;
+@property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock;
 - (id)forwardingTargetForSelector:(SEL)arg1;
+- (void)blockMethod:(CDUnknownBlockType)arg1;
+- (void)completion:(CDUnknownBlockType)arg1;
+- (void)testBlock;
 - (void)testButtonClick:(id)arg1;
 - (void)initSubViews;
 

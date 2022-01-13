@@ -36,6 +36,8 @@
 - (void)recoverSessionListFromLocal:(id)arg1;
 - (void)repairSessionList:(id)arg1;
 - (void)repairContactList:(id)arg1;
+- (void)showRecentCheckpointTime:(id)arg1;
+- (void)resetDBCheckpointInterval:(id)arg1;
 - (void)onDBDetectButtonClick:(id)arg1;
 - (void)onDiskDetectButtonClick:(id)arg1;
 - (void)clearFileIndexAndRestart:(id)arg1;

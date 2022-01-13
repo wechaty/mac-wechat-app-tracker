@@ -6,7 +6,7 @@
 
 #import "MMView.h"
 
-@class CAShapeLayer, MMTextView, NSArray, NSAttributedString;
+@class MMTextView, NSArray, NSAttributedString;
 
 @interface MMDraggingOverlayView : MMView
 {
@@ -16,7 +16,6 @@
     MMView *_contentView;
     MMTextView *_titleTextView;
     NSArray *_acceptableTypes;
-    CAShapeLayer *_shapeLayer;
     CDUnknownBlockType _mouseDownBlock;
     CDUnknownBlockType _draggingEntered;
     CDUnknownBlockType _draggingExited;
@@ -30,7 +29,6 @@
 @property(copy, nonatomic) CDUnknownBlockType draggingExited; // @synthesize draggingExited=_draggingExited;
 @property(copy, nonatomic) CDUnknownBlockType draggingEntered; // @synthesize draggingEntered=_draggingEntered;
 @property(copy, nonatomic) CDUnknownBlockType mouseDownBlock; // @synthesize mouseDownBlock=_mouseDownBlock;
-@property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
 @property(retain, nonatomic) NSArray *acceptableTypes; // @synthesize acceptableTypes=_acceptableTypes;
 @property(retain, nonatomic) MMTextView *titleTextView; // @synthesize titleTextView=_titleTextView;
 @property(retain, nonatomic) MMView *contentView; // @synthesize contentView=_contentView;

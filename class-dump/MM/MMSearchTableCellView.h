@@ -16,6 +16,7 @@
     NSString *_keyword;
     unsigned long long _ranking;
     unsigned long long _subRanking;
+    unsigned long long _scene;
     NSString *_queryText;
     CAShapeLayer *_shapeLayer;
 }
@@ -23,6 +24,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
 @property(retain, nonatomic) NSString *queryText; // @synthesize queryText=_queryText;
+@property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
 @property(nonatomic) unsigned long long subRanking; // @synthesize subRanking=_subRanking;
 @property(nonatomic) unsigned long long ranking; // @synthesize ranking=_ranking;
 @property(retain, nonatomic) NSString *keyword; // @synthesize keyword=_keyword;

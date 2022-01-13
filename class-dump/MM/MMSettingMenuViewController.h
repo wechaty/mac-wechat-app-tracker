@@ -58,7 +58,6 @@
 - (id)generateTitleTextField;
 - (void)showSettingRedDotIfNeeded;
 - (void)relayoutSubViews;
-- (void)layoutFeedbackView;
 - (void)layoutSubviews;
 - (BOOL)isShown;
 - (void)hide;

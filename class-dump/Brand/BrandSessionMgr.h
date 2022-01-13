@@ -36,7 +36,6 @@
 - (void)deleteBrandHolderSession;
 - (BOOL)hasNewArrival;
 - (id)getBrandHolderLastMsg;
-- (BOOL)isNeedProcessContact:(id)arg1;
 - (void)updateBrandHolderSessionInfo;
 - (void)sortBrandSession;
 - (void)loadBrandSessionHolderCache;
@@ -50,6 +49,7 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
+- (BOOL)isNeedProcessContact:(id)arg1;
 - (void)processOnDeleteContacts:(id)arg1;
 - (void)processOnModifyContacts:(id)arg1;
 - (void)changeSessionUnreadCount:(id)arg1;

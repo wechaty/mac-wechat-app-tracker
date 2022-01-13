@@ -68,6 +68,8 @@
 - (void)showBanner;
 - (void)startANewGroupChatWithUserNames:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startANewChatWithContact:(id)arg1;
+- (void)startBrandViewController;
+- (void)startGroupBox;
 - (void)startNewChatButtonPress:(id)arg1;
 - (void)selectChatWithUserName:(id)arg1;
 - (void)showChats;

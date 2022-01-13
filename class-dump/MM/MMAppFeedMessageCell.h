@@ -12,6 +12,7 @@
 
 @interface MMAppFeedMessageCell : MMMessageCellView <SDWebImageManagerDelegate>
 {
+    BOOL _isVertical;
     MMView *_containerView;
     MMImageView *_coverImageView;
     NSImageView *_userImageView;
@@ -28,11 +29,15 @@
     NSImageView *_zhiboIConView;
     NSTextField *_zhiboStatusField;
     MMTimer *_liveStatusTimer;
+    NSImageView *_textMaskView;
 }
 
++ (double)coverWidthHeightProportion:(id)arg1;
 + (double)containerHeightWithMessage:(id)arg1;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isVertical; // @synthesize isVertical=_isVertical;
+@property(retain, nonatomic) NSImageView *textMaskView; // @synthesize textMaskView=_textMaskView;
 @property(retain, nonatomic) MMTimer *liveStatusTimer; // @synthesize liveStatusTimer=_liveStatusTimer;
 @property(retain, nonatomic) NSTextField *zhiboStatusField; // @synthesize zhiboStatusField=_zhiboStatusField;
 @property(retain, nonatomic) NSImageView *zhiboIConView; // @synthesize zhiboIConView=_zhiboIConView;

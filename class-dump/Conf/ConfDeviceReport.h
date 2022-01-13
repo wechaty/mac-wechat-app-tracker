@@ -21,6 +21,9 @@
     unsigned int hasAudioSetmodeErrcode:1;
     unsigned int hasAudioRecordReadnum:1;
     unsigned int hasPlayVolume:1;
+    unsigned int hasBeginInterruptTimestamp:1;
+    unsigned int hasEndInterruptTimestamp:1;
+    unsigned int hasInterruptCnt:1;
     unsigned int audioDeviceErrcode;
     unsigned int videoDeviceErrcode;
     unsigned int audioRecorderErrcode;
@@ -34,9 +37,18 @@
     unsigned int audioSetmodeErrcode;
     int audioRecordReadnum;
     int playVolume;
+    int interruptCnt;
+    long long beginInterruptTimestamp;
+    long long endInterruptTimestamp;
 }
 
 + (id)parseFromData:(id)arg1;
+@property(nonatomic, setter=SetInterruptCnt:) int interruptCnt; // @synthesize interruptCnt;
+@property(readonly, nonatomic) BOOL hasInterruptCnt; // @synthesize hasInterruptCnt;
+@property(nonatomic, setter=SetEndInterruptTimestamp:) long long endInterruptTimestamp; // @synthesize endInterruptTimestamp;
+@property(readonly, nonatomic) BOOL hasEndInterruptTimestamp; // @synthesize hasEndInterruptTimestamp;
+@property(nonatomic, setter=SetBeginInterruptTimestamp:) long long beginInterruptTimestamp; // @synthesize beginInterruptTimestamp;
+@property(readonly, nonatomic) BOOL hasBeginInterruptTimestamp; // @synthesize hasBeginInterruptTimestamp;
 @property(nonatomic, setter=SetPlayVolume:) int playVolume; // @synthesize playVolume;
 @property(readonly, nonatomic) BOOL hasPlayVolume; // @synthesize hasPlayVolume;
 @property(nonatomic, setter=SetAudioRecordReadnum:) int audioRecordReadnum; // @synthesize audioRecordReadnum;

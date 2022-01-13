@@ -127,6 +127,7 @@
 - (void)onSendVideoMsgFailed:(id)arg1 toUsrName:(id)arg2 videoPath:(id)arg3;
 - (void)setupMultipleSelect;
 - (void)updateChatComposeTextViewDelegate;
+- (void)insertFileAttachmentView:(id)arg1;
 - (void)setupView;
 - (void)addButtonsConstraints;
 - (void)setHiddenToolBarView:(BOOL)arg1;

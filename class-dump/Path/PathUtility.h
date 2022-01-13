@@ -43,6 +43,7 @@
 + (id)GetSessionDBExtPath;
 + (id)GetSessionDBPath;
 + (id)GetSessionStorageDir;
++ (void)removeEmotionsFolder;
 + (id)GetEmojiPanelConfigDir;
 + (id)GetNewEmojiConfigDir;
 + (id)emoticonPackageThumbPath:(id)arg1;

@@ -12,20 +12,25 @@
 
 @interface WCDBManager : MMService <MMService>
 {
-    unsigned int _lastTime;
+    int _cpScene;
     NSMutableDictionary *_dbInfoDic;
     NSRecursiveLock *_dbLock;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) unsigned int lastTime; // @synthesize lastTime=_lastTime;
+@property(nonatomic) int cpScene; // @synthesize cpScene=_cpScene;
 @property(retain, nonatomic) NSRecursiveLock *dbLock; // @synthesize dbLock=_dbLock;
 @property(retain, nonatomic) NSMutableDictionary *dbInfoDic; // @synthesize dbInfoDic=_dbInfoDic;
-- (void)doCheckpoint;
+- (void)doCheckpoint:(id)arg1;
+- (void)checkPointIfNeeded;
+- (id)genMMKVKeyFromScene:(int)arg1;
+- (void)onServiceEnterForeground;
+- (void)onServiceEnterBackground;
 - (void)onServiceDidWake;
 - (void)onServiceWillSleep;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (id)init;
 - (id)getDbInfoDic;
 - (void)registerWCDBInfo:(id)arg1;
 

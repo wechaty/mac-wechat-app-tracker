@@ -12,12 +12,15 @@
     // Error parsing type: , name: progressToast
     // Error parsing type: , name: timer
     // Error parsing type: , name: hasLoadConfig
+    // Error parsing type: , name: recoverButton
+    // Error parsing type: , name: confirmButton
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)onClickNextButton:(id)arg1;
+- (void)onClickRecoverButton:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 

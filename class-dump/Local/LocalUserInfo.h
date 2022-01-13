@@ -21,6 +21,7 @@
     unsigned int teenagerModeFinderSetting;
     unsigned int teenagerModeBizAcctSetting;
     unsigned int teenagerModeMiniProgramSetting;
+    unsigned int m_nsPluginInstallStatus;
     NSString *m_nsCountry;
     NSString *m_nsProvince;
     NSString *m_nsCity;
@@ -47,6 +48,7 @@
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_m_nsPluginInstallStatus;
 + (void)PBArrayAdd_teenagerModeMiniProgramSetting;
 + (void)PBArrayAdd_teenagerModeBizAcctSetting;
 + (void)PBArrayAdd_teenagerModeFinderSetting;
@@ -80,6 +82,7 @@
 + (void)PBArrayAdd_m_nsCountry;
 + (void)PBArrayAdd_m_uiSex;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int m_nsPluginInstallStatus; // @synthesize m_nsPluginInstallStatus;
 @property(nonatomic) unsigned int teenagerModeMiniProgramSetting; // @synthesize teenagerModeMiniProgramSetting;
 @property(nonatomic) unsigned int teenagerModeBizAcctSetting; // @synthesize teenagerModeBizAcctSetting;
 @property(nonatomic) unsigned int teenagerModeFinderSetting; // @synthesize teenagerModeFinderSetting;

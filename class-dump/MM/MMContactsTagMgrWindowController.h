@@ -68,7 +68,7 @@
 - (void)doSearch;
 - (void)stopTimer;
 - (void)onContactsTagMgrDidLableOPSuccess:(int)arg1 withTags:(id)arg2;
-- (void)onContactTagMgrDidLableOPFailed:(int)arg1 withTags:(id)arg2;
+- (void)onContactsTagMgrDidLableOPFailed:(int)arg1 withTags:(id)arg2;
 - (void)onSearchItemClick:(id)arg1;
 - (void)onTagViewItemSelected:(BOOL)arg1 withTagInfo:(id)arg2;
 - (void)showToastAndClose;

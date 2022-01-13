@@ -6,16 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class MMTimer;
+@class MMTimer, NSString;
 
 @interface FinderReporter : NSObject
 {
+    unsigned int _timeStamp;
     unsigned int _sidebarExpTimes;
     unsigned int _reportSidebarExposeInterval;
-    unsigned long long _sidebarLastReportTime;
+    NSString *_sessionid;
+    NSString *_contentid;
+    unsigned long long _sidebarLastExpReportTime;
     MMTimer *_reportSidebarExposeTimer;
 }
 
++ (id)parseReportInfoFromUrl:(id)arg1;
 + (void)reportFinderMsgCardShare:(id)arg1 shareStatus:(unsigned long long)arg2;
 + (void)reportFinderCardExpose:(id)arg1;
 + (void)reportFinderMsgCardExpose:(id)arg1;
@@ -29,7 +33,15 @@
 @property(retain, nonatomic) MMTimer *reportSidebarExposeTimer; // @synthesize reportSidebarExposeTimer=_reportSidebarExposeTimer;
 @property(nonatomic) unsigned int reportSidebarExposeInterval; // @synthesize reportSidebarExposeInterval=_reportSidebarExposeInterval;
 @property(nonatomic) unsigned int sidebarExpTimes; // @synthesize sidebarExpTimes=_sidebarExpTimes;
-@property(nonatomic) unsigned long long sidebarLastReportTime; // @synthesize sidebarLastReportTime=_sidebarLastReportTime;
+@property(nonatomic) unsigned long long sidebarLastExpReportTime; // @synthesize sidebarLastExpReportTime=_sidebarLastExpReportTime;
+@property(retain, nonatomic) NSString *contentid; // @synthesize contentid=_contentid;
+@property(retain, nonatomic) NSString *sessionid; // @synthesize sessionid=_sessionid;
+@property(nonatomic) unsigned int timeStamp; // @synthesize timeStamp=_timeStamp;
+- (void)reportAppFeedLiveWithInfo:(id)arg1;
+- (void)reportAppFeed:(id)arg1 withAction:(int)arg2 withInfo:(id)arg3;
+- (void)reportFinderPreloadStatus:(id)arg1;
+- (unsigned long long)reportFinderPreloadStart:(unsigned long long)arg1;
+- (void)reportFinderClose:(id)arg1 openTime:(unsigned long long)arg2 andType:(unsigned long long)arg3;
 - (void)reportFinderSidebarEntry:(id)arg1;
 - (void)reportFinderSidebarExpTimes;
 - (void)reportFinderSidebarExpose;

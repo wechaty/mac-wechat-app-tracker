@@ -19,6 +19,7 @@
 
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;
+- (void)viewDBFileInfoContent;
 - (void)viewConfigContent;
 - (void)viewFavDBEssentialInfo;
 - (void)viewSettingsHistory;

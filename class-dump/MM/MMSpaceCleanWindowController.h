@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMSpaceCleanViewController *spaceViewController; // @synthesize spaceViewController=_spaceViewController;
 - (void)showMainViewController;
+- (void)setupTitleBar;
 - (void)windowWillClose:(id)arg1;
 - (void)dealloc;
 - (void)windowDidLoad;

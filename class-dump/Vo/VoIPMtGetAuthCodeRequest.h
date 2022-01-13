@@ -11,11 +11,15 @@
 @interface VoIPMtGetAuthCodeRequest : PBGeneratedMessage
 {
     unsigned int hasBaseRequest:1;
+    unsigned int hasSupportMultiIdc:1;
+    unsigned int supportMultiIdc;
     BaseRequest *baseRequest;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetSupportMultiIdc:) unsigned int supportMultiIdc; // @synthesize supportMultiIdc;
+@property(readonly, nonatomic) BOOL hasSupportMultiIdc; // @synthesize hasSupportMultiIdc;
 @property(retain, nonatomic, setter=SetBaseRequest:) BaseRequest *baseRequest; // @synthesize baseRequest;
 @property(readonly, nonatomic) BOOL hasBaseRequest; // @synthesize hasBaseRequest;
 - (id)mergeFromCodedInputStream:(id)arg1;

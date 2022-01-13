@@ -22,6 +22,7 @@
     double _cornerRadius;
     double _borderWidth;
     MMPlaceholderContainerView *_placeholderContainerView;
+    unsigned long long _customSearchScene;
     id <MMCustomSearchFieldDelegate> _delegate;
     NSButton *_closeButton;
     CAShapeLayer *_maskLayer;
@@ -34,6 +35,7 @@
 @property(nonatomic) BOOL isHighlight; // @synthesize isHighlight=_isHighlight;
 @property(retain, nonatomic) NSButton *closeButton; // @synthesize closeButton=_closeButton;
 @property(nonatomic) __weak id <MMCustomSearchFieldDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) unsigned long long customSearchScene; // @synthesize customSearchScene=_customSearchScene;
 @property(retain, nonatomic) MMPlaceholderContainerView *placeholderContainerView; // @synthesize placeholderContainerView=_placeholderContainerView;
 @property(nonatomic) BOOL searching; // @synthesize searching=_searching;
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
@@ -44,12 +46,14 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSColor *highlightBorderColor; // @synthesize highlightBorderColor=_highlightBorderColor;
 @property(retain, nonatomic) NSColor *borderColor; // @synthesize borderColor=_borderColor;
+- (void)cleanInputView;
 - (void)end;
 - (void)start;
 - (BOOL)isSearching;
 - (BOOL)isTextEditing;
 @property(retain, nonatomic) NSString *inputValue;
 - (void)onCloseButtonClick:(id)arg1;
+- (void)closeAndClean;
 - (void)focus;
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;

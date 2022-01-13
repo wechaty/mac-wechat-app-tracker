@@ -10,6 +10,7 @@
 {
 }
 
++ (struct CGSize)fileAttachementViewSizeWithFileTitle:(id)arg1 constrainedToWidth:(double)arg2;
 + (struct CGSize)chatLogSizeWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (CDStruct_33dcf794)attributedStringAttachmentProperties:(id)arg1;
 + (id)dataImageWithFavDataField:(id)arg1;

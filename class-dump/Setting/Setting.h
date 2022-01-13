@@ -18,7 +18,6 @@
     unsigned int m_weixinUin;
     unsigned int m_uiStatus;
     unsigned int m_uiSelfShowType;
-    unsigned int m_nsPluginInstallStatus;
     NSString *m_nsUinPwdMD5;
     NSString *m_nsUin16PwdMD5;
     NSString *m_nsPassWordMD5;
@@ -33,7 +32,6 @@
 }
 
 + (void)initialize;
-+ (void)PBArrayAdd_m_nsPluginInstallStatus;
 + (void)PBArrayAdd_m_dtA2KeyNew;
 + (void)PBArrayAdd_m_dtAutoAuthKey;
 + (void)PBArrayAdd_m_uiSelfShowType;
@@ -52,7 +50,6 @@
 + (void)PBArrayAdd_m_weixinUin;
 + (void)PBArrayAdd_m_qqUin;
 - (void).cxx_destruct;
-@property(nonatomic) unsigned int m_nsPluginInstallStatus; // @synthesize m_nsPluginInstallStatus;
 @property(retain) NSData *m_dtA2KeyNew; // @synthesize m_dtA2KeyNew;
 @property(retain, nonatomic) NSData *m_dtAutoAuthKey; // @synthesize m_dtAutoAuthKey;
 @property(nonatomic) unsigned int m_uiSelfShowType; // @synthesize m_uiSelfShowType;

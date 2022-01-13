@@ -12,7 +12,7 @@
 #import "IMessageServiceVideoExt-Protocol.h"
 #import "MMCTTextViewDelegate-Protocol.h"
 
-@class CAShapeLayer, MMAppReferContainerView, MMCTTextView, MMReferCTTextView, MMRoundedRectangleView, NSImageView, NSProgressIndicator, NSString, NSTextView, NSView;
+@class CAShapeLayer, MMAppReferContainerView, MMCTTextView, MMImageView, MMReferCTTextView, MMRoundedRectangleView, NSImageView, NSProgressIndicator, NSString, NSTextView, NSView;
 
 @interface MMAppReferMessageCellView : MMMessageCellView <MMCTTextViewDelegate, IMessageExt, EmoticonDownloadMgrExt, IMessageServiceImageExt, IMessageServiceVideoExt>
 {
@@ -40,11 +40,12 @@
     MMCTTextView *_referSummaryTextView;
     MMAppReferContainerView *_referContainerView;
     NSImageView *_referMoreHintView;
-    NSImageView *_referThumbImageView;
+    MMImageView *_referThumbImageView;
     NSImageView *_referThumbIconImageView;
     NSView *_referCoverView;
 }
 
++ (id)_referContentStringForTableItem:(id)arg1;
 + (id)_referStringForTableItem:(id)arg1;
 + (id)_referSummaryForTableItem:(id)arg1;
 + (id)_referSenderForTableItem:(id)arg1;
@@ -58,7 +59,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSView *referCoverView; // @synthesize referCoverView=_referCoverView;
 @property(retain, nonatomic) NSImageView *referThumbIconImageView; // @synthesize referThumbIconImageView=_referThumbIconImageView;
-@property(retain, nonatomic) NSImageView *referThumbImageView; // @synthesize referThumbImageView=_referThumbImageView;
+@property(retain, nonatomic) MMImageView *referThumbImageView; // @synthesize referThumbImageView=_referThumbImageView;
 @property(retain, nonatomic) NSImageView *referMoreHintView; // @synthesize referMoreHintView=_referMoreHintView;
 @property(retain, nonatomic) MMAppReferContainerView *referContainerView; // @synthesize referContainerView=_referContainerView;
 @property(retain, nonatomic) MMCTTextView *referSummaryTextView; // @synthesize referSummaryTextView=_referSummaryTextView;

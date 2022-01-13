@@ -7,19 +7,22 @@
 #import "MMViewController.h"
 
 #import "MMSearchContactCellDelegate-Protocol.h"
+#import "MMSearchFunctionCellDelegate-Protocol.h"
 #import "MMSearchTableSectionAllViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 
-@class MMBaseSearchLogic, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSString, NSView, NSVisualEffectView, RBLPopover;
+@class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSString, NSView, NSVisualEffectView, RBLPopover;
 
-@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate>
+@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate>
 {
     BOOL _isShownFirstTimeBySearch;
     BOOL _isSearchFieldTextDidEndEditing;
     BOOL _choseResult;
     unsigned long long _style;
+    MMCustomSearchField *_searchField;
+    unsigned long long _searchScene;
     RBLPopover *_popover;
     NSVisualEffectView *_effectView;
     NSView *_stageView;
@@ -28,7 +31,6 @@
     NSString *_selectedID;
     NSArray *_showingSearchResults;
     MMBaseSearchLogic *_searchLogic;
-    unsigned long long _searchScene;
     MMNoMenuTableView *_tableView;
     MMSearchViewNoResult *_noResultView;
     id _mouseEvent;
@@ -65,7 +67,6 @@
 @property(retain, nonatomic) id mouseEvent; // @synthesize mouseEvent=_mouseEvent;
 @property(nonatomic) __weak MMSearchViewNoResult *noResultView; // @synthesize noResultView=_noResultView;
 @property(nonatomic) __weak MMNoMenuTableView *tableView; // @synthesize tableView=_tableView;
-@property(nonatomic) unsigned long long searchScene; // @synthesize searchScene=_searchScene;
 @property(retain, nonatomic) MMBaseSearchLogic *searchLogic; // @synthesize searchLogic=_searchLogic;
 @property(retain, nonatomic) NSArray *showingSearchResults; // @synthesize showingSearchResults=_showingSearchResults;
 @property(retain, nonatomic) NSString *selectedID; // @synthesize selectedID=_selectedID;
@@ -74,14 +75,18 @@
 @property(nonatomic) __weak NSView *stageView; // @synthesize stageView=_stageView;
 @property(retain, nonatomic) NSVisualEffectView *effectView; // @synthesize effectView=_effectView;
 @property(retain, nonatomic) RBLPopover *popover; // @synthesize popover=_popover;
+@property(nonatomic) unsigned long long searchScene; // @synthesize searchScene=_searchScene;
+@property(nonatomic) __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
 - (void)cellView:(id)arg1 dragOperation:(id)arg2 withContact:(id)arg3;
 - (BOOL)cellView:(id)arg1 isValidOperation:(id)arg2 withContact:(id)arg3;
+- (void)startAddFriendSearch;
 - (void)startFavSearch;
 - (void)startWebSearch;
 - (void)mmSearchTableSectionAllViewDidClicked:(id)arg1;
 - (void)reloadTableView;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
+- (void)searchFunctionCellView:(id)arg1;
 - (void)chooseItem:(id)arg1;
 - (void)singleClickOnTableView:(id)arg1;
 - (void)tableViewSelectionDidChange:(id)arg1;
@@ -102,7 +107,9 @@
 - (void)doShowWithResults:(id)arg1;
 - (void)showWithResults:(id)arg1 resultsWithKeyword:(id)arg2;
 - (void)doSearch;
+- (void)doSearchFindNewContact;
 - (void)hide;
+- (void)searchContactWithKeyword:(id)arg1 andShowInView:(id)arg2;
 - (void)searchWithKeyword:(id)arg1 andShowInView:(id)arg2;
 - (void)tellMeSearchFieldTextDidEndEditing;
 - (void)awakeFromNib;

@@ -26,6 +26,7 @@
     unsigned int hasVideoencrypttype:1;
     unsigned int hasRetrySeconds:1;
     unsigned int hasHelloFreqSeconds:1;
+    unsigned int hasMemchgMsgSeq:1;
     int roomid;
     int encryptSwitch;
     int enterType;
@@ -37,6 +38,7 @@
     unsigned int videoencrypttype;
     unsigned int retrySeconds;
     unsigned int helloFreqSeconds;
+    unsigned int memchgMsgSeq;
     NSString *groupId;
     long long roomkey;
     NSMutableArray *mutableAddrlistList;
@@ -54,6 +56,8 @@
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetMemchgMsgSeq:) unsigned int memchgMsgSeq; // @synthesize memchgMsgSeq;
+@property(readonly, nonatomic) BOOL hasMemchgMsgSeq; // @synthesize hasMemchgMsgSeq;
 @property(retain, nonatomic) NSMutableArray *mutableExitMembersList; // @synthesize mutableExitMembersList;
 @property(nonatomic, setter=SetHelloFreqSeconds:) unsigned int helloFreqSeconds; // @synthesize helloFreqSeconds;
 @property(readonly, nonatomic) BOOL hasHelloFreqSeconds; // @synthesize hasHelloFreqSeconds;

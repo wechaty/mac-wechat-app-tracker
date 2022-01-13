@@ -14,7 +14,7 @@
 #import "WXCCNetworkStatusExt-Protocol.h"
 #import "WXCNetWorkDelegate-Protocol.h"
 
-@class MMTimer, NSMutableArray, NSMutableSet, NSObject, NSRecursiveLock, NSString, WXCTalkRoomData, WXTalkComponent;
+@class MMTimer, NSMutableArray, NSMutableSet, NSObject, NSRecursiveLock, NSString, VoiceGroupChgMsgSeq, WXCTalkRoomData, WXTalkComponent;
 @protocol IWXCVideoDataDelegate, OS_dispatch_queue;
 
 @interface WXCTalkMgr : MMService <AUAudioDataSource, AVAudioPlayerDelegate, IAUAudioDeviceExt, WXCCNetworkStatusExt, AccountServiceExt, MMService, WXCNetWorkDelegate>
@@ -37,7 +37,6 @@
     int _mStartDevScene;
     unsigned int _heartbeatInterval;
     unsigned int _joinLimitInterval;
-    int _latestMsgSeq;
     WXCTalkRoomData *_roomData;
     WXTalkComponent *_component;
     NSRecursiveLock *_audioEncLock;
@@ -53,12 +52,13 @@
     MMTimer *_mFrequentAckTimer;
     id <IWXCVideoDataDelegate> _m_delegate;
     NSMutableSet *_mReceiveMsgIdSet;
+    VoiceGroupChgMsgSeq *_msgSeq;
 }
 
 + (int)cpuCapacity;
 + (unsigned int)GetNetType;
 - (void).cxx_destruct;
-@property(nonatomic) int latestMsgSeq; // @synthesize latestMsgSeq=_latestMsgSeq;
+@property(retain, nonatomic) VoiceGroupChgMsgSeq *msgSeq; // @synthesize msgSeq=_msgSeq;
 @property(retain, nonatomic) NSMutableSet *mReceiveMsgIdSet; // @synthesize mReceiveMsgIdSet=_mReceiveMsgIdSet;
 @property(nonatomic) __weak id <IWXCVideoDataDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
 @property(nonatomic) unsigned int joinLimitInterval; // @synthesize joinLimitInterval=_joinLimitInterval;

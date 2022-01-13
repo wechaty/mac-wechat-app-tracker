@@ -42,6 +42,8 @@
     unsigned long long _scrollBarShowStatus;
     long long _locateMessage;
     unsigned long long _loginType;
+    IoMonitor *_ioMonitor;
+    VisualizationMonitor *_visualizationMonitor;
     _TtC6WeChat24SafeModeWindowController *_safeModeWindowController;
     ShareExtConfirmWindowController *_shareExtConfirmWindowController;
     MMServiceCenter *_serviceCenter;
@@ -49,9 +51,7 @@
     MMDockItem *_dockItem;
     NSMenuItem *_feedbackItem;
     LogoutCGI *_logoutCGI;
-    IoMonitor *_ioMonitor;
     _TtC6WeChat11DiskMonitor *_diskMonitor;
-    VisualizationMonitor *_visualizationMonitor;
     FocusMonitor *_focusMonitor;
     MMMachPortsMonitor *_portsMonitor;
     NSAlert *_oomAlert;
@@ -68,9 +68,7 @@
 @property(retain, nonatomic) NSAlert *oomAlert; // @synthesize oomAlert=_oomAlert;
 @property(retain, nonatomic) MMMachPortsMonitor *portsMonitor; // @synthesize portsMonitor=_portsMonitor;
 @property(retain, nonatomic) FocusMonitor *focusMonitor; // @synthesize focusMonitor=_focusMonitor;
-@property(retain, nonatomic) VisualizationMonitor *visualizationMonitor; // @synthesize visualizationMonitor=_visualizationMonitor;
 @property(retain, nonatomic) _TtC6WeChat11DiskMonitor *diskMonitor; // @synthesize diskMonitor=_diskMonitor;
-@property(retain, nonatomic) IoMonitor *ioMonitor; // @synthesize ioMonitor=_ioMonitor;
 @property(retain, nonatomic) LogoutCGI *logoutCGI; // @synthesize logoutCGI=_logoutCGI;
 @property(retain, nonatomic) NSMenuItem *feedbackItem; // @synthesize feedbackItem=_feedbackItem;
 @property(retain, nonatomic) MMDockItem *dockItem; // @synthesize dockItem=_dockItem;
@@ -78,6 +76,8 @@
 @property(retain, nonatomic) MMServiceCenter *serviceCenter; // @synthesize serviceCenter=_serviceCenter;
 @property(retain, nonatomic) ShareExtConfirmWindowController *shareExtConfirmWindowController; // @synthesize shareExtConfirmWindowController=_shareExtConfirmWindowController;
 @property(retain, nonatomic) _TtC6WeChat24SafeModeWindowController *safeModeWindowController; // @synthesize safeModeWindowController=_safeModeWindowController;
+@property(retain, nonatomic) VisualizationMonitor *visualizationMonitor; // @synthesize visualizationMonitor=_visualizationMonitor;
+@property(retain, nonatomic) IoMonitor *ioMonitor; // @synthesize ioMonitor=_ioMonitor;
 @property(nonatomic) unsigned long long loginType; // @synthesize loginType=_loginType;
 @property(nonatomic) BOOL triedAutoLogin; // @synthesize triedAutoLogin=_triedAutoLogin;
 @property(nonatomic) BOOL hasAuthOK; // @synthesize hasAuthOK=_hasAuthOK;
@@ -196,6 +196,7 @@
 - (void)showLagReportWindow;
 - (void)showAppLogReportWindow;
 - (void)showLogReportWindow;
+- (void)showDBFileInfo;
 - (void)showFavDBEssentialInfo;
 - (void)clearSettingsHistory;
 - (void)showSettingsHistory;
@@ -239,7 +240,10 @@
 - (void)_triggerMemoryOOM:(id)arg1;
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_showAddFriendDebug:(id)arg1;
+- (void)_showBudingDebug:(id)arg1;
 - (void)_showMpDebug:(id)arg1;
+- (void)_showCTTextView:(id)arg1;
 - (void)_showGroupBoxDebug:(id)arg1;
 - (void)_showWeUI:(id)arg1;
 - (void)_showRecover:(id)arg1;
@@ -262,6 +266,8 @@
 - (void)saveToDiskWithVersion:(unsigned int)arg1;
 - (unsigned int)checkVersionFromDisk;
 - (void)doUpgradePreparationIfNeeded;
+- (void)initCpuMonitor;
+- (void)initIOMonitor;
 - (BOOL)isApplicationActive;
 - (long long)applicationState;
 - (void)previousTab:(id)arg1;
@@ -281,6 +287,7 @@
 - (void)openFavoritesTabToFavoritesWithKeyWord:(id)arg1;
 - (void)startANewGroupChatWithUserNames:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startANewChatWithContact:(id)arg1;
+- (void)startBrandView;
 - (void)selectChatWithUserName:(id)arg1;
 - (void)showContactsTabWithUserName:(id)arg1;
 - (void)goToChatAndTwinkleWithUserName:(id)arg1;

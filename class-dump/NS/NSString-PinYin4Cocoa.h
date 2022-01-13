@@ -171,6 +171,9 @@
 - (long long)characterCount;
 - (id)md5ShortString;
 - (id)md5String;
+- (struct _NSRange)safeRangeOfString:(id)arg1 option:(unsigned long long)arg2;
+- (struct _NSRange)safeRangeOfString:(id)arg1;
+- (BOOL)safeContainsString:(id)arg1;
 - (id)stringByOmitPrefixAndSuffix:(id)arg1;
 - (id)stringByOmitSuffix:(id)arg1;
 - (id)stringByReplacingJavaScriptUnsupportString:(BOOL)arg1;

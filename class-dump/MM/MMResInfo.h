@@ -8,7 +8,7 @@
 
 #import "WCTTableCoding-Protocol.h"
 
-@class MMResInfoPackedInfo, NSData, NSMutableArray, NSString;
+@class MMResSignatureDataInfos, NSData, NSString;
 
 @interface MMResInfo : NSObject <WCTTableCoding>
 {
@@ -27,6 +27,7 @@
     unsigned int _fileId;
     unsigned int _createTime;
     unsigned int _expireTime;
+    unsigned int _clientVersion;
     long long lastInsertedRowID;
     NSString *_resMd5;
     NSString *_resOriginalMd5;
@@ -34,17 +35,19 @@
     long long _chunkLength;
     NSString *_sampleId;
     NSData *_signatureData;
-    NSMutableArray *_arrSignatureDataInfo;
+    MMResSignatureDataInfos *_arrSignatureDataInfo;
     NSString *_resUrlMd5;
     NSString *_appId;
     NSString *_localSubPath;
     NSString *_version;
     NSString *_domain;
     unsigned long long _size;
-    MMResInfoPackedInfo *_m_packedInfo;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
++ (const struct WCTProperty *)arrSignatureDataInfo;
++ (const struct WCTProperty *)clientVersion;
++ (const struct WCTProperty *)resOriginalMd5;
++ (const struct WCTProperty *)signatureData;
 + (const struct WCTProperty *)isTemp;
 + (const struct WCTProperty *)isCompress;
 + (const struct WCTProperty *)isEncrypt;
@@ -60,13 +63,14 @@
 + (const struct WCTProperty *)resType;
 + (const struct WCTProperty *)localSubPath;
 + (const struct WCTProperty *)appId;
++ (const struct WCTProperty *)resMd5;
 + (const struct WCTProperty *)resUrlMd5;
 + (const struct WCTProperty *)resInfoId;
 + (const struct WCTAnyProperty *)AnyProperty;
 + (const list_2812bee2 *)AllProperties;
 + (const struct WCTBinding *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMResInfoPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
+@property(nonatomic) unsigned int clientVersion; // @synthesize clientVersion=_clientVersion;
 @property(nonatomic) BOOL isTemp; // @synthesize isTemp=_isTemp;
 @property(nonatomic) BOOL isCompress; // @synthesize isCompress=_isCompress;
 @property(nonatomic) BOOL isEncrypt; // @synthesize isEncrypt=_isEncrypt;
@@ -84,7 +88,7 @@
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *resUrlMd5; // @synthesize resUrlMd5=_resUrlMd5;
 @property(nonatomic) unsigned int resInfoId; // @synthesize resInfoId=_resInfoId;
-@property(retain, nonatomic) NSMutableArray *arrSignatureDataInfo; // @synthesize arrSignatureDataInfo=_arrSignatureDataInfo;
+@property(retain, nonatomic) MMResSignatureDataInfos *arrSignatureDataInfo; // @synthesize arrSignatureDataInfo=_arrSignatureDataInfo;
 @property(retain, nonatomic) NSData *signatureData; // @synthesize signatureData=_signatureData;
 @property(nonatomic) unsigned int reportId; // @synthesize reportId=_reportId;
 @property(retain, nonatomic) NSString *sampleId; // @synthesize sampleId=_sampleId;

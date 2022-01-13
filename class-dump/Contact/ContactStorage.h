@@ -65,6 +65,7 @@
 - (void)addLocalHardCodeContacts;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (id)init;
 - (unsigned int)deleteOpenIMContactOplog:(id)arg1;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 favour:(BOOL)arg2;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 mute:(BOOL)arg2;

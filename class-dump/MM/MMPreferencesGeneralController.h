@@ -10,7 +10,7 @@
 #import "IBetaMgrExt-Protocol.h"
 #import "MASPreferencesViewController-Protocol.h"
 
-@class MMAvatarImageView, MMBadgeOverlayView, NSBox, NSButton, NSImage, NSLayoutConstraint, NSPopUpButton, NSProgressIndicator, NSSlider, NSString, NSTextField;
+@class MMAvatarImageView, MMBadgeOverlayView, NSBox, NSButton, NSImage, NSLayoutConstraint, NSPopUpButton, NSSlider, NSString, NSTextField;
 
 @interface MMPreferencesGeneralController : NSViewController <MASPreferencesViewController, IBetaMgrExt, AccountServiceExt>
 {
@@ -35,13 +35,10 @@
     NSTextField *_textSizeExampleGlyphSmall;
     NSTextField *_textSizeExampleGlyphLarge;
     NSTextField *_totalSpaceTitle;
-    NSTextField *_totalSpaceLabel;
-    unsigned long long _totalMacSpaceSize;
     NSButton *_submitFeedbackButton;
     NSTextField *_informationFeedback;
     NSButton *_clearSpaceButton;
     NSTextField *_betaInvitationLabel;
-    NSProgressIndicator *_loadingView;
     NSButton *_checkInvitationDetailBtn;
     NSButton *_downloadBetaBtn;
     NSButton *_aboutBetaBtn;
@@ -65,13 +62,10 @@
 @property __weak NSButton *aboutBetaBtn; // @synthesize aboutBetaBtn=_aboutBetaBtn;
 @property __weak NSButton *downloadBetaBtn; // @synthesize downloadBetaBtn=_downloadBetaBtn;
 @property(nonatomic) __weak NSButton *checkInvitationDetailBtn; // @synthesize checkInvitationDetailBtn=_checkInvitationDetailBtn;
-@property(nonatomic) __weak NSProgressIndicator *loadingView; // @synthesize loadingView=_loadingView;
 @property(nonatomic) __weak NSTextField *betaInvitationLabel; // @synthesize betaInvitationLabel=_betaInvitationLabel;
 @property(nonatomic) __weak NSButton *clearSpaceButton; // @synthesize clearSpaceButton=_clearSpaceButton;
 @property(nonatomic) __weak NSTextField *informationFeedback; // @synthesize informationFeedback=_informationFeedback;
 @property(nonatomic) __weak NSButton *submitFeedbackButton; // @synthesize submitFeedbackButton=_submitFeedbackButton;
-@property(nonatomic) unsigned long long totalMacSpaceSize; // @synthesize totalMacSpaceSize=_totalMacSpaceSize;
-@property(nonatomic) __weak NSTextField *totalSpaceLabel; // @synthesize totalSpaceLabel=_totalSpaceLabel;
 @property(nonatomic) __weak NSTextField *totalSpaceTitle; // @synthesize totalSpaceTitle=_totalSpaceTitle;
 @property(nonatomic) __weak NSTextField *textSizeExampleGlyphLarge; // @synthesize textSizeExampleGlyphLarge=_textSizeExampleGlyphLarge;
 @property(nonatomic) __weak NSTextField *textSizeExampleGlyphSmall; // @synthesize textSizeExampleGlyphSmall=_textSizeExampleGlyphSmall;

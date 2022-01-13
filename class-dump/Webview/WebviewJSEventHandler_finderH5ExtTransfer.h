@@ -10,8 +10,8 @@
 {
 }
 
-- (void)retry:(id)arg1 withEvent:(id)arg2;
-- (void)sendEvent:(id)arg1 withEvent:(id)arg2;
+- (void)retry:(id)arg1 withEvent:(id)arg2 retryCount:(int)arg3;
+- (void)sendEvent:(id)arg1 withEvent:(id)arg2 retryCount:(int)arg3;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
 
 @end

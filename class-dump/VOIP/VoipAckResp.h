@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, VoipMultiRelayData;
+@class BaseResponse, SKBuiltinBuffer_t, VoipMultiRelayData;
 
 @interface VoipAckResp : PBGeneratedMessage
 {
@@ -19,19 +19,31 @@
     unsigned int hasTcpCnt:1;
     unsigned int hasAudioEnableRmioAndS3A:1;
     unsigned int hasSwitchFlag:1;
+    unsigned int hasWifiScanInterval:1;
+    unsigned int hasIntStrategyIssued:1;
+    unsigned int hasSwitchFlagExt:1;
     int roomId;
     int roomMemberId;
     int preConnect;
     unsigned int tcpCnt;
     int audioEnableRmioAndS3A;
     unsigned int switchFlag;
+    unsigned int wifiScanInterval;
     BaseResponse *baseResponse;
     long long roomKey;
     VoipMultiRelayData *relayData;
+    SKBuiltinBuffer_t *intStrategyIssued;
+    unsigned long long switchFlagExt;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetSwitchFlagExt:) unsigned long long switchFlagExt; // @synthesize switchFlagExt;
+@property(readonly, nonatomic) BOOL hasSwitchFlagExt; // @synthesize hasSwitchFlagExt;
+@property(retain, nonatomic, setter=SetIntStrategyIssued:) SKBuiltinBuffer_t *intStrategyIssued; // @synthesize intStrategyIssued;
+@property(readonly, nonatomic) BOOL hasIntStrategyIssued; // @synthesize hasIntStrategyIssued;
+@property(nonatomic, setter=SetWifiScanInterval:) unsigned int wifiScanInterval; // @synthesize wifiScanInterval;
+@property(readonly, nonatomic) BOOL hasWifiScanInterval; // @synthesize hasWifiScanInterval;
 @property(nonatomic, setter=SetSwitchFlag:) unsigned int switchFlag; // @synthesize switchFlag;
 @property(readonly, nonatomic) BOOL hasSwitchFlag; // @synthesize hasSwitchFlag;
 @property(nonatomic, setter=SetAudioEnableRmioAndS3A:) int audioEnableRmioAndS3A; // @synthesize audioEnableRmioAndS3A;

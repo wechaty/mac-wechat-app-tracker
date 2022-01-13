@@ -24,12 +24,14 @@
 @property(retain, nonatomic) NSMutableArray *availableExtensions; // @synthesize availableExtensions=_availableExtensions;
 @property(retain, nonatomic) NSMutableDictionary *extensionInfos; // @synthesize extensionInfos=_extensionInfos;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
+- (void)onMMDynamicConfigUpdated;
 - (void)onLocalUserInfoChange;
 - (void)onSnsPublishFailed:(id)arg1;
 - (void)onSnsReceiveNewFeed:(id)arg1;
 - (void)onSnsUnreadCountChange:(id)arg1;
 - (BOOL)checkIsCanNotifySnsMsg;
 - (void)applicationWillBecomeActive;
+- (void)updateButtonState;
 - (void)removeButtonByType:(unsigned int)arg1;
 - (void)addButtonByType:(unsigned int)arg1;
 - (id)getButtonByType:(unsigned int)arg1;

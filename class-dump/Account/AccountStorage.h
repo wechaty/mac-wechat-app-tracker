@@ -29,8 +29,8 @@
 + (id)GetDBEncryptInfoOfUser:(id)arg1;
 - (void).cxx_destruct;
 - (void)SetUserInfoExt:(id)arg1;
-- (id)userInfoExt;
 - (void)SetModUserInfo:(id)arg1;
+- (void)ModLocalUserInfo:(id)arg1;
 - (id)modUserInfo;
 - (void)ClearDBEncryptInfo;
 - (void)SaveDBEncryptInfo;

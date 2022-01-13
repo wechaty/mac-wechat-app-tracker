@@ -77,6 +77,9 @@
 - (void)share;
 - (void)initToolBarWithNoteState:(int)arg1;
 - (void)layoutReadOnlyModeToolBarView;
+- (void)setHiddenWindowTitleBar:(BOOL)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;

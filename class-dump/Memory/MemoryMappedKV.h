@@ -44,6 +44,7 @@
 + (void)reportCRCCheckFail;
 + (void)reportLengthFail;
 - (void).cxx_destruct;
+- (id)currentMappedKVPath;
 - (void)sync;
 - (void)removeValuesForKeys:(id)arg1;
 - (void)removeValueForKey:(id)arg1;
