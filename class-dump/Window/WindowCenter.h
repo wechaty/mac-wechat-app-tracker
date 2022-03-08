@@ -8,11 +8,11 @@
 
 #import "MMService-Protocol.h"
 
-@class NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSString;
 
 @interface WindowCenter : MMService <MMService>
 {
-    TSDictionary *dictWindowController;
+    MMThreadSafeDictionary *dictWindowController;
 }
 
 - (void).cxx_destruct;

@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class MMImageEditWindowController, NSOperationQueue, NSString;
+@class MMImageEditWindowController, NSString;
 
 @interface MMImageEditManger : MMService <MMService>
 {
@@ -16,27 +16,23 @@
     unsigned long long _imageIdentifier;
     NSString *_fromChatName;
     NSString *_imageMessageUniqueID;
-    NSString *_editImgCompressPath;
     MMImageEditWindowController *_imageEditWindowController;
-    NSOperationQueue *_operationQueue;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain, nonatomic) MMImageEditWindowController *imageEditWindowController; // @synthesize imageEditWindowController=_imageEditWindowController;
-@property(retain, nonatomic) NSString *editImgCompressPath; // @synthesize editImgCompressPath=_editImgCompressPath;
 @property(retain, nonatomic) NSString *imageMessageUniqueID; // @synthesize imageMessageUniqueID=_imageMessageUniqueID;
 @property(retain, nonatomic) NSString *fromChatName; // @synthesize fromChatName=_fromChatName;
 @property(nonatomic) unsigned long long imageIdentifier; // @synthesize imageIdentifier=_imageIdentifier;
 @property(nonatomic) unsigned long long completeType; // @synthesize completeType=_completeType;
-- (void)showCompleteToastWith:(id)arg1;
-- (void)stopImageEdit;
-- (unsigned char)replaceComposeTextImageWithImage:(id)arg1;
-- (void)resetImageEditWindow;
-- (unsigned char)startImageEditWith:(id)arg1 startInfo:(id)arg2 completeType:(unsigned long long)arg3;
-- (unsigned char)needPreCompressImage:(id)arg1 savePath:(id)arg2;
+- (void)showToast:(id)arg1;
+- (void)stopEdit;
+- (void)startEdit;
+- (BOOL)startImageEditWith:(id)arg1 startInfo:(id)arg2 completeType:(unsigned long long)arg3;
+- (void)prepareForEdit:(id)arg1 savePath:(id)arg2;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

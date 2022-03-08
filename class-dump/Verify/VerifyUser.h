@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSString;
+@class NSString, SKBuiltinBuffer_t;
 
 @interface VerifyUser : PBGeneratedMessage
 {
@@ -18,16 +18,44 @@
     unsigned int hasChatRoomUserName:1;
     unsigned int hasSourceUserName:1;
     unsigned int hasSourceNickName:1;
+    unsigned int hasScanQrcodeFromScene:1;
+    unsigned int hasReportInfo:1;
+    unsigned int hasShareCardForwardLevel:1;
+    unsigned int hasShareCardForwardInfo:1;
+    unsigned int hasOuterUrl:1;
+    unsigned int hasSubScene:1;
+    unsigned int hasBizReportInfo:1;
     unsigned int friendFlag;
+    unsigned int scanQrcodeFromScene;
+    unsigned int shareCardForwardLevel;
+    unsigned int subScene;
     NSString *verifyUserTicket;
     NSString *antispamTicket;
     NSString *chatRoomUserName;
     NSString *sourceUserName;
     NSString *sourceNickName;
+    NSString *reportInfo;
+    SKBuiltinBuffer_t *shareCardForwardInfo;
+    NSString *outerUrl;
+    SKBuiltinBuffer_t *bizReportInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetBizReportInfo:) SKBuiltinBuffer_t *bizReportInfo; // @synthesize bizReportInfo;
+@property(readonly, nonatomic) BOOL hasBizReportInfo; // @synthesize hasBizReportInfo;
+@property(nonatomic, setter=SetSubScene:) unsigned int subScene; // @synthesize subScene;
+@property(readonly, nonatomic) BOOL hasSubScene; // @synthesize hasSubScene;
+@property(retain, nonatomic, setter=SetOuterUrl:) NSString *outerUrl; // @synthesize outerUrl;
+@property(readonly, nonatomic) BOOL hasOuterUrl; // @synthesize hasOuterUrl;
+@property(retain, nonatomic, setter=SetShareCardForwardInfo:) SKBuiltinBuffer_t *shareCardForwardInfo; // @synthesize shareCardForwardInfo;
+@property(readonly, nonatomic) BOOL hasShareCardForwardInfo; // @synthesize hasShareCardForwardInfo;
+@property(nonatomic, setter=SetShareCardForwardLevel:) unsigned int shareCardForwardLevel; // @synthesize shareCardForwardLevel;
+@property(readonly, nonatomic) BOOL hasShareCardForwardLevel; // @synthesize hasShareCardForwardLevel;
+@property(retain, nonatomic, setter=SetReportInfo:) NSString *reportInfo; // @synthesize reportInfo;
+@property(readonly, nonatomic) BOOL hasReportInfo; // @synthesize hasReportInfo;
+@property(nonatomic, setter=SetScanQrcodeFromScene:) unsigned int scanQrcodeFromScene; // @synthesize scanQrcodeFromScene;
+@property(readonly, nonatomic) BOOL hasScanQrcodeFromScene; // @synthesize hasScanQrcodeFromScene;
 @property(retain, nonatomic, setter=SetSourceNickName:) NSString *sourceNickName; // @synthesize sourceNickName;
 @property(readonly, nonatomic) BOOL hasSourceNickName; // @synthesize hasSourceNickName;
 @property(retain, nonatomic, setter=SetSourceUserName:) NSString *sourceUserName; // @synthesize sourceUserName;

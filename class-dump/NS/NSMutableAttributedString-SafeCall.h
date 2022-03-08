@@ -7,10 +7,13 @@
 #import <Foundation/NSMutableAttributedString.h>
 
 @interface NSMutableAttributedString (SafeCall)
+- (void)safeRemoveAttribute:(id)arg1 range:(struct _NSRange)arg2;
+- (void)safeAddAttributes:(id)arg1 range:(struct _NSRange)arg2;
 - (void)safeAddAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)safeSetAttributedString:(id)arg1;
 - (void)safeAppendAttributedString:(id)arg1;
 - (void)safeInsertAttributedString:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)safeReplaceCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2;
+- (void)safeReplaceCharactersInRange:(struct _NSRange)arg1 withString:(id)arg2;
 @end
 

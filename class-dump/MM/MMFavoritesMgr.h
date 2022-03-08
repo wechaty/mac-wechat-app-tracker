@@ -114,7 +114,7 @@
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;
-- (void)p_initObjects;
+- (void)setupMgr;
 - (id)init;
 
 // Remaining properties

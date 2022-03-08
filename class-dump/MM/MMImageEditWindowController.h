@@ -16,6 +16,7 @@
 @interface MMImageEditWindowController : MMWindowController <MMImageEditViewControllerDelegate, IMessageExt, MMImageEditToolbarViewDelegate, MMImageEditPalletWindowControllerDelegate>
 {
     BOOL _isClosing;
+    NSString *_editImgCompressPath;
     MMImageEditViewController *_imageEditViewController;
     NSVisualEffectView *_vibrantView;
     NSView *_containerView;
@@ -29,6 +30,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) struct CGRect windowRect; // @synthesize windowRect=_windowRect;
 @property(retain, nonatomic) MMImageEditPalletWindowController *popoverWindowController; // @synthesize popoverWindowController=_popoverWindowController;
 @property(retain, nonatomic) MMImageEditToolbarView *toolbarView; // @synthesize toolbarView=_toolbarView;
 @property(retain, nonatomic) MMView *bgView; // @synthesize bgView=_bgView;
@@ -38,8 +40,8 @@
 @property(nonatomic) BOOL isClosing; // @synthesize isClosing=_isClosing;
 @property(nonatomic) __weak NSView *containerView; // @synthesize containerView=_containerView;
 @property __weak NSVisualEffectView *vibrantView; // @synthesize vibrantView=_vibrantView;
-@property(nonatomic) struct CGRect windowRect; // @synthesize windowRect=_windowRect;
 @property(retain, nonatomic) MMImageEditViewController *imageEditViewController; // @synthesize imageEditViewController=_imageEditViewController;
+@property(retain, nonatomic) NSString *editImgCompressPath; // @synthesize editImgCompressPath=_editImgCompressPath;
 - (void)onUndoRedoCheckNotification:(id)arg1;
 - (void)beginCreateItem:(id)arg1;
 - (void)focusItemDidChange:(id)arg1;
@@ -71,6 +73,7 @@
 - (void)hideWindowWithAnimation;
 - (void)hideImageEdit;
 - (void)exitImageEdit;
+- (void)updateBackgroundEditImage:(id)arg1;
 - (void)closeWindowWithAnimation;
 - (void)stopImageEditSelf;
 - (struct CGRect)windowFrameRectOnInitialWithImageSize:(struct CGSize)arg1;

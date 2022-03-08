@@ -21,6 +21,7 @@
 + (id)stringFromUInt64:(unsigned long long)arg1;
 + (id)rac_readContentsOfURL:(id)arg1 usedEncoding:(unsigned long long *)arg2 scheduler:(id)arg3;
 + (id)wa_md5String:(id)arg1;
++ (id)safeStringWithString:(id)arg1;
 + (BOOL)charIsLineBreak:(unsigned short)arg1;
 + (BOOL)charIsNewLine:(unsigned short)arg1;
 + (id)getStringFromUrl:(id)arg1 needle:(id)arg2;

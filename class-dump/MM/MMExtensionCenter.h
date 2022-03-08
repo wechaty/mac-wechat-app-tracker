@@ -8,11 +8,11 @@
 
 #import "MMService-Protocol.h"
 
-@class NSLock, NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSLock, NSString;
 
 @interface MMExtensionCenter : MMService <MMService>
 {
-    TSDictionary *m_dicExtension;
+    MMThreadSafeDictionary *m_dicExtension;
     NSLock *_lock;
 }
 

@@ -6,13 +6,12 @@
 
 #import <Foundation/NSMutableDictionary.h>
 
-@class NSObject;
-@protocol OS_dispatch_semaphore;
+@class NSRecursiveLock;
 
 @interface MMThreadSafeDictionary : NSMutableDictionary
 {
     NSMutableDictionary *_dic;
-    NSObject<OS_dispatch_semaphore> *_lock;
+    NSRecursiveLock *_lock;
 }
 
 - (void).cxx_destruct;

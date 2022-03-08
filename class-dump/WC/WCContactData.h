@@ -309,7 +309,6 @@
 - (BOOL)isPluginContact;
 - (BOOL)isStickyFolder;
 - (BOOL)isFlagBrand;
-- (BOOL)isBrandContactWithUserName;
 - (BOOL)isBrandContact;
 - (BOOL)isOpenIMGroupChat;
 - (BOOL)isOpenIMContact;

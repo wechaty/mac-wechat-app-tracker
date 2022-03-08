@@ -27,6 +27,8 @@
 @property(retain, nonatomic) NSButton *uploadDumpButton; // @synthesize uploadDumpButton=_uploadDumpButton;
 - (void)forcewebp:(id)arg1;
 - (void)uploadLag:(id)arg1;
+- (void)openMiniProgramLogDir:(id)arg1;
+- (void)openMiniProgramDataDir:(id)arg1;
 - (void)openLagLogDir:(id)arg1;
 - (void)openLocalLogDir:(id)arg1;
 - (void)openLocalCacheDir:(id)arg1;

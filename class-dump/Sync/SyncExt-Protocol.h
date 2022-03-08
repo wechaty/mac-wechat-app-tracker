@@ -6,15 +6,12 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSData;
-
 @protocol SyncExt <NSObject>
 
 @optional
 - (void)onSyncFail;
 - (void)onSyncSuccess;
 - (void)onSyncFinishWithStatus:(unsigned int)arg1 withOnlineVersion:(unsigned int)arg2;
-- (void)onSyncCmdID:(unsigned int)arg1 withCmdBuffer:(NSData *)arg2 handled:(char *)arg3;
 - (void)onInitCancel;
 - (void)onInitFail;
 - (void)onInitFinish;

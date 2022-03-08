@@ -23,9 +23,11 @@
     NSString *_voiceFilePath;
     MMTimer *_timeChecker;
     double _timerInterval;
+    MMTimer *_timeOutChecker;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *timeOutChecker; // @synthesize timeOutChecker=_timeOutChecker;
 @property(nonatomic) unsigned int getResultSeq; // @synthesize getResultSeq=_getResultSeq;
 @property(nonatomic) double timerInterval; // @synthesize timerInterval=_timerInterval;
 @property(retain, nonatomic) MMTimer *timeChecker; // @synthesize timeChecker=_timeChecker;
@@ -40,6 +42,9 @@
 - (unsigned int)voiceFileLengthWithFile:(id)arg1;
 - (id)voiceFilePathWithMessage:(id)arg1;
 - (id)voiceIDWithMessage:(id)arg1;
+- (void)stopTimeOutChecker;
+- (void)handleVoiceTransTimeOut;
+- (void)startVoiceTransTimeOutChecker;
 - (void)handleGetVoiceTranscribeResult:(id)arg1;
 - (void)handleUploadVoiceDataResult:(id)arg1;
 - (void)handleCheckVoiceTransResult:(id)arg1;

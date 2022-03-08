@@ -23,7 +23,6 @@
 }
 
 - (void).cxx_destruct;
-- (unsigned int)videoDuration:(id)arg1;
 - (id)urlMsgDataForFav:(id)arg1 urlTitle:(id)arg2 imgData:(id)arg3;
 - (BOOL)favFileToWeChat:(id)arg1;
 - (void)favUrlToWeChat;

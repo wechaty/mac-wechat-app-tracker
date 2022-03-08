@@ -11,7 +11,7 @@
 #import "MMCGIDelegate-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class LVLiveTask, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, NSTimer, OrderedDictionary, TRTCScreenCaptureSourceInfo, TSDictionary;
+@class LVLiveTask, MMThreadSafeDictionary, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, NSTimer, OrderedDictionary, TRTCScreenCaptureSourceInfo;
 
 @interface LVLiveService : MMService <MMCGIDelegate, IMessageExt, LVLiveAgreementConfirmWindowDelegate, MMService>
 {
@@ -28,14 +28,14 @@
     TRTCScreenCaptureSourceInfo *_currentCreatingLiveScreenId;
     NSMutableDictionary *_enterRoomInfoDictionary;
     NSMutableArray *_liveListRequestStack;
-    TSDictionary *_firstReceivedLiveListRoomIds;
+    MMThreadSafeDictionary *_firstReceivedLiveListRoomIds;
     NSTimer *_requestLiveListTimer;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTimer *requestLiveListTimer; // @synthesize requestLiveListTimer=_requestLiveListTimer;
 @property(nonatomic) BOOL isRequestingLiveList; // @synthesize isRequestingLiveList=_isRequestingLiveList;
-@property(retain, nonatomic) TSDictionary *firstReceivedLiveListRoomIds; // @synthesize firstReceivedLiveListRoomIds=_firstReceivedLiveListRoomIds;
+@property(retain, nonatomic) MMThreadSafeDictionary *firstReceivedLiveListRoomIds; // @synthesize firstReceivedLiveListRoomIds=_firstReceivedLiveListRoomIds;
 @property(retain, nonatomic) NSMutableArray *liveListRequestStack; // @synthesize liveListRequestStack=_liveListRequestStack;
 @property(retain, nonatomic) NSMutableDictionary *enterRoomInfoDictionary; // @synthesize enterRoomInfoDictionary=_enterRoomInfoDictionary;
 @property(retain, nonatomic) TRTCScreenCaptureSourceInfo *currentCreatingLiveScreenId; // @synthesize currentCreatingLiveScreenId=_currentCreatingLiveScreenId;

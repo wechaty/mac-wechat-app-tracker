@@ -8,18 +8,18 @@
 
 #import "MMService-Protocol.h"
 
-@class NSOperationQueue, NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSOperationQueue, NSString;
 
 @interface FastSyncResourceDownloadService : MMService <MMService>
 {
     int _concurrentCount;
     NSOperationQueue *_downloadQueue;
-    TSDictionary *_waitingItems;
+    MMThreadSafeDictionary *_waitingItems;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) int concurrentCount; // @synthesize concurrentCount=_concurrentCount;
-@property(retain, nonatomic) TSDictionary *waitingItems; // @synthesize waitingItems=_waitingItems;
+@property(retain, nonatomic) MMThreadSafeDictionary *waitingItems; // @synthesize waitingItems=_waitingItems;
 @property(retain, nonatomic) NSOperationQueue *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
 - (void)loadExptConfig;
 - (BOOL)doesTaskExist:(id)arg1;

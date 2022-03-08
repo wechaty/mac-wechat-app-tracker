@@ -30,9 +30,8 @@
 - (void)OnHistoryRecordRevoked:(id)arg1 historyId:(unsigned long long)arg2;
 - (void)onMsgImgDataLogicCheckedWithPre:(BOOL)arg1 Next:(BOOL)arg2;
 - (void)onMsgImgDataLogicLoadOKWithLast:(id)arg1 Next:(id)arg2;
-- (void)editWithToolbarFrame:(struct CGRect)arg1 chatName:(id)arg2 msgId:(id)arg3;
-- (void)doEdit;
 - (id)_genPreviewItemWithMessage:(id)arg1;
+- (struct CGSize)_genAdjustOriginImageSize:(id)arg1;
 - (void)openWith;
 - (id)getCurrentPreviewItem;
 - (void)setupPageController;

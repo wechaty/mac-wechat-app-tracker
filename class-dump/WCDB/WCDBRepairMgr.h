@@ -21,6 +21,7 @@
     BOOL DBScanned;
 }
 
++ (BOOL)isRepairSupported:(unsigned int)arg1;
 - (void).cxx_destruct;
 - (void)appendRepairlogToMMLog;
 - (void)clearLogFileIfNeeded;

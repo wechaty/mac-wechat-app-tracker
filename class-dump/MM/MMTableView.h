@@ -25,6 +25,7 @@
 - (void)didRemoveRowView:(id)arg1 forRow:(long long)arg2;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (void)scrollRowAtIndexToBottom:(unsigned long long)arg1 offsetHeight:(double)arg2 mustScroll:(BOOL)arg3;
 - (void)scrollRowAtIndexToCenter:(unsigned long long)arg1 animated:(BOOL)arg2;
 - (void)scrollRowAtIndexToTop:(unsigned long long)arg1 animated:(BOOL)arg2;
 - (void)scrollToTopAnimated:(BOOL)arg1;

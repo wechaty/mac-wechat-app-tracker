@@ -12,7 +12,7 @@
 #import "MMService-Protocol.h"
 #import "SDWebImageManagerDelegate-Protocol.h"
 
-@class NSMutableArray, NSRecursiveLock, NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSMutableArray, NSRecursiveLock, NSString;
 
 @interface MMHandoffService : MMService <IMessageExt, MMCGIDelegate, IExptServiceExt, SDWebImageManagerDelegate, MMService>
 {
@@ -31,7 +31,7 @@
     NSMutableArray *_myItemList;
     NSString *_networkStatus;
     NSString *_deviceID;
-    TSDictionary *_openedItemDic;
+    MMThreadSafeDictionary *_openedItemDic;
     NSString *_preNotifyHandoff;
     double _contentHeight;
     NSRecursiveLock *_lock;
@@ -43,7 +43,7 @@
 @property(nonatomic) double contentHeight; // @synthesize contentHeight=_contentHeight;
 @property(copy, nonatomic) NSString *preNotifyHandoff; // @synthesize preNotifyHandoff=_preNotifyHandoff;
 @property(nonatomic) BOOL isWaitingGetAll; // @synthesize isWaitingGetAll=_isWaitingGetAll;
-@property(retain, nonatomic) TSDictionary *openedItemDic; // @synthesize openedItemDic=_openedItemDic;
+@property(retain, nonatomic) MMThreadSafeDictionary *openedItemDic; // @synthesize openedItemDic=_openedItemDic;
 @property(nonatomic) int currentHandoffWindowCount; // @synthesize currentHandoffWindowCount=_currentHandoffWindowCount;
 @property(nonatomic) int currentFloatWindowCount; // @synthesize currentFloatWindowCount=_currentFloatWindowCount;
 @property(nonatomic) int availableCount; // @synthesize availableCount=_availableCount;

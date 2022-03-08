@@ -6,6 +6,7 @@
 
 #import "MMService.h"
 
+#import "IMMCacheCleanerExt-Protocol.h"
 #import "IMMSessionMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
@@ -13,7 +14,7 @@
 @class MMCache, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMMessageCacheMgr : MMService <IMMSessionMgrExt, IMessageExt, MMService>
+@interface MMMessageCacheMgr : MMService <IMMSessionMgrExt, IMessageExt, IMMCacheCleanerExt, MMService>
 {
     MMCache *_textMessageCache;
     MMCache *_translationCache;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) MMCache *referCache; // @synthesize referCache=_referCache;
 @property(retain, nonatomic) MMCache *translationCache; // @synthesize translationCache=_translationCache;
 @property(retain, nonatomic) MMCache *textMessageCache; // @synthesize textMessageCache=_textMessageCache;
+- (void)onCleanCache;
 - (void)loadImageWithMessage:(id)arg1;
 - (void)thumbImageWithReaderMessage:(id)arg1 thumbUrl:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)thumbImageWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;

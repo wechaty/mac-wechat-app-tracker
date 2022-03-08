@@ -25,6 +25,7 @@
     MMSessionInfo *_sessionInfo;
     MMView *_vibrancyContainer;
     NSView *_containerView;
+    unsigned long long _type;
     NSView *_stickyBackgroundView;
     MMView *_seperator;
     SVGImageView *_muteIndicator;
@@ -66,6 +67,7 @@
 @property(retain, nonatomic) MMView *seperator; // @synthesize seperator=_seperator;
 @property(retain, nonatomic) NSView *stickyBackgroundView; // @synthesize stickyBackgroundView=_stickyBackgroundView;
 @property(nonatomic) BOOL shouldRemoveHighlight; // @synthesize shouldRemoveHighlight=_shouldRemoveHighlight;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) BOOL isLastRow; // @synthesize isLastRow=_isLastRow;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) MMView *vibrancyContainer; // @synthesize vibrancyContainer=_vibrancyContainer;

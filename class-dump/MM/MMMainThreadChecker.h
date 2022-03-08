@@ -13,6 +13,7 @@
 {
     BOOL _isRunning;
     BOOL _response;
+    unsigned int _main_thread_id;
     MMMainThreadCheckerConfig *_config;
     id <MMMainThreadCheckerDelegate> _delegate;
     unsigned long long _pingCount;
@@ -20,6 +21,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int main_thread_id; // @synthesize main_thread_id=_main_thread_id;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;
 @property(nonatomic) unsigned long long pingCount; // @synthesize pingCount=_pingCount;
 @property(nonatomic) BOOL response; // @synthesize response=_response;

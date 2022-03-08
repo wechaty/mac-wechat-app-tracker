@@ -214,6 +214,9 @@
 - (void)loadBrandSessionData;
 - (void)loadSessionData;
 - (void)updateGroupBoxSessionthreshold;
+- (void)waitUntilLoadData:(CDUnknownBlockType)arg1;
+- (void)asyncLoadData;
+- (void)syncLoadData;
 - (void)loadDataWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties

@@ -21,12 +21,15 @@
 @property(nonatomic) BOOL isMuteToPlay; // @synthesize isMuteToPlay=_isMuteToPlay;
 @property(retain, nonatomic) MMImageView *placeholderImageView; // @synthesize placeholderImageView=_placeholderImageView;
 @property(retain, nonatomic) _TtC6WeChat13WCMPlayerView *playerView; // @synthesize playerView=_playerView;
+- (void)popupVideoInfo;
 - (void)onSpacePressed;
-- (void)stop;
+- (void)pause;
+- (void)willGoBackToFeed;
 - (void)setupWithPlayer:(id)arg1 placeholderImage:(id)arg2;
 - (id)defaultVideoThumbnail;
 - (void)dismissThumbnailImageView;
 - (void)setupSubViews;
+- (void)scrollWheel:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (BOOL)mouseDownCanMoveWindow;
 - (void)commonInit;

@@ -40,6 +40,9 @@
 + (id)rac_signalWithChangesFor:(id)arg1 keyPath:(id)arg2 options:(unsigned long long)arg3 observer:(id)arg4;
 + (id)rac_signalWithStartingValueFor:(id)arg1 keyPath:(id)arg2 observer:(id)arg3;
 + (id)rac_signalFor:(id)arg1 keyPath:(id)arg2 observer:(id)arg3;
++ (id)tp_modelWithDictionary:(id)arg1;
++ (id)tp_modelWithJSON:(id)arg1;
++ (id)_tp_dictionaryWithJSON:(id)arg1;
 + (id)event_logging_alloc;
 - (id)aspect_hookSelector:(SEL)arg1 withOptions:(unsigned long long)arg2 usingBlock:(id)arg3 error:(id *)arg4;
 - (id)jp_methodSignatureForSelector:(SEL)arg1;
@@ -98,6 +101,17 @@
 - (id)rac_signalForKeyPath:(id)arg1 observer:(id)arg2;
 - (id)rac_signalForSelector:(SEL)arg1 fromProtocol:(id)arg2;
 - (id)rac_signalForSelector:(SEL)arg1;
+- (id)tp_modelDescription;
+- (BOOL)tp_modelIsEqual:(id)arg1;
+- (unsigned long long)tp_modelHash;
+- (id)tp_modelInitWithCoder:(id)arg1;
+- (void)tp_modelEncodeWithCoder:(id)arg1;
+- (id)tp_modelCopy;
+- (id)tp_modelToJSONString;
+- (id)tp_modelToJSONData;
+- (id)tp_modelToJSONObject;
+- (BOOL)tp_modelSetWithDictionary:(id)arg1;
+- (BOOL)tp_modelSetWithJSON:(id)arg1;
 - (id)wa_JSONRepresentation;
 - (id)pb_noop;
 - (void)removeAssociatedObjects;

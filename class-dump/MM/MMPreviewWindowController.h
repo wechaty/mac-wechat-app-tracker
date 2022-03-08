@@ -21,6 +21,7 @@
     BOOL _useKeyNavigation;
     BOOL _useButtonNavigation;
     BOOL _useSwipeNavigation;
+    BOOL _bAtCenterBeforeDownload;
     BOOL _touchEdge;
     BOOL _isAnimationOpening;
     BOOL _canResizeWindow;
@@ -28,6 +29,7 @@
     BOOL _shouldPlayVideo;
     BOOL _isShowWindowResize;
     BOOL _isClosing;
+    BOOL _isDoingRotating;
     MMPreviewEventView *_containerView;
     NSImageView *_animationThumbView;
     MMPreviewPageController *_pageController;
@@ -71,6 +73,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isDoingRotating; // @synthesize isDoingRotating=_isDoingRotating;
 @property(retain, nonatomic) NSTrackingArea *rightTrackingArea; // @synthesize rightTrackingArea=_rightTrackingArea;
 @property(retain, nonatomic) NSTrackingArea *leftTrackingArea; // @synthesize leftTrackingArea=_leftTrackingArea;
 @property(retain, nonatomic) _TtC6WeChat15TrackButtonView *nextButton; // @synthesize nextButton=_nextButton;
@@ -110,6 +113,7 @@
 @property(nonatomic) unsigned long long preIndex; // @synthesize preIndex=_preIndex;
 @property(nonatomic) BOOL isAnimationOpening; // @synthesize isAnimationOpening=_isAnimationOpening;
 @property(nonatomic) BOOL touchEdge; // @synthesize touchEdge=_touchEdge;
+@property(nonatomic) BOOL bAtCenterBeforeDownload; // @synthesize bAtCenterBeforeDownload=_bAtCenterBeforeDownload;
 @property(nonatomic) BOOL useSwipeNavigation; // @synthesize useSwipeNavigation=_useSwipeNavigation;
 @property(nonatomic) BOOL useButtonNavigation; // @synthesize useButtonNavigation=_useButtonNavigation;
 @property(nonatomic) BOOL useKeyNavigation; // @synthesize useKeyNavigation=_useKeyNavigation;
@@ -123,6 +127,10 @@
 @property(retain, nonatomic) MMPreviewPageController *pageController; // @synthesize pageController=_pageController;
 @property(retain, nonatomic) NSImageView *animationThumbView; // @synthesize animationThumbView=_animationThumbView;
 @property(retain, nonatomic) MMPreviewEventView *containerView; // @synthesize containerView=_containerView;
+- (void)doAnimationForImageRotate;
+- (void)doAnimationForImageRotateAfterResizeWindow;
+- (void)doAnimationForImageRotateAndWindowFrame:(BOOL)arg1;
+- (void)rotateFromMouseEvent:(BOOL)arg1;
 - (struct CGRect)pageController:(id)arg1 frameForObject:(id)arg2;
 - (void)pageControllerDidEndLiveTransition:(id)arg1;
 - (void)pageControllerWillStartLiveTransition:(id)arg1;
@@ -179,7 +187,6 @@
 - (void)clickButtonMenuActionLocateMessage;
 - (id)makeButtonContextMenu;
 - (void)menuMore:(id)arg1;
-- (void)doEdit;
 - (void)edit:(id)arg1;
 - (void)rotate:(id)arg1;
 - (void)restore:(id)arg1;
@@ -206,9 +213,11 @@
 - (void)fadeOutWindowAnimation:(struct CGRect)arg1 toRect:(struct CGRect)arg2 complete:(CDUnknownBlockType)arg3;
 - (void)fadeInWindowAnimation:(struct CGRect)arg1 toRect:(struct CGRect)arg2 complete:(CDUnknownBlockType)arg3;
 - (void)refreshOnKeyOrButtonNavigationWithItem:(id)arg1;
+- (struct CGRect)_getWindowFrameOnLoadedWithImageSize:(struct CGSize)arg1 withCenterFixed:(struct CGPoint)arg2;
 - (struct CGRect)_getWindowFrameOnLoadedWithImageSize:(struct CGSize)arg1 withLeftTopFixed:(BOOL)arg2;
-- (struct CGRect)_getWindowFrameOnRestoredWithImageSize:(struct CGSize)arg1 withLeftTopFixed:(BOOL)arg2;
-- (struct CGRect)getWindowFrameOnRestoredWithImageSize:(struct CGSize)arg1;
+- (struct CGRect)getWindowFrameOnRestoredWithImageSize:(struct CGSize)arg1 withLeftTopFixed:(BOOL)arg2 withWindowFrame:(struct CGRect)arg3;
+- (struct CGRect)getWindowFrameOnRestoredWithImageSize:(struct CGSize)arg1 withLeftTopFixed:(BOOL)arg2;
+- (struct CGRect)getWindowFrameOnDownloadImage:(struct CGSize)arg1;
 - (struct CGRect)getWindowFrameOnLoadedWithImageSize:(struct CGSize)arg1;
 - (struct CGRect)initialWindowFrameWithImageSize:(struct CGSize)arg1 sourceFrame:(struct CGRect)arg2;
 - (struct CGSize)handleFloatingSize:(struct CGSize)arg1;
@@ -248,7 +257,7 @@
 - (void)close;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
-- (void)setWindowFrame:(struct CGRect)arg1 display:(BOOL)arg2 annimate:(BOOL)arg3;
+- (void)setWindowFrame:(struct CGRect)arg1 display:(BOOL)arg2 animate:(BOOL)arg3;
 - (void)setupTitle;
 - (void)openWith;
 - (id)getCurrentPreviewItem;
@@ -273,6 +282,7 @@
 - (void)removeThumbWhenResizing;
 - (void)changeFrameWhenResizing;
 - (void)windowDidResize:(id)arg1;
+- (struct CGSize)windowWillResize:(id)arg1 toSize:(struct CGSize)arg2;
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)windowWillExitFullScreen:(id)arg1;
 - (void)windowDidEnterFullScreen:(id)arg1;

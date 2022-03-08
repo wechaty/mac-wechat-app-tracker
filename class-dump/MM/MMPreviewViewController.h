@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MMPreviewIKScrollView, MMPreviewImageView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSImageView, NSView;
+@class MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSImageView, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView;
 
 @interface MMPreviewViewController : NSViewController
 {
@@ -14,30 +14,34 @@
     BOOL _isTouchEdge;
     BOOL _shouldPlayVideo;
     BOOL _isRestore;
-    BOOL _shouldRefreshThumb;
+    BOOL _bDidResized;
     int _rotateDegrees;
+    int _reflectRotateDegrees;
     CDUnknownBlockType _zoomImageBlock;
     CDUnknownBlockType _restoreImageBlock;
     CDUnknownBlockType _restoreActionBlock;
     CDUnknownBlockType _retryDownloadImageBlock;
     CDUnknownBlockType _finishDownloadVideoBlock;
     MMQLPreviewPageInfo *_pageInfo;
-    MMPreviewIKScrollView *_ikScrollView;
+    _TtC6WeChat17PreviewScrollView *_scrollView;
+    _TtC6WeChat16PreviewImageView *_flipView;
     NSImageView *_thumbImageView;
-    MMPreviewImageView *_previewImageView;
     MMPreviewVideoPlayerView *_videoPlayerView;
     MMPreviewSnsVideoPlayerView *_snsVideoPlayerView;
     double _originZoomFactor;
     MMTimer *_scrollEndtimer;
     NSView *_maskView;
+    struct CGSize _originContentSizeBeforeResize;
     struct CGRect _originFrameBeforeFullScreen;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSView *maskView; // @synthesize maskView=_maskView;
 @property(retain, nonatomic) MMTimer *scrollEndtimer; // @synthesize scrollEndtimer=_scrollEndtimer;
-@property(nonatomic) BOOL shouldRefreshThumb; // @synthesize shouldRefreshThumb=_shouldRefreshThumb;
+@property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
+@property(nonatomic) struct CGSize originContentSizeBeforeResize; // @synthesize originContentSizeBeforeResize=_originContentSizeBeforeResize;
 @property(nonatomic) struct CGRect originFrameBeforeFullScreen; // @synthesize originFrameBeforeFullScreen=_originFrameBeforeFullScreen;
+@property(nonatomic) int reflectRotateDegrees; // @synthesize reflectRotateDegrees=_reflectRotateDegrees;
 @property(nonatomic) int rotateDegrees; // @synthesize rotateDegrees=_rotateDegrees;
 @property(nonatomic) double originZoomFactor; // @synthesize originZoomFactor=_originZoomFactor;
 @property(nonatomic) BOOL isRestore; // @synthesize isRestore=_isRestore;
@@ -46,9 +50,9 @@
 @property(nonatomic) BOOL isSwapingMouse; // @synthesize isSwapingMouse=_isSwapingMouse;
 @property(retain, nonatomic) MMPreviewSnsVideoPlayerView *snsVideoPlayerView; // @synthesize snsVideoPlayerView=_snsVideoPlayerView;
 @property(retain, nonatomic) MMPreviewVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
-@property(retain, nonatomic) MMPreviewImageView *previewImageView; // @synthesize previewImageView=_previewImageView;
 @property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
-@property __weak MMPreviewIKScrollView *ikScrollView; // @synthesize ikScrollView=_ikScrollView;
+@property(retain, nonatomic) _TtC6WeChat16PreviewImageView *flipView; // @synthesize flipView=_flipView;
+@property __weak _TtC6WeChat17PreviewScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMQLPreviewPageInfo *pageInfo; // @synthesize pageInfo=_pageInfo;
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadVideoBlock; // @synthesize finishDownloadVideoBlock=_finishDownloadVideoBlock;
 @property(copy, nonatomic) CDUnknownBlockType retryDownloadImageBlock; // @synthesize retryDownloadImageBlock=_retryDownloadImageBlock;
@@ -61,29 +65,18 @@
 - (void)enableScrollViewDrag;
 - (void)disableScrollViewScroll;
 - (void)enableScrollViewScroll;
-- (void)stopVideo;
-- (BOOL)startPlayVideo;
+- (void)goBackToFeed;
+- (BOOL)onSpacePressed;
 - (void)hiddenMaskView;
 - (void)showMaskView;
-- (void)setupOriginImage:(id)arg1;
-- (void)setupThumbImageView:(id)arg1 withResize:(struct CGSize)arg2;
 - (void)setupSnsVideoPlayerView;
 - (void)setupSnsVideoMode;
 - (void)setupVideoPlayerView;
 - (void)setupVideoMode;
 - (void)setupAvatarImageView;
-- (void)setupImageUrlPageInfo;
-- (void)setupSNSPageInfo;
-- (void)setupRecordPageInfo;
-- (void)setupFavPageInfo;
-- (void)setupMessagePageInfo;
 - (void)setupImagePageInfo;
 - (void)setupImageMode;
-- (id)getOriginFilePath;
-- (unsigned int)getOriginDataSize;
-- (id)updateToOriginFileInfo:(id)arg1;
-- (BOOL)isLargeImageForLoad;
-- (BOOL)isDelayLoadOriginImage;
+- (BOOL)shouldRotateWithResizeFrame;
 - (void)updatePreviewImageView;
 - (void)refreshOriginImageWithPageInfo:(id)arg1 ignoreCache:(BOOL)arg2;
 - (void)refreshOriginImageWithPageInfo:(id)arg1;
@@ -91,22 +84,42 @@
 - (void)addFullScreenToolBar:(id)arg1;
 - (void)layoutSnsVideoView;
 - (void)layoutVideoView;
+- (BOOL)inRotateWithoutMagnify;
 - (void)layoutImageViews;
 - (void)layoutThumbImageView;
 - (void)dealloc;
 - (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
+- (id)getOriginFilePath;
+- (unsigned int)getOriginDataSize;
+- (id)updateToOriginFileInfo:(id)arg1;
+- (BOOL)isLargeImageForLoad;
+- (BOOL)isDelayLoadOriginImage;
+- (void)setupOriginImage:(id)arg1;
+- (void)setupThumbImageView:(id)arg1 withResize:(struct CGSize)arg2;
+- (void)setupImageUrlPageInfo;
+- (void)setupSNSPageInfo;
+- (void)setupRecordPageInfo;
+- (void)setupFavPageInfo;
+- (void)setupMessagePageInfo;
+- (void)handleImageWhenRecallOrDel;
 - (void)updateDidExitFullScreen;
 - (void)updateWillEnterFullScreen;
 - (void)removeThumbWhenResizing;
 - (void)resizePreviewImageView;
 - (void)updatePreviewImageWhenResizing;
-- (void)rotateImage;
+- (void)rotateImageAndReflect:(BOOL)arg1 withAnimation:(BOOL)arg2;
+- (void)doAnimatedRotateImage:(struct CGRect)arg1 withFlag:(int)arg2 complete:(CDUnknownBlockType)arg3;
+- (void)doAnimatedRotateRestoreImage:(struct CGRect)arg1 withFlag:(int)arg2 withContentSize:(struct CGSize)arg3;
+- (void)flipViewRotateAndSetFrame:(struct CGRect)arg1;
+- (void)doImageAnimationInAnchorPoint:(struct CGPoint)arg1 complete:(CDUnknownBlockType)arg2;
 - (void)updateScrollPointWithLongImage:(BOOL)arg1;
 - (void)updateRestoreImageStatusWithOriginal:(BOOL)arg1;
 - (void)standardizeImage;
-- (void)restoreImage;
+- (void)restoreImage:(BOOL)arg1;
+- (struct CGSize)getRealRestoreImageSize;
+- (struct CGSize)getOriginImageDisplaySize;
 - (double)maxMagnification;
 - (double)minMagnification;
 - (void)updateZoomInOutStatus;

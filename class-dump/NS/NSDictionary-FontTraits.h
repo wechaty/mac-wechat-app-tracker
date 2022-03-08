@@ -13,6 +13,8 @@
 + (id)dictionaryWithXMLString:(id)arg1;
 + (id)dictionaryWithXMLData:(id)arg1;
 + (id)dictionaryWithXMLParser:(id)arg1;
++ (id)tp_modelDictionaryWithClass:(Class)arg1 dictionary:(id)arg2;
++ (id)tp_modelDictionaryWithClass:(Class)arg1 json:(id)arg2;
 - (BOOL)attributesHaveFontTrait:(unsigned long long)arg1 orAttribute:(id)arg2;
 - (BOOL)bk_all:(CDUnknownBlockType)arg1;
 - (BOOL)bk_none:(CDUnknownBlockType)arg1;

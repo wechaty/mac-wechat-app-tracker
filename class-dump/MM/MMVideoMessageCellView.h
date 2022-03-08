@@ -70,7 +70,7 @@
 - (void)export:(id)arg1;
 - (void)retry:(id)arg1;
 - (void)OnBatchExportStartDownloadingWithMessage:(id)arg1;
-- (void)showExpireWording;
+- (void)showErrorWording:(id)arg1;
 - (void)hideCompressProgressView;
 - (void)showCompressProgressView;
 - (void)OnThumbnailCaptured:(id)arg1;

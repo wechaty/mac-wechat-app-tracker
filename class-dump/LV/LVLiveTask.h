@@ -11,7 +11,7 @@
 #import "LVLiveServiceExt-Protocol.h"
 #import "TRTCCloudDelegate-Protocol.h"
 
-@class LVGroupLiveInfoItem, LVLiveAnchorStatusItem, LVLiveApplyConnectMicAudience, LVLiveInfoWrap, LVWindowController, MMLiveCastEndReportHandler, NSDate, NSError, NSImage, NSMutableDictionary, NSString, TRTCScreenCaptureSourceInfo, TSDictionary;
+@class LVGroupLiveInfoItem, LVLiveAnchorStatusItem, LVLiveApplyConnectMicAudience, LVLiveInfoWrap, LVWindowController, MMLiveCastEndReportHandler, MMThreadSafeDictionary, NSDate, NSError, NSImage, NSMutableDictionary, NSString, TRTCScreenCaptureSourceInfo;
 
 @interface LVLiveTask : NSObject <TRTCCloudDelegate, AccountServiceExt, LVLiveServiceExt, IContactMgrExt>
 {
@@ -42,7 +42,7 @@
     long long _roleType;
     NSMutableDictionary *_managerMap;
     LVGroupLiveInfoItem *_groupLiveItem;
-    TSDictionary *_viewControllerDic;
+    MMThreadSafeDictionary *_viewControllerDic;
     LVWindowController *_currentWindowController;
     NSDate *_castBeginTime;
 }
@@ -50,7 +50,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDate *castBeginTime; // @synthesize castBeginTime=_castBeginTime;
 @property(nonatomic) __weak LVWindowController *currentWindowController; // @synthesize currentWindowController=_currentWindowController;
-@property(retain, nonatomic) TSDictionary *viewControllerDic; // @synthesize viewControllerDic=_viewControllerDic;
+@property(retain, nonatomic) MMThreadSafeDictionary *viewControllerDic; // @synthesize viewControllerDic=_viewControllerDic;
 @property(retain, nonatomic) LVGroupLiveInfoItem *groupLiveItem; // @synthesize groupLiveItem=_groupLiveItem;
 @property(retain, nonatomic) NSMutableDictionary *managerMap; // @synthesize managerMap=_managerMap;
 @property(readonly, nonatomic) long long roleType; // @synthesize roleType=_roleType;

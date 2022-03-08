@@ -105,7 +105,8 @@
 - (void)rotateLayerToFillWindow;
 - (int)getVideoOrientationWithDegrees:(double)arg1;
 - (void)onOpenCameraButtonClick;
-- (void)setAudioDeviceMute;
+- (void)setAudioDeviceMute:(BOOL)arg1;
+- (void)onMuteButtonClick:(id)arg1;
 - (void)setWindowStick:(id)arg1;
 - (void)startCamera;
 - (void)autoUpdateMainStatusStringAndDotViewImage;

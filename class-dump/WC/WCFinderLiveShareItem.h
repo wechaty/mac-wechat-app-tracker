@@ -23,6 +23,9 @@
     NSString *_headUrl;
     NSString *_desc;
     NSString *_webUrl;
+    NSString *_bizAvatar;
+    NSString *_bizUsername;
+    NSString *_bizNickname;
     NSString *_width;
     NSString *_height;
     NSString *_authIconUrl;
@@ -35,6 +38,9 @@
 @property(copy, nonatomic) NSString *height; // @synthesize height=_height;
 @property(copy, nonatomic) NSString *width; // @synthesize width=_width;
 @property(nonatomic) int finderLiveStatus; // @synthesize finderLiveStatus=_finderLiveStatus;
+@property(copy, nonatomic) NSString *bizNickname; // @synthesize bizNickname=_bizNickname;
+@property(copy, nonatomic) NSString *bizUsername; // @synthesize bizUsername=_bizUsername;
+@property(copy, nonatomic) NSString *bizAvatar; // @synthesize bizAvatar=_bizAvatar;
 @property(copy, nonatomic) NSString *webUrl; // @synthesize webUrl=_webUrl;
 @property(copy, nonatomic) NSString *desc; // @synthesize desc=_desc;
 @property(copy, nonatomic) NSString *headUrl; // @synthesize headUrl=_headUrl;

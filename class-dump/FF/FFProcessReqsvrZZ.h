@@ -17,7 +17,7 @@
 #import "VideoMessageHandlerDelegate-Protocol.h"
 #import "VoiceMessageHandlerDelegate-Protocol.h"
 
-@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, TSDictionary, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
+@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
 
 @interface FFProcessReqsvrZZ : MMService <TextMessageHandlerDelegate, ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, VoiceMessageHandlerDelegate, AppMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, MMService>
 {
@@ -35,12 +35,12 @@
     NSMutableArray *_arrStashedMsgs;
     FastSyncMsgFilter *_filter;
     NSMutableArray *_arrMultiSelectMsgs;
-    TSDictionary *_uploadingAppMessageSet;
-    TSDictionary *_downloadingAppMessageSet;
-    TSDictionary *_uploadingVideoMessageSet;
-    TSDictionary *_downloadingVideoMessageSet;
-    TSDictionary *_uploadingOriginImageSet;
-    TSDictionary *_downloadingOriginImageSet;
+    MMThreadSafeDictionary *_uploadingAppMessageSet;
+    MMThreadSafeDictionary *_downloadingAppMessageSet;
+    MMThreadSafeDictionary *_uploadingVideoMessageSet;
+    MMThreadSafeDictionary *_downloadingVideoMessageSet;
+    MMThreadSafeDictionary *_uploadingOriginImageSet;
+    MMThreadSafeDictionary *_downloadingOriginImageSet;
     NSMutableDictionary *_cdnDownloadTasks;
     NSRecursiveLock *_cdnTaskLock;
     NSURLSession *_downloadMgr;
@@ -54,12 +54,12 @@
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
 @property(retain, nonatomic) NSRecursiveLock *cdnTaskLock; // @synthesize cdnTaskLock=_cdnTaskLock;
 @property(retain, nonatomic) NSMutableDictionary *cdnDownloadTasks; // @synthesize cdnDownloadTasks=_cdnDownloadTasks;
-@property(retain, nonatomic) TSDictionary *downloadingOriginImageSet; // @synthesize downloadingOriginImageSet=_downloadingOriginImageSet;
-@property(retain, nonatomic) TSDictionary *uploadingOriginImageSet; // @synthesize uploadingOriginImageSet=_uploadingOriginImageSet;
-@property(retain, nonatomic) TSDictionary *downloadingVideoMessageSet; // @synthesize downloadingVideoMessageSet=_downloadingVideoMessageSet;
-@property(retain, nonatomic) TSDictionary *uploadingVideoMessageSet; // @synthesize uploadingVideoMessageSet=_uploadingVideoMessageSet;
-@property(retain, nonatomic) TSDictionary *downloadingAppMessageSet; // @synthesize downloadingAppMessageSet=_downloadingAppMessageSet;
-@property(retain, nonatomic) TSDictionary *uploadingAppMessageSet; // @synthesize uploadingAppMessageSet=_uploadingAppMessageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *downloadingOriginImageSet; // @synthesize downloadingOriginImageSet=_downloadingOriginImageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *uploadingOriginImageSet; // @synthesize uploadingOriginImageSet=_uploadingOriginImageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *downloadingVideoMessageSet; // @synthesize downloadingVideoMessageSet=_downloadingVideoMessageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *uploadingVideoMessageSet; // @synthesize uploadingVideoMessageSet=_uploadingVideoMessageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *downloadingAppMessageSet; // @synthesize downloadingAppMessageSet=_downloadingAppMessageSet;
+@property(retain, nonatomic) MMThreadSafeDictionary *uploadingAppMessageSet; // @synthesize uploadingAppMessageSet=_uploadingAppMessageSet;
 @property(retain, nonatomic) NSMutableArray *arrMultiSelectMsgs; // @synthesize arrMultiSelectMsgs=_arrMultiSelectMsgs;
 @property(retain, nonatomic) FastSyncMsgFilter *filter; // @synthesize filter=_filter;
 @property(retain, nonatomic) NSMutableArray *arrStashedMsgs; // @synthesize arrStashedMsgs=_arrStashedMsgs;
@@ -119,7 +119,7 @@
 - (id)SendNamecardMsgFromUser:(id)arg1 toUser:(id)arg2 containingContact:(id)arg3;
 - (id)SendStickerStoreEmoticonMsgFromUsr:(id)arg1 toUsrName:(id)arg2 md5:(id)arg3 productID:(id)arg4;
 - (id)SendEmoticonMsgFromUsr:(id)arg1 toUsrName:(id)arg2 md5:(id)arg3 emoticonType:(unsigned int)arg4;
-- (id)SendImgMessage:(id)arg1 toUsrName:(id)arg2 thumbImgData:(id)arg3 midImgData:(id)arg4 imgData:(id)arg5 imgInfo:(id)arg6;
+- (id)SendImgMessage:(id)arg1 toUsrName:(id)arg2 thumbImgData:(id)arg3 imgData:(id)arg4 imgInfo:(id)arg5;
 - (id)FFProcessTReqZZ:(id)arg1 toUsrName:(id)arg2 msgText:(id)arg3 atUserList:(id)arg4;
 - (BOOL)FFProcessTReqWithStrZZ:(id)arg1 toUser:(id)arg2;
 - (id)SendAppMusicMessageFromUser:(id)arg1 toUsrName:(id)arg2 withTitle:(id)arg3 url:(id)arg4 description:(id)arg5 thumbnailData:(id)arg6;
@@ -128,7 +128,7 @@
 - (id)SendAppURLMessageToWeWorkFromUser:(id)arg1 withTitle:(id)arg2 url:(id)arg3 description:(id)arg4 thumbUrl:(id)arg5 sourceUserName:(id)arg6 sourceDisplayName:(id)arg7;
 - (void)handleAppMsg:(id)arg1;
 - (void)onSyncAddFileAppMsg:(id)arg1;
-- (void)processAddMsg:(id)arg1 sessionMsgList:(id)arg2 isFirstSync:(BOOL)arg3 isFunctionMsg:(BOOL)arg4;
+- (void)processAddMsg:(id)arg1 sessionMsgList:(id)arg2 isFirstSync:(BOOL)arg3;
 - (void)FFToNameFavChatZZ:(id)arg1 sessionMsgList:(id)arg2;
 - (void)processSysMsg:(id)arg1;
 - (void)processVoipInviteMsg:(id)arg1;
@@ -163,7 +163,6 @@
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;
-- (void)notifyMsgResendOnMainThread:(id)arg1 msgData:(id)arg2;
 - (void)notifyUnreadCntChangeOnMainThread:(id)arg1;
 - (void)notifyAddMsgListForSessionOnMainThread:(id)arg1;
 - (void)notifyDelAllMsgOnMainThread:(id)arg1;
@@ -178,30 +177,21 @@
 - (void)notifyNewMsgNotificationOnMainThread:(id)arg1 msgData:(id)arg2;
 - (void)AddTestMsg:(id)arg1 msgData:(id)arg2;
 - (void)AddLocalMsg:(id)arg1 msgData:(id)arg2;
-- (BOOL)deleteAllMsg:(id)arg1 isManual:(BOOL)arg2;
-- (BOOL)deleteAllMsg:(id)arg1;
+- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 type:(unsigned long long)arg3;
+- (BOOL)ModifyMsgDataOnType:(unsigned long long)arg1 msgData:(id)arg2;
+- (BOOL)DeleteAllMsg:(id)arg1 isManual:(BOOL)arg2;
+- (BOOL)DeleteAllMsg:(id)arg1;
 - (BOOL)DeleteMsgList:(id)arg1 chatName:(id)arg2 isManual:(BOOL)arg3;
 - (BOOL)DeleteMsgList:(id)arg1 chatName:(id)arg2;
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4;
 - (void)DelRevokedMsg:(id)arg1 msgData:(id)arg2;
-- (BOOL)UpdateTeenApplyTitleWithMessage:(id)arg1;
-- (BOOL)UpdateUnReadStateWithPatMessage:(id)arg1;
-- (BOOL)UpdateCreateTimeWithMessage:(id)arg1;
-- (BOOL)UpdateDataMd5WithMessage:(id)arg1;
-- (BOOL)UpdateImageRealSizeWithMessage:(id)arg1;
-- (BOOL)UpdateImageSizeWithMessage:(id)arg1;
 - (void)UpdateReferMsgAsRevoked:(id)arg1 chatName:(id)arg2;
-- (BOOL)UpdateUploadAndDownloadStatusInDBWithMessage:(id)arg1;
-- (BOOL)UpdateImageInformationInDBWithMessage:(id)arg1;
-- (BOOL)UpdateVideoInformationInDBWithMessage:(id)arg1;
-- (BOOL)UpdateVideoThumbInfoInDBWithMessage:(id)arg1;
-- (BOOL)UpdateFileInformationInDBWithMessage:(id)arg1;
-- (BOOL)UpdateTranslateStatusInDBWithMessage:(id)arg1;
-- (BOOL)UpdateVoiceTextInDBWithMessage:(id)arg1;
 - (void)ClearUnReadForSync:(id)arg1 ToCreateTime:(unsigned int)arg2;
 - (void)ClearUnRead:(id)arg1 FromCreateTime:(unsigned int)arg2 ToCreateTime:(unsigned int)arg3;
+- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2;
 - (void)ModifyMsgData:(id)arg1 msgData:(id)arg2;
+- (BOOL)p_modifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3;
 - (void)ModifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3;
 - (void)CheckDownloadStatus:(id)arg1;
 - (void)CheckUploadStatus:(id)arg1;
@@ -212,19 +202,18 @@
 - (void)GetUnReadCount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (unsigned int)GetUnReadCount:(id)arg1;
 - (id)GetMsgData:(id)arg1 svrIdList:(id)arg2;
-- (id)GetMsgData:(id)arg1 svrId:(unsigned long long)arg2 shouldCheck:(BOOL)arg3 shouldCheckRefer:(BOOL)arg4;
-- (id)GetMsgData:(id)arg1 svrId:(unsigned long long)arg2 shouldCheck:(BOOL)arg3;
+- (id)GetMsgData:(id)arg1 svrId:(unsigned long long)arg2 opBitSet:(unsigned int)arg3;
 - (id)GetMsgData:(id)arg1 svrId:(unsigned long long)arg2;
-- (id)GetMsgData:(id)arg1 localId:(unsigned int)arg2 shouldCheck:(BOOL)arg3;
+- (id)GetMsgData:(id)arg1 localId:(unsigned int)arg2 opBitSet:(unsigned int)arg3;
 - (id)GetMsgData:(id)arg1 localId:(unsigned int)arg2;
 - (id)GetAllMsgWithChatName:(id)arg1 messageType:(unsigned int)arg2;
 - (id)GetMsgListWithChatName:(id)arg1 fromMinCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 messageTypes:(id)arg6 sortAscend:(BOOL)arg7;
 - (void)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 messageTypes:(id)arg5 sortAscend:(BOOL)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 sortAscend:(BOOL)arg6;
-- (id)GetLastAppMsg:(id)arg1 shouldCheck:(BOOL)arg2;
+- (id)GetLastAppMsg:(id)arg1 opBitSet:(unsigned int)arg2;
 - (id)GetLastAppMsg:(id)arg1;
-- (id)GetLastMsg:(id)arg1 shouldCheck:(BOOL)arg2;
+- (id)GetLastMsg:(id)arg1 opBitSet:(unsigned int)arg2;
 - (id)GetLastMsg:(id)arg1;
 - (unsigned int)GetLastMsgCreateTime:(id)arg1;
 - (unsigned int)GetLastMsgLocalId:(id)arg1;

@@ -57,7 +57,7 @@
 - (void)FixOpenIMSync;
 - (void)FastSync;
 - (void)BackGroundToForeGroundSync;
-- (void)sendSyncCGIWithScene:(unsigned int)arg1;
+- (void)CustomSync:(unsigned int)arg1;
 - (BOOL)isSyncClosed;
 - (void)OpenSync;
 - (void)CloseSync;
@@ -78,6 +78,7 @@
 - (void)CancelInit;
 - (BOOL)IsDoingInit;
 - (BOOL)IsNeedInit;
+- (BOOL)IsInInitProcess;
 - (BOOL)IsFastSync;
 - (BOOL)IsFirstSync;
 - (void)UnregisterKeyExtension;

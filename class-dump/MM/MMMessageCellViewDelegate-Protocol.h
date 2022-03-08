@@ -11,6 +11,7 @@
 @protocol MMMessageCellViewDelegate <NSObject>
 
 @optional
+- (void)messageCellViewNeedScrollToSelf:(MMMessageCellView *)arg1 andItem:(MMMessageTableItem *)arg2;
 - (MMMessageCellView *)replaceLastShowLocateTipsCellViewWith:(MMMessageCellView *)arg1;
 - (void)messageCellView:(MMMessageCellView *)arg1 multiSelectWithEvent:(NSEvent *)arg2;
 - (double)messageCellViewMultiSelectionLeftPadding:(MMMessageCellView *)arg1;

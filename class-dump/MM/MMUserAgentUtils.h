@@ -11,12 +11,11 @@
 }
 
 + (id)userAgentPrefix;
-+ (id)userAgentSuffix:(id)arg1;
-+ (id)userAgentForEmbededWebView;
-+ (id)userAgentForMiniProgram;
-+ (id)webViewExtraUserAgent:(id)arg1;
-+ (id)webViewDefaultExtraUserAgent;
-+ (void)initDefaultUserAgent;
++ (id)microMessengerVersion;
++ (id)userAgentSuffix;
++ (id)safariVersionFromUserAgent:(id)arg1;
++ (id)webViewExtraUserAgent;
++ (void)userAgentFromWebView:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end
 

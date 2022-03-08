@@ -183,7 +183,6 @@
 - (BOOL)isAllImageExistWithType:(long long)arg1;
 - (BOOL)hasBlackList;
 - (BOOL)hasSharedGroup;
-- (id)getDebugText;
 @property(readonly, copy) NSString *description;
 
 // Remaining properties

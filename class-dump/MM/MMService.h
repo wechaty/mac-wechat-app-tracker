@@ -6,12 +6,19 @@
 
 #import <objc/NSObject.h>
 
+@class NSRecursiveLock;
+
 @interface MMService : NSObject
 {
     BOOL m_isServiceRemoved;
     BOOL m_isServicePersistent;
+    BOOL _m_isInitFinished;
+    NSRecursiveLock *_m_initLock;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *m_initLock; // @synthesize m_initLock=_m_initLock;
+@property(nonatomic) BOOL m_isInitFinished; // @synthesize m_isInitFinished=_m_isInitFinished;
 @property BOOL m_isServicePersistent; // @synthesize m_isServicePersistent;
 @property BOOL m_isServiceRemoved; // @synthesize m_isServiceRemoved;
 - (void)dealloc;

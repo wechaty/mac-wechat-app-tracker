@@ -29,7 +29,7 @@
 - (void)onAuthFaildForInvalidCGISessionID;
 - (void)onAuthFaildWithWrongPasswordOrUsername;
 - (void)onAuthFaild:(NSString *)arg1;
-- (void)onLoginAuthOK;
+- (void)onLoginAuth;
 - (void)onAuthOK:(BOOL)arg1;
 - (void)FFAddRecvFavZZ:(BOOL)arg1;
 @end

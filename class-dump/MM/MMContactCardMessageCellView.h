@@ -39,7 +39,6 @@
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (void)showProfile:(int)arg1;
-- (void)sendMessage:(id)arg1;
 - (id)getSection1MenuItem;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;

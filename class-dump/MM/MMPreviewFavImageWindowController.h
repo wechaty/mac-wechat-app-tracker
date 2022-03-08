@@ -14,9 +14,11 @@
 @interface MMPreviewFavImageWindowController : MMPreviewWindowController <MMCDNDownloadMgrExt, MMFavoritesMgrExt>
 {
     MMQLPreviewItem *m_currentPreviewingItem;
+    BOOL _setupStatus;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL setupStatus; // @synthesize setupStatus=_setupStatus;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
 - (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;

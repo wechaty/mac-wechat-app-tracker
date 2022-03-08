@@ -10,10 +10,10 @@
 {
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: $__lazy_storage_$_bkgImageView
-    // Error parsing type: , name: $__lazy_storage_$_loadingView
     // Error parsing type: , name: $__lazy_storage_$_coverImageView
     // Error parsing type: , name: $__lazy_storage_$_playerView
     // Error parsing type: , name: $__lazy_storage_$_iconFlagView
+    // Error parsing type: , name: $__lazy_storage_$_progressBkgView
     // Error parsing type: , name: $__lazy_storage_$_progressView
     // Error parsing type: , name: $__lazy_storage_$_titleField
     // Error parsing type: , name: $__lazy_storage_$_subTitleField
@@ -28,10 +28,11 @@
     // Error parsing type: , name: scene
     // Error parsing type: , name: dataItem
     // Error parsing type: , name: player
-    // Error parsing type: , name: videoRetried
-    // Error parsing type: , name: skippedBlackIntro
+    // Error parsing type: , name: playerDisposeBag
     // Error parsing type: , name: shouldPlay
+    // Error parsing type: , name: inRecyclePool
     // Error parsing type: , name: reopenPreview
+    // Error parsing type: , name: videoRetried
     // Error parsing type: , name: progressViewPresentTimer
     // Error parsing type: , name: isLiving
     // Error parsing type: , name: type

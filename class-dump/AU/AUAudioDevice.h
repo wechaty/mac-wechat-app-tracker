@@ -103,7 +103,7 @@
 - (void)StartRecordAndPlayForF2F;
 - (void)StartRecordAndPlayForPSTN;
 - (void)StartRecordAndPlayForVoIP;
-- (void)StartRecordAndPlay;
+- (void)StartRecordAndPlay:(int)arg1;
 - (BOOL)StartPlay;
 - (BOOL)StartRecord;
 - (void)setCaptureToFileFrom:(id)arg1;

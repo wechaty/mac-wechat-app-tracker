@@ -9,15 +9,15 @@
 #import "IWACgiProtocol-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSString;
 
 @interface WACgiProxy : NSObject <MMCGIDelegate, IWACgiProtocol>
 {
-    TSDictionary *_cgiMap;
+    MMThreadSafeDictionary *_cgiMap;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) TSDictionary *cgiMap; // @synthesize cgiMap=_cgiMap;
+@property(retain, nonatomic) MMThreadSafeDictionary *cgiMap; // @synthesize cgiMap=_cgiMap;
 - (BOOL)shouldUseIOSClientVersion:(unsigned int)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)requestCgi:(id)arg1 withResponse:(CDUnknownBlockType)arg2;

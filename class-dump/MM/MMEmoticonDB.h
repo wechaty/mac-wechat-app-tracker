@@ -6,15 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class WCTDatabase, WCTTable;
+@class NSMutableSet, NSRecursiveLock, WCTDatabase;
 
 @interface MMEmoticonDB : NSObject
 {
     WCTDatabase *_database;
-    WCTTable *_packagesTable;
-    WCTTable *_emoticonsTable;
-    WCTTable *_captionsTable;
-    WCTTable *_bugFixFlagTable;
+    NSRecursiveLock *m_tableSetLock;
+    NSMutableSet *m_tableSet;
 }
 
 + (void)deleteEmoticonDB;
@@ -33,10 +31,16 @@
 - (BOOL)insertOrUpdatePackageRow:(id)arg1;
 - (id)insertPackageFromStoreInfo:(id)arg1;
 - (id)packageWithId:(id)arg1;
+- (BOOL)createEmoticonBugFixFlagTable;
+- (id)getEmoticonBugFixFlagTableName;
+- (BOOL)createEmoticonCaptionsTable;
+- (id)getEmoticonCaptionsTableName;
+- (BOOL)createEmoticonPackageTable;
+- (id)getEmoticonPackageTableName;
+- (BOOL)createEmoticonFilesTable;
+- (id)getEmoticonFilesTableName;
 - (void)close;
 - (void)closeDBBeforeInit;
-- (BOOL)createTable;
-- (void)recreateDb;
 - (void)dealloc;
 - (id)init;
 

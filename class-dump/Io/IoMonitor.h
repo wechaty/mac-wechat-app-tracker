@@ -6,30 +6,34 @@
 
 #import <objc/NSObject.h>
 
-#import "AccountServiceExt-Protocol.h"
+#import "IExptServiceExt-Protocol.h"
 
-@class MMTimer, NSString;
+@class MMTimer;
 
-@interface IoMonitor : NSObject <AccountServiceExt>
+@interface IoMonitor : NSObject <IExptServiceExt>
 {
     int m_wechatPid;
     MMTimer *m_disk_io_timer;
     unsigned long long m_last_diskio_byteswritten;
     unsigned long long m_last_diskio_bytesread;
+    unsigned int m_lastReportTime;
+    unsigned int m_reportInterval;
+    unsigned int m_checkInterval;
+    unsigned int m_readReportThreshold;
+    unsigned int m_writeReportThreshold;
+    BOOL _isRunning;
 }
 
 - (void).cxx_destruct;
-- (void)onUserLogout;
+@property(nonatomic) BOOL isRunning; // @synthesize isRunning=_isRunning;
+- (void)onExptItemListChange;
 - (void)stopTimer;
 - (void)diskIoReportIfNeed;
+- (void)loadABTestParameters;
+- (void)startTimer;
 - (void)setupDiskIoMonitor;
+- (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

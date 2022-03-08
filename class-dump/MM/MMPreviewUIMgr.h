@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class MMBasePreviewPanelWindowController, MMPreviewWindowController, NSString, NSWindow, TSDictionary;
+@class MMBasePreviewPanelWindowController, MMPreviewWindowController, MMThreadSafeDictionary, NSString, NSWindow;
 
 @interface MMPreviewUIMgr : MMService <MMService>
 {
@@ -21,12 +21,12 @@
     MMBasePreviewPanelWindowController *_filePreviewPanelWindowController;
     CDUnknownBlockType _completion;
     CDUnknownBlockType _willCompletion;
-    TSDictionary *_dicImageDownloadRetry;
+    MMThreadSafeDictionary *_dicImageDownloadRetry;
     struct CGRect _mouseDownRect;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) TSDictionary *dicImageDownloadRetry; // @synthesize dicImageDownloadRetry=_dicImageDownloadRetry;
+@property(retain, nonatomic) MMThreadSafeDictionary *dicImageDownloadRetry; // @synthesize dicImageDownloadRetry=_dicImageDownloadRetry;
 @property(copy, nonatomic) CDUnknownBlockType willCompletion; // @synthesize willCompletion=_willCompletion;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(retain, nonatomic) MMBasePreviewPanelWindowController *filePreviewPanelWindowController; // @synthesize filePreviewPanelWindowController=_filePreviewPanelWindowController;

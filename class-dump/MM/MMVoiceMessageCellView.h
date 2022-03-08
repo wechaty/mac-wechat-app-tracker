@@ -15,6 +15,8 @@
 {
     struct CGRect _calculatedTranslationRect;
     BOOL _mouseDown;
+    BOOL _isFirstStartTrans;
+    BOOL _isFirstEndTrans;
     MMRoundedRectangleView *_unreadTip;
     MMTextField *_voiceTimeLabel;
     SVGImageView *_voiceWavImageView;
@@ -23,22 +25,24 @@
     unsigned long long _animationCount;
     MMCTTextView *_translationTextView;
     NSProgressIndicator *_waitingProgressIndicator;
-    MMTimer *_transcribeTimer;
     CAShapeLayer *_highlightLayer;
     CAShapeLayer *_strokeLayer;
     CAShapeLayer *_dividerLayer;
     NSTextField *_noDataMetionTextField;
+    unsigned long long _recalcHeightCount;
 }
 
 + (double)cellWidthOfNoDataMetionTextCell;
 + (struct CGSize)translatedStringBoundsWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long recalcHeightCount; // @synthesize recalcHeightCount=_recalcHeightCount;
+@property(nonatomic) BOOL isFirstEndTrans; // @synthesize isFirstEndTrans=_isFirstEndTrans;
+@property(nonatomic) BOOL isFirstStartTrans; // @synthesize isFirstStartTrans=_isFirstStartTrans;
 @property(retain, nonatomic) NSTextField *noDataMetionTextField; // @synthesize noDataMetionTextField=_noDataMetionTextField;
 @property(retain, nonatomic) CAShapeLayer *dividerLayer; // @synthesize dividerLayer=_dividerLayer;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
-@property(retain, nonatomic) MMTimer *transcribeTimer; // @synthesize transcribeTimer=_transcribeTimer;
 @property(nonatomic) BOOL mouseDown; // @synthesize mouseDown=_mouseDown;
 @property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicator; // @synthesize waitingProgressIndicator=_waitingProgressIndicator;
 @property(retain, nonatomic) MMCTTextView *translationTextView; // @synthesize translationTextView=_translationTextView;
@@ -73,9 +77,6 @@
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
 - (double)voiceBubbleWidthWithTime:(unsigned int)arg1;
-- (void)stopTranscribeTimer;
-- (void)transcribeTimeOut;
-- (void)startTranscribeTimer;
 - (void)stopWavAnimation;
 - (void)wavAnimation;
 - (void)startWavAnimation;

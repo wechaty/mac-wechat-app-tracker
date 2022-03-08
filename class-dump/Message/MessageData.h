@@ -314,9 +314,7 @@
 - (id)savingImageFileNameWithLocalID;
 - (id)savingImageFileName;
 - (BOOL)isOriginalImageDownload;
-- (id)editImageFilePath;
 - (id)originalImageFilePath;
-- (id)blurImageFilePath;
 - (id)middleImageFilePath;
 - (id)thumbnailImageFilePath;
 - (unsigned long long)messageUploadFileStatus;

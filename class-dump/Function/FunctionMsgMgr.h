@@ -48,6 +48,7 @@
 - (void)handleGetFuncMsgResp:(id)arg1 Event:(unsigned int)arg2;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)requestCgi:(id)arg1;
+- (BOOL)p_invalidFunctionMsg:(id)arg1;
 - (void)tryNextTask;
 - (void)handleFunctionNewXml:(id)arg1;
 - (id)parseAddMsg:(struct XmlReaderNode_t *)arg1 baseMsg:(id)arg2;

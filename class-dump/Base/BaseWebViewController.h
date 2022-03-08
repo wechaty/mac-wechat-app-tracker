@@ -14,7 +14,7 @@
 #import "WebViewJSApiVerifyMgrDelegate-Protocol.h"
 #import "WebViewJSLogicDelegate-Protocol.h"
 
-@class MMOutlineButton, MMProgressView, MMTimer, MMToastView, MMWKWebView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
+@class MMOutlineButton, MMProgressView, MMTimer, MMToastView, MMWKWebView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
 @protocol BaseWebViewControllerDelegate;
 
 @interface BaseWebViewController : MMViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, BaseWebViewFontAdjustDelegate>
@@ -23,6 +23,7 @@
     BOOL _isMiniWindowMode;
     BOOL _isInitial;
     int _fontSize;
+    MMWebViewPluginScheduler *_pluginScheduler;
     unsigned long long _type;
     MMWKWebView *_wkWebView;
     WebViewJSLogic *_webViewJSLogic;
@@ -75,6 +76,7 @@
 @property(retain, nonatomic) MMWKWebView *wkWebView; // @synthesize wkWebView=_wkWebView;
 @property(nonatomic) BOOL isMiniWindowMode; // @synthesize isMiniWindowMode=_isMiniWindowMode;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(retain, nonatomic) MMWebViewPluginScheduler *pluginScheduler; // @synthesize pluginScheduler=_pluginScheduler;
 - (void)handleH5ExtTransfer:(id)arg1;
 - (void)handleH5Auth:(id)arg1;
 - (id)mpBizUrl:(id)arg1 inUrlList:(id)arg2;
@@ -91,11 +93,13 @@
 - (void)handleCurrentMpInfo:(id)arg1;
 - (void)handleCloseWindowJSEvent;
 - (void)handleOpenExtraWebviewJSEventWithUrl:(id)arg1;
-- (void)handleSendAppMessageJSEventWithData:(id)arg1;
 - (void)handleJumpToBizProfileJSEventWithContact:(id)arg1;
 - (void)handleBizChatJSEventWithContact:(id)arg1;
 - (void)handleProfileJSEventWithUserName:(id)arg1;
 - (void)handleAddContactJSEventWithContact:(id)arg1;
+- (void)shareWithAppScene:(id)arg1;
+- (void)forwardContentToWeWork;
+- (void)forwardContent;
 - (void)handleOAuth:(id)arg1;
 - (BOOL)needHandleNativeOAuth:(id)arg1;
 - (BOOL)shouldShowMenuItem:(id)arg1;
@@ -132,24 +136,15 @@
 - (void)onJumpToSafariWithUrl:(id)arg1;
 - (void)getA8KeyDidFaildWithReason:(int)arg1;
 - (void)getA8keyDidFinishedWithReason:(int)arg1 req:(id)arg2 resp:(id)arg3;
+- (id)getCurrentUrl;
 - (int)fontSizeDidReset;
 - (void)fontSizeDidChanged:(int)arg1;
 - (void)handleAppFontSize;
-- (void)favoriteWithDefault;
-- (void)favoriteWithData:(id)arg1;
-- (void)forwardWithDefault;
-- (void)forwardToWeWorkWithDefault;
-- (void)forwardWithData:(id)arg1;
-- (void)forwardToWeWorkWithData:(id)arg1;
-- (void)forwardFinderWithData:(id)arg1;
 - (void)sendFeedH5EventAuthEvent:(id)arg1 withParams:(id)arg2;
 - (void)exitMiniMode;
 - (void)enterMiniModeWithWidth:(int)arg1 andHeight:(int)arg2;
 - (void)hideMiniButton;
 - (void)showMiniButton;
-- (void)doShareWithDefault;
-- (void)doShareWithData:(id)arg1;
-- (void)shareWithAppScene:(id)arg1;
 - (void)onCopyAction:(id)arg1;
 - (void)onDomReadyAction;
 - (void)onPageStateChangeAction:(id)arg1;
@@ -157,13 +152,6 @@
 - (void)openInExternalBrowser;
 - (void)copyUrl;
 - (void)addToFavorites;
-- (void)forwardDataField:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
-- (void)forwardFavoriteItem:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
-- (void)forwardMessage:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
-- (void)forwardMessageFromUserName:(id)arg1 toUserNames:(id)arg2 withMsgInfo:(id)arg3 leavedMessage:(id)arg4;
-- (void)forwardFeedMessage:(id)arg1 toUserNames:(id)arg2 withMsgData:(id)arg3 leavedMessage:(id)arg4;
-- (void)forwardContentToWeWork;
-- (void)forwardContent;
 - (void)refreshContent;
 - (void)nextItem;
 - (void)previousItem;
@@ -201,10 +189,12 @@
 - (void)recordArrRouteUrl:(id)arg1;
 - (void)openInWebView:(id)arg1;
 - (void)initJsInitInfo:(id)arg1;
+- (id)getExtraInfoKeyByUrlString:(id)arg1;
 - (void)updateExtraInfo;
 - (BOOL)sholudAddFinderSuffix;
 - (void)preloadWebViewWithDataItem:(unsigned long long)arg1 andUrl:(id)arg2;
 - (void)tryReloadUrl:(id)arg1;
+- (void)noticeToPreload:(id)arg1;
 - (void)showWebViewWithDataItem:(id)arg1 initialShowing:(BOOL)arg2;
 - (void)showAlertSheetWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resetViewInfo;
@@ -222,6 +212,7 @@
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (BOOL)isEnableCustom:(id)arg1 domainPathList:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

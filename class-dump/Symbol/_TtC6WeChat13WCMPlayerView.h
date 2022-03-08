@@ -4,18 +4,34 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AVKit/AVPlayerView.h>
+#import <AppKit/NSView.h>
 
-@interface _TtC6WeChat13WCMPlayerView : AVPlayerView
+@interface _TtC6WeChat13WCMPlayerView : NSView
 {
+    // Error parsing type: , name: projectView
+    // Error parsing type: , name: hideSpinIcon
     // Error parsing type: , name: disposeBag
-    // Error parsing type: , name: $__lazy_storage_$_loadingView
+    // Error parsing type: , name: attachedPlayer
+    // Error parsing type: , name: loadingIconView
+    // Error parsing type: , name: errorIconView
+    // Error parsing type: , name: hideControlBar
+    // Error parsing type: , name: invalidateHiddenTimer
+    // Error parsing type: , name: barHideTimer
+    // Error parsing type: , name: controlBarTrackingArea
+    // Error parsing type: , name: controlBarView
 }
 
 - (void).cxx_destruct;
+- (void)onHideControlBarTriggered;
+- (void)scrollWheel:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)updateTrackingAreas;
+- (void)reset;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)setupSpinningIndicatorWithWcmplayer:(id)arg1;
+@property(nonatomic) BOOL hideControlBar; // @synthesize hideControlBar;
 @property(nonatomic) struct CGRect frame;
 
 @end

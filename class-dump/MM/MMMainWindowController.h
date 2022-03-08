@@ -29,7 +29,6 @@
 - (void)updateWhenAuthFaildForInvalidCGISessionID;
 - (void)updateWhenAuthFailedWithApplyUrl:(id)arg1;
 - (void)updateWhenAuthFailedWithReason:(id)arg1 withErrorMsg:(id)arg2;
-- (void)preloadFeedHomePage;
 - (void)updateWhenAuthOK:(BOOL)arg1;
 - (void)onLogoutButtonClick;
 - (void)updateWindowTitle;

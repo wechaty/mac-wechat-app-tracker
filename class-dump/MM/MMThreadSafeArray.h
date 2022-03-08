@@ -6,13 +6,12 @@
 
 #import <Foundation/NSMutableArray.h>
 
-@class NSObject;
-@protocol OS_dispatch_semaphore;
+@class NSRecursiveLock;
 
 @interface MMThreadSafeArray : NSMutableArray
 {
     NSMutableArray *_arr;
-    NSObject<OS_dispatch_semaphore> *_lock;
+    NSRecursiveLock *_lock;
 }
 
 - (void).cxx_destruct;

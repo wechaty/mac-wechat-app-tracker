@@ -184,6 +184,7 @@
 - (struct CGRect)originScreenRectForAnimationForWindow:(id)arg1;
 - (void)windowDidColsed:(id)arg1;
 - (void)cellViewDidMouseCilckToStartVoipChatWithInviteType:(unsigned int)arg1;
+- (void)messageCellViewNeedScrollToSelf:(id)arg1 andItem:(id)arg2;
 - (double)messageCellViewMultiSelectionLeftPadding:(id)arg1;
 - (BOOL)messageCellViewIsMultiSelectionMode:(id)arg1;
 - (double)messageCellViewNeedsContainerWidth;

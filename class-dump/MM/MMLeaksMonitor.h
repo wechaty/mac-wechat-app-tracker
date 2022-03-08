@@ -25,6 +25,7 @@
     int m_uiLastPageFaults;
     unsigned int m_uiReportThreshold;
     BOOL _isInNSAppSendEvent;
+    unsigned int _main_thread_id;
     unsigned long long _runLoopTotalCount;
     id <MMLeaksMonitorDelegate> _delegate;
     NSString *_identifier;
@@ -33,6 +34,7 @@
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int main_thread_id; // @synthesize main_thread_id=_main_thread_id;
 @property(retain, nonatomic) NSString *processName; // @synthesize processName=_processName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) __weak id <MMLeaksMonitorDelegate> delegate; // @synthesize delegate=_delegate;

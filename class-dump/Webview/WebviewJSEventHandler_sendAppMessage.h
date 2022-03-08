@@ -6,10 +6,33 @@
 
 #import "WebviewJSEventHandlerBase.h"
 
+@class BaseWebViewController;
+
 @interface WebviewJSEventHandler_sendAppMessage : WebviewJSEventHandlerBase
 {
+    BaseWebViewController *_webView;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) __weak BaseWebViewController *webView; // @synthesize webView=_webView;
+- (void)favoriteWithDefault;
+- (void)favoriteWithData:(id)arg1;
+- (void)forwardDataField:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)forwardFavoriteItem:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)forwardMessage:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)forwardMessageFromUserName:(id)arg1 toUserNames:(id)arg2 withMsgInfo:(id)arg3 leavedMessage:(id)arg4;
+- (void)forwardFeedMessage:(id)arg1 toUserNames:(id)arg2 withMsgData:(id)arg3 leavedMessage:(id)arg4;
+- (void)forwardWithDefault;
+- (void)forwardToWeWorkWithDefault;
+- (void)forwardWithData:(id)arg1;
+- (void)forwardToWeWorkWithData:(id)arg1;
+- (void)forwardFinderWithData:(id)arg1;
+- (id)currentWebViewWindow;
+- (id)mpBizUrl:(id)arg1 inUrlList:(id)arg2;
+- (void)doShareWithDefault;
+- (void)doShareWithData:(id)arg1;
+- (id)getExtraInfoKeyByUrlString:(id)arg1;
+- (void)handleSendAppMessageJSEventWithData:(id)arg1;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
 
 @end

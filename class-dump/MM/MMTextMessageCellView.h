@@ -21,6 +21,7 @@
     struct CGRect _calculatedsolitaireRect;
     BOOL _resizedForNewBounds;
     BOOL _m_isSolitaire;
+    BOOL _isNeedScrollToSelf;
     MMCTTextView *_messageTextView;
     MMCTTextView *_translationTextView;
     MMRoundedRectangleView *_translationBrandView;
@@ -50,6 +51,7 @@
 + (struct CGRect)getMessageBodyTextRectWithTableItem:(id)arg1 widthConstraint:(double)arg2;
 + (struct CGRect)translatedStringBoundsWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isNeedScrollToSelf; // @synthesize isNeedScrollToSelf=_isNeedScrollToSelf;
 @property(retain, nonatomic) SVGImageView *solitaireTipsIconView; // @synthesize solitaireTipsIconView=_solitaireTipsIconView;
 @property(retain, nonatomic) NSTextField *solitaireTipsTextField; // @synthesize solitaireTipsTextField=_solitaireTipsTextField;
 @property(retain, nonatomic) MMRoundedRectangleView *solitaireTipsView; // @synthesize solitaireTipsView=_solitaireTipsView;

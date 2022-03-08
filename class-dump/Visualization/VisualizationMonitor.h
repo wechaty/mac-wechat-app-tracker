@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-#import "AccountServiceExt-Protocol.h"
+#import "IExptServiceExt-Protocol.h"
 
 @class MMTimer, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
-@interface VisualizationMonitor : NSObject <AccountServiceExt>
+@interface VisualizationMonitor : NSObject <IExptServiceExt>
 {
-    BOOL m_shouldStopReport;
     int m_min_total_cpu_usage;
     int m_continuous_times;
     int m_count;
@@ -33,37 +32,28 @@
     NSObject<OS_dispatch_queue> *m_monitorQueue;
     int m_cpu_report_usage;
     int m_cpu_log_tot_usage;
-    unsigned int main_thread_id;
-    MMTimer *m_memory_timer;
-    float m_memory_period;
+    int m_cpu_log_thread_usage;
+    BOOL _isRunning;
     NSString *_identifier;
     NSString *_processName;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isRunning; // @synthesize isRunning=_isRunning;
 @property(retain, nonatomic) NSString *processName; // @synthesize processName=_processName;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void)onExptItemListChange;
+- (id)logCPUDetail:(id)arg1;
 - (id)genCPUDetail:(id)arg1 count:(long long)arg2;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
-- (void)onUserLogout;
 - (void)initWechatParameters;
 - (void)initWeAppParameters;
 - (void)setWeAppScene:(id)arg1 processName:(id)arg2;
-- (void)memoryVisualization;
-- (void)stopMemTimer;
-- (void)startMemTimer;
 - (void)cpuUsageReportIfNeed;
 - (void)stopCPUTimer;
 - (void)startCPUTimer;
 - (void)setupVisulization;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

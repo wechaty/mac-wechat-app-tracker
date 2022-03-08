@@ -9,12 +9,12 @@
 #import "AccountServiceExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class NSMutableDictionary, NSString, TSDictionary;
+@class MMThreadSafeDictionary, NSMutableDictionary, NSString;
 
 @interface OpenIMResourceMgr : NSObject <MMCGIDelegate, AccountServiceExt>
 {
-    TSDictionary *_m_Resource;
-    TSDictionary *_m_lastUpdateTime;
+    MMThreadSafeDictionary *_m_Resource;
+    MMThreadSafeDictionary *_m_lastUpdateTime;
     NSMutableDictionary *_m_TypeResource;
 }
 
@@ -33,8 +33,8 @@
 + (id)rootPath;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *m_TypeResource; // @synthesize m_TypeResource=_m_TypeResource;
-@property(retain, nonatomic) TSDictionary *m_lastUpdateTime; // @synthesize m_lastUpdateTime=_m_lastUpdateTime;
-@property(retain, nonatomic) TSDictionary *m_Resource; // @synthesize m_Resource=_m_Resource;
+@property(retain, nonatomic) MMThreadSafeDictionary *m_lastUpdateTime; // @synthesize m_lastUpdateTime=_m_lastUpdateTime;
+@property(retain, nonatomic) MMThreadSafeDictionary *m_Resource; // @synthesize m_Resource=_m_Resource;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (BOOL)doOpenIMResourceRequest:(id)arg1 wordings:(id)arg2 isCheckTime:(BOOL)arg3;
 - (BOOL)updateOpenIMResource:(id)arg1 wordings:(id)arg2;

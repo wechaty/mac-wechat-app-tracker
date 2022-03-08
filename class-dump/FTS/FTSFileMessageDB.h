@@ -6,21 +6,21 @@
 
 #import "FTSBaseDB.h"
 
-@class NSRecursiveLock, TSDictionary, WCTTable;
+@class MMThreadSafeDictionary, NSRecursiveLock, WCTTable;
 
 @interface FTSFileMessageDB : FTSBaseDB
 {
     WCTTable *_m_tableFileContext;
     WCTTable *_m_tableRecentFile;
     WCTTable *_m_tableQueryFile;
-    TSDictionary *_m_dictFTSTables;
+    MMThreadSafeDictionary *_m_dictFTSTables;
     NSRecursiveLock *_m_oLock;
 }
 
 + (void)deleteFTSFileDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock=_m_oLock;
-@property(retain, nonatomic) TSDictionary *m_dictFTSTables; // @synthesize m_dictFTSTables=_m_dictFTSTables;
+@property(retain, nonatomic) MMThreadSafeDictionary *m_dictFTSTables; // @synthesize m_dictFTSTables=_m_dictFTSTables;
 @property(retain, nonatomic) WCTTable *m_tableQueryFile; // @synthesize m_tableQueryFile=_m_tableQueryFile;
 @property(retain, nonatomic) WCTTable *m_tableRecentFile; // @synthesize m_tableRecentFile=_m_tableRecentFile;
 @property(retain, nonatomic) WCTTable *m_tableFileContext; // @synthesize m_tableFileContext=_m_tableFileContext;

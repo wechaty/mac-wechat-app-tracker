@@ -19,21 +19,21 @@
     MMCache *m_groupMembersCache;
     BOOL m_hasClearData;
     NSRecursiveLock *_m_groupLock;
-    NSMutableArray *_m_getMemberDetailTasks;
-    NSMutableArray *_m_getChatRoomInfoTasks;
+    NSMutableArray *_getMemberDetailTasks;
+    NSMutableArray *_getChatRoomInfoTasks;
     NSMutableArray *_arrGetGroupContactsDetail;
     NSMutableArray *_arrFailGroupContacts;
     NSMutableDictionary *_dicGroupContactsRetry;
-    NSRecursiveLock *_lock;
+    NSRecursiveLock *_retryLock;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
+@property(retain, nonatomic) NSRecursiveLock *retryLock; // @synthesize retryLock=_retryLock;
 @property(retain, nonatomic) NSMutableDictionary *dicGroupContactsRetry; // @synthesize dicGroupContactsRetry=_dicGroupContactsRetry;
 @property(retain, nonatomic) NSMutableArray *arrFailGroupContacts; // @synthesize arrFailGroupContacts=_arrFailGroupContacts;
 @property(retain, nonatomic) NSMutableArray *arrGetGroupContactsDetail; // @synthesize arrGetGroupContactsDetail=_arrGetGroupContactsDetail;
-@property(retain, nonatomic) NSMutableArray *m_getChatRoomInfoTasks; // @synthesize m_getChatRoomInfoTasks=_m_getChatRoomInfoTasks;
-@property(retain, nonatomic) NSMutableArray *m_getMemberDetailTasks; // @synthesize m_getMemberDetailTasks=_m_getMemberDetailTasks;
+@property(retain, nonatomic) NSMutableArray *getChatRoomInfoTasks; // @synthesize getChatRoomInfoTasks=_getChatRoomInfoTasks;
+@property(retain, nonatomic) NSMutableArray *getMemberDetailTasks; // @synthesize getMemberDetailTasks=_getMemberDetailTasks;
 @property(retain, nonatomic) NSRecursiveLock *m_groupLock; // @synthesize m_groupLock=_m_groupLock;
 - (void)sendRequest;
 - (void)doNext;
@@ -68,6 +68,7 @@
 - (id)GetGroupMemberListWithGroupUserName:(id)arg1 limit:(unsigned int)arg2 filterSelf:(BOOL)arg3;
 - (id)GetGroupContactList:(unsigned int)arg1 ContactType:(unsigned int)arg2;
 - (id)GetGroupMemberContacts:(id)arg1;
+- (id)GetGroupMemberContactsFromDB:(id)arg1;
 - (id)GetGroupMemberContact:(id)arg1;
 - (BOOL)IsGroupMemberContactExist:(id)arg1;
 - (id)GetGroupContactsWithUserNames:(id)arg1;

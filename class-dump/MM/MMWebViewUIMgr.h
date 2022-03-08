@@ -31,6 +31,7 @@
 @property(retain, nonatomic) NSMutableDictionary *webWindows; // @synthesize webWindows=_webWindows;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
 @property(retain, nonatomic) NSMutableDictionary *floatWindowInfo; // @synthesize floatWindowInfo=_floatWindowInfo;
+- (void)deletePreloadWebViewForType:(unsigned long long)arg1;
 - (id)getPreloadWebViewForType:(unsigned long long)arg1;
 - (unsigned long long)setupPreloadWebView:(unsigned long long)arg1 andUrl:(id)arg2;
 - (void)fetchH5Auth:(BOOL)arg1 scope:(id)arg2 completion:(CDUnknownBlockType)arg3;

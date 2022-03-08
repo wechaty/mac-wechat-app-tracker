@@ -9,6 +9,8 @@
 @class RACSequence;
 
 @interface NSArray (BlocksKit)
++ (id)tp_modelArrayWithClass:(Class)arg1 array:(id)arg2;
++ (id)tp_modelArrayWithClass:(Class)arg1 json:(id)arg2;
 - (BOOL)bk_corresponds:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (BOOL)bk_all:(CDUnknownBlockType)arg1;
 - (BOOL)bk_none:(CDUnknownBlockType)arg1;

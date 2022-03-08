@@ -1012,6 +1012,28 @@ struct IMultiTalkMgr {
 
 struct ISink;
 
+struct ITPAudioRouteManagerCallback {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct ITPPlayer {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct ITPPlayerConnectionMgr {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct ITPPlayerRichMediaProcessor;
+
+struct ITPRendererInterruptCallback {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct ITPSubtitleParser {
+    CDUnknownFunctionPointerType *_field1;
+};
+
 struct ITXCVideoDecoder;
 
 struct ITXLiteAVVideoDecoder {
@@ -1492,6 +1514,190 @@ struct StackInfo {
 struct StatusBucket;
 
 struct SystemSoundRecorderMAC;
+
+struct TPACodecPropertyRange {
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    int _field7;
+    int _field8;
+};
+
+struct TPAVProgramInfo;
+
+struct TPAssetProxyLoaderCallback {
+    CDUnknownFunctionPointerType *_field1;
+    struct mutex _field2;
+    id _field3;
+};
+
+struct TPAudioRouteDescription;
+
+struct TPDetailInfo {
+    int _field1;
+    long long _field2;
+    long long _field3;
+};
+
+struct TPFrame {
+    int _field1;
+    char *_field2[8];
+    int _field3[8];
+    char **_field4;
+    int _field5;
+    int _field6;
+    int _field7;
+    long long _field8;
+    long long _field9;
+    void *_field10;
+    long long _field11;
+    int _field12;
+    struct TPFrameSideData **_field13;
+    int _field14;
+    int _field15;
+    int _field16;
+    int _field17;
+    struct TPRational _field18;
+    int _field19;
+    int _field20;
+    int _field21;
+    int _field22;
+    int _field23;
+    unsigned long long _field24;
+    unsigned long long _field25;
+    unsigned long long _field26;
+    unsigned long long _field27;
+    int _field28;
+    int _field29;
+    int _field30;
+    unsigned long long _field31;
+    int _field32;
+    struct TPFrameReleaseDataCB _field33;
+    struct TPFrameReleasePlanarDataCB _field34;
+    struct TPFrameInternal *_field35;
+    int _field36;
+};
+
+struct TPFrameInternal;
+
+struct TPFrameReleaseDataCB {
+    CDUnknownFunctionPointerType _field1;
+    void *_field2;
+};
+
+struct TPFrameReleasePlanarDataCB {
+    CDUnknownFunctionPointerType _field1;
+    void *_field2;
+};
+
+struct TPFrameSideData;
+
+struct TPJitterBufferConfigParams {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned long long _field6;
+};
+
+struct TPMediaTrackInfo;
+
+struct TPPlayerConnectionNode {
+    CDUnknownFunctionPointerType *_field1;
+    struct map<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps, std::less<TPPlayerConnectionNode::Action>, std::allocator<std::pair<const TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> _field2;
+};
+
+struct TPPlayerInitConfig {
+    struct map<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>>> m_queueIntMap;
+    struct map<TPPlayerInitConfig::KeyType, std::deque<std::string>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::deque<std::string>>>> m_queueStringMap;
+    struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>>> m_intMap;
+    struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>>> m_longMap;
+    struct map<TPPlayerInitConfig::KeyType, bool, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, bool>>> m_boolMap;
+    struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> m_floatMap;
+    struct map<TPPlayerInitConfig::KeyType, std::shared_ptr<void>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::shared_ptr<void>>>> m_objectMap;
+};
+
+struct TPPlayerRichMediaExtraRequestInfo {
+    int _field1;
+};
+
+struct TPPlayerRichMediaFeature;
+
+struct TPPlayerRichMediaProcessorCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    CDUnknownFunctionPointerType *_field2;
+    id _field3;
+    id _field4;
+    id _field5;
+};
+
+struct TPRational {
+    int _field1;
+    int _field2;
+};
+
+struct TPSubtitleParserCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    CDUnknownFunctionPointerType *_field2;
+    id _field3;
+    id _field4;
+};
+
+struct TPThumbPlayerAudioFrameCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPThumbPlayerDemuxerCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPThumbPlayerMessageCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPThumbPlayerPostProcessFrameCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPThumbPlayerSubtitleFrameCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPThumbPlayerVideoFrameCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
+};
+
+struct TPVCodecMaxCapability {
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct TPVCodecPropertyRange {
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+};
 
 struct TRTCAudioEffectCallback;
 
@@ -2220,6 +2426,10 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
 
+struct __tree_end_node<std::__tree_node_base<void *>*> {
+    void *__left_;
+};
+
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -2231,6 +2441,50 @@ struct _opaque_pthread_mutex_t {
     long long __sig;
     char __opaque[56];
 };
+
+struct _xmlAttr {
+    void *_field1;
+    int _field2;
+    char *_field3;
+    struct _xmlNode *_field4;
+    struct _xmlNode *_field5;
+    struct _xmlNode *_field6;
+    struct _xmlAttr *_field7;
+    struct _xmlAttr *_field8;
+    struct _xmlDoc *_field9;
+    struct _xmlNs *_field10;
+    int _field11;
+    void *_field12;
+};
+
+struct _xmlDoc {
+    void *_field1;
+    int _field2;
+    char *_field3;
+    struct _xmlNode *_field4;
+    struct _xmlNode *_field5;
+    struct _xmlNode *_field6;
+    struct _xmlNode *_field7;
+    struct _xmlNode *_field8;
+    struct _xmlDoc *_field9;
+    int _field10;
+    int _field11;
+    struct _xmlDtd *_field12;
+    struct _xmlDtd *_field13;
+    struct _xmlNs *_field14;
+    char *_field15;
+    char *_field16;
+    void *_field17;
+    void *_field18;
+    char *_field19;
+    int _field20;
+    struct _xmlDict *_field21;
+    void *_field22;
+    int _field23;
+    int _field24;
+};
+
+struct _xmlDtd;
 
 struct _xmlNode {
     void *_field1;
@@ -2251,7 +2505,35 @@ struct _xmlNode {
     unsigned short _field16;
 };
 
-struct _xmlNs;
+struct _xmlNs {
+    struct _xmlNs *_field1;
+    int _field2;
+    char *_field3;
+    char *_field4;
+    void *_field5;
+    struct _xmlDoc *_field6;
+};
+
+struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+        struct __rep _field1;
+    } _field1;
+};
+
+struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
+    struct __split_buffer<TPAudioRouteDescription *, std::allocator<TPAudioRouteDescription *>> {
+        struct TPAudioRouteDescription **__first_;
+        struct TPAudioRouteDescription **__begin_;
+        struct TPAudioRouteDescription **__end_;
+        struct __compressed_pair<TPAudioRouteDescription **, std::allocator<TPAudioRouteDescription *>> {
+            struct TPAudioRouteDescription **__value_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::allocator<TPAudioRouteDescription>> {
+        unsigned long long __value_;
+    } __size_;
+};
 
 struct dl_info {
     char *_field1;
@@ -2355,6 +2637,114 @@ struct list<std::__1::shared_ptr<WCTColumnBinding>, std::__1::allocator<std::__1
 
 struct list<std::__1::shared_ptr<WCTConstraintBindingBase>, std::__1::allocator<std::__1::shared_ptr<WCTConstraintBindingBase>>>;
 
+struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::allocator<std::pair<const TPCodecID, TPVCodecMaxCapability>>> {
+    struct __tree<std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>, std::allocator<std::__value_type<TPCodecID, TPVCodecMaxCapability>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPCodecID, TPVCodecMaxCapability>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps, std::less<TPPlayerConnectionNode::Action>, std::allocator<std::pair<const TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> {
+    struct __tree<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::__map_value_compare<TPPlayerConnectionNode::Action, std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::less<TPPlayerConnectionNode::Action>, true>, std::allocator<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerConnectionNode::Action, std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::less<TPPlayerConnectionNode::Action>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<int>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, bool, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, bool>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, bool>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, bool>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, bool>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, bool>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, bool>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::deque<TPPlayerInitConfig::ConfigVal<int>>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, std::deque<std::string>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::deque<std::string>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<std::string>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::deque<std::string>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<std::string>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, std::deque<std::string>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::deque<std::string>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<TPPlayerInitConfig::KeyType, std::shared_ptr<void>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::shared_ptr<void>>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, std::shared_ptr<void>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::shared_ptr<void>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, std::shared_ptr<void>>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, std::shared_ptr<void>>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::shared_ptr<void>>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct map<const std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<const std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
     struct __tree<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -2362,6 +2752,18 @@ struct map<const std::__1::basic_string<char>, std::__1::basic_string<char>, std
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
+    struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<int, std::string>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>> {
             unsigned long long _field1;
         } _field3;
     } _field1;
@@ -2440,6 +2842,18 @@ struct recursive_mutex {
     struct _opaque_pthread_mutex_t __m_;
 };
 
+struct set<ITPAudioRouteManagerCallback *, std::less<ITPAudioRouteManagerCallback *>, std::allocator<ITPAudioRouteManagerCallback *>> {
+    struct __tree<ITPAudioRouteManagerCallback *, std::less<ITPAudioRouteManagerCallback *>, std::allocator<ITPAudioRouteManagerCallback *>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<ITPAudioRouteManagerCallback *, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::less<ITPAudioRouteManagerCallback *>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
 struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> {
     struct __tree<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -2486,6 +2900,11 @@ struct shared_ptr<CTXRtmpSendThread::SinkAdapt> {
 
 struct shared_ptr<CdnCallback> {
     struct CdnCallback *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<ITPPlayerRichMediaProcessor> {
+    struct ITPPlayerRichMediaProcessor *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -4184,6 +4603,38 @@ struct vector<PendingVideoFrame *, std::__1::allocator<PendingVideoFrame *>> {
     } _field3;
 };
 
+struct vector<TPAVProgramInfo, std::allocator<TPAVProgramInfo>> {
+    struct TPAVProgramInfo *_field1;
+    struct TPAVProgramInfo *_field2;
+    struct __compressed_pair<TPAVProgramInfo *, std::allocator<TPAVProgramInfo>> {
+        struct TPAVProgramInfo *_field1;
+    } _field3;
+};
+
+struct vector<TPDRM::DrmSchemeType, std::allocator<TPDRM::DrmSchemeType>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<TPDRM::DrmSchemeType *, std::allocator<TPDRM::DrmSchemeType>> {
+        int *_field1;
+    } _field3;
+};
+
+struct vector<TPMediaTrackInfo, std::allocator<TPMediaTrackInfo>> {
+    struct TPMediaTrackInfo *_field1;
+    struct TPMediaTrackInfo *_field2;
+    struct __compressed_pair<TPMediaTrackInfo *, std::allocator<TPMediaTrackInfo>> {
+        struct TPMediaTrackInfo *_field1;
+    } _field3;
+};
+
+struct vector<TPPlayerRichMediaFeature, std::allocator<TPPlayerRichMediaFeature>> {
+    struct TPPlayerRichMediaFeature *_field1;
+    struct TPPlayerRichMediaFeature *_field2;
+    struct __compressed_pair<TPPlayerRichMediaFeature *, std::allocator<TPPlayerRichMediaFeature>> {
+        struct TPPlayerRichMediaFeature *_field1;
+    } _field3;
+};
+
 struct vector<TrtcStreamType, std::__1::allocator<TrtcStreamType>> {
     int *__begin_;
     int *__end_;
@@ -4198,6 +4649,14 @@ struct vector<int, std::__1::allocator<int>> {
     struct __compressed_pair<int *, std::__1::allocator<int>> {
         int *__value_;
     } __end_cap_;
+};
+
+struct vector<int, std::allocator<int>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<int *, std::allocator<int>> {
+        int *_field1;
+    } _field3;
 };
 
 struct vector<mars::cdn::BatchSnsReqImageData, std::__1::allocator<mars::cdn::BatchSnsReqImageData>> {
@@ -4424,6 +4883,11 @@ typedef struct {
 } CDStruct_e50ab651;
 
 typedef struct {
+    CDStruct_1b6d18a9 start;
+    CDStruct_1b6d18a9 duration;
+} CDStruct_e83c9415;
+
+typedef struct {
     struct CGPoint _field1;
 } CDStruct_499be82c;
 
@@ -4433,7 +4897,46 @@ typedef struct {
     long long _field3;
 } CDStruct_4b25f01b;
 
+typedef struct {
+    int _field1;
+    int _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    basic_string_9c1a5415 _field5;
+    float _field6;
+    float _field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    float _field10;
+    unsigned int _field11;
+    float _field12;
+    float _field13;
+    float _field14;
+    float _field15;
+} CDStruct_4c540132;
+
 // Template types
+typedef struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+        struct __rep _field1;
+    } _field1;
+} basic_string_9c1a5415;
+
+typedef struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
+    struct __split_buffer<TPAudioRouteDescription *, std::allocator<TPAudioRouteDescription *>> {
+        struct TPAudioRouteDescription **__first_;
+        struct TPAudioRouteDescription **__begin_;
+        struct TPAudioRouteDescription **__end_;
+        struct __compressed_pair<TPAudioRouteDescription **, std::allocator<TPAudioRouteDescription *>> {
+            struct TPAudioRouteDescription **__value_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::allocator<TPAudioRouteDescription>> {
+        unsigned long long __value_;
+    } __size_;
+} deque_19df0b0c;
+
 typedef struct function<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
     struct __value_func<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
         struct type _field1;
@@ -4469,6 +4972,18 @@ typedef struct list<std::__1::basic_string<char>, std::__1::allocator<std::__1::
     } _field2;
 } list_f20de06b;
 
+typedef struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::allocator<std::pair<const TPCodecID, TPVCodecMaxCapability>>> {
+    struct __tree<std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>, std::allocator<std::__value_type<TPCodecID, TPVCodecMaxCapability>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPCodecID, TPVCodecMaxCapability>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} map_64ffd165;
+
 typedef struct map<const std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<const std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
     struct __tree<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -4480,6 +4995,18 @@ typedef struct map<const std::__1::basic_string<char>, std::__1::basic_string<ch
         } _field3;
     } _field1;
 } map_e3bbbb33;
+
+typedef struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
+    struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<int, std::string>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} map_3f958a91;
 
 typedef struct map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
     struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
@@ -4587,6 +5114,46 @@ typedef struct unique_ptr<txliteav::basic::StatusBucket, std::__1::default_delet
         struct StatusBucket *_field1;
     } _field1;
 } unique_ptr_1a6916a3;
+
+typedef struct vector<TPAVProgramInfo, std::allocator<TPAVProgramInfo>> {
+    struct TPAVProgramInfo *_field1;
+    struct TPAVProgramInfo *_field2;
+    struct __compressed_pair<TPAVProgramInfo *, std::allocator<TPAVProgramInfo>> {
+        struct TPAVProgramInfo *_field1;
+    } _field3;
+} vector_5a53d670;
+
+typedef struct vector<TPDRM::DrmSchemeType, std::allocator<TPDRM::DrmSchemeType>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<TPDRM::DrmSchemeType *, std::allocator<TPDRM::DrmSchemeType>> {
+        int *_field1;
+    } _field3;
+} vector_7f91b74d;
+
+typedef struct vector<TPMediaTrackInfo, std::allocator<TPMediaTrackInfo>> {
+    struct TPMediaTrackInfo *_field1;
+    struct TPMediaTrackInfo *_field2;
+    struct __compressed_pair<TPMediaTrackInfo *, std::allocator<TPMediaTrackInfo>> {
+        struct TPMediaTrackInfo *_field1;
+    } _field3;
+} vector_fdf80d0c;
+
+typedef struct vector<TPPlayerRichMediaFeature, std::allocator<TPPlayerRichMediaFeature>> {
+    struct TPPlayerRichMediaFeature *_field1;
+    struct TPPlayerRichMediaFeature *_field2;
+    struct __compressed_pair<TPPlayerRichMediaFeature *, std::allocator<TPPlayerRichMediaFeature>> {
+        struct TPPlayerRichMediaFeature *_field1;
+    } _field3;
+} vector_f4e3e6bf;
+
+typedef struct vector<int, std::allocator<int>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<int *, std::allocator<int>> {
+        int *_field1;
+    } _field3;
+} vector_1d76f7fb;
 
 typedef struct vector<objc_method_description, std::__1::allocator<objc_method_description>> {
     struct objc_method_description *_field1;

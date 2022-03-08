@@ -11,16 +11,16 @@
 #import "MMFavoriteFileServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMHandoffItem, NSMutableArray, NSString, TSDictionary;
+@class MMHandoffItem, MMThreadSafeDictionary, NSMutableArray, NSString;
 
 @interface MMHandoffDownloadMgr : MMService <MMCGIDelegate, MMCDNDownloadMgrExt, MMFavoriteFileServiceExt, MMService>
 {
     unsigned int _sessionId;
     unsigned int _m_startPos;
     unsigned int _m_totalLen;
-    TSDictionary *_downloadList;
-    TSDictionary *_favDownloadList;
-    TSDictionary *_msgDownloadList;
+    MMThreadSafeDictionary *_downloadList;
+    MMThreadSafeDictionary *_favDownloadList;
+    MMThreadSafeDictionary *_msgDownloadList;
     NSMutableArray *_cgiDownloadList;
     MMHandoffItem *_oItem;
 }
@@ -30,9 +30,9 @@
 @property(retain, nonatomic) MMHandoffItem *oItem; // @synthesize oItem=_oItem;
 @property(nonatomic) unsigned int m_startPos; // @synthesize m_startPos=_m_startPos;
 @property(retain, nonatomic) NSMutableArray *cgiDownloadList; // @synthesize cgiDownloadList=_cgiDownloadList;
-@property(retain, nonatomic) TSDictionary *msgDownloadList; // @synthesize msgDownloadList=_msgDownloadList;
-@property(retain, nonatomic) TSDictionary *favDownloadList; // @synthesize favDownloadList=_favDownloadList;
-@property(retain, nonatomic) TSDictionary *downloadList; // @synthesize downloadList=_downloadList;
+@property(retain, nonatomic) MMThreadSafeDictionary *msgDownloadList; // @synthesize msgDownloadList=_msgDownloadList;
+@property(retain, nonatomic) MMThreadSafeDictionary *favDownloadList; // @synthesize favDownloadList=_favDownloadList;
+@property(retain, nonatomic) MMThreadSafeDictionary *downloadList; // @synthesize downloadList=_downloadList;
 @property(nonatomic) unsigned int sessionId; // @synthesize sessionId=_sessionId;
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;

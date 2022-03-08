@@ -104,7 +104,6 @@
 + (BOOL)appleMapsAvailable;
 + (BOOL)isLongitudeValid:(double)arg1;
 + (BOOL)isLatitudeValid:(double)arg1;
-+ (unsigned int)videoDuration:(id)arg1;
 + (id)specialUserNameList;
 + (id)GenPushContactFromMsgData:(id)arg1;
 + (unsigned int)GetPushContactSceneFromMsg:(id)arg1;
@@ -144,7 +143,9 @@
 + (BOOL)IsBrandContactUserName:(id)arg1;
 + (BOOL)IsBrandSessionHolder:(id)arg1;
 + (BOOL)IsWeixinTeamContact:(id)arg1;
-+ (BOOL)IsMsgFromEnterpriseContact:(id)arg1;
++ (BOOL)IsMsgFromBrandContact:(id)arg1;
++ (BOOL)IsMsgFromEnterpriseBrandContact:(id)arg1;
++ (BOOL)PreFilterNoBrandUserName:(id)arg1;
 + (BOOL)IsWeiXinMsgContact:(id)arg1;
 + (id)PreHandleUserName:(id)arg1;
 + (unsigned int)GetChatNameType:(id)arg1;
@@ -184,6 +185,7 @@
 + (id)filterAllWhiteSpaceAndNewLineString:(id)arg1;
 + (id)filterWhiteSpaceAndNewLineString:(id)arg1;
 + (unsigned long long)getFreeBackupDiskSpace;
++ (BOOL)isEnterpriseBrandContact:(id)arg1;
 + (BOOL)isNormalBrandContact:(id)arg1;
 + (void)OnDeleteContacts_Thread:(id)arg1;
 + (void)OnModContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
