@@ -143,6 +143,8 @@
 - (void)updateToolbarButtonWithLoading:(BOOL)arg1;
 - (void)updateToolbarControls;
 - (struct CGRect)toolbarFrame;
+- (void)doSomethingWhenUserLogout;
+- (void)doSomethingWhenUnLocked;
 - (void)doSomethingWhenLocked;
 - (void)_clickButtonSharingServiceAction:(id)arg1;
 - (void)_rightMouseSharingServiceAction:(id)arg1;

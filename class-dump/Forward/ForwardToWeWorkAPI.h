@@ -19,6 +19,7 @@
 + (BOOL)isCanIgnoreUpload:(id)arg1 andFieldDepth:(unsigned int)arg2;
 + (BOOL)isWeWorkRunning:(long long)arg1;
 + (id)readVersionFromInfoPlistString:(id)arg1;
++ (id)getWeWorkDisplayName;
 + (id)getWeWorkVersion:(long long)arg1;
 + (BOOL)isWeWorkAppId:(long long)arg1 andAppId:(id)arg2;
 + (BOOL)isAvailableVersion:(long long)arg1 andVersion:(id)arg2;

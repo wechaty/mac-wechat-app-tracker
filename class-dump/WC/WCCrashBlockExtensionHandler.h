@@ -15,6 +15,8 @@
 - (void)setDumpType:(unsigned long long)arg1;
 - (void)setBlockTime:(unsigned long long)arg1;
 - (void)setCVersion:(unsigned int)arg1;
+- (void)setString:(id)arg1 toValue:(char **)arg2;
+- (void)setBdIdentifier:(id)arg1;
 - (void)setCurrentUin:(unsigned long long)arg1 andUsrName:(id)arg2;
 - (void)renewInfoForReport;
 - (id)getUserInfoForCurrentAppWithDumpType:(unsigned long long)arg1;
