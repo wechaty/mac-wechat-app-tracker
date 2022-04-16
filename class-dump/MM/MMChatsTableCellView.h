@@ -132,6 +132,7 @@
 - (BOOL)isMuted;
 - (BOOL)isSticky;
 - (BOOL)isMarkUnRead;
+- (void)updateAccessibility;
 - (void)setupWithSessionInfo:(id)arg1;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)prepareForReuse;

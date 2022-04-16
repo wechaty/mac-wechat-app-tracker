@@ -29,7 +29,7 @@
     unsigned long long m_producerWait;
     unsigned long long m_consumerWait;
     NSString *m_backupPath;
-    struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, const WCDBBackupMediaStr2IDObject *>>> m_allMediaStr2IDObjects;
+    struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::hash<long long>, std::equal_to<long long>, std::allocator<std::pair<const long long, const WCDBBackupMediaStr2IDObject *>>> m_allMediaStr2IDObjects;
     int _transferType;
 }
 

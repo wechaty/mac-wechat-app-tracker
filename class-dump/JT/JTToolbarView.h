@@ -11,6 +11,7 @@
 
 @interface JTToolbarView : NSView
 {
+    BOOL _enableQR;
     BOOL _postedBeginEditNotification;
     id <JTToolbarViewDelegate> _delegate;
     long long _graphTypeSelected;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSMutableArray *functionButtonArray; // @synthesize functionButtonArray=_functionButtonArray;
 @property(retain, nonatomic) NSMutableArray *graphButtonArray; // @synthesize graphButtonArray=_graphButtonArray;
+@property(nonatomic) BOOL enableQR; // @synthesize enableQR=_enableQR;
 @property(nonatomic) long long graphTypeSelected; // @synthesize graphTypeSelected=_graphTypeSelected;
 @property(nonatomic) __weak id <JTToolbarViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)postBeginEditNotification;
@@ -37,6 +39,8 @@
 - (void)onFunctionButtonClicked:(id)arg1;
 - (void)onGraphButtonClicked:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)toggleResetQRCode;
+- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)configAppearanceAndLayout;
 @property(nonatomic) BOOL enableUndo;
 - (void)initGaussEffect;

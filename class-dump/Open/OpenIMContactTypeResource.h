@@ -31,7 +31,7 @@
 @property(nonatomic) unsigned int updateTime; // @synthesize updateTime;
 @property(retain, nonatomic) NSString *language; // @synthesize language;
 @property(retain, nonatomic) NSString *acctType; // @synthesize acctType;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

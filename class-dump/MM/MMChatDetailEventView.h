@@ -8,8 +8,10 @@
 
 @interface MMChatDetailEventView : MMView
 {
+    CDUnknownBlockType _mouseDownEventBlock;
     CDUnknownBlockType _mouseUpEventBlock;
     CDUnknownBlockType _doubleMouseUpEventBlock;
+    CDUnknownBlockType _rightMouseDownEventBlock;
     CDUnknownBlockType _rightMouseUpEventBlock;
     CDUnknownBlockType _doubleRightMouseUpEventBlock;
 }
@@ -17,8 +19,10 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType doubleRightMouseUpEventBlock; // @synthesize doubleRightMouseUpEventBlock=_doubleRightMouseUpEventBlock;
 @property(copy, nonatomic) CDUnknownBlockType rightMouseUpEventBlock; // @synthesize rightMouseUpEventBlock=_rightMouseUpEventBlock;
+@property(copy, nonatomic) CDUnknownBlockType rightMouseDownEventBlock; // @synthesize rightMouseDownEventBlock=_rightMouseDownEventBlock;
 @property(copy, nonatomic) CDUnknownBlockType doubleMouseUpEventBlock; // @synthesize doubleMouseUpEventBlock=_doubleMouseUpEventBlock;
 @property(copy, nonatomic) CDUnknownBlockType mouseUpEventBlock; // @synthesize mouseUpEventBlock=_mouseUpEventBlock;
+@property(copy, nonatomic) CDUnknownBlockType mouseDownEventBlock; // @synthesize mouseDownEventBlock=_mouseDownEventBlock;
 - (void)mouseDragged:(id)arg1;
 - (void)rightMouseUp:(id)arg1;
 - (void)rightMouseDown:(id)arg1;

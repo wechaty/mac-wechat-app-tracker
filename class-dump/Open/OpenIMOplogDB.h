@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (BOOL)deleteOpenIMOplogs:(id)arg1;
 - (id)getOpenIMOplog:(unsigned int)arg1;
+- (id)getAllOpenIMOplogs;
 - (id)getOpenIMOplogNeedSync:(BOOL)arg1;
 - (BOOL)insertOpenIMOplog:(id)arg1;
 - (void)dealloc;

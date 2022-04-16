@@ -141,7 +141,7 @@
 @property(retain, nonatomic) NSString *mid; // @synthesize mid;
 @property(retain, nonatomic) NSString *tid; // @synthesize tid;
 - (BOOL)isValid;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (void)saveData:(id)arg1 forType:(long long)arg2;
 - (id)pathFor:(long long)arg1 isPreload:(BOOL)arg2;

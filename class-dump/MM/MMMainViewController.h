@@ -11,15 +11,17 @@
 #import "IContactMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMHandoffServiceExt-Protocol.h"
+#import "MMMainWindowExtensionsDelegate-Protocol.h"
 #import "MMNetExt-Protocol.h"
 #import "MMTabbarControllerDelegate-Protocol.h"
+#import "NSPopoverDelegate-Protocol.h"
 #import "NSSplitViewDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class LeftViewController, MMAvatarImageView, MMBadgeOverlayView, MMChatsViewController, MMContactsViewController, MMFavoritesViewController, MMHandoffButton, MMHandoffViewController, MMLockViewController, MMMainWindowExtensionsView, MMSettingMenuViewController, MMSplitView, MMView, MMYoMessageView, NSButton, NSString, NSVisualEffectView, SVGButton;
+@class LeftViewController, MMAvatarImageView, MMBadgeOverlayView, MMChatsViewController, MMContactsViewController, MMFavoritesViewController, MMHandoffButton, MMHandoffViewController, MMLockViewController, MMMainWindowExtensionsViewController, MMSettingMenuViewController, MMSplitView, MMView, MMYoMessageView, NSButton, NSPopover, NSString, NSVisualEffectView, SVGButton;
 
-@interface MMMainViewController : MMViewController <NSSplitViewDelegate, MMTabbarControllerDelegate, IMessageExt, MMNetExt, AccountServiceExt, SyncExt, IContactMgrExt, IBetaMgrExt, NSWindowDelegate, MMHandoffServiceExt>
+@interface MMMainViewController : MMViewController <NSSplitViewDelegate, MMTabbarControllerDelegate, IMessageExt, MMNetExt, AccountServiceExt, SyncExt, IContactMgrExt, IBetaMgrExt, NSWindowDelegate, MMHandoffServiceExt, MMMainWindowExtensionsDelegate, NSPopoverDelegate>
 {
     BOOL _shouldResponseToTabClick;
     BOOL _isChaningTrafficLightButtons;
@@ -30,7 +32,10 @@
     LeftViewController *_leftViewController;
     MMContactsViewController *_contactsViewcController;
     MMFavoritesViewController *_favoritesViewController;
-    MMMainWindowExtensionsView *_extensionsView;
+    MMMainWindowExtensionsViewController *_extensionsViewController;
+    MMMainWindowExtensionsViewController *_foldExtensionsViewController;
+    NSPopover *_foldExtensionsPopover;
+    unsigned long long _maxExtensionShown;
     SVGButton *_preferencesButton;
     MMSettingMenuViewController *_settingMenuWindowController;
     MMHandoffButton *_handoffButton;
@@ -58,7 +63,10 @@
 @property(nonatomic) __weak MMHandoffButton *handoffButton; // @synthesize handoffButton=_handoffButton;
 @property(retain, nonatomic) MMSettingMenuViewController *settingMenuWindowController; // @synthesize settingMenuWindowController=_settingMenuWindowController;
 @property(nonatomic) __weak SVGButton *preferencesButton; // @synthesize preferencesButton=_preferencesButton;
-@property(nonatomic) __weak MMMainWindowExtensionsView *extensionsView; // @synthesize extensionsView=_extensionsView;
+@property(nonatomic) unsigned long long maxExtensionShown; // @synthesize maxExtensionShown=_maxExtensionShown;
+@property(retain, nonatomic) NSPopover *foldExtensionsPopover; // @synthesize foldExtensionsPopover=_foldExtensionsPopover;
+@property(retain, nonatomic) MMMainWindowExtensionsViewController *foldExtensionsViewController; // @synthesize foldExtensionsViewController=_foldExtensionsViewController;
+@property(nonatomic) __weak MMMainWindowExtensionsViewController *extensionsViewController; // @synthesize extensionsViewController=_extensionsViewController;
 @property(retain, nonatomic) MMFavoritesViewController *favoritesViewController; // @synthesize favoritesViewController=_favoritesViewController;
 @property(retain, nonatomic) MMContactsViewController *contactsViewcController; // @synthesize contactsViewcController=_contactsViewcController;
 @property(nonatomic) __weak LeftViewController *leftViewController; // @synthesize leftViewController=_leftViewController;
@@ -99,7 +107,13 @@
 - (BOOL)splitView:(id)arg1 shouldAdjustSizeOfSubview:(id)arg2;
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (double)splitView:(id)arg1 constrainMinCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
+- (void)updateFoldExtensionsPopover;
+- (void)showFoldExtensionsInView:(id)arg1;
+- (unsigned long long)askMaxExtensionInMainView;
 - (void)hideFeedButton:(BOOL)arg1;
+- (void)setupFoldExtensionsPopover;
+- (void)setupExtensionsControllers;
+- (void)updateMaxExtensionShown;
 - (id)tabButtonAtIndex:(int)arg1;
 - (void)updateDetailViewWithController:(id)arg1 inLeftViewController:(id)arg2;
 - (void)setDetailViewWithController:(id)arg1;
@@ -113,6 +127,7 @@
 - (void)setupTabbarController;
 - (void)cleanTabbarController;
 - (void)handleAppFontSize;
+- (void)onWindowDidResize:(id)arg1;
 - (void)onSessionRecoverEnd:(id)arg1;
 - (void)onSessionRecoverBegin:(id)arg1;
 - (void)onRecvWCDBFinishToRestart:(id)arg1;

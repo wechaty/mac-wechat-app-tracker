@@ -5,9 +5,9 @@
 //
 
 @protocol WCTTableCoding
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 
 @optional
 @property(nonatomic) BOOL isAutoIncrement;

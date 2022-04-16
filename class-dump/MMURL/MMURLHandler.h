@@ -55,11 +55,14 @@
 - (void)getA8KeyDidFaildWithReason:(int)arg1;
 - (void)getA8keyDidFinishedWithReason:(int)arg1 fullURL:(id)arg2 shareURL:(id)arg3;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (id)getSharpTagKeyWord:(id)arg1;
 - (void)handleURL:(id)arg1 withExtraInfo:(id)arg2;
 - (void)openURL:(id)arg1 withA8KeyConfig:(id)arg2;
 - (void)openURLWithDefault:(id)arg1;
 - (BOOL)preHandleUrlStr:(id)arg1 withMessage:(id)arg2;
+- (BOOL)preHandleUrlStr:(id)arg1;
 - (id)filterUrlStr:(id)arg1;
+- (void)handleSharpJump:(id)arg1;
 - (void)handleChatroomAnnouncement:(id)arg1;
 - (void)handleReceiveBrandMsgURL:(id)arg1 messageData:(id)arg2;
 - (void)handleReTransferFileURL:(id)arg1 messageData:(id)arg2;
@@ -81,7 +84,9 @@
 - (BOOL)isShowAllURL:(id)arg1;
 - (BOOL)isContactProfileURL:(id)arg1;
 - (BOOL)isMacWeixinURL:(id)arg1;
+- (BOOL)isSharpTagURL:(id)arg1;
 - (BOOL)isChatroomAnnouncementURL:(id)arg1;
+- (id)mpArticleIdentityWithUrl:(id)arg1;
 - (BOOL)isMPArticleByURL:(id)arg1;
 - (BOOL)isQQMailUrl:(id)arg1;
 - (BOOL)isGameCentreURL:(id)arg1;

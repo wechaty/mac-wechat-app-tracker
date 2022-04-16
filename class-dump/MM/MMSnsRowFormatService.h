@@ -39,6 +39,7 @@
 - (id)getNickName:(id)arg1;
 - (id)getNickNameWithUserComment:(id)arg1;
 - (id)formatterTimeLineTextContent2:(id)arg1;
+- (id)formatterTimeLineTextContent:(id)arg1 useEmoji:(BOOL)arg2;
 - (id)formatterTimeLineTextContent:(id)arg1;
 - (id)formatterNotificationFeedTextContent:(id)arg1;
 - (BOOL)isContainEmoji:(id)arg1;

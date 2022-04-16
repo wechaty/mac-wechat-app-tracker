@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSMutableDictionary *proxyInfo; // @synthesize proxyInfo=_proxyInfo;
 - (void)storeProxyInfoWithType:(int)arg1 Host:(id)arg2 IP:(id)arg3 port:(id)arg4 username:(id)arg5 password:(id)arg6;
 - (void)closeProxySettings;
-- (unsigned char)testProxy:(struct ProxyInfo *)arg1 isDirect:(unsigned char)arg2;
+- (unsigned char)testProxy:(void *)arg1 isDirect:(unsigned char)arg2;
 - (void)setProxyInfoWithType:(int)arg1 Host:(id)arg2 IP:(id)arg3 port:(id)arg4 username:(id)arg5 password:(id)arg6;
 - (struct ProxyInfo)setupMarsProxyInfo;
 - (unsigned char)isUsingProxy;

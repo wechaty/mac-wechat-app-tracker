@@ -331,15 +331,15 @@
 - (void)OnGotRemoteConnectData:(id)arg1;
 - (void)OnGotRemoteStatus:(unsigned int)arg1;
 - (void)OnSyncError:(int)arg1;
-- (int)OnTransportChannelEvent:(const struct ConnId *)arg1 AttrInfo:(const struct ConnAttrInfo *)arg2 AttrStat:(const struct ConnStatInfo *)arg3 Event:(unsigned short)arg4 ErrNo:(int)arg5;
+- (int)OnTransportChannelEvent:(const struct ConnId *)arg1 AttrInfo:(const void *)arg2 AttrStat:(const struct ConnStatInfo *)arg3 Event:(unsigned short)arg4 ErrNo:(int)arg5;
 - (int)OnTransportChannelCmd:(const struct ConnId *)arg1 CmdType:(int)arg2 CmdData:(void *)arg3 len:(int)arg4;
 - (void)PushRelayData:(id)arg1;
 - (void)ConnectFail:(id)arg1;
 - (void)NetworkErr:(id)arg1;
 - (void)StopConnect;
 - (void)StartConnectDirect;
-- (struct DirectConnAttrInfo *)GetDirectConnInfo:(id)arg1;
-- (struct RelayConnAttrInfo *)GetRelayConnInfo:(id)arg1;
+- (void *)GetDirectConnInfo:(id)arg1;
+- (void *)GetRelayConnInfo:(id)arg1;
 - (void)StartConnectRelay;
 - (void)StartConnect;
 - (void)tryStartConnect;
@@ -399,7 +399,7 @@
 - (void)SendSpeedTestResultReq:(unsigned long long)arg1 ResultArray:(id)arg2;
 - (void)SendSpeedTestReq;
 - (void)SendRedirectRequest;
-- (void)SendNewStatReport:(unsigned long long)arg1 memberId:(unsigned int)arg2 dialReport:(id)arg3 channelReport:(id)arg4 engineReport:(id)arg5 engineExtReport:(id)arg6 directConnReport:(vector_ebb6ef3e)arg7 relayConnReport:(vector_ebb6ef3e)arg8 engineMPReport:(vector_ebb6ef3e)arg9 natReport:(list_f20de06b)arg10;
+- (void)SendNewStatReport:(unsigned long long)arg1 memberId:(unsigned int)arg2 dialReport:(id)arg3 channelReport:(id)arg4 engineReport:(id)arg5 engineExtReport:(id)arg6 directConnReport:(vector_bfe5b09a)arg7 relayConnReport:(vector_bfe5b09a)arg8 engineMPReport:(vector_bfe5b09a)arg9 natReport:(list_823ce23d)arg10;
 - (void)SendStatReportRequest;
 - (void)SendHeartbeatRequest;
 - (void)SendShutdownRequest;

@@ -25,20 +25,20 @@
     unsigned long long bannerItemSeq;
 }
 
-+ (const struct WCTProperty *)bannerItemSeq;
-+ (const struct WCTProperty *)bannerSDKMode;
-+ (const struct WCTProperty *)multiTalkStatus;
-+ (const struct WCTProperty *)wxMultiTalkInviteNick;
-+ (const struct WCTProperty *)wxMultiTalkUserList;
-+ (const struct WCTProperty *)createtime;
-+ (const struct WCTProperty *)routeid;
-+ (const struct WCTProperty *)roomkey;
-+ (const struct WCTProperty *)roomid;
-+ (const struct WCTProperty *)wxMultiTalkGroupId;
-+ (const struct WCTProperty *)wxGroupId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)bannerItemSeq;
++ (const void *)bannerSDKMode;
++ (const void *)multiTalkStatus;
++ (const void *)wxMultiTalkInviteNick;
++ (const void *)wxMultiTalkUserList;
++ (const void *)createtime;
++ (const void *)routeid;
++ (const void *)roomkey;
++ (const void *)roomid;
++ (const void *)wxMultiTalkGroupId;
++ (const void *)wxGroupId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int bannerSDKMode; // @synthesize bannerSDKMode;
 @property(nonatomic) unsigned long long bannerItemSeq; // @synthesize bannerItemSeq;

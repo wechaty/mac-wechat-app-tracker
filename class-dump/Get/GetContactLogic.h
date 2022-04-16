@@ -31,7 +31,8 @@
 - (id)getOpenIMGetContactRequest:(id)arg1;
 - (id)handleContactResponse:(id)arg1;
 - (id)getNormalGetContactRequest:(id)arg1;
-- (BOOL)sendGetContactsReq;
+- (BOOL)sendGetContactsReq:(BOOL)arg1;
+- (BOOL)addUsrnamesToGettingQueue:(id)arg1 isForceGet:(BOOL)arg2;
 - (BOOL)addUsrnamesToGettingQueue:(id)arg1;
 - (void)stop;
 - (void)dealloc;

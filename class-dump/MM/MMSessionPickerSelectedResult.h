@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSString *selectedID; // @synthesize selectedID;
 @property(nonatomic) unsigned long long interType; // @synthesize interType;
 @property(nonatomic) unsigned long long type; // @dynamic type;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

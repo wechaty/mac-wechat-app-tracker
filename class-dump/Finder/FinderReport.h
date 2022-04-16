@@ -39,7 +39,7 @@
 @property(retain, nonatomic) NSString *contextId; // @synthesize contextId=_contextId;
 @property(nonatomic) unsigned long long entranceId; // @synthesize entranceId=_entranceId;
 @property(retain, nonatomic) NSString *eleId; // @synthesize eleId=_eleId;
-@property(nonatomic) NSString *eventId; // @synthesize eventId=_eventId;
+@property(retain, nonatomic) NSString *eventId; // @synthesize eventId=_eventId;
 @property(nonatomic) unsigned long long cTime; // @synthesize cTime=_cTime;
 - (void)generateContextId;
 - (BOOL)shouldReport;

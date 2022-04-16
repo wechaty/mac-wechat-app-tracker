@@ -18,13 +18,13 @@
     NSString *_appId;
 }
 
-+ (const struct WCTProperty *)sequence;
-+ (const struct WCTProperty *)cmdType;
-+ (const struct WCTProperty *)appId;
-+ (const struct WCTProperty *)cmdId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)sequence;
++ (const void *)cmdType;
++ (const void *)appId;
++ (const void *)cmdId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int sequence; // @synthesize sequence=_sequence;
 @property(nonatomic) unsigned int cmdType; // @synthesize cmdType=_cmdType;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FavoritesItem, FavoritesItemDataField, MessageData, NSMutableDictionary, NSString, ReaderWrap, WCContactData;
+@class FavoritesItem, FavoritesItemDataField, MessageData, NSMutableDictionary, NSString, ReaderWrap, WCContactData, WebTemplateItem;
 
 @interface WebViewDataItem : NSObject
 {
@@ -22,9 +22,11 @@
     unsigned long long _scene;
     unsigned long long _subScene;
     unsigned long long _colorScheme;
+    WebTemplateItem *_templateItem;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) WebTemplateItem *templateItem; // @synthesize templateItem=_templateItem;
 @property(nonatomic) unsigned long long colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(nonatomic) unsigned long long subScene; // @synthesize subScene=_subScene;
 @property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;

@@ -17,12 +17,12 @@
     NSString *_userName;
 }
 
-+ (const struct WCTProperty *)reportId;
-+ (const struct WCTProperty *)lastVersion;
-+ (const struct WCTProperty *)userName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)reportId;
++ (const void *)lastVersion;
++ (const void *)userName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int reportId; // @synthesize reportId=_reportId;
 @property(nonatomic) unsigned int lastVersion; // @synthesize lastVersion=_lastVersion;

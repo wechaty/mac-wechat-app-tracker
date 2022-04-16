@@ -19,12 +19,12 @@
     NSString *_chatName;
 }
 
-+ (const struct WCTProperty *)lastMesLocalId;
-+ (const struct WCTProperty *)chatName;
-+ (const struct WCTProperty *)contextID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)lastMesLocalId;
++ (const void *)chatName;
++ (const void *)contextID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property unsigned int lastMesLocalId; // @synthesize lastMesLocalId=_lastMesLocalId;
 @property(retain, nonatomic) NSString *chatName; // @synthesize chatName=_chatName;

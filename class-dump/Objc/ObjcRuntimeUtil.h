@@ -11,7 +11,7 @@
 }
 
 + (id)getCallerMethod;
-+ (vector_71df529e)getAllMethodOfProtocol:(id)arg1;
++ (vector_c11dd721)getAllMethodOfProtocol:(id)arg1;
 + (BOOL)isClass:(Class)arg1 inheritsFromClass:(Class)arg2;
 
 @end

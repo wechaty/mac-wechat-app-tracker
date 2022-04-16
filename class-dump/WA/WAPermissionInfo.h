@@ -22,16 +22,16 @@
     NSString *_permissionJsonStr;
 }
 
-+ (const struct WCTProperty *)permissionJsonStr;
-+ (const struct WCTProperty *)statePermissionBytes;
-+ (const struct WCTProperty *)actionSheetInfo;
-+ (const struct WCTProperty *)launchAction;
-+ (const struct WCTProperty *)weAppBindInfo;
-+ (const struct WCTProperty *)permissionBytes;
-+ (const struct WCTProperty *)appID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)permissionJsonStr;
++ (const void *)statePermissionBytes;
++ (const void *)actionSheetInfo;
++ (const void *)launchAction;
++ (const void *)weAppBindInfo;
++ (const void *)permissionBytes;
++ (const void *)appID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *permissionJsonStr; // @synthesize permissionJsonStr=_permissionJsonStr;
 @property(retain, nonatomic) WAStatePermissionBytes *statePermissionBytes; // @synthesize statePermissionBytes=_statePermissionBytes;

@@ -6,14 +6,27 @@
 
 #import <WebKit/WKWebView.h>
 
+@protocol MMWKWebViewMenuDelegate;
+
 @interface MMWKWebView : WKWebView
 {
+    BOOL _isShowSearchMenuItem;
+    BOOL _canMoveWindow;
     unsigned int _preloadStatus;
+    id <MMWKWebViewMenuDelegate> _menuDelegate;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) BOOL canMoveWindow; // @synthesize canMoveWindow=_canMoveWindow;
+@property(nonatomic) BOOL isShowSearchMenuItem; // @synthesize isShowSearchMenuItem=_isShowSearchMenuItem;
+@property(nonatomic) __weak id <MMWKWebViewMenuDelegate> menuDelegate; // @synthesize menuDelegate=_menuDelegate;
 @property(nonatomic) unsigned int preloadStatus; // @synthesize preloadStatus=_preloadStatus;
 - (void)evaluateJavaScriptFromString:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)lookUp:(id)arg1;
+- (void)forwardQRCodeAction:(id)arg1;
 - (void)willOpenMenu:(id)arg1 withEvent:(id)arg2;
+- (BOOL)mouseDownCanMoveWindow;
+- (void)customLoadFileURL:(id)arg1 allowingReadAccessToURL:(id)arg2;
 - (void)customLoadRequest:(id)arg1;
 
 @end

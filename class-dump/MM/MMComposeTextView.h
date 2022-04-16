@@ -18,6 +18,8 @@
 @interface MMComposeTextView : MMRichAttachmentBaseTextView <NSTextViewDelegate, MMMentionViewControllerDelegate, NSTextStorageDelegate, NSMenuDelegate, NSFileManagerDelegate>
 {
     BOOL _canShowAlert;
+    BOOL _hasJustInsertAt;
+    BOOL _contentFromDraft;
     unsigned int _sendMsgShortCutType;
     id <MMComposeTextViewDelegate> _mmDelegate;
     id <MMComposeTextEmotionProtDelegate> _mmEmotionDelegate;
@@ -41,13 +43,18 @@
     MMTimeChecker *_timeChecker;
     NSString *_dragImgPath;
     NSString *_dragImgFolder;
+    unsigned long long _editStyle;
     struct _NSRange _mentionMatchedRange;
+    struct _NSRange _lastSelectedRange;
 }
 
 + (id)preprocessTextAttributes:(id)arg1;
 + (id)getFontSizeAdjustTextAttributes;
 + (id)_textEntryParagraphStyle;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long editStyle; // @synthesize editStyle=_editStyle;
+@property(nonatomic) BOOL contentFromDraft; // @synthesize contentFromDraft=_contentFromDraft;
+@property(nonatomic) BOOL hasJustInsertAt; // @synthesize hasJustInsertAt=_hasJustInsertAt;
 @property(nonatomic) BOOL canShowAlert; // @synthesize canShowAlert=_canShowAlert;
 @property(retain, nonatomic) NSString *dragImgFolder; // @synthesize dragImgFolder=_dragImgFolder;
 @property(retain, nonatomic) NSString *dragImgPath; // @synthesize dragImgPath=_dragImgPath;
@@ -57,6 +64,7 @@
 @property(retain, nonatomic) NSPopover *mentionPopover; // @synthesize mentionPopover=_mentionPopover;
 @property(retain, nonatomic) NSString *chatUserName; // @synthesize chatUserName=_chatUserName;
 @property(retain, nonatomic) NSMutableArray *mentionUserList; // @synthesize mentionUserList=_mentionUserList;
+@property(nonatomic) struct _NSRange lastSelectedRange; // @synthesize lastSelectedRange=_lastSelectedRange;
 @property(nonatomic) struct _NSRange mentionMatchedRange; // @synthesize mentionMatchedRange=_mentionMatchedRange;
 @property(retain, nonatomic) NSMutableArray *mentionTokenRanges; // @synthesize mentionTokenRanges=_mentionTokenRanges;
 @property(nonatomic) unsigned int sendMsgShortCutType; // @synthesize sendMsgShortCutType=_sendMsgShortCutType;
@@ -91,6 +99,7 @@
 - (void)handleForwardMessage:(id)arg1;
 - (void)handleForwardFavorites:(id)arg1;
 - (void)insertContentData:(id)arg1;
+- (void)insertDraftContentData:(id)arg1;
 - (id)currentContentData;
 - (id)mentionTextCellEscapedAttributedString:(id)arg1;
 - (void)SettingsDidChangeSendMessageShortcut;
@@ -101,6 +110,7 @@
 - (void)pasteFileURLWithItems:(id)arg1 names:(id)arg2 type:(id)arg3;
 - (void)pasteImageWithItem:(id)arg1 type:(id)arg2 withLineFeed:(unsigned char)arg3;
 - (unsigned char)pastePlainTextWithItem:(id)arg1 type:(id)arg2;
+- (BOOL)pasteAtMemberWithItem:(id)arg1 type:(id)arg2;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
@@ -128,6 +138,8 @@
 - (void)menuActionCopy:(id)arg1;
 - (id)menuForClickedIndex:(unsigned long long)arg1;
 - (id)textView:(id)arg1 menu:(id)arg2 forEvent:(id)arg3 atIndex:(unsigned long long)arg4;
+- (void)clickedOnImageRichTextAttachmentCell:(id)arg1 inRect:(struct CGRect)arg2 atIndex:(unsigned long long)arg3;
+- (BOOL)clickedOnAtMemberAttachmentCell:(id)arg1 inRect:(struct CGRect)arg2 atIndex:(unsigned long long)arg3;
 - (void)textView:(id)arg1 clickedOnCell:(id)arg2 inRect:(struct CGRect)arg3 atIndex:(unsigned long long)arg4;
 - (void)draggingEnded:(id)arg1;
 - (void)setSelectedRange:(struct _NSRange)arg1 affinity:(unsigned long long)arg2 stillSelecting:(BOOL)arg3;
@@ -160,10 +172,12 @@
 - (void)resetReferMessage;
 - (BOOL)doReplaceReferMessage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)insertReferAttachmentObj:(id)arg1;
+- (void)insertAtMemberAttachmentObj:(id)arg1;
 - (void)insertReferMessage:(id)arg1;
 - (void)insertEmoticon:(id)arg1;
 - (void)insertAtUserList:(id)arg1;
 - (void)insertRichText:(id)arg1;
+- (void)pasteWithRevokText:(id)arg1 atUsrList:(id)arg2;
 - (void)setTypingAttributes:(id)arg1;
 - (void)handleAppFontSize;
 - (void)dealloc;

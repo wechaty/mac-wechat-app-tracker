@@ -22,15 +22,15 @@
     NSData *_m_nsBuffer;
 }
 
-+ (const struct WCTProperty *)m_uBreakFlagForUser;
-+ (const struct WCTProperty *)m_uBreakFlagForTimeline;
-+ (const struct WCTProperty *)m_nsBuffer;
-+ (const struct WCTProperty *)m_nsFromUsername;
-+ (const struct WCTProperty *)m_nsFeedId;
-+ (const struct WCTProperty *)m_uLocalId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_uBreakFlagForUser;
++ (const void *)m_uBreakFlagForTimeline;
++ (const void *)m_nsBuffer;
++ (const void *)m_nsFromUsername;
++ (const void *)m_nsFeedId;
++ (const void *)m_uLocalId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int m_uBreakFlagForUser; // @synthesize m_uBreakFlagForUser=_m_uBreakFlagForUser;
 @property(nonatomic) unsigned int m_uBreakFlagForTimeline; // @synthesize m_uBreakFlagForTimeline=_m_uBreakFlagForTimeline;

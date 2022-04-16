@@ -17,6 +17,9 @@
     NSView *_button;
 }
 
++ (void)removeButtonByType:(unsigned int)arg1;
++ (void)addButtonByType:(unsigned int)arg1;
++ (id)getButtonByType:(unsigned int)arg1;
 + (void)initialize;
 + (void)PBArrayAdd_buttonStatus;
 + (void)PBArrayAdd_buttonName;
@@ -28,11 +31,13 @@
 @property(retain, nonatomic) NSString *buttonName; // @synthesize buttonName;
 @property(retain, nonatomic) NSString *buttonIconName; // @synthesize buttonIconName;
 @property(nonatomic) unsigned int buttonType; // @synthesize buttonType;
+- (void)showWebNewsWindow;
+- (void)showWebSearchWindow;
 - (void)showFeedWindow;
 - (void)showFileManagerWindow;
 - (void)setupButtonByType:(unsigned int)arg1;
 - (id)initWithButtonType:(unsigned int)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 @end

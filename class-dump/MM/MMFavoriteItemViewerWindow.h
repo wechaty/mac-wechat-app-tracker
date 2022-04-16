@@ -55,7 +55,6 @@
 - (BOOL)useSpaceKeyForClose;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)sharingServiceAction:(id)arg1;
 - (id)makeContextMenu;

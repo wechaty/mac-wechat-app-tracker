@@ -34,7 +34,7 @@
 @property(nonatomic) double expiredTime; // @synthesize expiredTime;
 @property(nonatomic) BOOL memoryStatEnabled; // @synthesize memoryStatEnabled;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

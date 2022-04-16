@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *categoryName; // @synthesize categoryName;
 @property(nonatomic) unsigned int categoryId; // @synthesize categoryId;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

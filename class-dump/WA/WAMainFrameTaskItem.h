@@ -17,12 +17,12 @@
     NSString *_userName;
 }
 
-+ (const struct WCTProperty *)updateTime;
-+ (const struct WCTProperty *)debugMode;
-+ (const struct WCTProperty *)userName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)updateTime;
++ (const void *)debugMode;
++ (const void *)userName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int updateTime; // @synthesize updateTime=_updateTime;
 @property(nonatomic) unsigned int debugMode; // @synthesize debugMode=_debugMode;

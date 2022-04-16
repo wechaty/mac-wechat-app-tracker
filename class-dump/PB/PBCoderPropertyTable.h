@@ -11,12 +11,12 @@
 @interface PBCoderPropertyTable : NSObject
 {
     NSMutableArray *arrayWrap;
-    map_f8690629 mapTagToIndex;
+    struct map<unsigned long, unsigned long, std::less<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> mapTagToIndex;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (id)init;
 

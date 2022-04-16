@@ -16,11 +16,11 @@
     long long _msgsvrid;
 }
 
-+ (const struct WCTProperty *)msgsvrid;
-+ (const struct WCTProperty *)username;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)msgsvrid;
++ (const void *)username;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) long long msgsvrid; // @synthesize msgsvrid=_msgsvrid;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;

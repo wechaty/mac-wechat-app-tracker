@@ -19,14 +19,14 @@
     NSData *configData;
 }
 
-+ (const struct WCTProperty *)updateTime;
-+ (const struct WCTProperty *)configData;
-+ (const struct WCTProperty *)version;
-+ (const struct WCTProperty *)type;
-+ (const struct WCTProperty *)appID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)updateTime;
++ (const void *)configData;
++ (const void *)version;
++ (const void *)type;
++ (const void *)appID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int updateTime; // @synthesize updateTime;
 @property(retain, nonatomic) NSData *configData; // @synthesize configData;

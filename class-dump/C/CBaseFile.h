@@ -22,6 +22,7 @@
 + (id)GetFileReferenceCount:(id)arg1;
 + (id)GetFileINodeNumber:(id)arg1;
 + (id)GetFileCreateTime:(id)arg1;
++ (id)GetFileSHA1:(id)arg1;
 + (id)GetFileMD5:(id)arg1;
 + (BOOL)SysAppendData:(id)arg1 toPath:(id)arg2;
 + (BOOL)SysOverWriteDataToPath:(id)arg1 Data:(id)arg2;

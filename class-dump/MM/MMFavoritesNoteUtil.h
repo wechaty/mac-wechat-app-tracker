@@ -10,6 +10,7 @@
 {
 }
 
++ (void)autoSaveAndSyncFavoritesItem:(id)arg1;
 + (id)cutLongTextDataFieldToDataList:(id)arg1;
 + (id)genSummaryTitleWithOriginText:(id)arg1;
 + (id)ConvertNote2FavItem:(id)arg1 withTitle:(id)arg2 dataList:(id)arg3 originItem:(id)arg4;

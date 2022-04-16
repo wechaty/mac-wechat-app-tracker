@@ -24,19 +24,19 @@
     long long Reserved4;
 }
 
-+ (const struct WCTProperty *)Reserved4;
-+ (const struct WCTProperty *)Reserved3;
-+ (const struct WCTProperty *)Reserved2;
-+ (const struct WCTProperty *)FileName;
-+ (const struct WCTProperty *)Reserved1;
-+ (const struct WCTProperty *)OffSet;
-+ (const struct WCTProperty *)TotalLen;
-+ (const struct WCTProperty *)Length;
-+ (const struct WCTProperty *)InnerOffSet;
-+ (const struct WCTProperty *)MapKey;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)Reserved4;
++ (const void *)Reserved3;
++ (const void *)Reserved2;
++ (const void *)FileName;
++ (const void *)Reserved1;
++ (const void *)OffSet;
++ (const void *)TotalLen;
++ (const void *)Length;
++ (const void *)InnerOffSet;
++ (const void *)MapKey;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) long long Reserved4; // @synthesize Reserved4;
 @property(retain, nonatomic) NSString *Reserved3; // @synthesize Reserved3;

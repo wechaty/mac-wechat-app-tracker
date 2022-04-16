@@ -39,7 +39,7 @@
 @property(nonatomic) BOOL bReaded; // @synthesize bReaded;
 @property(copy, nonatomic) NSString *nsSource; // @synthesize nsSource;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 @end

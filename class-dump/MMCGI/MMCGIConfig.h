@@ -9,18 +9,20 @@
 @interface MMCGIConfig : NSObject
 {
     unsigned long long m_itemCount;
-    struct unordered_map<int, const MMCGIItem *, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, const MMCGIItem *>>> m_functionIdMap;
-    struct unordered_map<int, const MMCGIItem *, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, const MMCGIItem *>>> m_cmdIdMap;
+    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> m_functionIdMap;
+    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> m_cmdIdMap;
     int m_customItemCount;
 }
 
 + (void)insertH5TransferCGIItem:(int)arg1;
++ (void)addCGIItem:(const struct MMCGIItem *)arg1;
 + (const struct MMCGIItem *)findItemWithCmdID:(int)arg1;
 + (const struct MMCGIItem *)findItemWithFunc:(int)arg1;
 + (id)sharedInstance;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)insertH5TransferCGIItemInternal:(int)arg1;
+- (void)addCGIItemInternal:(const struct MMCGIItem *)arg1;
 - (const struct MMCGIItem *)findItemWithCmdIDInternal:(int)arg1;
 - (const struct MMCGIItem *)findItemWithFuncInternal:(int)arg1;
 - (void)config;

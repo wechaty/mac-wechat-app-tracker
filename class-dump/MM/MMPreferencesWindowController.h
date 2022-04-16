@@ -16,7 +16,6 @@
 
 + (id)sharedInstance;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)showWindow:(id)arg1;
 - (void)windowWillClose:(id)arg1;

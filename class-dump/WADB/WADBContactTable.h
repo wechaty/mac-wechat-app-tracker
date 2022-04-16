@@ -22,17 +22,17 @@
     NSString *_appId;
 }
 
-+ (const struct WCTProperty *)appId;
-+ (const struct WCTProperty *)headImageStatus;
-+ (const struct WCTProperty *)wxAppOpt;
-+ (const struct WCTProperty *)contactPack;
-+ (const struct WCTProperty *)externalInfo;
-+ (const struct WCTProperty *)brandIconURL;
-+ (const struct WCTProperty *)type;
-+ (const struct WCTProperty *)userName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)appId;
++ (const void *)headImageStatus;
++ (const void *)wxAppOpt;
++ (const void *)contactPack;
++ (const void *)externalInfo;
++ (const void *)brandIconURL;
++ (const void *)type;
++ (const void *)userName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *headImageStatus; // @synthesize headImageStatus=_headImageStatus;

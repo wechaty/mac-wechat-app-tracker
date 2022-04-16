@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSString *jumpToUserName; // @synthesize jumpToUserName;
 @property(retain, nonatomic) NSString *jumpToAppID; // @synthesize jumpToAppID;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

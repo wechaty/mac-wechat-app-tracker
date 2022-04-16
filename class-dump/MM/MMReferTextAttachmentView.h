@@ -42,7 +42,7 @@
 - (BOOL)eventIsInsideClearArea:(id)arg1;
 - (void)layoutWithAttachmentObject:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;
-- (id)getMsgcontentViewWithReferStyle:(id)arg1 showMoreHint:(BOOL)arg2;
+- (id)getMsgcontentViewWithReferStyle:(id)arg1 showMoreHint:(BOOL)arg2 emoji:(BOOL)arg3;
 - (void)initView;
 - (id)initWithIdentifier:(id)arg1;
 

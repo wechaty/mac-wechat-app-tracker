@@ -26,7 +26,7 @@
 @property(nonatomic) unsigned long long expire; // @synthesize expire;
 @property(nonatomic) unsigned long long commitCount; // @synthesize commitCount;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

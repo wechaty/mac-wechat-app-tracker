@@ -10,6 +10,8 @@
 {
     // Error parsing type: , name: onClickEvent
     // Error parsing type: , name: onDelete
+    // Error parsing type: , name: showPlayIcon
+    // Error parsing type: , name: showContextMenu
     // Error parsing type: , name: icon
     // Error parsing type: , name: $__lazy_storage_$_contextMenu
     // Error parsing type: , name: rightMouseView

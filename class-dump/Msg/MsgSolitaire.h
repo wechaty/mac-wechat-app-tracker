@@ -16,11 +16,11 @@
     NSString *_nsChatName;
 }
 
-+ (const struct WCTProperty *)msgLocalId;
-+ (const struct WCTProperty *)nsChatName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)msgLocalId;
++ (const void *)nsChatName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int msgLocalId; // @synthesize msgLocalId=_msgLocalId;
 @property(retain, nonatomic) NSString *nsChatName; // @synthesize nsChatName=_nsChatName;

@@ -70,7 +70,7 @@
 @property(nonatomic) int type; // @synthesize type;
 @property(nonatomic) int scene; // @synthesize scene;
 @property(retain, nonatomic) NSString *mediaTagName; // @synthesize mediaTagName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

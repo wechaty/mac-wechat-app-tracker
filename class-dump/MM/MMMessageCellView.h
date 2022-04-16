@@ -142,6 +142,7 @@
 - (id)_makeAvatarMenuItem:(id)arg1 action:(SEL)arg2;
 - (id)contextAvatarMenu;
 - (id)contextMultipleSelectMenu:(id)arg1;
+- (void)setMenuTitleWithBlankChar:(id)arg1 blankLen:(unsigned long long)arg2;
 - (id)contextMenu;
 - (id)contextMenuOutsideFrame:(id)arg1;
 - (id)menuForEvent:(id)arg1;
@@ -174,6 +175,8 @@
 - (void)setupLocateMsgLabel;
 - (void)setupMsgCreatetimeLabel;
 - (id)_formattedGroupNickName:(id)arg1;
+- (id)makeDescLabelAttrString:(id)arg1;
+- (id)getDisplayAndMatchKeyWordNameAttr:(id)arg1 displayName:(id)arg2;
 - (void)updateGroupChatNickName;
 - (void)setupGroupChatNickName;
 - (id)getOpenIMAttributedString:(id)arg1;
@@ -207,6 +210,7 @@
 - (BOOL)isSpecialMessageCellView;
 - (void)setWaitingProgressIndicatorAccessoryHidden:(BOOL)arg1;
 - (void)doAnimationAndAddFavItem:(id)arg1;
+- (BOOL)addSearchItem:(id)arg1;
 - (void)addReferItem:(id)arg1;
 - (void)addSaveToFavoritesItem:(id)arg1;
 - (void)addMultiSelectItem:(id)arg1;
@@ -218,6 +222,7 @@
 - (id)fakeSubMenu;
 - (id)getMessageDataSourceFilePath:(id)arg1;
 - (void)updateFileMessageOpTime:(id)arg1;
+- (void)contextMenuSearch;
 - (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuSolitaire;
 - (void)contextMenuMuteToPlay;
@@ -259,6 +264,7 @@
 - (id)contextMenuMenuSection2;
 - (id)contextMenuMenuSection1;
 - (id)contextMenuMenuSection0;
+- (BOOL)allowSearch;
 - (BOOL)allowRefer;
 - (BOOL)allowMultipleSelect;
 - (BOOL)allowRecall;

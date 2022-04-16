@@ -8,8 +8,10 @@
 
 @interface _TtC6WeChat30SnsPublishBaseWindowController : NSWindowController
 {
+    // Error parsing type: , name: session
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
 - (void)windowDidLoad;

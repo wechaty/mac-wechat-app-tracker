@@ -19,7 +19,7 @@
     SwipeDetector *_swipeDetector;
     BOOL _isAnimating;
     BOOL _shouldShowEmoji;
-    BOOL _isOpenIMChat;
+    BOOL _shouldHiddenSticker;
     unsigned long long _selectedIndex;
     CDUnknownBlockType _didSelectGroupCallback;
     CDUnknownBlockType _toolbarButtonDidChangeHighlighted;
@@ -29,7 +29,7 @@
 @property(copy, nonatomic) CDUnknownBlockType toolbarButtonDidChangeHighlighted; // @synthesize toolbarButtonDidChangeHighlighted=_toolbarButtonDidChangeHighlighted;
 @property(copy, nonatomic) CDUnknownBlockType didSelectGroupCallback; // @synthesize didSelectGroupCallback=_didSelectGroupCallback;
 @property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
-@property(nonatomic) BOOL isOpenIMChat; // @synthesize isOpenIMChat=_isOpenIMChat;
+@property(nonatomic) BOOL shouldHiddenSticker; // @synthesize shouldHiddenSticker=_shouldHiddenSticker;
 @property(nonatomic) BOOL shouldShowEmoji; // @synthesize shouldShowEmoji=_shouldShowEmoji;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)_resolveChevronsOverlayButtons:(unsigned long long)arg1;
@@ -49,6 +49,7 @@
 - (void)setSelectedIndexWithoutCallback:(unsigned long long)arg1;
 - (void)_layoutButtons;
 - (BOOL)updateStoreEmticonIcon:(id)arg1;
+- (int)getEmoticonGroupType;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

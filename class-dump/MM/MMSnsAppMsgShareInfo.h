@@ -52,7 +52,7 @@
 @property(nonatomic) BOOL isNativePage; // @synthesize isNativePage;
 @property(nonatomic) unsigned int itemShowType; // @synthesize itemShowType;
 @property(nonatomic) BOOL hasItemShowType; // @synthesize hasItemShowType;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

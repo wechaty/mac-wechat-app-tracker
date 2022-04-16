@@ -41,7 +41,7 @@
 @property(retain, nonatomic) NSString *nickName; // @synthesize nickName;
 @property(retain, nonatomic) NSString *aliasName; // @synthesize aliasName;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -35,7 +35,6 @@
 - (BOOL)useEscKeyForClose;
 - (BOOL)useSpaceKeyForClose;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)addToFavorites:(id)arg1;
 - (void)sharingServiceAction:(id)arg1;

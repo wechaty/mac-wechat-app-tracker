@@ -7,6 +7,7 @@
 #import "MMWindowController.h"
 
 #import "MMPreviewWindowDelegate-Protocol.h"
+#import "MMQRCodeScannerExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSPageControllerDelegate-Protocol.h"
 #import "NSSharingServiceDelegate-Protocol.h"
@@ -14,7 +15,7 @@
 
 @class MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPreviewEventView, MMPreviewPageController, MMPreviewToggleRestoreButton, MMPreviewViewController, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat15TrackButtonView;
 
-@interface MMPreviewWindowController : MMWindowController <NSWindowDelegate, NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, NSPageControllerDelegate>
+@interface MMPreviewWindowController : MMWindowController <NSWindowDelegate, NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, NSPageControllerDelegate>
 {
     BOOL _isUpdatingItemList;
     BOOL _isFullScreen;
@@ -30,6 +31,8 @@
     BOOL _isShowWindowResize;
     BOOL _isClosing;
     BOOL _isDoingRotating;
+    BOOL _isDoingQRCode;
+    BOOL _hasQRCodeInRect;
     MMPreviewEventView *_containerView;
     NSImageView *_animationThumbView;
     MMPreviewPageController *_pageController;
@@ -54,6 +57,7 @@
     MMCustomDisableButton *_zoomOutButton;
     MMCustomDisableButton *_zoomInButton;
     MMPreviewToggleRestoreButton *_restoreButton;
+    MMButton *_qrButton;
     MMMediumDivider *_secondDivider;
     MMCustomDisableButton *_rotateButton;
     MMCustomDisableButton *_editButton;
@@ -73,6 +77,8 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL hasQRCodeInRect; // @synthesize hasQRCodeInRect=_hasQRCodeInRect;
+@property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) BOOL isDoingRotating; // @synthesize isDoingRotating=_isDoingRotating;
 @property(retain, nonatomic) NSTrackingArea *rightTrackingArea; // @synthesize rightTrackingArea=_rightTrackingArea;
 @property(retain, nonatomic) NSTrackingArea *leftTrackingArea; // @synthesize leftTrackingArea=_leftTrackingArea;
@@ -90,6 +96,7 @@
 @property(retain, nonatomic) MMCustomDisableButton *editButton; // @synthesize editButton=_editButton;
 @property(retain, nonatomic) MMCustomDisableButton *rotateButton; // @synthesize rotateButton=_rotateButton;
 @property(retain, nonatomic) MMMediumDivider *secondDivider; // @synthesize secondDivider=_secondDivider;
+@property(retain, nonatomic) MMButton *qrButton; // @synthesize qrButton=_qrButton;
 @property(retain, nonatomic) MMPreviewToggleRestoreButton *restoreButton; // @synthesize restoreButton=_restoreButton;
 @property(retain, nonatomic) MMCustomDisableButton *zoomInButton; // @synthesize zoomInButton=_zoomInButton;
 @property(retain, nonatomic) MMCustomDisableButton *zoomOutButton; // @synthesize zoomOutButton=_zoomOutButton;
@@ -136,13 +143,23 @@
 - (void)pageControllerWillStartLiveTransition:(id)arg1;
 - (id)pageController:(id)arg1 viewControllerForIdentifier:(id)arg2;
 - (id)pageController:(id)arg1 identifierForObject:(id)arg2;
+- (void)showQRBarButton;
+- (void)hiddenQRBarButton;
+- (void)recoverAllActions;
 - (void)disableAllActions;
+- (void)updateQRCodeStatusWhenFinishLoad;
 - (void)updateToolbarButtonWithRestoreEnabled:(BOOL)arg1;
 - (void)updateToolbarButtonWithZoomInEnabled:(BOOL)arg1 zoomOutEnabled:(BOOL)arg2;
 - (void)updateToolbarButtonWithPrevEnabled:(BOOL)arg1 isNextEnabled:(BOOL)arg2;
 - (void)updateToolbarButtonWithLoading:(BOOL)arg1;
 - (void)updateToolbarControls;
 - (struct CGRect)toolbarFrame;
+- (void)successToParseQRCodeResult:(id)arg1;
+- (void)unknownForParseQRCodeResult:(id)arg1;
+- (void)failToParseQRCodeResult:(id)arg1 errorInfo:(id)arg2;
+- (void)startParseQRCodeResult:(id)arg1;
+- (void)didHiddenQRCodeDotButtons;
+- (void)willShowQRCodeDotButtons;
 - (void)doSomethingWhenUserLogout;
 - (void)doSomethingWhenUnLocked;
 - (void)doSomethingWhenLocked;
@@ -199,6 +216,7 @@
 - (void)fullScreenWithBtn:(id)arg1;
 - (void)closeWithBtn:(id)arg1;
 - (void)setCanotResize;
+- (void)onQRCodeButtonClick:(id)arg1;
 - (void)nextItemWithKeyDown:(BOOL)arg1;
 - (void)prevItemWithKeyDown:(BOOL)arg1;
 - (void)showTextToastWithHead:(BOOL)arg1;
@@ -224,6 +242,8 @@
 - (struct CGRect)initialWindowFrameWithImageSize:(struct CGSize)arg1 sourceFrame:(struct CGRect)arg2;
 - (struct CGSize)handleFloatingSize:(struct CGSize)arg1;
 - (void)closeWithMenu;
+- (unsigned long long)QRCodeResultCount;
+- (BOOL)shouldShowQRCodeEntrance;
 - (BOOL)shouldShowShareEntrance;
 - (BOOL)shouldShowEditEntrance;
 - (BOOL)shouldShowMainwindow;

@@ -232,28 +232,28 @@ struct BatchSnsReqImageData;
 
 struct C2CDownloadRequest {
     struct shared_ptr<mars::cdn::Callback> sp_callback;
-    basic_string_0a24cc0e debugip;
-    basic_string_0a24cc0e authkey;
-    basic_string_0a24cc0e filekey;
+    basic_string_8e19b51d debugip;
+    basic_string_8e19b51d authkey;
+    basic_string_8e19b51d filekey;
     void *user_context;
-    basic_string_0a24cc0e arg_info;
+    basic_string_8e19b51d arg_info;
     int queue_timeout_seconds;
     int transfor_timeout_seconds;
     int filetype;
     int apptype;
     int bizid;
     unsigned long long file_size;
-    basic_string_0a24cc0e savepath;
-    basic_string_0a24cc0e aeskey;
-    basic_string_0a24cc0e fileid;
-    basic_string_0a24cc0e expected_filemd5;
+    basic_string_8e19b51d savepath;
+    basic_string_8e19b51d aeskey;
+    basic_string_8e19b51d fileid;
+    basic_string_8e19b51d expected_filemd5;
     unsigned long long expected_filesize;
-    basic_string_0a24cc0e statefile;
+    basic_string_8e19b51d statefile;
     int limit_rate;
     unsigned long long filesize_max;
-    basic_string_0a24cc0e bigfile_signture;
-    basic_string_0a24cc0e msg_extra;
-    basic_string_0a24cc0e videofileid;
+    basic_string_8e19b51d bigfile_signture;
+    basic_string_8e19b51d msg_extra;
+    basic_string_8e19b51d videofileid;
     _Bool isstoragemode;
     _Bool issmallvideo;
     int islargesvideo;
@@ -262,32 +262,32 @@ struct C2CDownloadRequest {
     _Bool is_silent_task;
     int request_video_format;
     int videoflag_policy;
-    basic_string_0a24cc0e request_videoflag;
+    basic_string_8e19b51d request_videoflag;
     _Bool is_hlsvideo;
-    basic_string_0a24cc0e hls_videoflag;
+    basic_string_8e19b51d hls_videoflag;
     int chattype;
     int predownload_ratio;
     long long predownload_minsize;
     _Bool is_cold_snsdata;
     _Bool is_hot_snsvideo;
     unsigned int blocksize;
-    basic_string_0a24cc0e fakeBigfileSignature;
-    basic_string_0a24cc0e fakeBigfileSignatureAeskey;
-    basic_string_0a24cc0e url;
-    basic_string_0a24cc0e host;
-    basic_string_0a24cc0e referer;
-    basic_string_0a24cc0e signal_quality;
-    basic_string_0a24cc0e sns_scene;
+    basic_string_8e19b51d fakeBigfileSignature;
+    basic_string_8e19b51d fakeBigfileSignatureAeskey;
+    basic_string_8e19b51d url;
+    basic_string_8e19b51d host;
+    basic_string_8e19b51d referer;
+    basic_string_8e19b51d signal_quality;
+    basic_string_8e19b51d sns_scene;
     unsigned long long sns_decrypt_key;
     unsigned int concurrent_count;
     unsigned int max_http_redirect_count;
-    vector_ebb6ef3e oc_iplist;
+    vector_bfe5b09a oc_iplist;
     int oc_iplist_source;
-    vector_ebb6ef3e dc_iplist;
+    vector_bfe5b09a dc_iplist;
     int dc_iplist_source;
-    basic_string_0a24cc0e custom_request_header;
-    struct unordered_map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> verify_headers;
-    basic_string_0a24cc0e bakup_url;
+    basic_string_8e19b51d custom_request_header;
+    struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> verify_headers;
+    basic_string_8e19b51d bakup_url;
     _Bool is_resume_task;
     long long max_retry_count;
     unsigned int connection_count;
@@ -297,12 +297,12 @@ struct C2CDownloadRequest {
     _Bool need_echo_after_down_succ;
     CDUnknownFunctionPointerType decoder;
     int msg_type_;
-    basic_string_0a24cc0e feed_id_;
+    basic_string_8e19b51d feed_id_;
     int feed_pic_count_;
-    struct vector<mars::cdn::BatchSnsReqImageData, std::__1::allocator<mars::cdn::BatchSnsReqImageData>> batch_image_req_datas;
+    struct vector<mars::cdn::BatchSnsReqImageData, std::allocator<mars::cdn::BatchSnsReqImageData>> batch_image_req_datas;
     struct QuicTaskParams quic_task_params;
     unsigned long long task_start_time;
-    basic_string_0a24cc0e http_method;
+    basic_string_8e19b51d http_method;
     _Bool use_newdns;
     unsigned int pcdn_appid;
     int max_pcdn_connections;
@@ -313,66 +313,34 @@ struct C2CDownloadRequest {
 
 struct C2CUploadRequest {
     struct shared_ptr<mars::cdn::Callback> _field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field4;
+    basic_string_8e19b51d _field2;
+    basic_string_8e19b51d _field3;
+    basic_string_8e19b51d _field4;
     void *_field5;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field6;
+    basic_string_8e19b51d _field6;
     int _field7;
     int _field8;
     int _field9;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field10;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field11;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field12;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field13;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field14;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field15;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field16;
+    basic_string_8e19b51d _field10;
+    basic_string_8e19b51d _field11;
+    basic_string_8e19b51d _field12;
+    basic_string_8e19b51d _field13;
+    basic_string_8e19b51d _field14;
+    basic_string_8e19b51d _field15;
+    basic_string_8e19b51d _field16;
     unsigned long long _field17;
     unsigned long long _field18;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field19;
+    basic_string_8e19b51d _field19;
     _Bool _field20;
     _Bool _field21;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field22;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field23;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field24;
+    basic_string_8e19b51d _field22;
+    basic_string_8e19b51d _field23;
+    basic_string_8e19b51d _field24;
     int _field25;
     int _field26;
     int _field27;
     int _field28;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field29;
+    basic_string_8e19b51d _field29;
     _Bool _field30;
     _Bool _field31;
     _Bool _field32;
@@ -385,24 +353,16 @@ struct C2CUploadRequest {
     _Bool _field39;
     _Bool _field40;
     int _field41;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field42;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field43;
+    basic_string_8e19b51d _field42;
+    basic_string_8e19b51d _field43;
     unsigned int _field44;
     unsigned int _field45;
     _Bool _field46;
     int _field47;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field48;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field49;
+    basic_string_8e19b51d _field48;
+    basic_string_8e19b51d _field49;
     int _field50;
-    struct vector<mars::cdn::FileID, std::__1::allocator<mars::cdn::FileID>> _field51;
+    struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> _field51;
 };
 
 struct CATransform3D {
@@ -492,9 +452,9 @@ struct CTXFlvParser {
     int _field8;
     int _field9;
     int _field10;
-    vector_ebb6ef3e _field11;
+    struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _field11;
     int _field12;
-    vector_ebb6ef3e _field13;
+    struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _field13;
     int _field14;
     struct __sFILE *_field15;
 };
@@ -794,38 +754,15 @@ struct Config {
     int _field12;
     int _field13;
     int _field14;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field15;
+    basic_string_8e19b51d _field15;
     int _field16;
     int _field17;
-    struct unordered_map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> _field18;
-    struct unordered_map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> _field19;
-};
-
-struct ConnAttrInfo {
-    CDUnknownFunctionPointerType *_field1;
-    struct ConnId _field2;
-    int _field3;
-    struct ConnNetInfo _field4;
-    struct ConnNetInfo _field5;
-    unsigned int _field6;
+    struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> _field18;
+    struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> _field19;
 };
 
 struct ConnId {
     unsigned short _field1;
-};
-
-struct ConnNetInfo {
-    int _field1;
-    unsigned short _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field4;
-    int _field5;
 };
 
 struct ConnStatInfo {
@@ -893,17 +830,6 @@ struct DialReport_t {
     unsigned int iCloudHwpId;
 };
 
-struct DirectConnAttrInfo {
-    CDUnknownFunctionPointerType *_field1;
-    struct ConnId _field2;
-    int _field3;
-    struct ConnNetInfo _field4;
-    struct ConnNetInfo _field5;
-    unsigned int _field6;
-    struct vector<MultiMediaComponent::PointAddr, std::__1::allocator<MultiMediaComponent::PointAddr>> _field7;
-    struct vector<MultiMediaComponent::NatDetectSvrSet, std::__1::allocator<MultiMediaComponent::NatDetectSvrSet>> _field8;
-};
-
 struct ExtReport_t {
     char _field1[256];
     char _field2[256];
@@ -958,21 +884,6 @@ struct GPUTextureOptions {
     unsigned int type;
 };
 
-struct GifDecoder;
-
-struct GifExtInfo {
-    int _field1;
-    int _field2;
-    int _field3;
-};
-
-struct GifFrameRect {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-};
-
 struct Hardware {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
@@ -997,7 +908,7 @@ struct HardwareSystemNotificationsLifeLongCallback {
 };
 
 struct HostIPHint {
-    struct vector<mars::cdn::HostIpMap, std::__1::allocator<mars::cdn::HostIpMap>> host_map;
+    struct vector<mars::cdn::HostIpMap, std::allocator<mars::cdn::HostIpMap>> host_map;
 };
 
 struct HostIpMap;
@@ -1056,28 +967,42 @@ struct IWXConfService {
 
 struct Issue {
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field1;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field2;
     int _field3;
     int _field4;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field5;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field6;
     long long _field7;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field8;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field9;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
+        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+            struct __rep _field1;
+        } _field1;
     } _field10;
     _Bool _field11;
 };
@@ -1136,29 +1061,12 @@ struct MMCGIItem {
 
 struct MultiTalkMgrImpl;
 
-struct MxGifImage {
-    struct GifDecoder *_field1;
-    int _field2;
-    struct _MxImage *_field3;
-    struct _MxImage *_field4;
-    int _field5;
-    struct GifExtInfo _field6;
-    int _field7;
-    struct GifFrameRect _field8;
-    unsigned long long _field9;
-    int _field10;
-    struct vector<GifExtInfo, std::__1::allocator<GifExtInfo>> _field11;
-    _Bool _field12;
-};
-
 struct NSEdgeInsets {
     double top;
     double left;
     double bottom;
     double right;
 };
-
-struct NatDetectSvrSet;
 
 struct NewAVExtReport_t {
     unsigned int _field1;
@@ -1169,64 +1077,6 @@ struct NewAVExtReport_t {
     unsigned int _field6;
     unsigned int _field7;
     unsigned int _field8;
-};
-
-struct NewDialReport_t {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned long long _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    unsigned int _field11;
-    unsigned int _field12;
-    unsigned int _field13;
-    int _field14;
-    int _field15;
-    int _field16;
-    int _field17;
-    unsigned int _field18;
-    unsigned int _field19;
-    unsigned int _field20;
-    unsigned int _field21;
-    unsigned int _field22;
-    char _field23[256];
-    char _field24[256];
-    char _field25[256];
-    char _field26[256];
-    unsigned int _field27;
-    unsigned int _field28;
-    unsigned long long _field29;
-    unsigned long long _field30;
-    unsigned long long _field31;
-    int _field32;
-    int _field33;
-    unsigned int _field34;
-    unsigned int _field35;
-    unsigned int _field36;
-    int _field37;
-    int _field38;
-    char _field39[256];
-    char _field40[256];
-    unsigned long long _field41;
-    unsigned long long _field42;
-    unsigned long long _field43;
-    unsigned int _field44;
-    unsigned int _field45;
-    unsigned int _field46;
-    unsigned int _field47;
-    unsigned int _field48;
-    unsigned int _field49;
-    char _field50[256];
-    unsigned int _field51;
-    unsigned int _field52;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field53;
 };
 
 struct NewDirectReport {
@@ -1379,20 +1229,24 @@ struct PBClassInfo {
     CDStruct_183601bc *_field5;
 };
 
-struct PBEncodeItem;
-
 struct PendingVideoFrame;
-
-struct PointAddr;
 
 struct ProxyInfo {
     int type;
-    basic_string_0a24cc0e host;
-    basic_string_0a24cc0e ip;
+    basic_string_8e19b51d host;
+    basic_string_8e19b51d ip;
     unsigned short port;
-    basic_string_0a24cc0e username;
-    basic_string_0a24cc0e password;
+    basic_string_8e19b51d username;
+    basic_string_8e19b51d password;
 };
+
+struct QBAR_INFO;
+
+struct QBar {
+    struct QBarDecode *_field1;
+};
+
+struct QBarDecode;
 
 struct QualityManager;
 
@@ -1401,27 +1255,12 @@ struct QuicForceHost;
 struct QuicHostMap;
 
 struct QuicTaskParams {
-    struct vector<mars::cdn::QuicHostMap, std::__1::allocator<mars::cdn::QuicHostMap>> quic_host_map;
-    struct vector<mars::cdn::QuicForceHost, std::__1::allocator<mars::cdn::QuicForceHost>> force_quic_host;
+    struct vector<mars::cdn::QuicHostMap, std::allocator<mars::cdn::QuicHostMap>> quic_host_map;
+    struct vector<mars::cdn::QuicForceHost, std::allocator<mars::cdn::QuicForceHost>> force_quic_host;
     struct HostIPHint host_map_hint;
 };
 
 struct RTMP;
-
-struct RelayConnAttrInfo {
-    CDUnknownFunctionPointerType *_field1;
-    struct ConnId _field2;
-    int _field3;
-    struct ConnNetInfo _field4;
-    struct ConnNetInfo _field5;
-    unsigned int _field6;
-    struct vector<MultiMediaComponent::PointAddr, std::__1::allocator<MultiMediaComponent::PointAddr>> _field7;
-    struct vector<MultiMediaComponent::PointAddr, std::__1::allocator<MultiMediaComponent::PointAddr>> _field8;
-    int _field9;
-    unsigned short _field10;
-    unsigned int _field11;
-    unsigned short _field12;
-};
 
 struct RelayTcpReport {
     unsigned long long _field1;
@@ -1844,8 +1683,6 @@ struct TXCSafeMap<long long, txliteav::audio::AudioBGMPlayer> {
     struct mutex _field2;
 };
 
-struct TXCSoftwareVideoCodec;
-
 struct TXCStatusModule {
     CDUnknownFunctionPointerType *_vptr$TXCStatusModule;
     basic_string_23d93216 _id;
@@ -1876,6 +1713,8 @@ struct TXCopyOnWriteBuffer {
 };
 
 struct TXIRTMPSendStrategy;
+
+struct TXIVideoEncoderSoftware;
 
 struct TXSMatrix3x3 {
     struct TXSVector3 one;
@@ -1928,8 +1767,8 @@ struct TXSVideoEncoderParam {
     unsigned int _field3;
     unsigned int _field4;
     unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
+    int _field6;
+    int _field7;
     int _field8;
     int _field9;
     _Bool _field10;
@@ -1946,7 +1785,9 @@ struct TXSVideoEncoderParam {
     unsigned long long _field21;
     _Bool _field22;
     unsigned int _field23;
-    _Bool _field24;
+    unsigned int _field24;
+    _Bool _field25;
+    int _field26;
 };
 
 struct TXSVideoFrame {
@@ -1970,50 +1811,6 @@ struct TXSVideoFrame {
 struct TXVideoConfig {
     unsigned int _field1;
     _Bool _field2;
-};
-
-struct Task {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned long long _field3;
-    int _field4;
-    int _field5;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field6;
-    _Bool _field7;
-    _Bool _field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    int _field12;
-    int _field13;
-    int _field14;
-    int _field15;
-    int _field16;
-    _Bool _field17;
-    int _field18;
-    void *_field19;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field20;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field21;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field22;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field23;
-    int _field24;
-    map_5554a4ce _field25;
-    vector_ebb6ef3e _field26;
-    vector_ebb6ef3e _field27;
-    vector_ebb6ef3e _field28;
-    vector_ebb6ef3e _field29;
-    vector_ebb6ef3e _field30;
-    int _field31;
 };
 
 struct VOIPChannelAdapter {
@@ -2042,40 +1839,13 @@ struct VideoQosPara {
     unsigned int _field11;
 };
 
-struct WCTAnyProperty {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field1;
-    Class _field2;
-};
-
-struct WCTBinding {
-    Class _field1;
-    struct map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>, WCDB::CaseInsensiveComparetor, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>>> _field2;
-    struct list<std::__1::shared_ptr<WCTColumnBinding>, std::__1::allocator<std::__1::shared_ptr<WCTColumnBinding>>> _field3;
-    struct shared_ptr<std::__1::unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>>> _field4;
-    struct shared_ptr<std::__1::unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>>> _field5;
-    struct shared_ptr<std::__1::list<std::__1::shared_ptr<WCTConstraintBindingBase>>> _field6;
-    struct shared_ptr<std::__1::list<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> _field7;
-};
-
 struct WCTColumnBinding;
 
 struct WCTExpr {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field1;
+    basic_string_8e19b51d _field1;
     Class _field2;
     struct shared_ptr<WCTColumnBinding> _field3;
     Class _field4;
-};
-
-struct WCTProperty {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-    } _field1;
-    Class _field2;
-    struct shared_ptr<WCTColumnBinding> _field3;
 };
 
 struct WXTalkEngineAdapter {
@@ -2161,8 +1931,6 @@ struct _ChannelRelation {
     _Bool _field3;
     unsigned int _field4;
 };
-
-struct _MxImage;
 
 struct _NSRange {
     unsigned long long location;
@@ -2279,18 +2047,6 @@ struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char
     struct __rep __value_;
 };
 
-struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-    struct __rep __value_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*> *__next_;
-};
-
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> *__next_;
 };
@@ -2301,22 +2057,6 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::_
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*> *__next_;
 };
 
 struct __list_node_base<QuicInfoListItem, void *> {
@@ -2334,29 +2074,9 @@ struct __list_node_base<_RTMPSendQueueItem *, void *> {
     struct __list_node_base<_RTMPSendQueueItem *, void *> *_field2;
 };
 
-struct __list_node_base<const WCDB::Order, void *> {
-    struct __list_node_base<const WCDB::Order, void *> *_field1;
-    struct __list_node_base<const WCDB::Order, void *> *_field2;
-};
-
-struct __list_node_base<const WCTProperty, void *> {
-    struct __list_node_base<const WCTProperty, void *> *_field1;
-    struct __list_node_base<const WCTProperty, void *> *_field2;
-};
-
 struct __list_node_base<nWriteInfoListItem, void *> {
     struct __list_node_base<nWriteInfoListItem, void *> *_field1;
     struct __list_node_base<nWriteInfoListItem, void *> *_field2;
-};
-
-struct __list_node_base<std::__1::basic_string<char>, void *> {
-    struct __list_node_base<std::__1::basic_string<char>, void *> *_field1;
-    struct __list_node_base<std::__1::basic_string<char>, void *> *_field2;
-};
-
-struct __list_node_base<std::__1::shared_ptr<WCTColumnBinding>, void *> {
-    struct __list_node_base<std::__1::shared_ptr<WCTColumnBinding>, void *> *_field1;
-    struct __list_node_base<std::__1::shared_ptr<WCTColumnBinding>, void *> *_field2;
 };
 
 struct __rep {
@@ -2516,8 +2236,8 @@ struct _xmlNs {
 
 struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep _field1;
-    } _field1;
+        struct __rep __value_;
+    } __r_;
 };
 
 struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
@@ -2598,20 +2318,6 @@ struct list<_RTMPSendQueueItem *, std::__1::allocator<_RTMPSendQueueItem *>> {
     } _field2;
 };
 
-struct list<const WCDB::Order, std::__1::allocator<const WCDB::Order>> {
-    struct __list_node_base<const WCDB::Order, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<const WCDB::Order, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-};
-
-struct list<const WCTProperty, std::__1::allocator<const WCTProperty>> {
-    struct __list_node_base<const WCTProperty, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<const WCTProperty, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-};
-
 struct list<nWriteInfoListItem, std::__1::allocator<nWriteInfoListItem>> {
     struct __list_node_base<nWriteInfoListItem, void *> _field1;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<nWriteInfoListItem, void *>>> {
@@ -2619,23 +2325,15 @@ struct list<nWriteInfoListItem, std::__1::allocator<nWriteInfoListItem>> {
     } _field2;
 };
 
-struct list<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct __list_node_base<std::__1::basic_string<char>, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<std::__1::basic_string<char>, void *>>> {
+struct list<std::string, std::allocator<std::string>> {
+    struct __list_node_base<std::string, void *> {
+        void *_field1;
+        void *_field2;
+    } _field1;
+    struct __compressed_pair<unsigned long, std::allocator<std::__list_node<std::string, void *>>> {
         unsigned long long _field1;
     } _field2;
 };
-
-struct list<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>>;
-
-struct list<std::__1::shared_ptr<WCTColumnBinding>, std::__1::allocator<std::__1::shared_ptr<WCTColumnBinding>>> {
-    struct __list_node_base<std::__1::shared_ptr<WCTColumnBinding>, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<std::__1::shared_ptr<WCTColumnBinding>, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-};
-
-struct list<std::__1::shared_ptr<WCTConstraintBindingBase>, std::__1::allocator<std::__1::shared_ptr<WCTConstraintBindingBase>>>;
 
 struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::allocator<std::pair<const TPCodecID, TPVCodecMaxCapability>>> {
     struct __tree<std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>, std::allocator<std::__value_type<TPCodecID, TPVCodecMaxCapability>>> {
@@ -2793,37 +2491,25 @@ struct map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1:
     } _field1;
 };
 
-struct map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>, WCDB::CaseInsensiveComparetor, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>>> {
-    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>, WCDB::CaseInsensiveComparetor, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::shared_ptr<WCTColumnBinding>>, WCDB::CaseInsensiveComparetor, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
-struct map<unsigned long long, tagEmojiItem *, std::__1::less<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, tagEmojiItem *>>> {
-    struct __tree<std::__1::__value_type<unsigned long long, tagEmojiItem *>, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, tagEmojiItem *>, std::__1::less<unsigned long long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long long, tagEmojiItem *>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long long, tagEmojiItem *>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
+struct map<unsigned long long, tagEmojiItem *, std::less<unsigned long long>, std::allocator<std::pair<const unsigned long long, tagEmojiItem *>>> {
+    struct __tree<std::__value_type<unsigned long long, tagEmojiItem *>, std::__map_value_compare<unsigned long long, std::__value_type<unsigned long long, tagEmojiItem *>, std::less<unsigned long long>, true>, std::allocator<std::__value_type<unsigned long long, tagEmojiItem *>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<unsigned long long, tagEmojiItem *>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long long, std::__1::__value_type<unsigned long long, tagEmojiItem *>, std::__1::less<unsigned long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__map_value_compare<unsigned long long, std::__value_type<unsigned long long, tagEmojiItem *>, std::less<unsigned long long>, true>> {
             unsigned long long __value_;
         } __pair3_;
     } __tree_;
 };
 
-struct map<unsigned long, unsigned long, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, unsigned long>>> {
-    struct __tree<std::__1::__value_type<unsigned long, unsigned long>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned long>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, unsigned long>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, unsigned long>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
+struct map<unsigned long, unsigned long, std::less<unsigned long>, std::allocator<std::pair<const unsigned long, unsigned long>>> {
+    struct __tree<std::__value_type<unsigned long, unsigned long>, std::__map_value_compare<unsigned long, std::__value_type<unsigned long, unsigned long>, std::less<unsigned long>, true>, std::allocator<std::__value_type<unsigned long, unsigned long>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<unsigned long, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned long>, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__map_value_compare<unsigned long, std::__value_type<unsigned long, unsigned long>, std::less<unsigned long>, true>> {
             unsigned long long __value_;
         } __pair3_;
     } __tree_;
@@ -2866,18 +2552,6 @@ struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<c
     } __tree_;
 };
 
-struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
-    struct __tree<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned int, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::less<unsigned int>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct shared_ptr<CSoftwareVideoEncoderListenerAdpt> {
     struct CSoftwareVideoEncoderListenerAdpt *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2913,8 +2587,8 @@ struct shared_ptr<TXCEventRecorderAdapt> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<TXCSoftwareVideoCodec> {
-    struct TXCSoftwareVideoCodec *__ptr_;
+struct shared_ptr<TXIVideoEncoderSoftware> {
+    struct TXIVideoEncoderSoftware *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -2926,26 +2600,6 @@ struct shared_ptr<WCTColumnBinding> {
 struct shared_ptr<mars::cdn::Callback> {
     struct Callback *__ptr_;
     struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<std::__1::list<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct list<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<std::__1::basic_string<char>, std::__1::basic_string<char>>>> *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<std::__1::list<std::__1::shared_ptr<WCTConstraintBindingBase>>> {
-    struct list<std::__1::shared_ptr<WCTConstraintBindingBase>, std::__1::allocator<std::__1::shared_ptr<WCTConstraintBindingBase>>> *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<std::__1::unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>>> {
-    struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>>>> *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<std::__1::unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>>> {
-    struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>>>> *_field1;
-    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<txliteav::AudioDataSender> {
@@ -4233,32 +3887,8 @@ struct timeval {
     int tv_usec;
 };
 
-struct tuple<NSString *, NSString *, NSString *, NSString *>;
-
 struct type {
     unsigned char _field1[32];
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*>> {
-                unsigned long long __value_;
-            } __data_;
-        } __value_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>> {
-                unsigned long long __value_;
-            } __data_;
-        } __value_;
-    } __ptr_;
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>>> {
@@ -4294,44 +3924,66 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*>> {
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>> {
                 unsigned long long __value_;
             } __data_;
         } __value_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>> {
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>> {
                 unsigned long long __value_;
             } __data_;
         } __value_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*>> {
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*>> {
                 unsigned long long __value_;
             } __data_;
         } __value_;
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*>> {
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>> {
+                unsigned long long __value_;
+            } __data_;
+        } __value_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*>> {
+                unsigned long long __value_;
+            } __data_;
+        } __value_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*>>> {
+    struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>**, std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*>>> {
+        void **__value_;
+        struct __bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*>> {
                 unsigned long long __value_;
             } __data_;
         } __value_;
@@ -4422,31 +4074,35 @@ struct unique_ptr<txliteav::basic::StatusBucket, std::__1::default_delete<txlite
     } _field1;
 };
 
-struct unordered_map<int, const MMCGIItem *, std::__1::hash<int>, std::__1::equal_to<int>, std::__1::allocator<std::__1::pair<const int, const MMCGIItem *>>> {
-    struct __hash_table<std::__1::__hash_value_type<int, const MMCGIItem *>, std::__1::__unordered_map_hasher<int, std::__1::__hash_value_type<int, const MMCGIItem *>, std::__1::hash<int>, true>, std::__1::__unordered_map_equal<int, std::__1::__hash_value_type<int, const MMCGIItem *>, std::__1::equal_to<int>, true>, std::__1::allocator<std::__1::__hash_value_type<int, const MMCGIItem *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<int, const MMCGIItem *>, void *>*> __value_;
+struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> {
+    struct __hash_table<std::__hash_value_type<int, const MMCGIItem *>, std::__unordered_map_hasher<int, std::__hash_value_type<int, const MMCGIItem *>, std::hash<int>, std::equal_to<int>, true>, std::__unordered_map_equal<int, std::__hash_value_type<int, const MMCGIItem *>, std::equal_to<int>, std::hash<int>, true>, std::allocator<std::__hash_value_type<int, const MMCGIItem *>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<int, std::__1::__hash_value_type<int, const MMCGIItem *>, std::__1::hash<int>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<int, std::__hash_value_type<int, const MMCGIItem *>, std::hash<int>, std::equal_to<int>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<int, std::__1::__hash_value_type<int, const MMCGIItem *>, std::__1::equal_to<int>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<int, std::__hash_value_type<int, const MMCGIItem *>, std::equal_to<int>, std::hash<int>, true>> {
             float __value_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, const WCDBBackupMediaStr2IDObject *>>> {
-    struct __hash_table<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*> __value_;
+struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::hash<long long>, std::equal_to<long long>, std::allocator<std::pair<const long long, const WCDBBackupMediaStr2IDObject *>>> {
+    struct __hash_table<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__unordered_map_hasher<long long, std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::hash<long long>, std::equal_to<long long>, true>, std::__unordered_map_equal<long long, std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::equal_to<long long>, std::hash<long long>, true>, std::allocator<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__1::hash<long long>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<long long, std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::hash<long long>, std::equal_to<long long>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::__1::equal_to<long long>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<long long, std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::equal_to<long long>, std::hash<long long>, true>> {
             float __value_;
         } __p3_;
     } __table_;
@@ -4497,65 +4153,69 @@ struct unordered_map<std::__1::basic_string<char>, int, std::__1::hash<std::__1:
     } __table_;
 };
 
-struct unordered_map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>*> __value_;
+struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> {
+    struct __hash_table<std::__hash_value_type<std::string, std::string>, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::string>, std::hash<std::string>, std::equal_to<std::string>, true>, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::string>, std::equal_to<std::string>, std::hash<std::string>, true>, std::allocator<std::__hash_value_type<std::string, std::string>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<std::string, std::string>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::hash<std::__1::basic_string<char>>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<std::string, std::__hash_value_type<std::string, std::string>, std::hash<std::string>, std::equal_to<std::string>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<std::string, std::__hash_value_type<std::string, std::string>, std::equal_to<std::string>, std::hash<std::string>, true>> {
             float __value_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTConstraintBindingBase>>>>;
-
-struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<WCTIndexBinding>>>>;
-
-struct unordered_map<unsigned int, MMCGI *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, MMCGI *>>> {
-    struct __hash_table<std::__1::__hash_value_type<unsigned int, MMCGI *>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, MMCGI *>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, MMCGI *>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, MMCGI *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, MMCGI *>, void *>*> __value_;
+struct unordered_map<unsigned int, MMCGI *, std::hash<unsigned int>, std::equal_to<unsigned int>, std::allocator<std::pair<const unsigned int, MMCGI *>>> {
+    struct __hash_table<std::__hash_value_type<unsigned int, MMCGI *>, std::__unordered_map_hasher<unsigned int, std::__hash_value_type<unsigned int, MMCGI *>, std::hash<unsigned int>, std::equal_to<unsigned int>, true>, std::__unordered_map_equal<unsigned int, std::__hash_value_type<unsigned int, MMCGI *>, std::equal_to<unsigned int>, std::hash<unsigned int>, true>, std::allocator<std::__hash_value_type<unsigned int, MMCGI *>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, MMCGI *>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, MMCGI *>, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<unsigned int, std::__hash_value_type<unsigned int, MMCGI *>, std::hash<unsigned int>, std::equal_to<unsigned int>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, MMCGI *>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<unsigned int, std::__hash_value_type<unsigned int, MMCGI *>, std::equal_to<unsigned int>, std::hash<unsigned int>, true>> {
             float __value_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_map<unsigned int, id, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, id>>> {
-    struct __hash_table<std::__1::__hash_value_type<unsigned int, id>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, id>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, id>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, id>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, id>, void *>*> __value_;
+struct unordered_map<unsigned int, id, std::hash<unsigned int>, std::equal_to<unsigned int>, std::allocator<std::pair<const unsigned int, id>>> {
+    struct __hash_table<std::__hash_value_type<unsigned int, id>, std::__unordered_map_hasher<unsigned int, std::__hash_value_type<unsigned int, id>, std::hash<unsigned int>, std::equal_to<unsigned int>, true>, std::__unordered_map_equal<unsigned int, std::__hash_value_type<unsigned int, id>, std::equal_to<unsigned int>, std::hash<unsigned int>, true>, std::allocator<std::__hash_value_type<unsigned int, id>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<unsigned int, id>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, id>, std::__1::hash<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<unsigned int, std::__hash_value_type<unsigned int, id>, std::hash<unsigned int>, std::equal_to<unsigned int>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, id>, std::__1::equal_to<unsigned int>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<unsigned int, std::__hash_value_type<unsigned int, id>, std::equal_to<unsigned int>, std::hash<unsigned int>, true>> {
             float __value_;
         } __p3_;
     } __table_;
 };
 
-struct unordered_map<unsigned long, std::__1::set<unsigned int>, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, std::__1::set<unsigned int>>>> {
-    struct __hash_table<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, void *>*> __value_;
+struct unordered_map<unsigned long, std::set<unsigned int>, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<const unsigned long, std::set<unsigned int>>>> {
+    struct __hash_table<std::__hash_value_type<unsigned long, std::set<unsigned int>>, std::__unordered_map_hasher<unsigned long, std::__hash_value_type<unsigned long, std::set<unsigned int>>, std::hash<unsigned long>, std::equal_to<unsigned long>, true>, std::__unordered_map_equal<unsigned long, std::__hash_value_type<unsigned long, std::set<unsigned int>>, std::equal_to<unsigned long>, std::hash<unsigned long>, true>, std::allocator<std::__hash_value_type<unsigned long, std::set<unsigned int>>>> {
+        struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*>, std::allocator<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>>> {
+            struct __hash_node_base<std::__hash_node<std::__hash_value_type<unsigned long, std::set<unsigned int>>, void *>*> {
+                void *__next_;
+            } __value_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, std::__1::hash<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__unordered_map_hasher<unsigned long, std::__hash_value_type<unsigned long, std::set<unsigned int>>, std::hash<unsigned long>, std::equal_to<unsigned long>, true>> {
             unsigned long long __value_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, std::__1::set<unsigned int>>, std::__1::equal_to<unsigned long>, true>> {
+        struct __compressed_pair<float, std::__unordered_map_equal<unsigned long, std::__hash_value_type<unsigned long, std::set<unsigned int>>, std::equal_to<unsigned long>, std::hash<unsigned long>, true>> {
             float __value_;
         } __p3_;
     } __table_;
@@ -4563,43 +4223,19 @@ struct unordered_map<unsigned long, std::__1::set<unsigned int>, std::__1::hash<
 
 struct uregex;
 
-struct vector<GifExtInfo, std::__1::allocator<GifExtInfo>> {
-    struct GifExtInfo *_field1;
-    struct GifExtInfo *_field2;
-    struct __compressed_pair<GifExtInfo *, std::__1::allocator<GifExtInfo>> {
-        struct GifExtInfo *_field1;
-    } _field3;
-};
-
-struct vector<MultiMediaComponent::NatDetectSvrSet, std::__1::allocator<MultiMediaComponent::NatDetectSvrSet>> {
-    struct NatDetectSvrSet *_field1;
-    struct NatDetectSvrSet *_field2;
-    struct __compressed_pair<MultiMediaComponent::NatDetectSvrSet *, std::__1::allocator<MultiMediaComponent::NatDetectSvrSet>> {
-        struct NatDetectSvrSet *_field1;
-    } _field3;
-};
-
-struct vector<MultiMediaComponent::PointAddr, std::__1::allocator<MultiMediaComponent::PointAddr>> {
-    struct PointAddr *_field1;
-    struct PointAddr *_field2;
-    struct __compressed_pair<MultiMediaComponent::PointAddr *, std::__1::allocator<MultiMediaComponent::PointAddr>> {
-        struct PointAddr *_field1;
-    } _field3;
-};
-
-struct vector<PBEncodeItem, std::__1::allocator<PBEncodeItem>> {
-    struct PBEncodeItem *_field1;
-    struct PBEncodeItem *_field2;
-    struct __compressed_pair<PBEncodeItem *, std::__1::allocator<PBEncodeItem>> {
-        struct PBEncodeItem *_field1;
-    } _field3;
-};
-
 struct vector<PendingVideoFrame *, std::__1::allocator<PendingVideoFrame *>> {
     struct PendingVideoFrame **_field1;
     struct PendingVideoFrame **_field2;
     struct __compressed_pair<PendingVideoFrame **, std::__1::allocator<PendingVideoFrame *>> {
         struct PendingVideoFrame **_field1;
+    } _field3;
+};
+
+struct vector<QBAR_INFO, std::allocator<QBAR_INFO>> {
+    struct QBAR_INFO *_field1;
+    struct QBAR_INFO *_field2;
+    struct __compressed_pair<QBAR_INFO *, std::allocator<QBAR_INFO>> {
+        struct QBAR_INFO *_field1;
     } _field3;
 };
 
@@ -4659,67 +4295,75 @@ struct vector<int, std::allocator<int>> {
     } _field3;
 };
 
-struct vector<mars::cdn::BatchSnsReqImageData, std::__1::allocator<mars::cdn::BatchSnsReqImageData>> {
+struct vector<mars::cdn::BatchSnsReqImageData, std::allocator<mars::cdn::BatchSnsReqImageData>> {
     struct BatchSnsReqImageData *__begin_;
     struct BatchSnsReqImageData *__end_;
-    struct __compressed_pair<mars::cdn::BatchSnsReqImageData *, std::__1::allocator<mars::cdn::BatchSnsReqImageData>> {
+    struct __compressed_pair<mars::cdn::BatchSnsReqImageData *, std::allocator<mars::cdn::BatchSnsReqImageData>> {
         struct BatchSnsReqImageData *__value_;
     } __end_cap_;
 };
 
-struct vector<mars::cdn::FileID, std::__1::allocator<mars::cdn::FileID>> {
+struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> {
     struct FileID *_field1;
     struct FileID *_field2;
-    struct __compressed_pair<mars::cdn::FileID *, std::__1::allocator<mars::cdn::FileID>> {
+    struct __compressed_pair<mars::cdn::FileID *, std::allocator<mars::cdn::FileID>> {
         struct FileID *_field1;
     } _field3;
 };
 
-struct vector<mars::cdn::HostIpMap, std::__1::allocator<mars::cdn::HostIpMap>> {
+struct vector<mars::cdn::HostIpMap, std::allocator<mars::cdn::HostIpMap>> {
     struct HostIpMap *__begin_;
     struct HostIpMap *__end_;
-    struct __compressed_pair<mars::cdn::HostIpMap *, std::__1::allocator<mars::cdn::HostIpMap>> {
+    struct __compressed_pair<mars::cdn::HostIpMap *, std::allocator<mars::cdn::HostIpMap>> {
         struct HostIpMap *__value_;
     } __end_cap_;
 };
 
-struct vector<mars::cdn::QuicForceHost, std::__1::allocator<mars::cdn::QuicForceHost>> {
+struct vector<mars::cdn::QuicForceHost, std::allocator<mars::cdn::QuicForceHost>> {
     struct QuicForceHost *__begin_;
     struct QuicForceHost *__end_;
-    struct __compressed_pair<mars::cdn::QuicForceHost *, std::__1::allocator<mars::cdn::QuicForceHost>> {
+    struct __compressed_pair<mars::cdn::QuicForceHost *, std::allocator<mars::cdn::QuicForceHost>> {
         struct QuicForceHost *__value_;
     } __end_cap_;
 };
 
-struct vector<mars::cdn::QuicHostMap, std::__1::allocator<mars::cdn::QuicHostMap>> {
+struct vector<mars::cdn::QuicHostMap, std::allocator<mars::cdn::QuicHostMap>> {
     struct QuicHostMap *__begin_;
     struct QuicHostMap *__end_;
-    struct __compressed_pair<mars::cdn::QuicHostMap *, std::__1::allocator<mars::cdn::QuicHostMap>> {
+    struct __compressed_pair<mars::cdn::QuicHostMap *, std::allocator<mars::cdn::QuicHostMap>> {
         struct QuicHostMap *__value_;
     } __end_cap_;
 };
 
-struct vector<objc_method_description, std::__1::allocator<objc_method_description>> {
+struct vector<objc_method_description, std::allocator<objc_method_description>> {
     struct objc_method_description *_field1;
     struct objc_method_description *_field2;
-    struct __compressed_pair<objc_method_description *, std::__1::allocator<objc_method_description>> {
+    struct __compressed_pair<objc_method_description *, std::allocator<objc_method_description>> {
         struct objc_method_description *_field1;
     } _field3;
 };
 
 struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__begin_;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__end_;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field1;
+    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field2;
     struct __compressed_pair<std::__1::basic_string<char>*, std::__1::allocator<std::__1::basic_string<char>>> {
-        struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__value_;
+        struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field1;
+    } _field3;
+};
+
+struct vector<std::string, std::allocator<std::string>> {
+    void *__begin_;
+    void *__end_;
+    struct __compressed_pair<std::string *, std::allocator<std::string>> {
+        void *__value_;
     } __end_cap_;
 };
 
-struct vector<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>, std::__1::allocator<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>>> {
-    struct tuple<NSString *, NSString *, NSString *, NSString *> *__begin_;
-    struct tuple<NSString *, NSString *, NSString *, NSString *> *__end_;
-    struct __compressed_pair<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>*, std::__1::allocator<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>>> {
-        struct tuple<NSString *, NSString *, NSString *, NSString *> *__value_;
+struct vector<std::tuple<NSString *, NSString *, NSString *, NSString *>, std::allocator<std::tuple<NSString *, NSString *, NSString *, NSString *>>> {
+    void *__begin_;
+    void *__end_;
+    struct __compressed_pair<std::tuple<NSString *, NSString *, NSString *, NSString *>*, std::allocator<std::tuple<NSString *, NSString *, NSString *, NSString *>>> {
+        void *__value_;
     } __end_cap_;
 };
 
@@ -4736,14 +4380,6 @@ struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDe
     struct _AudioDeviceInfo *_field2;
     struct __compressed_pair<txliteav::_AudioDeviceInfo *, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
         struct _AudioDeviceInfo *_field1;
-    } _field3;
-};
-
-struct vector<unsigned int, std::__1::allocator<unsigned int>> {
-    unsigned int *_field1;
-    unsigned int *_field2;
-    struct __compressed_pair<unsigned int *, std::__1::allocator<unsigned int>> {
-        unsigned int *_field1;
     } _field3;
 };
 
@@ -4796,12 +4432,10 @@ typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
 } basic_string_1f377286;
 
 typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> __r_;
-} basic_string_0a24cc0e;
-
-typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> _field1;
-} basic_string_146fa116;
+    struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
+        struct __rep _field1;
+    } _field1;
+} basic_string_9d13523a;
 
 #endif
 
@@ -4902,7 +4536,7 @@ typedef struct {
     int _field2;
     unsigned long long _field3;
     unsigned long long _field4;
-    basic_string_9c1a5415 _field5;
+    basic_string_8e19b51d _field5;
     float _field6;
     float _field7;
     unsigned int _field8;
@@ -4913,14 +4547,14 @@ typedef struct {
     float _field13;
     float _field14;
     float _field15;
-} CDStruct_4c540132;
+} CDStruct_4ebc2506;
 
 // Template types
 typedef struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep _field1;
-    } _field1;
-} basic_string_9c1a5415;
+        struct __rep __value_;
+    } __r_;
+} basic_string_8e19b51d;
 
 typedef struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
     struct __split_buffer<TPAudioRouteDescription *, std::allocator<TPAudioRouteDescription *>> {
@@ -4951,26 +4585,15 @@ typedef struct function<void (const char *, std::__1::vector<sqlitelint::Issue>)
     } _field1;
 } function_e8193119;
 
-typedef struct list<const WCDB::Order, std::__1::allocator<const WCDB::Order>> {
-    struct __list_node_base<const WCDB::Order, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<const WCDB::Order, void *>>> {
+typedef struct list<std::string, std::allocator<std::string>> {
+    struct __list_node_base<std::string, void *> {
+        void *_field1;
+        void *_field2;
+    } _field1;
+    struct __compressed_pair<unsigned long, std::allocator<std::__list_node<std::string, void *>>> {
         unsigned long long _field1;
     } _field2;
-} list_02de7622;
-
-typedef struct list<const WCTProperty, std::__1::allocator<const WCTProperty>> {
-    struct __list_node_base<const WCTProperty, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<const WCTProperty, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-} list_2812bee2;
-
-typedef struct list<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct __list_node_base<std::__1::basic_string<char>, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<std::__1::basic_string<char>, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-} list_f20de06b;
+} list_823ce23d;
 
 typedef struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::allocator<std::pair<const TPCodecID, TPVCodecMaxCapability>>> {
     struct __tree<std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::__map_value_compare<TPCodecID, std::__value_type<TPCodecID, TPVCodecMaxCapability>, std::less<TPCodecID>, true>, std::allocator<std::__value_type<TPCodecID, TPVCodecMaxCapability>>> {
@@ -5019,30 +4642,6 @@ typedef struct map<std::__1::basic_string<char>, std::__1::basic_string<char>, s
         } _field3;
     } _field1;
 } map_5554a4ce;
-
-typedef struct map<unsigned long, unsigned long, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, unsigned long>>> {
-    struct __tree<std::__1::__value_type<unsigned long, unsigned long>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned long>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, unsigned long>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, unsigned long>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, unsigned long>, std::__1::less<unsigned long>, true>> {
-            unsigned long long __value_;
-        } __pair3_;
-    } __tree_;
-} map_f8690629;
-
-typedef struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
-    struct __tree<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned int, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::less<unsigned int>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-} set_531c353a;
 
 typedef struct shared_ptr<CdnCallback> {
     struct CdnCallback *__ptr_;
@@ -5115,6 +4714,14 @@ typedef struct unique_ptr<txliteav::basic::StatusBucket, std::__1::default_delet
     } _field1;
 } unique_ptr_1a6916a3;
 
+typedef struct vector<QBAR_INFO, std::allocator<QBAR_INFO>> {
+    struct QBAR_INFO *_field1;
+    struct QBAR_INFO *_field2;
+    struct __compressed_pair<QBAR_INFO *, std::allocator<QBAR_INFO>> {
+        struct QBAR_INFO *_field1;
+    } _field3;
+} vector_95637d69;
+
 typedef struct vector<TPAVProgramInfo, std::allocator<TPAVProgramInfo>> {
     struct TPAVProgramInfo *_field1;
     struct TPAVProgramInfo *_field2;
@@ -5155,21 +4762,21 @@ typedef struct vector<int, std::allocator<int>> {
     } _field3;
 } vector_1d76f7fb;
 
-typedef struct vector<objc_method_description, std::__1::allocator<objc_method_description>> {
+typedef struct vector<objc_method_description, std::allocator<objc_method_description>> {
     struct objc_method_description *_field1;
     struct objc_method_description *_field2;
-    struct __compressed_pair<objc_method_description *, std::__1::allocator<objc_method_description>> {
+    struct __compressed_pair<objc_method_description *, std::allocator<objc_method_description>> {
         struct objc_method_description *_field1;
     } _field3;
-} vector_71df529e;
+} vector_c11dd721;
 
-typedef struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__begin_;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__end_;
-    struct __compressed_pair<std::__1::basic_string<char>*, std::__1::allocator<std::__1::basic_string<char>>> {
-        struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *__value_;
+typedef struct vector<std::string, std::allocator<std::string>> {
+    void *__begin_;
+    void *__end_;
+    struct __compressed_pair<std::string *, std::allocator<std::string>> {
+        void *__value_;
     } __end_cap_;
-} vector_ebb6ef3e;
+} vector_bfe5b09a;
 
 typedef struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
     struct _AudioDeviceInfo *_field1;
@@ -5178,14 +4785,6 @@ typedef struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::
         struct _AudioDeviceInfo *_field1;
     } _field3;
 } vector_ea1dd089;
-
-typedef struct vector<unsigned int, std::__1::allocator<unsigned int>> {
-    unsigned int *_field1;
-    unsigned int *_field2;
-    struct __compressed_pair<unsigned int *, std::__1::allocator<unsigned int>> {
-        unsigned int *_field1;
-    } _field3;
-} vector_f672cb0f;
 
 typedef struct weak_ptr<txliteav::audio::AudioDeviceCapCallback> {
     struct AudioDeviceCapCallback *__ptr_;

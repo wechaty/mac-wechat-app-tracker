@@ -83,7 +83,6 @@
 - (void)clearAndGetUnReadFromBottom:(unsigned long long)arg1;
 - (void)clearAndGetUnReadFromTop:(unsigned long long)arg1;
 - (BOOL)loadMoreFromPullUp;
-- (BOOL)loadMoreFromPullDown;
 - (unsigned long long)loadMoreMessages;
 - (void)getRecentMessages;
 - (void)getMsgFromPhoneIfNeed:(unsigned int)arg1 endTime:(unsigned int)arg2;

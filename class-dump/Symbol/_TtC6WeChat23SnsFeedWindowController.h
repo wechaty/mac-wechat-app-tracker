@@ -14,6 +14,7 @@
     // Error parsing type: , name: listVC
     // Error parsing type: , name: isAnimating
     // Error parsing type: , name: oContact
+    // Error parsing type: , name: dataItemTidFromSearch
     // Error parsing type: , name: publishSession
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: publishDisposeBag
@@ -36,6 +37,7 @@
 - (void)dealloc;
 - (void)windowDidLoad;
 @property(nonatomic, readonly) NSString *windowNibName;
+@property(nonatomic, copy) NSString *dataItemTidFromSearch;
 @property(nonatomic, retain) WCContactData *oContact; // @synthesize oContact;
 
 @end

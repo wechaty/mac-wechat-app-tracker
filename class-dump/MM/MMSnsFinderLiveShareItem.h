@@ -31,10 +31,15 @@
     NSString *height;
     NSString *liveTimestamp;
     NSString *liveStatus;
+    unsigned long long authIconType;
+    NSString *authIconUrl;
+    NSString *_authIconTypeStr;
 }
 
 + (id)modelCustomPropertyMapperForConfigTag:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_authIconUrl;
++ (void)PBArrayAdd_authIconType;
 + (void)PBArrayAdd_liveStatus;
 + (void)PBArrayAdd_liveTimestamp;
 + (void)PBArrayAdd_height;
@@ -54,7 +59,10 @@
 + (void)PBArrayAdd_finderObjectID;
 + (void)PBArrayAdd_finderUsername;
 + (void)PBArrayAdd_finderLiveID;
++ (id)itemFromJSApiDictionary:(id)arg1;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *authIconTypeStr; // @synthesize authIconTypeStr=_authIconTypeStr;
+@property(copy, nonatomic) NSString *authIconUrl; // @synthesize authIconUrl;
 @property(copy, nonatomic) NSString *liveStatus; // @synthesize liveStatus;
 @property(copy, nonatomic) NSString *liveTimestamp; // @synthesize liveTimestamp;
 @property(copy, nonatomic) NSString *height; // @synthesize height;
@@ -75,6 +83,7 @@
 @property(copy, nonatomic) NSString *finderUsername; // @synthesize finderUsername;
 @property(copy, nonatomic) NSString *finderLiveID; // @synthesize finderLiveID;
 - (BOOL)isEqual:(id)arg1;
+@property(nonatomic) unsigned long long authIconType; // @synthesize authIconType;
 - (id)toInviteXML;
 - (id)toBookingXML;
 - (id)toFeedXML;
@@ -83,8 +92,8 @@
 - (void)setBookingXML:(struct XmlReaderNode_t *)arg1;
 - (void)setFeedXML:(struct XmlReaderNode_t *)arg1;
 - (BOOL)fromXML:(struct XmlReaderNode_t *)arg1;
-- (id)initWithShareType:(unsigned long long)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (id)initWithShareType:(unsigned int)arg1;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (id)pathFor:(long long)arg1:(id)arg2;
 - (id)dataUrl;

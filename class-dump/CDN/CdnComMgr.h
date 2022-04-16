@@ -39,7 +39,7 @@
 - (unsigned int)calcFileCrc32WithFilePath:(id)arg1;
 - (id)calcFileMd5WithFilePath:(id)arg1;
 - (int)startDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3 andDownloadMode:(int)arg4;
-- (BOOL)StartDownloadTpDataFile:(struct C2CDownloadRequest *)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
+- (BOOL)StartDownloadTpDataFile:(void *)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
 - (void)StopUploadRecordMedia:(id)arg1;
 - (BOOL)StartUploadRecordMedia:(id)arg1 enableHitCheck:(BOOL)arg2;
 - (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;
@@ -83,8 +83,8 @@
 - (BOOL)StartDownloadComMedia:(id)arg1;
 - (id)GetDownloadProgressInfo:(id)arg1;
 - (void)StopDownloadMedia:(id)arg1;
-- (BOOL)StartDownloadMedia:(struct C2CDownloadRequest *)arg1;
-- (BOOL)StartDownloadMedia:(struct C2CDownloadRequest *)arg1 message:(id)arg2 type:(int)arg3;
+- (BOOL)StartDownloadMedia:(void *)arg1;
+- (BOOL)StartDownloadMedia:(void *)arg1 message:(id)arg2 type:(int)arg3;
 - (void)StopUploadComMedia:(id)arg1;
 - (BOOL)StartUploadComMedia:(id)arg1;
 - (BOOL)StopDownloadComMedia:(id)arg1 CdnDownloadTaskInfo:(id)arg2;

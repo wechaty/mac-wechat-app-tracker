@@ -39,6 +39,7 @@
 
 + (id)_translationStringForTableItem:(id)arg1;
 + (id)_bodyStringForTableItem:(id)arg1;
++ (id)formatMessageText:(id)arg1 replaceHtmlATag:(BOOL)arg2 isSendFromSelf:(BOOL)arg3 isQQEmojisToImages:(BOOL)arg4;
 + (id)formatMessageText:(id)arg1 replaceHtmlATag:(BOOL)arg2 isSendFromSelf:(BOOL)arg3;
 + (double)availableTextWidthForItem:(id)arg1 constraitWidth:(double)arg2;
 + (struct CGRect)_getOneLineTranslationRectWithWidthConstraint:(double)arg1;
@@ -83,6 +84,8 @@
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
 - (struct CGRect)clickableArea;
+- (id)getTextViewSelectedString;
+- (void)contextMenuSearch;
 - (void)contextMenuSolitaire;
 - (void)updateMessageCellHeight:(BOOL)arg1;
 - (void)contextMenuHideTranslation;

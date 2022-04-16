@@ -25,7 +25,7 @@
 @property(copy, nonatomic) NSString *certKeyN; // @synthesize certKeyN;
 @property(copy, nonatomic) NSString *certKeyE; // @synthesize certKeyE;
 @property(nonatomic) unsigned int certVersion; // @synthesize certVersion;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

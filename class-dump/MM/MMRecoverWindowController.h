@@ -8,7 +8,7 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSButton, NSString, NSTextField;
+@class NSButton, NSPopUpButton, NSString, NSTextField;
 
 @interface MMRecoverWindowController : MMWindowController <NSWindowDelegate>
 {
@@ -17,9 +17,17 @@
     NSButton *_diskDetectButton;
     NSButton *_DBDetectButton;
     NSButton *_forcewebpButton;
+    NSButton *_verbosePlayerLog;
+    NSPopUpButton *_h265DownloadButton;
+    NSPopUpButton *_h265UploadButton;
+    NSPopUpButton *_playerCoreButton;
 }
 
 - (void).cxx_destruct;
+@property __weak NSPopUpButton *playerCoreButton; // @synthesize playerCoreButton=_playerCoreButton;
+@property __weak NSPopUpButton *h265UploadButton; // @synthesize h265UploadButton=_h265UploadButton;
+@property __weak NSPopUpButton *h265DownloadButton; // @synthesize h265DownloadButton=_h265DownloadButton;
+@property __weak NSButton *verbosePlayerLog; // @synthesize verbosePlayerLog=_verbosePlayerLog;
 @property __weak NSButton *forcewebpButton; // @synthesize forcewebpButton=_forcewebpButton;
 @property __weak NSButton *DBDetectButton; // @synthesize DBDetectButton=_DBDetectButton;
 @property __weak NSButton *diskDetectButton; // @synthesize diskDetectButton=_diskDetectButton;
@@ -33,6 +41,8 @@
 - (void)openLocalLogDir:(id)arg1;
 - (void)openLocalCacheDir:(id)arg1;
 - (void)openLocalDataDir:(id)arg1;
+- (void)onChangeH265UploadButton:(id)arg1;
+- (void)onChangeH265DownloadButton:(id)arg1;
 - (void)refreshGroupSession:(id)arg1;
 - (void)clearNeverReminder:(id)arg1;
 - (void)recoverSessionListFromLocal:(id)arg1;
@@ -40,6 +50,8 @@
 - (void)repairContactList:(id)arg1;
 - (void)showRecentCheckpointTime:(id)arg1;
 - (void)resetDBCheckpointInterval:(id)arg1;
+- (void)onPlayerCoreBtnClicked:(id)arg1;
+- (void)onVerbosePlayerLogBtnClicked:(id)arg1;
 - (void)onDBDetectButtonClick:(id)arg1;
 - (void)onDiskDetectButtonClick:(id)arg1;
 - (void)clearFileIndexAndRestart:(id)arg1;

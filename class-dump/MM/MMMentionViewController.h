@@ -7,6 +7,7 @@
 #import "MMViewController.h"
 
 #import "IGroupMgrExt-Protocol.h"
+#import "MMMentionTableCellViewDelegate-Protocol.h"
 #import "MMTableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
@@ -14,7 +15,7 @@
 @class MMTableView, NSMutableArray, NSString;
 @protocol MMMentionViewControllerDelegate;
 
-@interface MMMentionViewController : MMViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, IGroupMgrExt>
+@interface MMMentionViewController : MMViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, IGroupMgrExt, MMMentionTableCellViewDelegate>
 {
     id <MMMentionViewControllerDelegate> _delegate;
     NSMutableArray *_contacts;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) NSMutableArray *filteredData; // @synthesize filteredData=_filteredData;
 @property(retain, nonatomic) NSMutableArray *contacts; // @synthesize contacts=_contacts;
 @property(nonatomic) id <MMMentionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)mouseEnterCell:(id)arg1;
 - (void)OnDelGroupMember:(id)arg1 withResult:(unsigned int)arg2 memberList:(id)arg3;
 - (void)OnAddGroupMember:(id)arg1 withStatus:(unsigned int)arg2 memberList:(id)arg3 contactList:(id)arg4;
 - (void)filterWithKeyword:(id)arg1;
@@ -36,11 +38,13 @@
 - (void)tableView:(id)arg1 rowGotMouseDown:(long long)arg2;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)chooseCurrentContact;
 - (void)selectNextItem;
 - (void)selectPrevItem;
+- (void)addAtAllContact;
 - (void)hide;
 - (double)suggestDisplayHeight;
 - (void)showInView:(id)arg1 withRelativeRect:(struct CGRect)arg2;

@@ -8,29 +8,41 @@
 
 #import "MMService-Protocol.h"
 
-@class NSMutableArray, NSString;
+@class MMSearchExposeReport, NSMutableArray, NSString;
 
 @interface MMChatMangerSearchReportMgr : MMService <MMService>
 {
+    BOOL _hasSearchDone;
     int _searchScene;
-    NSString *_localSearchId;
+    NSString *_localSessionId;
     unsigned long long _startSearchTime;
     NSMutableArray *_contactSearchResults;
     NSMutableArray *_brandContactSearchResults;
     NSMutableArray *_groupContactSearchResults;
     NSMutableArray *_chatLogSearchResults;
     NSMutableArray *_functionSearchResults;
+    unsigned long long _searchResultFlag;
+    MMSearchExposeReport *_exposeReport;
 }
 
++ (int)convertItemTypeToClickType:(unsigned long long)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMSearchExposeReport *exposeReport; // @synthesize exposeReport=_exposeReport;
+@property(nonatomic) unsigned long long searchResultFlag; // @synthesize searchResultFlag=_searchResultFlag;
 @property(retain, nonatomic) NSMutableArray *functionSearchResults; // @synthesize functionSearchResults=_functionSearchResults;
 @property(retain, nonatomic) NSMutableArray *chatLogSearchResults; // @synthesize chatLogSearchResults=_chatLogSearchResults;
 @property(retain, nonatomic) NSMutableArray *groupContactSearchResults; // @synthesize groupContactSearchResults=_groupContactSearchResults;
 @property(retain, nonatomic) NSMutableArray *brandContactSearchResults; // @synthesize brandContactSearchResults=_brandContactSearchResults;
 @property(retain, nonatomic) NSMutableArray *contactSearchResults; // @synthesize contactSearchResults=_contactSearchResults;
+@property(nonatomic) BOOL hasSearchDone; // @synthesize hasSearchDone=_hasSearchDone;
 @property(nonatomic) unsigned long long startSearchTime; // @synthesize startSearchTime=_startSearchTime;
-@property(readonly, nonatomic) NSString *localSearchId; // @synthesize localSearchId=_localSearchId;
+@property(readonly, nonatomic) NSString *localSessionId; // @synthesize localSessionId=_localSessionId;
 @property(readonly, nonatomic) int searchScene; // @synthesize searchScene=_searchScene;
+- (void)saveClickedSearchResult:(int)arg1;
+- (void)reportExposeSearchResult;
+- (void)saveExposeSearchResult:(unsigned long long)arg1 row:(long long)arg2;
+- (void)saveWillExposeSearchResults:(id)arg1;
+- (void)markNewSearch:(id)arg1;
 - (unsigned long long)getWholeUserCostTime;
 - (unsigned long long)getQueryMatchTypeWithQueryText:(id)arg1 searchResult:(id)arg2;
 - (unsigned long long)convertGroupLogType:(unsigned long long)arg1 matchSubType:(unsigned long long)arg2;

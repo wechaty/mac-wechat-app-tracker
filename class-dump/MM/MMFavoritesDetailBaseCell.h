@@ -53,6 +53,7 @@
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)downloadFavSightIfNeed:(id)arg1;
+- (void)downloadFavNoteIfNeed;
 - (void)downloadFavoritesItemDataIfNeed;
 - (id)firstDataField;
 - (void)layoutIconImgView:(struct CGRect)arg1;

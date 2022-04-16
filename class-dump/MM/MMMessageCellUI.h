@@ -12,6 +12,7 @@
 
 + (double)adjustCellContentWidth;
 + (id)messageTableItemDesc:(id)arg1;
++ (id)messageTableItemTitle:(id)arg1 useEmoji:(BOOL)arg2;
 + (id)messageTableItemTitle:(id)arg1;
 + (void)addBubbleMaskToLayer:(id)arg1 isOrientationRight:(BOOL)arg2 pathType:(int)arg3;
 + (void)addBubbleMaskToLayer:(id)arg1 isOrientationRight:(BOOL)arg2;

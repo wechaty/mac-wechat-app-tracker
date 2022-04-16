@@ -47,7 +47,6 @@
 - (void)showToSelectEmotionTips;
 - (void)showSelectEmotionTips;
 - (void)dealloc;
-- (void)loadEmoticonGroups;
 - (void)windowDidLoad;
 - (id)initWithWindow:(id)arg1;
 

@@ -15,6 +15,7 @@
     // Error parsing type: , name: textContentCountChange
     // Error parsing type: , name: textContextChange
     // Error parsing type: , name: messageSend
+    // Error parsing type: , name: performSpecialKey
     // Error parsing type: , name: placeHolderString
 }
 

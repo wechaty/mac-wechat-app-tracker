@@ -12,7 +12,7 @@
 #import "MMResourceMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, NSArray, NSData, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, NSData, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
 
 @interface EmoticonMgr : MMService <MMEmoticonMgrLogicDelegate, MMResourceMgrExt, AccountServiceExt, MMEmotionCustomMgrLogicDelegate, MMService>
 {
@@ -54,6 +54,7 @@
 @property(retain, nonatomic) MMCustomEmoticonMgrLogic *customEmoticonMgrLogic; // @synthesize customEmoticonMgrLogic=_customEmoticonMgrLogic;
 @property(readonly) MMEmotionGroupInfo *favEmoticonGroup; // @synthesize favEmoticonGroup=_favEmoticonGroup;
 @property(retain, nonatomic) MMFavoriteEmoticonMgrLogic *favoriteEmoticonMgrLogic; // @synthesize favoriteEmoticonMgrLogic=_favoriteEmoticonMgrLogic;
+- (void)resetCachedEmojiGroups;
 - (void)resetCachedStickerGroups;
 - (void)manualCleanEmoticonCache;
 - (void)autoCleanEmoticonCache;
@@ -64,7 +65,7 @@
 - (BOOL)resetEmoticonDB;
 - (BOOL)hasDBFlag;
 - (void)insertDBFlag;
-- (void)checkEmotionEncryptKeyFromFile;
+- (void)checkEmotionEncryptKeyFromFileWithCompletion:(CDUnknownBlockType)arg1;
 - (void)emojiBase64tools;
 - (void)unZipResWithPath:(id)arg1 forSubType:(unsigned int)arg2;
 - (void)onResUpdateFinish:(long long)arg1 resType:(unsigned int)arg2 subResType:(unsigned int)arg3;
@@ -102,11 +103,9 @@
 - (id)_localizedStickerCaption:(id)arg1;
 - (void)_updateCachedStickerGroupsIfNeeded;
 - (void)_addCustomEmoticonGroupToCachedStickerGroupsIfNeeded;
-@property(readonly) NSArray *emoticonGroupsForStickerPicker;
-@property(readonly) NSArray *emoticonGroupsForEmojiPicker;
-@property(readonly) NSArray *allEmoticonGroupsEmoji;
-@property(readonly) NSArray *allEmoticonGroupsWithoutEmoji;
-@property(readonly) NSArray *allEmoticonGroups;
+- (id)_obtainCachedStickerGroups;
+- (id)_obtainCachedEmojiGroups;
+- (id)emoticonGroupsWithType:(int)arg1;
 - (BOOL)isEmoticonMD5InFavorites:(id)arg1;
 - (BOOL)allowAddToFavorites;
 - (void)configWxAMEnableSetting;

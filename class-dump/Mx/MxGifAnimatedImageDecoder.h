@@ -10,7 +10,7 @@
 
 @interface MxGifAnimatedImageDecoder : MMAnimatedImageDecoder
 {
-    struct MxGifImage *m_gifImage;
+    void *m_gifImage;
     NSData *m_gifData;
     BOOL m_ignoreFirstSeek;
     BOOL m_hasDecodeOneLoop;

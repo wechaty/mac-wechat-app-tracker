@@ -38,7 +38,7 @@
 @property(retain, nonatomic) NSString *md5; // @synthesize md5;
 @property(nonatomic) long long type; // @synthesize type;
 @property(retain, nonatomic) NSString *url; // @synthesize url;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

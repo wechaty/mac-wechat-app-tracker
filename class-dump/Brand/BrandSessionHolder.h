@@ -23,7 +23,7 @@
 @property(nonatomic) unsigned int m_lastTime; // @synthesize m_lastTime;
 @property(nonatomic) BOOL m_hasNewArrival; // @synthesize m_hasNewArrival;
 - (BOOL)saveData;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

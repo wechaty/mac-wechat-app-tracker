@@ -17,12 +17,12 @@
     WCFavoriteTagTableDataPackedInfo *_m_packedInfo;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)tag;
-+ (const struct WCTProperty *)localId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)tag;
++ (const void *)localId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) WCFavoriteTagTableDataPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(retain, nonatomic) NSString *tag; // @synthesize tag=_tag;

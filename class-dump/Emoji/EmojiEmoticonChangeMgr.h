@@ -8,8 +8,8 @@
 
 @interface EmojiEmoticonChangeMgr : NSObject
 {
-    struct map<unsigned long long, tagEmojiItem *, std::__1::less<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, tagEmojiItem *>>> m_mapEmojiChangeFromSoftbankToUnified;
-    struct map<unsigned long long, tagEmojiItem *, std::__1::less<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, tagEmojiItem *>>> m_mapEmojiChangeFromUnifiedToSoftbank;
+    struct map<unsigned long long, tagEmojiItem *, std::less<unsigned long long>, std::allocator<std::pair<const unsigned long long, tagEmojiItem *>>> m_mapEmojiChangeFromSoftbankToUnified;
+    struct map<unsigned long long, tagEmojiItem *, std::less<unsigned long long>, std::allocator<std::pair<const unsigned long long, tagEmojiItem *>>> m_mapEmojiChangeFromUnifiedToSoftbank;
 }
 
 + (id)instance;

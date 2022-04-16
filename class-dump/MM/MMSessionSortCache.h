@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSMutableDictionary *dicUsrNamePersistentCorrectionTime; // @synthesize dicUsrNamePersistentCorrectionTime;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

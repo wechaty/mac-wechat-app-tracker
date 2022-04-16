@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSData *addMsgData; // @synthesize addMsgData;
 @property(retain, nonatomic) NSString *functionMsgId; // @synthesize functionMsgId;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

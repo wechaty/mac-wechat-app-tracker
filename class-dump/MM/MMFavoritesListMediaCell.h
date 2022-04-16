@@ -9,11 +9,11 @@
 #import "IContactMgrExt-Protocol.h"
 #import "MMFavoriteFileServiceExt-Protocol.h"
 
-@class FavThumbRequestParam, MMCircularProgressView, MMScaleToFillNSImageView, NSString, NSTextField, NSView;
+@class FavThumbRequestParam, MMCircularProgressView, NSImageView, NSString, NSTextField, NSView;
 
 @interface MMFavoritesListMediaCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, IContactMgrExt>
 {
-    MMScaleToFillNSImageView *_thumbnailImageView;
+    NSImageView *_thumbnailImageView;
     NSTextField *_titleTextView;
     NSTextField *_descTextView;
     NSTextField *_sourceTextView;
@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSTextField *sourceTextView; // @synthesize sourceTextView=_sourceTextView;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 @property(retain, nonatomic) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-@property(retain, nonatomic) MMScaleToFillNSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+@property(retain, nonatomic) NSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 - (BOOL)isImageMedia;
 - (BOOL)isLinkMeida;
 - (BOOL)isNormalMeida;

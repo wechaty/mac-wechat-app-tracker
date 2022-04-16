@@ -21,7 +21,7 @@
 + (void)PBArrayAdd_dicPublicInfo;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *dicPublicInfo; // @synthesize dicPublicInfo;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

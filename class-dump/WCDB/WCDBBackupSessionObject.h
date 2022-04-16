@@ -24,19 +24,19 @@
     NSString *Reserved5;
 }
 
-+ (const struct WCTProperty *)Reserved5;
-+ (const struct WCTProperty *)StartTime;
-+ (const struct WCTProperty *)Reserved3;
-+ (const struct WCTProperty *)Reserved2;
-+ (const struct WCTProperty *)Reserved1;
-+ (const struct WCTProperty *)Reserved0;
-+ (const struct WCTProperty *)NickName;
-+ (const struct WCTProperty *)TotalSize;
-+ (const struct WCTProperty *)EndTime;
-+ (const struct WCTProperty *)talker;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)Reserved5;
++ (const void *)StartTime;
++ (const void *)Reserved3;
++ (const void *)Reserved2;
++ (const void *)Reserved1;
++ (const void *)Reserved0;
++ (const void *)NickName;
++ (const void *)TotalSize;
++ (const void *)EndTime;
++ (const void *)talker;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *Reserved5; // @synthesize Reserved5;
 @property(nonatomic) long long StartTime; // @synthesize StartTime;

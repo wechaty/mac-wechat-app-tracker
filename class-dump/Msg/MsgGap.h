@@ -21,14 +21,14 @@
     NSString *_identifier;
 }
 
-+ (const struct WCTProperty *)identifier;
-+ (const struct WCTProperty *)endTime;
-+ (const struct WCTProperty *)startTime;
-+ (const struct WCTProperty *)sessionName;
-+ (const struct WCTProperty *)gapId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)identifier;
++ (const void *)endTime;
++ (const void *)startTime;
++ (const void *)sessionName;
++ (const void *)gapId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned int endTime; // @synthesize endTime=_endTime;

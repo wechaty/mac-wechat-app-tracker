@@ -21,16 +21,16 @@
     NSString *_md5;
 }
 
-+ (const struct WCTProperty *)reportId;
-+ (const struct WCTProperty *)md5;
-+ (const struct WCTProperty *)encryptType;
-+ (const struct WCTProperty *)decryptKey;
-+ (const struct WCTProperty *)appVersion;
-+ (const struct WCTProperty *)userName;
-+ (const struct WCTProperty *)appId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)reportId;
++ (const void *)md5;
++ (const void *)encryptType;
++ (const void *)decryptKey;
++ (const void *)appVersion;
++ (const void *)userName;
++ (const void *)appId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int reportId; // @synthesize reportId=_reportId;
 @property(retain, nonatomic) NSString *md5; // @synthesize md5=_md5;

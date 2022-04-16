@@ -43,7 +43,7 @@
 @property(retain, nonatomic) NSString *webUrl; // @synthesize webUrl;
 @property(retain, nonatomic) NSString *singer; // @synthesize singer;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -19,14 +19,14 @@
     NSString *_atUserList;
 }
 
-+ (const struct WCTProperty *)atUserList;
-+ (const struct WCTProperty *)messageType;
-+ (const struct WCTProperty *)content;
-+ (const struct WCTProperty *)svrId;
-+ (const struct WCTProperty *)createTime;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)atUserList;
++ (const void *)messageType;
++ (const void *)content;
++ (const void *)svrId;
++ (const void *)createTime;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *atUserList; // @synthesize atUserList=_atUserList;
 @property(nonatomic) unsigned int messageType; // @synthesize messageType=_messageType;

@@ -17,12 +17,12 @@
     unsigned long long _storageLength;
 }
 
-+ (const struct WCTProperty *)lastModifyTime;
-+ (const struct WCTProperty *)storageLength;
-+ (const struct WCTProperty *)appID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)lastModifyTime;
++ (const void *)storageLength;
++ (const void *)appID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int lastModifyTime; // @synthesize lastModifyTime=_lastModifyTime;
 @property(nonatomic) unsigned long long storageLength; // @synthesize storageLength=_storageLength;

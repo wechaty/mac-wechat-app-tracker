@@ -35,6 +35,7 @@
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)resignSearch;
+- (void)moveToEndOfLineIfNeed;
 - (void)startSearch;
 @property(retain, nonatomic) NSAttributedString *placeholderAttributedString;
 @property(retain, nonatomic) NSString *placeholderString;

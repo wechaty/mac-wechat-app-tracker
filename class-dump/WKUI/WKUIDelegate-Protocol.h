@@ -6,12 +6,14 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSString, WKFrameInfo, WKNavigationAction, WKOpenPanelParameters, WKWebView, WKWebViewConfiguration, WKWindowFeatures;
+@class NSString, WKFrameInfo, WKNavigationAction, WKOpenPanelParameters, WKSecurityOrigin, WKWebView, WKWebViewConfiguration, WKWindowFeatures;
 
 @protocol WKUIDelegate <NSObject>
 
 @optional
 - (void)webView:(WKWebView *)arg1 runOpenPanelWithParameters:(WKOpenPanelParameters *)arg2 initiatedByFrame:(WKFrameInfo *)arg3 completionHandler:(void (^)(NSArray *))arg4;
+- (void)webView:(WKWebView *)arg1 requestDeviceOrientationAndMotionPermissionForOrigin:(WKSecurityOrigin *)arg2 initiatedByFrame:(WKFrameInfo *)arg3 decisionHandler:(void (^)(long long))arg4;
+- (void)webView:(WKWebView *)arg1 requestMediaCapturePermissionForOrigin:(WKSecurityOrigin *)arg2 initiatedByFrame:(WKFrameInfo *)arg3 type:(long long)arg4 decisionHandler:(void (^)(long long))arg5;
 - (void)webView:(WKWebView *)arg1 runJavaScriptTextInputPanelWithPrompt:(NSString *)arg2 defaultText:(NSString *)arg3 initiatedByFrame:(WKFrameInfo *)arg4 completionHandler:(void (^)(NSString *))arg5;
 - (void)webView:(WKWebView *)arg1 runJavaScriptConfirmPanelWithMessage:(NSString *)arg2 initiatedByFrame:(WKFrameInfo *)arg3 completionHandler:(void (^)(BOOL))arg4;
 - (void)webView:(WKWebView *)arg1 runJavaScriptAlertPanelWithMessage:(NSString *)arg2 initiatedByFrame:(WKFrameInfo *)arg3 completionHandler:(void (^)(void))arg4;

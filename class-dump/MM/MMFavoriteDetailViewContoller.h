@@ -122,6 +122,7 @@
 - (void)_contextMenuMuteToPlay:(id)arg1;
 - (void)_contextMenuExport:(id)arg1;
 - (void)_contextMenuShare:(id)arg1;
+- (void)cellViewNeedsHeightRecalculated:(id)arg1;
 - (void)closedContextMenuFromCell:(id)arg1;
 - (void)openedContextMenuFromCell:(id)arg1 fromButton:(BOOL)arg2;
 - (id)contextMenuForCell:(id)arg1 forEvent:(id)arg2;

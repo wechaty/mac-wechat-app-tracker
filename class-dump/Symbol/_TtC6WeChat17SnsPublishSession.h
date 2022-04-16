@@ -8,11 +8,16 @@
 
 @interface _TtC6WeChat17SnsPublishSession : NSObject
 {
+    // Error parsing type: , name: onCompletion
     // Error parsing type: , name: editModel
+    // Error parsing type: , name: parentWindow
+    // Error parsing type: , name: completion
+    // Error parsing type: , name: windowStack
 }
 
 - (void).cxx_destruct;
 - (id)init;
+- (void)dealloc;
 
 @end
 

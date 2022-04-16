@@ -21,16 +21,16 @@
     NSString *_blockSceneListStr;
 }
 
-+ (const struct WCTProperty *)reportId;
-+ (const struct WCTProperty *)endTime;
-+ (const struct WCTProperty *)beginTime;
-+ (const struct WCTProperty *)blockSceneListStr;
-+ (const struct WCTProperty *)blockCgiListStr;
-+ (const struct WCTProperty *)username;
-+ (const struct WCTProperty *)appid;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)reportId;
++ (const void *)endTime;
++ (const void *)beginTime;
++ (const void *)blockSceneListStr;
++ (const void *)blockCgiListStr;
++ (const void *)username;
++ (const void *)appid;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int reportId; // @synthesize reportId=_reportId;
 @property(nonatomic) unsigned int endTime; // @synthesize endTime=_endTime;

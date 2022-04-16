@@ -20,14 +20,14 @@
     NSDictionary *_localizedCaptions;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)sortOrder;
-+ (const struct WCTProperty *)fileType;
-+ (const struct WCTProperty *)md5;
-+ (const struct WCTProperty *)packageID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)sortOrder;
++ (const void *)fileType;
++ (const void *)md5;
++ (const void *)packageID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *localizedCaptions; // @synthesize localizedCaptions=_localizedCaptions;
 @property(retain, nonatomic) MMEmoticonRowPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;

@@ -17,6 +17,9 @@
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityRole;
+- (BOOL)isAccessibilityElement;
+- (id)accessibilityLabel;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

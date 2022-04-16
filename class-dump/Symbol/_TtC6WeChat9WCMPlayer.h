@@ -6,58 +6,41 @@
 
 #import <objc/NSObject.h>
 
-#import "ITPPlayerDelegate-Protocol.h"
+@class _TtC6WeChat13WCMPlayerView;
 
-@class NSString, _TtC6WeChat13WCMPlayerView;
-
-@interface _TtC6WeChat9WCMPlayer : NSObject <ITPPlayerDelegate>
+@interface _TtC6WeChat9WCMPlayer : NSObject
 {
     // Error parsing type: , name: playPercentageChange
     // Error parsing type: , name: streamingPercentageChange
     // Error parsing type: , name: streamingNoticeChange
     // Error parsing type: , name: playerStatusChange
     // Error parsing type: , name: replayWhenFinished
-    // Error parsing type: , name: playPending
-    // Error parsing type: , name: controlActionDisposeBag
-    // Error parsing type: , name: playerView
     // Error parsing type: , name: resURL
+    // Error parsing type: , name: infoObject
+    // Error parsing type: , name: playPending
+    // Error parsing type: , name: status
+    // Error parsing type: , name: playerView
     // Error parsing type: , name: volumeValue
     // Error parsing type: , name: muted
-    // Error parsing type: , name: player
-    // Error parsing type: , name: resProvider
-    // Error parsing type: , name: disposeBag
-    // Error parsing type: , name: watchTimer
-    // Error parsing type: , name: capturedImages
-    // Error parsing type: , name: captureSemaphore
-    // Error parsing type: , name: captureQueueLock
-    // Error parsing type: , name: syncLoadSemaphore
-    // Error parsing type: , name: status
 }
 
 - (void).cxx_destruct;
-- (void)onPlayer:(id)arg1 info:(unsigned long long)arg2 extra1:(long long)arg3 extra2:(long long)arg4 extraObject:(id)arg5;
-- (void)onPlayer:(id)arg1 captureVideoFailed:(long long)arg2;
-- (void)onPlayer:(id)arg1 captureVideoSuccess:(id)arg2;
-- (void)onStateChange:(id)arg1 preState:(unsigned long long)arg2 currentState:(unsigned long long)arg3;
-- (void)onPlayer:(id)arg1 errorType:(long long)arg2 errorCode:(long long)arg3 arg1:(long long)arg4 arg2:(long long)arg5;
-- (void)onCompletion:(id)arg1;
-- (void)onPrepared:(id)arg1;
+- (id)getInfoObject_oc;
 - (void)popupVideoInfo;
 - (id)captureWithPreciseSeek:(BOOL)arg1;
 - (void)seekWithPercentage:(double)arg1;
-- (BOOL)isPaused;
+- (BOOL)isNotPlaying;
 - (void)pause;
 - (void)play;
 - (BOOL)loadWithLocalFilePath:(id)arg1 async:(BOOL)arg2;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic, readonly) struct CGSize resolution_oc;
 @property(nonatomic, readonly) long long frameRate;
 @property(nonatomic, readonly) long long videoBitRate;
 @property(nonatomic, readonly) long long durationInMS;
-@property(nonatomic, readonly) struct CGSize resolution_oc;
 @property(nonatomic) BOOL muted; // @synthesize muted;
 @property(nonatomic) float volumeValue; // @synthesize volumeValue;
-@property(nonatomic, copy) NSString *resURL;
 @property(nonatomic) __weak _TtC6WeChat13WCMPlayerView *playerView; // @synthesize playerView;
 
 @end

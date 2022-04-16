@@ -23,7 +23,7 @@
 - (long long)compareGroupNameSearch:(id)arg1 with:(id)arg2;
 - (long long)compareSearchType:(id)arg1 with:(id)arg2;
 - (long long)compareIsAllMembersMatched:(id)arg1 with:(id)arg2;
-- (BOOL)_isLessThan14Days:(unsigned int)arg1;
+- (BOOL)_isLessThan60Days:(unsigned int)arg1;
 - (long long)compareLastMsgCreateTimeIsMoreThan14Days:(id)arg1 with:(id)arg2;
 - (void)sort;
 - (id)initWithResults:(id)arg1;

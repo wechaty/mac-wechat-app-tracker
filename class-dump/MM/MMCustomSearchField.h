@@ -53,6 +53,7 @@
 - (BOOL)isTextEditing;
 @property(retain, nonatomic) NSString *inputValue;
 - (void)onCloseButtonClick:(id)arg1;
+- (void)moveToEndOfLineIfNeed;
 - (void)closeAndClean;
 - (void)focus;
 - (void)updateMessageLayer;

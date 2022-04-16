@@ -19,12 +19,12 @@
     NSString *_m_nsObjectId;
 }
 
-+ (const struct WCTProperty *)m_nsObjectId;
-+ (const struct WCTProperty *)m_nsUsername;
-+ (const struct WCTProperty *)m_uLocalId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_nsObjectId;
++ (const void *)m_nsUsername;
++ (const void *)m_uLocalId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *m_nsObjectId; // @synthesize m_nsObjectId=_m_nsObjectId;
 @property(retain, nonatomic) NSString *m_nsUsername; // @synthesize m_nsUsername=_m_nsUsername;

@@ -30,12 +30,12 @@
 - (id)getRecentFileListWithLastMsg:(id)arg1 limitCnt:(unsigned int)arg2;
 - (id)getAllFileListWithLastMsg:(id)arg1 sortType:(unsigned long long)arg2 limitCnt:(unsigned int)arg3;
 - (id)queryWithKeyword:(id)arg1;
-- (const list_02de7622 *)orderOfAscUpdateTimeAndCreateTimeAndMsgLocalId;
-- (const list_02de7622 *)orderOfDescUpdateTimeAndCreateTimeAndMsgLocalId;
-- (const list_02de7622 *)orderOfAscFileSizeAndCreateTimeAndMsgLocalId;
-- (const list_02de7622 *)orderOfDescFileSizeAndCreateTimeAndMsgLocalId;
-- (const list_02de7622 *)orderOfAscCreateTimeAndMsgLocalId;
-- (const list_02de7622 *)orderOfDescCreateTimeAndMsgLocalId;
+- (const void *)orderOfAscUpdateTimeAndCreateTimeAndMsgLocalId;
+- (const void *)orderOfDescUpdateTimeAndCreateTimeAndMsgLocalId;
+- (const void *)orderOfAscFileSizeAndCreateTimeAndMsgLocalId;
+- (const void *)orderOfDescFileSizeAndCreateTimeAndMsgLocalId;
+- (const void *)orderOfAscCreateTimeAndMsgLocalId;
+- (const void *)orderOfDescCreateTimeAndMsgLocalId;
 - (unsigned int)tableIndexOfChatName:(id)arg1;
 - (id)msgTableWithChatName:(id)arg1;
 - (id)msgTableWithIndex:(unsigned int)arg1;

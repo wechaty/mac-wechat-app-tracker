@@ -66,7 +66,7 @@
 @property(retain, nonatomic) NSString *version; // @synthesize version;
 @property(retain, nonatomic) NSString *srcUrl; // @synthesize srcUrl;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -32,7 +32,7 @@
 @property(nonatomic) BOOL m_hasClickIgnoreCallOnce; // @synthesize m_hasClickIgnoreCallOnce;
 - (void)saveToFile;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

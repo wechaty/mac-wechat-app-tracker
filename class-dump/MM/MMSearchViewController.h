@@ -82,6 +82,7 @@
 - (BOOL)cellView:(id)arg1 isValidOperation:(id)arg2 withContact:(id)arg3;
 - (void)startAddFriendSearch;
 - (void)startFavSearch;
+- (void)startWebSearchWithKeyWord:(id)arg1;
 - (void)startWebSearch;
 - (void)mmSearchTableSectionAllViewDidClicked:(id)arg1;
 - (void)reloadTableView;
@@ -103,9 +104,12 @@
 - (void)selectNextItem;
 - (void)selectFirstItem;
 - (void)chooseCurrentItem;
+- (BOOL)hasHeaderItem:(id)arg1;
+- (id)getSearchResultItem:(id)arg1 type:(unsigned long long)arg2;
 - (void)_doShowWithResults:(id)arg1;
 - (void)doShowWithResults:(id)arg1;
 - (void)showWithResults:(id)arg1 resultsWithKeyword:(id)arg2;
+- (void)reportExposeSearchResult;
 - (void)doSearch;
 - (void)doSearchFindNewContact;
 - (void)hide;

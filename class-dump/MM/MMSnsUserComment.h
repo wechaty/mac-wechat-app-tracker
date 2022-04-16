@@ -89,7 +89,7 @@
 @property(retain, nonatomic) NSString *comment64ID; // @synthesize comment64ID;
 @property(retain, nonatomic) NSString *commentID; // @synthesize commentID;
 - (BOOL)isCommentFromFriend;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

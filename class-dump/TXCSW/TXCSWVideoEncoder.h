@@ -11,7 +11,7 @@
 
 @interface TXCSWVideoEncoder : TXIVideoEncoder
 {
-    struct shared_ptr<TXCSoftwareVideoCodec> _sotfwareEncoder;
+    struct shared_ptr<TXIVideoEncoderSoftware> _sotfwareEncoder;
     struct shared_ptr<CSoftwareVideoEncoderListenerAdpt> _codecListenerAdpt;
     basic_string_23d93216 _frameBuffer;
     NSObject<OS_dispatch_queue> *_encodeQueue;

@@ -48,6 +48,7 @@
 - (id)_searchAsGroupMemberInGroupOnlyForGroupNickName:(id)arg1;
 - (id)searchAsGroupMemberInGroup:(id)arg1;
 - (id)_search;
+- (id)searchAsContactName:(BOOL)arg1;
 - (id)searchAsContactName;
 - (id)search;
 - (id)initWithContact:(id)arg1 keyword:(id)arg2 progress:(CDUnknownBlockType)arg3;

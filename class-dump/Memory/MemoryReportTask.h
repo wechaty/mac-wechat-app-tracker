@@ -31,7 +31,7 @@
 @property(nonatomic) BOOL reportSuccess; // @synthesize reportSuccess;
 @property(nonatomic) BOOL generateFail; // @synthesize generateFail;
 @property(nonatomic) unsigned long long recordID; // @synthesize recordID;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 @end

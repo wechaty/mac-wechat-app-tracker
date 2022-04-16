@@ -6,14 +6,14 @@
 
 #import "MMPreviewItem.h"
 
-@class NSArray, NSImage, NSString, SnsVideoPlayer;
+@class NSArray, NSImage, NSString, WCMPlayer;
 
 @interface MMSnsPreviewItem : MMPreviewItem
 {
     NSArray *_mediaItems;
     NSString *_fromUser;
     NSString *_appId;
-    SnsVideoPlayer *_player;
+    WCMPlayer *_player;
     NSImage *_capturedVideoFrame;
     long long _selected;
     long long _previewFrom;
@@ -26,7 +26,7 @@
 @property(nonatomic) long long previewFrom; // @synthesize previewFrom=_previewFrom;
 @property(nonatomic) long long selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) NSImage *capturedVideoFrame; // @synthesize capturedVideoFrame=_capturedVideoFrame;
-@property(retain, nonatomic) SnsVideoPlayer *player; // @synthesize player=_player;
+@property(retain, nonatomic) WCMPlayer *player; // @synthesize player=_player;
 @property(nonatomic) struct CGRect showPoint; // @synthesize showPoint=_showPoint;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *fromUser; // @synthesize fromUser=_fromUser;

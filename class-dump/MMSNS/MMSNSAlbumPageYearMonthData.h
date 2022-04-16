@@ -29,7 +29,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToYearMonthData:(id)arg1;
 - (id)initWithSnsYearMonthData:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

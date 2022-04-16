@@ -29,7 +29,7 @@
 @property(retain, nonatomic) WCContactData *m_contact; // @synthesize m_contact;
 @property(nonatomic) unsigned int m_syncSessionOrder; // @synthesize m_syncSessionOrder;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

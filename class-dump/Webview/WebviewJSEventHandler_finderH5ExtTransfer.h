@@ -10,8 +10,7 @@
 {
 }
 
-- (void)retry:(id)arg1 withEvent:(id)arg2 retryCount:(int)arg3;
-- (void)sendEvent:(id)arg1 withEvent:(id)arg2 retryCount:(int)arg3;
+- (void)sendTransferRequest:(id)arg1 h5AuthRequest:(id)arg2 isFocus:(BOOL)arg3 retryCount:(int)arg4 withEvent:(id)arg5;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
 
 @end

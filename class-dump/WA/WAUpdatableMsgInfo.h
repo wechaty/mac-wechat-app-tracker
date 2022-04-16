@@ -27,21 +27,21 @@
 }
 
 + (id)infoFromResp:(id)arg1;
-+ (const struct WCTProperty *)lastUpdateTime;
-+ (const struct WCTProperty *)updatableContentUpdateInterval;
-+ (const struct WCTProperty *)updatableContentColor;
-+ (const struct WCTProperty *)updatableContentText;
-+ (const struct WCTProperty *)subscriptionConfirmedContent;
-+ (const struct WCTProperty *)subscriptionEntryButtonWording;
-+ (const struct WCTProperty *)subscriptionEntryContent;
-+ (const struct WCTProperty *)isSystemPushFinished;
-+ (const struct WCTProperty *)subscriptionEntryState;
-+ (const struct WCTProperty *)appId;
-+ (const struct WCTProperty *)shouldUseUpdatableMsg;
-+ (const struct WCTProperty *)shareKey;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)lastUpdateTime;
++ (const void *)updatableContentUpdateInterval;
++ (const void *)updatableContentColor;
++ (const void *)updatableContentText;
++ (const void *)subscriptionConfirmedContent;
++ (const void *)subscriptionEntryButtonWording;
++ (const void *)subscriptionEntryContent;
++ (const void *)isSystemPushFinished;
++ (const void *)subscriptionEntryState;
++ (const void *)appId;
++ (const void *)shouldUseUpdatableMsg;
++ (const void *)shareKey;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
 @property(nonatomic) int updatableContentUpdateInterval; // @synthesize updatableContentUpdateInterval=_updatableContentUpdateInterval;

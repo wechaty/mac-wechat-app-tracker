@@ -6,84 +6,75 @@
 
 #import "MMService.h"
 
-#import "FTSMessageEx-Protocol.h"
+#import "FTSMessageDBDelegate-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class FTSMessageDB, NSMutableDictionary, NSObject, NSOperationQueue, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMFTSMessageService : MMService <IMessageExt, FTSMessageEx, MMService>
+@interface MMFTSMessageService : MMService <IMessageExt, FTSMessageDBDelegate, MMService>
 {
     BOOL _isLoadDocFinish;
     BOOL _canLoadToRelate;
     unsigned int _loadFailureCount;
-    NSOperationQueue *_m_ftsIndexMaintainQueue;
     NSRecursiveLock *_m_oLock;
+    NSRecursiveLock *_indexMemCacheLock;
+    NSMutableDictionary *_dicUnIndexMsgCache;
+    NSOperationQueue *_m_ftsIndexMaintainQueue;
     NSMutableDictionary *_m_dictForQueueTask;
     NSObject<OS_dispatch_queue> *_m_ftsTaskCheckQueue;
-    NSMutableDictionary *_dicUnIndexMsgCache;
-    NSRecursiveLock *_indexMemCacheLock;
     FTSMessageDB *_m_ftsdb;
 }
 
++ (BOOL)isStopFTSService;
 - (void).cxx_destruct;
 @property(retain, nonatomic) FTSMessageDB *m_ftsdb; // @synthesize m_ftsdb=_m_ftsdb;
 @property(nonatomic) unsigned int loadFailureCount; // @synthesize loadFailureCount=_loadFailureCount;
 @property(nonatomic) BOOL canLoadToRelate; // @synthesize canLoadToRelate=_canLoadToRelate;
 @property(nonatomic) BOOL isLoadDocFinish; // @synthesize isLoadDocFinish=_isLoadDocFinish;
-@property(retain, nonatomic) NSRecursiveLock *indexMemCacheLock; // @synthesize indexMemCacheLock=_indexMemCacheLock;
-@property(retain, nonatomic) NSMutableDictionary *dicUnIndexMsgCache; // @synthesize dicUnIndexMsgCache=_dicUnIndexMsgCache;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_ftsTaskCheckQueue; // @synthesize m_ftsTaskCheckQueue=_m_ftsTaskCheckQueue;
 @property(retain, nonatomic) NSMutableDictionary *m_dictForQueueTask; // @synthesize m_dictForQueueTask=_m_dictForQueueTask;
-@property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock=_m_oLock;
 @property(retain, nonatomic) NSOperationQueue *m_ftsIndexMaintainQueue; // @synthesize m_ftsIndexMaintainQueue=_m_ftsIndexMaintainQueue;
+@property(retain, nonatomic) NSMutableDictionary *dicUnIndexMsgCache; // @synthesize dicUnIndexMsgCache=_dicUnIndexMsgCache;
+@property(retain, nonatomic) NSRecursiveLock *indexMemCacheLock; // @synthesize indexMemCacheLock=_indexMemCacheLock;
+@property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock=_m_oLock;
 - (void)onMarkReloadRelateTable;
-- (void)cancelQuery;
-- (BOOL)shouldOpenChatMgr;
-- (BOOL)isFtsIndexTargetMsg:(id)arg1;
-- (BOOL)shouldCacheMsg:(id)arg1;
 - (unsigned int)calAllMemMsgCount;
 - (void)clearIndexMemCache;
 - (void)removeUnIndexMsgList:(id)arg1 forKey:(id)arg2;
 - (void)removeUnIndexMsgFromID:(unsigned int)arg1 toID:(unsigned int)arg2 forKey:(id)arg3;
 - (void)removeUnIndexMsg:(id)arg1 forKey:(id)arg2;
 - (void)cacheUnIndexMsg:(id)arg1 forKey:(id)arg2;
-- (void)onAddMsg:(id)arg1 msgData:(id)arg2;
-- (id)searchWithKeyword:(id)arg1 chatName:(id)arg2 maxTime:(unsigned int)arg3 limit:(unsigned int)arg4;
-- (id)getFtsMsgDB;
 - (id)safeCopyUnIndexMsgCache;
+- (void)onDelAllMsg:(id)arg1;
+- (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
+- (void)onAddMsg:(id)arg1 msgData:(id)arg2;
+- (void)cancelQuery;
+- (id)searchWithKeyword:(id)arg1 chatName:(id)arg2 maxTime:(unsigned int)arg3 limit:(unsigned int)arg4;
+- (BOOL)shouldOpenChatMgr;
+- (id)getFtsMsgDB;
+- (void)onServiceEnterForeground;
+- (void)onServiceEnterBackground;
+- (void)onServiceTerminate;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
-- (void)onMarkReloadRelateTable;
 - (void)checkFTSDocData;
 - (void)doLoadDocRelateData;
 - (void)loadFTSDocData;
-- (void)onDelAllMsg:(id)arg1;
-- (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
-- (void)findOneTableToOptimize;
-- (void)findAllTablesToOptimize;
-- (void)optimize:(unsigned int)arg1 opValue:(id)arg2;
 - (void)doDeleteIndex:(id)arg1;
-- (void)deleteIndexForChat:(id)arg1 arrMsgList:(id)arg2;
-- (void)clearIndexForChat:(id)arg1;
 - (void)doClearIndex:(id)arg1;
 - (void)doCreateIndex:(id)arg1;
+- (void)deleteIndexForChat:(id)arg1 arrMsgList:(id)arg2;
+- (void)clearIndexForChat:(id)arg1;
 - (void)createIndexWhenUserInactive:(id)arg1 lastMsgData:(id)arg2;
-- (void)createIndexForBrandSession;
-- (void)createIndexImmediatelyForLatestChat;
 - (void)createIndexImmediatelyForChat:(id)arg1;
 - (void)checkQueue;
 - (void)checkStopQueue;
-- (BOOL)isStopFTSService;
 - (void)suspendQueue;
 - (void)resumeQueue;
-- (void)onServiceInit;
-- (void)onServiceTerminate;
-- (void)onServiceEnterForeground;
-- (void)onServiceEnterBackground;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

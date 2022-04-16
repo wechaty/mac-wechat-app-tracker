@@ -7,6 +7,7 @@
 #import "_TtC6WeChat7SnsPath.h"
 
 @interface _TtC6WeChat7SnsPath (WeChat)
++ (id)generateTempImagePath;
 + (id)publishTempPath;
 + (id)publishRootPath;
 + (id)backgroundImagePath;

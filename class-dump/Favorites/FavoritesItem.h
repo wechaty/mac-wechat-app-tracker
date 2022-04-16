@@ -160,6 +160,9 @@
 @property(retain, nonatomic) NSString *deviceid; // @synthesize deviceid=_deviceid;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(nonatomic) unsigned int favId; // @synthesize favId=_favId;
+- (BOOL)isNoteFinishDownload;
+- (BOOL)checkHtmlFileCDNInfo;
+- (BOOL)checkFavoritesItemAvailable;
 - (BOOL)isCanForward;
 - (BOOL)checkIfHaveWeWorkCdnUr:(id)arg1;
 - (BOOL)isHaveWeWorkCdnUrl;

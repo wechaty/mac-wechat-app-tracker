@@ -20,15 +20,15 @@
     NSData *_launchResponseData;
 }
 
-+ (const struct WCTProperty *)reportId;
-+ (const struct WCTProperty *)launchResponseData;
-+ (const struct WCTProperty *)endTime;
-+ (const struct WCTProperty *)beginTime;
-+ (const struct WCTProperty *)sceneListStr;
-+ (const struct WCTProperty *)appID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)reportId;
++ (const void *)launchResponseData;
++ (const void *)endTime;
++ (const void *)beginTime;
++ (const void *)sceneListStr;
++ (const void *)appID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int reportId; // @synthesize reportId=_reportId;
 @property(retain, nonatomic) NSData *launchResponseData; // @synthesize launchResponseData=_launchResponseData;

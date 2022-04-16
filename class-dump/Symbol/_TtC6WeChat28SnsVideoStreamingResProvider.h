@@ -6,7 +6,9 @@
 
 #import <objc/NSObject.h>
 
-@interface _TtC6WeChat28SnsVideoStreamingResProvider : NSObject
+#import "AVAssetResourceLoaderDelegate-Protocol.h"
+
+@interface _TtC6WeChat28SnsVideoStreamingResProvider : NSObject <AVAssetResourceLoaderDelegate>
 {
     // Error parsing type: , name: mediaURL
     // Error parsing type: , name: mediaItem
@@ -24,6 +26,8 @@
 
 - (void).cxx_destruct;
 - (id)init;
+- (void)resourceLoader:(id)arg1 didCancelLoadingRequest:(id)arg2;
+- (BOOL)resourceLoader:(id)arg1 shouldWaitForLoadingOfRequestedResource:(id)arg2;
 - (void)tpResourceLoader:(id)arg1 didCancelLoadingRequest:(id)arg2;
 - (BOOL)tpResourceLoader:(id)arg1 shouldWaitForLoadingOfRequestedResource:(id)arg2;
 - (void)dealloc;

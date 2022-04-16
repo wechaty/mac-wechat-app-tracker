@@ -18,7 +18,7 @@
     NSNumberFormatter *m_numberFormatter;
     NSMutableData *m_outputData;
     struct CodedOutputData *m_outputStream;
-    struct vector<PBEncodeItem, std::__1::allocator<PBEncodeItem>> *m_encodeItems;
+    void *m_encodeItems;
     void *m_formatBuffer;
     unsigned long long m_formatBufferSize;
 }
@@ -46,13 +46,13 @@
 + (_Bool)encodeObject:(id)arg1 toFile:(id)arg2;
 + (id)encodeDataWithSizeForObject:(id)arg1;
 + (id)encodeDataWithObject:(id)arg1;
-+ (_Bool)decodeObject:(id)arg1 fromData:(id)arg2 withProperty:(id)arg3 andTagIndexMap:(const map_f8690629 *)arg4;
++ (_Bool)decodeObject:(id)arg1 fromData:(id)arg2 withProperty:(id)arg3 andTagIndexMap:(const void *)arg4;
 + (_Bool)encodeObject:(id)arg1 withPropertyTable:(id)arg2 toFile:(id)arg3;
 + (id)encodeObject:(id)arg1 withPropertyTable:(id)arg2;
 - (void).cxx_destruct;
-- (id)decodeOneObject:(id)arg1 withProperty:(id)arg2 andTagIndexMap:(const map_f8690629 *)arg3;
+- (id)decodeOneObject:(id)arg1 withProperty:(id)arg2 andTagIndexMap:(const void *)arg3;
 - (id)decodeOneObject:(id)arg1 ofClass:(Class)arg2;
-- (void)decodeObject:(id)arg1 withProperty:(id)arg2 andTagIndexMap:(const map_f8690629 *)arg3;
+- (void)decodeObject:(id)arg1 withProperty:(id)arg2 andTagIndexMap:(const void *)arg3;
 - (void)decodeOneProperty:(id)arg1 ofObject:(id)arg2;
 - (void)decodeOne_C_Property:(id)arg1 ofObject:(id)arg2;
 - (id)decodeOneDictionaryOfValueClass:(Class)arg1 ignoreSize:(_Bool)arg2;

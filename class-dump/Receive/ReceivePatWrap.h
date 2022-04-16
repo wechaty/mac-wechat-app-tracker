@@ -25,7 +25,7 @@
 @property(nonatomic) unsigned long long createTime; // @synthesize createTime;
 @property(retain, nonatomic) NSString *chatUserName; // @synthesize chatUserName;
 @property(nonatomic) long long serverId; // @synthesize serverId;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

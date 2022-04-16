@@ -13,11 +13,14 @@
 @interface MMSnsUploadTask : NSObject <PBCoding>
 {
     BOOL isPrivate;
+    BOOL disableSaveDraft;
     BOOL _isUploadFailed;
     BOOL _isDeleted;
     BOOL _isPending;
     int type;
     int syncFlag;
+    unsigned int tempUserCount;
+    unsigned int contactTagCount;
     int _contentDescShowType;
     int _contentDescScene;
     unsigned int _contentAttributeBitSetFlag;
@@ -45,6 +48,11 @@
     MMSnsAppInfo *appInfo;
     long long uiType;
     NSArray *selectedResults;
+    NSString *shareOriginUrl;
+    NSString *shareOpenUrl;
+    NSString *jsAppId;
+    MMSnsFinderShareToMomentsItem *finderShareToMomentsItem;
+    MMSnsFinderLiveShareItem *finderLiveShareItem;
     SnsObject *_snsObj;
     long long _BGImgSetType;
     NSString *_twitterOAuthToken;
@@ -56,24 +64,17 @@
     MMSnsLocationInfo *_locationInfo;
     SnsWeAppInfo *_snsWeAppInfo;
     MMSnsWeAppInfo *_weappInfo;
-    NSString *_shareOriginUrl;
-    NSString *_shareOpenUrl;
-    NSString *_jsAppId;
     NSMutableDictionary *_statParasDic;
     UserOpInfo *_opInfo;
     NSString *_statExtStr;
     NSString *_canvasInfoXml;
-    unsigned long long _tempUserCount;
-    unsigned long long _contactTagCount;
     MMSnsNoteInfo *_noteInfo;
     MMSnsVideoFlowInfo *_videoFlowInfo;
     MMSnsAppMsgShareInfo *_appMsgShareInfo;
-    MMSnsFinderShareToMomentsItem *_finderShareToMomentsItem;
     MMSnsFinderTopicShareItem *_finderTopicShareItem;
     MMSnsFinderContentColumnSharedItem *_finderContentColumnSharedItem;
     MMSnsBrandMpVideoItem *_brandMpVideoItem;
     MMSnsMegaVideoShareItem *_finderLongVideoShareItem;
-    MMSnsFinderLiveShareItem *_finderLiveShareItem;
     MMSnsFinderShareItemContainer *_finderShareItem;
     MMMusicShareItem *_musicShareItem;
     MMSnsLiteAppInfo *_liteappInfo;
@@ -82,6 +83,14 @@
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_disableSaveDraft;
++ (void)PBArrayAdd_finderLiveShareItem;
++ (void)PBArrayAdd_finderShareToMomentsItem;
++ (void)PBArrayAdd_contactTagCount;
++ (void)PBArrayAdd_tempUserCount;
++ (void)PBArrayAdd_jsAppId;
++ (void)PBArrayAdd_shareOpenUrl;
++ (void)PBArrayAdd_shareOriginUrl;
 + (void)PBArrayAdd_selectedResults;
 + (void)PBArrayAdd_uiType;
 + (void)PBArrayAdd_appInfo;
@@ -113,26 +122,19 @@
 @property(retain, nonatomic) MMSnsLiteAppInfo *liteappInfo; // @synthesize liteappInfo=_liteappInfo;
 @property(retain, nonatomic) MMMusicShareItem *musicShareItem; // @synthesize musicShareItem=_musicShareItem;
 @property(retain, nonatomic) MMSnsFinderShareItemContainer *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
-@property(retain, nonatomic) MMSnsFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem=_finderLiveShareItem;
 @property(retain, nonatomic) MMSnsMegaVideoShareItem *finderLongVideoShareItem; // @synthesize finderLongVideoShareItem=_finderLongVideoShareItem;
 @property(retain, nonatomic) MMSnsBrandMpVideoItem *brandMpVideoItem; // @synthesize brandMpVideoItem=_brandMpVideoItem;
 @property(retain, nonatomic) MMSnsFinderContentColumnSharedItem *finderContentColumnSharedItem; // @synthesize finderContentColumnSharedItem=_finderContentColumnSharedItem;
 @property(retain, nonatomic) MMSnsFinderTopicShareItem *finderTopicShareItem; // @synthesize finderTopicShareItem=_finderTopicShareItem;
-@property(retain, nonatomic) MMSnsFinderShareToMomentsItem *finderShareToMomentsItem; // @synthesize finderShareToMomentsItem=_finderShareToMomentsItem;
 @property(retain, nonatomic) MMSnsAppMsgShareInfo *appMsgShareInfo; // @synthesize appMsgShareInfo=_appMsgShareInfo;
 @property(retain, nonatomic) MMSnsVideoFlowInfo *videoFlowInfo; // @synthesize videoFlowInfo=_videoFlowInfo;
 @property(retain, nonatomic) MMSnsNoteInfo *noteInfo; // @synthesize noteInfo=_noteInfo;
 @property(nonatomic) int showFlag; // @synthesize showFlag=_showFlag;
 @property(nonatomic) int sightFolded; // @synthesize sightFolded=_sightFolded;
-@property(nonatomic) unsigned long long contactTagCount; // @synthesize contactTagCount=_contactTagCount;
-@property(nonatomic) unsigned long long tempUserCount; // @synthesize tempUserCount=_tempUserCount;
 @property(retain, nonatomic) NSString *canvasInfoXml; // @synthesize canvasInfoXml=_canvasInfoXml;
 @property(retain, nonatomic) NSString *statExtStr; // @synthesize statExtStr=_statExtStr;
 @property(retain, nonatomic) UserOpInfo *opInfo; // @synthesize opInfo=_opInfo;
 @property(retain, nonatomic) NSMutableDictionary *statParasDic; // @synthesize statParasDic=_statParasDic;
-@property(retain, nonatomic) NSString *jsAppId; // @synthesize jsAppId=_jsAppId;
-@property(retain, nonatomic) NSString *shareOpenUrl; // @synthesize shareOpenUrl=_shareOpenUrl;
-@property(retain, nonatomic) NSString *shareOriginUrl; // @synthesize shareOriginUrl=_shareOriginUrl;
 @property(nonatomic) BOOL isDeleted; // @synthesize isDeleted=_isDeleted;
 @property(retain, nonatomic) MMSnsWeAppInfo *weappInfo; // @synthesize weappInfo=_weappInfo;
 @property(retain, nonatomic) SnsWeAppInfo *snsWeAppInfo; // @synthesize snsWeAppInfo=_snsWeAppInfo;
@@ -150,6 +152,14 @@
 @property(nonatomic) int contentDescScene; // @synthesize contentDescScene=_contentDescScene;
 @property(nonatomic) int contentDescShowType; // @synthesize contentDescShowType=_contentDescShowType;
 @property(retain, nonatomic) SnsObject *snsObj; // @synthesize snsObj=_snsObj;
+@property(nonatomic) BOOL disableSaveDraft; // @synthesize disableSaveDraft;
+@property(retain, nonatomic) MMSnsFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem;
+@property(retain, nonatomic) MMSnsFinderShareToMomentsItem *finderShareToMomentsItem; // @synthesize finderShareToMomentsItem;
+@property(nonatomic) unsigned int contactTagCount; // @synthesize contactTagCount;
+@property(nonatomic) unsigned int tempUserCount; // @synthesize tempUserCount;
+@property(retain, nonatomic) NSString *jsAppId; // @synthesize jsAppId;
+@property(retain, nonatomic) NSString *shareOpenUrl; // @synthesize shareOpenUrl;
+@property(retain, nonatomic) NSString *shareOriginUrl; // @synthesize shareOriginUrl;
 @property(retain, nonatomic) NSArray *selectedResults; // @synthesize selectedResults;
 @property(nonatomic) long long uiType; // @synthesize uiType;
 @property(retain, nonatomic) MMSnsAppInfo *appInfo; // @synthesize appInfo;
@@ -173,7 +183,7 @@
 @property(retain, nonatomic) NSString *clientID; // @synthesize clientID;
 @property(retain, nonatomic) NSString *serverID; // @synthesize serverID;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

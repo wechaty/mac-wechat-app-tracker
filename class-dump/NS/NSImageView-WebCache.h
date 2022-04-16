@@ -16,5 +16,6 @@
 - (void)setImageWithURL:(id)arg1;
 - (void)cleanImgExtDelegate;
 - (void)dealloc;
+- (struct CGRect)imageRect;
 @end
 

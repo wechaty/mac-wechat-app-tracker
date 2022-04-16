@@ -129,7 +129,7 @@
 @property(nonatomic) unsigned int m_uiChatState; // @synthesize m_uiChatState;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -21,16 +21,16 @@
     NSString *_inviteLink;
 }
 
-+ (const struct WCTProperty *)isRead;
-+ (const struct WCTProperty *)hasAccepted;
-+ (const struct WCTProperty *)inviteLink;
-+ (const struct WCTProperty *)expire;
-+ (const struct WCTProperty *)scene;
-+ (const struct WCTProperty *)clientVersion;
-+ (const struct WCTProperty *)commitCount;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)isRead;
++ (const void *)hasAccepted;
++ (const void *)inviteLink;
++ (const void *)expire;
++ (const void *)scene;
++ (const void *)clientVersion;
++ (const void *)commitCount;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isRead; // @synthesize isRead=_isRead;
 @property(nonatomic) BOOL hasAccepted; // @synthesize hasAccepted=_hasAccepted;

@@ -17,7 +17,7 @@
 #import "VideoMessageHandlerDelegate-Protocol.h"
 #import "VoiceMessageHandlerDelegate-Protocol.h"
 
-@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
+@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, MessageDBWrapper, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
 
 @interface FFProcessReqsvrZZ : MMService <TextMessageHandlerDelegate, ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, VoiceMessageHandlerDelegate, AppMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, MMService>
 {
@@ -28,9 +28,8 @@
     AppMessageHandler *m_appMsgHandler;
     EmoticonMessageHandler *m_emoticonMsgHandler;
     RecordMessageHandler *m_recordMsgHandler;
-    NSRecursiveLock *m_dbCacheLock;
-    NSMutableDictionary *m_dictMsgDB;
     BOOL _m_hasClearData;
+    MessageDBWrapper *_msgDBWrapper;
     NSOperationQueue *_batchSyncImagesDownloadQueue;
     NSMutableArray *_arrStashedMsgs;
     FastSyncMsgFilter *_filter;
@@ -48,8 +47,8 @@
 
 + (void)registerClsMethod_MessageDataExt;
 + (void)RegisterClsMethod;
-+ (const list_02de7622 *)orderOfDescCreateTimeAndMsgLocalId;
-+ (const list_02de7622 *)orderOfAscCreateTimeAndMsgLocalId;
++ (const void *)orderOfDescCreateTimeAndMsgLocalId;
++ (const void *)orderOfAscCreateTimeAndMsgLocalId;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
 @property(retain, nonatomic) NSRecursiveLock *cdnTaskLock; // @synthesize cdnTaskLock=_cdnTaskLock;
@@ -65,6 +64,7 @@
 @property(retain, nonatomic) NSMutableArray *arrStashedMsgs; // @synthesize arrStashedMsgs=_arrStashedMsgs;
 @property(retain, nonatomic) NSOperationQueue *batchSyncImagesDownloadQueue; // @synthesize batchSyncImagesDownloadQueue=_batchSyncImagesDownloadQueue;
 @property BOOL m_hasClearData; // @synthesize m_hasClearData=_m_hasClearData;
+@property(retain, nonatomic) MessageDBWrapper *msgDBWrapper; // @synthesize msgDBWrapper=_msgDBWrapper;
 - (void)filterAtUserWithMsg:(id)arg1;
 - (int)delMultiSelectMsg:(id)arg1;
 - (int)addMultiSelectMsg:(id)arg1;
@@ -135,7 +135,7 @@
 - (void)processYoMsg:(id)arg1;
 - (void)processNewXMLMsg:(id)arg1 sessionMsgList:(id)arg2;
 - (void)onRevokeRoomHistory:(id)arg1;
-- (void)addTemplateNewXmlMsg:(id)arg1 sessionMsgList:(id)arg2;
+- (void)onTemplateNewXmlMsg:(id)arg1 sessionMsgList:(id)arg2;
 - (void)addDeleteMessages:(id)arg1 inChat:(id)arg2;
 - (void)addClearSession:(id)arg1;
 - (void)addDeleteSession:(id)arg1;
@@ -153,13 +153,11 @@
 - (void)OnSyncModMsgStatus:(id)arg1;
 - (void)OnSyncBatchAddFunctionMsgs:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)FFImgToOnFavInfoInfoVCZZ:(id)arg1 isFirstSync:(BOOL)arg2;
-- (id)filterUselessStatusNotify:(id)arg1 andTyps:(id)arg2 andAddMsgListCount:(unsigned long long)arg3;
+- (void)processNormalStatusNotify:(id)arg1;
+- (void)processUnreadCountStatusNotify:(id)arg1 addMsgListCount:(unsigned long long)arg2;
 - (void)FFVideoToOnFavInfoInfoVCZZ:(id)arg1 withSessionList:(id)arg2 andIsFirstSync:(BOOL)arg3;
 - (void)FFSingleToOnFavInfoInfoVCZZ:(id)arg1 withSessionList:(id)arg2 andIsFirstSync:(BOOL)arg3;
 - (void)onFastSyncBatchStashMsgs:(id)arg1 isFirstSync:(BOOL)arg2 isLastSync:(BOOL)arg3;
-- (id)p_getMsgDBWithIdentifier:(id)arg1;
-- (id)GetMsgDBWithIdentifier:(id)arg1;
-- (void)InitMsgDB;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;
@@ -175,23 +173,26 @@
 - (void)notifyChatSyncMsgs:(id)arg1 msgList:(id)arg2;
 - (void)notifyAddMsgOnMainThread:(id)arg1 msgData:(id)arg2;
 - (void)notifyNewMsgNotificationOnMainThread:(id)arg1 msgData:(id)arg2;
+- (void)GenBrandMessageDBInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)AddTestMsg:(id)arg1 msgData:(id)arg2;
 - (void)AddLocalMsg:(id)arg1 msgData:(id)arg2;
-- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 type:(unsigned long long)arg3;
-- (BOOL)ModifyMsgDataOnType:(unsigned long long)arg1 msgData:(id)arg2;
-- (BOOL)DeleteAllMsg:(id)arg1 isManual:(BOOL)arg2;
-- (BOOL)DeleteAllMsg:(id)arg1;
-- (BOOL)DeleteMsgList:(id)arg1 chatName:(id)arg2 isManual:(BOOL)arg3;
-- (BOOL)DeleteMsgList:(id)arg1 chatName:(id)arg2;
+- (BOOL)p_deleteAllMsg:(id)arg1 isManual:(BOOL)arg2 msgDB:(id)arg3;
+- (BOOL)DeleteAllMsgInDB:(id)arg1 isManual:(BOOL)arg2;
+- (BOOL)DeleteAllMsgInDB:(id)arg1;
+- (BOOL)p_deleteMsgList:(id)arg1 chatName:(id)arg2 isManual:(BOOL)arg3 msgDB:(id)arg4;
+- (BOOL)DeleteMsgListInDB:(id)arg1 chatName:(id)arg2 isManual:(BOOL)arg3;
+- (BOOL)DeleteMsgListInDB:(id)arg1 chatName:(id)arg2;
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4 withCompletion:(CDUnknownBlockType)arg5;
 - (void)DelMsg:(id)arg1 msgList:(id)arg2 isDelAll:(BOOL)arg3 isManual:(BOOL)arg4;
 - (void)DelRevokedMsg:(id)arg1 msgData:(id)arg2;
 - (void)UpdateReferMsgAsRevoked:(id)arg1 chatName:(id)arg2;
 - (void)ClearUnReadForSync:(id)arg1 ToCreateTime:(unsigned int)arg2;
 - (void)ClearUnRead:(id)arg1 FromCreateTime:(unsigned int)arg2 ToCreateTime:(unsigned int)arg3;
-- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2;
+- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 type:(unsigned long long)arg3;
+- (BOOL)ModifyMsgDataOnType:(unsigned long long)arg1 msgData:(id)arg2;
+- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 msgDB:(id)arg3;
 - (void)ModifyMsgData:(id)arg1 msgData:(id)arg2;
-- (BOOL)p_modifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3;
+- (BOOL)p_modifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3 msgDB:(id)arg4;
 - (void)ModifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3;
 - (void)CheckDownloadStatus:(id)arg1;
 - (void)CheckUploadStatus:(id)arg1;
@@ -217,8 +218,11 @@
 - (id)GetLastMsg:(id)arg1;
 - (unsigned int)GetLastMsgCreateTime:(id)arg1;
 - (unsigned int)GetLastMsgLocalId:(id)arg1;
+- (id)GetMsgDBTableName:(id)arg1;
 - (id)GetMsgDBIndetifier:(id)arg1;
 - (id)GetMsgDBName:(id)arg1;
+- (id)GetMsgDBWithIdentifier:(id)arg1;
+- (id)GetMsgDBForChat:(id)arg1;
 - (id)GetMsgDB:(id)arg1;
 - (id)GetImgOrVideoNextMsg:(id)arg1 FromID:(unsigned int)arg2 CreateTime:(unsigned int)arg3 Limit:(unsigned int)arg4;
 - (id)GetImgOrVideoLastMsg:(id)arg1 FromID:(unsigned int)arg2 CreateTime:(unsigned int)arg3 Limit:(unsigned int)arg4;

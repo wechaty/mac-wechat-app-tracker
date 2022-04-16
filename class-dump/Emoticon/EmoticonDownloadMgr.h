@@ -41,7 +41,6 @@
 - (void)invalidateDownloadMgr;
 - (void)setupDownloadMgr;
 - (void)proxySettingsDidChange:(id)arg1;
-- (void)saveFavEmoticonDataListToFile;
 - (void)emoticonDidFinishedDownload;
 - (void)emoticonDidFailedDownload;
 - (void)startDownloadNextEmotionTask;

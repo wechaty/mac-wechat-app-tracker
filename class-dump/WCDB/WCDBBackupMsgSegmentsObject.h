@@ -26,21 +26,21 @@
     NSString *Reserved3;
 }
 
-+ (const struct WCTProperty *)Reserved3;
-+ (const struct WCTProperty *)Reserved2;
-+ (const struct WCTProperty *)SegmentId;
-+ (const struct WCTProperty *)FilePath;
-+ (const struct WCTProperty *)Reserved1;
-+ (const struct WCTProperty *)Status;
-+ (const struct WCTProperty *)UsrName;
-+ (const struct WCTProperty *)Length;
-+ (const struct WCTProperty *)OffSet;
-+ (const struct WCTProperty *)EndTime;
-+ (const struct WCTProperty *)StartTime;
-+ (const struct WCTProperty *)talkerId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)Reserved3;
++ (const void *)Reserved2;
++ (const void *)SegmentId;
++ (const void *)FilePath;
++ (const void *)Reserved1;
++ (const void *)Status;
++ (const void *)UsrName;
++ (const void *)Length;
++ (const void *)OffSet;
++ (const void *)EndTime;
++ (const void *)StartTime;
++ (const void *)talkerId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *Reserved3; // @synthesize Reserved3;
 @property(retain, nonatomic) NSString *Reserved2; // @synthesize Reserved2;

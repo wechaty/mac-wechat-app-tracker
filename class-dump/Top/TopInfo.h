@@ -46,7 +46,7 @@
 @property(nonatomic) unsigned int lastLoginType; // @synthesize lastLoginType;
 @property(retain, nonatomic) NSString *lastLoginUserName; // @synthesize lastLoginUserName;
 @property(retain, nonatomic) NSString *curUserName; // @synthesize curUserName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -6,7 +6,7 @@
 
 #import "MMSearchTableCellView.h"
 
-@class MMImageView, MMTextField;
+@class MMImageView, MMTextField, NSButton;
 
 @interface MMWebSearchTableCellView : MMSearchTableCellView
 {
@@ -15,9 +15,11 @@
     MMImageView *_iconView;
     MMTextField *_titleLabel;
     MMTextField *_descriptionLabel;
+    NSButton *_arrowsBtn;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *arrowsBtn; // @synthesize arrowsBtn=_arrowsBtn;
 @property(retain, nonatomic) MMTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) MMTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) MMImageView *iconView; // @synthesize iconView=_iconView;
@@ -27,6 +29,7 @@
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (void)onClickArrowsBtn;
 - (void)populateWithResultItem:(id)arg1 keyword:(id)arg2;
 - (void)layoutTitleFields;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;

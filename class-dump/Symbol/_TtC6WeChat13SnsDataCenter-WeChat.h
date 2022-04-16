@@ -10,6 +10,7 @@
 - (void)resetDeleteTask;
 - (id)latestDeleteTask;
 - (BOOL)isDeletedWith:(id)arg1;
+- (BOOL)hasUploadingTask;
 - (void)deleteFeedOnFeed:(id)arg1;
 - (void)restorePublish;
 - (void)publishWithTask:(id)arg1;

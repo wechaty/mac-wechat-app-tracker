@@ -49,7 +49,6 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isNeedProcessContact:(id)arg1;
 - (void)processOnDeleteContacts:(id)arg1;
 - (void)processOnModifyContacts:(id)arg1;
 - (void)changeSessionUnreadCount:(id)arg1;

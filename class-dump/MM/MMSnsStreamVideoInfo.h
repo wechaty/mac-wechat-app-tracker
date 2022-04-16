@@ -41,7 +41,7 @@
 @property(retain, nonatomic) NSString *streamVideoTitle; // @synthesize streamVideoTitle;
 @property(retain, nonatomic) NSString *streamVideoUrl; // @synthesize streamVideoUrl;
 - (BOOL)isValid;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

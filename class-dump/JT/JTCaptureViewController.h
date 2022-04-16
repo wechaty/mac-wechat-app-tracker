@@ -8,12 +8,14 @@
 
 #import "JTCaptureViewDelegate-Protocol.h"
 
-@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, NSImage, NSImageView, NSString;
+@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
 @protocol JTCaptureViewControllerDelegate;
 
 @interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate>
 {
+    BOOL _isDoingQRCode;
     BOOL _needScreenCapture;
+    BOOL _hasQRCodes;
     id <JTCaptureViewControllerDelegate> _delegate;
     NSImageView *_backgroundImageView;
     JTCaptureView *_captureView;
@@ -22,9 +24,16 @@
     JTToolbarWindowController *_toolbarWindowController;
     JTEditViewController *_editViewController;
     NSImage *_imageCaptured;
+    NSArray *_QRCodeResults;
+    NSMutableArray *_QRCodeResultsButtons;
+    MMIgnoreEventView *_QRCodeMaskView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMIgnoreEventView *QRCodeMaskView; // @synthesize QRCodeMaskView=_QRCodeMaskView;
+@property(retain, nonatomic) NSMutableArray *QRCodeResultsButtons; // @synthesize QRCodeResultsButtons=_QRCodeResultsButtons;
+@property(retain, nonatomic) NSArray *QRCodeResults; // @synthesize QRCodeResults=_QRCodeResults;
+@property(nonatomic) BOOL hasQRCodes; // @synthesize hasQRCodes=_hasQRCodes;
 @property(retain, nonatomic) NSImage *imageCaptured; // @synthesize imageCaptured=_imageCaptured;
 @property(nonatomic) BOOL needScreenCapture; // @synthesize needScreenCapture=_needScreenCapture;
 @property(retain, nonatomic) JTEditViewController *editViewController; // @synthesize editViewController=_editViewController;
@@ -33,7 +42,13 @@
 @property(retain, nonatomic) JTCaptureMagnifierView *magifierView; // @synthesize magifierView=_magifierView;
 @property(retain, nonatomic) JTCaptureView *captureView; // @synthesize captureView=_captureView;
 @property(retain, nonatomic) NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
+@property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) __weak id <JTCaptureViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)onQRCodeDotButtonClick:(id)arg1;
+- (void)hiddenQRCodeInfos;
+- (void)showQRCodeInfos;
+- (void)onQRCodeButtonClick:(id)arg1;
+- (void)cancelQRCode;
 - (void)prepareToRecord:(id)arg1;
 - (void)editDidBegin:(id)arg1;
 - (void)handleReceivedConfirmSelectionNotification:(id)arg1;

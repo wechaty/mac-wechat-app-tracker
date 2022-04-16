@@ -17,12 +17,12 @@
     NSString *_userName;
 }
 
-+ (const struct WCTProperty *)lastOpenTime;
-+ (const struct WCTProperty *)appType;
-+ (const struct WCTProperty *)userName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)lastOpenTime;
++ (const void *)appType;
++ (const void *)userName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int lastOpenTime; // @synthesize lastOpenTime=_lastOpenTime;
 @property(nonatomic) unsigned int appType; // @synthesize appType=_appType;

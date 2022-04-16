@@ -33,7 +33,7 @@
 - (BOOL)dropForMatchSolitaire;
 - (BOOL)dropActiveSolitaire;
 - (id)getSolitaireWithMsgWrap:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

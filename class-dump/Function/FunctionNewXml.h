@@ -71,7 +71,7 @@
 @property(nonatomic) unsigned int opType; // @synthesize opType;
 @property(nonatomic) unsigned int cmdid; // @synthesize cmdid;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -19,14 +19,14 @@
     NSString *_data;
 }
 
-+ (const struct WCTProperty *)data;
-+ (const struct WCTProperty *)dataType;
-+ (const struct WCTProperty *)lastModifyTime;
-+ (const struct WCTProperty *)keyAndDataLength;
-+ (const struct WCTProperty *)key;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)data;
++ (const void *)dataType;
++ (const void *)lastModifyTime;
++ (const void *)keyAndDataLength;
++ (const void *)key;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *dataType; // @synthesize dataType=_dataType;

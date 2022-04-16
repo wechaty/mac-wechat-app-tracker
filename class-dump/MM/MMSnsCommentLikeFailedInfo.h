@@ -30,7 +30,7 @@
 @property(retain, nonatomic) MMSnsDataItem *feed; // @synthesize feed;
 - (id)getReferencedComment;
 - (id)initWithDataItem:(id)arg1 content:(id)arg2 comment:(id)arg3;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

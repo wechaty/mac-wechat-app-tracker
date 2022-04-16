@@ -32,7 +32,7 @@
 @property(nonatomic) unsigned long long version; // @synthesize version;
 @property(nonatomic) long long msgSvrId; // @synthesize msgSvrId;
 @property(readonly, copy) NSString *description;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

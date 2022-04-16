@@ -38,7 +38,6 @@
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)performSearchAction;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)setAssignedContact:(id)arg1;
 - (void)setFilteredUserNames:(id)arg1;

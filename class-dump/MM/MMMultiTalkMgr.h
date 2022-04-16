@@ -27,7 +27,7 @@
 #import "WXCAssistHelperDelegate-Protocol.h"
 #import "WXCMultiTalkApiDelegate-Protocol.h"
 
-@class AVVideoDevice, MMMultiTalkWindowController, MMTimer, MMVoipUserNotificationWindowController, NSMutableArray, NSMutableDictionary, NSString;
+@class AVVideoDevice, MMMultiTalkWindowController, MMTimer, MMVoipUserNotificationWindowController, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
 
 @interface MMMultiTalkMgr : MMService <IMessageExt, MMCGIDelegate, AccountServiceExt, WXCMultiTalkApiDelegate, MultitalkApiDelegate, WXCAssistHelperDelegate, MultiTalkCgiDelegate, AVVideoDeviceSetupSessionDelegate, AVVideoDataSource, AVVideoDeviceDelegate, AVVideoDeviceSessionDelegate, MonoServiceMsgDelegate, MMVoipUserNotificationDelegate, IContactMgrExt, IGroupMgrExt, MMVoipBaseWindowControllerDelegate, MMMultiTalkWindowDelegate, MonoServiceMsgLogicDelegate, MMNetExt, MMService>
 {
@@ -56,9 +56,11 @@
     MMMultiTalkWindowController *_m_multiTalkWindowController;
     NSString *_m_otherDevicehandlerGroupId;
     MMTimer *_netStatusTimer;
+    NSRecursiveLock *_m_videoEncLock;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *m_videoEncLock; // @synthesize m_videoEncLock=_m_videoEncLock;
 @property(nonatomic) BOOL isNoNetwork; // @synthesize isNoNetwork=_isNoNetwork;
 @property(retain, nonatomic) MMTimer *netStatusTimer; // @synthesize netStatusTimer=_netStatusTimer;
 @property(nonatomic) int mode; // @synthesize mode=_mode;

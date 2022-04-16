@@ -72,7 +72,7 @@
 @property(retain, nonatomic) NSString *fromUsrName; // @synthesize fromUsrName;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -6,19 +6,22 @@
 
 #import <AppKit/NSTextAttachmentCell.h>
 
-@class NSAttributedString;
+@class NSDictionary, NSString;
 
 @interface MMMetionTextAttachmentCell : NSTextAttachmentCell
 {
-    NSAttributedString *_attrString;
     struct CGSize _textSize;
+    NSString *_titleStr;
+    NSDictionary *_attributes;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) struct CGSize textSize; // @synthesize textSize=_textSize;
-@property(retain, nonatomic) NSAttributedString *attrString; // @synthesize attrString=_attrString;
+@property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+@property(retain, nonatomic) NSString *titleStr; // @synthesize titleStr=_titleStr;
+- (struct CGRect)wew_titleDrawRect:(struct CGRect)arg1;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (struct CGSize)cellSize;
+- (struct CGRect)cellFrameForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned long long)arg4;
+- (void)setTitleStr:(id)arg1 attributes:(id)arg2;
 - (id)init;
 
 @end

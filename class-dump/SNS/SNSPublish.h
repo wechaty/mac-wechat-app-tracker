@@ -18,13 +18,13 @@
     NSData *_buffer;
 }
 
-+ (const struct WCTProperty *)buffer;
-+ (const struct WCTProperty *)status;
-+ (const struct WCTProperty *)createTime;
-+ (const struct WCTProperty *)clientID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)buffer;
++ (const void *)status;
++ (const void *)createTime;
++ (const void *)clientID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSData *buffer; // @synthesize buffer=_buffer;
 @property(nonatomic) unsigned int status; // @synthesize status=_status;

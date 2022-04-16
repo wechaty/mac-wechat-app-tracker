@@ -25,7 +25,7 @@
 @property(nonatomic) BOOL bFree; // @synthesize bFree;
 @property(nonatomic) BOOL hasReward; // @synthesize hasReward;
 @property(retain, nonatomic) NSString *sendId; // @synthesize sendId;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

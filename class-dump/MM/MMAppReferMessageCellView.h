@@ -101,6 +101,8 @@
 - (BOOL)draggingEnabled;
 - (struct CGRect)undraggableArea;
 - (struct CGRect)clickableArea;
+- (id)getTextViewSelectedString;
+- (void)contextMenuSearch;
 - (id)contextMenuOutsideFrame:(id)arg1;
 - (void)updateMessageCellHeight:(BOOL)arg1;
 - (void)contextMenuHideTranslation;

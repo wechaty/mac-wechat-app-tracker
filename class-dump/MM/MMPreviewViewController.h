@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSImageView, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView;
+@class MMIgnoreEventView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSArray, NSImageView, NSMutableArray, NSString, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView;
 
 @interface MMPreviewViewController : NSViewController
 {
@@ -15,6 +15,7 @@
     BOOL _shouldPlayVideo;
     BOOL _isRestore;
     BOOL _bDidResized;
+    BOOL _isShowQRCode;
     int _rotateDegrees;
     int _reflectRotateDegrees;
     CDUnknownBlockType _zoomImageBlock;
@@ -22,6 +23,8 @@
     CDUnknownBlockType _restoreActionBlock;
     CDUnknownBlockType _retryDownloadImageBlock;
     CDUnknownBlockType _finishDownloadVideoBlock;
+    CDUnknownBlockType _didFinishLoadImage;
+    CDUnknownBlockType _didChangeQRCodeButtonStatus;
     MMQLPreviewPageInfo *_pageInfo;
     _TtC6WeChat17PreviewScrollView *_scrollView;
     _TtC6WeChat16PreviewImageView *_flipView;
@@ -29,6 +32,11 @@
     MMPreviewVideoPlayerView *_videoPlayerView;
     MMPreviewSnsVideoPlayerView *_snsVideoPlayerView;
     double _originZoomFactor;
+    NSString *_currentShowQRCode;
+    MMIgnoreEventView *_QRCodeMaskView;
+    NSMutableArray *_QRCodeResultsButtons;
+    NSArray *_QRCodeResults;
+    long long _scanQRRetryCount;
     MMTimer *_scrollEndtimer;
     NSView *_maskView;
     struct CGSize _originContentSizeBeforeResize;
@@ -38,6 +46,12 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSView *maskView; // @synthesize maskView=_maskView;
 @property(retain, nonatomic) MMTimer *scrollEndtimer; // @synthesize scrollEndtimer=_scrollEndtimer;
+@property(nonatomic) long long scanQRRetryCount; // @synthesize scanQRRetryCount=_scanQRRetryCount;
+@property(retain, nonatomic) NSArray *QRCodeResults; // @synthesize QRCodeResults=_QRCodeResults;
+@property(retain, nonatomic) NSMutableArray *QRCodeResultsButtons; // @synthesize QRCodeResultsButtons=_QRCodeResultsButtons;
+@property(retain, nonatomic) MMIgnoreEventView *QRCodeMaskView; // @synthesize QRCodeMaskView=_QRCodeMaskView;
+@property(retain, nonatomic) NSString *currentShowQRCode; // @synthesize currentShowQRCode=_currentShowQRCode;
+@property(nonatomic) BOOL isShowQRCode; // @synthesize isShowQRCode=_isShowQRCode;
 @property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
 @property(nonatomic) struct CGSize originContentSizeBeforeResize; // @synthesize originContentSizeBeforeResize=_originContentSizeBeforeResize;
 @property(nonatomic) struct CGRect originFrameBeforeFullScreen; // @synthesize originFrameBeforeFullScreen=_originFrameBeforeFullScreen;
@@ -54,11 +68,15 @@
 @property(retain, nonatomic) _TtC6WeChat16PreviewImageView *flipView; // @synthesize flipView=_flipView;
 @property __weak _TtC6WeChat17PreviewScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMQLPreviewPageInfo *pageInfo; // @synthesize pageInfo=_pageInfo;
+@property(copy, nonatomic) CDUnknownBlockType didChangeQRCodeButtonStatus; // @synthesize didChangeQRCodeButtonStatus=_didChangeQRCodeButtonStatus;
+@property(copy, nonatomic) CDUnknownBlockType didFinishLoadImage; // @synthesize didFinishLoadImage=_didFinishLoadImage;
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadVideoBlock; // @synthesize finishDownloadVideoBlock=_finishDownloadVideoBlock;
 @property(copy, nonatomic) CDUnknownBlockType retryDownloadImageBlock; // @synthesize retryDownloadImageBlock=_retryDownloadImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreActionBlock; // @synthesize restoreActionBlock=_restoreActionBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreImageBlock; // @synthesize restoreImageBlock=_restoreImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType zoomImageBlock; // @synthesize zoomImageBlock=_zoomImageBlock;
+- (void)onMenuVideoInfoClicked;
+- (void)appendMenuItems:(id)arg1;
 - (void)stopScrollTimer;
 - (void)resetScrollTimer;
 - (void)disableScrollViewDrag;
@@ -81,6 +99,9 @@
 - (void)refreshOriginImageWithPageInfo:(id)arg1 ignoreCache:(BOOL)arg2;
 - (void)refreshOriginImageWithPageInfo:(id)arg1;
 - (void)setupWithPageInfo:(id)arg1;
+- (void)storeCurQRCodeDot:(id)arg1;
+- (void)clearCurQRCodeDot;
+- (void)layoutQRCodeSubViews;
 - (void)addFullScreenToolBar:(id)arg1;
 - (void)layoutSnsVideoView;
 - (void)layoutVideoView;
@@ -103,7 +124,19 @@
 - (void)setupRecordPageInfo;
 - (void)setupFavPageInfo;
 - (void)setupMessagePageInfo;
+- (void)handleQRCodeWhenLoadOriginImage;
 - (void)handleImageWhenRecallOrDel;
+- (struct CGRect)convertPointToContentView:(id)arg1 imageRect:(struct CGRect)arg2;
+- (void)handleCaptureImageQRCode:(id)arg1 inRect:(struct CGRect)arg2 visiableRect:(struct CGRect)arg3;
+- (void)doSearchQRCode;
+- (void)searchQRCodeInVisibleRect;
+- (void)hiddenQRCodeResult;
+- (void)onQRCodeButtonClick:(id)arg1;
+- (void)showQRCodeResults:(id)arg1 inRect:(struct CGRect)arg2 reflect:(BOOL)arg3;
+- (void)showQRCodeResult;
+- (void)captureNewImageAndQRCode;
+- (void)captureNewImage:(id)arg1 complete:(CDUnknownBlockType)arg2;
+- (id)generateCapturedImage;
 - (void)updateDidExitFullScreen;
 - (void)updateWillEnterFullScreen;
 - (void)removeThumbWhenResizing;

@@ -19,7 +19,7 @@
 + (void)PBArrayAdd_recommendDatas;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *recommendDatas; // @synthesize recommendDatas;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

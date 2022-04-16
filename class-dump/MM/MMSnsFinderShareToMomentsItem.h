@@ -25,11 +25,17 @@
     NSArray *mediaList;
     NSString *username;
     MMSnsFinderShareAttachInfo *megaVideo;
+    NSString *bizUsername;
+    unsigned long long authIconType;
+    NSString *authIconUrl;
 }
 
 + (id)modelCustomPropertyMapperForConfigTag:(id)arg1;
 + (id)modelContainerPropertyMappingForConfigTag:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_authIconUrl;
++ (void)PBArrayAdd_authIconType;
++ (void)PBArrayAdd_bizUsername;
 + (void)PBArrayAdd_megaVideo;
 + (void)PBArrayAdd_username;
 + (void)PBArrayAdd_mediaList;
@@ -43,7 +49,11 @@
 + (void)PBArrayAdd_timeLineThumbName;
 + (void)PBArrayAdd_localId;
 + (void)PBArrayAdd_objectId;
++ (id)itemFromJSApiDictionary:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *authIconUrl; // @synthesize authIconUrl;
+@property(nonatomic) unsigned long long authIconType; // @synthesize authIconType;
+@property(copy, nonatomic) NSString *bizUsername; // @synthesize bizUsername;
 @property(retain, nonatomic) MMSnsFinderShareAttachInfo *megaVideo; // @synthesize megaVideo;
 @property(copy, nonatomic) NSString *username; // @synthesize username;
 @property(retain, nonatomic) NSArray *mediaList; // @synthesize mediaList;
@@ -63,7 +73,7 @@
 - (id)toXMLV2;
 - (id)toXML;
 - (void)fromXML:(struct XmlReaderNode_t *)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (BOOL)isValid;
 - (id)path:(id)arg1;

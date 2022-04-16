@@ -23,6 +23,7 @@
     SVGButton *_refreshBtn;
     SVGButton *_forwardBtn;
     SVGButton *_forwardToWeWorkBtn;
+    SVGButton *_forwardToSnsBtn;
     SVGButton *_favoriteBtn;
     SVGButton *_doCopyUrlBtn;
     SVGButton *_externalBrowserBtn;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) SVGButton *externalBrowserBtn; // @synthesize externalBrowserBtn=_externalBrowserBtn;
 @property(retain, nonatomic) SVGButton *doCopyUrlBtn; // @synthesize doCopyUrlBtn=_doCopyUrlBtn;
 @property(retain, nonatomic) SVGButton *favoriteBtn; // @synthesize favoriteBtn=_favoriteBtn;
+@property(retain, nonatomic) SVGButton *forwardToSnsBtn; // @synthesize forwardToSnsBtn=_forwardToSnsBtn;
 @property(retain, nonatomic) SVGButton *forwardToWeWorkBtn; // @synthesize forwardToWeWorkBtn=_forwardToWeWorkBtn;
 @property(retain, nonatomic) SVGButton *forwardBtn; // @synthesize forwardBtn=_forwardBtn;
 @property(retain, nonatomic) SVGButton *refreshBtn; // @synthesize refreshBtn=_refreshBtn;
@@ -70,6 +72,7 @@
 - (void)doAdjustFontSize:(id)arg1;
 - (void)adjustFontSize:(int)arg1;
 - (void)showFontAdjust;
+- (void)forwardToTimeline;
 - (void)forwardContent;
 - (void)forwardContentToWeWork;
 - (void)addToFavorites;
@@ -79,7 +82,6 @@
 - (void)nextItem;
 - (void)previousItem;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onModifyContacts:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;

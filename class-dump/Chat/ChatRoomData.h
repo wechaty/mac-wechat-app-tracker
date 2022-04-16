@@ -13,11 +13,14 @@
     NSMutableDictionary *m_dicData;
     unsigned int m_maxMemberCount;
     unsigned int m_chatRoomVersion;
+    unsigned int m_chatRoomType;
     BOOL isSimplify;
     NSRecursiveLock *_lock;
+    unsigned int _chatRoomType;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int chatRoomType; // @synthesize chatRoomType=_chatRoomType;
 @property(nonatomic) BOOL isSimplify; // @synthesize isSimplify;
 @property(nonatomic) unsigned int chatRoomVersion; // @synthesize chatRoomVersion=m_chatRoomVersion;
 @property(nonatomic) unsigned int maxMemberCount; // @synthesize maxMemberCount=m_maxMemberCount;

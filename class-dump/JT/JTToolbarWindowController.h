@@ -15,6 +15,7 @@
 @interface JTToolbarWindowController : NSWindowController <JTToolbarViewDelegate, JTPopoverWindowControllerDelegate>
 {
     BOOL _enableUndo;
+    BOOL _enableQR;
     id <JTToolbarWindowControllerDelegate> _delegate;
     NSColor *_backgroundColor;
     JTToolbarView *_toolbarView;
@@ -25,6 +26,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) JTPopoverWindowController *popoverWindowController; // @synthesize popoverWindowController=_popoverWindowController;
 @property(retain, nonatomic) JTToolbarView *toolbarView; // @synthesize toolbarView=_toolbarView;
+@property(nonatomic) BOOL enableQR; // @synthesize enableQR=_enableQR;
 @property(nonatomic) BOOL enableUndo; // @synthesize enableUndo=_enableUndo;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGPoint position; // @synthesize position=_position;
@@ -37,8 +39,10 @@
 - (void)colorDidChange:(id)arg1;
 - (void)showPopoverViewType:(long long)arg1 width:(unsigned long long)arg2 color:(id)arg3;
 - (void)showPopoverViewType:(long long)arg1;
+- (void)QRScaner;
 - (void)undo;
 - (void)graphTypeDidChange:(long long)arg1;
+- (void)cancelQRCode;
 - (void)onUndoRedoCheckNotification:(id)arg1;
 - (void)beginCreateItem:(id)arg1;
 - (void)focusItemDidChange:(id)arg1;

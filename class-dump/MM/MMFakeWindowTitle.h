@@ -15,12 +15,12 @@
     unsigned long long _type;
 }
 
++ (id)getWindowTitle:(unsigned long long)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSImageView *iconImage; // @synthesize iconImage=_iconImage;
 - (id)getWindowTitleImage;
-- (id)getWindowTitle;
 - (struct CGSize)intrinsicContentSize;
 - (void)initSubViews;
 - (id)initWithType:(unsigned long long)arg1;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MMTraitsViewController.h"
 
 @class _TtC6WeChat31SnsPublishRightWindowController;
 
-@interface _TtC6WeChat29SnsPublishRightViewController : NSViewController
+@interface _TtC6WeChat29SnsPublishRightViewController : MMTraitsViewController
 {
     // Error parsing type: , name: windowController
     // Error parsing type: , name: titleTextField

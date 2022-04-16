@@ -37,7 +37,7 @@
 @property(retain, nonatomic) NSString *acctType; // @synthesize acctType;
 @property(nonatomic) unsigned int updateTime; // @synthesize updateTime;
 @property(nonatomic) unsigned int funcFlag; // @synthesize funcFlag;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

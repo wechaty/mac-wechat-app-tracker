@@ -53,7 +53,9 @@
 @property(retain, nonatomic) NSColor *kNobColor; // @synthesize kNobColor=_kNobColor;
 @property(retain, nonatomic) NSColor *disableTintColor; // @synthesize disableTintColor=_disableTintColor;
 - (void)setEnabled:(BOOL)arg1;
+- (void)setEnabled:(BOOL)arg1 withAnimated:(BOOL)arg2;
 @property(retain, nonatomic) NSColor *tintColor; // @synthesize tintColor=_tintColor;
+- (void)setChecked:(BOOL)arg1 withAnimated:(BOOL)arg2;
 - (void)setAction:(SEL)arg1;
 - (SEL)action;
 - (void)setTarget:(id)arg1;
@@ -69,6 +71,7 @@
 - (double)knobWidthForSize:(struct CGSize)arg1;
 - (double)knobHeightForSize:(struct CGSize)arg1;
 - (void)reloadLayerSize;
+- (void)reloadLayer:(BOOL)arg1;
 - (void)reloadLayer;
 - (struct CGRect)focusRingMaskBounds;
 - (BOOL)canBecomeKeyView;
@@ -77,6 +80,7 @@
 - (BOOL)acceptsFirstMouse:(id)arg1;
 - (void)setUpLayers;
 - (void)setup;
+- (id)init;
 
 @end
 

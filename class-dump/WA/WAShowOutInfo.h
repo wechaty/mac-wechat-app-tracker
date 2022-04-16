@@ -31,7 +31,7 @@
 @property(nonatomic) unsigned int strategyId; // @synthesize strategyId;
 @property(retain, nonatomic) NSMutableArray *showOutItems; // @synthesize showOutItems;
 @property(retain, nonatomic) NSString *wording; // @synthesize wording;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -21,7 +21,7 @@
     NewAuthRequest *m_lastAuthRequest;
     unsigned long long m_tryTimes;
     struct ec_key_st *ecdhKey;
-    basic_string_0a24cc0e g_ecdh_key;
+    basic_string_8e19b51d g_ecdh_key;
     BOOL _isSessionKeyNeedECDHDescrypt;
     int _m_lastAuthType;
     id <AuthCGIExt> _delegate;
@@ -31,7 +31,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(nonatomic) NSString *currLoginUserName; // @synthesize currLoginUserName=_currLoginUserName;
+@property(retain, nonatomic) NSString *currLoginUserName; // @synthesize currLoginUserName=_currLoginUserName;
 @property(nonatomic) BOOL isSessionKeyNeedECDHDescrypt; // @synthesize isSessionKeyNeedECDHDescrypt=_isSessionKeyNeedECDHDescrypt;
 @property(nonatomic) unsigned long long m_loginType; // @synthesize m_loginType=_m_loginType;
 @property(nonatomic) int m_lastAuthType; // @synthesize m_lastAuthType=_m_lastAuthType;

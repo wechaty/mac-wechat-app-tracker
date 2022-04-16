@@ -16,6 +16,7 @@
     NSMutableArray *_matchedRanges;
 }
 
++ (struct _NSRange)rangeOfSharpTagString:(id)arg1 withRange:(struct _NSRange)arg2;
 + (struct _NSRange)rangeOfUrlInString:(id)arg1 withRange:(struct _NSRange)arg2;
 + (id)parseLinkInfoFromString:(id)arg1;
 - (void).cxx_destruct;

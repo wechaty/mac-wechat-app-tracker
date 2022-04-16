@@ -18,13 +18,13 @@
     WCFavoriteSessionTableDataPackedInfo *_m_packedInfo;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)msgCount;
-+ (const struct WCTProperty *)lastUpdateTime;
-+ (const struct WCTProperty *)usrName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)msgCount;
++ (const void *)lastUpdateTime;
++ (const void *)usrName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) WCFavoriteSessionTableDataPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(nonatomic) unsigned int msgCount; // @synthesize msgCount=_msgCount;

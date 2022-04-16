@@ -11,6 +11,7 @@
     id _uniqueID;
 }
 
++ (id)mergeObjIfNeed:(id)arg1;
 + (id)attributedStringWithObjects:(id)arg1 textView:(id)arg2 forceAttachmentNewLine:(BOOL)arg3;
 + (id)attachmentObjectsWithParagraphs:(id)arg1;
 - (void).cxx_destruct;

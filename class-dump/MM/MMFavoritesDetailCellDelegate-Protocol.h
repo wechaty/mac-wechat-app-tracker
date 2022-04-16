@@ -11,6 +11,7 @@
 @protocol MMFavoritesDetailCellDelegate <NSObject>
 
 @optional
+- (void)cellViewNeedsHeightRecalculated:(MMFavoritesDetailBaseCell *)arg1;
 - (BOOL)cellSwipeDeleteButtonShown;
 - (void)cellCleanSwipeEffect:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellSwipeDeleteConfirm:(MMFavoritesDetailBaseCell *)arg1;

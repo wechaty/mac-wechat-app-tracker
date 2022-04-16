@@ -12,9 +12,8 @@
 
 + (int)readPreferenceNoteTextDidChangeTimeOut;
 + (int)readPreferenceNoteWindowMaxNum;
-+ (int)readPreferenceSignleNoteSizeLimit;
++ (unsigned int)readPreferenceSingleNoteSizeLimit;
 + (int)readPreferencePlainTextMaxLength;
-+ (int)readPreferenceSingleAttachmentSizeLimit;
 + (int)readPreferenceMaxAttachmentNum;
 + (BOOL)shouldEnableFeatureNewBulletList;
 + (BOOL)shouldEnableFeatureBulletList;

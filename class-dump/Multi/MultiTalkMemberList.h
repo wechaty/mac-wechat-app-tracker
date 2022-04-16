@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *memberList; // @synthesize memberList;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

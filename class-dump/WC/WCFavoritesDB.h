@@ -42,8 +42,8 @@
 - (id)getFavoritesItemTableName;
 - (BOOL)setupDB:(id)arg1 encryptKey:(id)arg2 pageSize:(int)arg3;
 - (id)initWithCheckpoint:(BOOL)arg1;
-- (void)fillFavItemUpdateProperties:(list_2812bee2 *)arg1;
-- (void)fillFavItemUpdatePropertiesForFavObject:(list_2812bee2 *)arg1;
+- (void)fillFavItemUpdateProperties:(void *)arg1;
+- (void)fillFavItemUpdatePropertiesForFavObject:(void *)arg1;
 - (id)getNeedBatchGetFavoritesItemListByType:(int)arg1 andMinUpdateTime:(unsigned int)arg2;
 - (id)getFirstPageNeedBatchGetFavoritesItemListByType:(int)arg1;
 - (id)getFirstPageFavoritesItemListByType:(int)arg1;

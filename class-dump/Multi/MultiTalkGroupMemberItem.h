@@ -34,7 +34,7 @@
 @property(nonatomic) int status; // @synthesize status;
 @property(retain, nonatomic) NSString *inviteUserName; // @synthesize inviteUserName;
 @property(retain, nonatomic) NSString *userName; // @synthesize userName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

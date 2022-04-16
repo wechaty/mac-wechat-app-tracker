@@ -13,18 +13,15 @@
 @interface MMMusicPlayerMgr : MMService <MMService>
 {
     NSMutableArray *m_arrMusicItems;
-    MMMusicInfo *m_prevMusicInfo;
-    MMMusicInfo *m_curMusicInfo;
-    MMMusicInfo *m_nextMusicInfo;
-    unsigned long long m_playMode;
-    unsigned long long m_playDirection;
     unsigned int m_uiCurMusicIndex;
     BOOL m_bforceStop;
-    BOOL m_shouldTurnRepeatNoneMode;
     BOOL m_isManualPaused;
     BOOL m_shouldDelayResetCurMusicInfo;
     BOOL _m_shouldTurnRepeatNoneMode;
+    unsigned long long m_playMode;
+    MMMusicInfo *m_curMusicInfo;
     unsigned long long m_state;
+    unsigned long long m_playDirection;
     MMMusicInfo *_m_prevMusicInfo;
     MMMusicInfo *_m_nextMusicInfo;
     AVPlayer *_currentPlayer;

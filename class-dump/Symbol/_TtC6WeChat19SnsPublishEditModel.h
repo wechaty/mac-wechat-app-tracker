@@ -4,22 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <swiftCore/_TtCs12_SwiftObject.h>
+#import <objc/NSObject.h>
 
-@interface _TtC6WeChat19SnsPublishEditModel : _TtCs12_SwiftObject
+@interface _TtC6WeChat19SnsPublishEditModel : NSObject
 {
-    // Error parsing type: , name: maxImageCount
-    // Error parsing type: , name: maxRowCount
-    // Error parsing type: , name: numOfRow
+    // Error parsing type: , name: minimumWindowSize
+    // Error parsing type: , name: maximumWindowSize
     // Error parsing type: , name: restoreTask
     // Error parsing type: , name: initialUIType
     // Error parsing type: , name: content
-    // Error parsing type: , name: images
-    // Error parsing type: , name: videoInfo
+    // Error parsing type: , name: disableSaveDraft
     // Error parsing type: , name: right
     // Error parsing type: , name: refer
     // Error parsing type: , name: publishable
 }
+
+- (void).cxx_destruct;
+- (id)init;
 
 @end
 

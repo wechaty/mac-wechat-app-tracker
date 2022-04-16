@@ -27,7 +27,7 @@
 @property(nonatomic) unsigned int m_brandListVersion; // @synthesize m_brandListVersion;
 @property(nonatomic) unsigned int m_brandListCount; // @synthesize m_brandListCount;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

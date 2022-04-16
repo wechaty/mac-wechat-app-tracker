@@ -17,12 +17,12 @@
     KeyValueTablePackedInfo *_m_packedInfo;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)sValue;
-+ (const struct WCTProperty *)sKey;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)sValue;
++ (const void *)sKey;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) KeyValueTablePackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(retain, nonatomic) NSString *sValue; // @synthesize sValue;

@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *data; // @synthesize data;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

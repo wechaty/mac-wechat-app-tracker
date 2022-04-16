@@ -6,18 +6,18 @@
 
 #import <AppKit/NSView.h>
 
-@class MMImageView, _TtC6WeChat13WCMPlayerView, _TtC6WeChat14SnsVideoPlayer;
+@class MMImageView, _TtC6WeChat13WCMPlayerView, _TtC6WeChat9WCMPlayer;
 
 @interface MMPreviewSnsVideoPlayerView : NSView
 {
     BOOL _isMuteToPlay;
     _TtC6WeChat13WCMPlayerView *_playerView;
     MMImageView *_placeholderImageView;
-    _TtC6WeChat14SnsVideoPlayer *_player;
+    _TtC6WeChat9WCMPlayer *_player;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) _TtC6WeChat14SnsVideoPlayer *player; // @synthesize player=_player;
+@property(nonatomic) _TtC6WeChat9WCMPlayer *player; // @synthesize player=_player;
 @property(nonatomic) BOOL isMuteToPlay; // @synthesize isMuteToPlay=_isMuteToPlay;
 @property(retain, nonatomic) MMImageView *placeholderImageView; // @synthesize placeholderImageView=_placeholderImageView;
 @property(retain, nonatomic) _TtC6WeChat13WCMPlayerView *playerView; // @synthesize playerView=_playerView;

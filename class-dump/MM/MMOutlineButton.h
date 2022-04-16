@@ -10,11 +10,12 @@
 
 @interface MMOutlineButton : NSView
 {
-    BOOL _tracked;
+    BOOL _hovered;
     BOOL _enabled;
     BOOL _highlighted;
     BOOL _ignoreMouseDragEvent;
-    _Bool _isMouseEnter;
+    BOOL _isMouseEnter;
+    BOOL _isValidClick;
     NSAttributedString *_attributedTitle;
     NSFont *_font;
     double _titleAlpha;
@@ -44,7 +45,8 @@
 + (id)createConfirmButton:(id)arg1;
 + (id)createCancelButton:(id)arg1;
 - (void).cxx_destruct;
-@property(nonatomic) _Bool isMouseEnter; // @synthesize isMouseEnter=_isMouseEnter;
+@property(nonatomic) BOOL isValidClick; // @synthesize isValidClick=_isValidClick;
+@property(nonatomic) BOOL isMouseEnter; // @synthesize isMouseEnter=_isMouseEnter;
 @property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(nonatomic) double totalHeight; // @synthesize totalHeight=_totalHeight;
 @property(nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
@@ -59,7 +61,7 @@
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
-@property(nonatomic) BOOL tracked; // @synthesize tracked=_tracked;
+@property(nonatomic) BOOL hovered; // @synthesize hovered=_hovered;
 @property(retain, nonatomic) NSColor *hoverBackgroundColor; // @synthesize hoverBackgroundColor=_hoverBackgroundColor;
 @property(retain, nonatomic) NSColor *highlightedBorderColor; // @synthesize highlightedBorderColor=_highlightedBorderColor;
 @property(retain, nonatomic) NSColor *highlightedBackgroundColor; // @synthesize highlightedBackgroundColor=_highlightedBackgroundColor;
@@ -72,6 +74,7 @@
 @property(nonatomic) double titleAlpha; // @synthesize titleAlpha=_titleAlpha;
 @property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
 @property(retain, nonatomic) NSAttributedString *attributedTitle; // @synthesize attributedTitle=_attributedTitle;
+- (BOOL)accessibilityPerformPress;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)setupTrackingArea;

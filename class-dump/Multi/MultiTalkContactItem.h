@@ -25,18 +25,18 @@
     long long lastInsertedRowID;
 }
 
-+ (const struct WCTProperty *)memberListCount;
-+ (const struct WCTProperty *)nickName;
-+ (const struct WCTProperty *)createUserName;
-+ (const struct WCTProperty *)contactMemberList;
-+ (const struct WCTProperty *)routID;
-+ (const struct WCTProperty *)wxGroupID;
-+ (const struct WCTProperty *)clientGroupID;
-+ (const struct WCTProperty *)groupID;
-+ (const struct WCTProperty *)localID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)memberListCount;
++ (const void *)nickName;
++ (const void *)createUserName;
++ (const void *)contactMemberList;
++ (const void *)routID;
++ (const void *)wxGroupID;
++ (const void *)clientGroupID;
++ (const void *)groupID;
++ (const void *)localID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) long long lastInsertedRowID; // @synthesize lastInsertedRowID;
 @property(nonatomic) BOOL isAutoIncrement; // @synthesize isAutoIncrement;

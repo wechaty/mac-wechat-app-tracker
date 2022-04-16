@@ -61,7 +61,7 @@
 @property(retain, nonatomic) NSString *savePath; // @synthesize savePath;
 @property(retain, nonatomic) NSString *localResId; // @synthesize localResId;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -26,7 +26,7 @@
 @property(nonatomic) BOOL isOpenComment; // @synthesize isOpenComment;
 @property(readonly, copy) NSString *description;
 - (id)archivedWCTValue;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

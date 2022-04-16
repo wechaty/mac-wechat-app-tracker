@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)useNativeFontAdjust:(id)arg1;
 + (BOOL)isABTestShouldOpenBlank;
 + (BOOL)isABTestUseNativeOauth;
 + (BOOL)shouldUseWxjs;

@@ -36,7 +36,6 @@
 @property(nonatomic) __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 - (void)onVerifyWindowWillOpen;
 - (void)handleLockStateChanges:(BOOL)arg1;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)selectNextItem;
 - (void)selectPreviousItem;

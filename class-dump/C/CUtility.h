@@ -104,6 +104,7 @@
 + (BOOL)appleMapsAvailable;
 + (BOOL)isLongitudeValid:(double)arg1;
 + (BOOL)isLatitudeValid:(double)arg1;
++ (BOOL)isNeedProcessBrandContact:(id)arg1;
 + (id)specialUserNameList;
 + (id)GenPushContactFromMsgData:(id)arg1;
 + (unsigned int)GetPushContactSceneFromMsg:(id)arg1;
@@ -150,7 +151,6 @@
 + (id)PreHandleUserName:(id)arg1;
 + (unsigned int)GetChatNameType:(id)arg1;
 + (void)kernelRemoveAccountRelateService;
-+ (void)kernelInitServiceObjects;
 + (void)kernelLazyRegisterExtensionLister;
 + (void)kernelRegisterClsMethod;
 + (void)KernelRemoveMMKVFileWithUserName:(id)arg1;

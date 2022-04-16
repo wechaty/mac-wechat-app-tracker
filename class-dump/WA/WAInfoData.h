@@ -35,21 +35,21 @@
 }
 
 + (id)getEncryptTypeString:(unsigned long long)arg1;
-+ (const struct WCTProperty *)encryptType;
-+ (const struct WCTProperty *)appServiceType;
-+ (const struct WCTProperty *)packageType;
-+ (const struct WCTProperty *)moduleName;
-+ (const struct WCTProperty *)realAppId;
-+ (const struct WCTProperty *)versionStatus;
-+ (const struct WCTProperty *)packageCheckSum;
-+ (const struct WCTProperty *)packageSize;
-+ (const struct WCTProperty *)updateTime;
-+ (const struct WCTProperty *)version;
-+ (const struct WCTProperty *)username;
-+ (const struct WCTProperty *)appID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)encryptType;
++ (const void *)appServiceType;
++ (const void *)packageType;
++ (const void *)moduleName;
++ (const void *)realAppId;
++ (const void *)versionStatus;
++ (const void *)packageCheckSum;
++ (const void *)packageSize;
++ (const void *)updateTime;
++ (const void *)version;
++ (const void *)username;
++ (const void *)appID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int debugDevKey; // @synthesize debugDevKey=_debugDevKey;
 @property(retain, nonatomic) NSString *debugDownloadUrl; // @synthesize debugDownloadUrl=_debugDownloadUrl;

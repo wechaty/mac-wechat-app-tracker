@@ -6,9 +6,11 @@
 
 #import "MMMessageCellView.h"
 
+#import "IContactMgrExt-Protocol.h"
+
 @class CAShapeLayer, MMAvatarImageView, MMContactCardData, MMDivider, MMTextField, MMView, NSImageView, NSString;
 
-@interface MMContactCardMessageCellView : MMMessageCellView
+@interface MMContactCardMessageCellView : MMMessageCellView <IContactMgrExt>
 {
     MMContactCardData *_contactCardData;
     MMView *_containerView;
@@ -36,6 +38,8 @@
 @property(retain, nonatomic) MMAvatarImageView *contactCardAvatar; // @synthesize contactCardAvatar=_contactCardAvatar;
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) MMContactCardData *contactCardData; // @synthesize contactCardData=_contactCardData;
+- (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
+- (void)updateAvatarWithContact:(id)arg1;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (void)showProfile:(int)arg1;

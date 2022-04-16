@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;

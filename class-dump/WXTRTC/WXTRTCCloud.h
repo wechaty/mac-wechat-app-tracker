@@ -6,10 +6,12 @@
 
 #import "TRTCCloud.h"
 
-@class NSArray, TRTCQualityInfo;
+#import "TRTCVideoRenderDelegate-Protocol.h"
+
+@class NSArray, NSString, TRTCQualityInfo, TXSafeMap;
 @protocol TXLivePushListener;
 
-@interface WXTRTCCloud : TRTCCloud
+@interface WXTRTCCloud : TRTCCloud <TRTCVideoRenderDelegate>
 {
     struct unordered_map<std::__1::basic_string<char>, int, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> _audioVolumeMap;
     struct unordered_map<std::__1::basic_string<char>, int, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> _lastVolumeNotifyMap;
@@ -19,12 +21,14 @@
     TRTCQualityInfo *_localQuality;
     NSArray *_remoteQuality;
     id <TXLivePushListener> _livePushListener;
+    TXSafeMap *_videoRenderListenerMap;
 }
 
 + (void)destroySharedIntance;
 + (id)sharedInstance;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(retain, nonatomic) TXSafeMap *videoRenderListenerMap; // @synthesize videoRenderListenerMap=_videoRenderListenerMap;
 @property(nonatomic) __weak id <TXLivePushListener> livePushListener; // @synthesize livePushListener=_livePushListener;
 - (void)enableZoom:(BOOL)arg1;
 - (void)enableTouchFocus:(BOOL)arg1;
@@ -33,6 +37,9 @@
 - (void)notifyNetworkQuality:(id)arg1 remoteQuality:(id)arg2;
 - (void)notifyUserVoiceVolume:(id)arg1 totalVolume:(long long)arg2;
 - (void)onNotifyEvent:(int)arg1 withParams:(id)arg2;
+- (void)onRenderVideoFrame:(id)arg1 userId:(id)arg2 streamType:(long long)arg3;
+- (void)unregisterRemoteRenderListener:(id)arg1 subStream:(BOOL)arg2;
+- (void)registerRemoteRenderListener:(id)arg1 subStream:(BOOL)arg2 listener:(id)arg3;
 - (void)unregisterLivePlayListener:(id)arg1 subStream:(BOOL)arg2;
 - (void)registerLivePlayListener:(id)arg1 subStream:(BOOL)arg2 listener:(id)arg3;
 - (void)unregisterAudioVolumeEvaluationListener:(id)arg1 subStream:(BOOL)arg2;
@@ -45,6 +52,12 @@
 - (void)resetStatus;
 - (void)destroyClean;
 - (id)initInternal;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

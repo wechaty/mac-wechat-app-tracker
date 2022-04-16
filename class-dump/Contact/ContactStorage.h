@@ -37,11 +37,11 @@
 - (BOOL)ModifyContactSNSBlackListTypeWithUserName:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)ModifyContactSocialBlackListWithUserName:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)DeleteContactByUI:(id)arg1 ListType:(unsigned int)arg2;
-- (BOOL)modifyContactTypeWithFlag:(unsigned int)arg1 setOpen:(BOOL)arg2 userName:(id)arg3 syncToServer:(BOOL)arg4;
+- (BOOL)modifyContactTypeWithFlag:(unsigned int)arg1 setOpen:(BOOL)arg2 userName:(id)arg3 updateStatus:(unsigned long long)arg4;
 - (BOOL)ModifyPatSuffixWithUserName:(id)arg1 patSuffix:(id)arg2 syncToServer:(BOOL)arg3;
-- (BOOL)ModifyChatStatusNotifyOpen:(BOOL)arg1 withUserName:(id)arg2 syncToServer:(BOOL)arg3;
-- (BOOL)ModifyIsFav:(BOOL)arg1 withUserName:(id)arg2 syncToServer:(BOOL)arg3;
-- (BOOL)ModifyIsTop:(BOOL)arg1 withUserName:(id)arg2 syncToServer:(BOOL)arg3;
+- (BOOL)ModifyChatStatusNotifyOpen:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
+- (BOOL)ModifyIsFav:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
+- (BOOL)ModifyIsTop:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyRemarkDescWithUserName:(id)arg1 remarkDesc:(id)arg2;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2 syncToServer:(BOOL)arg3;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2;

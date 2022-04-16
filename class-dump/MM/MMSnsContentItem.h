@@ -66,7 +66,7 @@
 @property(retain, nonatomic) NSString *desc; // @synthesize desc;
 @property(retain, nonatomic) NSString *title; // @synthesize title;
 - (BOOL)isValid;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

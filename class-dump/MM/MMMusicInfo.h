@@ -104,7 +104,7 @@
 - (BOOL)isQQMusic;
 @property(readonly, copy) NSString *description;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

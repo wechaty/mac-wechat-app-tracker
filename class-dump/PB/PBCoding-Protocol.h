@@ -9,7 +9,7 @@
 @class NSArray;
 
 @protocol PBCoding <NSObject>
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (NSArray *)getValueTypeTable;
 @end
 

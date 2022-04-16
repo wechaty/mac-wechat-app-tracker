@@ -7,6 +7,8 @@
 #import "MMViewController.h"
 
 #import "BaseWebViewFontAdjustDelegate-Protocol.h"
+#import "MMQRCodeScannerExt-Protocol.h"
+#import "MMWKWebViewMenuDelegate-Protocol.h"
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 #import "WKUIDelegate-Protocol.h"
@@ -17,7 +19,7 @@
 @class MMOutlineButton, MMProgressView, MMTimer, MMToastView, MMWKWebView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
 @protocol BaseWebViewControllerDelegate;
 
-@interface BaseWebViewController : MMViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, BaseWebViewFontAdjustDelegate>
+@interface BaseWebViewController : MMViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate>
 {
     BOOL m_openAllPermission;
     BOOL _isMiniWindowMode;
@@ -77,6 +79,7 @@
 @property(nonatomic) BOOL isMiniWindowMode; // @synthesize isMiniWindowMode=_isMiniWindowMode;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(retain, nonatomic) MMWebViewPluginScheduler *pluginScheduler; // @synthesize pluginScheduler=_pluginScheduler;
+- (BOOL)isAuthMonitor:(id)arg1 event:(id)arg2;
 - (void)handleH5ExtTransfer:(id)arg1;
 - (void)handleH5Auth:(id)arg1;
 - (id)mpBizUrl:(id)arg1 inUrlList:(id)arg2;
@@ -98,6 +101,9 @@
 - (void)handleProfileJSEventWithUserName:(id)arg1;
 - (void)handleAddContactJSEventWithContact:(id)arg1;
 - (void)shareWithAppScene:(id)arg1;
+- (id)shareParamFormScene:(id)arg1;
+- (void)setupExtraDataForShareToTimeLine;
+- (void)forwardToTimeline;
 - (void)forwardContentToWeWork;
 - (void)forwardContent;
 - (void)handleOAuth:(id)arg1;
@@ -156,6 +162,7 @@
 - (void)nextItem;
 - (void)previousItem;
 - (id)currentSourceIdWithUrl:(id)arg1;
+- (void)onLoadError:(id)arg1;
 - (void)onLoadFinish:(id)arg1;
 - (id)currentMainDocumentURL;
 - (void)updateFloatWindowStatus;
@@ -213,6 +220,22 @@
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (BOOL)isEnableCustom:(id)arg1 domainPathList:(id)arg2;
+- (void)successToParseQRCodeResult:(id)arg1;
+- (void)unknownForParseQRCodeResult:(id)arg1;
+- (void)failToParseQRCodeResult:(id)arg1 errorInfo:(id)arg2;
+- (void)startParseQRCodeResult:(id)arg1;
+- (void)onContextMenuQRCodeAction;
+- (void)detectWKWebViewImage:(CDUnknownBlockType)arg1;
+- (void)hiddenQRCodeResult;
+- (void)onQRCodeButtonClick:(id)arg1;
+- (void)showQRCodeResults;
+- (void)cancelQRCodeStatusIfNeeded;
+- (id)QRCodeMaskView;
+- (void)setQRCodeMaskView:(id)arg1;
+- (id)QRCodeResultsButtons;
+- (void)setQRCodeResultsButtons:(id)arg1;
+- (id)QRCodeResults;
+- (void)setQRCodeResults:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

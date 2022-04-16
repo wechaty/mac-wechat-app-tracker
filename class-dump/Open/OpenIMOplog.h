@@ -18,13 +18,13 @@
     NSData *_oplogBuffer;
 }
 
-+ (const struct WCTProperty *)isNeedSync;
-+ (const struct WCTProperty *)oplogBuffer;
-+ (const struct WCTProperty *)oplogType;
-+ (const struct WCTProperty *)oplogId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)isNeedSync;
++ (const void *)oplogBuffer;
++ (const void *)oplogType;
++ (const void *)oplogId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isNeedSync; // @synthesize isNeedSync=_isNeedSync;
 @property(retain, nonatomic) NSData *oplogBuffer; // @synthesize oplogBuffer=_oplogBuffer;

@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)summaryFormatOptionsWithType:(unsigned int)arg1;
++ (id)summaryFormatOptionsWithType:(unsigned int)arg1 useEmoji:(BOOL)arg2;
 + (id)formatterLastMessageTime:(double)arg1;
 + (id)formatterSubtitleWithString:(id)arg1;
 + (id)formatterNicknameTitleWithString:(id)arg1;

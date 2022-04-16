@@ -78,6 +78,7 @@
 - (void)onUserSelectPickFile:(id)arg1;
 - (void)animationCheck;
 - (void)updateSyncBtnWithSyncStatus:(int)arg1;
+- (void)updateForwardBtnEnable:(BOOL)arg1;
 - (void)redraw;
 - (void)updateStateWithBulletType:(id)arg1;
 - (void)updateStateWithAttributes:(id)arg1;

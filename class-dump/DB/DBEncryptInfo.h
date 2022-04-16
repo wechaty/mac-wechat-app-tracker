@@ -24,7 +24,7 @@
 - (void)reset;
 - (void)setEncryptInfo:(id)arg1 encryptKey:(id)arg2;
 - (void)copyFromServerObj:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

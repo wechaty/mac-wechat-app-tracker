@@ -140,7 +140,6 @@
 - (void)reportAddMsg:(id)arg1;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)shouldShowUnreadTipsButton;
-- (BOOL)shouldShowGroupChatNickName;
 - (id)getNextVoiceMsgToPlay:(unsigned int)arg1;
 - (long long)getVisibleUnreadMessageCount;
 - (void)updateChatContactIfNeeded:(id)arg1;

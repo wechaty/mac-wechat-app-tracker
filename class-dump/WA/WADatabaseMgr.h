@@ -32,7 +32,7 @@
     WCTTable *_tableUpdatableMsgInfo;
 }
 
-+ (BOOL)deleteInfoDataWithTable:(id)arg1 where:(const struct WCTExpr *)arg2;
++ (BOOL)deleteInfoDataWithTable:(id)arg1 where:(const void *)arg2;
 + (BOOL)insertOrUpdateInfoDataWithTable:(id)arg1 infoData:(id)arg2;
 + (id)getInfoDataWithTable:(id)arg1 primaryKey:(id)arg2;
 + (void)deleteDB;

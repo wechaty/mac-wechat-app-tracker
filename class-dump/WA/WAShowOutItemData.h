@@ -28,7 +28,7 @@
 @property(nonatomic) unsigned int appVersion; // @synthesize appVersion;
 @property(nonatomic) unsigned int appType; // @synthesize appType;
 @property(retain, nonatomic) NSString *userName; // @synthesize userName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

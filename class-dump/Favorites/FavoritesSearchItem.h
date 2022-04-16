@@ -22,16 +22,16 @@
 }
 
 + (id)searchItemWithFavoritesItem:(id)arg1;
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)updateTime;
-+ (const struct WCTProperty *)subTypes;
-+ (const struct WCTProperty *)type;
-+ (const struct WCTProperty *)status;
-+ (const struct WCTProperty *)searchStr;
-+ (const struct WCTProperty *)localId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)updateTime;
++ (const void *)subTypes;
++ (const void *)type;
++ (const void *)status;
++ (const void *)searchStr;
++ (const void *)localId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) FavoritesSearchItemPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(nonatomic) unsigned int subTypes; // @synthesize subTypes=_subTypes;

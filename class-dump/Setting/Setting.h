@@ -69,7 +69,7 @@
 @property(nonatomic) unsigned int m_qqUin; // @synthesize m_qqUin;
 - (void)copyFromModUserInfo:(id)arg1;
 - (void)copyFromServerObj:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -68,6 +68,8 @@
 + (id)getContactAutoUpdateDataOldPath;
 + (id)getContactAutoCheckDataPath;
 + (id)getContactAutoUpdateDataPath;
++ (id)GetWebTemplateDBPath;
++ (id)GetWebTemplateDirPath;
 + (id)GetCdnRootPath;
 + (id)GetAcountBetaDBPath;
 + (id)GetAccountSettingsHistoryPath;
@@ -134,6 +136,8 @@
 + (id)getFTSFileMsgDBPath;
 + (id)getFTSFileMsgDBDir;
 + (id)getFTSMsgDBPath;
++ (id)getBrandMsgDBRecoverPath;
++ (id)getBrandMsgDBPath;
 + (id)getMsgDBRecoverPath:(id)arg1;
 + (id)getMsgDBPath:(id)arg1;
 + (id)getMessageRootDir;

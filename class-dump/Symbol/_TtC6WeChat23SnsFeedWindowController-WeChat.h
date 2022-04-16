@@ -6,20 +6,18 @@
 
 #import "_TtC6WeChat23SnsFeedWindowController.h"
 
-#import "AccountServiceExt-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
-@interface _TtC6WeChat23SnsFeedWindowController (WeChat) <AccountServiceExt>
+@interface _TtC6WeChat23SnsFeedWindowController (WeChat) <NSWindowDelegate>
 - (void)popoverDidClose:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverDidShow:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
-- (void)orderFrontIfNeeded;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (struct CGSize)windowWillResize:(id)arg1 toSize:(struct CGSize)arg2;
 - (void)windowDidMove:(id)arg1;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)beforeUserLogout;
 @end

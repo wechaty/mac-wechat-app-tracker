@@ -51,7 +51,11 @@
 - (id)_emoticonAttributeStringWith:(id)arg1 emojiSize:(id)arg2 useCoreText:(BOOL)arg3;
 - (id)referDataFromAttributedString:(id)arg1;
 - (id)dataArrayFromAttributedString:(id)arg1;
+- (id)stringFromAttributedString:(id)arg1 fromRange:(struct _NSRange)arg2;
 - (id)stringFromAttributedString:(id)arg1;
+- (id)getLinkAttributeArray:(id)arg1;
+- (struct _NSRange)filterExsitLinkRang:(struct _NSRange)arg1 inRangeValues:(id)arg2;
+- (id)editSharpTagWithAttributedString:(id)arg1 useSelfLink:(BOOL)arg2;
 - (id)editHyperlinksWithAttributedString:(id)arg1 linkRanges:(id)arg2 shouldFormatEmail:(BOOL)arg3 useSelfLink:(BOOL)arg4;
 - (id)editHyperlinksWithAttributedString:(id)arg1 shouldFormatEmail:(BOOL)arg2 useSelfLink:(BOOL)arg3;
 - (id)editFontSizeWithAttributedString:(id)arg1 sizeAdjustments:(unsigned long long)arg2 extraAttrs:(id)arg3;

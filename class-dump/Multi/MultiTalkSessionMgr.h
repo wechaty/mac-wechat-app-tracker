@@ -41,10 +41,10 @@
 - (BOOL)insertNewRowInMessageTable:(id)arg1;
 - (BOOL)insertOrUpdateRowInContactTable:(id)arg1;
 - (BOOL)insertNewRowInContactTable:(id)arg1;
-- (void)fillBannerItemupdateRowsOnPropertiesForBannerObject:(list_2812bee2 *)arg1;
-- (void)fillSessionItemupdateRowsOnPropertiesForSessionObject:(list_2812bee2 *)arg1;
-- (void)fillMessageItemupdateRowsOnPropertiesForMessageObject:(list_2812bee2 *)arg1;
-- (void)fillContactItemupdateRowsOnPropertiesForContactObject:(list_2812bee2 *)arg1;
+- (void)fillBannerItemupdateRowsOnPropertiesForBannerObject:(void *)arg1;
+- (void)fillSessionItemupdateRowsOnPropertiesForSessionObject:(void *)arg1;
+- (void)fillMessageItemupdateRowsOnPropertiesForMessageObject:(void *)arg1;
+- (void)fillContactItemupdateRowsOnPropertiesForContactObject:(void *)arg1;
 - (id)genSessionItemWithGroupData:(id)arg1;
 - (id)genMessageItemWithGroupData:(id)arg1;
 - (id)genContactItemWithGroupData:(id)arg1;

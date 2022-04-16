@@ -9,11 +9,11 @@
 @class NSData, NSMutableDictionary, NSString;
 
 @protocol AuthCGIExt <NSObject>
-- (void)onIDCRedirect:(NSMutableDictionary *)arg1;
+- (void)onAuthIDCRedirect:(NSMutableDictionary *)arg1;
 - (void)onAuthNeedSMSCode:(NSString *)arg1 withAuthTicket:(NSString *)arg2;
 - (void)onAuthNeedImageCode:(NSData *)arg1;
 - (void)onAuthFaildWithWrongPasswordOrUsername;
-- (void)onCertNeedUpdate;
+- (void)onAuthCertNeedUpdate;
 - (void)onAuthNeedUpdate:(unsigned long long)arg1;
 - (void)onAuthAlphaVersion:(NSString *)arg1;
 - (void)onAuthKeyInfoInvalidOfUser:(NSString *)arg1 nickName:(NSString *)arg2;

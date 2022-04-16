@@ -12,15 +12,18 @@
 {
     BOOL _isLoading;
     SVGImageView *_loadingIndicator;
+    unsigned long long _loadingType;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long loadingType; // @synthesize loadingType=_loadingType;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
 @property(retain, nonatomic) SVGImageView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
 - (void)stopLoading;
 - (void)setAnchorPoint:(struct CGPoint)arg1 forView:(id)arg2;
 - (void)startLoading;
 - (void)awakeFromNib;
+- (void)updateLoadingColor:(unsigned long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 andColorType:(unsigned long long)arg2;
 
 @end

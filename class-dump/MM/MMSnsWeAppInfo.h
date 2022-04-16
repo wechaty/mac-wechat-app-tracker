@@ -41,7 +41,7 @@
 @property(nonatomic) unsigned int version; // @synthesize version;
 @property(retain, nonatomic) NSString *pagePath; // @synthesize pagePath;
 @property(retain, nonatomic) NSString *appUserName; // @synthesize appUserName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -56,7 +56,6 @@
 @property(nonatomic) BOOL isGroupChatOwner; // @synthesize isGroupChatOwner=_isGroupChatOwner;
 - (void)fontSizeClassChanged:(id)arg1;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)confirmSaveAnnounce:(id)arg1;
 - (void)onConfirmButtonClicked:(id)arg1;

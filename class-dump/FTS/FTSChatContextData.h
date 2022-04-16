@@ -19,12 +19,12 @@
     long long lastInsertedRowID;
 }
 
-+ (const struct WCTProperty *)lastMesLocalId;
-+ (const struct WCTProperty *)chatName;
-+ (const struct WCTProperty *)chatContextID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)lastMesLocalId;
++ (const void *)chatName;
++ (const void *)chatContextID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) long long lastInsertedRowID; // @synthesize lastInsertedRowID;
 @property(nonatomic) BOOL isAutoIncrement; // @synthesize isAutoIncrement;

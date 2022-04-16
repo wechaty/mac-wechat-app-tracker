@@ -67,7 +67,7 @@
 - (BOOL)isLocationValid;
 - (void)setLocation:(struct CLLocationCoordinate2D)arg1;
 - (struct CLLocationCoordinate2D)location;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

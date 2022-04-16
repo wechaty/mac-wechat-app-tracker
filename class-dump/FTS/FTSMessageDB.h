@@ -9,7 +9,7 @@
 #import "DocReader-Protocol.h"
 
 @class FTSDocDB, MemoryMappedKV, NSDictionary, NSMutableDictionary, NSObject, NSRecursiveLock, NSString, WCTTable;
-@protocol FTSMessageEx, OS_dispatch_queue;
+@protocol FTSMessageDBDelegate, OS_dispatch_queue;
 
 @interface FTSMessageDB : FTSBaseDB <DocReader>
 {
@@ -22,14 +22,14 @@
     NSMutableDictionary *m_dictChatContext;
     MemoryMappedKV *m_markKV;
     long long dbSize;
-    id <FTSMessageEx> _delegate;
+    id <FTSMessageDBDelegate> _delegate;
     FTSDocDB *_m_docRelateDB;
 }
 
 + (void)deleteFTSMessageDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) FTSDocDB *m_docRelateDB; // @synthesize m_docRelateDB=_m_docRelateDB;
-@property(nonatomic) __weak id <FTSMessageEx> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <FTSMessageDBDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long dbSize; // @synthesize dbSize;
 @property(nonatomic) BOOL isFtsOptimizing; // @synthesize isFtsOptimizing;
 @property(retain, nonatomic) MemoryMappedKV *m_markKV; // @synthesize m_markKV;

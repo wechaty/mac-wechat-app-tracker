@@ -40,7 +40,7 @@
 @property(retain, nonatomic) NSString *nickName; // @synthesize nickName;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId;
 @property(retain, nonatomic) NSString *userName; // @synthesize userName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

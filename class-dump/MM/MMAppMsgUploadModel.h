@@ -21,13 +21,13 @@
 
 + (id)genSendFileUploadMsgFileInfo:(id)arg1;
 + (id)genAMUItem:(id)arg1;
-+ (const struct WCTProperty *)m_uMsgLocalID;
-+ (const struct WCTProperty *)m_uUploadSize;
-+ (const struct WCTProperty *)m_uCreateTime;
-+ (const struct WCTProperty *)m_nsToUser;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_uMsgLocalID;
++ (const void *)m_uUploadSize;
++ (const void *)m_uCreateTime;
++ (const void *)m_nsToUser;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int m_uMsgLocalID; // @synthesize m_uMsgLocalID=_m_uMsgLocalID;
 @property(nonatomic) unsigned int m_uUploadSize; // @synthesize m_uUploadSize=_m_uUploadSize;

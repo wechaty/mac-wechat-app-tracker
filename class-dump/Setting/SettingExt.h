@@ -46,7 +46,7 @@
 @property(nonatomic) int m_iTypingInterval; // @synthesize m_iTypingInterval;
 @property(nonatomic) unsigned int m_sendMsgShortCut; // @synthesize m_sendMsgShortCut;
 - (void)copyFromServerObj:(id)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

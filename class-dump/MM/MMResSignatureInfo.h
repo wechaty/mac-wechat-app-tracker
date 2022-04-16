@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSData *signatureData; // @synthesize signatureData;
 @property(nonatomic) unsigned int version; // @synthesize version;
 - (void)dealloc;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

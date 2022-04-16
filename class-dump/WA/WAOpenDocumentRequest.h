@@ -14,7 +14,8 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

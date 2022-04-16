@@ -38,6 +38,7 @@
 - (void)becomeActive;
 - (void)captureDidFinishWithImage:(id)arg1 needSave:(BOOL)arg2;
 - (id)windowInfoAtPostion:(struct CGPoint)arg1;
+- (void)onESCButtonClick;
 - (void)captureDidCancel;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 screen:(id)arg2;

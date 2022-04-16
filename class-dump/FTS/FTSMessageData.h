@@ -24,18 +24,18 @@
     NSString *_reservedText;
 }
 
-+ (const struct WCTProperty *)reservedText;
-+ (const struct WCTProperty *)reservedInt;
-+ (const struct WCTProperty *)ftsMsgContent;
-+ (const struct WCTProperty *)realChatName;
-+ (const struct WCTProperty *)msgCreateTime;
-+ (const struct WCTProperty *)msgType;
-+ (const struct WCTProperty *)mesLocalID;
-+ (const struct WCTProperty *)chatName;
-+ (const struct WCTProperty *)chatContextID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)reservedText;
++ (const void *)reservedInt;
++ (const void *)ftsMsgContent;
++ (const void *)realChatName;
++ (const void *)msgCreateTime;
++ (const void *)msgType;
++ (const void *)mesLocalID;
++ (const void *)chatName;
++ (const void *)chatContextID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *reservedText; // @synthesize reservedText=_reservedText;
 @property(nonatomic) unsigned int reservedInt; // @synthesize reservedInt=_reservedInt;

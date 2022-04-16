@@ -60,9 +60,8 @@
 - (id)GetCurUserName;
 - (void)onRSACertUpdateFail;
 - (void)onRSACertUpdated;
-- (void)onCertNeedUpdate;
-- (void)UpdateCert;
-- (void)onIDCRedirect:(id)arg1;
+- (void)onAuthCertNeedUpdate;
+- (void)onAuthIDCRedirect:(id)arg1;
 - (void)onAuthNeedUpdate:(unsigned long long)arg1;
 - (void)onAuthAlphaVersion:(id)arg1;
 - (void)onAuthNeedSMSCode:(id)arg1 withAuthTicket:(id)arg2;

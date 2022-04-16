@@ -12,13 +12,13 @@
 #import "IVideoTranscodingExt-Protocol.h"
 #import "MessageBatchExportMgrExt-Protocol.h"
 
-@class MMButton, MMCircleActionButton, MMCircularProgressView, MMImageView, NSImageView, NSProgressIndicator, NSString, NSTextField, NSView, TKStateMachine;
+@class MMCircleActionButton, MMCircularProgressView, MMImageView, NSImageView, NSProgressIndicator, NSString, NSTextField, NSView, SVGButton, TKStateMachine;
 
 @interface MMVideoMessageCellView : MMMessageCellView <IMessageServiceVideoExt, IVideoTranscodingExt, MessageBatchExportMgrExt, IMessageExt, IMessageCacheMgrImageExt>
 {
     BOOL _isStartDownloadManully;
     int _fileMessageType;
-    MMButton *_actionButton;
+    SVGButton *_actionButton;
     MMCircularProgressView *_progressView;
     NSImageView *_progressBackgroundView;
     MMImageView *_thumbnailImageView;
@@ -45,7 +45,7 @@
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 @property(retain, nonatomic) NSImageView *progressBackgroundView; // @synthesize progressBackgroundView=_progressBackgroundView;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
-@property(retain, nonatomic) MMButton *actionButton; // @synthesize actionButton=_actionButton;
+@property(retain, nonatomic) SVGButton *actionButton; // @synthesize actionButton=_actionButton;
 - (void)requestRecompressVideo;
 - (void)thumbImageDidLoadWithUniqueID:(id)arg1 image:(id)arg2 message:(id)arg3;
 - (void)onRecvDownloadItem:(id)arg1;

@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol JTCaptureWindowDelegate <NSObject>
+- (void)onESCButtonClick;
 - (void)captureDidCancel;
 @end
 

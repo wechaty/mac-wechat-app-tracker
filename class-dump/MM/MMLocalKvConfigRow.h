@@ -16,11 +16,11 @@
     NSString *_configValue;
 }
 
-+ (const struct WCTProperty *)configValue;
-+ (const struct WCTProperty *)configKey;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)configValue;
++ (const void *)configKey;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *configValue; // @synthesize configValue=_configValue;
 @property(retain, nonatomic) NSString *configKey; // @synthesize configKey=_configKey;

@@ -24,19 +24,19 @@
     NSString *_fts_message_table_9;
 }
 
-+ (const struct WCTProperty *)fts_message_table_9;
-+ (const struct WCTProperty *)fts_message_table_8;
-+ (const struct WCTProperty *)fts_message_table_7;
-+ (const struct WCTProperty *)fts_message_table_6;
-+ (const struct WCTProperty *)fts_message_table_5;
-+ (const struct WCTProperty *)fts_message_table_4;
-+ (const struct WCTProperty *)fts_message_table_3;
-+ (const struct WCTProperty *)fts_message_table_2;
-+ (const struct WCTProperty *)fts_message_table_1;
-+ (const struct WCTProperty *)fts_message_table_0;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)fts_message_table_9;
++ (const void *)fts_message_table_8;
++ (const void *)fts_message_table_7;
++ (const void *)fts_message_table_6;
++ (const void *)fts_message_table_5;
++ (const void *)fts_message_table_4;
++ (const void *)fts_message_table_3;
++ (const void *)fts_message_table_2;
++ (const void *)fts_message_table_1;
++ (const void *)fts_message_table_0;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *fts_message_table_9; // @synthesize fts_message_table_9=_fts_message_table_9;
 @property(retain, nonatomic) NSString *fts_message_table_8; // @synthesize fts_message_table_8=_fts_message_table_8;

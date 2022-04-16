@@ -21,14 +21,14 @@
     NSData *_m_nsFeedBuffer;
 }
 
-+ (const struct WCTProperty *)m_nsFeedBuffer;
-+ (const struct WCTProperty *)m_nsFeedId;
-+ (const struct WCTProperty *)m_uCreateTime;
-+ (const struct WCTProperty *)m_uType;
-+ (const struct WCTProperty *)m_uLocalId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_nsFeedBuffer;
++ (const void *)m_nsFeedId;
++ (const void *)m_uCreateTime;
++ (const void *)m_uType;
++ (const void *)m_uLocalId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSData *m_nsFeedBuffer; // @synthesize m_nsFeedBuffer=_m_nsFeedBuffer;
 @property(retain, nonatomic) NSString *m_nsFeedId; // @synthesize m_nsFeedId=_m_nsFeedId;

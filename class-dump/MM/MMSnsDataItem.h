@@ -177,7 +177,7 @@
 - (id)toPBCodingBuffer;
 - (unsigned long long)tidNumber;
 - (BOOL)isValid;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (BOOL)checkForServerObject:(id)arg1;
 - (BOOL)isAllImageExistWithType:(long long)arg1;

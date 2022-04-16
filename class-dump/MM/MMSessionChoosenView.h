@@ -6,6 +6,7 @@
 
 #import "MMTraitsViewController.h"
 
+#import "EmoticonDownloadMgrExt-Protocol.h"
 #import "MMSessionListViewDelegate-Protocol.h"
 #import "MMTableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
@@ -16,7 +17,7 @@
 @class DataItemForSessionPicker, FavoritesItem, MMAppReferCoverView, MMHoyKeyTextField, MMOutlineButton, MMTableView, MessageData, MessageWrapForSessionPicker, NSArray, NSBox, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSView, URLDataForSessionPicker;
 @protocol MMSessionChoosenViewDelegate;
 
-@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, NSTextFieldDelegate, SDWebImageManagerDelegate, MMSessionListViewDelegate>
+@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, NSTextFieldDelegate, SDWebImageManagerDelegate, EmoticonDownloadMgrExt, MMSessionListViewDelegate>
 {
     BOOL _messageCannotBeOpened;
     id <MMSessionChoosenViewDelegate> _delegate;
@@ -99,6 +100,8 @@
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
+- (void)emoticonDownloadFailed:(id)arg1;
+- (void)emoticonDownloadFinished:(id)arg1;
 - (void)keyDownBlock:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)setFirstResponder;
@@ -125,11 +128,13 @@
 - (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)showAppFeedMessageView;
 - (void)showAppBrandMessageView;
+- (void)showTextMessageView:(id)arg1 emoji:(BOOL)arg2;
 - (void)showTextMessageView:(id)arg1;
 - (void)showImageMessageView:(id)arg1;
 - (void)showImageMessageView;
 - (void)showVideoMessageView:(id)arg1;
 - (void)showVideoMessageView;
+- (void)showEmojiMessageView:(id)arg1;
 - (void)showEmojiMessageView;
 - (void)showEmptyMessageView;
 - (double)imageWidthScaleToX:(id)arg1;
@@ -152,6 +157,7 @@
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

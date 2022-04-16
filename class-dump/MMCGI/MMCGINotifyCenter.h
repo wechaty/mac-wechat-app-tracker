@@ -10,7 +10,7 @@
 
 @interface MMCGINotifyCenter : NSObject
 {
-    struct unordered_map<unsigned int, id, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, id>>> m_delegateMap;
+    struct unordered_map<unsigned int, id, std::hash<unsigned int>, std::equal_to<unsigned int>, std::allocator<std::pair<const unsigned int, id>>> m_delegateMap;
     NSRecursiveLock *m_lock;
 }
 

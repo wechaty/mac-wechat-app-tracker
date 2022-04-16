@@ -18,7 +18,7 @@
 + (id)cacheKeyForMessage:(id)arg1;
 + (id)getRecordDataDesc:(id)arg1;
 + (id)noteTitleWithMessage:(id)arg1;
-+ (id)getReferAttributedString:(id)arg1 icon:(id)arg2 summary:(id)arg3;
++ (id)getReferAttributedString:(id)arg1 icon:(id)arg2 summary:(id)arg3 emoji:(BOOL)arg4;
 + (id)getReferAttributedString:(id)arg1 icon:(id)arg2 summaryAttri:(id)arg3;
 + (id)getReferContentWithMessageData:(id)arg1;
 + (void)getThumbnailWithMessageData:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -35,8 +35,8 @@
 + (id)makeReferTextAttrStringWithContent:(id)arg1 font:(id)arg2 handleEmoji:(BOOL)arg3;
 + (id)makeAttributeStringWithImg:(id)arg1 imgWidth:(double)arg2 imgHeight:(double)arg3 leftPadding:(double)arg4 verticalAlignment:(long long)arg5;
 + (id)formattedPreviewReferTextAttrStringWithContent:(id)arg1;
-+ (id)formattedNormalReferTextInForwardAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2;
-+ (id)formattedNormalReferTextAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2;
++ (id)formattedNormalReferTextInForwardAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2 emoji:(BOOL)arg3;
++ (id)formattedNormalReferTextAttrStringWithContent:(id)arg1 multipleLine:(BOOL)arg2 emoji:(BOOL)arg3;
 + (double)changeLineWidth;
 
 @end

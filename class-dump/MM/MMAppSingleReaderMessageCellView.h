@@ -13,7 +13,6 @@
     ReaderWrap *_readerData;
     MMReaderWrapView *_containerView;
     MMTextView *_readerTitleLabel;
-    MMTextField *_readerTimeLabel;
     MMImageView *_readerThumbnail;
     MMCTTextView *_readerDescription;
     MMDivider *_readerSeperator;
@@ -38,7 +37,6 @@
 @property(retain, nonatomic) MMDivider *readerSeperator; // @synthesize readerSeperator=_readerSeperator;
 @property(retain, nonatomic) MMCTTextView *readerDescription; // @synthesize readerDescription=_readerDescription;
 @property(retain, nonatomic) MMImageView *readerThumbnail; // @synthesize readerThumbnail=_readerThumbnail;
-@property(retain, nonatomic) MMTextField *readerTimeLabel; // @synthesize readerTimeLabel=_readerTimeLabel;
 @property(retain, nonatomic) MMTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
 @property(retain, nonatomic) MMReaderWrapView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) ReaderWrap *readerData; // @synthesize readerData=_readerData;
@@ -60,7 +58,6 @@
 - (void)layoutDescription;
 - (void)layoutThumbnail;
 - (void)layoutReaderTitleLabel;
-- (void)layoutReaderTimeLabel;
 - (void)layoutContainerView;
 - (void)layoutViews;
 - (void)viewDidMoveToSuperview;

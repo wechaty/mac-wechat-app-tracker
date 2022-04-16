@@ -19,12 +19,12 @@
     NSData *_oplogBuffer;
 }
 
-+ (const struct WCTProperty *)oplogBuffer;
-+ (const struct WCTProperty *)oplogCmdID;
-+ (const struct WCTProperty *)oplogID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)oplogBuffer;
++ (const void *)oplogCmdID;
++ (const void *)oplogID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSData *oplogBuffer; // @synthesize oplogBuffer=_oplogBuffer;
 @property(nonatomic) unsigned int oplogCmdID; // @synthesize oplogCmdID=_oplogCmdID;

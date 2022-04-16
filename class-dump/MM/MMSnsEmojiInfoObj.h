@@ -29,7 +29,7 @@
 @property(nonatomic) unsigned int width; // @synthesize width;
 @property(retain, nonatomic) NSString *md5; // @synthesize md5;
 - (void)downloadEmojiIfNotExist;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -22,15 +22,15 @@
 }
 
 + (id)genAMDItem:(id)arg1 state:(unsigned int)arg2;
-+ (const struct WCTProperty *)m_uDownloadedBytes;
-+ (const struct WCTProperty *)m_uMsgCreateTime;
-+ (const struct WCTProperty *)m_uAppMsgState;
-+ (const struct WCTProperty *)m_uMsgLocalID;
-+ (const struct WCTProperty *)m_sNewMsgId;
-+ (const struct WCTProperty *)m_nsFromUsr;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_uDownloadedBytes;
++ (const void *)m_uMsgCreateTime;
++ (const void *)m_uAppMsgState;
++ (const void *)m_uMsgLocalID;
++ (const void *)m_sNewMsgId;
++ (const void *)m_nsFromUsr;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int m_uDownloadedBytes; // @synthesize m_uDownloadedBytes=_m_uDownloadedBytes;
 @property(nonatomic) unsigned int m_uMsgCreateTime; // @synthesize m_uMsgCreateTime=_m_uMsgCreateTime;

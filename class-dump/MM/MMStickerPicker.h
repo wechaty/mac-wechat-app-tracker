@@ -13,12 +13,12 @@
 #import "NSPageControllerDelegate-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
 
-@class MMIgnoreEventView, MMMediumDivider, MMPageControl, MMStickerCollectionViewController, MMStickerPickerColors, MMStickerPickerEventView, MMStickerPickerToolbar, MMView, NSArray, NSImageView, NSPageController, NSPopover, NSProgressIndicator, NSString, NSTextField, NSView, SwipeDetector;
+@class MMIgnoreEventView, MMLoadingIndicatorView, MMMediumDivider, MMPageControl, MMStickerCollectionViewController, MMStickerPickerColors, MMStickerPickerEventView, MMStickerPickerToolbar, MMView, NSArray, NSImageView, NSPageController, NSPopover, NSString, NSTextField, NSView, SwipeDetector;
 
 @interface MMStickerPicker : MMViewController <EmoticonDownloadMgrExt, EmoticonMgrExt, AccountServiceExt, NSPopoverDelegate, NSPageControllerDelegate, MMStickerCollectionViewControllerDelegate>
 {
-    unsigned char _shouldShowEmoji;
-    BOOL _isOpenIMChat;
+    BOOL _shouldShowEmoji;
+    BOOL _shouldHiddenSticker;
     BOOL _isHideToolbar;
     BOOL _firstDidLoad;
     BOOL _firstClick;
@@ -40,7 +40,7 @@
     NSImageView *_storeLoadingImageView;
     NSTextField *_storeLoadingLabel;
     MMIgnoreEventView *_favLoadingContainerView;
-    NSProgressIndicator *_favLoadingView;
+    MMLoadingIndicatorView *_loadingView;
     NSTextField *_favLoadingLabel;
     MMStickerPickerEventView *_stickerPickerView;
     MMStickerPickerColors *_stickerPickerColors;
@@ -49,7 +49,6 @@
 
 + (id)sharedSnsPicker;
 + (id)sharedLivePicker;
-+ (id)sharedOpenIMPicker;
 + (id)sharedImageEditPicker;
 + (id)sharedPicker;
 - (void).cxx_destruct;
@@ -59,7 +58,7 @@
 @property(nonatomic) BOOL firstDidLoad; // @synthesize firstDidLoad=_firstDidLoad;
 @property __weak MMStickerPickerEventView *stickerPickerView; // @synthesize stickerPickerView=_stickerPickerView;
 @property __weak NSTextField *favLoadingLabel; // @synthesize favLoadingLabel=_favLoadingLabel;
-@property __weak NSProgressIndicator *favLoadingView; // @synthesize favLoadingView=_favLoadingView;
+@property __weak MMLoadingIndicatorView *loadingView; // @synthesize loadingView=_loadingView;
 @property __weak MMIgnoreEventView *favLoadingContainerView; // @synthesize favLoadingContainerView=_favLoadingContainerView;
 @property __weak NSTextField *storeLoadingLabel; // @synthesize storeLoadingLabel=_storeLoadingLabel;
 @property __weak NSImageView *storeLoadingImageView; // @synthesize storeLoadingImageView=_storeLoadingImageView;
@@ -78,8 +77,8 @@
 @property(retain, nonatomic) NSPopover *popover; // @synthesize popover=_popover;
 @property(copy, nonatomic) CDUnknownBlockType willCloseCallbackBlock; // @synthesize willCloseCallbackBlock=_willCloseCallbackBlock;
 @property(nonatomic) BOOL isHideToolbar; // @synthesize isHideToolbar=_isHideToolbar;
-@property(nonatomic) BOOL isOpenIMChat; // @synthesize isOpenIMChat=_isOpenIMChat;
-@property(nonatomic) unsigned char shouldShowEmoji; // @synthesize shouldShowEmoji=_shouldShowEmoji;
+@property(nonatomic) BOOL shouldHiddenSticker; // @synthesize shouldHiddenSticker=_shouldHiddenSticker;
+@property(nonatomic) BOOL shouldShowEmoji; // @synthesize shouldShowEmoji=_shouldShowEmoji;
 @property(copy, nonatomic) CDUnknownBlockType didSelectCallbackBlock; // @synthesize didSelectCallbackBlock;
 - (void)shouldShowLoadingView:(id)arg1;
 - (void)showfavLoadingView:(unsigned char)arg1;
@@ -105,6 +104,7 @@
 - (void)_scrollToolbarToPageWithPack:(unsigned long long)arg1;
 - (void)updateStickerGroupWithIndex:(unsigned long long)arg1;
 - (void)setupPageInfo;
+- (int)getEmoticonGroupType;
 - (void)setViewWithHideToolbar;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidDisappear;
@@ -117,11 +117,10 @@
 - (void)popoverWillClose:(id)arg1;
 - (void)_makePopoverIfNeeded:(id)arg1;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)_clean;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2 shouldShowEmoji:(unsigned char)arg3 isOpenIMChat:(BOOL)arg4 andIsHideToolbar:(BOOL)arg5 andStickerPickerColors:(id)arg6;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2 shouldShowEmoji:(unsigned char)arg3 shouldHiddenSticker:(BOOL)arg4 andIsHideToolbar:(BOOL)arg5 andStickerPickerColors:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

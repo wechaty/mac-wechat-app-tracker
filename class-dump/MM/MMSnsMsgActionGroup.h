@@ -34,7 +34,7 @@
 @property(retain, nonatomic) SnsAction *referAction; // @synthesize referAction;
 @property(retain, nonatomic) SnsAction *currentAction; // @synthesize currentAction;
 @property(nonatomic) unsigned long long id; // @synthesize id;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

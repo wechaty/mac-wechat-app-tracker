@@ -6,13 +6,12 @@
 
 #import "MMViewController.h"
 
-#import "MMAppRelaunchServiceExt-Protocol.h"
 #import "MMNetExt-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class MMLockViewController, MMLoginOneClickViewController, MMLoginQRCodeViewController, MMLoginStateMachine, MMLoginWaitingConfirmViewController, MMNavigationController, MMTimer, NSAlert, NSMutableDictionary, NSString, NSTextField, PushLoginLogic, QRCodeLoginLogic;
+@class MMLockViewController, MMLoginOneClickViewController, MMLoginQRCodeViewController, MMLoginStateMachine, MMLoginWaitingConfirmViewController, MMNavigationController, MMTimer, NSAlert, NSString, NSTextField, PushLoginLogic, QRCodeLoginLogic;
 
-@interface MMLoginViewController : MMViewController <SyncExt, MMNetExt, MMAppRelaunchServiceExt>
+@interface MMLoginViewController : MMViewController <SyncExt, MMNetExt>
 {
     BOOL _shouldTryAutoAuthWhenNetworkConnected;
     MMLoginStateMachine *_stateMachine;
@@ -28,11 +27,9 @@
     id _keyEventMonitor;
     NSAlert *_autoCloseAlert;
     NSTextField *_versionTypeLabel;
-    NSMutableDictionary *_recoverParams;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableDictionary *recoverParams; // @synthesize recoverParams=_recoverParams;
 @property(nonatomic) __weak NSTextField *versionTypeLabel; // @synthesize versionTypeLabel=_versionTypeLabel;
 @property(nonatomic) __weak NSAlert *autoCloseAlert; // @synthesize autoCloseAlert=_autoCloseAlert;
 @property(retain, nonatomic) id keyEventMonitor; // @synthesize keyEventMonitor=_keyEventMonitor;
@@ -47,8 +44,6 @@
 @property(retain, nonatomic) QRCodeLoginLogic *qrCodeLoginLogic; // @synthesize qrCodeLoginLogic=_qrCodeLoginLogic;
 @property(retain, nonatomic) MMLoginStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(nonatomic) BOOL shouldTryAutoAuthWhenNetworkConnected; // @synthesize shouldTryAutoAuthWhenNetworkConnected=_shouldTryAutoAuthWhenNetworkConnected;
-- (void)onAppOvertime:(id)arg1;
-- (void)showRecoverAlertIfNeeded;
 - (void)proxySettingsDidChange:(id)arg1;
 - (BOOL)isLoginStateReset;
 - (void)handleInitFailed;

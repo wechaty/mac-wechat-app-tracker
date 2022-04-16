@@ -36,21 +36,21 @@
     NSString *_strRes3;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)intRes3;
-+ (const struct WCTProperty *)intRes2;
-+ (const struct WCTProperty *)intRes1;
-+ (const struct WCTProperty *)strRes3;
-+ (const struct WCTProperty *)strRes2;
-+ (const struct WCTProperty *)strRes1;
-+ (const struct WCTProperty *)m_uLastTime;
-+ (const struct WCTProperty *)m_bMarkUnread;
-+ (const struct WCTProperty *)m_bShowUnReadAsRedDot;
-+ (const struct WCTProperty *)m_uUnReadCount;
-+ (const struct WCTProperty *)m_nsUserName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)intRes3;
++ (const void *)intRes2;
++ (const void *)intRes1;
++ (const void *)strRes3;
++ (const void *)strRes2;
++ (const void *)strRes1;
++ (const void *)m_uLastTime;
++ (const void *)m_bMarkUnread;
++ (const void *)m_bShowUnReadAsRedDot;
++ (const void *)m_uUnReadCount;
++ (const void *)m_nsUserName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int chatSyncFirstLocalId; // @synthesize chatSyncFirstLocalId=_chatSyncFirstLocalId;
 @property BOOL isInGroupBox; // @synthesize isInGroupBox=_isInGroupBox;
@@ -74,6 +74,7 @@
 @property(nonatomic) unsigned int m_uUnReadCount; // @synthesize m_uUnReadCount;
 @property(retain, nonatomic) NSString *m_nsUserName; // @synthesize m_nsUserName;
 - (BOOL)isUnreadSession;
+- (id)shortDesc;
 - (id)description;
 - (long long)compare:(id)arg1;
 - (void)setFromPBSessionInfo:(id)arg1;

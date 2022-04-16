@@ -21,6 +21,7 @@
 
 @interface MMContactProfileController : MMViewController <OpenIMResourceMgrExt, MMViewerWindowDelegate, NSTextFieldDelegate, AccountServiceExt, NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMCGIDelegate, IContactMgrExt>
 {
+    int _contactInfoSource;
     int _type;
     unsigned int _mySessionId;
     id <MMContactProfileControllerDelegate> _delegate;
@@ -62,6 +63,7 @@
 @property(nonatomic) struct CGRect relativeToRect; // @synthesize relativeToRect=_relativeToRect;
 @property(retain, nonatomic) MessageData *oMsgData; // @synthesize oMsgData=_oMsgData;
 @property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
+@property(nonatomic) int contactInfoSource; // @synthesize contactInfoSource=_contactInfoSource;
 @property(retain, nonatomic) WCContactData *contactData; // @synthesize contactData=_contactData;
 @property(nonatomic) __weak id <MMContactProfileControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;

@@ -35,7 +35,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *cacheKey; // @synthesize cacheKey=_cacheKey;
 @property(nonatomic) BOOL shouldUseDynamicPage; // @synthesize shouldUseDynamicPage=_shouldUseDynamicPage;
-@property(nonatomic) NSString *debugMd5; // @synthesize debugMd5=_debugMd5;
+@property(retain, nonatomic) NSString *debugMd5; // @synthesize debugMd5=_debugMd5;
 @property(nonatomic) unsigned int debugModeType; // @synthesize debugModeType=_debugModeType;
 @property(nonatomic) unsigned int appServiceType; // @synthesize appServiceType=_appServiceType;
 @property(retain, nonatomic) NSString *extraData; // @synthesize extraData=_extraData;

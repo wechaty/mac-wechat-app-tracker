@@ -29,7 +29,7 @@
 @property(readonly, copy) NSString *description;
 - (BOOL)encodeDataToFile:(id)arg1;
 - (id)init;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

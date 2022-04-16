@@ -7,10 +7,11 @@
 #import "MMFavoritesListBaseCell.h"
 
 #import "MMFavoriteFileServiceExt-Protocol.h"
+#import "MMFavoritesMgrExt-Protocol.h"
 
-@class MMView, NSImageView, NSMutableArray, NSString, NSTextField;
+@class MMFavoriteErrorTipView, MMView, NSImageView, NSMutableArray, NSString, NSTextField;
 
-@interface MMFavoritesListNoteCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt>
+@interface MMFavoritesListNoteCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, MMFavoritesMgrExt>
 {
     BOOL _isLayoutWithMultiImgImgStyle;
     NSTextField *_titleTextView;
@@ -21,6 +22,7 @@
     NSTextField *_maskTextField;
     NSImageView *_maskBkImageView;
     unsigned long long _layoutStyle;
+    MMFavoriteErrorTipView *_errorTip;
 }
 
 + (id)getDisplayImgDatas:(id)arg1;
@@ -29,6 +31,7 @@
 + (id)GetNoteTitleAndDesc:(id)arg1;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMFavoriteErrorTipView *errorTip; // @synthesize errorTip=_errorTip;
 @property(nonatomic) BOOL isLayoutWithMultiImgImgStyle; // @synthesize isLayoutWithMultiImgImgStyle=_isLayoutWithMultiImgImgStyle;
 @property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(retain, nonatomic) NSImageView *maskBkImageView; // @synthesize maskBkImageView=_maskBkImageView;
@@ -38,6 +41,7 @@
 @property(retain, nonatomic) MMView *thumbnailsContainerView; // @synthesize thumbnailsContainerView=_thumbnailsContainerView;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 @property(retain, nonatomic) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
+- (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
 - (void)layoutWithPlaceHolder;

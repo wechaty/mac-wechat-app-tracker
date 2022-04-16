@@ -49,6 +49,7 @@
 - (BOOL)doWebSearchSuggestionWithCompletion:(CDUnknownBlockType)arg1;
 - (BOOL)doWebSearchWithCompletion:(CDUnknownBlockType)arg1 initSearch:(BOOL)arg2;
 - (void)onUserLogout;
+- (void)addCGIConfigItem;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)destroy;

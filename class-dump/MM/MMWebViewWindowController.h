@@ -18,6 +18,7 @@
     BOOL _initialShowing;
     BOOL _isMiniMode;
     BOOL _isFullScreen;
+    BOOL _isFullScreenAuxiliary;
     BOOL _isStick;
     BOOL _isSetFrame;
     BOOL _executedFirstResize;
@@ -50,6 +51,7 @@
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
 @property(retain, nonatomic) MMWebViewController *webView; // @synthesize webView=_webView;
+@property(nonatomic) BOOL isFullScreenAuxiliary; // @synthesize isFullScreenAuxiliary=_isFullScreenAuxiliary;
 @property(nonatomic) BOOL isFullScreen; // @synthesize isFullScreen=_isFullScreen;
 @property(nonatomic) unsigned long long openTime; // @synthesize openTime=_openTime;
 @property(nonatomic) BOOL isMiniMode; // @synthesize isMiniMode=_isMiniMode;

@@ -8,24 +8,20 @@
 
 #import "MMService-Protocol.h"
 
-@class NSData, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, WKProcessPool;
 
 @interface MMWebViewUIMgr : MMService <MMService>
 {
-    unsigned int _expiredTime;
-    int _retryCount;
     NSMutableDictionary *_floatWindowInfo;
     NSRecursiveLock *_lock;
     NSMutableDictionary *_webWindows;
     NSMutableArray *_waitCloseWebWindows;
     NSMutableDictionary *_preLoadWebViewPool;
-    NSData *_h5AuthToken;
+    WKProcessPool *_processPool;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) int retryCount; // @synthesize retryCount=_retryCount;
-@property(nonatomic) unsigned int expiredTime; // @synthesize expiredTime=_expiredTime;
-@property(retain, nonatomic) NSData *h5AuthToken; // @synthesize h5AuthToken=_h5AuthToken;
+@property(retain, nonatomic) WKProcessPool *processPool; // @synthesize processPool=_processPool;
 @property(retain, nonatomic) NSMutableDictionary *preLoadWebViewPool; // @synthesize preLoadWebViewPool=_preLoadWebViewPool;
 @property(retain, nonatomic) NSMutableArray *waitCloseWebWindows; // @synthesize waitCloseWebWindows=_waitCloseWebWindows;
 @property(retain, nonatomic) NSMutableDictionary *webWindows; // @synthesize webWindows=_webWindows;
@@ -34,15 +30,16 @@
 - (void)deletePreloadWebViewForType:(unsigned long long)arg1;
 - (id)getPreloadWebViewForType:(unsigned long long)arg1;
 - (unsigned long long)setupPreloadWebView:(unsigned long long)arg1 andUrl:(id)arg2;
-- (void)fetchH5Auth:(BOOL)arg1 scope:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)getFloatWindowInfo:(id)arg1;
 - (void)removeFloatWindowInfo:(id)arg1;
 - (void)addFloatWindowInfo:(id)arg1 object:(id)arg2;
+- (BOOL)shouldWindowControllerOpenNewItem:(id)arg1;
 - (void)updateFloatWindowInfo;
 - (id)currentWindowId;
 - (void)closeWebViewWindow:(unsigned long long)arg1;
 - (void)showWebViewWithDataItem:(id)arg1 windowId:(id)arg2;
 - (void)onServiceClearData;
+- (id)getWKProcessPool;
 - (id)getCurrentWindow;
 - (void)onServiceInit;
 - (id)init;

@@ -13,7 +13,6 @@
 @optional
 - (void)onGetOnlineInfoFinished;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onUserLogout;
 - (void)beforeUserLogout;
 - (void)onAutoLoginSwitchChanged:(BOOL)arg1;

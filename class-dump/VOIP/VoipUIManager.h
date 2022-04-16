@@ -43,7 +43,6 @@
 - (void)receiveSleepNotification;
 - (void)receiveWakeNotification;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onNewMsgNotification:(id)arg1 msgData:(id)arg2;
 - (void)onReciveCallCancle;

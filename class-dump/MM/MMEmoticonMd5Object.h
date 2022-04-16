@@ -53,7 +53,7 @@
 - (id)description;
 - (id)init;
 - (void)dealloc;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 @end

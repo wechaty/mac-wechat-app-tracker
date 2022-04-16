@@ -110,6 +110,7 @@
 - (void)addFavIDsToBatchGetQueue:(id)arg1;
 - (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 addedItems:(id)arg2 deletedItemFavIds:(id)arg3 updatedItemFavIds:(id)arg4 totalCountChanged:(BOOL)arg5;
 - (void)sync;
+- (BOOL)checkCanRetrySync:(id)arg1;
 - (void)checkShouldShowFavErrorHint;
 - (void)onServiceClearData;
 - (void)onServiceInit;

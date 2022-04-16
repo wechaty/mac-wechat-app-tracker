@@ -14,7 +14,8 @@
 }
 
 + (BOOL)supportsSecureCoding;
-@property(nonatomic) NSString *url; // @synthesize url=_url;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

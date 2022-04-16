@@ -43,7 +43,7 @@
 @property(nonatomic) unsigned int version; // @synthesize version;
 @property(retain, nonatomic) NSString *checkSum; // @synthesize checkSum;
 @property(retain, nonatomic) NSString *pkgDownloadUrl; // @synthesize pkgDownloadUrl;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

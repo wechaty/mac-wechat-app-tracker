@@ -53,7 +53,7 @@
 @property(retain, nonatomic) NSString *nsSeparator; // @synthesize nsSeparator;
 @property(retain, nonatomic) NSString *content; // @synthesize content;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

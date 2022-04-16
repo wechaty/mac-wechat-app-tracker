@@ -49,7 +49,7 @@
 - (id)initWithClass:(Class)arg1 subClass:(Class)arg2 index:(unsigned int)arg3 getter:(SEL)arg4 setter:(SEL)arg5 blockGet:(id)arg6 blockSet:(id)arg7;
 @property(nonatomic) NSString *m_subClsName; // @synthesize m_subClsName;
 @property(nonatomic) NSString *m_clsName; // @synthesize m_clsName;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

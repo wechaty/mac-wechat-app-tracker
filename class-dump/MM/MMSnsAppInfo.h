@@ -38,7 +38,7 @@
 @property(retain, nonatomic) NSString *appName; // @synthesize appName;
 @property(retain, nonatomic) NSString *appID; // @synthesize appID;
 - (BOOL)isValid;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

@@ -100,7 +100,7 @@
 - (BOOL)getEditContentInSameNumWith:(id)arg1 Item:(id)arg2;
 - (id)getSolitaireKey;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (const map_f8690629 *)getValueTagIndexMap;
+- (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 
 // Remaining properties

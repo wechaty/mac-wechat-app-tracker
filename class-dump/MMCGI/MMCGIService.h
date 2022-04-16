@@ -13,8 +13,8 @@
 
 @interface MMCGIService : MMService <MMNetExt, MMService>
 {
-    struct unordered_map<unsigned int, MMCGI *, std::__1::hash<unsigned int>, std::__1::equal_to<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, MMCGI *>>> m_cgiMap;
-    struct unordered_map<unsigned long, std::__1::set<unsigned int>, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, std::__1::set<unsigned int>>>> m_delegateMap;
+    struct unordered_map<unsigned int, MMCGI *, std::hash<unsigned int>, std::equal_to<unsigned int>, std::allocator<std::pair<const unsigned int, MMCGI *>>> m_cgiMap;
+    struct unordered_map<unsigned long, std::set<unsigned int>, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<const unsigned long, std::set<unsigned int>>>> m_delegateMap;
     BOOL m_hasClearData;
     BOOL _m_isNetConnected;
     BOOL _m_isClearingCGI;
@@ -68,15 +68,15 @@
 - (BOOL)FillRequestData:(unsigned int)arg1 buffer:(struct AutoBuffer *)arg2;
 - (void)stopMMNetTask:(unsigned int)arg1;
 - (void)startMMNetTask:(id)arg1;
-- (void)fillSendOnlyTask:(struct Task *)arg1 withCgi:(id)arg2;
-- (void)fillCgiTask:(struct Task *)arg1 withCgi:(id)arg2;
+- (void)fillSendOnlyTask:(void *)arg1 withCgi:(id)arg2;
+- (void)fillCgiTask:(void *)arg1 withCgi:(id)arg2;
 - (unsigned int)GetUin;
 - (id)GetSessionKey;
 - (void)eraseSessionIdInDelegate:(id)arg1 sessionId:(unsigned int)arg2;
-- (void)eraseDelegate:(id)arg1 sessionIdSet:(set_531c353a *)arg2;
+- (void)eraseDelegate:(id)arg1 sessionIdSet:(void *)arg2;
 - (void)addDelegate:(id)arg1 sessionId:(unsigned int)arg2;
 - (void)eraseCGI:(unsigned int)arg1;
-- (void)getAllCGI:(vector_f672cb0f *)arg1;
+- (void)getAllCGI:(void *)arg1;
 - (id)findCGI:(unsigned int)arg1;
 - (void)addCGI:(id)arg1 taskid:(unsigned int)arg2;
 - (void)closeCGI:(unsigned int)arg1;

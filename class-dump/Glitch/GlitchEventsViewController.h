@@ -13,7 +13,7 @@
 
 @interface GlitchEventsViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 {
-    struct vector<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>, std::__1::allocator<std::__1::tuple<NSString *, NSString *, NSString *, NSString *>>> data_source;
+    struct vector<std::tuple<NSString *, NSString *, NSString *, NSString *>, std::allocator<std::tuple<NSString *, NSString *, NSString *, NSString *>>> data_source;
     NSTableView *_glitchTable;
 }
 

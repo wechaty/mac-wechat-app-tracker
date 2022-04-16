@@ -19,14 +19,14 @@
     NSString *Reserved2;
 }
 
-+ (const struct WCTProperty *)Reserved2;
-+ (const struct WCTProperty *)Reserved1;
-+ (const struct WCTProperty *)Buf;
-+ (const struct WCTProperty *)Reserved0;
-+ (const struct WCTProperty *)Key;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)Reserved2;
++ (const void *)Reserved1;
++ (const void *)Buf;
++ (const void *)Reserved0;
++ (const void *)Key;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *Reserved2; // @synthesize Reserved2;
 @property(nonatomic) long long Reserved1; // @synthesize Reserved1;

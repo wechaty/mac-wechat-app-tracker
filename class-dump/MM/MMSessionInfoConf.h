@@ -16,11 +16,11 @@
     unsigned int m_uLastMsgTime;
 }
 
-+ (const struct WCTProperty *)m_uLastMsgTime;
-+ (const struct WCTProperty *)m_nsUserName;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_uLastMsgTime;
++ (const void *)m_nsUserName;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int m_uLastMsgTime; // @synthesize m_uLastMsgTime;
 @property(retain, nonatomic) NSString *m_nsUserName; // @synthesize m_nsUserName;

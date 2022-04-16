@@ -30,7 +30,6 @@
     NSMutableArray *_section2;
     NSMutableArray *_myItemList;
     NSString *_networkStatus;
-    NSString *_deviceID;
     MMThreadSafeDictionary *_openedItemDic;
     NSString *_preNotifyHandoff;
     double _contentHeight;
@@ -48,7 +47,6 @@
 @property(nonatomic) int currentFloatWindowCount; // @synthesize currentFloatWindowCount=_currentFloatWindowCount;
 @property(nonatomic) int availableCount; // @synthesize availableCount=_availableCount;
 @property(nonatomic) unsigned int sessionId; // @synthesize sessionId=_sessionId;
-@property(retain, nonatomic) NSString *deviceID; // @synthesize deviceID=_deviceID;
 @property(retain, nonatomic) NSString *networkStatus; // @synthesize networkStatus=_networkStatus;
 @property(retain, nonatomic) NSMutableArray *myItemList; // @synthesize myItemList=_myItemList;
 @property(retain, nonatomic) NSMutableArray *section2; // @synthesize section2=_section2;

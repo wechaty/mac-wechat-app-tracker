@@ -216,6 +216,7 @@
 - (id)getSingleReaderCoverUrl;
 - (void)clearReaderWraps;
 - (id)getReaderWraps;
+- (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;
 - (BOOL)isAppRecordOverLimit;
 - (BOOL)isLargeFileForFavOrRecord;
@@ -265,7 +266,6 @@
 - (void)dealloc;
 - (id)init;
 - (id)GetAppMsgAttachContent;
-- (void)ChangeForAppMsgState;
 - (void)ChangeForCustom;
 - (void)ChangeForReader;
 

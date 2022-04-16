@@ -6,25 +6,37 @@
 
 #import <AppKit/NSTableCellView.h>
 
-@class CAShapeLayer, MMAvatarImageView, MMSidebarLabelTextField, NSString, WCContactData;
+@class CAShapeLayer, MMAvatarImageView, MMSidebarLabelTextField, NSObject, NSString, NSTrackingArea, WCContactData;
+@protocol MMMentionTableCellViewDelegate;
 
 @interface MMMentionTableCellView : NSTableCellView
 {
     BOOL _selected;
+    long long _row;
     WCContactData *_contact;
     NSString *_groupChatUserName;
+    NSObject<MMMentionTableCellViewDelegate> *_delegate;
     MMAvatarImageView *_avatarImgView;
     MMSidebarLabelTextField *_nameLabel;
     CAShapeLayer *_strokeLayer;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) MMSidebarLabelTextField *nameLabel; // @synthesize nameLabel=_nameLabel;
 @property(retain, nonatomic) MMAvatarImageView *avatarImgView; // @synthesize avatarImgView=_avatarImgView;
+@property(nonatomic) __weak NSObject<MMMentionTableCellViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *groupChatUserName; // @synthesize groupChatUserName=_groupChatUserName;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
+@property(nonatomic) long long row; // @synthesize row=_row;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)setUpTrackingArea;
+- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
+- (void)dealloc;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -8,11 +8,12 @@
 
 #import "QLPreviewItem-Protocol.h"
 
-@class FavoritesItem, FavoritesItemDataField, MMSnsMediaItem, MessageData, NSImage, NSString, NSURL, SnsVideoPlayer, WCContactData;
+@class FavoritesItem, FavoritesItemDataField, MMSnsMediaItem, MessageData, NSImage, NSString, NSURL, WCContactData, WCMPlayer;
 
 @interface MMQLPreviewItem : NSObject <QLPreviewItem>
 {
     BOOL _isParentMsg;
+    NSString *_uniqueID;
     NSURL *_itemUrl;
     NSString *_itemTitle;
     NSString *_itemUrlString;
@@ -21,7 +22,7 @@
     unsigned long long _previewType;
     unsigned long long _previewScene;
     MMSnsMediaItem *_snsItem;
-    SnsVideoPlayer *_player;
+    WCMPlayer *_player;
     NSImage *_videoThumb;
     NSString *_fromUser;
     NSString *_appId;
@@ -49,7 +50,7 @@
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *fromUser; // @synthesize fromUser=_fromUser;
 @property(retain, nonatomic) NSImage *videoThumb; // @synthesize videoThumb=_videoThumb;
-@property(retain, nonatomic) SnsVideoPlayer *player; // @synthesize player=_player;
+@property(retain, nonatomic) WCMPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) MMSnsMediaItem *snsItem; // @synthesize snsItem=_snsItem;
 @property(nonatomic) unsigned long long previewScene; // @synthesize previewScene=_previewScene;
 @property(nonatomic) unsigned long long previewType; // @synthesize previewType=_previewType;
@@ -59,6 +60,7 @@
 @property(retain, nonatomic) NSString *itemUrlString; // @synthesize itemUrlString=_itemUrlString;
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
 @property(retain, nonatomic) NSURL *itemUrl; // @synthesize itemUrl=_itemUrl;
+@property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
 - (BOOL)canSaveToFavorite;
 - (BOOL)canForward;
 - (id)itemMessagePreviewThumbImage;

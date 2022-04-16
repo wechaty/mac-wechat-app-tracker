@@ -14,7 +14,6 @@
 
 @interface WebViewJSLogic : NSObject <JSEventHandler, WebviewJSEventHandlerBaseDelegate>
 {
-    BOOL _bInjectJSFailed;
     BOOL _isUseMd5ForJSAPI;
     id <WebViewJSLogicDelegate> _m_delegate;
     NSString *_sendAppScene;
@@ -32,7 +31,6 @@
 @property(retain, nonatomic) WebviewJSEventHandlerFacade *jsEventHandlerFacade; // @synthesize jsEventHandlerFacade=_jsEventHandlerFacade;
 @property(retain, nonatomic) NSString *curContextUUID; // @synthesize curContextUUID=_curContextUUID;
 @property(retain, nonatomic) NSString *curRandomUUID; // @synthesize curRandomUUID=_curRandomUUID;
-@property(nonatomic) BOOL bInjectJSFailed; // @synthesize bInjectJSFailed=_bInjectJSFailed;
 @property(retain, nonatomic) NSString *sendAppScene; // @synthesize sendAppScene=_sendAppScene;
 @property(nonatomic) __weak id <WebViewJSLogicDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
 - (id)funcDefByName:(id)arg1;
@@ -46,6 +44,7 @@
 - (id)sha1:(id)arg1;
 - (void)functionCall:(id)arg1 withParams:(id)arg2 withCallbackID:(id)arg3;
 - (id)jsEventWithFunction:(id)arg1 params:(id)arg2 callBackID:(id)arg3;
+- (id)extraDataForNextJSEventCalled:(id)arg1;
 - (void)handleJSApiDispatchMessage:(id)arg1;
 - (id)webViewJavascriptFetchQueueCommand;
 - (id)getPreInjectScriptStrForWKWebView;

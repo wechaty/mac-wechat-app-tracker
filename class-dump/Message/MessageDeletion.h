@@ -22,15 +22,15 @@
     MessageDeletionPackedInfo *_m_packedInfo;
 }
 
-+ (const struct WCTProperty *)m_packedInfo;
-+ (const struct WCTProperty *)deletionType;
-+ (const struct WCTProperty *)msgSeq;
-+ (const struct WCTProperty *)msgCreateTime;
-+ (const struct WCTProperty *)mesSvrID;
-+ (const struct WCTProperty *)mesAutoID;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)m_packedInfo;
++ (const void *)deletionType;
++ (const void *)msgSeq;
++ (const void *)msgCreateTime;
++ (const void *)mesSvrID;
++ (const void *)mesAutoID;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MessageDeletionPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(nonatomic) long long lastInsertedRowID; // @synthesize lastInsertedRowID;

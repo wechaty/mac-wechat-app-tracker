@@ -117,7 +117,6 @@
 - (id)rightMouseMakeContextMenu;
 - (id)buttonMakeContextMenu;
 - (void)onUserLogout;
-- (void)onCurrentNetworkLockStateWillChange:(BOOL)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)closeWithMenu;
 - (void)showMoreMenuInView:(id)arg1;

@@ -6,15 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class MMBasicSearchResult, NSString;
+@class MMBasicSearchResult, NSArray, NSString;
 
 @interface MMSearchResultItem : NSObject
 {
     unsigned long long _type;
     MMBasicSearchResult *_result;
+    NSArray *_childResultItems;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *childResultItems; // @synthesize childResultItems=_childResultItems;
 @property(retain, nonatomic) MMBasicSearchResult *result; // @synthesize result=_result;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSString *identifier;

@@ -24,19 +24,19 @@
     NSString *Reserved2;
 }
 
-+ (const struct WCTProperty *)Reserved2;
-+ (const struct WCTProperty *)Reserved1;
-+ (const struct WCTProperty *)Reserved0;
-+ (const struct WCTProperty *)MediaIdStr;
-+ (const struct WCTProperty *)talker;
-+ (const struct WCTProperty *)MD5;
-+ (const struct WCTProperty *)SvrId;
-+ (const struct WCTProperty *)MsgSegmentId;
-+ (const struct WCTProperty *)MediaId;
-+ (const struct WCTProperty *)talkerId;
-+ (const struct WCTAnyProperty *)AnyProperty;
-+ (const list_2812bee2 *)AllProperties;
-+ (const struct WCTBinding *)objectRelationalMappingForWCDB;
++ (const void *)Reserved2;
++ (const void *)Reserved1;
++ (const void *)Reserved0;
++ (const void *)MediaIdStr;
++ (const void *)talker;
++ (const void *)MD5;
++ (const void *)SvrId;
++ (const void *)MsgSegmentId;
++ (const void *)MediaId;
++ (const void *)talkerId;
++ (const void *)AnyProperty;
++ (const void *)AllProperties;
++ (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *Reserved2; // @synthesize Reserved2;
 @property(nonatomic) long long Reserved1; // @synthesize Reserved1;
