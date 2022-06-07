@@ -13,6 +13,7 @@
     unsigned long long **m_stackCyclePool;
     unsigned long long *m_stackCount;
     float *m_stackCPU;
+    char *m_stackInBackground;
     unsigned long long m_poolTailPoint;
     unsigned long long m_maxStackCount;
     NSMutableArray *_parentAddressFrame;
@@ -24,10 +25,10 @@
 - (void)p_mergedAddressFrameArray:(id)arg1 with:(id)arg2;
 - (void)p_mergeAddressFrame:(id)arg1 with:(id)arg2;
 - (void)p_addAddressFrame:(id)arg1;
-- (id)p_getAddressFrameWithStackTraces:(unsigned long long *)arg1 length:(unsigned long long)arg2 cpu:(float)arg3;
+- (id)p_getAddressFrameWithStackTraces:(unsigned long long *)arg1 length:(unsigned long long)arg2 cpu:(float)arg3 isInBackground:(BOOL)arg4;
 - (id)p_getInfoDictFromAddressFrame:(id)arg1;
 - (id)makeCallTree;
-- (void)addThreadStack:(unsigned long long *)arg1 andLength:(unsigned long long)arg2 andCPU:(float)arg3;
+- (void)addThreadStack:(unsigned long long *)arg1 andLength:(unsigned long long)arg2 andCPU:(float)arg3 isInBackground:(BOOL)arg4;
 - (void)dealloc;
 - (id)initWithMaxStackTraceCount:(unsigned long long)arg1;
 - (id)init;

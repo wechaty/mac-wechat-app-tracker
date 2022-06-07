@@ -72,6 +72,7 @@
 - (void)onStop:(id)arg1;
 - (void)onStart:(id)arg1;
 - (void)onInit:(id)arg1;
+- (void)setUserScene:(id)arg1;
 - (BOOL)checkXPCReboot;
 - (BOOL)isAfterLastLaunchUserRebootDevice;
 - (unsigned long long)lastRebootType;

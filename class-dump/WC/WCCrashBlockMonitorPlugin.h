@@ -56,6 +56,10 @@
 - (void)addLagToUploadingArray:(id)arg1;
 - (BOOL)isLagUploading:(id)arg1;
 - (void)generateLiveReportWithDumpType:(unsigned long long)arg1 withReason:(id)arg2 selfDefinedPath:(BOOL)arg3;
+- (void)setShouldSuspendAllThreads:(BOOL)arg1;
+- (BOOL)recoverRunloopThreshold;
+- (BOOL)lowerRunloopThreshold;
+- (BOOL)setRunloopThreshold:(unsigned int)arg1;
 - (BOOL)isBackgroundCPUTooSmall;
 - (void)stopTrackCPU;
 - (void)startTrackCPU;

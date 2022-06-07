@@ -27,6 +27,9 @@
 - (BOOL)isCPUHighBlock;
 - (float)getCPUUsageAndPowerConsumeStack;
 - (void)makeConclusion;
+- (void)didEnterBackground;
+- (void)willEnterForeground;
+- (void)dealloc;
 - (id)initWithCPULimit:(float)arg1;
 
 @end

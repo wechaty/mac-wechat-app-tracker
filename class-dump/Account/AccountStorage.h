@@ -17,6 +17,7 @@
     NSString *m_settingPath;
     NSString *m_settingExtPath;
     NSString *m_userInfoPath;
+    NSString *m_userInfoNewPath;
     NSString *m_dbEncryptInfoPath;
     Setting *m_setting;
     SettingExt *m_settingExt;
@@ -36,6 +37,7 @@
 - (void)SaveDBEncryptInfo;
 - (id)GetDBEncryptInfo;
 - (void)SaveLocalUserInfo;
+- (void)LoadUserInfo;
 - (id)GetLocalUserInfo;
 - (void)SaveSettingExt;
 - (id)GetSettingExt;

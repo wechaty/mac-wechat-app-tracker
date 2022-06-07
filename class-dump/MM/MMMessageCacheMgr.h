@@ -31,6 +31,7 @@
 @property(retain, nonatomic) MMCache *referCache; // @synthesize referCache=_referCache;
 @property(retain, nonatomic) MMCache *translationCache; // @synthesize translationCache=_translationCache;
 @property(retain, nonatomic) MMCache *textMessageCache; // @synthesize textMessageCache=_textMessageCache;
+- (void)onComputeCacheSize;
 - (void)onCleanCache;
 - (void)loadImageWithMessage:(id)arg1;
 - (void)thumbImageWithReaderMessage:(id)arg1 thumbUrl:(id)arg2 completion:(CDUnknownBlockType)arg3;

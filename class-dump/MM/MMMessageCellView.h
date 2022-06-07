@@ -28,7 +28,6 @@
     BOOL _couldPat;
     BOOL _showGroupChatNickName;
     BOOL _isSearchMode;
-    BOOL _isMessageUnsafe;
     BOOL _hasShownRecall;
     BOOL _isBeingDragged;
     int _accessoryType;
@@ -42,7 +41,6 @@
     unsigned long long _currentMode;
     double _hasTopPadding;
     MMMessageTableItem *_messageTableItem;
-    NSString *_cpKeyForMessage;
     NSProgressIndicator *_waitingProgressIndicatorAccessory;
     NSButton *_errorIndicatorAccessory;
     NSButton *_contextMenuButton;
@@ -74,8 +72,6 @@
 @property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicatorAccessory; // @synthesize waitingProgressIndicatorAccessory=_waitingProgressIndicatorAccessory;
 @property(readonly, nonatomic) BOOL isBeingDragged; // @synthesize isBeingDragged=_isBeingDragged;
 @property(nonatomic) BOOL hasShownRecall; // @synthesize hasShownRecall=_hasShownRecall;
-@property(nonatomic) BOOL isMessageUnsafe; // @synthesize isMessageUnsafe=_isMessageUnsafe;
-@property(retain, nonatomic) NSString *cpKeyForMessage; // @synthesize cpKeyForMessage=_cpKeyForMessage;
 @property(nonatomic) BOOL isSearchMode; // @synthesize isSearchMode=_isSearchMode;
 @property(nonatomic) BOOL showGroupChatNickName; // @synthesize showGroupChatNickName=_showGroupChatNickName;
 @property(retain, nonatomic) MMMessageTableItem *messageTableItem; // @synthesize messageTableItem=_messageTableItem;
@@ -226,7 +222,9 @@
 - (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuSolitaire;
 - (void)contextMenuMuteToPlay;
+- (void)contextMenuRealFavorites;
 - (void)contextMenuFavorites;
+- (void)contextMenuRealForward;
 - (void)contextMenuForward;
 - (void)contextMenuHideTranslation;
 - (void)contextMenuTranslate;

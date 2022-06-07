@@ -19,7 +19,6 @@
     MMTimer *_timer;
 }
 
-+ (void)CheckSyncSelector:(unsigned int)arg1;
 + (id)genHeartBeatRequest;
 + (BOOL)ProcessHeartBeatResponse:(id)arg1 isSessionTimeout:(char *)arg2;
 + (BOOL)FillHeartBeatRequestBuffer:(id)arg1 reqCmdId:(int *)arg2 respCmdId:(int *)arg3;

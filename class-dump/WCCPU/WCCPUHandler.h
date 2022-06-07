@@ -8,7 +8,7 @@
 
 @interface WCCPUHandler : NSObject
 {
-    unsigned long long m_tickTok;
+    float m_tickTok;
     float m_totalCPUCost;
     float m_totalTrackingTime;
     BOOL m_bTracking;

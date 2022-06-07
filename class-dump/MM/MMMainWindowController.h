@@ -16,11 +16,16 @@
 {
     MMMainViewController *_mainViewController;
     MMLoginViewController *_loginViewController;
+    id _userActiveEvent;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) id userActiveEvent; // @synthesize userActiveEvent=_userActiveEvent;
 @property(retain, nonatomic) MMLoginViewController *loginViewController; // @synthesize loginViewController=_loginViewController;
 @property(retain, nonatomic) MMMainViewController *mainViewController; // @synthesize mainViewController=_mainViewController;
+- (id)handleKeyDown:(id)arg1;
+- (id)handleLeftMouseDown:(id)arg1;
+- (void)userMouseEvent;
 - (void)onBetaDataLoad;
 - (void)makeStandardSize:(id)arg1;
 - (void)makeSmaller:(id)arg1;

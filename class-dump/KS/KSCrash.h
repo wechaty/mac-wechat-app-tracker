@@ -26,6 +26,7 @@
     CDUnknownFunctionPointerType _onHandleSignalCallBack;
     CDUnknownFunctionPointerType _onWritePointThread;
     CDUnknownFunctionPointerType _onWritePointThreadRepeatNumber;
+    CDUnknownFunctionPointerType _onWriteProfileCallBack;
     CDUnknownFunctionPointerType _onWritePointCpuHighThread;
     CDUnknownFunctionPointerType _onWritePointCpuHighThreadCount;
     CDUnknownFunctionPointerType _onWritePointCpuHighThreadValue;
@@ -61,6 +62,7 @@
 @property(nonatomic) CDUnknownFunctionPointerType onWritePointCpuHighThreadValue; // @synthesize onWritePointCpuHighThreadValue=_onWritePointCpuHighThreadValue;
 @property(nonatomic) CDUnknownFunctionPointerType onWritePointCpuHighThreadCount; // @synthesize onWritePointCpuHighThreadCount=_onWritePointCpuHighThreadCount;
 @property(nonatomic) CDUnknownFunctionPointerType onWritePointCpuHighThread; // @synthesize onWritePointCpuHighThread=_onWritePointCpuHighThread;
+@property(nonatomic) CDUnknownFunctionPointerType onWriteProfileCallBack; // @synthesize onWriteProfileCallBack=_onWriteProfileCallBack;
 @property(nonatomic) CDUnknownFunctionPointerType onWritePointThreadRepeatNumber; // @synthesize onWritePointThreadRepeatNumber=_onWritePointThreadRepeatNumber;
 @property(nonatomic) CDUnknownFunctionPointerType onWritePointThread; // @synthesize onWritePointThread=_onWritePointThread;
 @property(nonatomic) CDUnknownFunctionPointerType onHandleSignalCallBack; // @synthesize onHandleSignalCallBack=_onHandleSignalCallBack;
@@ -95,8 +97,7 @@
 @property(readonly, nonatomic) int launchesSinceLastCrash;
 @property(readonly, nonatomic) double backgroundDurationSinceLastCrash;
 @property(readonly, nonatomic) double activeDurationSinceLastCrash;
-- (void)reportUserException:(id)arg1 reason:(id)arg2 language:(id)arg3 lineOfCode:(id)arg4 stackTrace:(id)arg5 logAllThreads:(BOOL)arg6 terminateProgram:(BOOL)arg7 writeCpuUsage:(BOOL)arg8 dumpFilePath:(id)arg9 dumpType:(int)arg10;
-- (void)reportUserException:(id)arg1 reason:(id)arg2 language:(id)arg3 lineOfCode:(id)arg4 stackTrace:(id)arg5 logAllThreads:(BOOL)arg6 terminateProgram:(BOOL)arg7;
+- (void)reportUserException:(id)arg1 reason:(id)arg2 language:(id)arg3 lineOfCode:(id)arg4 stackTrace:(id)arg5 logAllThreads:(BOOL)arg6 enableSnapshot:(BOOL)arg7 terminateProgram:(BOOL)arg8 writeCpuUsage:(BOOL)arg9 dumpFilePath:(id)arg10 dumpType:(int)arg11;
 - (void)deleteAllReports;
 - (void)sendAllReportsWithCompletion:(CDUnknownBlockType)arg1;
 - (BOOL)install;

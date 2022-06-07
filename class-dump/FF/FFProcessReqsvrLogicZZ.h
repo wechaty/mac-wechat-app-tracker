@@ -38,6 +38,8 @@
 - (BOOL)sendAppReferMessage:(id)arg1 withText:(id)arg2 mentionedUsers:(id)arg3;
 - (BOOL)sendAttachmentObject:(id)arg1 toContact:(id)arg2;
 - (BOOL)AddFavoritesWithMultipleMsgList:(id)arg1;
+- (void)filterSpamDataSourceParam:(id)arg1;
+- (BOOL)checkIsHaveAllContact:(id)arg1;
 - (void)ForwardWithMultipleMsgList:(id)arg1 toContacts:(id)arg2 leavedMessage:(id)arg3;
 - (void)SendOneByOneWithMultipleSelectMsgList:(id)arg1 toCtontacts:(id)arg2 leavedMessage:(id)arg3;
 - (void)ForwardMessage:(id)arg1 toContacts:(id)arg2;

@@ -7,15 +7,18 @@
 #import "MMService.h"
 
 #import "AccountServiceExt-Protocol.h"
+#import "IMMCacheCleanerExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class NSString;
 
-@interface BaseWebViewService : MMService <AccountServiceExt, MMService>
+@interface BaseWebViewService : MMService <AccountServiceExt, IMMCacheCleanerExt, MMService>
 {
 }
 
 + (void)deleteCookies;
+- (void)onComputeCacheSize;
+- (void)onCleanCache;
 - (void)manualCleanWebkitCache;
 - (void)autoCleanWebkitCache;
 - (void)beforeUserLogout;

@@ -24,6 +24,7 @@
 - (struct KSStackCursor **)getStackCursorWithLimit:(int)arg1 withReturnSize:(unsigned long long *)arg2;
 - (int *)getPointStackRepeatCount;
 - (struct KSStackCursor *)getPointStackCursor;
+- (char *)getStackProfile;
 - (unsigned long long *)getLastMainThreadStack;
 - (unsigned long long)getLastMainThreadStackCount;
 - (void)addThreadStack:(unsigned long long *)arg1 andStackCount:(unsigned long long)arg2;

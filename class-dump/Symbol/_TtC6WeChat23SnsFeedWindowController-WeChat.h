@@ -16,8 +16,6 @@
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
-- (struct CGSize)windowWillResize:(id)arg1 toSize:(struct CGSize)arg2;
-- (void)windowDidMove:(id)arg1;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)beforeUserLogout;
 @end

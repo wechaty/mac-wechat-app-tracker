@@ -48,6 +48,8 @@
 + (id)GetNewEmojiConfigDir;
 + (id)emoticonPackageThumbPath:(id)arg1;
 + (id)emoticonThumbPath:(id)arg1;
++ (id)emoticonPathNonPersistence:(id)arg1;
++ (id)emoticonPathPersistence:(id)arg1;
 + (id)emoticonPath:(id)arg1;
 + (id)downloadPathForEmoticonPackage:(id)arg1;
 + (id)emoticonsDBPath;
@@ -57,10 +59,14 @@
 + (id)GetFavEmoticonDataListPath;
 + (id)GetPathOfEmoticonDownloadQueueData;
 + (id)packageThumbsBasePath;
++ (id)BasePathOfEmoticonNonPersistence;
++ (id)BasePathOfEmoticonPersistence;
 + (id)BasePathOfEmoticonFile;
 + (id)BasePathOfDownloadTemp;
 + (id)GetPathOfTempEmoticon:(id)arg1;
 + (void)CreateEmoticonBasePaths;
++ (id)emoticonPathNonPersistenceCompatible:(id)arg1;
++ (id)emoticonPathPersistenceCompatible:(id)arg1;
 + (id)getWCContactDBRecoverPathNew;
 + (id)getWCContactDBPathNew;
 + (id)getWCContactDBPath;
@@ -78,6 +84,7 @@
 + (id)GetAccountKeyValueDBPathOfUser:(id)arg1;
 + (id)GetAccountFriendRequestDataPath;
 + (id)GetAccountSnsBackgroundImagePath;
++ (id)GetAccountUserInfoNewPath;
 + (id)GetAccountUserInfoPath;
 + (id)GetAccountSettingDbPathOfUser:(id)arg1;
 + (id)GetAccountSettingDbPath;
@@ -94,6 +101,8 @@
 + (id)getAbtestRootPath;
 + (id)getKvConfigDBPath;
 + (id)getKvConfigRootPath;
++ (BOOL)saveSyncTime;
++ (BOOL)saveNewSyncTime;
 + (id)getNewSyncTimePath;
 + (id)getSyncTimePath;
 + (id)GetOpenIMOplogDBPath;
@@ -131,6 +140,7 @@
 + (id)getMsgTempDirOfUser:(id)arg1;
 + (id)getMsgTempDir;
 + (id)getRevokeMsgDBPath;
++ (id)getSpamMsgDBPath;
 + (id)getRevokeMsgDBDir;
 + (id)getAppMsgDBPath;
 + (id)getFTSFileMsgDBPath;

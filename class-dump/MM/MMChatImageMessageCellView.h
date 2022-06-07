@@ -13,7 +13,6 @@
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void)rightMouseDown:(id)arg1;
 - (BOOL)eventIsInsideAvatarArea:(id)arg1;
-- (void)populateWithMessage:(id)arg1;
 
 @end
 

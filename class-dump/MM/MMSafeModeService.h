@@ -62,8 +62,13 @@
 - (void)detect;
 @property(nonatomic) BOOL hasThirdParty;
 - (id)systemReportPath;
+- (void)readSystemReportAndLog:(id)arg1;
 - (void)processSystemReport;
 - (void)copySystemReportAndLog;
+- (id)sampleReportPath;
+- (void)writeSampleReportToLog:(id)arg1;
+- (void)readLocalSampleReportAndLog;
+- (void)sampleAndLog;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

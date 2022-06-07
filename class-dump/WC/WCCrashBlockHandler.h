@@ -12,14 +12,17 @@
 
 @interface WCCrashBlockHandler : NSObject <WCCrashBlockMonitorDelegate>
 {
+    BOOL _canSampleFlag;
 }
 
+@property(nonatomic) BOOL canSampleFlag; // @synthesize canSampleFlag=_canSampleFlag;
 - (id)onCrashBlockMonitorGetCustomUserInfoForDumpType:(unsigned long long)arg1;
 - (void)onCrashBlockMonitorIntervalCPUTooHigh;
 - (void)onCrashBlockMonitorCurrentCPUTooHigh;
-- (void)onCrashBlockMonitorDumpType:(unsigned long long)arg1 filter:(unsigned long long)arg2;
+- (void)onCrashBlockMonitorDumpType:(unsigned long long)arg1 filter:(unsigned long long)arg2 blockTime:(unsigned long long)arg3;
 - (void)onCrashBlockMonitorGetDumpFile:(id)arg1 withDumpType:(unsigned long long)arg2;
-- (void)onCrashBlockMonitorBeginDump:(unsigned long long)arg1 blockTime:(unsigned long long)arg2;
+- (void)onCrashBlockMonitorRunloopHangDetected:(unsigned long long)arg1;
+- (void)onCrashBlockMonitorBeginDump:(unsigned long long)arg1 blockTime:(unsigned long long)arg2 runloopThreshold:(unsigned int)arg3;
 - (id)getCrashBlockPluginConfiguration;
 - (id)init;
 

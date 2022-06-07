@@ -33,7 +33,6 @@
 {
     BOOL _isSettingChatContact;
     BOOL _isScrollToUnReadCount;
-    BOOL _onTrackingMouseMoveOnChatBoard;
     BOOL _hasSelectedChat;
     BOOL _multiSelectionMode;
     BOOL _isNoNetwork;
@@ -263,10 +262,12 @@
 - (void)autoTranslateVoiceToText:(id)arg1;
 - (void)playerDidFinishPlay:(id)arg1;
 - (void)addObservers;
-- (void)onUserActive;
+- (int)getUserActiveInterval;
+- (void)receiveOnUserActive:(id)arg1;
+- (void)sessionChangedAndMarkAsRead;
+- (void)onUserActive:(unsigned long long)arg1;
 - (BOOL)isDraggingFromChatMemberlistView:(struct CGPoint)arg1;
 - (id)handleLeftMouseDragged:(id)arg1;
-- (id)handleMouseMoved:(id)arg1;
 - (id)handleLeftMouseUp:(id)arg1;
 - (id)handleLeftMouseDown:(id)arg1;
 - (id)handleScrollWheel:(id)arg1;

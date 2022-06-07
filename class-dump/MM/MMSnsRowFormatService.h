@@ -28,7 +28,7 @@
 - (void)openUrlWithDataItem:(id)arg1;
 - (void)hideContactProfile;
 - (void)showContactProfile:(id)arg1 aView:(id)arg2 positionRect:(struct CGRect)arg3;
-- (void)convertToBlurImage:(id)arg1 toPath:(id)arg2 onComplete:(CDUnknownBlockType)arg3;
+- (void)convertToBlurImage:(id)arg1 toPath:(id)arg2 dataItem:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
 - (struct CGSize)genPreViewIdealSizeForVideo:(struct CGSize)arg1;
 - (struct CGSize)genPreViewIdealSizeForImage:(struct CGSize)arg1;
 - (struct CGSize)genIdealSizeForImage:(struct CGSize)arg1;

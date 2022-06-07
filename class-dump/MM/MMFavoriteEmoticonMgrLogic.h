@@ -67,6 +67,8 @@
 - (BOOL)addFavEmoticonWithMD5:(id)arg1 type:(int)arg2 messageData:(id)arg3;
 - (BOOL)isTouchLimitSize:(id)arg1;
 - (BOOL)isTouchLimitCount;
+- (id)getEmotionImgWithMD5:(id)arg1;
+- (id)getEmotionDataWithMD5:(id)arg1;
 - (BOOL)isEmoticonMD5InFavorites:(id)arg1;
 
 // Remaining properties

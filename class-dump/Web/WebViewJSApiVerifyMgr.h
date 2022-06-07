@@ -52,7 +52,6 @@
 - (id)getAppIdForUrl:(id)arg1;
 - (id)getCustomDomainsForUrl:(id)arg1;
 - (void)setPageStateChangeUrl:(id)arg1 baseUrl:(id)arg2;
-- (id)getAuthorizedTemplateMonitorEvents;
 - (id)getAuthorizedFeedWebMonitorEvents;
 - (id)getUrlWithoutFragment:(id)arg1;
 - (id)__mutableArrayForUrl:(id)arg1 inNoFragmentDictionary:(id)arg2;

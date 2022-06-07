@@ -162,9 +162,10 @@
 + (void)KernelOnForeground;
 + (void)KernelOnAppExit;
 + (id)getSoftTypeInfo;
-+ (BOOL)AppMsgCannotAddToDB:(id)arg1;
++ (BOOL)AppMsgCannotAddToDB:(id)arg1 syncMsgList:(id)arg2;
 + (BOOL)IsFilterSpecialSysMsg:(id)arg1;
 + (BOOL)IsFilterStatusNotify:(id)arg1 chatName:(id)arg2;
++ (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2 syncMsgList:(id)arg3;
 + (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2;
 + (id)GenMsgDataFromAddMsg:(id)arg1;
 + (void)CleanupAllMediaRes:(id)arg1;
@@ -201,7 +202,6 @@
 + (id)GenGroupMemberFromModContact:(id)arg1;
 + (unsigned int)ChatNotifyC2S:(unsigned int)arg1;
 + (unsigned int)ChatNotifyS2C:(unsigned int)arg1;
-+ (unsigned int)GenerateSendMsgTime;
 + (void)AddGroupMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2;
 + (void)AddGroupCreateMsg:(id)arg1 ContactList:(id)arg2;
 + (id)GenSelfContact;

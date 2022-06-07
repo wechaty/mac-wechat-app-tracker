@@ -9,12 +9,17 @@
 @class NSDictionary, NSString, WCBlockMonitorMgr;
 
 @protocol WCBlockMonitorDelegate <NSObject>
+- (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 runloopHangDetected:(unsigned long long)arg2;
+- (void)onBlockMonitorMemoryExcessive:(WCBlockMonitorMgr *)arg1;
+- (void)onBlockMonitorMainThreadBlock:(WCBlockMonitorMgr *)arg1;
+- (void)onBlockMonitorThermalStateElevated:(WCBlockMonitorMgr *)arg1;
 - (void)onBlockMonitorIntervalCPUTooHigh:(WCBlockMonitorMgr *)arg1;
 - (void)onBlockMonitorCurrentCPUTooHigh:(WCBlockMonitorMgr *)arg1;
 - (NSDictionary *)onBlockMonitor:(WCBlockMonitorMgr *)arg1 getCustomUserInfoForDumpType:(unsigned long long)arg2;
 - (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 getDumpFile:(NSString *)arg2 withDumpType:(unsigned long long)arg3;
+- (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 dumpType:(unsigned long long)arg2 filter:(unsigned long long)arg3 blockTime:(unsigned long long)arg4;
 - (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 dumpType:(unsigned long long)arg2 filter:(unsigned long long)arg3;
-- (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 beginDump:(unsigned long long)arg2 blockTime:(unsigned long long)arg3;
+- (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 beginDump:(unsigned long long)arg2 blockTime:(unsigned long long)arg3 runloopThreshold:(unsigned int)arg4;
 - (void)onBlockMonitor:(WCBlockMonitorMgr *)arg1 enterNextCheckWithDumpType:(unsigned long long)arg2;
 @end
 

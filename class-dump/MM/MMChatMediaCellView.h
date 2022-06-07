@@ -8,7 +8,7 @@
 
 #import "IMessageServiceFileExt-Protocol.h"
 
-@class MMCircularProgressView, MMDivider, NSImageView, NSMutableDictionary, NSString, NSTextField, NSView, TKStateMachine;
+@class MMCircularProgressView, MMDivider, MMImageView, NSImageView, NSMutableDictionary, NSString, NSTextField, NSView, TKStateMachine;
 
 @interface MMChatMediaCellView : MMChatBaseCellView <IMessageServiceFileExt>
 {
@@ -16,7 +16,7 @@
     NSTextField *_nickNameLabel;
     NSTextField *_timeLabel;
     MMDivider *_divider;
-    NSImageView *_thumbImageView;
+    MMImageView *_thumbImageView;
     NSTextField *_titleLabel;
     NSTextField *_descLabel;
     NSTextField *_sourceLabel;
@@ -42,7 +42,7 @@
 @property(retain, nonatomic) NSTextField *sourceLabel; // @synthesize sourceLabel=_sourceLabel;
 @property(retain, nonatomic) NSTextField *descLabel; // @synthesize descLabel=_descLabel;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
+@property(retain, nonatomic) MMImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
 @property(retain, nonatomic) MMDivider *divider; // @synthesize divider=_divider;
 @property(retain, nonatomic) NSTextField *timeLabel; // @synthesize timeLabel=_timeLabel;
 @property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;

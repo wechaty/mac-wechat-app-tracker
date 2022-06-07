@@ -17,6 +17,8 @@
     unsigned int hasVersion:1;
     unsigned int hasForceUpdate:1;
     unsigned int hasPatchUrl:1;
+    unsigned int hasRelyUpdate:1;
+    unsigned int relyUpdate_:1;
     unsigned int version;
     unsigned int forceUpdate;
     NSString *url;
@@ -26,6 +28,7 @@
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL hasRelyUpdate; // @synthesize hasRelyUpdate;
 @property(retain, nonatomic, setter=SetPatchUrl:) NSString *patchUrl; // @synthesize patchUrl;
 @property(readonly, nonatomic) BOOL hasPatchUrl; // @synthesize hasPatchUrl;
 @property(nonatomic, setter=SetForceUpdate:) unsigned int forceUpdate; // @synthesize forceUpdate;
@@ -41,6 +44,7 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(nonatomic, setter=SetRelyUpdate:) BOOL relyUpdate; // @synthesize relyUpdate=relyUpdate_;
 @property(nonatomic, setter=SetNeedUpdate:) BOOL needUpdate; // @synthesize needUpdate=needUpdate_;
 - (id)init;
 

@@ -11,12 +11,18 @@
 @protocol WCCrashBlockMonitorDelegate <NSObject>
 
 @optional
+- (void)onCrashBlockMonitorRunloopHangDetected:(unsigned long long)arg1;
 - (NSDictionary *)onCrashBlockMonitorGetCustomUserInfoForDumpType:(unsigned long long)arg1;
+- (void)onCrashBlockMonitorMemoryExcessive;
+- (void)onCrashBlockMonitorMainThreadBlock;
+- (void)onCrashBlockMonitorThermalStateElevated;
 - (void)onCrashBlockMonitorIntervalCPUTooHigh;
 - (void)onCrashBlockMonitorCurrentCPUTooHigh;
+- (void)onCrashBlockMonitorDumpType:(unsigned long long)arg1 filter:(unsigned long long)arg2 blockTime:(unsigned long long)arg3;
 - (void)onCrashBlockMonitorDumpType:(unsigned long long)arg1 filter:(unsigned long long)arg2;
 - (void)onCrashBlockMonitorGetDumpFile:(NSString *)arg1 withDumpType:(unsigned long long)arg2;
 - (void)onCrashBlockMonitorBeginDump:(unsigned long long)arg1 blockTime:(unsigned long long)arg2;
+- (void)onCrashBlockMonitorBeginDump:(unsigned long long)arg1 blockTime:(unsigned long long)arg2 runloopThreshold:(unsigned int)arg3;
 - (void)onCrashBlockMonitorEnterNextCheckWithDumpType:(unsigned long long)arg1;
 @end
 

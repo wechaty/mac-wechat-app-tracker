@@ -17,13 +17,12 @@
     BOOL m_bStop;
     unsigned long long m_nIntervalTime;
     unsigned long long m_nLastTimeInterval;
-    struct vector<unsigned long, std::__1::allocator<unsigned long>> m_vecLastMainThreadCallStack;
+    struct vector<unsigned long, std::allocator<unsigned long>> m_vecLastMainThreadCallStack;
     unsigned long long m_lastMainThreadStackCount;
     unsigned long long m_blockDiffTime;
     unsigned int m_firstSleepTime;
     NSString *m_potenHandledLagFile;
     WCMainThreadHandler *m_pointMainThreadHandler;
-    BOOL m_bInSuspend;
     struct __CFRunLoopObserver *m_runLoopBeginObserver;
     struct __CFRunLoopObserver *m_runLoopEndObserver;
     struct __CFRunLoopObserver *m_initializationBeginRunloopObserver;
@@ -34,14 +33,17 @@
     WCFilterStackHandler *m_stackHandler;
     WCPowerConsumeStackCollector *m_powerConsumeStackCollector;
     unsigned int m_printMemoryTickTok;
+    unsigned int m_printCPUFrequencyTickTok;
+    BOOL m_suspendAllThreads;
+    BOOL m_enableSnapshot;
+    struct timeval m_recordStackTime;
     id <WCBlockMonitorDelegate> _delegate;
     WCBlockMonitorConfigHandler *_monitorConfigHandler;
     NSApplicationEvent *_eventHandler;
 }
 
-+ (long long)availableMemory;
-+ (long long)getFootprintResidentMemory;
 + (unsigned long long)diffTime:(struct timeval *)arg1 endTime:(struct timeval *)arg2;
++ (void)checkRunloopDuration;
 + (void)signalEventEnd;
 + (void)signalEventStart;
 + (id)shareInstance;
@@ -51,6 +53,12 @@
 @property(retain, nonatomic) WCBlockMonitorConfigHandler *monitorConfigHandler; // @synthesize monitorConfigHandler=_monitorConfigHandler;
 @property(nonatomic) __weak id <WCBlockMonitorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)powerConsumeStackCollectorConclude:(id)arg1;
+- (void)generateLiveReportWithDumpType:(unsigned long long)arg1 withReason:(id)arg2 selfDefinedPath:(BOOL)arg3;
+- (void)setShouldSuspendAllThreads:(BOOL)arg1;
+- (BOOL)setRunloopThreshold:(unsigned int)arg1 isFirstTime:(BOOL)arg2;
+- (BOOL)setRunloopThreshold:(unsigned int)arg1;
+- (BOOL)recoverRunloopThreshold;
+- (BOOL)lowerRunloopThreshold;
 - (BOOL)isBackgroundCPUTooSmall;
 - (void)stopTrackCPU;
 - (void)startTrackCPU;
@@ -67,7 +75,6 @@
 - (void)addMonitorThread;
 - (void)setPerStackInterval:(unsigned int)arg1;
 - (void)setCPUUsagePercent:(float)arg1;
-- (void)setRunloopTimeOut:(unsigned int)arg1 andCheckPeriodTime:(unsigned int)arg2;
 - (id)getUserInfoForCurrentDumpForDumpType:(unsigned long long)arg1;
 - (void)stop;
 - (void)start;

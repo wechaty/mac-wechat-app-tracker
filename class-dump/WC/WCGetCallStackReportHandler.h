@@ -10,6 +10,7 @@
 {
 }
 
++ (id)getReportJsonDataWithLagProfileStack:(id)arg1;
 + (id)getReportJsonDataWithFPSStack:(id)arg1 withCustomInfo:(id)arg2 withReportID:(id)arg3 withDumpType:(unsigned long long)arg4;
 + (id)getReportJsonDataWithDiskIOStack:(id)arg1 withCustomInfo:(id)arg2 withReportID:(id)arg3 withDumpType:(unsigned long long)arg4;
 + (id)getReportJsonDataWithPowerConsumeStack:(id)arg1 withReportID:(id)arg2 withDumpType:(unsigned long long)arg3;

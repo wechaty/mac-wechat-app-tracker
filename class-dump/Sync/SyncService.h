@@ -53,7 +53,7 @@
 - (void)onSyncSuccess;
 - (void)onSyncFail;
 - (BOOL)CheckNeedFastSync;
-- (void)CheckNeedToSync:(unsigned int)arg1;
+- (void)CheckNeedToSync:(unsigned int)arg1 FromLongLink:(BOOL)arg2;
 - (void)FixOpenIMSync;
 - (void)FastSync;
 - (void)BackGroundToForeGroundSync;

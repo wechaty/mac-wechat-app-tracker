@@ -468,9 +468,7 @@ struct CTXFlvStreamRecvThread {
     CDUnknownFunctionPointerType *_field6;
     CDUnknownFunctionPointerType *_field7;
     struct CTXFlvContainer *_field8;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field9;
+    basic_string_23d93216 _field9;
     _Bool _field10;
     char *_field11;
     unsigned int _field12;
@@ -524,15 +522,9 @@ struct CTXQuicRealTimeStrategy {
 
 struct CTXRtmpChunkHelper {
     CDUnknownFunctionPointerType *_field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field4;
+    basic_string_23d93216 _field2;
+    basic_string_23d93216 _field3;
+    basic_string_23d93216 _field4;
     struct _RTMPSendMetadata _field5;
     int _field6;
     int _field7;
@@ -563,15 +555,9 @@ struct CTXRtmpRecvThread {
     CDUnknownFunctionPointerType *_field1;
     struct weak_ptr<CTXRtmpRecvThread> _field2;
     int _field3;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field4;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field5;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field6;
+    basic_string_23d93216 _field4;
+    basic_string_23d93216 _field5;
+    basic_string_23d93216 _field6;
     _Bool _field7;
     struct RTMP *_field8;
     struct TXCAudioParser _field9;
@@ -593,12 +579,8 @@ struct CTXRtmpRecvThread {
 };
 
 struct CTXRtmpSendConfig {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field2;
+    basic_string_23d93216 _field1;
+    basic_string_23d93216 _field2;
     int _field3;
     _Bool _field4;
     _Bool _field5;
@@ -625,9 +607,7 @@ struct CTXRtmpSendConfig {
     int _field26;
     unsigned long long _field27;
     unsigned long long _field28;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field29;
+    basic_string_23d93216 _field29;
     long long _field30;
     long long _field31;
     long long _field32;
@@ -794,12 +774,8 @@ struct DeviceErrorApple {
     CDUnknownFunctionPointerType *_field1;
     long long _field2;
     int _field3;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field4;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field5;
+    basic_string_23d93216 _field4;
+    basic_string_23d93216 _field5;
 };
 
 struct DialReport_t {
@@ -887,9 +863,7 @@ struct GPUTextureOptions {
 struct Hardware {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
+    basic_string_23d93216 _field3;
     unsigned int _field4;
     unsigned int _field5;
     unsigned int _field6;
@@ -963,48 +937,6 @@ struct IWXConfCallback {
 
 struct IWXConfService {
     CDUnknownFunctionPointerType *_field1;
-};
-
-struct Issue {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field2;
-    int _field3;
-    int _field4;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field5;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field6;
-    long long _field7;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field8;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field9;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-            struct __rep _field1;
-        } _field1;
-    } _field10;
-    _Bool _field11;
 };
 
 struct KSJSONDecodeCallbacks {
@@ -1581,21 +1513,13 @@ struct TRTCTranscodingConfigInternal {
     unsigned int _field7;
     unsigned int _field8;
     unsigned int _field9;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field10;
+    basic_string_23d93216 _field10;
     unsigned int _field11;
     unsigned int _field12;
     unsigned int _field13;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field14;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field15;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field16;
+    basic_string_23d93216 _field14;
+    basic_string_23d93216 _field15;
+    basic_string_23d93216 _field16;
     struct vector<txliteav::TRTCMixUserInternal, std::__1::allocator<txliteav::TRTCMixUserInternal>> _field17;
 };
 
@@ -1732,19 +1656,13 @@ struct TXSMatrix4x4 {
 struct TXSMsgItem {
     unsigned int _field1;
     unsigned int _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
+    basic_string_23d93216 _field3;
     unsigned long long _field4;
     unsigned long long _field5;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field6;
+    basic_string_23d93216 _field6;
     _Bool _field7;
     _Bool _field8;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field9;
+    basic_string_23d93216 _field9;
     unsigned int _field10;
 };
 
@@ -1888,6 +1806,7 @@ struct WxMediaInfoPara {
     int _field6;
     int _field7;
     int _field8;
+    int _field9;
 };
 
 struct WxVideoTransPara {
@@ -1916,12 +1835,8 @@ struct XmlReaderNode_t {
 
 struct _AudioDeviceInfo {
     int _field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field2;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field3;
+    basic_string_23d93216 _field2;
+    basic_string_23d93216 _field3;
     int _field4;
 };
 
@@ -1958,9 +1873,7 @@ struct _RtmpRecvStats {
     unsigned long long _field8;
     unsigned long long _field9;
     unsigned long long _field10;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field11;
+    basic_string_23d93216 _field11;
 };
 
 struct _SKP_Silk_resampler_state_struct {
@@ -2000,18 +1913,12 @@ struct _SendNetWorkStats {
     unsigned long long _field10;
     unsigned long long _field11;
     unsigned long long _field12;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field13;
+    basic_string_23d93216 _field13;
     long long _field14;
     long long _field15;
     long long _field16;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field17;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field18;
+    basic_string_23d93216 _field17;
+    basic_string_23d93216 _field18;
 };
 
 struct _SpeedTestInfo {
@@ -2042,10 +1949,6 @@ struct _TRTCEncodeConfigParam {
 };
 
 struct __CFString;
-
-struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
-    struct __rep __value_;
-};
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> *__next_;
@@ -2234,6 +2137,12 @@ struct _xmlNs {
     struct _xmlDoc *_field6;
 };
 
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+        struct __rep __value_;
+    } __r_;
+};
+
 struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
         struct __rep __value_;
@@ -2282,14 +2191,14 @@ struct encoder_state {
 struct function<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
     struct __value_func<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
         struct type _field1;
-        struct __base<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> *_field2;
+        void *_field2;
     } _field1;
 };
 
-struct function<void (const char *, std::__1::vector<sqlitelint::Issue>)> {
-    struct __value_func<void (const char *, std::__1::vector<sqlitelint::Issue>)> {
+struct function<void (const char *, std::vector<sqlitelint::Issue>)> {
+    struct __value_func<void (const char *, std::vector<sqlitelint::Issue>)> {
         struct type _field1;
-        struct __base<void (const char *, std::__1::vector<sqlitelint::Issue>)> *_field2;
+        void *_field2;
     } _field1;
 };
 
@@ -3758,9 +3667,7 @@ struct tagScreenSendReport {
 
 struct tagTXSNALPacket {
     int _field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-        struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-    } _field2;
+    basic_string_23d93216 _field2;
     unsigned long long _field3;
     unsigned long long _field4;
     unsigned long long _field5;
@@ -4344,10 +4251,10 @@ struct vector<objc_method_description, std::allocator<objc_method_description>> 
 };
 
 struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field1;
-    struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field2;
+    basic_string_23d93216 *_field1;
+    basic_string_23d93216 *_field2;
     struct __compressed_pair<std::__1::basic_string<char>*, std::__1::allocator<std::__1::basic_string<char>>> {
-        struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *_field1;
+        basic_string_23d93216 *_field1;
     } _field3;
 };
 
@@ -4383,10 +4290,10 @@ struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDe
     } _field3;
 };
 
-struct vector<unsigned long, std::__1::allocator<unsigned long>> {
+struct vector<unsigned long, std::allocator<unsigned long>> {
     unsigned long long *__begin_;
     unsigned long long *__end_;
-    struct __compressed_pair<unsigned long *, std::__1::allocator<unsigned long>> {
+    struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> {
         unsigned long long *__value_;
     } __end_cap_;
 };
@@ -4420,24 +4327,6 @@ struct weak_ptr<txliteav::audio::AudioDevicePlayCallback> {
     struct AudioDevicePlayCallback *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
-
-#if 0
-// Names with conflicting types:
-typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
-} basic_string_23d93216;
-
-typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
-} basic_string_1f377286;
-
-typedef struct ?<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char>::__rep, std::__1::allocator<char>> {
-        struct __rep _field1;
-    } _field1;
-} basic_string_9d13523a;
-
-#endif
 
 #pragma mark Typedef'd Structures
 
@@ -4550,6 +4439,12 @@ typedef struct {
 } CDStruct_4ebc2506;
 
 // Template types
+typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
+        struct __rep __value_;
+    } __r_;
+} basic_string_23d93216;
+
 typedef struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
         struct __rep __value_;
@@ -4574,16 +4469,16 @@ typedef struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescrip
 typedef struct function<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
     struct __value_func<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
         struct type _field1;
-        struct __base<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> *_field2;
+        void *_field2;
     } _field1;
-} function_873a4cdd;
+} function_275ccf77;
 
-typedef struct function<void (const char *, std::__1::vector<sqlitelint::Issue>)> {
-    struct __value_func<void (const char *, std::__1::vector<sqlitelint::Issue>)> {
+typedef struct function<void (const char *, std::vector<sqlitelint::Issue>)> {
+    struct __value_func<void (const char *, std::vector<sqlitelint::Issue>)> {
         struct type _field1;
-        struct __base<void (const char *, std::__1::vector<sqlitelint::Issue>)> *_field2;
+        void *_field2;
     } _field1;
-} function_e8193119;
+} function_a46de7e7;
 
 typedef struct list<std::string, std::allocator<std::string>> {
     struct __list_node_base<std::string, void *> {

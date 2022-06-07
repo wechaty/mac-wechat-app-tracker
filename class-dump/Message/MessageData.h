@@ -149,7 +149,6 @@
 + (void)GetPathOfAppData:(id)arg1 LocalID:(unsigned int)arg2 FileExt:(id)arg3 retStrPath:(id *)arg4;
 + (void)GetPathOfAppDir:(id)arg1 retStrPath:(id *)arg2;
 + (void)RegisterClsMethod_AppMsgPath;
-+ (struct CGSize)adjustVideoThumbSize:(struct CGSize)arg1;
 + (id)videoBlankThumbWithOriginVideoSize:(struct CGSize)arg1;
 + (id)convertWebVideoItem2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)checkSourcePathFileFromMsg:(id)arg1 withDataList:(id)arg2;
@@ -264,6 +263,7 @@
 - (BOOL)isImgMsg;
 - (BOOL)isUnreadMessage;
 - (BOOL)isSendFromSelf;
+- (BOOL)isSendMsg;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
@@ -346,7 +346,7 @@
 - (unsigned long long)yoCount;
 - (double)originImageSize;
 - (BOOL)isLargeImageForPreview;
-- (BOOL)isWideOrLongImg;
+- (BOOL)isTouchImageAspectRatio;
 
 // Remaining properties
 @property(retain, nonatomic) NSMutableArray *arrCCList; // @dynamic arrCCList;

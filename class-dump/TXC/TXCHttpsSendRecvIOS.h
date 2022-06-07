@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)downloadFile:(const struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *)arg1 file_path:(const struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> *)arg2 callback:(CDUnknownBlockType)arg3;
+- (void)downloadFile:(const basic_string_23d93216 *)arg1 file_path:(const basic_string_23d93216 *)arg2 callback:(CDUnknownBlockType)arg3;
 - (void)sendHttpsWithHeader:(map_5554a4ce *)arg1 sendBuf:(struct TXCopyOnWriteBuffer *)arg2 sendUrl:(const char *)arg3 callback:(CDUnknownBlockType)arg4;
 - (void)sendHttps:(struct TXCopyOnWriteBuffer *)arg1 sendUrl:(const char *)arg2 callback:(CDUnknownBlockType)arg3;
 

@@ -11,11 +11,13 @@
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class BrandSessionHolder, NSMutableArray, NSRecursiveLock, NSString;
+@class BrandSessionHolder, NSMutableArray, NSObject, NSRecursiveLock, NSString;
+@protocol OS_dispatch_queue;
 
 @interface BrandSessionMgr : MMService <IMMSessionMgrExt, IContactMgrExt, IMessageExt, MMService>
 {
     NSRecursiveLock *_m_brandSessionLock;
+    NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableArray *_m_arrBrandInfo;
     BrandSessionHolder *_m_holder;
 }
@@ -23,6 +25,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) BrandSessionHolder *m_holder; // @synthesize m_holder=_m_holder;
 @property(retain, nonatomic) NSMutableArray *m_arrBrandInfo; // @synthesize m_arrBrandInfo=_m_arrBrandInfo;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSRecursiveLock *m_brandSessionLock; // @synthesize m_brandSessionLock=_m_brandSessionLock;
 - (id)getBrandSessionContact:(id)arg1 msgData:(id)arg2;
 - (double)getMaxEnterTime;
@@ -51,7 +54,7 @@
 - (id)init;
 - (void)processOnDeleteContacts:(id)arg1;
 - (void)processOnModifyContacts:(id)arg1;
-- (void)changeSessionUnreadCount:(id)arg1;
+- (void)processOnUnreadCountChange:(id)arg1;
 - (void)processOnMsgDeleted:(id)arg1;
 - (void)processOnModMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)isNeedCallNewMsgArrival:(id)arg1;

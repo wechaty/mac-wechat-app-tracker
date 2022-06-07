@@ -12,6 +12,7 @@
 {
     unsigned int _createTime;
     int _scene;
+    unsigned int _unreadCount;
     NSString *_userName;
     WCContactData *_oContact;
     NSArray *_msgList;
@@ -19,6 +20,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int unreadCount; // @synthesize unreadCount=_unreadCount;
 @property(retain, nonatomic) NSArray *sessionList; // @synthesize sessionList=_sessionList;
 @property(retain, nonatomic) NSArray *msgList; // @synthesize msgList=_msgList;
 @property(retain, nonatomic) WCContactData *oContact; // @synthesize oContact=_oContact;

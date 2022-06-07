@@ -6,24 +6,31 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCoding-Protocol.h"
-
-@interface WCBlockMonitorConfiguration : NSObject <NSCoding>
+@interface WCBlockMonitorConfiguration : NSObject
 {
+    BOOL _bRunloopDynamicThreshold;
     BOOL _bMainThreadHandle;
+    BOOL _bMainThreadProfile;
     BOOL _bPrintCPUUsage;
     BOOL _bGetCPUHighLog;
     BOOL _bGetPowerConsumeStack;
     BOOL _bFilterSameStack;
     BOOL _bPrintMemomryUse;
+    BOOL _bPrintCPUFrequency;
     BOOL _bGetDiskIOStack;
+    BOOL _bSensitiveRunloopHangDetection;
+    BOOL _bSuspendAllThreads;
+    BOOL _bEnableSnapshot;
     unsigned int _runloopTimeOut;
+    unsigned int _runloopLowThreshold;
     unsigned int _checkPeriodTime;
     unsigned int _perStackInterval;
     unsigned int _mainThreadCount;
     float _limitCPUPercent;
     float _powerConsumeStackCPULimit;
     unsigned int _triggerToBeFilteredCount;
+    unsigned int _dumpDailyLimit;
+    unsigned int _memoryWarningThresholdInMB;
     unsigned long long _singleReadLimit;
     unsigned long long _singleWriteLimit;
     unsigned long long _totalReadLimit;
@@ -31,12 +38,18 @@
 }
 
 + (id)defaultConfig;
+@property(nonatomic) BOOL bEnableSnapshot; // @synthesize bEnableSnapshot=_bEnableSnapshot;
+@property(nonatomic) BOOL bSuspendAllThreads; // @synthesize bSuspendAllThreads=_bSuspendAllThreads;
+@property(nonatomic) BOOL bSensitiveRunloopHangDetection; // @synthesize bSensitiveRunloopHangDetection=_bSensitiveRunloopHangDetection;
+@property(nonatomic) unsigned int memoryWarningThresholdInMB; // @synthesize memoryWarningThresholdInMB=_memoryWarningThresholdInMB;
 @property(nonatomic) unsigned long long totalWriteLimit; // @synthesize totalWriteLimit=_totalWriteLimit;
 @property(nonatomic) unsigned long long totalReadLimit; // @synthesize totalReadLimit=_totalReadLimit;
 @property(nonatomic) unsigned long long singleWriteLimit; // @synthesize singleWriteLimit=_singleWriteLimit;
 @property(nonatomic) unsigned long long singleReadLimit; // @synthesize singleReadLimit=_singleReadLimit;
 @property(nonatomic) BOOL bGetDiskIOStack; // @synthesize bGetDiskIOStack=_bGetDiskIOStack;
+@property(nonatomic) BOOL bPrintCPUFrequency; // @synthesize bPrintCPUFrequency=_bPrintCPUFrequency;
 @property(nonatomic) BOOL bPrintMemomryUse; // @synthesize bPrintMemomryUse=_bPrintMemomryUse;
+@property(nonatomic) unsigned int dumpDailyLimit; // @synthesize dumpDailyLimit=_dumpDailyLimit;
 @property(nonatomic) unsigned int triggerToBeFilteredCount; // @synthesize triggerToBeFilteredCount=_triggerToBeFilteredCount;
 @property(nonatomic) BOOL bFilterSameStack; // @synthesize bFilterSameStack=_bFilterSameStack;
 @property(nonatomic) float powerConsumeStackCPULimit; // @synthesize powerConsumeStackCPULimit=_powerConsumeStackCPULimit;
@@ -46,12 +59,13 @@
 @property(nonatomic) float limitCPUPercent; // @synthesize limitCPUPercent=_limitCPUPercent;
 @property(nonatomic) unsigned int mainThreadCount; // @synthesize mainThreadCount=_mainThreadCount;
 @property(nonatomic) unsigned int perStackInterval; // @synthesize perStackInterval=_perStackInterval;
+@property(nonatomic) BOOL bMainThreadProfile; // @synthesize bMainThreadProfile=_bMainThreadProfile;
 @property(nonatomic) BOOL bMainThreadHandle; // @synthesize bMainThreadHandle=_bMainThreadHandle;
 @property(nonatomic) unsigned int checkPeriodTime; // @synthesize checkPeriodTime=_checkPeriodTime;
+@property(nonatomic) BOOL bRunloopDynamicThreshold; // @synthesize bRunloopDynamicThreshold=_bRunloopDynamicThreshold;
+@property(nonatomic) unsigned int runloopLowThreshold; // @synthesize runloopLowThreshold=_runloopLowThreshold;
 @property(nonatomic) unsigned int runloopTimeOut; // @synthesize runloopTimeOut=_runloopTimeOut;
 - (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

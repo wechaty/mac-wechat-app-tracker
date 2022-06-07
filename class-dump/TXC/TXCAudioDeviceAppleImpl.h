@@ -73,7 +73,7 @@
 - (void)captureEnergyStatistics:(const struct AudioFrame *)arg1;
 - (BOOL)isEarMonitoringEnabledInternal;
 - (BOOL)isUsingHeadset;
-- (struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>)getAPPStates;
+- (basic_string_23d93216)getAPPStates;
 - (struct Audio3aStrategyFactors)getAudio3aStrategyFactors;
 - (void)onHardwarePluggedOut:(const struct Hardware *)arg1;
 - (void)onHardwarePluggedIn:(const struct Hardware *)arg1;

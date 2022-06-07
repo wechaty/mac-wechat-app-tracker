@@ -6,11 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 
 @class NSString;
 
-@interface LocalUserInfo : NSObject <PBCoding>
+@interface LocalUserInfo : NSObject <PBCoding, NSCoding, NSCopying>
 {
     unsigned int m_uiSex;
     unsigned int m_uiWeiboFlag;
@@ -115,6 +117,9 @@
 @property(retain, nonatomic) NSString *m_nsProvince; // @synthesize m_nsProvince;
 @property(retain, nonatomic) NSString *m_nsCountry; // @synthesize m_nsCountry;
 @property(nonatomic) unsigned int m_uiSex; // @synthesize m_uiSex;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (void)copyFromModUserInfoExt:(id)arg1;
 - (void)copyFromModUserInfo:(id)arg1;
 - (void)copyFromServerObj:(id)arg1;

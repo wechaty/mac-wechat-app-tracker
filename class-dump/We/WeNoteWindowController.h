@@ -71,6 +71,7 @@
 - (void)closeWithoutSave:(id)arg1;
 - (void)delayCleanInstance;
 - (void)closeWithSender:(id)arg1;
+- (void)setupDetailView;
 - (id)getCurrentTitleStr;
 - (void)setupTitle:(id)arg1;
 - (void)initTitleTextView;

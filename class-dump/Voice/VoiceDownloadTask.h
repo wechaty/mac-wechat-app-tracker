@@ -23,7 +23,7 @@
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) id <VoiceDownloadTaskDelegate> delegate; // @synthesize delegate=m_delegate;
+@property(nonatomic) __weak id <VoiceDownloadTaskDelegate> delegate; // @synthesize delegate=m_delegate;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=m_msgData;
 @property(nonatomic) unsigned long long taskId; // @synthesize taskId=m_taskId;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;

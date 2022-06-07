@@ -298,6 +298,8 @@
 - (id)getGroupShowName;
 - (BOOL)isInGroupBox;
 - (BOOL)isUserInGroup:(id)arg1;
+- (BOOL)isHolderContact;
+- (BOOL)isNormalContact;
 - (BOOL)isUpgradeOpenIMChatroom;
 - (BOOL)isMatchType:(unsigned int)arg1 conType:(unsigned int)arg2;
 - (BOOL)isTopSession;

@@ -36,8 +36,8 @@
 - (id)getEmotionThumbWithPackageID:(id)arg1;
 - (id)getEmotionThumbWithMD5:(id)arg1;
 - (BOOL)updateEmotionThumbCacheWithMD5:(id)arg1;
-- (id)getEmotionImgWithMD5:(id)arg1;
-- (id)getEmotionDataWithMD5:(id)arg1;
+- (id)getEmotionImgWithMD5:(id)arg1 presistence:(BOOL)arg2;
+- (id)getEmotionDataWithMD5:(id)arg1 presistence:(BOOL)arg2;
 - (id)getEmoticons;
 - (void)setupDownloadMgr;
 - (void)proxySettingsDidChange:(id)arg1;

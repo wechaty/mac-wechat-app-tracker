@@ -62,7 +62,6 @@
 @property(nonatomic) unsigned int m_uiMsgThumbWidth; // @synthesize m_uiMsgThumbWidth;
 @property(nonatomic) unsigned int m_uiMsgThumbSize; // @synthesize m_uiMsgThumbSize;
 @property(nonatomic) unsigned int m_uiMsgThumbHeight; // @synthesize m_uiMsgThumbHeight;
-- (BOOL)isUploadFromLocal;
 - (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLargeFileForForward;
 - (BOOL)isFinishUploadOrDownload;

@@ -21,15 +21,15 @@
     unsigned long long _m_totalBackupSize;
     unsigned long long _m_totalCacheSize;
     unsigned long long _m_totalSpaceSize;
-    unsigned long long _m_favoritesCacheSize;
-    unsigned long long _m_snsCacheSize;
     unsigned long long _m_totalMacSpace;
     double _m_wechatSpaceRate;
     double _m_othersSpaceRate;
     NSObject<OS_dispatch_queue> *_m_cacheCleanerQueue;
+    NSMutableDictionary *_moduleCacheSpace;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *moduleCacheSpace; // @synthesize moduleCacheSpace=_moduleCacheSpace;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_cacheCleanerQueue; // @synthesize m_cacheCleanerQueue=_m_cacheCleanerQueue;
 @property(nonatomic) BOOL m_isCleaningCache; // @synthesize m_isCleaningCache=_m_isCleaningCache;
 @property(nonatomic) BOOL m_isCleaningSession; // @synthesize m_isCleaningSession=_m_isCleaningSession;
@@ -37,8 +37,6 @@
 @property(nonatomic) double m_othersSpaceRate; // @synthesize m_othersSpaceRate=_m_othersSpaceRate;
 @property(nonatomic) double m_wechatSpaceRate; // @synthesize m_wechatSpaceRate=_m_wechatSpaceRate;
 @property(nonatomic) unsigned long long m_totalMacSpace; // @synthesize m_totalMacSpace=_m_totalMacSpace;
-@property(nonatomic) unsigned long long m_snsCacheSize; // @synthesize m_snsCacheSize=_m_snsCacheSize;
-@property(nonatomic) unsigned long long m_favoritesCacheSize; // @synthesize m_favoritesCacheSize=_m_favoritesCacheSize;
 @property(nonatomic) unsigned long long m_totalSpaceSize; // @synthesize m_totalSpaceSize=_m_totalSpaceSize;
 @property(nonatomic) unsigned long long m_totalCacheSize; // @synthesize m_totalCacheSize=_m_totalCacheSize;
 @property(nonatomic) unsigned long long m_totalBackupSize; // @synthesize m_totalBackupSize=_m_totalBackupSize;

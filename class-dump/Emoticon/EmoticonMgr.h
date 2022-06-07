@@ -7,14 +7,15 @@
 #import "MMService.h"
 
 #import "AccountServiceExt-Protocol.h"
+#import "IMMCacheCleanerExt-Protocol.h"
 #import "MMEmoticonMgrLogicDelegate-Protocol.h"
 #import "MMEmotionCustomMgrLogicDelegate-Protocol.h"
 #import "MMResourceMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, NSData, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString;
 
-@interface EmoticonMgr : MMService <MMEmoticonMgrLogicDelegate, MMResourceMgrExt, AccountServiceExt, MMEmotionCustomMgrLogicDelegate, MMService>
+@interface EmoticonMgr : MMService <MMEmoticonMgrLogicDelegate, MMResourceMgrExt, AccountServiceExt, MMEmotionCustomMgrLogicDelegate, IMMCacheCleanerExt, MMService>
 {
     unsigned char _isGetting;
     MMFavoriteEmoticonMgrLogic *_favoriteEmoticonMgrLogic;
@@ -27,6 +28,7 @@
     NSMutableArray *_needDownloadEmoticonStoreIconList;
     NSMutableArray *_needDownloadEmoticonStoreItemList;
     NSMutableArray *_allEmoticonStoreItemList;
+    NSMutableSet *_storeItemMd5;
     NSMutableDictionary *_dictCaptions;
     NSData *_currReqBuf;
     NSMutableArray *_emoticonStoreItemServerList;
@@ -44,6 +46,7 @@
 @property(retain, nonatomic) NSMutableArray *emoticonStoreItemServerList; // @synthesize emoticonStoreItemServerList=_emoticonStoreItemServerList;
 @property(retain, nonatomic) NSData *currReqBuf; // @synthesize currReqBuf=_currReqBuf;
 @property(retain) NSMutableDictionary *dictCaptions; // @synthesize dictCaptions=_dictCaptions;
+@property(retain, nonatomic) NSMutableSet *storeItemMd5; // @synthesize storeItemMd5=_storeItemMd5;
 @property(retain) NSMutableArray *allEmoticonStoreItemList; // @synthesize allEmoticonStoreItemList=_allEmoticonStoreItemList;
 @property(retain, nonatomic) NSMutableArray *needDownloadEmoticonStoreItemList; // @synthesize needDownloadEmoticonStoreItemList=_needDownloadEmoticonStoreItemList;
 @property(retain, nonatomic) NSMutableArray *needDownloadEmoticonStoreIconList; // @synthesize needDownloadEmoticonStoreIconList=_needDownloadEmoticonStoreIconList;
@@ -54,6 +57,8 @@
 @property(retain, nonatomic) MMCustomEmoticonMgrLogic *customEmoticonMgrLogic; // @synthesize customEmoticonMgrLogic=_customEmoticonMgrLogic;
 @property(readonly) MMEmotionGroupInfo *favEmoticonGroup; // @synthesize favEmoticonGroup=_favEmoticonGroup;
 @property(retain, nonatomic) MMFavoriteEmoticonMgrLogic *favoriteEmoticonMgrLogic; // @synthesize favoriteEmoticonMgrLogic=_favoriteEmoticonMgrLogic;
+- (void)onComputeCacheSize;
+- (void)onCleanCache;
 - (void)resetCachedEmojiGroups;
 - (void)resetCachedStickerGroups;
 - (void)manualCleanEmoticonCache;
@@ -109,6 +114,7 @@
 - (BOOL)isEmoticonMD5InFavorites:(id)arg1;
 - (BOOL)allowAddToFavorites;
 - (void)configWxAMEnableSetting;
+- (void)loadEmoticonData;
 - (void)onServiceClearData;
 - (void)dealloc;
 - (void)onServiceInit;

@@ -30,6 +30,7 @@
 - (BOOL)start;
 - (void)reportError:(int)arg1;
 - (void)setCurrentRecordInvalid;
+- (unsigned long long)pluginMemoryUsed;
 - (void)deleteAllRecords;
 - (void)deleteRecord:(id)arg1;
 - (id)recordByLaunchTime:(unsigned long long)arg1;

@@ -52,6 +52,7 @@
     NSString *_passThroughInfo;
     NSString *_appid;
     NSString *_shortNickName;
+    NSString *_minPubStringVersion;
     NSString *_runningOpenForbbidenUrl;
     NSArray *_templateList;
     NSString *_fromBusinessUserName;
@@ -145,6 +146,7 @@
 @property(copy, nonatomic) NSString *runningOpenForbbidenUrl; // @synthesize runningOpenForbbidenUrl=_runningOpenForbbidenUrl;
 @property(nonatomic) unsigned int runningFlag; // @synthesize runningFlag=_runningFlag;
 @property(nonatomic) unsigned int appServiceType; // @synthesize appServiceType=_appServiceType;
+@property(copy, nonatomic) NSString *minPubStringVersion; // @synthesize minPubStringVersion=_minPubStringVersion;
 @property(copy, nonatomic) NSString *shortNickName; // @synthesize shortNickName=_shortNickName;
 @property(copy, nonatomic) NSString *appid; // @synthesize appid=_appid;
 @property(nonatomic) BOOL hasAppInfo; // @synthesize hasAppInfo=_hasAppInfo;

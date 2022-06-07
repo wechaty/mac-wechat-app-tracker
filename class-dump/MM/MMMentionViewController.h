@@ -44,7 +44,7 @@
 - (void)chooseCurrentContact;
 - (void)selectNextItem;
 - (void)selectPrevItem;
-- (void)addAtAllContact;
+- (void)addAtAllContact:(BOOL)arg1;
 - (void)hide;
 - (double)suggestDisplayHeight;
 - (void)showInView:(id)arg1 withRelativeRect:(struct CGRect)arg2;

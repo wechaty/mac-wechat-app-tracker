@@ -128,7 +128,6 @@
 - (id)SendAppURLMessageToWeWorkFromUser:(id)arg1 withTitle:(id)arg2 url:(id)arg3 description:(id)arg4 thumbUrl:(id)arg5 sourceUserName:(id)arg6 sourceDisplayName:(id)arg7;
 - (void)handleAppMsg:(id)arg1;
 - (void)onSyncAddFileAppMsg:(id)arg1;
-- (void)processAddMsg:(id)arg1 sessionMsgList:(id)arg2 isFirstSync:(BOOL)arg3;
 - (void)FFToNameFavChatZZ:(id)arg1 sessionMsgList:(id)arg2;
 - (void)processSysMsg:(id)arg1;
 - (void)processVoipInviteMsg:(id)arg1;
@@ -155,9 +154,11 @@
 - (void)FFImgToOnFavInfoInfoVCZZ:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)processNormalStatusNotify:(id)arg1;
 - (void)processUnreadCountStatusNotify:(id)arg1 addMsgListCount:(unsigned long long)arg2;
-- (void)FFVideoToOnFavInfoInfoVCZZ:(id)arg1 withSessionList:(id)arg2 andIsFirstSync:(BOOL)arg3;
-- (void)FFSingleToOnFavInfoInfoVCZZ:(id)arg1 withSessionList:(id)arg2 andIsFirstSync:(BOOL)arg3;
+- (void)FFVideoToOnFavInfoInfoVCZZ:(id)arg1 andIsFirstSync:(BOOL)arg2;
+- (void)FFSingleToOnFavInfoInfoVCZZ:(id)arg1;
 - (void)onFastSyncBatchStashMsgs:(id)arg1 isFirstSync:(BOOL)arg2 isLastSync:(BOOL)arg3;
+- (void)postHandleAddMsg:(id)arg1 chatName:(id)arg2 bFirstSync:(BOOL)arg3 bFunFlag:(BOOL)arg4;
+- (BOOL)preFilterAddMsg:(id)arg1 chatName:(id)arg2 bFunFlag:(BOOL)arg3;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;

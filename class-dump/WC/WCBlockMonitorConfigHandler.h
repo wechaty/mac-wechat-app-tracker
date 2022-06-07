@@ -15,12 +15,18 @@
 
 + (int)getDeviceCPUCount;
 - (void).cxx_destruct;
+- (BOOL)getShouldEnableSnapshot;
+- (BOOL)getShouldSuspendAllThreads;
+- (BOOL)getSensitiveRunloopHangDetection;
+- (unsigned int)getMemoryWarningThresholdInMB;
 - (unsigned long long)getTotalWriteLimit;
 - (unsigned long long)getTotalReadLimit;
 - (unsigned long long)getSingleWriteLimit;
 - (unsigned long long)getSingleReadLimit;
 - (BOOL)getShouldGetDiskIOStack;
+- (BOOL)getShouldPrintCPUFrequency;
 - (BOOL)getShouldPrintMemoryUse;
+- (unsigned int)getDumpDailyLimit;
 - (unsigned int)getTriggerFilterCount;
 - (BOOL)getShouldFilterSameStack;
 - (float)getPowerConsumeCPULimit;
@@ -28,10 +34,13 @@
 - (BOOL)getShouldGetCPUHighLog;
 - (BOOL)getShouldPrintCPUUsage;
 - (int)getMainThreadCount;
+- (BOOL)getMainThreadProfile;
 - (unsigned int)getPerStackInterval;
 - (unsigned int)getCheckPeriodTime;
 - (BOOL)getMainThreadHandle;
 - (float)getCPUUsagePercent;
+- (BOOL)getRunloopDynamicThresholdEnabled;
+- (unsigned int)getRunloopLowThreshold;
 - (unsigned int)getRunloopTimeOut;
 - (void)setConfiguration:(id)arg1;
 - (id)init;

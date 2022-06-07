@@ -30,6 +30,8 @@
 - (BOOL)isEmoticonMD5InCustomList:(id)arg1;
 - (BOOL)addCustomEmoticonWithMD5:(id)arg1 type:(int)arg2;
 - (void)refreshCustomEmoticons;
+- (id)getEmotionImgWithMD5:(id)arg1;
+- (id)getEmotionDataWithMD5:(id)arg1;
 - (BOOL)isEmoticonMD5InCustom:(id)arg1;
 
 @end
