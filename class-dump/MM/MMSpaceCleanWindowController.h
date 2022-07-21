@@ -4,19 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MMWindowController.h"
+#import <AppKit/NSWindowController.h>
 
+#import "AccountServiceExt-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class MMSpaceCleanViewController, NSString;
 
-@interface MMSpaceCleanWindowController : MMWindowController <NSWindowDelegate>
+@interface MMSpaceCleanWindowController : NSWindowController <NSWindowDelegate, AccountServiceExt>
 {
     MMSpaceCleanViewController *_spaceViewController;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMSpaceCleanViewController *spaceViewController; // @synthesize spaceViewController=_spaceViewController;
+- (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
+- (void)beforeUserLogout;
 - (void)showMainViewController;
 - (void)setupTitleBar;
 - (void)windowWillClose:(id)arg1;

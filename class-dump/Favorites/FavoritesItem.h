@@ -14,6 +14,7 @@
 @interface FavoritesItem : NSObject <NSPasteboardItemDataProvider, NSCoding>
 {
     BOOL _isFromFavToChat;
+    BOOL _isChatRoom;
     unsigned int _favId;
     unsigned int _version;
     int _type;
@@ -65,9 +66,11 @@
 
 + (void)parseStreamVideoNode:(struct XmlReaderNode_t *)arg1 dataField:(id)arg2;
 + (id)FavoritesDataFieldToXML:(id)arg1 item:(id)arg2 deep:(int)arg3;
++ (id)FavritesItemToXML:(id)arg1 autoIncreaseVersion:(BOOL)arg2 rootTag:(id)arg3;
 + (id)FavritesItemToXML:(id)arg1 autoIncreaseVersion:(BOOL)arg2;
 + (id)parseTagXml:(struct XmlReaderNode_t *)arg1;
 + (id)parseDataNodeFromXml:(struct XmlReaderNode_t *)arg1 deep:(int)arg2;
++ (BOOL)ParseItemNote:(struct XmlReaderNode_t *)arg1 ToItem:(id)arg2;
 + (BOOL)ParseItemXML:(id)arg1 ToItem:(id)arg2;
 + (id)dataTypeStringWithType:(unsigned int)arg1;
 + (id)getFavTextCellText:(id)arg1;
@@ -87,6 +90,7 @@
 + (id)checkImageTypeWithItem:(id)arg1;
 + (id)favoritesItemsFromPasteboard:(id)arg1;
 + (id)createItemFromPasteboardItem:(id)arg1;
++ (id)itemWithGroupNoticeMessageData:(id)arg1;
 + (id)itemWithFinderNameCardMessageData:(id)arg1;
 + (id)itemWithFeedMessageData:(id)arg1;
 + (id)itemWithRecordMessageData:(id)arg1;
@@ -112,6 +116,7 @@
 + (id)itemWithAppUrl:(id)arg1 urlTitle:(id)arg2 urlDesc:(id)arg3 thumbUrl:(id)arg4 sourceId:(id)arg5;
 + (id)ConvertFavData2FavItem:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isChatRoom; // @synthesize isChatRoom=_isChatRoom;
 @property(nonatomic) BOOL isFromFavToChat; // @synthesize isFromFavToChat=_isFromFavToChat;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;

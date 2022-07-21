@@ -16,7 +16,7 @@
 #import "WebViewJSApiVerifyMgrDelegate-Protocol.h"
 #import "WebViewJSLogicDelegate-Protocol.h"
 
-@class MMOutlineButton, MMProgressView, MMTimer, MMToastView, MMWKWebView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
+@class MMProgressView, MMTimer, MMToastView, MMWKWebView, MMWebViewErrorView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
 @protocol BaseWebViewControllerDelegate;
 
 @interface BaseWebViewController : MMViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate>
@@ -29,6 +29,7 @@
     unsigned long long _type;
     MMWKWebView *_wkWebView;
     WebViewJSLogic *_webViewJSLogic;
+    WebViewJSApiVerifyMgr *_jsapiVerifyMgr;
     WebViewDataItem *_dataItem;
     NSMutableDictionary *_extraInfo;
     id <BaseWebViewControllerDelegate> _delegate;
@@ -36,22 +37,24 @@
     MMProgressView *_progressView;
     NSTextField *_hostLabel;
     NSView *_contentContainer;
-    NSView *_errorContainer;
-    NSTextField *_errorDesc;
-    MMOutlineButton *_retryBtn;
+    MMWebViewErrorView *_errorView;
+    NSString *_loadingUrl;
+    double _pageZoom;
     NSMutableDictionary *_dictBrandInfo;
     WebViewGetA8KeyLogic *_getA8KeyLogic;
     WKWebViewConfiguration *_configuration;
-    WebViewJSApiVerifyMgr *_jsapiVerifyMgr;
     NSMutableDictionary *_jsInitInfo;
     WebViewDataLogic *_dataLogic;
     MMToastView *_toastView;
     MMTimer *_toastTimer;
     NSMutableArray *_arrRouteUrl;
     WebViewOAuthLogic *_oauthLogic;
+    NSMutableSet *_jsTempAllowApiCalls;
 }
 
++ (BOOL)authorizationStatusForMediaTypeForWebView:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableSet *jsTempAllowApiCalls; // @synthesize jsTempAllowApiCalls=_jsTempAllowApiCalls;
 @property(retain, nonatomic) WebViewOAuthLogic *oauthLogic; // @synthesize oauthLogic=_oauthLogic;
 @property(nonatomic) BOOL isInitial; // @synthesize isInitial=_isInitial;
 @property(retain, nonatomic) NSMutableArray *arrRouteUrl; // @synthesize arrRouteUrl=_arrRouteUrl;
@@ -59,14 +62,13 @@
 @property(retain, nonatomic) MMToastView *toastView; // @synthesize toastView=_toastView;
 @property(retain, nonatomic) WebViewDataLogic *dataLogic; // @synthesize dataLogic=_dataLogic;
 @property(retain, nonatomic) NSMutableDictionary *jsInitInfo; // @synthesize jsInitInfo=_jsInitInfo;
-@property(retain, nonatomic) WebViewJSApiVerifyMgr *jsapiVerifyMgr; // @synthesize jsapiVerifyMgr=_jsapiVerifyMgr;
 @property(retain, nonatomic) WKWebViewConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) WebViewGetA8KeyLogic *getA8KeyLogic; // @synthesize getA8KeyLogic=_getA8KeyLogic;
 @property(retain, nonatomic) NSMutableDictionary *dictBrandInfo; // @synthesize dictBrandInfo=_dictBrandInfo;
+@property(nonatomic) double pageZoom; // @synthesize pageZoom=_pageZoom;
 @property(nonatomic) int fontSize; // @synthesize fontSize=_fontSize;
-@property(retain, nonatomic) MMOutlineButton *retryBtn; // @synthesize retryBtn=_retryBtn;
-@property(retain, nonatomic) NSTextField *errorDesc; // @synthesize errorDesc=_errorDesc;
-@property(retain, nonatomic) NSView *errorContainer; // @synthesize errorContainer=_errorContainer;
+@property(retain, nonatomic) NSString *loadingUrl; // @synthesize loadingUrl=_loadingUrl;
+@property(retain, nonatomic) MMWebViewErrorView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) NSView *contentContainer; // @synthesize contentContainer=_contentContainer;
 @property(retain, nonatomic) NSTextField *hostLabel; // @synthesize hostLabel=_hostLabel;
 @property(retain, nonatomic) MMProgressView *progressView; // @synthesize progressView=_progressView;
@@ -74,6 +76,7 @@
 @property(nonatomic) __weak id <BaseWebViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableDictionary *extraInfo; // @synthesize extraInfo=_extraInfo;
 @property(retain, nonatomic) WebViewDataItem *dataItem; // @synthesize dataItem=_dataItem;
+@property(retain, nonatomic) WebViewJSApiVerifyMgr *jsapiVerifyMgr; // @synthesize jsapiVerifyMgr=_jsapiVerifyMgr;
 @property(retain, nonatomic) WebViewJSLogic *webViewJSLogic; // @synthesize webViewJSLogic=_webViewJSLogic;
 @property(retain, nonatomic) MMWKWebView *wkWebView; // @synthesize wkWebView=_wkWebView;
 @property(nonatomic) BOOL isMiniWindowMode; // @synthesize isMiniWindowMode=_isMiniWindowMode;
@@ -116,6 +119,8 @@
 - (void)onDomReady;
 - (void)onPageStateChange:(id)arg1;
 - (id)getAuthorizedMonitorEvents:(id)arg1;
+- (BOOL)isTempAccessOfJSApiPermitted:(id)arg1;
+- (unsigned char)getJSApiPermission:(id)arg1;
 - (void)webView:(id)arg1 didReceiveServerRedirectForProvisionalNavigation:(id)arg2;
 - (void)webView:(id)arg1 decidePolicyForNavigationResponse:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
@@ -124,6 +129,7 @@
 - (void)webView:(id)arg1 didCommitNavigation:(id)arg2;
 - (void)webView:(id)arg1 didFailProvisionalNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didStartProvisionalNavigation:(id)arg2;
+- (void)webView:(id)arg1 requestMediaCapturePermissionForOrigin:(id)arg2 initiatedByFrame:(id)arg3 type:(long long)arg4 decisionHandler:(CDUnknownBlockType)arg5;
 - (id)webView:(id)arg1 createWebViewWithConfiguration:(id)arg2 forNavigationAction:(id)arg3 windowFeatures:(id)arg4;
 - (void)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -147,6 +153,7 @@
 - (void)fontSizeDidChanged:(int)arg1;
 - (void)handleAppFontSize;
 - (void)sendFeedH5EventAuthEvent:(id)arg1 withParams:(id)arg2;
+- (void)onWebviewReady;
 - (void)exitMiniMode;
 - (void)enterMiniModeWithWidth:(int)arg1 andHeight:(int)arg2;
 - (void)hideMiniButton;
@@ -155,6 +162,7 @@
 - (void)onDomReadyAction;
 - (void)onPageStateChangeAction:(id)arg1;
 - (void)openBlankInWebView;
+- (void)openInExternalBrowser:(id)arg1;
 - (void)openInExternalBrowser;
 - (void)copyUrl;
 - (void)addToFavorites;
@@ -188,9 +196,16 @@
 - (void)stopLoadingWebViewToast;
 - (void)showLoadingWebViewToastWithText:(id)arg1;
 - (void)showWebViewToastWithText:(id)arg1 isSuccess:(BOOL)arg2 duration:(double)arg3;
+- (BOOL)isErrorViewShown;
+- (void)commonConfigDefaultErrorView:(id)arg1;
+- (void)openUnsafeLinkInExternal:(id)arg1;
+- (void)showErrorByCode:(long long)arg1;
+- (void)showErrorViewWithTitle:(id)arg1;
 - (void)showNetworkErrorHint;
 - (void)showNonNetworkErrorHint;
 - (void)hideErrorHint;
+- (void)informWebviewReddotInfoIfNeed:(id)arg1;
+- (id)dedupleContextId:(id)arg1;
 - (BOOL)shouldUseGetA8Key;
 - (void)loadRequestWithUrl:(id)arg1 shareUrl:(id)arg2;
 - (void)recordArrRouteUrl:(id)arg1;
@@ -198,6 +213,9 @@
 - (void)initJsInitInfo:(id)arg1;
 - (id)getExtraInfoKeyByUrlString:(id)arg1;
 - (void)updateExtraInfo;
+- (void)enableHandoffItem;
+- (void)permitTempAccessOfJSApi:(id)arg1;
+- (void)removePermitTempAccessOfJSApi:(id)arg1;
 - (BOOL)sholudAddFinderSuffix;
 - (void)preloadWebViewWithDataItem:(unsigned long long)arg1 andUrl:(id)arg2;
 - (void)tryReloadUrl:(id)arg1;
@@ -209,7 +227,9 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)webViewUserScript;
 - (void)viewChangedEffectiveAppearance;
+- (void)setupFontSize;
 - (void)setupWebView;
+- (void)updatePageZoom:(double)arg1;
 - (void)updateZoomStatus;
 - (void)handleWxWorkJumpScheme:(id)arg1;
 - (void)handleWeixinJumpScheme:(id)arg1;

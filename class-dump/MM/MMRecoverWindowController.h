@@ -8,11 +8,10 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSButton, NSPopUpButton, NSString, NSTextField;
+@class NSButton, NSPopUpButton, NSStackView, NSString, NSTextField;
 
 @interface MMRecoverWindowController : MMWindowController <NSWindowDelegate>
 {
-    NSButton *_uploadDumpButton;
     NSTextField *_helpInfo;
     NSButton *_diskDetectButton;
     NSButton *_DBDetectButton;
@@ -21,9 +20,15 @@
     NSPopUpButton *_h265DownloadButton;
     NSPopUpButton *_h265UploadButton;
     NSPopUpButton *_playerCoreButton;
+    NSStackView *_dataRepairStackView;
+    NSStackView *_dataCleanStackView;
+    NSStackView *_dataResetStackView;
 }
 
 - (void).cxx_destruct;
+@property __weak NSStackView *dataResetStackView; // @synthesize dataResetStackView=_dataResetStackView;
+@property __weak NSStackView *dataCleanStackView; // @synthesize dataCleanStackView=_dataCleanStackView;
+@property __weak NSStackView *dataRepairStackView; // @synthesize dataRepairStackView=_dataRepairStackView;
 @property __weak NSPopUpButton *playerCoreButton; // @synthesize playerCoreButton=_playerCoreButton;
 @property __weak NSPopUpButton *h265UploadButton; // @synthesize h265UploadButton=_h265UploadButton;
 @property __weak NSPopUpButton *h265DownloadButton; // @synthesize h265DownloadButton=_h265DownloadButton;
@@ -32,9 +37,7 @@
 @property __weak NSButton *DBDetectButton; // @synthesize DBDetectButton=_DBDetectButton;
 @property __weak NSButton *diskDetectButton; // @synthesize diskDetectButton=_diskDetectButton;
 @property(retain, nonatomic) NSTextField *helpInfo; // @synthesize helpInfo=_helpInfo;
-@property(retain, nonatomic) NSButton *uploadDumpButton; // @synthesize uploadDumpButton=_uploadDumpButton;
 - (void)forcewebp:(id)arg1;
-- (void)uploadLag:(id)arg1;
 - (void)openMiniProgramLogDir:(id)arg1;
 - (void)openMiniProgramDataDir:(id)arg1;
 - (void)openLagLogDir:(id)arg1;

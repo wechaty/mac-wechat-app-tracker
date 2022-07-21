@@ -13,7 +13,6 @@
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (BOOL)allowMultipleSelect;
 - (void)setChoosable:(BOOL)arg1;
-- (BOOL)showsContextMenuButton;
 - (void)mouseDragged:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)prepareForReuse;

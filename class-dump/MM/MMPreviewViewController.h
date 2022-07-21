@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MMIgnoreEventView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSArray, NSImageView, NSMutableArray, NSString, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView;
+@class MMIgnoreEventView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSArray, NSImageView, NSMutableArray, NSString, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView, _TtC6WeChat21PreviewTiledImageView;
 
 @interface MMPreviewViewController : NSViewController
 {
@@ -27,7 +27,6 @@
     CDUnknownBlockType _didChangeQRCodeButtonStatus;
     MMQLPreviewPageInfo *_pageInfo;
     _TtC6WeChat17PreviewScrollView *_scrollView;
-    _TtC6WeChat16PreviewImageView *_flipView;
     NSImageView *_thumbImageView;
     MMPreviewVideoPlayerView *_videoPlayerView;
     MMPreviewSnsVideoPlayerView *_snsVideoPlayerView;
@@ -39,11 +38,15 @@
     long long _scanQRRetryCount;
     MMTimer *_scrollEndtimer;
     NSView *_maskView;
+    _TtC6WeChat16PreviewImageView *_imageView;
+    _TtC6WeChat21PreviewTiledImageView *_tiledImageView;
     struct CGSize _originContentSizeBeforeResize;
     struct CGRect _originFrameBeforeFullScreen;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) _TtC6WeChat21PreviewTiledImageView *tiledImageView; // @synthesize tiledImageView=_tiledImageView;
+@property(retain, nonatomic) _TtC6WeChat16PreviewImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) NSView *maskView; // @synthesize maskView=_maskView;
 @property(retain, nonatomic) MMTimer *scrollEndtimer; // @synthesize scrollEndtimer=_scrollEndtimer;
 @property(nonatomic) long long scanQRRetryCount; // @synthesize scanQRRetryCount=_scanQRRetryCount;
@@ -65,7 +68,6 @@
 @property(retain, nonatomic) MMPreviewSnsVideoPlayerView *snsVideoPlayerView; // @synthesize snsVideoPlayerView=_snsVideoPlayerView;
 @property(retain, nonatomic) MMPreviewVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
 @property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
-@property(retain, nonatomic) _TtC6WeChat16PreviewImageView *flipView; // @synthesize flipView=_flipView;
 @property __weak _TtC6WeChat17PreviewScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMQLPreviewPageInfo *pageInfo; // @synthesize pageInfo=_pageInfo;
 @property(copy, nonatomic) CDUnknownBlockType didChangeQRCodeButtonStatus; // @synthesize didChangeQRCodeButtonStatus=_didChangeQRCodeButtonStatus;
@@ -75,6 +77,15 @@
 @property(copy, nonatomic) CDUnknownBlockType restoreActionBlock; // @synthesize restoreActionBlock=_restoreActionBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreImageBlock; // @synthesize restoreImageBlock=_restoreImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType zoomImageBlock; // @synthesize zoomImageBlock=_zoomImageBlock;
+- (void)rotateByAngle:(double)arg1;
+- (void)rotateLeft;
+- (void)setFlipViewAnchorPoint:(struct CGPoint)arg1;
+- (struct CGRect)imageRect;
+- (void)setupFlipViewImage:(id)arg1;
+- (void)resetFlipView;
+- (id)contentImage;
+- (id)flipView;
+- (void)switchPreviewMode:(BOOL)arg1;
 - (void)onMenuVideoInfoClicked;
 - (void)appendMenuItems:(id)arg1;
 - (void)stopScrollTimer;
@@ -83,6 +94,7 @@
 - (void)enableScrollViewDrag;
 - (void)disableScrollViewScroll;
 - (void)enableScrollViewScroll;
+- (void)onVideoDownloadPartLen:(unsigned int)arg1 TotalLen:(unsigned int)arg2;
 - (void)goBackToFeed;
 - (BOOL)onSpacePressed;
 - (void)hiddenMaskView;
@@ -106,7 +118,14 @@
 - (void)layoutSnsVideoView;
 - (void)layoutVideoView;
 - (BOOL)inRotateWithoutMagnify;
-- (void)layoutImageViews;
+- (void)handleImageViewScrollWheelEvent:(id)arg1;
+- (void)handleImageViewDragBeginEvent:(id)arg1;
+- (void)handleImageViewDragEndEvent:(id)arg1;
+- (void)handleImageViewDragMoveEvent:(id)arg1;
+- (void)layoutTiledImageView;
+- (void)layoutImageView;
+- (void)layoutImageViewIfNeeded;
+- (void)layoutScrollView;
 - (void)layoutThumbImageView;
 - (void)dealloc;
 - (void)viewWillDisappear;
@@ -121,6 +140,7 @@
 - (void)setupThumbImageView:(id)arg1 withResize:(struct CGSize)arg2;
 - (void)setupImageUrlPageInfo;
 - (void)setupSNSPageInfo;
+- (void)setupNotePageInfo;
 - (void)setupRecordPageInfo;
 - (void)setupFavPageInfo;
 - (void)setupMessagePageInfo;
@@ -146,6 +166,7 @@
 - (void)doAnimatedRotateImage:(struct CGRect)arg1 withFlag:(int)arg2 complete:(CDUnknownBlockType)arg3;
 - (void)doAnimatedRotateRestoreImage:(struct CGRect)arg1 withFlag:(int)arg2 withContentSize:(struct CGSize)arg3;
 - (void)flipViewRotateAndSetFrame:(struct CGRect)arg1;
+- (void)flipViewRotateAndSetFrame:(struct CGRect)arg1 withDelay:(BOOL)arg2;
 - (void)doImageAnimationInAnchorPoint:(struct CGPoint)arg1 complete:(CDUnknownBlockType)arg2;
 - (void)updateScrollPointWithLongImage:(BOOL)arg1;
 - (void)updateRestoreImageStatusWithOriginal:(BOOL)arg1;

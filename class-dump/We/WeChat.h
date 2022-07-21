@@ -203,7 +203,7 @@
 - (void)showUpgradeHistory;
 - (void)showPerformanceMonitorToolWindow;
 - (void)showDeviceAvailabilityWindow;
-- (void)showRecoverWindow;
+- (void)showRecoverWindow:(id)arg1;
 - (void)showAutoRepairWindow;
 - (void)showRepairWindow;
 - (void)showTechSupport:(id)arg1;
@@ -219,6 +219,7 @@
 - (BOOL)isMainWindowOcclused;
 - (BOOL)isMainWindowVisible;
 - (id)currentMainWindow;
+- (void)showAudioToolBox:(id)arg1;
 - (void)debugMessageSourceViewDidClose:(id)arg1;
 - (void)viewSourceForText:(id)arg1;
 - (void)viewSourceForMessage:(id)arg1;
@@ -238,7 +239,10 @@
 - (void)_triggerMainThreadShortBlock:(id)arg1;
 - (void)_triggerMemoryOOM:(id)arg1;
 - (void)_triggerSwiftException:(id)arg1;
+- (void)_triggerRunloopException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_showFinderDebug:(id)arg1;
+- (void)_showGroupNoticeDebugWindow:(id)arg1;
 - (void)_showAddFriendDebug:(id)arg1;
 - (void)_showBudingDebug:(id)arg1;
 - (void)_showMpDebug:(id)arg1;
@@ -246,6 +250,7 @@
 - (void)_showGroupBoxDebug:(id)arg1;
 - (void)_showWeUI:(id)arg1;
 - (void)_showRecover:(id)arg1;
+- (void)_showAudioToolBox:(id)arg1;
 - (void)_showRecommendHome:(id)arg1;
 - (void)_showWebTemplateToolWindow:(id)arg1;
 - (void)_showLiveRoom:(id)arg1;
@@ -267,7 +272,9 @@
 - (void)saveToDiskWithVersion:(unsigned int)arg1;
 - (unsigned int)checkVersionFromDisk;
 - (void)doUpgradePreparationIfNeeded;
+- (void)startCpuMonitorWithHint;
 - (void)startCpuMonitor;
+- (void)startIOMonitorWithHint;
 - (void)startIOMonitor;
 - (BOOL)isApplicationActive;
 - (long long)applicationState;
@@ -287,6 +294,7 @@
 - (void)sendDragOperationToInputView:(id)arg1;
 - (void)openFavoritesTabToFavoritesWithKeyWord:(id)arg1;
 - (void)startANewGroupChatWithUserNames:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)startANewChatWithContact:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startANewChatWithContact:(id)arg1;
 - (void)startBrandView;
 - (void)selectChatWithUserName:(id)arg1;

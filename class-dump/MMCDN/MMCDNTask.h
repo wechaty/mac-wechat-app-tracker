@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FavoritesItemDataField, MessageData, NSString;
+@class FavoritesItemDataField, MMCDNTaskPriorityInfo, MessageData, NSString;
 
 @interface MMCDNTask : NSObject
 {
@@ -24,14 +24,17 @@
     NSString *_authKey;
     NSString *_urlString;
     NSString *_fileMD5;
+    MMCDNTaskPriorityInfo *_priorityInfo;
     struct C2CDownloadRequest _request;
 }
 
++ (long long)comparePriorityInfo:(id)arg1 withOther:(id)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(nonatomic) struct C2CDownloadRequest request; // @synthesize request=_request;
 @property(nonatomic) BOOL inPreviewWindow; // @synthesize inPreviewWindow=_inPreviewWindow;
 @property(nonatomic) BOOL inSight; // @synthesize inSight=_inSight;
+@property(retain, nonatomic) MMCDNTaskPriorityInfo *priorityInfo; // @synthesize priorityInfo=_priorityInfo;
 @property(retain, nonatomic) NSString *fileMD5; // @synthesize fileMD5=_fileMD5;
 @property(retain, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
 @property(retain, nonatomic) NSString *authKey; // @synthesize authKey=_authKey;
@@ -46,7 +49,6 @@
 @property(retain, nonatomic) MessageData *message; // @synthesize message=_message;
 - (id)description;
 - (long long)compareTaskPriority:(id)arg1;
-- (unsigned int)calcTaskPriority;
 
 @end
 

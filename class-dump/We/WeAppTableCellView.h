@@ -6,11 +6,11 @@
 
 #import <AppKit/NSTableCellView.h>
 
-#import "SDWebImageManagerDelegate-Protocol.h"
+#import "WAResourceCacheServiceExt-Protocol.h"
 
 @class NSImageView, NSString, NSTextField, WAContact;
 
-@interface WeAppTableCellView : NSTableCellView <SDWebImageManagerDelegate>
+@interface WeAppTableCellView : NSTableCellView <WAResourceCacheServiceExt>
 {
     NSImageView *_iconImageView;
     NSTextField *_titleLabel;
@@ -21,8 +21,9 @@
 @property(retain, nonatomic) WAContact *oContact; // @synthesize oContact=_oContact;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
+- (void)onDownloadImageFinished:(id)arg1 key:(id)arg2;
 - (void)reloadData:(id)arg1;
+- (void)prepareForReuse;
 - (void)initViews;
 - (id)initWithCoder:(id)arg1;
 

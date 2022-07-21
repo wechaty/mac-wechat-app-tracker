@@ -8,12 +8,17 @@
 
 #import "IMMRecordNestedDownloadMgrExt-Protocol.h"
 
-@class NSString;
+@class MessageData, NSString;
 
 @interface MMRecordChatLogFileCellView : MMChatLogFileCellView <IMMRecordNestedDownloadMgrExt>
 {
+    MessageData *_messageForDownload;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) MessageData *messageForDownload; // @synthesize messageForDownload=_messageForDownload;
+- (void)downloadData;
+- (BOOL)shouldFilterNotify:(id)arg1;
 - (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;

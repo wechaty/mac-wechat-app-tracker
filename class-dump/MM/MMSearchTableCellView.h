@@ -6,7 +6,8 @@
 
 #import <AppKit/NSTableCellView.h>
 
-@class CAShapeLayer, MMSearchResultItem, NSColor, NSString;
+@class CAShapeLayer, MMSearchResultItem, NSColor, NSString, NSTrackingArea;
+@protocol MMSearchTableCellViewDelegate;
 
 @interface MMSearchTableCellView : NSTableCellView
 {
@@ -18,11 +19,15 @@
     unsigned long long _subRanking;
     unsigned long long _scene;
     NSString *_queryText;
+    id <MMSearchTableCellViewDelegate> _cellViewDelegate;
     CAShapeLayer *_shapeLayer;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
+@property(nonatomic) __weak id <MMSearchTableCellViewDelegate> cellViewDelegate; // @synthesize cellViewDelegate=_cellViewDelegate;
 @property(retain, nonatomic) NSString *queryText; // @synthesize queryText=_queryText;
 @property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
 @property(nonatomic) unsigned long long subRanking; // @synthesize subRanking=_subRanking;
@@ -36,9 +41,17 @@
 - (id)acceptableDragTypes;
 - (id)getSearchLogParamsWithClickType:(unsigned long long)arg1 clickSubType:(unsigned long long)arg2;
 - (void)reportResultSelectLog;
+- (BOOL)isMouseEnterCanSetSelected;
+- (void)checkAndShowSelected:(id)arg1;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)populateWithResultItem:(id)arg1 keyword:(id)arg2 scene:(int)arg3;
 - (void)populateWithResultItem:(id)arg1 keyword:(id)arg2;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)updateTrackingAreas;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

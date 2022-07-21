@@ -51,8 +51,6 @@
 - (id)getSection1MenuItem;
 - (BOOL)allowRecall;
 - (struct CGRect)clickableArea;
-- (BOOL)showsSaveToFavoritesButton;
-- (BOOL)showsContextMenuButton;
 - (void)writeSelectedReaderWrapIntoPasteboardItem:(id)arg1;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (id)generatePasteboardItem;

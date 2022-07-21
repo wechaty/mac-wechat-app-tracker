@@ -6,23 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MMTimer;
 @protocol WCAudioSessionDelegate;
 
 @interface WCAudioSession : NSObject
 {
     BOOL _m_otherPlayingBeforeActive;
-    unsigned int _currentDevice;
     id <WCAudioSessionDelegate> _m_delegate;
-    MMTimer *_timer;
 }
 
 + (id)shareInstance;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) BOOL m_otherPlayingBeforeActive; // @synthesize m_otherPlayingBeforeActive=_m_otherPlayingBeforeActive;
 @property(nonatomic) __weak id <WCAudioSessionDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
-@property(nonatomic) unsigned int currentDevice; // @synthesize currentDevice=_currentDevice;
 - (unsigned long long)currentCategoryId;
 - (float)getOutputVolume;
 - (void)activePlaybackMixWithOthers;
@@ -37,11 +32,6 @@
 - (void)updateDelegate:(id)arg1;
 - (BOOL)otherPlayingBeforeActive;
 - (void)dealloc;
-- (void)stopCheckMicDataSource;
-- (void)detectBlueToothDevice;
-- (void)detectSysDefautDevice;
-- (void)startCheckAudioOutput;
-- (unsigned int)getCurrentDefaultAudioOutputID;
 
 @end
 

@@ -6,11 +6,11 @@
 
 #import "MMMessageCellView.h"
 
-#import "SDWebImageManagerDelegate-Protocol.h"
+#import "WAResourceCacheServiceExt-Protocol.h"
 
 @class CAShapeLayer, MMTextField, MMView, NSImageView, NSString, WAContact;
 
-@interface MMAppProfileMessageCellView : MMMessageCellView <SDWebImageManagerDelegate>
+@interface MMAppProfileMessageCellView : MMMessageCellView <WAResourceCacheServiceExt>
 {
     WAContact *_contactCardData;
     MMView *_containerView;
@@ -34,7 +34,7 @@
 @property(retain, nonatomic) NSImageView *contactCardAvatar; // @synthesize contactCardAvatar=_contactCardAvatar;
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) WAContact *contactCardData; // @synthesize contactCardData=_contactCardData;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
+- (void)onDownloadImageFinished:(id)arg1 key:(id)arg2;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (void)showProfile:(id)arg1;

@@ -84,6 +84,7 @@
 - (void)clearAndGetUnReadFromTop:(unsigned long long)arg1;
 - (BOOL)loadMoreFromPullUp;
 - (unsigned long long)loadMoreMessages;
+- (void)clearAndGetPageOfMessage:(id)arg1;
 - (void)getRecentMessages;
 - (void)getMsgFromPhoneIfNeed:(unsigned int)arg1 endTime:(unsigned int)arg2;
 - (unsigned long long)totalMessageCount;
@@ -92,7 +93,6 @@
 - (long long)indexOfLocalID:(unsigned int)arg1;
 - (unsigned long long)indexOfMessageWithUniqueId:(id)arg1;
 - (unsigned long long)indexOfMessage:(id)arg1;
-- (BOOL)insertHistoryRecordURLForBrandUser;
 - (BOOL)insertChatSyncDividerAtLocalId:(unsigned int)arg1;
 - (BOOL)insertNewMessageDividerAtIndex:(unsigned long long)arg1;
 - (void)removeMessageAtIndex:(unsigned long long)arg1;

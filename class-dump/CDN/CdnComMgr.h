@@ -43,6 +43,7 @@
 - (void)StopUploadRecordMedia:(id)arg1;
 - (BOOL)StartUploadRecordMedia:(id)arg1 enableHitCheck:(BOOL)arg2;
 - (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;
+- (BOOL)StartDownloadRecordMedia:(id)arg1 FromChatLog:(BOOL)arg2;
 - (BOOL)StartDownloadRecordMedia:(id)arg1;
 - (BOOL)CheckAppAttachExist:(id)arg1 IsLargeFile:(BOOL)arg2;
 - (void)CheckCdnInfo;
@@ -76,7 +77,12 @@
 - (BOOL)RequestVideoDataByClientMediaID:(id)arg1 offset:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (BOOL)StartSNSDownloadWithTaskInfoWrap:(id)arg1;
 - (void)StopDownloadFavMedia:(id)arg1;
+- (BOOL)StrartDownloadFavMedia:(id)arg1 FromChatLog:(BOOL)arg2;
 - (BOOL)StrartDownloadFavMedia:(id)arg1;
+- (void)StopDownloadGroupNoticeMedia:(id)arg1;
+- (int)StrartDownloadGroupNoticeData:(id)arg1;
+- (void)StopUploadGroupNoticeMedia:(id)arg1;
+- (BOOL)StartUploadGroupNoticeMedia:(id)arg1 error:(int *)arg2;
 - (void)StopUploadFavMedia:(id)arg1;
 - (BOOL)StartUploadFavMedia:(id)arg1 error:(int *)arg2;
 - (void)StopDownloadComMedia:(id)arg1;

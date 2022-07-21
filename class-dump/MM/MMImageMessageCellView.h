@@ -41,6 +41,8 @@
 @property(retain, nonatomic) NSString *displayedImagePath; // @synthesize displayedImagePath=_displayedImagePath;
 @property(retain, nonatomic) NSImage *displayedImage; // @synthesize displayedImage=_displayedImage;
 @property(nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
+- (void)processAutoDownload;
+- (BOOL)isAutoDownload;
 - (void)onViewInSight:(BOOL)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
@@ -70,6 +72,7 @@
 - (void)resendMessage;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
+- (void)layoutAccessories;
 - (BOOL)shouldResizeToIdealSizeWithDisplayImageSize:(struct CGSize)arg1 inDrawRect:(struct CGRect)arg2;
 - (void)updateImageFrame;
 - (void)updateGeometry;

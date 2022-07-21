@@ -6,13 +6,16 @@
 
 #import "MMSearchTableCellView.h"
 
-@class MMAvatarImageView, MMImageView, MMTextField;
+@class MMAvatarImageView, MMImageView, MMTextField, SVGButton;
 @protocol MMSearchContactCellDelegate;
 
 @interface MMSearchContactTableCellView : MMSearchTableCellView
 {
-    id <MMSearchContactCellDelegate> _delegate;
     MMAvatarImageView *_avatarImageView;
+    SVGButton *_sessionInfoButton;
+    id <MMSearchContactCellDelegate> _delegate;
+    id _target;
+    SEL _action;
     MMTextField *_nicknameLabel;
     MMTextField *_descriptionLabel;
     MMImageView *_openIMIcon;
@@ -22,27 +25,45 @@
 @property(retain, nonatomic) MMImageView *openIMIcon; // @synthesize openIMIcon=_openIMIcon;
 @property(retain, nonatomic) MMTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) MMTextField *nicknameLabel; // @synthesize nicknameLabel=_nicknameLabel;
-@property(retain, nonatomic) MMAvatarImageView *avatarImageView; // @synthesize avatarImageView=_avatarImageView;
+@property(nonatomic) SEL action; // @synthesize action=_action;
+@property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(nonatomic) __weak id <MMSearchContactCellDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) SVGButton *sessionInfoButton; // @synthesize sessionInfoButton=_sessionInfoButton;
+@property(retain, nonatomic) MMAvatarImageView *avatarImageView; // @synthesize avatarImageView=_avatarImageView;
 - (BOOL)performDragOperation:(id)arg1;
 - (void)draggingEnded:(id)arg1;
 - (void)draggingExited:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
+- (void)delayCloseSessionInfoWindow;
+- (void)closeSessionInfoWindow;
+- (BOOL)isOpenSameSessionInfoWindow;
+- (void)openSessionInfoWindow:(id)arg1;
+- (void)hideSessionInfoButton;
+- (void)showSessionInfoButton;
+- (BOOL)isMouseEnterCanSetSelected;
+- (void)checkAndShowSelected:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseEntered:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (struct CGRect)bounds;
 - (void)layoutAvatar;
 - (id)matchedStringWithContact:(id)arg1 type:(unsigned long long)arg2;
 - (void)layoutOpenIMIcon;
 - (void)layoutTitleFields;
+- (void)layoutViews;
 - (void)layoutLabels;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (id)makeNameLabelAttrString:(id)arg1;
 - (id)makeDescLabelAttrString:(id)arg1;
 - (id)getCurrentContact;
 - (void)populateWithResultItem:(id)arg1 keyword:(id)arg2;
+- (void)setSelected:(BOOL)arg1;
 - (void)prepareForReuse;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

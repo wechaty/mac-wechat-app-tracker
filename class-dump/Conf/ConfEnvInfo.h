@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSData, NSString;
+@class NSData, NSString, ProxyInfo;
 
 @interface ConfEnvInfo : PBGeneratedMessage
 {
@@ -17,9 +17,11 @@
     unsigned int hasAuthCode:1;
     unsigned int hasWorkDir:1;
     unsigned int hasDebugSvr:1;
-    unsigned int hasDebugSvrIp:1;
+    unsigned int hasSvrLongIp:1;
+    unsigned int hasSvrShortIp:1;
     unsigned int hasOutLog:1;
     unsigned int hasLogLevel:1;
+    unsigned int hasConfMode:1;
     unsigned int hasAudioFlag:1;
     unsigned int hasVideoRatio:1;
     unsigned int hasDefVideoLength:1;
@@ -41,6 +43,7 @@
     unsigned int hasSimType:1;
     unsigned int hasOwnerVersion:1;
     unsigned int hasIdcInfo:1;
+    unsigned int hasProxyInfo:1;
     unsigned int hasAppId:1;
     unsigned int hasAppSubid:1;
     unsigned int hasIsImunion:1;
@@ -49,6 +52,7 @@
     unsigned int debugSvr;
     unsigned int outLog;
     unsigned int logLevel;
+    unsigned int confMode;
     unsigned int audioFlag;
     unsigned int videoRatio;
     unsigned int defVideoLength;
@@ -69,7 +73,8 @@
     NSString *authKey;
     NSString *authCode;
     NSString *workDir;
-    NSString *debugSvrIp;
+    NSString *svrLongIp;
+    NSString *svrShortIp;
     NSString *deviceManufacturer;
     NSString *deviceModel;
     NSString *deviceRelease;
@@ -80,6 +85,7 @@
     NSString *ispInfo;
     NSString *ownerVersion;
     NSString *idcInfo;
+    ProxyInfo *proxyInfo;
     NSString *appId;
     NSString *appSubid;
 }
@@ -96,6 +102,8 @@
 @property(readonly, nonatomic) BOOL hasAppSubid; // @synthesize hasAppSubid;
 @property(retain, nonatomic, setter=SetAppId:) NSString *appId; // @synthesize appId;
 @property(readonly, nonatomic) BOOL hasAppId; // @synthesize hasAppId;
+@property(retain, nonatomic, setter=SetProxyInfo:) ProxyInfo *proxyInfo; // @synthesize proxyInfo;
+@property(readonly, nonatomic) BOOL hasProxyInfo; // @synthesize hasProxyInfo;
 @property(retain, nonatomic, setter=SetIdcInfo:) NSString *idcInfo; // @synthesize idcInfo;
 @property(readonly, nonatomic) BOOL hasIdcInfo; // @synthesize hasIdcInfo;
 @property(retain, nonatomic, setter=SetOwnerVersion:) NSString *ownerVersion; // @synthesize ownerVersion;
@@ -138,12 +146,16 @@
 @property(readonly, nonatomic) BOOL hasVideoRatio; // @synthesize hasVideoRatio;
 @property(nonatomic, setter=SetAudioFlag:) unsigned int audioFlag; // @synthesize audioFlag;
 @property(readonly, nonatomic) BOOL hasAudioFlag; // @synthesize hasAudioFlag;
+@property(nonatomic, setter=SetConfMode:) unsigned int confMode; // @synthesize confMode;
+@property(readonly, nonatomic) BOOL hasConfMode; // @synthesize hasConfMode;
 @property(nonatomic, setter=SetLogLevel:) unsigned int logLevel; // @synthesize logLevel;
 @property(readonly, nonatomic) BOOL hasLogLevel; // @synthesize hasLogLevel;
 @property(nonatomic, setter=SetOutLog:) unsigned int outLog; // @synthesize outLog;
 @property(readonly, nonatomic) BOOL hasOutLog; // @synthesize hasOutLog;
-@property(retain, nonatomic, setter=SetDebugSvrIp:) NSString *debugSvrIp; // @synthesize debugSvrIp;
-@property(readonly, nonatomic) BOOL hasDebugSvrIp; // @synthesize hasDebugSvrIp;
+@property(retain, nonatomic, setter=SetSvrShortIp:) NSString *svrShortIp; // @synthesize svrShortIp;
+@property(readonly, nonatomic) BOOL hasSvrShortIp; // @synthesize hasSvrShortIp;
+@property(retain, nonatomic, setter=SetSvrLongIp:) NSString *svrLongIp; // @synthesize svrLongIp;
+@property(readonly, nonatomic) BOOL hasSvrLongIp; // @synthesize hasSvrLongIp;
 @property(nonatomic, setter=SetDebugSvr:) unsigned int debugSvr; // @synthesize debugSvr;
 @property(readonly, nonatomic) BOOL hasDebugSvr; // @synthesize hasDebugSvr;
 @property(retain, nonatomic, setter=SetWorkDir:) NSString *workDir; // @synthesize workDir;

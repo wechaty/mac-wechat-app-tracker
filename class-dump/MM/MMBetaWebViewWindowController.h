@@ -11,13 +11,12 @@
 #import "WebPolicyDelegate-Protocol.h"
 #import "WebUIDelegate-Protocol.h"
 
-@class BaseWebViewController, MMBetaMgr, NSButton, NSProgressIndicator, NSString, NSTextField;
+@class BaseWebViewController, MMBetaMgr, NSProgressIndicator, NSString, NSTextField;
 
 @interface MMBetaWebViewWindowController : NSWindowController <WebUIDelegate, WebPolicyDelegate, WebFrameLoadDelegate, BaseWebViewControllerDelegate>
 {
     NSString *_urlString;
     NSTextField *_titleLabel;
-    NSButton *_retryButton;
     NSProgressIndicator *_progressIndicator;
     MMBetaMgr *_betaMgr;
     BaseWebViewController *_baseWebView;
@@ -29,13 +28,11 @@
 @property(nonatomic) struct CGSize fixedSize; // @synthesize fixedSize=_fixedSize;
 @property(retain, nonatomic) MMBetaMgr *betaMgr; // @synthesize betaMgr=_betaMgr;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
-@property(nonatomic) __weak NSButton *retryButton; // @synthesize retryButton=_retryButton;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(copy, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
 - (void)setupBaseWebView;
 - (void)updateWindowSize;
 - (id)getCurrentBaseWebviewViewController;
-- (void)onClickRetryButton:(id)arg1;
 - (void)showWindow:(id)arg1;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

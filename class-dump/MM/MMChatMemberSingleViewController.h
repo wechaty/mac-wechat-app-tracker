@@ -10,21 +10,25 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMIgnoreEventView, MMTableView, NSArray, NSString, NSTextField, NSView, WCContactData;
+@class MMIgnoreEventView, MMTableView, NSArray, NSScrollView, NSString, NSTextField, NSView, WCContactData;
 
 @interface MMChatMemberSingleViewController : MMTraitsViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate>
 {
     BOOL _isShown;
     BOOL _isAnimating;
+    BOOL _isShowTitleText;
     WCContactData *_contact;
     NSArray *_groupMemberList;
     NSView *_contentView;
     MMTableView *_tableView;
     MMIgnoreEventView *_titleView;
     NSTextField *_titleText;
+    NSScrollView *_scrollView;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isShowTitleText; // @synthesize isShowTitleText=_isShowTitleText;
+@property __weak NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) NSTextField *titleText; // @synthesize titleText=_titleText;
 @property(retain, nonatomic) MMIgnoreEventView *titleView; // @synthesize titleView=_titleView;
 @property(nonatomic) __weak MMTableView *tableView; // @synthesize tableView=_tableView;

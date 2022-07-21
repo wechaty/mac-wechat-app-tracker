@@ -9,11 +9,13 @@
 #import "AccountServiceExt-Protocol.h"
 #import "IBetaMgrExt-Protocol.h"
 #import "MASPreferencesViewController-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
-@class MMAvatarImageView, MMBadgeOverlayView, NSBox, NSButton, NSImage, NSLayoutConstraint, NSPopUpButton, NSSlider, NSString, NSTextField;
+@class MMAvatarImageView, MMBadgeOverlayView, MMButton, MMView, NSBox, NSButton, NSImage, NSLayoutConstraint, NSPopUpButton, NSProgressIndicator, NSSlider, NSStepper, NSString, NSTextField;
 
-@interface MMPreferencesGeneralController : NSViewController <MASPreferencesViewController, IBetaMgrExt, AccountServiceExt>
+@interface MMPreferencesGeneralController : NSViewController <MASPreferencesViewController, IBetaMgrExt, AccountServiceExt, NSTextFieldDelegate>
 {
+    BOOL _isObserverAppearance;
     NSTextField *_accountInformationLabel;
     NSButton *_logOutButton;
     MMAvatarImageView *_avatarImageView;
@@ -35,10 +37,12 @@
     NSTextField *_textSizeExampleGlyphSmall;
     NSTextField *_textSizeExampleGlyphLarge;
     NSTextField *_totalSpaceTitle;
+    NSTextField *_totalSpaceLabel;
     NSButton *_submitFeedbackButton;
     NSTextField *_informationFeedback;
     NSButton *_clearSpaceButton;
     NSTextField *_betaInvitationLabel;
+    NSProgressIndicator *_loadingView;
     NSButton *_checkInvitationDetailBtn;
     NSButton *_downloadBetaBtn;
     NSButton *_aboutBetaBtn;
@@ -49,9 +53,26 @@
     NSLayoutConstraint *_feedbackToBottomConstraint;
     NSLayoutConstraint *_appearanceToAutoLoginSeparatorConstraint;
     unsigned long long _showElement;
+    NSTextField *_autoDownloadText;
+    MMButton *_autoDownloadBtn;
+    NSTextField *_autoDownloadBtnText;
+    NSTextField *_autoDownloadThreshInput;
+    NSStepper *_autoDownloadThreshStepper;
+    NSString *_autoDownloadThresh;
+    MMView *_autoDownloadContainer;
+    id _monitorMouseEvent;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isObserverAppearance; // @synthesize isObserverAppearance=_isObserverAppearance;
+@property(retain, nonatomic) id monitorMouseEvent; // @synthesize monitorMouseEvent=_monitorMouseEvent;
+@property(retain, nonatomic) MMView *autoDownloadContainer; // @synthesize autoDownloadContainer=_autoDownloadContainer;
+@property(retain, nonatomic) NSString *autoDownloadThresh; // @synthesize autoDownloadThresh=_autoDownloadThresh;
+@property(retain, nonatomic) NSStepper *autoDownloadThreshStepper; // @synthesize autoDownloadThreshStepper=_autoDownloadThreshStepper;
+@property(retain, nonatomic) NSTextField *autoDownloadThreshInput; // @synthesize autoDownloadThreshInput=_autoDownloadThreshInput;
+@property(retain, nonatomic) NSTextField *autoDownloadBtnText; // @synthesize autoDownloadBtnText=_autoDownloadBtnText;
+@property(retain, nonatomic) MMButton *autoDownloadBtn; // @synthesize autoDownloadBtn=_autoDownloadBtn;
+@property(retain, nonatomic) NSTextField *autoDownloadText; // @synthesize autoDownloadText=_autoDownloadText;
 @property(nonatomic) unsigned long long showElement; // @synthesize showElement=_showElement;
 @property(nonatomic) __weak NSLayoutConstraint *appearanceToAutoLoginSeparatorConstraint; // @synthesize appearanceToAutoLoginSeparatorConstraint=_appearanceToAutoLoginSeparatorConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *feedbackToBottomConstraint; // @synthesize feedbackToBottomConstraint=_feedbackToBottomConstraint;
@@ -62,10 +83,12 @@
 @property __weak NSButton *aboutBetaBtn; // @synthesize aboutBetaBtn=_aboutBetaBtn;
 @property __weak NSButton *downloadBetaBtn; // @synthesize downloadBetaBtn=_downloadBetaBtn;
 @property(nonatomic) __weak NSButton *checkInvitationDetailBtn; // @synthesize checkInvitationDetailBtn=_checkInvitationDetailBtn;
+@property(nonatomic) __weak NSProgressIndicator *loadingView; // @synthesize loadingView=_loadingView;
 @property(nonatomic) __weak NSTextField *betaInvitationLabel; // @synthesize betaInvitationLabel=_betaInvitationLabel;
 @property(nonatomic) __weak NSButton *clearSpaceButton; // @synthesize clearSpaceButton=_clearSpaceButton;
 @property(nonatomic) __weak NSTextField *informationFeedback; // @synthesize informationFeedback=_informationFeedback;
 @property(nonatomic) __weak NSButton *submitFeedbackButton; // @synthesize submitFeedbackButton=_submitFeedbackButton;
+@property(nonatomic) __weak NSTextField *totalSpaceLabel; // @synthesize totalSpaceLabel=_totalSpaceLabel;
 @property(nonatomic) __weak NSTextField *totalSpaceTitle; // @synthesize totalSpaceTitle=_totalSpaceTitle;
 @property(nonatomic) __weak NSTextField *textSizeExampleGlyphLarge; // @synthesize textSizeExampleGlyphLarge=_textSizeExampleGlyphLarge;
 @property(nonatomic) __weak NSTextField *textSizeExampleGlyphSmall; // @synthesize textSizeExampleGlyphSmall=_textSizeExampleGlyphSmall;
@@ -115,11 +138,24 @@
 @property(readonly, nonatomic) NSString *identifier;
 - (void)viewWillAppear;
 - (void)dealloc;
+- (void)onClickVoiceToTextButton:(id)arg1;
 - (void)loadVoiceToTextConfig;
 - (void)handlePopButton:(id)arg1;
 - (void)initAppearance;
 - (BOOL)shouldShowAutoLoginUI;
 - (void)initAutoLoginUI;
+- (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
+- (void)setupAutoDownloadStepper;
+- (void)setupAutoDownloadThresh;
+- (void)setupAutoDownloadButton;
+- (void)setupAutoDownloadLabel;
+- (void)setupAutoDownloadControls;
+- (void)setupMouseEventMonitor;
+- (void)didChangedEffectiveAppearance;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)onClickSaveChatLogButton:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

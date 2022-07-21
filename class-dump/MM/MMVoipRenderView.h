@@ -14,7 +14,7 @@
     BOOL _shouldAcceptMouseDownToSwapLayer;
     BOOL _canMoveWindow;
     AVCaptureVideoPreviewLayer *_previewRenderLayer;
-    CALayer *_oppsiteRenderLayer;
+    CALayer *_oppositeRenderLayer;
     CALayer *_movableLayer;
     struct CGPoint _mouseToMovableLayerPoint;
 }
@@ -25,11 +25,11 @@
 @property(nonatomic) struct CGPoint mouseToMovableLayerPoint; // @synthesize mouseToMovableLayerPoint=_mouseToMovableLayerPoint;
 @property(nonatomic) BOOL isSmallVideoShouldMove; // @synthesize isSmallVideoShouldMove=_isSmallVideoShouldMove;
 @property(retain, nonatomic) CALayer *movableLayer; // @synthesize movableLayer=_movableLayer;
-@property(retain, nonatomic) CALayer *oppsiteRenderLayer; // @synthesize oppsiteRenderLayer=_oppsiteRenderLayer;
+@property(retain, nonatomic) CALayer *oppositeRenderLayer; // @synthesize oppositeRenderLayer=_oppositeRenderLayer;
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewRenderLayer; // @synthesize previewRenderLayer=_previewRenderLayer;
 - (void)adsorbedSmallVideoToEdge;
 - (void)bringSublayerToFront:(id)arg1;
-- (void)swapPreviewRenderLayerAndOppsiteRenderLayer;
+- (void)swapPreviewRenderLayerAndOppositeRenderLayer;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;

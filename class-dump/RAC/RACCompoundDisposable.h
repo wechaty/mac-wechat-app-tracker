@@ -8,7 +8,7 @@
 
 @interface RACCompoundDisposable : RACDisposable
 {
-    int _spinLock;
+    struct _opaque_pthread_mutex_t _mutex;
     RACDisposable *_inlineDisposables[2];
     struct __CFArray *_disposables;
     BOOL _disposed;
@@ -23,6 +23,7 @@
 - (void)dealloc;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)initWithDisposables:(id)arg1;
+- (id)init;
 - (BOOL)isDisposed;
 
 @end

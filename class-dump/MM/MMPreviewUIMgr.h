@@ -37,6 +37,8 @@
 @property(nonatomic) BOOL useAnimationImage; // @synthesize useAnimationImage=_useAnimationImage;
 @property(nonatomic) BOOL shouldShowMainWindow; // @synthesize shouldShowMainWindow=_shouldShowMainWindow;
 @property(nonatomic) struct CGRect mouseDownRect; // @synthesize mouseDownRect=_mouseDownRect;
+- (unsigned int)getCurImageMode:(id)arg1;
+- (BOOL)canUseTiledLayer;
 - (BOOL)canRetryDownloadOriginImage:(id)arg1;
 - (void)showPreviewErrorHint:(id)arg1;
 - (void)ensureCloseFilePreviewWindow;

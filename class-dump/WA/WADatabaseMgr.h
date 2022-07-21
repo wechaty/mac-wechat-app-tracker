@@ -119,9 +119,25 @@
 - (id)getContactWithAppId:(id)arg1;
 - (id)getContact:(id)arg1;
 - (id)getContactWithKey:(id)arg1 type:(unsigned long long)arg2;
+- (BOOL)deleteAppUsageInfoByName:(id)arg1 appType:(unsigned int)arg2;
+- (void)deleteAllItem;
+- (id)getWAAppItemDataWith:(id)arg1 andType:(unsigned int)arg2;
+- (BOOL)updateAppListItemOnUpdateTime:(id)arg1;
+- (BOOL)updateAppListItemOnStarState:(id)arg1;
+- (BOOL)insertOrUpdateAppListItem:(id)arg1;
+- (id)getRequiredAppListItem:(unsigned int)arg1;
+- (int)getAppListItemCount;
+- (id)getMainViewAppListItem;
+- (id)getAllAppListItemOrderByUpdateTime;
+- (id)getAllAppListItem;
+- (BOOL)mergeAppListItems:(id)arg1 updateTimeOfLastItemAfterMerge:(unsigned int *)arg2;
+- (BOOL)deleteAppStarItemByName:(id)arg1 appType:(unsigned int)arg2;
 - (BOOL)deleteAllAppStarItem;
 - (BOOL)insertAppStarItemList:(id)arg1;
+- (BOOL)insertAppStarItem:(id)arg1;
 - (BOOL)isItemStared:(id)arg1;
+- (id)getAllAppStarItemOrderBySortFactor;
+- (id)getAllAppStarItemOrderByUpdateTime;
 - (id)getAllAppStarItem;
 - (BOOL)mergeAppStarItems:(id)arg1;
 

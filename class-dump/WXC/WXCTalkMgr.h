@@ -137,6 +137,7 @@
 - (BOOL)sendWXTalkSubscribeGeneralVideoRequest:(id)arg1 roomId:(unsigned int)arg2 roomKey:(unsigned long long)arg3 SelfMemberId:(int)arg4 SubscribeMemberList:(id)arg5;
 - (void)handleSubscribeVideoResponse:(id)arg1 retCode:(int)arg2 backfillData:(id)arg3;
 - (BOOL)sendWXTalkSubscribeVideoRequest:(id)arg1 roomId:(unsigned int)arg2 roomKey:(unsigned long long)arg3 MemberId:(int)arg4 UserName:(id)arg5 SubscribeMemberId:(int)arg6;
+- (BOOL)sendWXTalkSubscribeScreenSharingRequest:(id)arg1 roomId:(unsigned int)arg2 roomKey:(unsigned long long)arg3 SubscribeMemberList:(id)arg4;
 - (BOOL)sendRejectEnterWXTalkModeRequest:(id)arg1 roomId:(unsigned int)arg2 roomKey:(unsigned long long)arg3 reason:(int)arg4;
 - (void)handleExitTalkRoomResponse:(id)arg1 retCode:(int)arg2 backfillData:(id)arg3;
 - (void)SendExitTalkRoomRequest:(int)arg1;
@@ -192,11 +193,15 @@
 - (void)audioDeviceForceStop:(id)arg1;
 - (void)ForceStop;
 - (void)getMutilTalkTotalFlow:(int *)arg1 andWwanBytes:(int *)arg2;
+- (int)ScreenEncAndSend:(void *)arg1;
+- (int)ScreenEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3;
+- (int)VideoEncAndSend:(void *)arg1;
 - (int)VideoEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3 resolutionMode:(int)arg4 cameraMode:(int)arg5;
 - (void)closeVideoRecvAndSend;
+- (BOOL)setScreenSharingStatus:(int)arg1;
 - (void)setVideoOn:(BOOL)arg1;
 - (BOOL)subscribeGeneralVideoForUserList:(id)arg1;
-- (void)subscribeVideoForUser:(id)arg1 isCancel:(BOOL)arg2;
+- (void)subscribeVideoForUser:(id)arg1 isSharedScreenData:(BOOL)arg2 isCancel:(BOOL)arg3;
 - (void)setMicroPhoneMute:(BOOL)arg1;
 - (void)keepSpeakerPhoneStatusWhenDeviceStart:(BOOL)arg1;
 - (BOOL)getSpeakerPhoneStatus;

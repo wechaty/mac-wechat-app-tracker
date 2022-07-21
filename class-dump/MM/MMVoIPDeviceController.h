@@ -19,9 +19,11 @@
     MMTableView *_tableView;
     NSScrollView *_scrollView;
     NSArray *_deviceList;
+    NSArray *_menuTitle;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *menuTitle; // @synthesize menuTitle=_menuTitle;
 @property(retain, nonatomic) NSArray *deviceList; // @synthesize deviceList=_deviceList;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;

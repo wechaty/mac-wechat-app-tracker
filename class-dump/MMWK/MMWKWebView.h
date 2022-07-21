@@ -28,6 +28,9 @@
 - (BOOL)mouseDownCanMoveWindow;
 - (void)customLoadFileURL:(id)arg1 allowingReadAccessToURL:(id)arg2;
 - (void)customLoadRequest:(id)arg1;
+- (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1 configuration:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

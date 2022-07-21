@@ -17,8 +17,10 @@
 - (double)messageCellViewMultiSelectionLeftPadding:(MMMessageCellView *)arg1;
 - (BOOL)messageCellViewIsMultiSelectionMode:(MMMessageCellView *)arg1;
 - (void)messageCellViewDidStartMultiSelection:(MMMessageCellView *)arg1;
+- (void)messageCellView:(MMMessageCellView *)arg1 didDoubleClickOutsideClickableArea:(MMMessageTableItem *)arg2;
 - (void)messageCellView:(MMMessageCellView *)arg1 didClickOutsideClickableArea:(MMMessageTableItem *)arg2;
-- (void)messageCellViewLocateMessage:(MMMessageCellView *)arg1 createTime:(unsigned int)arg2;
+- (void)messageCellViewLocateMessageInRealChat:(MMMessageCellView *)arg1;
+- (void)messageCellViewLocateMessageInChatManager:(MMMessageCellView *)arg1 createTime:(unsigned int)arg2;
 - (double)messageCellViewNeedsContainerWidth;
 - (void)messageCellViewNeedsReload:(MMMessageCellView *)arg1;
 - (void)messageCellView:(MMMessageCellView *)arg1 gotMisdirectedKeyDown:(NSEvent *)arg2;

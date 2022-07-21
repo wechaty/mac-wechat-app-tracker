@@ -40,6 +40,7 @@
     NSString *_userName;
     MMImageView *_sendFailedImg;
     MMImageView *_openimGroupFlag;
+    SVGImageView *_brandStarIcon;
     NSImageView *_badgeImageView;
     SVGImageView *_multiTalkFlag;
     CAShapeLayer *_focusingLineLayer;
@@ -51,6 +52,7 @@
 @property(retain, nonatomic) CAShapeLayer *focusingLineLayer; // @synthesize focusingLineLayer=_focusingLineLayer;
 @property(retain, nonatomic) SVGImageView *multiTalkFlag; // @synthesize multiTalkFlag=_multiTalkFlag;
 @property(retain, nonatomic) NSImageView *badgeImageView; // @synthesize badgeImageView=_badgeImageView;
+@property(retain, nonatomic) SVGImageView *brandStarIcon; // @synthesize brandStarIcon=_brandStarIcon;
 @property(retain, nonatomic) MMImageView *openimGroupFlag; // @synthesize openimGroupFlag=_openimGroupFlag;
 @property(retain, nonatomic) MMImageView *sendFailedImg; // @synthesize sendFailedImg=_sendFailedImg;
 @property(nonatomic) BOOL shouldDrawFocusRing; // @synthesize shouldDrawFocusRing=_shouldDrawFocusRing;
@@ -118,6 +120,7 @@
 - (void)updateMsgStatus;
 - (void)layoutNickNameViews;
 - (void)updateTimeLabel;
+- (void)updateBrandStarIcon;
 - (void)updateOpenIMGroupIcon;
 - (void)updateNickname;
 - (void)updateBadgeView;
@@ -125,8 +128,10 @@
 - (void)updateStickyBgView;
 - (BOOL)isMultiTalking;
 - (id)lastMessage;
+- (BOOL)isBrandStarMarked;
 - (BOOL)isWxWorkSession;
 - (BOOL)isPattedUnread;
+- (BOOL)isAnnouncementUnread;
 - (BOOL)isMentionedUnread;
 - (BOOL)isMsgStatusFailed;
 - (BOOL)isMuted;

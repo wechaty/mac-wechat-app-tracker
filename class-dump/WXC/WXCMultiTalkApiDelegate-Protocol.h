@@ -7,6 +7,7 @@
 @class MultiTalkGroup, NSArray, NSData, NSMutableArray, NSString, WXCPbWxBannerVoiceInfo;
 
 @protocol WXCMultiTalkApiDelegate
+- (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
 - (void)onMultiTalkNotAllowCameraLimit:(unsigned int)arg1;
 - (void)onMultiTalkCreateLimit:(unsigned int)arg1;
 - (void)onMultiTalkJoinLimit:(unsigned int)arg1;
@@ -25,7 +26,7 @@
 - (void)onAddMultiTalkMemberResult:(BOOL)arg1 groupInfo:(MultiTalkGroup *)arg2;
 - (void)onErr:(int)arg1 groupUserName:(NSString *)arg2;
 - (void)onSpeakerStateChange:(BOOL)arg1;
-- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (void)OnVideoStateChange:(BOOL)arg1 VideoOn:(BOOL)arg2;
 - (void)onMuteStateChange:(BOOL)arg1;
 - (void)onMultiTalkDeviceLauchSuccess;

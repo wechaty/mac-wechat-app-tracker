@@ -25,7 +25,7 @@
 - (BOOL)addSentDownloadItem:(id)arg1;
 - (BOOL)isSentDownloadItemExisted:(id)arg1;
 - (void)sendDownloadItemStateToServer:(id)arg1;
-- (void)checkDownloadWithUserName:(id)arg1 svrId:(long long)arg2;
+- (void)checkDownloadWithUserName:(id)arg1 svrId:(long long)arg2 isManual:(BOOL)arg3;
 - (void)dealloc;
 - (void)close;
 - (void)closeDBBeforeInit;

@@ -21,7 +21,6 @@
 + (id)schedulerWithPriority:(long long)arg1 name:(id)arg2;
 + (id)mainThreadScheduler;
 + (id)immediateScheduler;
-+ (id)schedulerWithQueue:(id)arg1 name:(id)arg2;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)performAsCurrentScheduler:(CDUnknownBlockType)arg1;

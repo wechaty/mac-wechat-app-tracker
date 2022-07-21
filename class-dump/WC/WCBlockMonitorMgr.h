@@ -53,6 +53,7 @@
 @property(retain, nonatomic) WCBlockMonitorConfigHandler *monitorConfigHandler; // @synthesize monitorConfigHandler=_monitorConfigHandler;
 @property(nonatomic) __weak id <WCBlockMonitorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)powerConsumeStackCollectorConclude:(id)arg1;
+- (void)generateExceptionReportWithDumpType:(unsigned long long)arg1 withException:(id)arg2;
 - (void)generateLiveReportWithDumpType:(unsigned long long)arg1 withReason:(id)arg2 selfDefinedPath:(BOOL)arg3;
 - (void)setShouldSuspendAllThreads:(BOOL)arg1;
 - (BOOL)setRunloopThreshold:(unsigned int)arg1 isFirstTime:(BOOL)arg2;

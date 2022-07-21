@@ -6,11 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSData, NSString;
+@class HeadImageTask;
 
 @protocol GetHeadImageDelegate <NSObject>
-- (void)onDownloadImageFail:(NSString *)arg1 forScene:(int)arg2 isHD:(BOOL)arg3;
-- (void)onDownloadImage:(NSString *)arg1 forScene:(int)arg2 isHD:(BOOL)arg3 imageData:(NSData *)arg4;
-- (BOOL)isNeedGetImage:(NSString *)arg1 forScene:(int)arg2 isHD:(BOOL)arg3 isForce:(BOOL)arg4;
+- (void)onDownloadImageFail:(HeadImageTask *)arg1;
+- (void)onDownloadImage:(HeadImageTask *)arg1;
+- (BOOL)isNeedGetImage:(HeadImageTask *)arg1;
 @end
 

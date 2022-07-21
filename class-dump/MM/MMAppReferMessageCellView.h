@@ -54,6 +54,7 @@
 + (struct CGRect)_getOneLineTranslationRectWithWidthConstraint:(double)arg1;
 + (struct CGRect)_getRectForAttrString:(id)arg1 widthConstraint:(double)arg2;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
++ (double)availableReferWidthForItem:(id)arg1 constrainedToWidth:(double)arg2;
 + (void)cellViewRectsForTableItem:(id)arg1 constrainedToWidth:(double)arg2 leftPadding:(double)arg3 bounds:(struct CGRect *)arg4 bubble:(struct CGRect *)arg5 text:(struct CGRect *)arg6 translation:(struct CGRect *)arg7 brand:(struct CGRect *)arg8 refer:(struct CGRect *)arg9 referText:(struct CGRect *)arg10 referMore:(char *)arg11;
 + (struct CGRect)translatedStringBoundsWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
@@ -113,7 +114,6 @@
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;
 - (BOOL)alwaysDisableMessageTextViewSelectableProperty;
-- (BOOL)showsSaveToFavoritesButton;
 - (id)bubbleFillColor;
 - (id)textBackgoundColor;
 - (void)setHighlighted:(BOOL)arg1;

@@ -25,9 +25,11 @@
     NSMutableDictionary *_dictOfflineVerify;
     NSMutableDictionary *_dictUrl2VerifyInfoList;
     NSMutableDictionary *_dictUrl2DomainPathList;
+    NSMutableDictionary *_dictRestrictJSApiList;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *dictRestrictJSApiList; // @synthesize dictRestrictJSApiList=_dictRestrictJSApiList;
 @property(retain, nonatomic) NSMutableDictionary *dictUrl2DomainPathList; // @synthesize dictUrl2DomainPathList=_dictUrl2DomainPathList;
 @property(retain, nonatomic) NSMutableDictionary *dictUrl2VerifyInfoList; // @synthesize dictUrl2VerifyInfoList=_dictUrl2VerifyInfoList;
 @property(retain, nonatomic) NSMutableDictionary *dictOfflineVerify; // @synthesize dictOfflineVerify=_dictOfflineVerify;

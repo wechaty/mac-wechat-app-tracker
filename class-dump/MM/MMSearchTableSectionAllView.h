@@ -28,6 +28,7 @@
 - (void)rightMouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (struct CGRect)bounds;
 - (void)populateWithSearchResultItem:(id)arg1 keyword:(id)arg2;
 - (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;

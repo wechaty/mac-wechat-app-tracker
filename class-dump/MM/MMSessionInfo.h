@@ -8,7 +8,7 @@
 
 #import "WCTTableCoding-Protocol.h"
 
-@class MMSessionInfoPackedInfo, NSString;
+@class MMSessionInfoPackedInfo, MessageData, NSString, WCContactData;
 
 @interface MMSessionInfo : NSObject <WCTTableCoding>
 {
@@ -25,12 +25,16 @@
     BOOL _m_bIsDeletion;
     BOOL _m_isMentionedUnread;
     BOOL _m_isPattedUnread;
+    BOOL _m_isAnnounceMentUnread;
     BOOL _isInGroupBox;
+    unsigned int m_syncSessionOrder;
     unsigned int _intRes1;
     unsigned int _intRes2;
     unsigned int _intRes3;
     unsigned int _chatSyncFirstLocalId;
     MMSessionInfoPackedInfo *m_packedInfo;
+    MessageData *m_msgData;
+    WCContactData *m_contact;
     NSString *_strRes1;
     NSString *_strRes2;
     NSString *_strRes3;
@@ -54,20 +58,23 @@
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int chatSyncFirstLocalId; // @synthesize chatSyncFirstLocalId=_chatSyncFirstLocalId;
 @property BOOL isInGroupBox; // @synthesize isInGroupBox=_isInGroupBox;
+@property(nonatomic) BOOL m_isAnnounceMentUnread; // @synthesize m_isAnnounceMentUnread=_m_isAnnounceMentUnread;
 @property(nonatomic) BOOL m_isPattedUnread; // @synthesize m_isPattedUnread=_m_isPattedUnread;
 @property(nonatomic) BOOL m_isMentionedUnread; // @synthesize m_isMentionedUnread=_m_isMentionedUnread;
+@property(nonatomic) BOOL m_bIsDeletion; // @synthesize m_bIsDeletion=_m_bIsDeletion;
 @property unsigned int intRes3; // @synthesize intRes3=_intRes3;
 @property unsigned int intRes2; // @synthesize intRes2=_intRes2;
 @property unsigned int intRes1; // @synthesize intRes1=_intRes1;
 @property(retain) NSString *strRes3; // @synthesize strRes3=_strRes3;
 @property(retain) NSString *strRes2; // @synthesize strRes2=_strRes2;
 @property(retain) NSString *strRes1; // @synthesize strRes1=_strRes1;
-@property(nonatomic) BOOL m_bIsDeletion; // @synthesize m_bIsDeletion=_m_bIsDeletion;
 @property(nonatomic) BOOL m_bMemOnly; // @synthesize m_bMemOnly;
 @property(nonatomic) double m_enterSessionTime; // @synthesize m_enterSessionTime;
 @property double m_persistentCorrectionTime; // @synthesize m_persistentCorrectionTime;
 @property BOOL m_bIsTop; // @synthesize m_bIsTop;
-@property(retain, nonatomic) MMSessionInfoPackedInfo *m_packedInfo; // @synthesize m_packedInfo;
+@property(retain, nonatomic) WCContactData *m_contact; // @synthesize m_contact;
+@property(retain, nonatomic) MessageData *m_msgData; // @synthesize m_msgData;
+@property(nonatomic) unsigned int m_syncSessionOrder; // @synthesize m_syncSessionOrder;
 @property(nonatomic) unsigned int m_uLastTime; // @synthesize m_uLastTime;
 @property(nonatomic) BOOL m_bMarkUnread; // @synthesize m_bMarkUnread;
 @property(nonatomic) BOOL m_bShowUnReadAsRedDot; // @synthesize m_bShowUnReadAsRedDot;
@@ -77,11 +84,7 @@
 - (id)shortDesc;
 - (id)description;
 - (long long)compare:(id)arg1;
-- (void)setFromPBSessionInfo:(id)arg1;
-- (void)ignoreSyncSessionOrder;
-- (void)setM_msgData:(id)arg1;
-- (void)setM_contact:(id)arg1;
-- (void)dealloc;
+@property(retain, nonatomic) MMSessionInfoPackedInfo *m_packedInfo; // @synthesize m_packedInfo;
 - (id)init;
 
 // Remaining properties

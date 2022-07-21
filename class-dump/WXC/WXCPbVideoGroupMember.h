@@ -14,14 +14,22 @@
     unsigned int hasWxUserName:1;
     unsigned int hasUuid:1;
     unsigned int hasVideoStatus:1;
+    unsigned int hasVideoScreenSharingStatus:1;
+    unsigned int hasMemberRole:1;
     unsigned int memberId;
     unsigned int uuid;
     unsigned int videoStatus;
+    unsigned int videoScreenSharingStatus;
+    unsigned int memberRole;
     NSString *wxUserName;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetMemberRole:) unsigned int memberRole; // @synthesize memberRole;
+@property(readonly, nonatomic) BOOL hasMemberRole; // @synthesize hasMemberRole;
+@property(nonatomic, setter=SetVideoScreenSharingStatus:) unsigned int videoScreenSharingStatus; // @synthesize videoScreenSharingStatus;
+@property(readonly, nonatomic) BOOL hasVideoScreenSharingStatus; // @synthesize hasVideoScreenSharingStatus;
 @property(nonatomic, setter=SetVideoStatus:) unsigned int videoStatus; // @synthesize videoStatus;
 @property(readonly, nonatomic) BOOL hasVideoStatus; // @synthesize hasVideoStatus;
 @property(nonatomic, setter=SetUuid:) unsigned int uuid; // @synthesize uuid;

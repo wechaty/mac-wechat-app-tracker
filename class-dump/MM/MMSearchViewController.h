@@ -6,8 +6,10 @@
 
 #import "MMViewController.h"
 
+#import "AccountServiceExt-Protocol.h"
 #import "MMSearchContactCellDelegate-Protocol.h"
 #import "MMSearchFunctionCellDelegate-Protocol.h"
+#import "MMSearchTableCellViewDelegate-Protocol.h"
 #import "MMSearchTableSectionAllViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
@@ -15,7 +17,7 @@
 
 @class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSString, NSView, NSVisualEffectView, RBLPopover;
 
-@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate>
+@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, AccountServiceExt, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate, MMSearchTableCellViewDelegate>
 {
     BOOL _isShownFirstTimeBySearch;
     BOOL _isSearchFieldTextDidEndEditing;
@@ -46,9 +48,15 @@
     long long _currentSelectedRow;
     MMTimer *_showResultTimer;
     NSArray *_allResults;
+    unsigned long long _totalTableRowHeight;
+    double _popoverWidth;
+    unsigned long long _lastSelectTime;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long lastSelectTime; // @synthesize lastSelectTime=_lastSelectTime;
+@property(nonatomic) double popoverWidth; // @synthesize popoverWidth=_popoverWidth;
+@property(nonatomic) unsigned long long totalTableRowHeight; // @synthesize totalTableRowHeight=_totalTableRowHeight;
 @property(retain, nonatomic) NSArray *allResults; // @synthesize allResults=_allResults;
 @property(nonatomic) BOOL choseResult; // @synthesize choseResult=_choseResult;
 @property(nonatomic) BOOL isSearchFieldTextDidEndEditing; // @synthesize isSearchFieldTextDidEndEditing=_isSearchFieldTextDidEndEditing;
@@ -78,12 +86,16 @@
 @property(nonatomic) unsigned long long searchScene; // @synthesize searchScene=_searchScene;
 @property(nonatomic) __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
+- (void)onUserLogout;
+- (void)cellView:(id)arg1 onMouseBeforeSetSeleted:(id)arg2;
+- (BOOL)canMouseEnterSetSelected:(id)arg1;
 - (void)cellView:(id)arg1 dragOperation:(id)arg2 withContact:(id)arg3;
 - (BOOL)cellView:(id)arg1 isValidOperation:(id)arg2 withContact:(id)arg3;
 - (void)startAddFriendSearch;
 - (void)startFavSearch;
 - (void)startWebSearchWithKeyWord:(id)arg1;
 - (void)startWebSearch;
+- (void)startChooseContacts:(id)arg1;
 - (void)mmSearchTableSectionAllViewDidClicked:(id)arg1;
 - (void)reloadTableView;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
@@ -91,6 +103,8 @@
 - (void)chooseItem:(id)arg1;
 - (void)singleClickOnTableView:(id)arg1;
 - (void)tableViewSelectionDidChange:(id)arg1;
+- (void)setTableViewNotSelected;
+- (void)updateSelectedRowDisplay:(BOOL)arg1;
 - (void)_updateTableviewSelectionDisplay;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
@@ -99,13 +113,22 @@
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)handleSpecialSearchCommandWithResult:(id)arg1;
 - (id)specialCommandResWithKeyword:(id)arg1;
-- (void)selectAndScrollToRow:(long long)arg1;
+- (void)closeSessionPreviewWindow;
+- (BOOL)openCurrentSelectRowPreviewWindow;
+- (void)openSessionPreviewWindow;
+- (BOOL)isPopoverWindow;
+- (void)setSelectRow:(unsigned long long)arg1;
+- (void)selectAndScrollToRow:(long long)arg1 allUpdate:(BOOL)arg2;
 - (void)selectPreviousItem;
 - (void)selectNextItem;
 - (void)selectFirstItem;
 - (void)chooseCurrentItem;
 - (BOOL)hasHeaderItem:(id)arg1;
 - (id)getSearchResultItem:(id)arg1 type:(unsigned long long)arg2;
+- (void)setTableViewFirstItemSelected:(long long)arg1;
+- (BOOL)shouldShowSearchFriendCell:(id)arg1;
+- (id)handleMouseDown:(id)arg1;
+- (void)showPopoverWindow;
 - (void)_doShowWithResults:(id)arg1;
 - (void)doShowWithResults:(id)arg1;
 - (void)showWithResults:(id)arg1 resultsWithKeyword:(id)arg2;

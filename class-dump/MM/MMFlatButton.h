@@ -51,6 +51,7 @@
 @property(nonatomic) double offAnimateDuration; // @synthesize offAnimateDuration=_offAnimateDuration;
 @property(nonatomic) double onAnimateDuration; // @synthesize onAnimateDuration=_onAnimateDuration;
 @property(nonatomic) BOOL momentary; // @synthesize momentary=_momentary;
+- (BOOL)accessibilityPerformPress;
 - (void)setImagePosition:(unsigned long long)arg1;
 - (void)setState:(long long)arg1;
 - (void)setImage:(id)arg1;

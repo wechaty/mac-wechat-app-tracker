@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class FinderReportReddotInfo, NSString;
 
 @interface FinderReport : NSObject
 {
@@ -16,7 +16,7 @@
     NSString *_eleId;
     unsigned long long _entranceId;
     NSString *_contextId;
-    NSString *_reddotInfo;
+    FinderReportReddotInfo *_reddotInfo;
     NSString *_udfKv;
     unsigned long long _entranceScene;
     unsigned long long _cardType;
@@ -35,13 +35,14 @@
 @property(nonatomic) unsigned long long cardType; // @synthesize cardType=_cardType;
 @property(nonatomic) unsigned long long entranceScene; // @synthesize entranceScene=_entranceScene;
 @property(retain, nonatomic) NSString *udfKv; // @synthesize udfKv=_udfKv;
-@property(retain, nonatomic) NSString *reddotInfo; // @synthesize reddotInfo=_reddotInfo;
+@property(retain, nonatomic) FinderReportReddotInfo *reddotInfo; // @synthesize reddotInfo=_reddotInfo;
 @property(retain, nonatomic) NSString *contextId; // @synthesize contextId=_contextId;
 @property(nonatomic) unsigned long long entranceId; // @synthesize entranceId=_entranceId;
 @property(retain, nonatomic) NSString *eleId; // @synthesize eleId=_eleId;
 @property(retain, nonatomic) NSString *eventId; // @synthesize eventId=_eventId;
 @property(nonatomic) unsigned long long cTime; // @synthesize cTime=_cTime;
 - (void)generateContextId;
+- (void)generateReddotInfo:(id)arg1;
 - (BOOL)shouldReport;
 - (void)report;
 

@@ -44,9 +44,8 @@
 - (void)selectPreviousChat;
 - (void)selectNextChat;
 - (void)windowDidResignKeyAction:(id)arg1;
-- (void)_clearSearch;
+- (BOOL)onSearchFiledControl:(id)arg1 textFiled:(id)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledDidEnd:(id)arg1;
-- (BOOL)onSearchFiledControl:(id)arg1 aCommandSelector:(SEL)arg2;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
 - (void)onSearchFiledTextDidChange:(id)arg1;
 - (void)onSearchFiledWillBegin:(id)arg1;

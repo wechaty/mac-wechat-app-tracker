@@ -47,7 +47,7 @@
 - (void)switchCamera;
 - (void)displaySelfCaptureWhenReceiveInvite;
 - (void)resizePreviewContentLayer;
-- (void)renderOnOppsiteRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
 - (void)renderOnPreviewRenderLayerWith:(id)arg1;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)showWindowAnimated:(BOOL)arg1;

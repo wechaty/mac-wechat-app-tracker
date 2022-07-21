@@ -40,6 +40,7 @@
 - (void)showWebViewWithDataItem:(id)arg1 windowId:(id)arg2;
 - (void)onServiceClearData;
 - (id)getWKProcessPool;
+- (id)getCurrentWindowForType:(unsigned long long)arg1;
 - (id)getCurrentWindow;
 - (void)onServiceInit;
 - (id)init;

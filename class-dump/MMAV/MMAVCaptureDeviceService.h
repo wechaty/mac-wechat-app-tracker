@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class MMCaptureDeviceInfo, NSArray, NSString;
+@class MMCaptureDeviceInfo, MMTimer, NSArray, NSString;
 
 @interface MMAVCaptureDeviceService : MMService <MMService>
 {
@@ -18,16 +18,22 @@
     MMCaptureDeviceInfo *_defaultAudioInputDevice;
     MMCaptureDeviceInfo *_defaultAudioOutputDevice;
     MMCaptureDeviceInfo *_defaultVideoDevice;
+    MMTimer *_timer;
 }
 
 + (void)authorizationStatusForMediaType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *timer; // @synthesize timer=_timer;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultVideoDevice; // @synthesize defaultVideoDevice=_defaultVideoDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioOutputDevice; // @synthesize defaultAudioOutputDevice=_defaultAudioOutputDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioInputDevice; // @synthesize defaultAudioInputDevice=_defaultAudioInputDevice;
 @property(retain, nonatomic) NSArray *audioOutputInfos; // @synthesize audioOutputInfos=_audioOutputInfos;
 @property(retain, nonatomic) NSArray *audioInputInfos; // @synthesize audioInputInfos=_audioInputInfos;
 @property(retain, nonatomic) NSArray *videoDevices; // @synthesize videoDevices=_videoDevices;
+- (void)detectBlueToothDevice;
+- (void)stopDetectAudioOutput;
+- (void)startDetectAudioOutput;
+- (id)getScreenCaptureSourceInfoWithThumbSize:(struct CGSize)arg1;
 - (void)devicesWasDisconnected:(id)arg1;
 - (void)devicesWasConnected:(id)arg1;
 - (unsigned int)getDefaultAudioOutputDevice;
@@ -35,6 +41,9 @@
 - (BOOL)deviceHasBuffersInScope:(unsigned int)arg1 scope:(unsigned int)arg2;
 - (BOOL)isDeviceSupportsOutput:(unsigned int)arg1;
 - (BOOL)isDeviceSupportsInput:(unsigned int)arg1;
+- (unsigned int)getDeviceTransportType:(unsigned int)arg1;
+- (BOOL)isVirtualDevice:(unsigned int)arg1;
+- (BOOL)isAggregateDevice:(unsigned int)arg1;
 - (id)getAudioDeviceList:(unsigned int)arg1;
 - (id)getSysDefaultAudioDevice:(int)arg1;
 - (unsigned int)getSysDefaultAudioDeviceID:(int)arg1;
@@ -43,6 +52,7 @@
 - (id)getCurrentSelectedDevice:(int)arg1;
 - (id)findCaptureDeviceById:(id)arg1 withType:(int)arg2;
 - (id)getCaptureDevicesWithType:(int)arg1;
+- (BOOL)hasRecordScreenAuthorized;
 - (BOOL)hasAudioMicDeviceAuthorized;
 - (BOOL)hasCameraDeviceAuthorized;
 - (id)convertAVCaptureDevice:(id)arg1;
@@ -50,6 +60,7 @@
 - (id)getVideoList;
 - (void)freshDefaultDevices;
 - (void)refreshDeviceList;
+- (void)dealloc;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 

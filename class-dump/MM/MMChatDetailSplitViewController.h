@@ -81,12 +81,15 @@
 - (void)showAudioStartToPlayTipWording:(id)arg1;
 - (void)setUpperViewWithController:(id)arg1;
 - (void)setUnderViewWithController:(id)arg1;
+- (void)updateContact:(id)arg1;
 - (void)adjustLayoutsWithSplitView:(id)arg1 scene:(int)arg2;
 - (void)setHasSelectedChat:(BOOL)arg1;
 - (void)setupVoipTipsLabel;
 - (void)setupMouseEventOfChatInfoView;
 - (void)registerDraggingTypes;
 - (void)setupDraggingOverlayView;
+- (void)onWABoardDragEnd;
+- (void)onWABoardDragBegin;
 - (void)logoutButtonClick:(id)arg1;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;

@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class IConfSDKRegisterableCallbackHolder, MMConfSDKAudioMgr, MMConfSDKCGIImp, MMConfSDKNativeCallbackMgr, MMTimer, MultiTalkGroup, NSMutableArray, NSMutableDictionary, NSObject, NSString;
+@class ConfAVMemberList, IConfSDKRegisterableCallbackHolder, MMConfSDKAudioMgr, MMConfSDKCGIImp, MMConfSDKNativeCallbackMgr, MMTimer, MultiTalkGroup, NSMutableArray, NSMutableDictionary, NSObject, NSString;
 @protocol MultitalkApiDelegate, OS_dispatch_queue;
 
 @interface MMConfSDKService : MMService <MMService>
@@ -46,11 +46,12 @@
     IConfSDKRegisterableCallbackHolder *initFail;
     CDUnknownBlockType _currentInterruptedCallback;
     CDUnknownBlockType _currentSpeakerChangedCallback;
+    ConfAVMemberList *confAVMemberList;
     int _currentStatus;
     NSString *_currentAppId;
     int _exitReason;
-    BOOL _isJoiningRoom;
-    BOOL _isInit;
+    BOOL _isInited;
+    BOOL _isIniting;
     BOOL _isRequireExit;
     CDUnknownBlockType _pendingExitCallback;
     BOOL _isSyncJoinDone;
@@ -58,7 +59,9 @@
     BOOL _isCallbackTalkDone;
     BOOL _isCameraStarted;
     BOOL _isHandsFree;
+    int _screenStatus;
     BOOL _alreadyNotifyReady;
+    BOOL _alreadyNotifyScreenSharing;
     BOOL _isProcessingMemberChg;
     long long _roomId;
     int _audioType;
@@ -84,6 +87,7 @@
     NSMutableArray *_displayUserList;
     int _memberRole;
     NSMutableArray *_cachedVideoMemberIds;
+    NSMutableArray *_cachedInviteNotify;
     NSMutableDictionary *_bannerCreateUserNameInfo;
 }
 
@@ -116,10 +120,19 @@
 - (void)gotSpsPps:(id)arg1 pps:(id)arg2;
 - (void)onCameraStop;
 - (void)onCameraStart;
+- (void)stopVideo;
+- (void)switchVideoToScreenPaused;
+- (void)switchVideoToScreen;
+- (void)switchVideoToCamera;
+- (void)switchVideoWithCameraEnabled:(BOOL)arg1 screenStatus:(int)arg2;
 - (void)onVideoFrame:(int)arg1 data:(const char *)arg2 dataLen:(int)arg3 width:(int)arg4 height:(int)arg5 format:(int)arg6;
+- (int)sendScreenData:(void *)arg1;
+- (int)sendScreenData:(char *)arg1 dataLen:(int)arg2 imgBuf:(struct __CVBuffer *)arg3 width:(int)arg4 height:(int)arg5 format:(int)arg6;
+- (int)sendVideoData:(void *)arg1;
 - (int)sendVideoData:(char *)arg1 dataLen:(int)arg2 imgBuf:(struct __CVBuffer *)arg3 width:(int)arg4 height:(int)arg5;
 - (int)doHWQosCtrl;
 - (void)subscribeByUsername:(id)arg1 NeedBigVideo:(BOOL)arg2;
+- (void)subscribeByUsernameList:(id)arg1 LargeUsers:(id)arg2;
 - (void)subscribeAll;
 - (void)mayRelease:(BOOL)arg1;
 - (void)setMicroPhoneMute:(BOOL)arg1;

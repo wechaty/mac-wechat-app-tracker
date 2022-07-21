@@ -9,12 +9,19 @@
 #import "IContactMgrExt-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMChatDetailSingleViewController, MMChatMemberSingleViewController, MMChatMessageMaskView, NSButton, NSString, NSTextField, NSView, SVGButton, WCContactData;
+@class MMChatDetailSingleViewController, MMChatDetailWindow, MMChatMemberSingleViewController, MMChatMessageMaskView, MMTimer, NSButton, NSString, NSTextField, NSView, SVGButton, WCContactData;
 
 @interface MMChatDetailSingleWindowController : MMWindowController <NSWindowDelegate, IContactMgrExt>
 {
+    BOOL _windowMoveable;
+    BOOL _windowResizable;
+    BOOL _windowCloseBtnHidden;
+    BOOL _canBeKey;
+    BOOL _isMouseInWindow;
+    BOOL _monitorGlobalEvent;
     WCContactData *_chatContact;
     NSString *_searchKey;
+    unsigned long long _openSource;
     NSView *_headerContainerView;
     NSTextField *_headerView;
     NSView *_divider;
@@ -25,9 +32,20 @@
     MMChatMessageMaskView *_maskView;
     MMChatMemberSingleViewController *_memberSingleViewController;
     MMChatDetailSingleViewController *_mmChatMessageViewController;
+    NSString *_identifier;
+    id _mouseEvent;
+    MMTimer *_closeTimer;
+    long long _openTime;
+    struct CGRect _windowRect;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long openTime; // @synthesize openTime=_openTime;
+@property(nonatomic) BOOL monitorGlobalEvent; // @synthesize monitorGlobalEvent=_monitorGlobalEvent;
+@property(nonatomic) BOOL isMouseInWindow; // @synthesize isMouseInWindow=_isMouseInWindow;
+@property(retain, nonatomic) MMTimer *closeTimer; // @synthesize closeTimer=_closeTimer;
+@property(retain, nonatomic) id mouseEvent; // @synthesize mouseEvent=_mouseEvent;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) MMChatDetailSingleViewController *mmChatMessageViewController; // @synthesize mmChatMessageViewController=_mmChatMessageViewController;
 @property(retain, nonatomic) MMChatMemberSingleViewController *memberSingleViewController; // @synthesize memberSingleViewController=_memberSingleViewController;
 @property(retain, nonatomic) MMChatMessageMaskView *maskView; // @synthesize maskView=_maskView;
@@ -38,13 +56,25 @@
 @property(nonatomic) __weak NSView *divider; // @synthesize divider=_divider;
 @property(retain, nonatomic) NSTextField *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) NSView *headerContainerView; // @synthesize headerContainerView=_headerContainerView;
+@property(nonatomic) unsigned long long openSource; // @synthesize openSource=_openSource;
+@property(nonatomic) BOOL canBeKey; // @synthesize canBeKey=_canBeKey;
+@property(nonatomic) BOOL windowCloseBtnHidden; // @synthesize windowCloseBtnHidden=_windowCloseBtnHidden;
+@property(nonatomic) BOOL windowResizable; // @synthesize windowResizable=_windowResizable;
+@property(nonatomic) BOOL windowMoveable; // @synthesize windowMoveable=_windowMoveable;
+@property(nonatomic) struct CGRect windowRect; // @synthesize windowRect=_windowRect;
 @property(retain, nonatomic) NSString *searchKey; // @synthesize searchKey=_searchKey;
 @property(retain, nonatomic) WCContactData *chatContact; // @synthesize chatContact=_chatContact;
 - (id)_genChatNameAttrString:(id)arg1;
 - (void)setContact:(id)arg1;
 - (void)onModifyContacts:(id)arg1;
+- (void)report:(unsigned int)arg1 previewStayTime:(unsigned long long)arg2;
+- (void)report:(unsigned int)arg1;
+- (void)close;
+- (BOOL)windowShouldClose:(id)arg1;
+- (void)windowWillClose:(id)arg1;
 - (void)closeMemberSingleView;
 - (void)showWindow:(id)arg1;
+- (void)pushWindow:(id)arg1 withIdentifier:(id)arg2;
 - (void)pushWindow:(id)arg1;
 - (void)close:(id)arg1;
 - (void)doSomethingWhenUserLogout;
@@ -60,8 +90,10 @@
 - (void)windowWillExitFullScreen:(id)arg1;
 - (void)windowDidEnterFullScreen:(id)arg1;
 - (void)windowDidLoad;
-- (void)windowDidResize:(id)arg1;
+- (void)stopColseTimer;
+- (void)delayClose:(double)arg1;
 - (void)dealloc;
+- (id)initWithWindowNibName:(id)arg1 monitorGlobalEvent:(BOOL)arg2;
 - (id)initWithWindowNibName:(id)arg1;
 
 // Remaining properties
@@ -69,6 +101,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) MMChatDetailWindow *window; // @dynamic window;
 
 @end
 

@@ -29,9 +29,10 @@
     CDUnknownBlockType _didPasteFilesBlock;
     CDUnknownBlockType _didDragFilesBlock;
     CDUnknownBlockType _didPasteMessagesBlock;
-    CDUnknownBlockType _didConfirmForwardMessageBlock;
+    CDUnknownBlockType _forwardMessageBlock;
     CDUnknownBlockType _didConfirmForwardFavoritesItemBlock;
     CDUnknownBlockType _didDragContactBlock;
+    CDUnknownBlockType _didDragWeAppBlock;
     CDUnknownBlockType _didHandleEscapeKeyEventBlock;
     CDUnknownBlockType _didHandleClearBlock;
     NSMutableArray *_mentionTokenRanges;
@@ -70,9 +71,10 @@
 @property(nonatomic) unsigned int sendMsgShortCutType; // @synthesize sendMsgShortCutType=_sendMsgShortCutType;
 @property(copy, nonatomic) CDUnknownBlockType didHandleClearBlock; // @synthesize didHandleClearBlock=_didHandleClearBlock;
 @property(copy, nonatomic) CDUnknownBlockType didHandleEscapeKeyEventBlock; // @synthesize didHandleEscapeKeyEventBlock=_didHandleEscapeKeyEventBlock;
+@property(copy, nonatomic) CDUnknownBlockType didDragWeAppBlock; // @synthesize didDragWeAppBlock=_didDragWeAppBlock;
 @property(copy, nonatomic) CDUnknownBlockType didDragContactBlock; // @synthesize didDragContactBlock=_didDragContactBlock;
 @property(copy, nonatomic) CDUnknownBlockType didConfirmForwardFavoritesItemBlock; // @synthesize didConfirmForwardFavoritesItemBlock=_didConfirmForwardFavoritesItemBlock;
-@property(copy, nonatomic) CDUnknownBlockType didConfirmForwardMessageBlock; // @synthesize didConfirmForwardMessageBlock=_didConfirmForwardMessageBlock;
+@property(copy, nonatomic) CDUnknownBlockType forwardMessageBlock; // @synthesize forwardMessageBlock=_forwardMessageBlock;
 @property(copy, nonatomic) CDUnknownBlockType didPasteMessagesBlock; // @synthesize didPasteMessagesBlock=_didPasteMessagesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didDragFilesBlock; // @synthesize didDragFilesBlock=_didDragFilesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didPasteFilesBlock; // @synthesize didPasteFilesBlock=_didPasteFilesBlock;

@@ -31,6 +31,7 @@
 @property(nonatomic) double mmBorderWidth; // @synthesize mmBorderWidth=_mmBorderWidth;
 @property(nonatomic) double mmCornerRadius; // @synthesize mmCornerRadius=_mmCornerRadius;
 @property(retain, nonatomic) NSColor *textColor; // @synthesize textColor=_textColor;
+- (BOOL)accessibilityPerformPress;
 - (void)dealloc;
 - (void)setEnabled:(BOOL)arg1;
 - (void)mouseUp:(id)arg1;

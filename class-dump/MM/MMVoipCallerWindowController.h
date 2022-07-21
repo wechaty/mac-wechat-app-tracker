@@ -58,7 +58,7 @@
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)showWindowAnimated:(BOOL)arg1;
 - (void)delayDisplayPreviewLayerAfterResize:(id)arg1;
-- (void)renderOnOppsiteRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
 - (void)renderOnPreviewRenderLayerWith:(id)arg1;
 - (void)addEffectiveViewAboveRenderView;
 - (void)layoutWithVoiceMode;

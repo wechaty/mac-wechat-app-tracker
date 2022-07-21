@@ -8,10 +8,11 @@
 
 #import "ISolitaireMgrExt-Protocol.h"
 #import "MMCTTextViewDelegate-Protocol.h"
+#import "NSTextViewDelegate-Protocol.h"
 
-@class CAShapeLayer, MMCTTextView, MMRoundedRectangleView, NSProgressIndicator, NSString, NSTextField, NSTextView, SVGImageView;
+@class CAShapeLayer, MMCTTextView, MMRoundedRectangleView, MMTextView, NSProgressIndicator, NSString, NSTextField, NSTextView, SVGImageView;
 
-@interface MMTextMessageCellView : MMMessageCellView <MMCTTextViewDelegate, ISolitaireMgrExt>
+@interface MMTextMessageCellView : MMMessageCellView <MMCTTextViewDelegate, ISolitaireMgrExt, NSTextViewDelegate>
 {
     struct CGRect _calculatedBounds;
     struct CGRect _calculatedTextRect;
@@ -21,6 +22,7 @@
     struct CGRect _calculatedsolitaireRect;
     BOOL _resizedForNewBounds;
     BOOL _m_isSolitaire;
+    BOOL _m_isAnnouncement;
     BOOL _isNeedScrollToSelf;
     MMCTTextView *_messageTextView;
     MMCTTextView *_translationTextView;
@@ -35,6 +37,7 @@
     MMRoundedRectangleView *_solitaireTipsView;
     NSTextField *_solitaireTipsTextField;
     SVGImageView *_solitaireTipsIconView;
+    MMTextView *_announceLearnMoreTextView;
 }
 
 + (id)_translationStringForTableItem:(id)arg1;
@@ -52,10 +55,12 @@
 + (struct CGRect)getMessageBodyTextRectWithTableItem:(id)arg1 widthConstraint:(double)arg2;
 + (struct CGRect)translatedStringBoundsWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTextView *announceLearnMoreTextView; // @synthesize announceLearnMoreTextView=_announceLearnMoreTextView;
 @property(nonatomic) BOOL isNeedScrollToSelf; // @synthesize isNeedScrollToSelf=_isNeedScrollToSelf;
 @property(retain, nonatomic) SVGImageView *solitaireTipsIconView; // @synthesize solitaireTipsIconView=_solitaireTipsIconView;
 @property(retain, nonatomic) NSTextField *solitaireTipsTextField; // @synthesize solitaireTipsTextField=_solitaireTipsTextField;
 @property(retain, nonatomic) MMRoundedRectangleView *solitaireTipsView; // @synthesize solitaireTipsView=_solitaireTipsView;
+@property(nonatomic) BOOL m_isAnnouncement; // @synthesize m_isAnnouncement=_m_isAnnouncement;
 @property(nonatomic) BOOL m_isSolitaire; // @synthesize m_isSolitaire=_m_isSolitaire;
 @property(retain, nonatomic) NSString *textLink; // @synthesize textLink=_textLink;
 @property(retain, nonatomic) CAShapeLayer *dividerLayer; // @synthesize dividerLayer=_dividerLayer;
@@ -98,7 +103,6 @@
 - (id)getSection0MenuItem;
 - (id)contextMenuMenuExtendSection;
 - (BOOL)alwaysDisableMessageTextViewSelectableProperty;
-- (BOOL)showsSaveToFavoritesButton;
 - (id)translationBrandDividerColor;
 - (id)bubbleFillColor;
 - (id)textBackgoundColor;

@@ -14,6 +14,8 @@
 {
 }
 
+- (void)downloadData;
+- (BOOL)shouldFilterNotify:(id)arg1;
 - (void)OnDownloadFavItemRecordPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordFail:(id)arg1 DataId:(id)arg2;
@@ -22,6 +24,7 @@
 - (BOOL)allowAddToFavorites;
 - (BOOL)allowForward;
 - (BOOL)allowCopy;
+- (void)openFile;
 - (void)layoutFileContentView;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;

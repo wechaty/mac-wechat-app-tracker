@@ -18,7 +18,6 @@
 @interface EmoticonDownloadMgr : MMService <ICdnComMgrExt, IMessageExt, GetEmoticonByMD5ListCGIDelegate, MMEmoticonAddFromServerLogicDelegate, MMEmoticonDeleteFromServerLogicDelegate, MMService>
 {
     EmoticonMsgInfoQueue *m_downloadDataQueue;
-    NSMutableDictionary *m_packageDownloads;
     NSMutableDictionary *m_httpDownloadTask;
     GetEmoticonByMD5ListCGI *m_getEmoticonCgi;
     BOOL m_isDownloading;
@@ -29,9 +28,11 @@
     NSMutableArray *_storeIconDownloadQueue;
     NSMutableArray *_storeItemDownloadQueue;
     NSURLSession *_downloadMgr;
+    NSMutableDictionary *_packageDownloads;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *packageDownloads; // @synthesize packageDownloads=_packageDownloads;
 @property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
 @property(retain, nonatomic) NSMutableArray *storeItemDownloadQueue; // @synthesize storeItemDownloadQueue=_storeItemDownloadQueue;

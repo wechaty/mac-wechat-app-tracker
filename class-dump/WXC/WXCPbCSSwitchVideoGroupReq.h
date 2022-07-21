@@ -15,15 +15,31 @@
     unsigned int hasRoomKey:1;
     unsigned int hasGroupId:1;
     unsigned int hasTimestamp:1;
+    unsigned int hasWxGroupId:1;
+    unsigned int hasRoomSdkmode:1;
+    unsigned int hasScreenSharingFileMd5:1;
+    unsigned int hasScreenSharingFileId:1;
     unsigned int action;
     int roomId;
+    unsigned int roomSdkmode;
     long long roomKey;
     NSString *groupId;
     unsigned long long timestamp;
+    NSString *wxGroupId;
+    NSString *screenSharingFileMd5;
+    NSString *screenSharingFileId;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetScreenSharingFileId:) NSString *screenSharingFileId; // @synthesize screenSharingFileId;
+@property(readonly, nonatomic) BOOL hasScreenSharingFileId; // @synthesize hasScreenSharingFileId;
+@property(retain, nonatomic, setter=SetScreenSharingFileMd5:) NSString *screenSharingFileMd5; // @synthesize screenSharingFileMd5;
+@property(readonly, nonatomic) BOOL hasScreenSharingFileMd5; // @synthesize hasScreenSharingFileMd5;
+@property(nonatomic, setter=SetRoomSdkmode:) unsigned int roomSdkmode; // @synthesize roomSdkmode;
+@property(readonly, nonatomic) BOOL hasRoomSdkmode; // @synthesize hasRoomSdkmode;
+@property(retain, nonatomic, setter=SetWxGroupId:) NSString *wxGroupId; // @synthesize wxGroupId;
+@property(readonly, nonatomic) BOOL hasWxGroupId; // @synthesize hasWxGroupId;
 @property(nonatomic, setter=SetTimestamp:) unsigned long long timestamp; // @synthesize timestamp;
 @property(readonly, nonatomic) BOOL hasTimestamp; // @synthesize hasTimestamp;
 @property(retain, nonatomic, setter=SetGroupId:) NSString *groupId; // @synthesize groupId;

@@ -84,6 +84,8 @@
 - (void)sumNeedHandleSize:(id)arg1;
 - (void)onStopUploadTask;
 - (void)dealGetMessageReport:(id)arg1 willSendUserNames:(id)arg2;
+- (void)showToast:(id)arg1;
+- (void)showForwordFailureToast:(unsigned int)arg1;
 - (void)getForwardInfoIsError:(unsigned int)arg1;
 - (void)getDecryptedMessageisSuccess:(id)arg1;
 - (void)getEncryptedMessageisSuccess:(id)arg1;

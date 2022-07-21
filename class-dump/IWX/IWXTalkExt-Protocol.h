@@ -9,6 +9,7 @@
 @protocol IWXTalkExt
 
 @optional
+- (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
 - (void)onMultiTalkNotAllowCameraLimit:(unsigned int)arg1;
 - (void)onMultiTalkCreateLimit:(unsigned int)arg1;
 - (void)onMultiTalkJoinLimit:(unsigned int)arg1;
@@ -25,7 +26,7 @@
 - (void)onCancelCreateMultiTalk:(NSString *)arg1;
 - (void)onReceiveMissMultiTalk:(NSString *)arg1;
 - (void)onInviteMultiTalk:(NSString *)arg1;
-- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (void)OnVideoStateChange:(BOOL)arg1 VideoOn:(BOOL)arg2;
 - (void)OnMuteStateChange:(BOOL)arg1;
 - (void)OnSpeakerStateChange:(BOOL)arg1;

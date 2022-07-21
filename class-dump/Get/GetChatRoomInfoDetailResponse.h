@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, NSString;
+@class BaseResponse, NSString, RoomBindAppList, RoomTools;
 
 @interface GetChatRoomInfoDetailResponse : PBGeneratedMessage
 {
@@ -16,16 +16,40 @@
     unsigned int hasAnnouncementEditor:1;
     unsigned int hasAnnouncementPublishTime:1;
     unsigned int hasChatRoomStatus:1;
+    unsigned int hasChatRoomBusinessType:1;
+    unsigned int hasRoomTools:1;
+    unsigned int hasAssociateOpenImroomName:1;
+    unsigned int hasRoomBindAppList:1;
+    unsigned int hasSpamStatus:1;
+    unsigned int hasXmlAnnouncement:1;
     unsigned int chatRoomInfoVersion;
     unsigned int announcementPublishTime;
     unsigned int chatRoomStatus;
+    unsigned int spamStatus;
     BaseResponse *baseResponse;
     NSString *announcement;
     NSString *announcementEditor;
+    unsigned long long chatRoomBusinessType;
+    RoomTools *roomTools;
+    NSString *associateOpenImroomName;
+    RoomBindAppList *roomBindAppList;
+    NSString *xmlAnnouncement;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetXmlAnnouncement:) NSString *xmlAnnouncement; // @synthesize xmlAnnouncement;
+@property(readonly, nonatomic) BOOL hasXmlAnnouncement; // @synthesize hasXmlAnnouncement;
+@property(nonatomic, setter=SetSpamStatus:) unsigned int spamStatus; // @synthesize spamStatus;
+@property(readonly, nonatomic) BOOL hasSpamStatus; // @synthesize hasSpamStatus;
+@property(retain, nonatomic, setter=SetRoomBindAppList:) RoomBindAppList *roomBindAppList; // @synthesize roomBindAppList;
+@property(readonly, nonatomic) BOOL hasRoomBindAppList; // @synthesize hasRoomBindAppList;
+@property(retain, nonatomic, setter=SetAssociateOpenImroomName:) NSString *associateOpenImroomName; // @synthesize associateOpenImroomName;
+@property(readonly, nonatomic) BOOL hasAssociateOpenImroomName; // @synthesize hasAssociateOpenImroomName;
+@property(retain, nonatomic, setter=SetRoomTools:) RoomTools *roomTools; // @synthesize roomTools;
+@property(readonly, nonatomic) BOOL hasRoomTools; // @synthesize hasRoomTools;
+@property(nonatomic, setter=SetChatRoomBusinessType:) unsigned long long chatRoomBusinessType; // @synthesize chatRoomBusinessType;
+@property(readonly, nonatomic) BOOL hasChatRoomBusinessType; // @synthesize hasChatRoomBusinessType;
 @property(nonatomic, setter=SetChatRoomStatus:) unsigned int chatRoomStatus; // @synthesize chatRoomStatus;
 @property(readonly, nonatomic) BOOL hasChatRoomStatus; // @synthesize hasChatRoomStatus;
 @property(nonatomic, setter=SetAnnouncementPublishTime:) unsigned int announcementPublishTime; // @synthesize announcementPublishTime;

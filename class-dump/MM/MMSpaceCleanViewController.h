@@ -8,7 +8,7 @@
 
 #import "MMNavigationControllerDelegate-Protocol.h"
 
-@class MMBorderView, MMNavigationController, MMPopUpButton, MMSpaceCleanCacheViewController, MMView, NSString, NSTextField, SVGButton;
+@class MMBorderView, MMNavigationController, MMSpaceCleanCacheViewController, MMView, NSPopUpButton, NSString, NSTextField, SVGButton;
 
 @interface MMSpaceCleanViewController : MMViewController <MMNavigationControllerDelegate>
 {
@@ -19,11 +19,11 @@
     MMBorderView *_headerSeperator;
     SVGButton *_backBtn;
     NSTextField *_titleField;
-    MMPopUpButton *_fileTypeSelector;
+    NSPopUpButton *_itemTypeSelector;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMPopUpButton *fileTypeSelector; // @synthesize fileTypeSelector=_fileTypeSelector;
+@property(retain, nonatomic) NSPopUpButton *itemTypeSelector; // @synthesize itemTypeSelector=_itemTypeSelector;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) SVGButton *backBtn; // @synthesize backBtn=_backBtn;
 @property(retain, nonatomic) MMBorderView *headerSeperator; // @synthesize headerSeperator=_headerSeperator;
@@ -31,6 +31,8 @@
 @property(nonatomic) unsigned int headerViewStyle; // @synthesize headerViewStyle=_headerViewStyle;
 @property(retain, nonatomic) MMSpaceCleanCacheViewController *cacheViewController; // @synthesize cacheViewController=_cacheViewController;
 @property(retain, nonatomic) MMNavigationController *navController; // @synthesize navController=_navController;
+- (void)handlePopupButton;
+- (void)enableWindowResize:(BOOL)arg1;
 - (void)adaptWindowWithViewSize:(struct CGSize)arg1;
 - (void)adaptWindowWithViewSize:(struct CGSize)arg1 identifier:(id)arg2;
 - (void)showSessionViewController;

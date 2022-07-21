@@ -23,6 +23,7 @@
 @property(retain, nonatomic) MMTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) MMTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (struct CGRect)bounds;
 - (id)getSearchKeyWordsByString:(id)arg1;
 - (id)hightLightedAttrString:(id)arg1;
 - (id)summaryAttributedStringWithSessionInfo:(id)arg1 searchResult:(id)arg2 andSearchResultCount:(id)arg3;

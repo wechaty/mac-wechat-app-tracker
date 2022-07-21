@@ -61,7 +61,6 @@
 - (void)layoutAvatarWithUrl:(id)arg1 andUserName:(id)arg2;
 - (void)layoutAvatarWithCurrentDataField:(id)arg1;
 - (id)_getRealChatNameWithDataField:(id)arg1;
-- (id)realChatNameWithDataField:(id)arg1;
 - (void)layoutAvatar;
 - (void)layoutSenderInfoView;
 - (void)layoutContentView;

@@ -6,11 +6,34 @@
 
 #import "PBGeneratedMessage.h"
 
+@class NSString;
+
 @interface PCWebReportInfo_ReddotInfo : PBGeneratedMessage
 {
+    unsigned int hasSessionBuffer:1;
+    unsigned int hasStayTime:1;
+    unsigned int hasTipsBuffer:1;
+    unsigned int hasReddotNotifySwitch:1;
+    unsigned int hasMsgXml:1;
+    unsigned int reddotNotifySwitch;
+    NSString *sessionBuffer;
+    unsigned long long stayTime;
+    NSString *tipsBuffer;
+    NSString *msgXml;
 }
 
 + (id)parseFromData:(id)arg1;
+- (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetMsgXml:) NSString *msgXml; // @synthesize msgXml;
+@property(readonly, nonatomic) BOOL hasMsgXml; // @synthesize hasMsgXml;
+@property(nonatomic, setter=SetReddotNotifySwitch:) unsigned int reddotNotifySwitch; // @synthesize reddotNotifySwitch;
+@property(readonly, nonatomic) BOOL hasReddotNotifySwitch; // @synthesize hasReddotNotifySwitch;
+@property(retain, nonatomic, setter=SetTipsBuffer:) NSString *tipsBuffer; // @synthesize tipsBuffer;
+@property(readonly, nonatomic) BOOL hasTipsBuffer; // @synthesize hasTipsBuffer;
+@property(nonatomic, setter=SetStayTime:) unsigned long long stayTime; // @synthesize stayTime;
+@property(readonly, nonatomic) BOOL hasStayTime; // @synthesize hasStayTime;
+@property(retain, nonatomic, setter=SetSessionBuffer:) NSString *sessionBuffer; // @synthesize sessionBuffer;
+@property(readonly, nonatomic) BOOL hasSessionBuffer; // @synthesize hasSessionBuffer;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;

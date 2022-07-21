@@ -6,19 +6,21 @@
 
 #import "MMTextAttachmentCell.h"
 
+#import "GroupNoticeDownloadExt-Protocol.h"
 #import "IMMFavFileDataMgrExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
 #import "IMMRecordDownloadMgrExt-Protocol.h"
 
 @class NSImage, NSString;
 
-@interface MMTextImageAttachmentCell : MMTextAttachmentCell <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, IMMFavFileDataMgrExt>
+@interface MMTextImageAttachmentCell : MMTextAttachmentCell <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, IMMFavFileDataMgrExt, GroupNoticeDownloadExt>
 {
     NSImage *_midImage;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *midImage; // @synthesize midImage=_midImage;
+- (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
 - (void)onMidImageGenerated:(id)arg1 paraInfo:(id)arg2;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;

@@ -20,7 +20,7 @@
 #import "NSTableViewDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 
-@class MMChatDetailEventView, MMChatDetailPanelLogic, MMChatDetailSearchRowView, MMChatDetailStickyExpandMoreAndPackRowView, MMGroupChatAnnounceWindow, MMMediumDivider, MMSessionPickerWindow, MMTableView, MMTextField, MMView, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSView, WCContactData;
+@class MMChatDetailEventView, MMChatDetailPanelLogic, MMChatDetailSearchRowView, MMChatDetailStickyExpandMoreAndPackRowView, MMGroupNoticeWindowController, MMMediumDivider, MMSessionPickerWindow, MMTableView, MMTextField, MMView, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSView, WCContactData;
 @protocol MMComposeInputViewDelegate;
 
 @interface MMChatMemberListViewController : MMTraitsViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, IGroupMgrExt, IContactMgrExt, IOpLogServiceExt, IOpenIMOplogServiceExt, OpenIMResourceMgrExt, MMCustomSearchFieldDelegate, MMChatDetailGroupMemberRowViewDelegate, MMChatDetailSubtitleEditRowViewDelegate, MMChatDetailStickyExpandMoreAndPackRowViewDelegate, MMChatDetailLeftTextRightSwitchRowViewDelegate>
@@ -37,7 +37,7 @@
     NSArray *_groupMemberList;
     NSMutableArray *_searchMemberList;
     MMSessionPickerWindow *_sessionPickerWindow;
-    MMGroupChatAnnounceWindow *_announceWindow;
+    MMGroupNoticeWindowController *_groupNoticeWindow;
     MMView *_backgroundView;
     MMTextField *_noSearchResultHint;
     MMChatDetailEventView *_eventView;
@@ -55,9 +55,11 @@
     id _monitorMouseEvent;
     MMChatDetailPanelLogic *_chatDetailPanelLogic;
     NSMutableDictionary *_updateGroupMemberDetailDic;
+    NSMutableDictionary *_updateGroupNoticeDic;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *updateGroupNoticeDic; // @synthesize updateGroupNoticeDic=_updateGroupNoticeDic;
 @property(retain, nonatomic) NSMutableDictionary *updateGroupMemberDetailDic; // @synthesize updateGroupMemberDetailDic=_updateGroupMemberDetailDic;
 @property(retain, nonatomic) MMChatDetailPanelLogic *chatDetailPanelLogic; // @synthesize chatDetailPanelLogic=_chatDetailPanelLogic;
 @property(retain, nonatomic) id monitorMouseEvent; // @synthesize monitorMouseEvent=_monitorMouseEvent;
@@ -76,7 +78,7 @@
 @property(retain, nonatomic) MMChatDetailEventView *eventView; // @synthesize eventView=_eventView;
 @property(retain, nonatomic) MMTextField *noSearchResultHint; // @synthesize noSearchResultHint=_noSearchResultHint;
 @property(retain, nonatomic) MMView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(nonatomic) __weak MMGroupChatAnnounceWindow *announceWindow; // @synthesize announceWindow=_announceWindow;
+@property(nonatomic) __weak MMGroupNoticeWindowController *groupNoticeWindow; // @synthesize groupNoticeWindow=_groupNoticeWindow;
 @property(retain, nonatomic) MMSessionPickerWindow *sessionPickerWindow; // @synthesize sessionPickerWindow=_sessionPickerWindow;
 @property(nonatomic) BOOL isSearching; // @synthesize isSearching=_isSearching;
 @property(nonatomic) BOOL hasOpenIMContact; // @synthesize hasOpenIMContact=_hasOpenIMContact;
@@ -89,7 +91,7 @@
 @property(copy, nonatomic) CDUnknownBlockType viewDidLoadBlock; // @synthesize viewDidLoadBlock=_viewDidLoadBlock;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 - (void)_resetSearch;
-- (BOOL)onSearchFiledControl:(id)arg1 aCommandSelector:(SEL)arg2;
+- (BOOL)onSearchFiledControl:(id)arg1 textFiled:(id)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (void)onSearchFiledTextDidChange:(id)arg1;
 - (void)handleAppFontSize;
@@ -160,6 +162,7 @@
 - (void)showSuccessToast;
 - (BOOL)isSelfSession;
 - (void)updateGroupMemberDetailIfNeed:(id)arg1;
+- (void)updateGroupNoticeIfNeed:(id)arg1;
 - (void)updateGroupMemberList:(id)arg1;
 - (void)delayReloadTableViewSelector;
 - (void)delayReloadTableView;

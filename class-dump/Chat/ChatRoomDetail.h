@@ -15,18 +15,28 @@
 {
     unsigned int m_uiChatRoomInfoVersion;
     unsigned int m_uiChatRoomInfoSvrVersion;
-    unsigned int _m_nChatRoomStatus;
+    unsigned int m_nChatRoomStatus;
     NSString *m_nsChatRoomDesc;
+    NSString *richChatRoomDesc;
+    unsigned long long m_uiChatRoomDescTime;
+    NSString *m_nsChatRoomDescModer;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_nsChatRoomDescModer;
++ (void)PBArrayAdd_m_uiChatRoomDescTime;
++ (void)PBArrayAdd_richChatRoomDesc;
++ (void)PBArrayAdd_m_nChatRoomStatus;
 + (void)PBArrayAdd_m_nsChatRoomDesc;
 + (void)PBArrayAdd_m_uiChatRoomInfoSvrVersion;
 + (void)PBArrayAdd_m_uiChatRoomInfoVersion;
 - (void).cxx_destruct;
-@property(nonatomic) unsigned int m_nChatRoomStatus; // @synthesize m_nChatRoomStatus=_m_nChatRoomStatus;
+@property(retain, nonatomic) NSString *m_nsChatRoomDescModer; // @synthesize m_nsChatRoomDescModer;
+@property(nonatomic) unsigned long long m_uiChatRoomDescTime; // @synthesize m_uiChatRoomDescTime;
+@property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;
+@property(nonatomic) unsigned int m_nChatRoomStatus; // @synthesize m_nChatRoomStatus;
 @property(retain, nonatomic) NSString *m_nsChatRoomDesc; // @synthesize m_nsChatRoomDesc;
 @property(nonatomic) unsigned int m_uiChatRoomInfoSvrVersion; // @synthesize m_uiChatRoomInfoSvrVersion;
 @property(nonatomic) unsigned int m_uiChatRoomInfoVersion; // @synthesize m_uiChatRoomInfoVersion;

@@ -113,7 +113,7 @@
 - (void)performStartVoipVoiceChat;
 - (void)performKeyDown:(id)arg1;
 - (void)performMultiSelection:(BOOL)arg1;
-- (BOOL)shouldMakeFirstResponder;
+- (BOOL)makeFirstResponderIfNeeded;
 - (void)showEmotionPrompt;
 - (void)resetEmotionPrompt;
 - (void)closeEmoticonPrompt;

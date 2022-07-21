@@ -11,6 +11,7 @@
 }
 
 + (id)getCursorWithImageName:(id)arg1;
++ (id)parseURLParams:(id)arg1;
 + (id)DoNewDns:(id)arg1 DnsType:(unsigned int *)arg2;
 + (id)DoDns:(id)arg1;
 + (BOOL)isHTTPUrl:(id)arg1;
@@ -63,6 +64,7 @@
 + (BOOL)isGIFFile:(id)arg1;
 + (void)selectFile:(id)arg1 rootPath:(id)arg2;
 + (id)getAppNameCanOpenFile:(id)arg1;
++ (BOOL)isValidWeChatID:(id)arg1;
 + (BOOL)isNumber:(id)arg1;
 + (BOOL)isEnglishWord:(id)arg1;
 + (id)transformToPinyin:(id)arg1;
@@ -74,6 +76,7 @@
 + (id)filterStringForTextMessage:(id)arg1 trimWhiteSpace:(BOOL)arg2;
 + (BOOL)isValidStringForTextMessage:(id)arg1;
 + (id)filterControlChars:(id)arg1;
++ (id)formatterDisplayNickName:(id)arg1;
 + (id)ReplaceSingleQuote:(id)arg1;
 + (id)SafeUtf8WithCString:(const char *)arg1;
 + (char *)NewStrFromNSStr:(id)arg1;
@@ -82,6 +85,7 @@
 + (id)GetRandomKeyWithSalt:(id)arg1;
 + (id)GetRandomKey;
 + (id)safeUnarchive:(id)arg1;
++ (void)doNotBackupNsIDPath;
 + (id)GetUUID;
 + (id)GetRandomUUID;
 + (id)GetHashDeviceId;

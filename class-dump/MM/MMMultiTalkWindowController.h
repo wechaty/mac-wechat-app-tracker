@@ -6,13 +6,14 @@
 
 #import "MMVoipBaseWindowController.h"
 
+#import "MMVoIPShareScreenServiceExt-Protocol.h"
 #import "MultiTalkMgrExt-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMTimer, MultiTalkGroup, MultiTalkGroupMember, NSArray, NSDictionary, NSMutableDictionary, NSString, NSTextField, NSView, WCContactData;
+@class MMTimer, MultiTalkGroup, MultiTalkGroupMember, NSArray, NSDictionary, NSMutableDictionary, NSScrollView, NSString, NSTextField, NSView, WCContactData;
 @protocol MMMultiTalkWindowDelegate;
 
-@interface MMMultiTalkWindowController : MMVoipBaseWindowController <NSWindowDelegate, MultiTalkMgrExt>
+@interface MMMultiTalkWindowController : MMVoipBaseWindowController <NSWindowDelegate, MultiTalkMgrExt, MMVoIPShareScreenServiceExt>
 {
     BOOL _isFullScreen;
     BOOL _m_talkReady;
@@ -22,9 +23,12 @@
     unsigned int _m_messageId;
     id <MMMultiTalkWindowDelegate> _m_multiTalkDelegate;
     MultiTalkGroup *_m_group;
+    NSString *_masterUserName;
     NSMutableDictionary *_dictForAvatarMemberView;
-    NSArray *_columeInRow;
-    NSView *_avtarViewContainer;
+    NSArray *_columnInRow;
+    NSView *_renderViewContainer;
+    NSScrollView *_renderViewScrollView;
+    NSView *_renderStackView;
     NSTextField *_tipsLabel;
     MMTimer *_m_checkTalkingTimer;
     MMTimer *_m_updateMessageTimer;
@@ -39,9 +43,13 @@
     NSArray *_m_memberDisplayBigHeadList;
     NSArray *_m_contactWaitList;
     NSArray *_m_contactArrayOther;
+    unsigned long long _m_mode;
+    unsigned long long _m_layout;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long m_layout; // @synthesize m_layout=_m_layout;
+@property(nonatomic) unsigned long long m_mode; // @synthesize m_mode=_m_mode;
 @property(retain, nonatomic) NSArray *m_contactArrayOther; // @synthesize m_contactArrayOther=_m_contactArrayOther;
 @property(retain, nonatomic) NSArray *m_contactWaitList; // @synthesize m_contactWaitList=_m_contactWaitList;
 @property(retain, nonatomic) NSArray *m_memberDisplayBigHeadList; // @synthesize m_memberDisplayBigHeadList=_m_memberDisplayBigHeadList;
@@ -62,16 +70,24 @@
 @property(nonatomic) BOOL m_talkReady; // @synthesize m_talkReady=_m_talkReady;
 @property(retain, nonatomic) NSTextField *tipsLabel; // @synthesize tipsLabel=_tipsLabel;
 @property(nonatomic) BOOL isFullScreen; // @synthesize isFullScreen=_isFullScreen;
-@property(retain, nonatomic) NSView *avtarViewContainer; // @synthesize avtarViewContainer=_avtarViewContainer;
-@property(retain, nonatomic) NSArray *columeInRow; // @synthesize columeInRow=_columeInRow;
+@property(retain, nonatomic) NSView *renderStackView; // @synthesize renderStackView=_renderStackView;
+@property(retain, nonatomic) NSScrollView *renderViewScrollView; // @synthesize renderViewScrollView=_renderViewScrollView;
+@property(retain, nonatomic) NSView *renderViewContainer; // @synthesize renderViewContainer=_renderViewContainer;
+@property(retain, nonatomic) NSArray *columnInRow; // @synthesize columnInRow=_columnInRow;
 @property(retain, nonatomic) NSMutableDictionary *dictForAvatarMemberView; // @synthesize dictForAvatarMemberView=_dictForAvatarMemberView;
+@property(copy, nonatomic) NSString *masterUserName; // @synthesize masterUserName=_masterUserName;
 @property(retain, nonatomic) MultiTalkGroup *m_group; // @synthesize m_group=_m_group;
 @property(nonatomic) __weak id <MMMultiTalkWindowDelegate> m_multiTalkDelegate; // @synthesize m_multiTalkDelegate=_m_multiTalkDelegate;
+- (void)realCloseShareScreen;
+- (void)realOpenShareScreen;
+- (void)didUserCancelScreenCapture:(unsigned int)arg1;
+- (void)didUserPauseScreenCapture;
+- (void)didUserSelectedScreenCaptureSourceInfo:(id)arg1;
 - (void)onMultiTalkMgrChangeToUnReachable;
 - (void)onMultiTalkMgrOpenVideoServerNotAllowed;
 - (void)onReceiveVideoMemberChangeMsg:(id)arg1 extDic:(id)arg2;
 - (void)onAddMultiTalkMemberResult:(BOOL)arg1 groupInfo:(id)arg2;
-- (void)onMultiTalkMgrVideoSessionStartComplete;
+- (void)onMultiTalkMgrSessionStartComplete:(unsigned long long)arg1;
 - (void)onOtherDeviceHandleTalk:(id)arg1;
 - (void)onErr:(int)arg1;
 - (void)onSpeakerStateChange:(BOOL)arg1;
@@ -86,6 +102,7 @@
 - (void)onCancelCreateMultiTalk:(id)arg1;
 - (void)onCreateMultiTalk:(id)arg1;
 - (void)onInviteMultiTalk:(id)arg1;
+- (void)clearTalkingWording;
 - (void)checkTalkMember;
 - (void)initCheckTalkingTimer;
 - (void)getMemberQualityInfoList;
@@ -96,8 +113,10 @@
 - (void)initTimeOutTimer;
 - (void)tryStartTimerView;
 - (void)onAddMemberBtnClick;
+- (void)onShareScreenBtnClick;
 - (void)closeAudioInputAuto:(id)arg1;
 - (void)closeCameraAuto:(id)arg1;
+- (void)realHandleCameraStatus;
 - (void)onOpenCameraButtonClick;
 - (void)deviceCountChanged;
 - (void)switchAudioInput;
@@ -115,14 +134,21 @@
 - (void)updateContactWaitList;
 - (void)updateContactOtherList;
 - (void)updateMemberTalkingList;
+- (void)switchMasterGroupMember:(id)arg1;
+- (void)switchToGridLayout:(id)arg1;
+- (void)switchToFlowLayout:(id)arg1;
+- (void)relayoutMemberViews:(BOOL)arg1 withMember:(id)arg2;
+- (void)layoutFlowAvatarMemberRenderViewsWithAnimated:(BOOL)arg1;
 - (void)layoutAvatarMemberRenderViewsWithAnimated:(BOOL)arg1;
 - (void)relayoutWindowFrameAndRenderViewsIfNeeded:(BOOL)arg1;
 - (void)reloadAvatarMemberRenderViews;
 - (void)setUpAvatarMemberRenderViews;
 - (void)layoutButtonContainer;
+- (void)layoutRenderViewContainer;
 - (void)addEffectiveViewAboveRenderView;
 - (void)layoutContentView;
 - (id)getMemberRenderView:(id)arg1;
+- (BOOL)isShareScreenMemberUserName:(id)arg1;
 - (BOOL)isVideoMemberUserName:(id)arg1;
 - (void)checkIfOnePerson;
 - (BOOL)isMemberReachLimit;

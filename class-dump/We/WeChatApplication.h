@@ -6,20 +6,24 @@
 
 #import <AppKit/NSApplication.h>
 
-@class NSMenuItem, WeChat;
+@class NSMenuItem, NSMutableArray, WeChat;
 
 @interface WeChatApplication : NSApplication
 {
     WeChat *_wechat;
     NSMenuItem *_settingsMenuItem;
+    NSMutableArray *_exceptionDateMap;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *exceptionDateMap; // @synthesize exceptionDateMap=_exceptionDateMap;
 @property(nonatomic) __weak NSMenuItem *settingsMenuItem; // @synthesize settingsMenuItem=_settingsMenuItem;
 @property(retain) WeChat *wechat; // @synthesize wechat=_wechat;
-- (unsigned char)isUndoMangerException:(id)arg1;
+- (BOOL)shouldRaiseExceptionWithRecordDate;
+- (BOOL)isUndoMangerException:(id)arg1;
 - (long long)requestUserAttention:(unsigned long long)arg1;
 - (void)reportException:(id)arg1;
+- (id)init;
 
 @end
 

@@ -19,6 +19,7 @@
 
 - (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadRecordNestedDataFieldExpired:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;
 - (void)OnRecordNestedDataFieldDownloadRetryFailedImageRecordData:(id)arg1;
 - (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
@@ -27,18 +28,13 @@
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
 - (void)OnRecordMessageDownloadRetryFailedImageRecordData:(id)arg1;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)processImageAndNotifyWithOriginPath:(id)arg1 previewPath:(id)arg2 object:(id)arg3 dataId:(id)arg4;
-- (id)dataFieldForDataField:(id)arg1 dataId:(id)arg2;
-- (id)dataFieldForFavoritesItem:(id)arg1 dataId:(id)arg2;
-- (id)getLocalIdDetails:(id)arg1 andDataField:(id)arg2;
-- (id)dataFieldForMessageData:(id)arg1 dataId:(id)arg2;
-- (id)generatePreviewImage:(id)arg1;
-- (void)generatePreviewImageWithPath:(id)arg1 destinationPath:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startDownloadByDataField:(id)arg1 withParentMsg:(id)arg2;
-- (void)startDownloadByFavoritesItem:(id)arg1 DataId:(id)arg2;
-- (void)startDownloadByRecordData:(id)arg1 DataId:(id)arg2;
+- (void)startDownloadByDataField:(id)arg1 withParentMsg:(id)arg2 realDataField:(id)arg3 thumb:(BOOL)arg4 data:(BOOL)arg5;
+- (void)startDownloadByFavoritesItem:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (void)startDownloadByRecordData:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 

@@ -11,11 +11,15 @@
 @interface FinderWebStatsReportResponse : PBGeneratedMessage
 {
     unsigned int hasBaseResponse:1;
+    unsigned int hasNextReportSecond:1;
+    unsigned int nextReportSecond;
     BaseResponse *baseResponse;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetNextReportSecond:) unsigned int nextReportSecond; // @synthesize nextReportSecond;
+@property(readonly, nonatomic) BOOL hasNextReportSecond; // @synthesize hasNextReportSecond;
 @property(retain, nonatomic, setter=SetBaseResponse:) BaseResponse *baseResponse; // @synthesize baseResponse;
 @property(readonly, nonatomic) BOOL hasBaseResponse; // @synthesize hasBaseResponse;
 - (id)mergeFromCodedInputStream:(id)arg1;

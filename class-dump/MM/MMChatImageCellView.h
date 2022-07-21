@@ -46,6 +46,7 @@
 - (void)contextMenuOpenFoler;
 - (id)validRequestorForSendType:(id)arg1 returnType:(id)arg2;
 - (BOOL)allowContextMenuForEvent:(id)arg1;
+- (BOOL)allowRefer;
 - (BOOL)allowChoose;
 - (id)getSection2MenuItem;
 - (id)getSection1MenuItem;

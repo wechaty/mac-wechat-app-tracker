@@ -18,6 +18,8 @@
     unsigned int hasVideoFpsBig:1;
     unsigned int hasMemberIdId:1;
     unsigned int hasDisableTime:1;
+    unsigned int hasSwitchType:1;
+    unsigned int hasSwitchRet:1;
     unsigned int bitRate;
     int roomId;
     unsigned int videoSizeSmall;
@@ -27,10 +29,16 @@
     unsigned int videoFpsBig;
     int memberIdId;
     int disableTime;
+    int switchType;
+    int switchRet;
     long long roomKey;
 }
 
 + (id)parseFromData:(id)arg1;
+@property(nonatomic, setter=SetSwitchRet:) int switchRet; // @synthesize switchRet;
+@property(readonly, nonatomic) BOOL hasSwitchRet; // @synthesize hasSwitchRet;
+@property(nonatomic, setter=SetSwitchType:) int switchType; // @synthesize switchType;
+@property(readonly, nonatomic) BOOL hasSwitchType; // @synthesize hasSwitchType;
 @property(nonatomic, setter=SetDisableTime:) int disableTime; // @synthesize disableTime;
 @property(readonly, nonatomic) BOOL hasDisableTime; // @synthesize hasDisableTime;
 @property(nonatomic, setter=SetMemberIdId:) int memberIdId; // @synthesize memberIdId;

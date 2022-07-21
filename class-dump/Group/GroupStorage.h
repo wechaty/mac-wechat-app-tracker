@@ -92,7 +92,7 @@
 - (id)genOpenIMErrorString:(id)arg1;
 - (int)handleCreateOpenIMChatRoomResponse:(id)arg1;
 - (void)createOpenIMChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)genErrorString:(id)arg1;
+- (id)genErrorString:(id)arg1 needVerify:(char *)arg2;
 - (int)handleCreateNormalChatRoomResponse:(id)arg1;
 - (void)createNormalChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)UICreateGroup:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;

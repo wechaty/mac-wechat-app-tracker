@@ -42,6 +42,7 @@
 - (id)handlerBaseWebViewController;
 - (id)webviewController;
 - (id)sha1:(id)arg1;
+- (void)jsHandlerHandle:(id)arg1;
 - (void)functionCall:(id)arg1 withParams:(id)arg2 withCallbackID:(id)arg3;
 - (id)jsEventWithFunction:(id)arg1 params:(id)arg2 callBackID:(id)arg3;
 - (id)extraDataForNextJSEventCalled:(id)arg1;

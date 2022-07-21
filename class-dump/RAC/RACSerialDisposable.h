@@ -10,14 +10,16 @@
 {
     RACDisposable *_disposable;
     BOOL _disposed;
-    int _spinLock;
+    struct _opaque_pthread_mutex_t _mutex;
 }
 
 + (id)serialDisposableWithDisposable:(id)arg1;
 - (void).cxx_destruct;
 - (void)dispose;
 - (id)swapInDisposable:(id)arg1;
+- (void)dealloc;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)init;
 @property(retain) RACDisposable *disposable;
 - (BOOL)isDisposed;
 

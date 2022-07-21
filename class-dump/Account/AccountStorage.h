@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class DBEncryptInfo, LocalUserInfo, ModUserInfo, NSRecursiveLock, NSString, Setting, SettingExt, UserInfoExt;
+@class DBEncryptInfo, LocalUserInfo, NSRecursiveLock, NSString, Setting, SettingExt;
 
 @interface AccountStorage : MMService <MMService>
 {
@@ -23,16 +23,12 @@
     SettingExt *m_settingExt;
     LocalUserInfo *m_userInfo;
     DBEncryptInfo *m_dbEncryptInfo;
-    ModUserInfo *m_modUserInfo;
-    UserInfoExt *m_userInfoExt;
 }
 
 + (id)GetDBEncryptInfoOfUser:(id)arg1;
 - (void).cxx_destruct;
-- (void)SetUserInfoExt:(id)arg1;
-- (void)SetModUserInfo:(id)arg1;
+- (void)ModLocalUserAvatar:(id)arg1;
 - (void)ModLocalUserInfo:(id)arg1;
-- (id)modUserInfo;
 - (void)ClearDBEncryptInfo;
 - (void)SaveDBEncryptInfo;
 - (id)GetDBEncryptInfo;

@@ -20,7 +20,6 @@
 @property(retain, nonatomic) NSTextField *dividerTextField; // @synthesize dividerTextField=_dividerTextField;
 - (BOOL)allowMultipleSelect;
 - (void)setChoosable:(BOOL)arg1;
-- (BOOL)showsContextMenuButton;
 - (void)mouseDragged:(id)arg1;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)updateDivider;

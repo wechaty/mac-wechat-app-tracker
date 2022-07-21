@@ -32,7 +32,6 @@
 - (id)textView:(id)arg1 menu:(id)arg2 forEvent:(id)arg3 atIndex:(unsigned long long)arg4;
 - (BOOL)allowMultipleSelect;
 - (void)setChoosable:(BOOL)arg1;
-- (BOOL)showsContextMenuButton;
 - (void)updateLabelContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;

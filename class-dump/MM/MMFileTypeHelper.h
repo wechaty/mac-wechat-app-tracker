@@ -10,6 +10,13 @@
 {
 }
 
++ (BOOL)p_isGIFFormat:(id)arg1;
++ (BOOL)p_isHEIFFormat:(id)arg1;
++ (BOOL)p_isHEICFormat:(id)arg1;
++ (BOOL)p_isBMPFormat:(id)arg1;
++ (BOOL)p_isTIFFFormat:(id)arg1;
++ (BOOL)p_isPNGFormat:(id)arg1;
++ (BOOL)p_isJPGFormat:(id)arg1;
 + (void)ensureCreateVideoThumb:(id)arg1 thumbPath:(id)arg2;
 + (void)ensureCreateImageThumb:(id)arg1 thumbPath:(id)arg2;
 + (BOOL)detectImageBlack:(id)arg1;
@@ -25,6 +32,7 @@
 + (id)generateTempFilePathWithLocalId:(unsigned int)arg1 folderPath:(id)arg2;
 + (id)generateFilePathWithFileName:(id)arg1 folderPath:(id)arg2;
 + (id)imageFileExtensionWithData:(id)arg1;
++ (BOOL)isHEIFFileWithData:(id)arg1;
 + (BOOL)isHEICFileWithData:(id)arg1;
 + (BOOL)isTIFFFileWithData:(id)arg1;
 + (BOOL)isRealGIFFileWithFilePath:(id)arg1;

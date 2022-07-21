@@ -11,6 +11,7 @@
 @interface WebViewDataItem : NSObject
 {
     BOOL _isForceWebView;
+    BOOL _isH5JumpUrl;
     NSString *_urlString;
     MessageData *_message;
     ReaderWrap *_readerWrap;
@@ -26,6 +27,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isH5JumpUrl; // @synthesize isH5JumpUrl=_isH5JumpUrl;
 @property(retain, nonatomic) WebTemplateItem *templateItem; // @synthesize templateItem=_templateItem;
 @property(nonatomic) unsigned long long colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(nonatomic) unsigned long long subScene; // @synthesize subScene=_subScene;

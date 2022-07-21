@@ -11,7 +11,7 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMFeedWebViewHeaderToolView, MMWebViewController, MMWindow, NSButton, NSImageView, NSMutableDictionary, NSString, NSTextField, NSToolbar;
+@class MMFeedWebViewHeaderToolView, MMFinderReddotTip, MMWebViewController, MMWindow, NSButton, NSImageView, NSMutableDictionary, NSString, NSTextField, NSToolbar;
 
 @interface MMWebViewWindowController : MMWindowController <NSWindowDelegate, BaseWebViewControllerDelegate, IMMFeedWebViewHeaderToolViewExt, NSToolbarDelegate>
 {
@@ -25,6 +25,8 @@
     NSString *_windowId;
     unsigned long long _type;
     unsigned long long _openTime;
+    MMFinderReddotTip *_redtip;
+    NSString *_sessionBuffer;
     MMWebViewController *_webView;
     NSTextField *_textField;
     NSImageView *_iconImageView;
@@ -53,6 +55,8 @@
 @property(retain, nonatomic) MMWebViewController *webView; // @synthesize webView=_webView;
 @property(nonatomic) BOOL isFullScreenAuxiliary; // @synthesize isFullScreenAuxiliary=_isFullScreenAuxiliary;
 @property(nonatomic) BOOL isFullScreen; // @synthesize isFullScreen=_isFullScreen;
+@property(retain, nonatomic) NSString *sessionBuffer; // @synthesize sessionBuffer=_sessionBuffer;
+@property(retain, nonatomic) MMFinderReddotTip *redtip; // @synthesize redtip=_redtip;
 @property(nonatomic) unsigned long long openTime; // @synthesize openTime=_openTime;
 @property(nonatomic) BOOL isMiniMode; // @synthesize isMiniMode=_isMiniMode;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;

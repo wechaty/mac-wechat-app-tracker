@@ -15,6 +15,7 @@
     int _mReason;
     int _mHoldStatus;
     int _memberId;
+    int _mScreenStatus;
     NSString *_mUserName;
     NSString *_mInviteUserName;
     long long _mInviteTime;
@@ -22,6 +23,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) int mScreenStatus; // @synthesize mScreenStatus=_mScreenStatus;
 @property(retain, nonatomic) NSString *openId; // @synthesize openId=_openId;
 @property(nonatomic) int memberId; // @synthesize memberId=_memberId;
 @property(nonatomic) int mHoldStatus; // @synthesize mHoldStatus=_mHoldStatus;

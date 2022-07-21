@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MMCGIRequester, NSMutableArray, WCFavoritesDB;
+#import "MMCGIDelegate-Protocol.h"
+
+@class NSMutableArray, NSString, WCFavoritesDB;
 @protocol FavoritesBatchGetMgrDelegate, OS_dispatch_queue;
 
-@interface FavoritesBatchGetMgr : NSObject
+@interface FavoritesBatchGetMgr : NSObject <MMCGIDelegate>
 {
-    MMCGIRequester *_requester;
     WCFavoritesDB *_favItemDB;
     NSMutableArray *_batchGetFavIDs;
     NSObject<OS_dispatch_queue> *queue_addNewList;
@@ -23,6 +24,7 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak NSObject<FavoritesBatchGetMgrDelegate> *delegate; // @synthesize delegate=_delegate;
+- (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)_checkInvalidNoteItemSyncFromSvr:(id)arg1;
 - (BOOL)_checkConflict:(id)arg1 vs:(id)arg2;
 - (void)_handleBatchGetFavItemResp:(id)arg1;
@@ -31,6 +33,12 @@
 - (void)addBatchGetFavoritesFavIds:(id)arg1;
 - (void)dealloc;
 - (id)initWithDB:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

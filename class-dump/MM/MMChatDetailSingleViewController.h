@@ -10,6 +10,8 @@
 {
 }
 
+- (BOOL)shouldShowHintLabel;
+- (Class)classWithMessage:(id)arg1;
 - (id)cellViewWithMessage:(id)arg1;
 - (id)cellIdentifierWithMessage:(id)arg1;
 - (BOOL)shouldShowUnreadTipsButton;

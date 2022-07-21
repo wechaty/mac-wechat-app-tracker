@@ -44,6 +44,7 @@
 - (unsigned int)onGetMatrixReportProductID;
 - (void)matrixLog:(int)arg1 module:(const char *)arg2 file:(const char *)arg3 line:(int)arg4 funcName:(const char *)arg5 message:(id)arg6;
 - (BOOL)matrixShouldLog:(int)arg1;
+- (void)recordException:(id)arg1;
 - (void)setCurrentUin:(unsigned long long)arg1 andUsrName:(id)arg2;
 - (id)getMemoryStatPlugin;
 - (id)getCrashBlockMonitorPlugin;

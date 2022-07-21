@@ -47,9 +47,11 @@
     NSString *m_nsWeiboUserName;
     unsigned long long extStatus;
     NSString *patSuffix;
+    NSString *salt;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_salt;
 + (void)PBArrayAdd_m_nsPluginInstallStatus;
 + (void)PBArrayAdd_teenagerModeMiniProgramSetting;
 + (void)PBArrayAdd_teenagerModeBizAcctSetting;
@@ -84,6 +86,7 @@
 + (void)PBArrayAdd_m_nsCountry;
 + (void)PBArrayAdd_m_uiSex;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *salt; // @synthesize salt;
 @property(nonatomic) unsigned int m_nsPluginInstallStatus; // @synthesize m_nsPluginInstallStatus;
 @property(nonatomic) unsigned int teenagerModeMiniProgramSetting; // @synthesize teenagerModeMiniProgramSetting;
 @property(nonatomic) unsigned int teenagerModeBizAcctSetting; // @synthesize teenagerModeBizAcctSetting;

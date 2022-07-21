@@ -43,8 +43,6 @@
 - (id)bind:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) RACSequence *tail;
 @property(readonly, nonatomic) id head;
-- (id)foldRightWithStart:(id)arg1 combine:(CDUnknownBlockType)arg2;
-- (id)foldLeftWithStart:(id)arg1 combine:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseRequest, NSString;
+@class BaseRequest, NSMutableArray, NSString;
 
 @interface SetChatRoomAnnouncementRequest : PBGeneratedMessage
 {
@@ -14,14 +14,28 @@
     unsigned int hasChatRoomName:1;
     unsigned int hasAnnouncement:1;
     unsigned int hasSetAnnouncementFlag:1;
+    unsigned int hasXmlAnnouncement:1;
+    unsigned int hasResourceCount:1;
+    unsigned int hasPureText:1;
     unsigned int setAnnouncementFlag;
+    unsigned int resourceCount;
+    unsigned int pureText;
     BaseRequest *baseRequest;
     NSString *chatRoomName;
     NSString *announcement;
+    NSString *xmlAnnouncement;
+    NSMutableArray *mutableResourcesList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetPureText:) unsigned int pureText; // @synthesize pureText;
+@property(readonly, nonatomic) BOOL hasPureText; // @synthesize hasPureText;
+@property(retain, nonatomic) NSMutableArray *mutableResourcesList; // @synthesize mutableResourcesList;
+@property(nonatomic, setter=SetResourceCount:) unsigned int resourceCount; // @synthesize resourceCount;
+@property(readonly, nonatomic) BOOL hasResourceCount; // @synthesize hasResourceCount;
+@property(retain, nonatomic, setter=SetXmlAnnouncement:) NSString *xmlAnnouncement; // @synthesize xmlAnnouncement;
+@property(readonly, nonatomic) BOOL hasXmlAnnouncement; // @synthesize hasXmlAnnouncement;
 @property(nonatomic, setter=SetSetAnnouncementFlag:) unsigned int setAnnouncementFlag; // @synthesize setAnnouncementFlag;
 @property(readonly, nonatomic) BOOL hasSetAnnouncementFlag; // @synthesize hasSetAnnouncementFlag;
 @property(retain, nonatomic, setter=SetAnnouncement:) NSString *announcement; // @synthesize announcement;
@@ -30,10 +44,14 @@
 @property(readonly, nonatomic) BOOL hasChatRoomName; // @synthesize hasChatRoomName;
 @property(retain, nonatomic, setter=SetBaseRequest:) BaseRequest *baseRequest; // @synthesize baseRequest;
 @property(readonly, nonatomic) BOOL hasBaseRequest; // @synthesize hasBaseRequest;
+- (void)addResources:(id)arg1;
+- (void)addResourcesFromArray:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *resources; // @dynamic resources;
+- (id)resourcesList;
 - (id)init;
 
 @end

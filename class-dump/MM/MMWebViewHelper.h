@@ -15,7 +15,7 @@
 + (id)getMpFontSizeUrl:(id)arg1 fontSize:(int)arg2;
 + (int)getMpFontSizeFromUrl:(id)arg1;
 + (int)getMpFontSizeFromRealFontSize:(double)arg1;
-+ (double)getNonmpRealFontSizeFromFontSize:(int)arg1;
++ (double)getNonmpRealFontSizeFromFontSize:(int)arg1 webWindowType:(unsigned long long)arg2;
 + (int)checkFontSize:(int)arg1;
 + (id)defaultBroswer;
 + (BOOL)hasWxWorkScheme:(id)arg1;
@@ -23,6 +23,7 @@
 + (BOOL)isAppScheme:(id)arg1;
 + (BOOL)isDownloadMIMEType:(id)arg1;
 + (void)playAsMuted:(id)arg1 windowId:(id)arg2;
++ (unsigned long long)getWindowTypeByWindowIdStr:(id)arg1;
 + (unsigned long long)getWindowTypeWithUrlStr:(id)arg1;
 + (void)handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
 

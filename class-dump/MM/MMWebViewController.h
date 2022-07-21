@@ -53,9 +53,11 @@
 @property(retain, nonatomic) SVGButton *nextItemBtn; // @synthesize nextItemBtn=_nextItemBtn;
 @property(retain, nonatomic) SVGButton *prevItemBtn; // @synthesize prevItemBtn=_prevItemBtn;
 @property(retain, nonatomic) NSString *chatUserName; // @synthesize chatUserName=_chatUserName;
+- (void)onPreverifyFinished;
 - (void)handleH5ExtTransfer:(id)arg1;
 - (void)handleH5Auth:(id)arg1;
 - (void)didHandoffRefreshItem:(int)arg1 withIndexSet:(id)arg2;
+- (void)processMpHandoffIfNeeded;
 - (void)enableHandoffItem;
 - (void)handleCurrentMpInfo:(id)arg1;
 - (void)updateFloatWindowStatus;

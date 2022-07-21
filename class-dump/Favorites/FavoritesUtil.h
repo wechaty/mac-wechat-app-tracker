@@ -35,6 +35,8 @@
 + (id)convertRecordMsg:(id)arg1 toFavDataListFromDataList:(id)arg2 withParentSourceId:(id)arg3 deep:(int)arg4;
 + (id)convertRecordMsg:(id)arg1 toWeWorkDataListFromDataList:(id)arg2 withParentSourceId:(id)arg3;
 + (id)convertRecordMsg:(id)arg1 toDataListFromDataList:(id)arg2 withParentSourceId:(id)arg3;
++ (void)filterSpamDataSourceParam:(id)arg1;
++ (void)clearSenderUserName:(id)arg1;
 + (id)getRecordInfo:(id)arg1;
 + (id)forwardFavoriteItemDataField2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)forwardFavoriteItem2MsgData:(id)arg1 toUser:(id)arg2;

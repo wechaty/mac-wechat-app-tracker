@@ -219,14 +219,17 @@
 - (void)toggleMultiSelectionView:(BOOL)arg1;
 - (id)searchDataSource;
 - (BOOL)isSearchingMode;
+- (void)messageCellView:(id)arg1 didDoubleClickOutsideClickableArea:(id)arg2;
 - (void)messageCellView:(id)arg1 didClickOutsideClickableArea:(id)arg2;
+- (void)messageCellViewLocateMessageInRealChat:(id)arg1;
 - (void)locateResult:(id)arg1;
-- (void)messageCellViewLocateMessage:(id)arg1 createTime:(unsigned int)arg2;
+- (void)messageCellViewLocateMessageInChatManager:(id)arg1 createTime:(unsigned int)arg2;
 - (double)messageCellViewMultiSelectionLeftPadding:(id)arg1;
 - (BOOL)messageCellViewIsMultiSelectionMode:(id)arg1;
 - (double)messageCellViewNeedsContainerWidth;
 - (void)messageCellView:(id)arg1 didClickOnAvatarWithItem:(id)arg2;
 - (void)messageCellView:(id)arg1 didDoubleClickOnAvatarWithItem:(id)arg2;
+- (void)messageCellView:(id)arg1 didPasteQuotedMessageWithItem:(id)arg2;
 - (void)messageCellViewDidStartForwardMessageCommand:(id)arg1;
 - (void)messageCellViewNeedsReload:(id)arg1;
 - (void)messageCellViewNeedsHeightRecalculated:(id)arg1;

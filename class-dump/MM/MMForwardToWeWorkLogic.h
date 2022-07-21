@@ -13,10 +13,12 @@
 
 @interface MMForwardToWeWorkLogic : NSObject <MMCGIDelegate>
 {
+    unsigned int _encryRequestSessionId;
     id <MMForwardToWeWorkLogicDelegate> _delegate;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int encryRequestSessionId; // @synthesize encryRequestSessionId=_encryRequestSessionId;
 @property(nonatomic) __weak id <MMForwardToWeWorkLogicDelegate> delegate; // @synthesize delegate=_delegate;
 - (BOOL)sendMessageCountToWeWork:(id)arg1 andKey:(id)arg2;
 - (BOOL)sendMessageToWeWork:(id)arg1 andKey:(id)arg2 andSendMsgType:(long long)arg3;
@@ -28,7 +30,8 @@
 - (BOOL)openWeWorkBySchema:(id)arg1 andSendMsgType:(long long)arg2;
 - (BOOL)requesetMessageFromWeWork:(id)arg1;
 - (BOOL)isLawfulSchemaInfo:(id)arg1 andBase64AppCert:(id)arg2;
-- (BOOL)checkAndEncryptDate:(id)arg1;
+- (void)stopCheckAndEncryptData;
+- (BOOL)checkAndEncryptData:(id)arg1;
 - (id)init;
 
 // Remaining properties

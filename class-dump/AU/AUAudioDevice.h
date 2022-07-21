@@ -14,15 +14,7 @@
 
 @interface AUAudioDevice : MMService <WCAudioSessionExt, MMService>
 {
-    struct {
-        struct ComponentInstanceRecord *ioUnit;
-        struct AudioStreamBasicDescription inputDataFormat;
-        struct AudioStreamBasicDescription outputDataFormat;
-        id <AUAudioDataSource> recordDS;
-        id <AUAudioDataSource> playDS;
-        unsigned int volumeFactor;
-        _Bool isRunning;
-    } mAUState;
+    CDStruct_a00e0650 mAUState;
     int mWillWorkMode;
     int mWorkMode;
     int mBizMode;
@@ -59,10 +51,12 @@
     int _voipModeSessionCount;
     MMTimer *mMeterTimer;
     id <AUAudioDataSource> dataSource;
+    NSString *_currentSessionId;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *currentSessionId; // @synthesize currentSessionId=_currentSessionId;
 @property(nonatomic) BOOL hasAudioError; // @synthesize hasAudioError=_hasAudioError;
 @property(nonatomic) int voipModeSessionCount; // @synthesize voipModeSessionCount=_voipModeSessionCount;
 @property(nonatomic) BOOL m_isChangeAU; // @synthesize m_isChangeAU=_m_isChangeAU;
@@ -83,8 +77,7 @@
 - (void)onWCAudioSessionCategoryChange:(unsigned long long)arg1;
 - (void)onWCAudioSessionOldDeviceUnavailable;
 - (void)onWCAudioSessionNewDeviceAvailable;
-- (void)changeAudioUint;
-- (void)onWCAudioSessionDeviceIDChanged:(id)arg1;
+- (void)changeOutputAudioUint;
 - (BOOL)isF2FMode;
 - (int)getWorkMode;
 - (BOOL)isVoIPPlaying;

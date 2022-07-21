@@ -13,5 +13,6 @@
 - (void)disableControls;
 - (void)unselectAllSessionItem;
 - (void)selectAllSessionItem;
+- (void)onSessionsLoaded;
 @end
 

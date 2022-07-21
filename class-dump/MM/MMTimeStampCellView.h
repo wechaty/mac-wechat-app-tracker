@@ -18,7 +18,6 @@
 @property(retain, nonatomic) NSTextField *timeStampTextField; // @synthesize timeStampTextField=_timeStampTextField;
 - (BOOL)allowMultipleSelect;
 - (void)setChoosable:(BOOL)arg1;
-- (BOOL)showsContextMenuButton;
 - (void)mouseDragged:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
 - (void)handleNewTextSize;

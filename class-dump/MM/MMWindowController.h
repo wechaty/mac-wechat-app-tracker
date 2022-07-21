@@ -9,7 +9,7 @@
 #import "AccountServiceExt-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSButton, NSString, NSTextField, NSTitlebarAccessoryViewController, NSToolbar;
+@class NSButton, NSColor, NSString, NSTextField, NSTitlebarAccessoryViewController, NSToolbar;
 
 @interface MMWindowController : NSWindowController <NSWindowDelegate, AccountServiceExt>
 {
@@ -21,6 +21,7 @@
     NSButton *_minButton;
     NSButton *_zoomButton;
     NSString *_windowTitle;
+    NSColor *_titleColor;
     NSTitlebarAccessoryViewController *_titlebarController;
     NSTextField *_titleField;
     NSToolbar *_toolBar;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) NSToolbar *toolBar; // @synthesize toolBar=_toolBar;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSTitlebarAccessoryViewController *titlebarController; // @synthesize titlebarController=_titlebarController;
+@property(retain, nonatomic) NSColor *titleColor; // @synthesize titleColor=_titleColor;
 @property(nonatomic) BOOL hashiddenTextField; // @synthesize hashiddenTextField=_hashiddenTextField;
 @property(copy, nonatomic) NSString *windowTitle; // @synthesize windowTitle=_windowTitle;
 @property(nonatomic) BOOL isNeedUpdateToolView; // @synthesize isNeedUpdateToolView=_isNeedUpdateToolView;

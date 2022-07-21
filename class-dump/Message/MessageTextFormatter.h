@@ -63,6 +63,7 @@
 - (id)attributedStringFromString:(id)arg1 withFormattingOptions:(id)arg2;
 - (id)attributedStringFromString:(id)arg1;
 - (void)onUserLogout;
+- (void)resetEmojiConfigPath;
 - (void)destroy;
 - (void)dealloc;
 - (id)init;

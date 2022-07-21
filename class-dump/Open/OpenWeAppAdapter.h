@@ -30,6 +30,8 @@
 @property(nonatomic) BOOL usePreloadOnLaunch; // @synthesize usePreloadOnLaunch=_usePreloadOnLaunch;
 @property(retain, nonatomic) WAHostDataSourceImpl *hostDataSourceImpl; // @synthesize hostDataSourceImpl=_hostDataSourceImpl;
 @property(retain, nonatomic) WAHost *host; // @synthesize host=_host;
+- (void)updateWADataBaseWith:(id)arg1 andType:(unsigned int)arg2;
+- (id)convertWith:(id)arg1;
 - (id)generateConfigDictionary;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)closeWeApp:(id)arg1;

@@ -46,6 +46,8 @@
 @property(retain, nonatomic) NSImageView *progressBackgroundView; // @synthesize progressBackgroundView=_progressBackgroundView;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) SVGButton *actionButton; // @synthesize actionButton=_actionButton;
+- (void)processAutoDownload;
+- (BOOL)isAutoDownload;
 - (void)requestRecompressVideo;
 - (void)thumbImageDidLoadWithUniqueID:(id)arg1 image:(id)arg2 message:(id)arg3;
 - (void)onRecvDownloadItem:(id)arg1;
@@ -88,6 +90,7 @@
 - (id)defaultVideoThumbnail;
 - (void)onPlayButtonClicked:(id)arg1;
 - (void)onDownloadButtonClicked;
+- (void)startAutoDownloadVideo;
 - (void)startDownloadVideo;
 - (void)inferCompressStatus;
 - (void)_tellDelegateToResize;

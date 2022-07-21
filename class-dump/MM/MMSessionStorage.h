@@ -21,6 +21,7 @@
 - (void)insertMMSessionInfoConf:(id)arg1;
 - (void)deleteMMSessionInfoConfByUsername:(id)arg1;
 - (id)getMMSessionInfoConfByUsername:(id)arg1;
+- (id)getAllSessionInfoConf;
 - (void)deleteBrandSessionInfo:(id)arg1;
 - (void)saveBrandSessionInfos:(id)arg1;
 - (id)getAllBrandSessionInfo;

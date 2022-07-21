@@ -41,6 +41,7 @@
 @property(nonatomic) BOOL animated; // @synthesize animated=_animated;
 @property(nonatomic) BOOL checked; // @synthesize checked=_checked;
 - (void)propagateValue:(id)arg1 forBinding:(id)arg2;
+- (BOOL)accessibilityPerformPress;
 - (void)accessibilityPerformAction:(id)arg1;
 - (id)accessibilityActionNames;
 - (void)accessibilitySetValue:(id)arg1 forAttribute:(id)arg2;

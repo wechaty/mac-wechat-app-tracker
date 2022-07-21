@@ -13,8 +13,8 @@
 @interface MMPlaceholderContainerView : NSView <NSTextFieldDelegate>
 {
     BOOL _isEditing;
-    MMPlaceholderTextField *_placeholderTextField;
     NSImageView *_imageView;
+    MMPlaceholderTextField *_placeholderTextField;
     CDUnknownBlockType _didBecomeFirstResponderBlock;
     CDUnknownBlockType _textDidChangeBlock;
     CDUnknownBlockType _textDidEndEditBlock;
@@ -26,9 +26,9 @@
 @property(copy, nonatomic) CDUnknownBlockType textDidEndEditBlock; // @synthesize textDidEndEditBlock=_textDidEndEditBlock;
 @property(copy, nonatomic) CDUnknownBlockType textDidChangeBlock; // @synthesize textDidChangeBlock=_textDidChangeBlock;
 @property(copy, nonatomic) CDUnknownBlockType didBecomeFirstResponderBlock; // @synthesize didBecomeFirstResponderBlock=_didBecomeFirstResponderBlock;
-@property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) MMPlaceholderTextField *placeholderTextField; // @synthesize placeholderTextField=_placeholderTextField;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+@property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
@@ -42,7 +42,6 @@
 @property(retain, nonatomic) NSAttributedString *attributedString;
 @property(retain, nonatomic) NSString *stringValue;
 - (void)mouseDown:(id)arg1;
-- (void)onSearchSceneChange:(int)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

@@ -13,5 +13,6 @@
 @optional
 - (void)onJSApiPermissionsUpdate:(NSString *)arg1;
 - (JSFunctionDef *)getJSFunctionDef:(NSString *)arg1;
+- (void)onPreverifyFinished;
 @end
 

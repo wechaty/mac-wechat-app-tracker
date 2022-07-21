@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class NSMutableDictionary, NSObject, NSString;
+@class MMSpaceCleanStatistic, MMSpaceCleanerSelectSessionLogic, NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MMSpaceCleanerService : MMService <MMService>
@@ -16,14 +16,18 @@
     BOOL _m_isComputingSize;
     BOOL _m_isCleaningSession;
     BOOL _m_isCleaningCache;
-    NSMutableDictionary *_m_moduleCacheList;
+    BOOL _m_stopService;
     unsigned long long _m_totalSessionSize;
     unsigned long long _m_totalBackupSize;
     unsigned long long _m_totalCacheSize;
+    unsigned long long _m_totalOtherSize;
     unsigned long long _m_totalSpaceSize;
     unsigned long long _m_totalMacSpace;
     double _m_wechatSpaceRate;
     double _m_othersSpaceRate;
+    MMSpaceCleanStatistic *_statistic;
+    MMSpaceCleanerSelectSessionLogic *_spaceCleanerLogic;
+    double _lastComputeFinishTime;
     NSObject<OS_dispatch_queue> *_m_cacheCleanerQueue;
     NSMutableDictionary *_moduleCacheSpace;
 }
@@ -31,33 +35,44 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *moduleCacheSpace; // @synthesize moduleCacheSpace=_moduleCacheSpace;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_cacheCleanerQueue; // @synthesize m_cacheCleanerQueue=_m_cacheCleanerQueue;
+@property(nonatomic) BOOL m_stopService; // @synthesize m_stopService=_m_stopService;
 @property(nonatomic) BOOL m_isCleaningCache; // @synthesize m_isCleaningCache=_m_isCleaningCache;
 @property(nonatomic) BOOL m_isCleaningSession; // @synthesize m_isCleaningSession=_m_isCleaningSession;
 @property(nonatomic) BOOL m_isComputingSize; // @synthesize m_isComputingSize=_m_isComputingSize;
+@property(nonatomic) double lastComputeFinishTime; // @synthesize lastComputeFinishTime=_lastComputeFinishTime;
+@property(retain, nonatomic) MMSpaceCleanerSelectSessionLogic *spaceCleanerLogic; // @synthesize spaceCleanerLogic=_spaceCleanerLogic;
+@property(retain, nonatomic) MMSpaceCleanStatistic *statistic; // @synthesize statistic=_statistic;
 @property(nonatomic) double m_othersSpaceRate; // @synthesize m_othersSpaceRate=_m_othersSpaceRate;
 @property(nonatomic) double m_wechatSpaceRate; // @synthesize m_wechatSpaceRate=_m_wechatSpaceRate;
 @property(nonatomic) unsigned long long m_totalMacSpace; // @synthesize m_totalMacSpace=_m_totalMacSpace;
 @property(nonatomic) unsigned long long m_totalSpaceSize; // @synthesize m_totalSpaceSize=_m_totalSpaceSize;
+@property(nonatomic) unsigned long long m_totalOtherSize; // @synthesize m_totalOtherSize=_m_totalOtherSize;
 @property(nonatomic) unsigned long long m_totalCacheSize; // @synthesize m_totalCacheSize=_m_totalCacheSize;
 @property(nonatomic) unsigned long long m_totalBackupSize; // @synthesize m_totalBackupSize=_m_totalBackupSize;
 @property(nonatomic) unsigned long long m_totalSessionSize; // @synthesize m_totalSessionSize=_m_totalSessionSize;
-@property(retain, nonatomic) NSMutableDictionary *m_moduleCacheList; // @synthesize m_moduleCacheList=_m_moduleCacheList;
+- (unsigned long long)computeSingleSessionTotalSizeInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
+- (unsigned long long)computeSingleSessionSizeWithoutThumbnailInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
+- (void)computeSpaceRates;
+- (unsigned long long)computeDocPathWithoutMessageSize;
 - (void)clearCache;
+- (unsigned long long)computeSingleSessionThumbnailSize:(id)arg1;
+- (id)computeAllSessionThumbnailSize;
+- (unsigned long long)computeSingleSessionSizeWithoutThumbnail:(id)arg1;
+- (unsigned long long)computeSingleSessionImageSize:(id)arg1;
+- (unsigned long long)computeSingleSessionTotalSize:(id)arg1;
+- (void)computeAllSessionTotalSize;
+- (void)computeTotalCacheSize;
+- (void)computeTotalBackupSize;
+- (void)computeTotalSpaceSize;
+- (id)getSpaceCleanerUniqueID;
 - (id)getSizeStringWithSize:(unsigned long long)arg1;
 - (id)getSizeStringWithStorageType:(unsigned int)arg1;
 - (id)getTotalSessionSizeString;
 - (id)getTotalSpaceSizeString;
-- (unsigned long long)computeSingleSessionThumbnailSize:(id)arg1;
-- (id)computeAllSessionThumbnailSize;
-- (unsigned long long)computeSingleSessionSizeWithoutThumbnailInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
-- (unsigned long long)computeSingleSessionSizeWithoutThumbnail:(id)arg1;
-- (void)computeTotalSessionSizeWithoutThumbnail;
-- (void)computeTotalCacheSize;
-- (void)computeTotalBackupSize;
 - (unsigned long long)getSpaceSizeWithStorageType:(unsigned int)arg1;
 - (unsigned long long)getTotalSpaceSize;
-- (void)computeSpaceRates;
-- (void)computeTotalSpaceSize;
+- (void)updateBackupSize;
+- (void)updateDeletedSesionSize:(unsigned long long)arg1;
 - (void)updateCacheSize:(unsigned long long)arg1 moduleName:(id)arg2;
 - (void)destroy;
 - (void)onServiceClearData;

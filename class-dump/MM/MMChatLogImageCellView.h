@@ -6,7 +6,7 @@
 
 #import "MMChatLogBaseCellView.h"
 
-@class MMChatLogImageDownloadProgressView, MMImageView, NSString;
+@class MMImageView, NSString;
 
 @interface MMChatLogImageCellView : MMChatLogBaseCellView
 {
@@ -15,7 +15,7 @@
     MMImageView *_thumbnailImageView;
     NSString *_imageFilePath;
     NSString *_previewPath;
-    MMChatLogImageDownloadProgressView *_downloadProgressView;
+    NSString *_thumbPath;
 }
 
 + (struct CGSize)imageSizeWithImage:(id)arg1 constrainedToWidth:(double)arg2;
@@ -23,11 +23,14 @@
 + (id)imageWithImagePath:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isExpired; // @synthesize isExpired=_isExpired;
-@property(retain, nonatomic) MMChatLogImageDownloadProgressView *downloadProgressView; // @synthesize downloadProgressView=_downloadProgressView;
 @property(nonatomic) BOOL isDownloading; // @synthesize isDownloading=_isDownloading;
+@property(retain, nonatomic) NSString *thumbPath; // @synthesize thumbPath=_thumbPath;
 @property(retain, nonatomic) NSString *previewPath; // @synthesize previewPath=_previewPath;
 @property(retain, nonatomic) NSString *imageFilePath; // @synthesize imageFilePath=_imageFilePath;
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (BOOL)isAutoDownload;
+- (void)downloadThumb;
+- (void)downloadData;
 - (id)draggingImage;
 - (id)originalFilePath;
 - (BOOL)allowExport;
@@ -35,6 +38,11 @@
 - (BOOL)allowForward;
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
+- (void)updateImageViewToFailImage;
+- (void)layoutContent;
+- (void)layoutThumb;
+- (void)layoutImageContentView;
+- (unsigned int)getFileBytes;
 - (void)openImagePreview;
 - (void)chatLogCellViewNeedsHeightRecalculated;
 - (void)prepareForReuse;

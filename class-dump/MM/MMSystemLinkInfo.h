@@ -22,6 +22,7 @@
 - (id)baseTextAttributesWithSize;
 - (id)formattedSystemMessage:(id)arg1;
 - (void)formattedMsgContent:(id)arg1;
+- (void)parseAnnouncementMessageLearnMoreLinkInfo:(id)arg1 isFromSelf:(BOOL)arg2;
 - (void)parseCancelWaitLinkInfo;
 - (void)parseShowAllPatMsgLinkInfo;
 - (void)parseRecallPatMessageLinkInfo;

@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) FinderWebStatsReportRequest *request; // @synthesize request=_request;
+- (void)sendFinderReportRequestWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)sendFinderReportRequest;
 
 @end

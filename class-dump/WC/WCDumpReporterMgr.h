@@ -24,6 +24,7 @@
 - (void)handleBeginReportLagIssue:(id)arg1;
 - (void)uploadDumpOnIPXX:(id)arg1;
 - (void)onGetIpxxMsgContent:(id)arg1;
+- (void)uploadLagWithType:(unsigned long long)arg1 onDate:(id)arg2;
 - (void)uploadDumpWithDate:(id)arg1;
 - (void)uploadAllDump;
 - (void)dealloc;

@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import "NSPasteboardWriting-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
 @class NSString;
 
-@interface WAAppItemData : NSObject <WCTTableCoding>
+@interface WAAppItemData : NSObject <WCTTableCoding, NSPasteboardWriting>
 {
     BOOL beStared;
     unsigned int appType;
@@ -19,6 +20,7 @@
     double sortFactor;
 }
 
++ (id)weappUsreNameFromPasterBoard:(id)arg1 item:(id)arg2 type:(id)arg3;
 + (const void *)sortFactor;
 + (const void *)beStared;
 + (const void *)updateTime;
@@ -33,11 +35,17 @@
 @property(nonatomic) unsigned int updateTime; // @synthesize updateTime;
 @property(nonatomic) unsigned int appType; // @synthesize appType;
 @property(retain, nonatomic) NSString *userName; // @synthesize userName;
+- (id)pasteboardPropertyListForType:(id)arg1;
+- (id)writableTypesForPasteboard:(id)arg1;
 - (id)appItemKey;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(nonatomic) BOOL isAutoIncrement;
 @property(nonatomic) long long lastInsertedRowID;
+@property(readonly) Class superclass;
 
 @end
 

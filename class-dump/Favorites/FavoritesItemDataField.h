@@ -65,6 +65,7 @@
     NSString *_breadPathWhenNested;
     FavWeAppItem *_weAppItem;
     NSString *_messageUUID;
+    long long _fromnewmsgid;
     double _imageWidth;
     double _imageHeight;
     NSString *_statExtStr;
@@ -105,6 +106,7 @@
 @property(retain, nonatomic) NSString *statExtStr; // @synthesize statExtStr=_statExtStr;
 @property(nonatomic) double imageHeight; // @synthesize imageHeight=_imageHeight;
 @property(nonatomic) double imageWidth; // @synthesize imageWidth=_imageWidth;
+@property(nonatomic) long long fromnewmsgid; // @synthesize fromnewmsgid=_fromnewmsgid;
 @property(retain, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
 @property(retain, nonatomic) FavWeAppItem *weAppItem; // @synthesize weAppItem=_weAppItem;
 @property(retain, nonatomic) NSString *breadPathWhenNested; // @synthesize breadPathWhenNested=_breadPathWhenNested;
@@ -155,6 +157,9 @@
 @property(retain, nonatomic) NSString *sourceDataID; // @synthesize sourceDataID=_sourceDataID;
 @property(retain, nonatomic) NSString *dataFmt; // @synthesize dataFmt=_dataFmt;
 @property(nonatomic) int dataType; // @synthesize dataType=_dataType;
+- (BOOL)needDownloadData;
+- (BOOL)needDownloadThumb;
+- (id)thumbDataId;
 - (id)thumbTaskID;
 - (id)dataTaskID;
 - (BOOL)needUploadData;
@@ -175,6 +180,7 @@
 - (id)GetDataFilePreviewPath;
 - (id)GetDataFilePath;
 - (id)GetDataClientMediaID;
+- (id)GetSenderUsername;
 - (id)GetPreviewThumbImage;
 - (id)GetThumbImage;
 - (id)GetThumbClientMediaID;

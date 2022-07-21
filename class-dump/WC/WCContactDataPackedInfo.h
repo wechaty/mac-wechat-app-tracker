@@ -26,6 +26,8 @@
     unsigned int m_uiDraftTime;
     unsigned int m_uiUpdateTime;
     unsigned int m_uiChatRoomFlags;
+    unsigned int m_uiChatRoomInfoVersion;
+    unsigned int m_uiChatRoomInfoSvrVersion;
     NSString *m_nsMobileIdentify;
     NSString *m_nsQQNickName;
     NSString *m_nsQQRemark;
@@ -49,11 +51,21 @@
     NSString *m_nsDescriptionPY;
     NSString *m_nsCardUrl;
     NSString *m_nsAntispamTicket;
+    NSString *m_nsChatRoomDesc;
+    NSString *richChatRoomDesc;
+    unsigned long long m_uiChatRoomDescTime;
+    NSString *m_nsChatRoomDescModer;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_nsChatRoomDescModer;
++ (void)PBArrayAdd_m_uiChatRoomDescTime;
++ (void)PBArrayAdd_richChatRoomDesc;
++ (void)PBArrayAdd_m_nsChatRoomDesc;
++ (void)PBArrayAdd_m_uiChatRoomInfoSvrVersion;
++ (void)PBArrayAdd_m_uiChatRoomInfoVersion;
 + (void)PBArrayAdd_m_uiChatRoomFlags;
 + (void)PBArrayAdd_m_nsAntispamTicket;
 + (void)PBArrayAdd_m_nsCardUrl;
@@ -91,6 +103,12 @@
 + (void)PBArrayAdd_m_uiExtKey;
 + (void)PBArrayAdd_m_uiChatState;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *m_nsChatRoomDescModer; // @synthesize m_nsChatRoomDescModer;
+@property(nonatomic) unsigned long long m_uiChatRoomDescTime; // @synthesize m_uiChatRoomDescTime;
+@property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;
+@property(retain, nonatomic) NSString *m_nsChatRoomDesc; // @synthesize m_nsChatRoomDesc;
+@property(nonatomic) unsigned int m_uiChatRoomInfoSvrVersion; // @synthesize m_uiChatRoomInfoSvrVersion;
+@property(nonatomic) unsigned int m_uiChatRoomInfoVersion; // @synthesize m_uiChatRoomInfoVersion;
 @property(nonatomic) unsigned int m_uiChatRoomFlags; // @synthesize m_uiChatRoomFlags;
 @property(retain, nonatomic) NSString *m_nsAntispamTicket; // @synthesize m_nsAntispamTicket;
 @property(retain, nonatomic) NSString *m_nsCardUrl; // @synthesize m_nsCardUrl;

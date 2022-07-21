@@ -21,9 +21,11 @@
     NSString *_appId;
     NSString *_brandId;
     NSString *_link;
+    NSString *_hashusername;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *hashusername; // @synthesize hashusername=_hashusername;
 @property(retain, nonatomic) NSString *link; // @synthesize link=_link;
 @property(retain, nonatomic) NSString *brandId; // @synthesize brandId=_brandId;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;

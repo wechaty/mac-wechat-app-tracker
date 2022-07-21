@@ -13,7 +13,7 @@
 #import "MMChatBaseCellViewDelegate-Protocol.h"
 #import "MMViewerWindowDelegate-Protocol.h"
 
-@class JNWCollectionView, MMChatManagerDataSource, MMTimer, NSMutableDictionary, NSString, NSTimer, WCContactData;
+@class JNWCollectionView, MMChatBaseCellView, MMChatManagerDataSource, MMTimer, NSMutableDictionary, NSString, NSTimer, WCContactData;
 @protocol MMCollectionDelegate;
 
 @interface MMChatCollectionViewController : NSViewController <JNWCollectionViewDelegate, JNWCollectionViewDataSource, JNWCollectionViewGridLayoutDelegate, JNWCollectionViewListLayoutDelegate, MMChatBaseCellViewDelegate, MMViewerWindowDelegate>
@@ -29,9 +29,11 @@
     MMTimer *_scrollDelaytimer;
     NSTimer *_uiReloadTimer;
     NSMutableDictionary *_viewerWindowDic;
+    MMChatBaseCellView *_lastMouseEnterCellView;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) __weak MMChatBaseCellView *lastMouseEnterCellView; // @synthesize lastMouseEnterCellView=_lastMouseEnterCellView;
 @property(retain, nonatomic) NSMutableDictionary *viewerWindowDic; // @synthesize viewerWindowDic=_viewerWindowDic;
 @property(retain, nonatomic) NSTimer *uiReloadTimer; // @synthesize uiReloadTimer=_uiReloadTimer;
 @property(nonatomic) BOOL isLoadingMore; // @synthesize isLoadingMore=_isLoadingMore;
@@ -45,6 +47,7 @@
 @property(nonatomic) BOOL multiSelectionMode; // @synthesize multiSelectionMode=_multiSelectionMode;
 - (void)doScrollViewBoundsDidChanged;
 - (void)onScrollViewBoundsDidChanged:(id)arg1;
+- (id)replaceLastMouseEnterCellViewWith:(id)arg1;
 - (void)cellView:(id)arg1 showDetailWindowWithItem:(id)arg2;
 - (BOOL)isMultiSelectionMode;
 - (void)startMultiSelection:(id)arg1;

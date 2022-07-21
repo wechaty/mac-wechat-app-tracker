@@ -69,6 +69,7 @@
 @property(retain, nonatomic) TKState *stateLoadingQRCode; // @synthesize stateLoadingQRCode=_stateLoadingQRCode;
 @property(retain, nonatomic) TKState *stateCancel; // @synthesize stateCancel=_stateCancel;
 @property(retain, nonatomic) TKState *stateStart; // @synthesize stateStart=_stateStart;
+- (BOOL)fireEvent:(id)arg1 userInfo:(id)arg2;
 - (BOOL)fireEvent:(id)arg1;
 - (void)setupEvents;
 - (void)setupStates;

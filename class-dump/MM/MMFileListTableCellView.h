@@ -109,6 +109,7 @@
 - (void)onFileDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (unsigned int)getFileDownloadStatus;
 - (void)_fireStateEvent:(id)arg1;
+- (BOOL)isAutoDownload;
 - (void)setupFileMessageStatus;
 - (void)setUpFileStateMachine;
 - (void)updateFileMessageOpTime:(id)arg1;
@@ -146,6 +147,7 @@
 - (void)onFileDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (unsigned int)getFileDownloadStatus;
 - (void)_fireStateEvent:(id)arg1;
+- (BOOL)isAutoDownload;
 - (void)setupFileMessageStatus;
 - (void)setUpFileStateMachine;
 

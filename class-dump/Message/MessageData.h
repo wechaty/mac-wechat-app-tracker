@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AppProductItem, DownloadVideoReportData, FavoritesItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -234,9 +234,9 @@
 - (void)parseMsgFieldFromXML;
 - (BOOL)isCanUseCdnDownload;
 - (BOOL)isCanUseCdnUpload;
+- (id)getMsgMidImageClientMsgID;
 - (id)getMsgThumbnailClientMsgID;
 - (id)getMsgClientMsgID;
-- (id)cdnClientMediaID;
 - (id)getRealMessageContent;
 - (id)getSubMsgContent;
 - (id)getChatRoomContent;
@@ -268,6 +268,7 @@
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)uniqueID;
+- (id)copyWithScene:(int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)shortDesc;
 @property(readonly, copy) NSString *description;
@@ -344,7 +345,7 @@
 - (id)mapsURLWithProvider:(unsigned long long)arg1;
 - (int)yoType;
 - (unsigned long long)yoCount;
-- (double)originImageSize;
+- (unsigned int)originImageSize;
 - (BOOL)isLargeImageForPreview;
 - (BOOL)isTouchImageAspectRatio;
 
@@ -357,6 +358,7 @@
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @dynamic finderLiveShareItem;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @dynamic finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @dynamic finderShareItem;
+@property(retain, nonatomic) GroupNoticeItem *groupNoticeItem;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SendImageInfo *imageInfo; // @dynamic imageInfo;
 @property(retain, nonatomic) MMLiveAppMsgInnerItem *liveAppMsgInnerItem; // @dynamic liveAppMsgInnerItem;
@@ -381,6 +383,7 @@
 @property(nonatomic) int m_iFromAnswer; // @dynamic m_iFromAnswer;
 @property(nonatomic) int m_iVoipRoomid; // @dynamic m_iVoipRoomid;
 @property(nonatomic) BOOL m_isDirectSend; // @dynamic m_isDirectSend;
+@property(nonatomic) BOOL m_isReaderForbidForward; // @dynamic m_isReaderForbidForward;
 @property(nonatomic) double m_latitude; // @dynamic m_latitude;
 @property(retain, nonatomic) NSString *m_locationLabel; // @dynamic m_locationLabel;
 @property(nonatomic) double m_longitude; // @dynamic m_longitude;
@@ -400,6 +403,7 @@
 @property(retain, nonatomic) NSString *m_nsAppMediaUrl; // @dynamic m_nsAppMediaUrl;
 @property(retain, nonatomic) NSString *m_nsAppMessageAction; // @dynamic m_nsAppMessageAction;
 @property(retain, nonatomic) NSString *m_nsAppName; // @dynamic m_nsAppName;
+@property(retain, nonatomic) NSData *m_nsBypMsgExtInfo; // @dynamic m_nsBypMsgExtInfo;
 @property(copy, nonatomic) NSString *m_nsCommentUrl; // @dynamic m_nsCommentUrl;
 @property(retain, nonatomic) NSString *m_nsDesc; // @dynamic m_nsDesc;
 @property(copy, nonatomic) NSString *m_nsEmoticonBelongToProductID; // @dynamic m_nsEmoticonBelongToProductID;
@@ -421,6 +425,7 @@
 @property(retain, nonatomic) NSString *m_nsSolitaireXml; // @dynamic m_nsSolitaireXml;
 @property(retain, nonatomic) NSString *m_nsSourceDisplayname; // @dynamic m_nsSourceDisplayname;
 @property(retain, nonatomic) NSString *m_nsSourceUsername; // @dynamic m_nsSourceUsername;
+@property(retain, nonatomic) NSString *m_nsSpecifiedChatName; // @dynamic m_nsSpecifiedChatName;
 @property(retain, nonatomic) NSString *m_nsStatExtStr; // @dynamic m_nsStatExtStr;
 @property(retain, nonatomic) NSString *m_nsStreamVideoAdUxInfo; // @dynamic m_nsStreamVideoAdUxInfo;
 @property(retain, nonatomic) NSString *m_nsStreamVideoPublishId; // @dynamic m_nsStreamVideoPublishId;
@@ -458,6 +463,7 @@
 @property(nonatomic) unsigned int m_uiGameType; // @dynamic m_uiGameType;
 @property(nonatomic) unsigned int m_uiHDImgSize; // @dynamic m_uiHDImgSize;
 @property(nonatomic) unsigned int m_uiHevcNormalImgSize; // @dynamic m_uiHevcNormalImgSize;
+@property(nonatomic) unsigned int m_uiIsSenderStatus; // @dynamic m_uiIsSenderStatus;
 @property(nonatomic) unsigned int m_uiMsgThumbHeight; // @dynamic m_uiMsgThumbHeight;
 @property(nonatomic) unsigned int m_uiMsgThumbSize; // @dynamic m_uiMsgThumbSize;
 @property(nonatomic) unsigned int m_uiMsgThumbWidth; // @dynamic m_uiMsgThumbWidth;
@@ -473,6 +479,7 @@
 @property(nonatomic) unsigned int m_uiStreamVideoTime; // @dynamic m_uiStreamVideoTime;
 @property(nonatomic) unsigned int m_uiTempAccessAgreenTime;
 @property(nonatomic) unsigned int m_uiTempAccessBizType;
+@property(nonatomic) unsigned int m_uiTemplateShowType; // @dynamic m_uiTemplateShowType;
 @property(nonatomic) unsigned int m_uiUploadStatus; // @dynamic m_uiUploadStatus;
 @property(nonatomic) unsigned int m_uiVideoCompressStatus; // @dynamic m_uiVideoCompressStatus;
 @property(nonatomic) unsigned int m_uiVideoLen; // @dynamic m_uiVideoLen;

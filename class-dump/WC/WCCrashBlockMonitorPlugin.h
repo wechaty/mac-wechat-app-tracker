@@ -55,6 +55,7 @@
 - (void)removeLagFromUploadingArray:(id)arg1;
 - (void)addLagToUploadingArray:(id)arg1;
 - (BOOL)isLagUploading:(id)arg1;
+- (void)generateExceptionReportWithDumpType:(unsigned long long)arg1 withException:(id)arg2;
 - (void)generateLiveReportWithDumpType:(unsigned long long)arg1 withReason:(id)arg2 selfDefinedPath:(BOOL)arg3;
 - (void)setShouldSuspendAllThreads:(BOOL)arg1;
 - (BOOL)recoverRunloopThreshold;

@@ -6,11 +6,11 @@
 
 #import "MMMessageCellView.h"
 
-#import "SDWebImageManagerDelegate-Protocol.h"
+#import "WAResourceCacheServiceExt-Protocol.h"
 
 @class CAShapeLayer, MMCTTextView, MMImageView, MMView, NSImageView, NSString, NSTextField;
 
-@interface MMAppBrandMessageCellView : MMMessageCellView <SDWebImageManagerDelegate>
+@interface MMAppBrandMessageCellView : MMMessageCellView <WAResourceCacheServiceExt>
 {
     MMView *_containerView;
     NSImageView *_iconImageView;
@@ -42,7 +42,7 @@
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
+- (void)onDownloadImageFinished:(id)arg1 key:(id)arg2;
 - (void)layoutThumbImage;
 - (void)loadData;
 - (BOOL)alwaysDisableMessageTextViewSelectableProperty;
@@ -60,6 +60,7 @@
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (struct CGRect)clickableArea;
+- (id)appUsername;
 - (void)openWaApp;
 - (id)bottomString;
 - (id)appIconUrlString;

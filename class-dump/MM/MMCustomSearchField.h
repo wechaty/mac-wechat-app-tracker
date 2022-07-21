@@ -6,56 +6,58 @@
 
 #import <AppKit/NSView.h>
 
-@class CAShapeLayer, MMPlaceholderContainerView, NSAttributedString, NSButton, NSColor, NSString;
+@class CAShapeLayer, MMPlaceholderContainerView, NSAttributedString, NSButton, NSColor, NSImage, NSString;
 @protocol MMCustomSearchFieldDelegate;
 
 @interface MMCustomSearchField : NSView
 {
-    BOOL _searching;
+    BOOL _isSearching;
     BOOL _isHighlight;
+    BOOL _removedOnCompletion;
+    BOOL _isFirstResponder;
     NSColor *_borderColor;
     NSColor *_highlightBorderColor;
     NSColor *_backgroundColor;
     NSColor *_highlightBackgroundColor;
+    id <MMCustomSearchFieldDelegate> _delegate;
+    NSImage *_flagIcon;
     NSString *_placeholderString;
     NSAttributedString *_placeholderAttributedString;
-    double _cornerRadius;
-    double _borderWidth;
-    MMPlaceholderContainerView *_placeholderContainerView;
-    unsigned long long _customSearchScene;
-    id <MMCustomSearchFieldDelegate> _delegate;
     NSButton *_closeButton;
     CAShapeLayer *_maskLayer;
     CAShapeLayer *_borderLayer;
+    MMPlaceholderContainerView *_placeholderContainerView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMPlaceholderContainerView *placeholderContainerView; // @synthesize placeholderContainerView=_placeholderContainerView;
 @property(retain, nonatomic) CAShapeLayer *borderLayer; // @synthesize borderLayer=_borderLayer;
 @property(retain, nonatomic) CAShapeLayer *maskLayer; // @synthesize maskLayer=_maskLayer;
-@property(nonatomic) BOOL isHighlight; // @synthesize isHighlight=_isHighlight;
+@property(nonatomic) BOOL isFirstResponder; // @synthesize isFirstResponder=_isFirstResponder;
 @property(retain, nonatomic) NSButton *closeButton; // @synthesize closeButton=_closeButton;
-@property(nonatomic) __weak id <MMCustomSearchFieldDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long customSearchScene; // @synthesize customSearchScene=_customSearchScene;
-@property(retain, nonatomic) MMPlaceholderContainerView *placeholderContainerView; // @synthesize placeholderContainerView=_placeholderContainerView;
-@property(nonatomic) BOOL searching; // @synthesize searching=_searching;
-@property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(nonatomic) BOOL removedOnCompletion; // @synthesize removedOnCompletion=_removedOnCompletion;
+@property(nonatomic) BOOL isHighlight; // @synthesize isHighlight=_isHighlight;
+@property(nonatomic) BOOL isSearching; // @synthesize isSearching=_isSearching;
 @property(retain, nonatomic) NSAttributedString *placeholderAttributedString; // @synthesize placeholderAttributedString=_placeholderAttributedString;
 @property(retain, nonatomic) NSString *placeholderString; // @synthesize placeholderString=_placeholderString;
+@property(retain, nonatomic) NSImage *flagIcon; // @synthesize flagIcon=_flagIcon;
+@property(nonatomic) __weak id <MMCustomSearchFieldDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSColor *highlightBackgroundColor; // @synthesize highlightBackgroundColor=_highlightBackgroundColor;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSColor *highlightBorderColor; // @synthesize highlightBorderColor=_highlightBorderColor;
 @property(retain, nonatomic) NSColor *borderColor; // @synthesize borderColor=_borderColor;
-- (void)cleanInputView;
-- (void)end;
-- (void)start;
-- (BOOL)isSearching;
-- (BOOL)isTextEditing;
-@property(retain, nonatomic) NSString *inputValue;
 - (void)onCloseButtonClick:(id)arg1;
+- (void)handleEndSearchEvent;
 - (void)moveToEndOfLineIfNeed;
-- (void)closeAndClean;
-- (void)focus;
+- (void)resignResponder;
+- (void)becomeKey;
+- (void)end:(BOOL)arg1;
+- (void)end;
+- (void)close;
+- (void)clean;
+- (void)start;
+@property(retain, nonatomic) NSAttributedString *inputAttributedString;
+@property(retain, nonatomic) NSString *inputValue;
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)viewDidChangeEffectiveAppearance;

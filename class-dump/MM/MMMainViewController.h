@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class LeftViewController, MMAvatarImageView, MMBadgeOverlayView, MMChatsViewController, MMContactsViewController, MMFavoritesViewController, MMHandoffButton, MMHandoffViewController, MMLockViewController, MMMainWindowExtensionsViewController, MMSettingMenuViewController, MMSplitView, MMView, MMYoMessageView, NSButton, NSPopover, NSString, NSVisualEffectView, SVGButton;
+@class LeftViewController, MMAvatarImageView, MMBadgeOverlayView, MMChatsViewController, MMContactsViewController, MMFavoritesViewController, MMHandoffButton, MMHandoffViewController, MMLockViewController, MMMainWindowExtensionsViewController, MMSettingMenuViewController, MMSplitView, MMView, MMWABoardViewController, MMYoMessageView, NSButton, NSPopover, NSString, NSVisualEffectView, SVGButton;
 
 @interface MMMainViewController : MMViewController <NSSplitViewDelegate, MMTabbarControllerDelegate, IMessageExt, MMNetExt, AccountServiceExt, SyncExt, IContactMgrExt, IBetaMgrExt, NSWindowDelegate, MMHandoffServiceExt, MMMainWindowExtensionsDelegate, NSPopoverDelegate>
 {
@@ -40,6 +40,8 @@
     MMSettingMenuViewController *_settingMenuWindowController;
     MMHandoffButton *_handoffButton;
     MMHandoffViewController *_handoffViewController;
+    SVGButton *_waboardButton;
+    MMWABoardViewController *_waboardViewController;
     MMSplitView *_splitView;
     MMViewController *_rightViewController;
     MMBadgeOverlayView *_preferencesBadgeView;
@@ -59,6 +61,8 @@
 @property(retain, nonatomic) MMBadgeOverlayView *preferencesBadgeView; // @synthesize preferencesBadgeView=_preferencesBadgeView;
 @property(nonatomic) __weak MMViewController *rightViewController; // @synthesize rightViewController=_rightViewController;
 @property(nonatomic) __weak MMSplitView *splitView; // @synthesize splitView=_splitView;
+@property(retain, nonatomic) MMWABoardViewController *waboardViewController; // @synthesize waboardViewController=_waboardViewController;
+@property(nonatomic) __weak SVGButton *waboardButton; // @synthesize waboardButton=_waboardButton;
 @property(retain, nonatomic) MMHandoffViewController *handoffViewController; // @synthesize handoffViewController=_handoffViewController;
 @property(nonatomic) __weak MMHandoffButton *handoffButton; // @synthesize handoffButton=_handoffButton;
 @property(retain, nonatomic) MMSettingMenuViewController *settingMenuWindowController; // @synthesize settingMenuWindowController=_settingMenuWindowController;
@@ -93,6 +97,7 @@
 - (void)onClearHandoffUnread;
 - (void)onUpdateHandoffExpt:(BOOL)arg1;
 - (void)showPreferencesRedDotIfNeed;
+- (void)showWABoardView:(id)arg1;
 - (void)showHandoffView:(id)arg1;
 - (void)showPreferencesWindow:(id)arg1;
 - (void)chatDelete:(id)arg1;
@@ -107,6 +112,7 @@
 - (BOOL)splitView:(id)arg1 shouldAdjustSizeOfSubview:(id)arg2;
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (double)splitView:(id)arg1 constrainMinCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
+- (void)hideFoldExtensions;
 - (void)updateFoldExtensionsPopover;
 - (void)showFoldExtensionsInView:(id)arg1;
 - (unsigned long long)askMaxExtensionInMainView;

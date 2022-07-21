@@ -14,7 +14,12 @@
 {
 }
 
-- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)downloadThumb;
+- (void)downloadData;
+- (BOOL)shouldFilterNotify:(id)arg1;
+- (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
+- (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;
+- (void)OnDownloadRecordNestedDataFieldExpired:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)layoutVideoContentView;
 - (void)openFile;

@@ -6,9 +6,11 @@
 
 #import "MatrixBaseModel.h"
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface MatrixAppRebootInfo : MatrixBaseModel
+@interface MatrixAppRebootInfo : MatrixBaseModel <NSCopying>
 {
     BOOL _isAppEnterForeground;
     BOOL _isAppEnterBackground;
@@ -43,6 +45,7 @@
 @property(nonatomic) BOOL isAppWillSuspend; // @synthesize isAppWillSuspend=_isAppWillSuspend;
 @property(nonatomic) BOOL isAppEnterBackground; // @synthesize isAppEnterBackground=_isAppEnterBackground;
 @property(nonatomic) BOOL isAppEnterForeground; // @synthesize isAppEnterForeground=_isAppEnterForeground;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)saveInfo;
 
 @end

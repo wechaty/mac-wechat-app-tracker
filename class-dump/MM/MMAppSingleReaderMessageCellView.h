@@ -40,13 +40,12 @@
 @property(retain, nonatomic) MMTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
 @property(retain, nonatomic) MMReaderWrapView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) ReaderWrap *readerData; // @synthesize readerData=_readerData;
+- (BOOL)isTemplateReaderWrap;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (void)contextMenuForward;
 - (id)getSection1MenuItem;
 - (BOOL)allowRecall;
-- (BOOL)showsSaveToFavoritesButton;
-- (BOOL)showsContextMenuButton;
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
 - (struct CGRect)bubbleFrame;

@@ -11,6 +11,7 @@
 @protocol MMRichTextViewToolbarDataSource <NSObject>
 
 @optional
+- (double)richTextViewToolbarGroupMargin;
 - (int)featuresEnabledForMMRichTextViewToolbar;
 - (NSFont *)selectedRangeFontForRichTextEditorToolbar;
 @end

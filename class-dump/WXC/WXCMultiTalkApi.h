@@ -27,11 +27,15 @@
 - (BOOL)handleMultiTalkResp:(int)arg1 seq:(int)arg2 data:(id)arg3;
 - (void)setOpenLog:(BOOL)arg1 logLevel:(int)arg2;
 - (void)setMultiTalkSpeaker:(BOOL)arg1;
+- (int)ScreenEncAndSend:(void *)arg1;
+- (int)ScreenEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3;
+- (int)VideoEncAndSend:(void *)arg1;
 - (int)VideoEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3 resolutionMode:(int)arg4 cameraMode:(int)arg5;
 - (void)closeMultiTalkVideo;
 - (int)getMemberIdByUserName:(id)arg1;
 - (BOOL)subscribeGeneralVideoForUserList:(id)arg1;
-- (void)subscribeLargeVideoForUser:(id)arg1 isCancel:(BOOL)arg2;
+- (void)subscribeLargeVideoForUser:(id)arg1 isSharedScreenData:(BOOL)arg2 isCancel:(BOOL)arg3;
+- (void)setMultiTalkScreenSharingStatus:(int)arg1;
 - (void)setMultiTalkVideo:(BOOL)arg1;
 - (void)setMultiTalkMute:(BOOL)arg1;
 - (BOOL)modifyCustomGroupName:(id)arg1 grpName:(id)arg2;

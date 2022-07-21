@@ -21,7 +21,6 @@
 - (BOOL)allowMultipleSelect;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
-- (BOOL)showsContextMenuButton;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -6,10 +6,14 @@
 
 #import "NSObject-Protocol.h"
 
-@class MultiTalkGroup, NSArray;
+@class MMCaptureDeviceInfo, MultiTalkGroup, NSArray, NSString;
 
 @protocol MMMultiTalkWindowDelegate <NSObject>
-- (void)onMultiTalkWindowReceiveSwithCamare:(BOOL)arg1;
+- (void)onMultiTalkWindowSubscribe:(NSString *)arg1;
+- (void)onMultiTalkWindowUnsubscribe:(NSString *)arg1;
+- (void)onMultiTalkWindowReceiveSwitchScreen:(MMCaptureDeviceInfo *)arg1;
+- (void)onMultiTalkWindowReceiveShareScreenOn:(BOOL)arg1 withInfo:(MMCaptureDeviceInfo *)arg2;
+- (void)onMultiTalkWindowReceiveSwitchCamera:(BOOL)arg1;
 - (void)onMultiTalkWindowMicAudioOn:(BOOL)arg1;
 - (void)onMultiTalkWindowRecoverVideoOn:(BOOL)arg1;
 - (void)onMultiTalkWindowUpdateMessageWith:(MultiTalkGroup *)arg1 duration:(unsigned int)arg2 messageId:(unsigned int)arg3;

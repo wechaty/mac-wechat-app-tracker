@@ -9,7 +9,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class ChatRoomData, ChatRoomDetail, MMOpenIMInfo, NSArray, NSData, NSDictionary, NSLock, NSString, SubscriptBrandInfo, WCContactDataPackedInfo;
+@class ChatRoomData, ChatRoomDetail, EncryptSecretInfo, MMOpenIMInfo, NSArray, NSData, NSDictionary, NSLock, NSString, SubscriptBrandInfo, WCContactDataPackedInfo;
 
 @interface WCContactData : NSObject <WCTTableCoding, WCTColumnCoding>
 {
@@ -82,7 +82,9 @@
     ChatRoomDetail *m_chatRoomDetail;
     NSString *m_nsChatRoomAdminList;
     NSString *m_patSuffix;
+    NSString *richChatRoomDesc;
     NSArray *_m_arrPhoneItem;
+    EncryptSecretInfo *_m_encryptSecretInfo;
     NSData *_m_dtUsrImg;
     NSString *_m_nsDisplayNamePY;
     NSDictionary *_m_externalInfoJSONCache;
@@ -94,6 +96,7 @@
 + (BOOL)IsReservedGroupTopic:(id)arg1;
 + (id)getMicroBlogUsrDisplayName:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_richChatRoomDesc;
 + (void)PBArrayAdd_m_uiChatRoomType;
 + (void)PBArrayAdd_m_patSuffix;
 + (void)PBArrayAdd_m_nsChatRoomAdminList;
@@ -162,6 +165,7 @@
 + (void)PBArrayAdd_m_nsUsrName;
 + (const void *)m_openIMInfo;
 + (const void *)m_packedInfo;
++ (const void *)richChatRoomDesc;
 + (const void *)m_patSuffix;
 + (const void *)m_uiChatRoomType;
 + (const void *)m_uiChatRoomMaxCount;
@@ -201,7 +205,9 @@
 @property(retain, nonatomic) NSDictionary *m_externalInfoJSONCache; // @synthesize m_externalInfoJSONCache=_m_externalInfoJSONCache;
 @property(copy, nonatomic) NSString *m_nsDisplayNamePY; // @synthesize m_nsDisplayNamePY=_m_nsDisplayNamePY;
 @property(retain, nonatomic) NSData *m_dtUsrImg; // @synthesize m_dtUsrImg=_m_dtUsrImg;
+@property(retain, nonatomic) EncryptSecretInfo *m_encryptSecretInfo; // @synthesize m_encryptSecretInfo=_m_encryptSecretInfo;
 @property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem=_m_arrPhoneItem;
+@property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;
 @property(nonatomic) unsigned int m_uiChatRoomType; // @synthesize m_uiChatRoomType;
 @property(retain, nonatomic) NSString *m_patSuffix; // @synthesize m_patSuffix;
 @property(retain, nonatomic) NSString *m_nsChatRoomAdminList; // @synthesize m_nsChatRoomAdminList;
@@ -346,7 +352,6 @@
 - (id)getValueTypeTable;
 - (id)getBrandAppId;
 - (BOOL)hasBrandMenuItem;
-- (id)getHistoryRecordUrl;
 - (BOOL)canShareThisBrandContact;
 - (BOOL)canSendMessageToThisBrandContact;
 - (id)enterPriseMainBrandUserName;
@@ -372,6 +377,7 @@
 - (id)displayNamePinYin;
 - (id)groupName;
 - (id)displayName;
+- (id)trimmingNewlineAndFormatterEmojiString:(id)arg1;
 - (id)profileNickName;
 - (BOOL)shouldUpdateGroupDetail;
 - (BOOL)shouldUpdateGroupMemberDetail;

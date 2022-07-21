@@ -32,6 +32,7 @@
 @property(retain, nonatomic) TKStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadBlock; // @synthesize finishDownloadBlock=_finishDownloadBlock;
 @property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
+- (void)onDownloadPartLen:(unsigned int)arg1 TotalLen:(unsigned int)arg2;
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
@@ -39,6 +40,10 @@
 - (void)onVideoDidFailDownloadWithMessage:(id)arg1;
 - (void)onVideoDidFinishDownloadWithMessage:(id)arg1;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
+- (void)startDownloadRecordVideo;
+- (void)startDownloadFavVideo;
+- (void)startDownloadMessageVideoWithManual:(BOOL)arg1;
+- (BOOL)isAutoDownload;
 - (void)popupVideoInfo;
 - (void)retryDownload:(id)arg1;
 - (void)onPlayButtonClicked:(id)arg1;

@@ -12,13 +12,21 @@
     unsigned int hasScreenWidth:1;
     unsigned int hasClientHeight:1;
     unsigned int hasClientWidth:1;
+    unsigned int hasFocusWindows:1;
+    unsigned int hasOpenWindows:1;
     unsigned int screenHeight;
     unsigned int screenWidth;
     unsigned int clientHeight;
     unsigned int clientWidth;
+    unsigned long long focusWindows;
+    unsigned long long openWindows;
 }
 
 + (id)parseFromData:(id)arg1;
+@property(nonatomic, setter=SetOpenWindows:) unsigned long long openWindows; // @synthesize openWindows;
+@property(readonly, nonatomic) BOOL hasOpenWindows; // @synthesize hasOpenWindows;
+@property(nonatomic, setter=SetFocusWindows:) unsigned long long focusWindows; // @synthesize focusWindows;
+@property(readonly, nonatomic) BOOL hasFocusWindows; // @synthesize hasFocusWindows;
 @property(nonatomic, setter=SetClientWidth:) unsigned int clientWidth; // @synthesize clientWidth;
 @property(readonly, nonatomic) BOOL hasClientWidth; // @synthesize hasClientWidth;
 @property(nonatomic, setter=SetClientHeight:) unsigned int clientHeight; // @synthesize clientHeight;

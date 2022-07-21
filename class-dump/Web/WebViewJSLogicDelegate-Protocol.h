@@ -6,15 +6,17 @@
 
 #import "NSObject-Protocol.h"
 
-@class BaseWebViewController, NSArray, NSString;
+@class BaseWebViewController, JSFunctionDef, NSArray, NSString;
 
 @protocol WebViewJSLogicDelegate <NSObject>
+- (unsigned char)getJSApiPermission:(JSFunctionDef *)arg1;
 
 @optional
 - (void)onCopy:(NSString *)arg1;
 - (void)onDomReady;
 - (void)onPageStateChange:(NSString *)arg1;
 - (BaseWebViewController *)logicBaseWebViewController;
+- (BOOL)isTempAccessOfJSApiPermitted:(NSString *)arg1;
 - (NSArray *)getAuthorizedMonitorEvents:(NSString *)arg1;
 @end
 

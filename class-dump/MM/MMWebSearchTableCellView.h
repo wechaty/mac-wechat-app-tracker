@@ -29,6 +29,7 @@
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (struct CGRect)bounds;
 - (void)onClickArrowsBtn;
 - (void)populateWithResultItem:(id)arg1 keyword:(id)arg2;
 - (void)layoutTitleFields;

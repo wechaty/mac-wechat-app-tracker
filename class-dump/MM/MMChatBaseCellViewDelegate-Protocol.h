@@ -11,6 +11,7 @@
 @protocol MMChatBaseCellViewDelegate <NSObject>
 
 @optional
+- (MMChatBaseCellView *)replaceLastMouseEnterCellViewWith:(MMChatBaseCellView *)arg1;
 - (void)cellView:(MMChatBaseCellView *)arg1 showDetailWindowWithItem:(MessageCollectionItem *)arg2;
 - (BOOL)isMultiSelectionMode;
 - (void)startMultiSelection:(MMChatBaseCellView *)arg1;

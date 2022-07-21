@@ -58,6 +58,7 @@
 - (id)getMessageDataSourceFilePath:(id)arg1;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (BOOL)allowShareExtension;
+- (BOOL)allowRefer;
 - (BOOL)allowRecall;
 - (BOOL)allowChoose;
 - (BOOL)allowContextMenuForEvent:(id)arg1;
@@ -69,8 +70,10 @@
 - (void)contextMenuMultipleSelectMessage;
 - (void)doAnimationAndAddFavItem:(id)arg1;
 - (void)contextMenuFavorites;
+- (void)contextMenuLocateMessageInRealChat;
 - (void)contextMenuResendMessage;
 - (void)contextMenuForward;
+- (void)contextMenuQuote;
 - (void)contextMenuOpenFoler;
 - (void)contextMenuOpenWith:(id)arg1;
 - (void)contextMenuOpen;
@@ -87,6 +90,7 @@
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;
 - (void)itemAction;
+- (void)addQuoteItem:(id)arg1;
 - (void)addSaveToFavoritesItem:(id)arg1;
 - (void)addMultiSelectItem:(id)arg1;
 - (void)addForwardItem:(id)arg1;

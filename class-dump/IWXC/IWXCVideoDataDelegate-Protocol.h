@@ -9,6 +9,6 @@
 @protocol IWXCVideoDataDelegate <NSObject>
 
 @optional
-- (void)onNotifyVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onNotifyVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 @end
 

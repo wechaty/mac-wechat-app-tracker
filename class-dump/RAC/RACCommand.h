@@ -6,35 +6,35 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableArray, RACSignal;
+@class RACSignal, RACSubject;
 
 @interface RACCommand : NSObject
 {
-    NSMutableArray *_activeExecutionSignals;
     unsigned int _allowsConcurrentExecution;
     RACSignal *_executionSignals;
     RACSignal *_executing;
     RACSignal *_enabled;
     RACSignal *_errors;
+    RACSubject *_addedExecutionSignalsSubject;
+    RACSubject *_allowsConcurrentExecutionSubject;
     RACSignal *_immediateEnabled;
     CDUnknownBlockType _signalBlock;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) CDUnknownBlockType signalBlock; // @synthesize signalBlock=_signalBlock;
 @property(readonly, nonatomic) RACSignal *immediateEnabled; // @synthesize immediateEnabled=_immediateEnabled;
+@property(readonly, nonatomic) RACSubject *allowsConcurrentExecutionSubject; // @synthesize allowsConcurrentExecutionSubject=_allowsConcurrentExecutionSubject;
+@property(readonly, nonatomic) RACSubject *addedExecutionSignalsSubject; // @synthesize addedExecutionSignalsSubject=_addedExecutionSignalsSubject;
 @property(readonly, nonatomic) RACSignal *errors; // @synthesize errors=_errors;
 @property(readonly, nonatomic) RACSignal *enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) RACSignal *executing; // @synthesize executing=_executing;
 @property(readonly, nonatomic) RACSignal *executionSignals; // @synthesize executionSignals=_executionSignals;
 - (id)execute:(id)arg1;
 - (id)initWithEnabled:(id)arg1 signalBlock:(CDUnknownBlockType)arg2;
+- (void)dealloc;
 - (id)initWithSignalBlock:(CDUnknownBlockType)arg1;
 - (id)init;
-- (void)removeActiveExecutionSignal:(id)arg1;
-- (void)addActiveExecutionSignal:(id)arg1;
-@property(readonly, copy) NSArray *activeExecutionSignals;
 @property BOOL allowsConcurrentExecution;
 
 @end

@@ -44,9 +44,6 @@
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)flatten;
 - (id)flattenMap:(CDUnknownBlockType)arg1;
-- (id)mapPreviousWithStart:(id)arg1 reduce:(CDUnknownBlockType)arg2;
-- (id)scanWithStart:(id)arg1 combine:(CDUnknownBlockType)arg2;
-- (id)sequenceMany:(CDUnknownBlockType)arg1;
 
 @end
 

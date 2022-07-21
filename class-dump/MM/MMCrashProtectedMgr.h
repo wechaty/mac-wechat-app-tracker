@@ -31,7 +31,6 @@
 - (void)removeInfoWithKey:(id)arg1 threadId:(unsigned long long)arg2;
 - (void)stopCleaning;
 - (void)doCleaningJob;
-- (void)onExit;
 - (void)onServiceTerminate;
 - (void)onServiceEnterForeground;
 - (void)onServiceEnterBackground;

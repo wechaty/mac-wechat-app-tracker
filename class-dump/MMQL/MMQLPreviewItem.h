@@ -32,6 +32,7 @@
     FavoritesItem *_favItem;
     FavoritesItemDataField *_dataField;
     NSString *_parentRecordUniqueId;
+    id _parentData;
     NSImage *_urlImage;
     NSURL *_webUrl;
     struct CGSize _originalImageSize;
@@ -40,6 +41,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSURL *webUrl; // @synthesize webUrl=_webUrl;
 @property(retain, nonatomic) NSImage *urlImage; // @synthesize urlImage=_urlImage;
+@property(retain, nonatomic) id parentData; // @synthesize parentData=_parentData;
 @property(retain, nonatomic) NSString *parentRecordUniqueId; // @synthesize parentRecordUniqueId=_parentRecordUniqueId;
 @property(nonatomic) BOOL isParentMsg; // @synthesize isParentMsg=_isParentMsg;
 @property(retain, nonatomic) FavoritesItemDataField *dataField; // @synthesize dataField=_dataField;

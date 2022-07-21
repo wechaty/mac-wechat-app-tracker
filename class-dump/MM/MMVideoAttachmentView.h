@@ -6,13 +6,14 @@
 
 #import "MMAttachmentReusableView.h"
 
+#import "GroupNoticeDownloadExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
 #import "IMMRecordDownloadMgrExt-Protocol.h"
 
 @class MMButton, MMImageView, NSString, WeNoteParagraphInfo;
 @protocol MMVideoAttachmentViewDelegate;
 
-@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt>
+@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, GroupNoticeDownloadExt>
 {
     MMImageView *_thumbnailImageView;
     MMButton *_playBtn;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) WeNoteParagraphInfo *paraInfo; // @synthesize paraInfo=_paraInfo;
 @property(retain, nonatomic) MMButton *playBtn; // @synthesize playBtn=_playBtn;
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)reloadImage;

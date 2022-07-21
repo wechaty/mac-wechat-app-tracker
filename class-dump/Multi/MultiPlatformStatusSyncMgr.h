@@ -42,8 +42,8 @@
 - (void)sendStatusNotifyReq:(unsigned int)arg1 chatName:(id)arg2;
 - (void)markVoiceMessageAsRead:(id)arg1;
 - (void)NotifyGetSessionOrderIfNeeded;
-- (void)NotifyGetSessionOrder;
 - (void)NotifyUnReadSession:(id)arg1;
+- (void)NotifyHideSession:(id)arg1;
 - (void)NotifyReadSession:(id)arg1;
 - (void)NotifyQuitSession:(id)arg1;
 - (void)NotifyEnterSession:(id)arg1;

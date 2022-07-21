@@ -52,9 +52,9 @@
 - (void)onDeleteContacts:(id)arg1;
 - (void)onModifyStrangerContacts:(id)arg1;
 - (void)onModifyContacts:(id)arg1;
-- (void)onDownloadImage:(id)arg1 forScene:(int)arg2 isHD:(BOOL)arg3 imageData:(id)arg4;
-- (void)onDownloadImageFail:(id)arg1 forScene:(int)arg2 isHD:(BOOL)arg3;
-- (BOOL)isNeedGetImage:(id)arg1 forScene:(int)arg2 isHD:(BOOL)arg3 isForce:(BOOL)arg4;
+- (void)onDownloadImage:(id)arg1;
+- (void)onDownloadImageFail:(id)arg1;
+- (BOOL)isNeedGetImage:(id)arg1;
 - (void)cdnDownloadMgrFinishHTTPRequest:(id)arg1;
 - (void)cdnDownloadMgrFailedHTTPRequest:(id)arg1;
 - (void)downloadAvatarWithUrl:(id)arg1 userName:(id)arg2 isHD:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;

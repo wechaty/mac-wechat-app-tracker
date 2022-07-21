@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSString, TRTCScreenCaptureSourceInfo;
 
 @interface MMCaptureDeviceInfo : NSObject
 {
@@ -15,9 +15,11 @@
     NSString *_deviceName;
     NSString *_manufactureName;
     NSString *_uniqueID;
+    TRTCScreenCaptureSourceInfo *_sourceInfo;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) TRTCScreenCaptureSourceInfo *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
 @property(nonatomic) unsigned int deviceID; // @synthesize deviceID=_deviceID;
 @property(copy, nonatomic) NSString *manufactureName; // @synthesize manufactureName=_manufactureName;

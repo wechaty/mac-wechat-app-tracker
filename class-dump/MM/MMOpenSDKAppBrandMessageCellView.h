@@ -12,6 +12,7 @@
 
 - (id)bottomString;
 - (void)openWaApp;
+- (id)appUsername;
 - (id)appIconUrlString;
 - (id)appName;
 - (id)titleName;

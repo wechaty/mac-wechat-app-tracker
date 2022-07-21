@@ -13,6 +13,7 @@
 + (id)genFilePathWithReportType:(unsigned long long)arg1 withReportID:(id)arg2;
 + (id)genFilePathWithReportType:(unsigned long long)arg1;
 + (id)saveDump:(id)arg1 withReportType:(unsigned long long)arg2 withReportID:(id)arg3;
++ (id)dumpReportWithReportType:(unsigned long long)arg1 withException:(id)arg2 suspendAllThreads:(BOOL)arg3 enableSnapshot:(BOOL)arg4 writeCpuUsage:(BOOL)arg5;
 + (id)dumpReportWithReportType:(unsigned long long)arg1 withExceptionReason:(id)arg2 suspendAllThreads:(BOOL)arg3 enableSnapshot:(BOOL)arg4 writeCpuUsage:(BOOL)arg5 selfDefinedPath:(BOOL)arg6;
 + (id)dumpReportWithReportType:(unsigned long long)arg1 suspendAllThreads:(BOOL)arg2 enableSnapshot:(BOOL)arg3;
 

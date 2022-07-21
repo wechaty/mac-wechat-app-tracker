@@ -8,7 +8,7 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class FavoritesItem, MMFavBrowseDetailReportData, MMMediumDivider, MMWindow, MessageData, NSButton, NSString, NSTextField, NSView, SVGButton, WeNoteArticleToolBar, WeNoteDetailViewController;
+@class FavoritesItem, MMDivider, MMFavBrowseDetailReportData, MMWindow, MessageData, NSButton, NSString, NSTextField, NSView, SVGButton, WeNoteArticleToolBar, WeNoteDetailViewController;
 @protocol WeNoteWindowControllerDelegate;
 
 @interface WeNoteWindowController : MMWindowController <NSWindowDelegate>
@@ -27,7 +27,7 @@
     NSView *_toolBarBgContainer;
     NSView *_toolBarContainer;
     NSView *_titleBarBkView;
-    MMMediumDivider *_divider;
+    MMDivider *_divider;
     NSTextField *_titleTextView;
     NSView *_backgroundView;
     NSView *_windowControlContainer;
@@ -43,7 +43,7 @@
 @property(retain) NSView *windowControlContainer; // @synthesize windowControlContainer=_windowControlContainer;
 @property(retain) NSView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-@property(retain) MMMediumDivider *divider; // @synthesize divider=_divider;
+@property(retain) MMDivider *divider; // @synthesize divider=_divider;
 @property(retain) NSView *titleBarBkView; // @synthesize titleBarBkView=_titleBarBkView;
 @property(retain) NSView *toolBarContainer; // @synthesize toolBarContainer=_toolBarContainer;
 @property __weak NSView *toolBarBgContainer; // @synthesize toolBarBgContainer=_toolBarBgContainer;

@@ -18,9 +18,11 @@
     NSString *nsDes;
     NSString *nsTicket;
     MessageData *oMsgData;
+    NSString *m_nsChatRoomUserName;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_m_nsChatRoomUserName;
 + (void)PBArrayAdd_oMsgData;
 + (void)PBArrayAdd_uiStatus;
 + (void)PBArrayAdd_uiOpCode;
@@ -30,6 +32,7 @@
 + (void)PBArrayAdd_bReaded;
 + (void)PBArrayAdd_nsSource;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *m_nsChatRoomUserName; // @synthesize m_nsChatRoomUserName;
 @property(retain, nonatomic) MessageData *oMsgData; // @synthesize oMsgData;
 @property(nonatomic) unsigned int uiStatus; // @synthesize uiStatus;
 @property(nonatomic) unsigned int uiOpCode; // @synthesize uiOpCode;

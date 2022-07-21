@@ -14,10 +14,13 @@
 {
 }
 
+- (void)downloadData;
+- (BOOL)shouldFilterNotify:(id)arg1;
 - (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)openFile;
 - (void)layoutFileContentView;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;
 - (void)dealloc;

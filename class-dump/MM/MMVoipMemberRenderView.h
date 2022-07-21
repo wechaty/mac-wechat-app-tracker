@@ -9,11 +9,11 @@
 #import "CAAnimationDelegate-Protocol.h"
 #import "MultiTalkContactCellExt-Protocol.h"
 
-@class CALayer, MMImageView, MMTimer, MMVoipDotAnimateView, MultiTalkGroupMember, NSString, NSTextField, VoiceIconView, WCContactData;
+@class CALayer, MMImageView, MMTimer, MMVoIPRenderToolView, MMVoipDotAnimateView, MultiTalkGroupMember, NSString, NSTextField, NSTrackingArea, VoiceIconView, WCContactData;
 
-@interface MMVoipMemberRenderView : NSView <MultiTalkContactCellExt, CAAnimationDelegate>
+@interface MMVoIPMemberRenderView : NSView <MultiTalkContactCellExt, CAAnimationDelegate>
 {
-    BOOL _isVideoVisiable;
+    BOOL _isVideoAvailable;
     BOOL _m_renderDisplay;
     BOOL _m_highlighted;
     BOOL _isMute;
@@ -21,22 +21,30 @@
     unsigned int _m_videoSizeW;
     unsigned int _m_FpsCount;
     float _degress;
-    CALayer *_oppsiteRenderLayer;
+    CALayer *_oppositeRenderLayer;
     CALayer *_renderLayer;
     MMImageView *_avatarThumbImage;
+    NSTextField *_nickNameLabel;
     NSTextField *_statusLabel;
     MMVoipDotAnimateView *_dotLoadingView;
     NSView *_maskImageView;
-    MultiTalkGroupMember *_oMember;
-    WCContactData *_oContact;
+    MMVoIPRenderToolView *_toolView;
     VoiceIconView *_voiceIconView;
+    unsigned long long _layoutStyle;
+    unsigned long long _mode;
+    MultiTalkGroupMember *_oMember;
+    CDUnknownBlockType _didClickZoomInOut;
+    CDUnknownBlockType _didCheckScreenSubscribe;
+    WCContactData *_oContact;
     CDUnknownBlockType _onAnimationStopBlock;
     NSTextField *_m_videoFpsLabel;
     NSTextField *_m_videoSizeLabel;
     MMTimer *_m_fpsTimer;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(nonatomic) float degress; // @synthesize degress=_degress;
 @property(nonatomic) unsigned int m_FpsCount; // @synthesize m_FpsCount=_m_FpsCount;
 @property(nonatomic) unsigned int m_videoSizeW; // @synthesize m_videoSizeW=_m_videoSizeW;
@@ -46,36 +54,53 @@
 @property(copy, nonatomic) CDUnknownBlockType onAnimationStopBlock; // @synthesize onAnimationStopBlock=_onAnimationStopBlock;
 @property(nonatomic) BOOL isAnimating; // @synthesize isAnimating=_isAnimating;
 @property(nonatomic) BOOL isMute; // @synthesize isMute=_isMute;
-@property(retain, nonatomic) VoiceIconView *voiceIconView; // @synthesize voiceIconView=_voiceIconView;
 @property(retain, nonatomic) WCContactData *oContact; // @synthesize oContact=_oContact;
 @property(nonatomic) BOOL m_highlighted; // @synthesize m_highlighted=_m_highlighted;
 @property(nonatomic) BOOL m_renderDisplay; // @synthesize m_renderDisplay=_m_renderDisplay;
+@property(copy, nonatomic) CDUnknownBlockType didCheckScreenSubscribe; // @synthesize didCheckScreenSubscribe=_didCheckScreenSubscribe;
+@property(copy, nonatomic) CDUnknownBlockType didClickZoomInOut; // @synthesize didClickZoomInOut=_didClickZoomInOut;
 @property(retain, nonatomic) MultiTalkGroupMember *oMember; // @synthesize oMember=_oMember;
-@property(nonatomic) BOOL isVideoVisiable; // @synthesize isVideoVisiable=_isVideoVisiable;
+@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
+@property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
+@property(retain, nonatomic) VoiceIconView *voiceIconView; // @synthesize voiceIconView=_voiceIconView;
+@property(retain, nonatomic) MMVoIPRenderToolView *toolView; // @synthesize toolView=_toolView;
+@property(nonatomic) BOOL isVideoAvailable; // @synthesize isVideoAvailable=_isVideoAvailable;
 @property(retain, nonatomic) NSView *maskImageView; // @synthesize maskImageView=_maskImageView;
 @property(retain, nonatomic) MMVoipDotAnimateView *dotLoadingView; // @synthesize dotLoadingView=_dotLoadingView;
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
+@property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;
 @property(retain, nonatomic) MMImageView *avatarThumbImage; // @synthesize avatarThumbImage=_avatarThumbImage;
 @property(retain, nonatomic) CALayer *renderLayer; // @synthesize renderLayer=_renderLayer;
-@property(retain, nonatomic) CALayer *oppsiteRenderLayer; // @synthesize oppsiteRenderLayer=_oppsiteRenderLayer;
+@property(retain, nonatomic) CALayer *oppositeRenderLayer; // @synthesize oppositeRenderLayer=_oppositeRenderLayer;
+- (void)refreshLayoutStyle;
+- (void)refreshMode;
+- (void)mouseUp:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)setupTrackingArea;
 - (void)onMultiTalkContactCellTalking;
 - (void)onMultiTalkContactCellSilent;
 - (void)onMultiTalkContactCellQualityChange:(unsigned int)arg1;
-- (void)fpsTimerCheck;
+- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
+- (void)didFadeOutAnimationCompletion:(CDUnknownBlockType)arg1;
+- (void)animatedSelfRenderContentIfNeeded;
 - (void)updateRenderDescInfo:(unsigned int)arg1;
 - (void)updateMuteIconStatus:(BOOL)arg1;
 - (void)updateRenderDisplayStatus:(BOOL)arg1;
 - (void)internalHighlightStautsUpdate;
 - (void)statusHighlighted:(BOOL)arg1;
-- (void)loadContent;
-- (void)updateContent:(id)arg1;
-- (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)didFadeOutAnimationCompletion:(CDUnknownBlockType)arg1;
 - (void)setupRenderContent:(id)arg1 withDegress:(float)arg2;
-- (void)animatedSelfRenderContentIfNeeded;
+- (void)updateContent:(id)arg1;
+- (void)loadContent;
+- (void)fpsTimerCheck;
 - (void)initUI;
 - (void)dealloc;
+- (void)viewDidChangeBackingProperties;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)init;
+- (void)relayoutInMasterStyle;
+- (void)relayoutInFlowStyle;
+- (void)relayoutInGirdStyle;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

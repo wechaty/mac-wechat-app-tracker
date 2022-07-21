@@ -21,7 +21,7 @@
 + (id)tupleWithObjectsFromArray:(id)arg1 convertNullsToNils:(BOOL)arg2;
 + (id)tupleWithObjectsFromArray:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *backingArray; // @synthesize backingArray=_backingArray;
+@property(readonly, nonatomic) NSArray *backingArray; // @synthesize backingArray=_backingArray;
 @property(readonly, nonatomic) id last;
 @property(readonly, nonatomic) id fifth;
 @property(readonly, nonatomic) id fourth;
@@ -39,6 +39,7 @@
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
+- (id)initWithBackingArray:(id)arg1;
 - (id)init;
 - (id)rac_description;
 @property(readonly, copy, nonatomic) RACSequence *rac_sequence;

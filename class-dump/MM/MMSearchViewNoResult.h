@@ -16,6 +16,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *noResultsLabel; // @synthesize noResultsLabel=_noResultsLabel;
 - (id)menuForEvent:(id)arg1;
+- (void)setHidden:(BOOL)arg1;
 - (void)awakeFromNib;
 
 @end

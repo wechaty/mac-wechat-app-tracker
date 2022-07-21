@@ -55,6 +55,7 @@
 - (void)onVerifyWindowWillOpen;
 - (void)reportMenuShowToKVWithMenuId:(unsigned int)arg1;
 - (void)handleAppFontSize;
+- (void)windowDidBecomeKeyAction:(id)arg1;
 - (void)windowDidResignKeyAction:(id)arg1;
 - (void)_contextMenuDeleteFriendRequest:(id)arg1;
 - (id)contextMenuForFriendRequestRow:(id)arg1;
@@ -91,8 +92,9 @@
 - (void)startShareContact:(id)arg1;
 - (void)showContactWithUserName:(id)arg1;
 - (void)onUserLogout;
-- (BOOL)onSearchFiledControl:(id)arg1 aCommandSelector:(SEL)arg2;
+- (BOOL)onSearchFiledControl:(id)arg1 textFiled:(id)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledTextDidChange:(id)arg1;
+- (void)doSearchEnd;
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
 - (void)onSearchFiledWillBegin:(id)arg1;

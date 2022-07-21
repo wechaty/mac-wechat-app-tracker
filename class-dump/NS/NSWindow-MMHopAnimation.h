@@ -10,7 +10,6 @@
 - (void)doHopAnimationWithImage:(id)arg1 originRect:(struct CGRect)arg2 destinationRect:(struct CGRect)arg3 duration:(double)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)doHopAnimationWithImage:(id)arg1 originView:(id)arg2 destinationView:(id)arg3 duration:(double)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)doHopAnimationWithImage:(id)arg1 originRect:(struct CGRect)arg2 topTabIndex:(int)arg3 duration:(double)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)setFocussed;
 - (void)makeWindowNonBehaviorFullScreenPrimary;
 - (void)makeWindowBehaviorFullScreenPrimary;
 - (void)makeWindowNonResizable;

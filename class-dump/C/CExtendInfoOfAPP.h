@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AppProductItem, FavoritesItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 
 @interface CExtendInfoOfAPP : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -87,7 +87,10 @@
     NSString *m_nsTempAccessBizKey;
     unsigned int m_uiTempAccessBizType;
     unsigned int m_uiTempAccessAgreenTime;
+    GroupNoticeItem *groupNoticeItem;
     BOOL bAppMsgCompleteFlag;
+    BOOL m_isReaderForbidForward;
+    unsigned int m_uiTemplateShowType;
     unsigned int _m_uiWeAppState;
     unsigned int _m_uiWeAppVersion;
     unsigned int _m_uiTempAccessBizType;
@@ -100,10 +103,12 @@
     NSString *_referMessageSenderDisplayName;
     NSString *_m_nsGuardianTicket;
     NSString *_m_nsTempAccessBizKey;
+    GroupNoticeItem *_groupNoticeItem;
 }
 
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) GroupNoticeItem *groupNoticeItem; // @synthesize groupNoticeItem=_groupNoticeItem;
 @property(nonatomic) unsigned int m_uiTempAccessAgreenTime; // @synthesize m_uiTempAccessAgreenTime=_m_uiTempAccessAgreenTime;
 @property(nonatomic) unsigned int m_uiTempAccessBizType; // @synthesize m_uiTempAccessBizType=_m_uiTempAccessBizType;
 @property(retain, nonatomic) NSString *m_nsTempAccessBizKey; // @synthesize m_nsTempAccessBizKey=_m_nsTempAccessBizKey;
@@ -112,6 +117,8 @@
 @property(nonatomic) unsigned int m_uiWeAppState; // @synthesize m_uiWeAppState=_m_uiWeAppState;
 @property(retain, nonatomic) NSString *referMessageSenderDisplayName; // @synthesize referMessageSenderDisplayName=_referMessageSenderDisplayName;
 @property(retain, nonatomic) NSString *referMessageSenderUsrname; // @synthesize referMessageSenderUsrname=_referMessageSenderUsrname;
+@property(nonatomic) unsigned int m_uiTemplateShowType; // @synthesize m_uiTemplateShowType;
+@property(nonatomic) BOOL m_isReaderForbidForward; // @synthesize m_isReaderForbidForward;
 @property(retain, nonatomic) MessageData *referingMessageWrap; // @synthesize referingMessageWrap;
 @property(nonatomic) unsigned int m_uiContinueUploadCount; // @synthesize m_uiContinueUploadCount;
 @property(nonatomic) long long m_overwriteNewMsgId; // @synthesize m_overwriteNewMsgId;
@@ -216,6 +223,7 @@
 - (id)getSingleReaderCoverUrl;
 - (void)clearReaderWraps;
 - (id)getReaderWraps;
+- (BOOL)isGroupNoticeMsg;
 - (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;
 - (BOOL)isAppRecordOverLimit;

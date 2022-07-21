@@ -45,6 +45,7 @@
 - (void)onBlockMonitor:(id)arg1 getDumpFile:(id)arg2 withDumpType:(unsigned long long)arg3;
 - (void)onBlockMonitor:(id)arg1 enterNextCheckWithDumpType:(unsigned long long)arg2;
 - (void)onBlockMonitor:(id)arg1 beginDump:(unsigned long long)arg2 blockTime:(unsigned long long)arg3 runloopThreshold:(unsigned int)arg4;
+- (void)generateExceptionReportWithDumpType:(unsigned long long)arg1 withException:(id)arg2;
 - (void)generateLiveReportWithDumpType:(unsigned long long)arg1 withReason:(id)arg2 selfDefinedPath:(BOOL)arg3;
 - (void)setShouldSuspendAllThreads:(BOOL)arg1;
 - (BOOL)recoverRunloopThreshold;

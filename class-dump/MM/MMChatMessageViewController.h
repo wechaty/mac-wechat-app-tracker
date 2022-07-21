@@ -26,7 +26,7 @@
 #import "SendPatExt-Protocol.h"
 #import "VoipMessageCellViewDelegate-Protocol.h"
 
-@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableDictionary, NSString, NSTimer, NSView, WCContactData;
+@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
 @interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, ICdnComMgrExt>
@@ -53,6 +53,7 @@
     MMMessageScrollView *_messageScrollView;
     MMTableView *_messageTableView;
     MMMessageUnreadTipsButton *_unreadTipsButton;
+    NSTextField *_hintTextField;
     MMMessageCellView *_currentMessageCellView;
     MMChatMessageDataSource *_messageDataSource;
     MMMessageTableItem *_seletedMessageTableItem;
@@ -117,6 +118,7 @@
 @property(retain, nonatomic) MMMessageTableItem *seletedMessageTableItem; // @synthesize seletedMessageTableItem=_seletedMessageTableItem;
 @property(retain, nonatomic) MMChatMessageDataSource *messageDataSource; // @synthesize messageDataSource=_messageDataSource;
 @property(retain, nonatomic) MMMessageCellView *currentMessageCellView; // @synthesize currentMessageCellView=_currentMessageCellView;
+@property(retain, nonatomic) NSTextField *hintTextField; // @synthesize hintTextField=_hintTextField;
 @property(nonatomic) __weak MMMessageUnreadTipsButton *unreadTipsButton; // @synthesize unreadTipsButton=_unreadTipsButton;
 @property(nonatomic) __weak MMTableView *messageTableView; // @synthesize messageTableView=_messageTableView;
 @property(nonatomic) __weak MMMessageScrollView *messageScrollView; // @synthesize messageScrollView=_messageScrollView;
@@ -171,7 +173,7 @@
 - (void)relayoutUnreadTips;
 - (void)unreadTipsDidClicked;
 - (void)clearAndScrollToFirstUnReadCount:(unsigned long long)arg1;
-- (void)scrollToMessageWithMsgLocalID:(unsigned int)arg1;
+- (void)scrollToMessage:(id)arg1;
 - (BOOL)showLocatedMessage:(unsigned int)arg1;
 - (BOOL)scrollToFirstUnReadMessages:(unsigned long long)arg1;
 - (void)showUnreadTipsIfNeededAnimated:(BOOL)arg1 isShowOnTop:(BOOL)arg2 scene:(int)arg3;
@@ -209,7 +211,6 @@
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)performLoadMoreFromBottom:(id)arg1;
 - (void)performLoadMoreFromTop:(id)arg1;
-- (void)addHistoryMsgEntryCellIfNeed;
 - (void)loadMoreChatHistoryFromBottom;
 - (void)loadMoreChatHistoryFromTop;
 - (void)delayReloadTableViewWhenSetContact:(id)arg1;
@@ -230,6 +231,8 @@
 - (void)setupLiveBannerView;
 - (void)setupUnreadTipsButton;
 - (void)layoutMultiTalkContentIfNeeded;
+- (BOOL)shouldShowHintLabel;
+- (void)setupHintLabel;
 - (void)setupMultiTalkView;
 - (void)setVoipInviteViewHidden:(BOOL)arg1;
 - (void)setupChatInfoView;
@@ -261,6 +264,7 @@
 - (void)voiceTranslateDidFinish:(id)arg1;
 - (void)autoTranslateVoiceToText:(id)arg1;
 - (void)playerDidFinishPlay:(id)arg1;
+- (void)autoDownloadResource:(id)arg1;
 - (void)addObservers;
 - (int)getUserActiveInterval;
 - (void)receiveOnUserActive:(id)arg1;
@@ -269,7 +273,7 @@
 - (BOOL)isDraggingFromChatMemberlistView:(struct CGPoint)arg1;
 - (id)handleLeftMouseDragged:(id)arg1;
 - (id)handleLeftMouseUp:(id)arg1;
-- (id)handleLeftMouseDown:(id)arg1;
+- (id)handleMouseDown:(id)arg1 withLocation:(BOOL)arg2;
 - (id)handleScrollWheel:(id)arg1;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewWillDisappear;

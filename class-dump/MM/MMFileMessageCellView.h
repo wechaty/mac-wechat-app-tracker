@@ -57,11 +57,12 @@
 @property(retain, nonatomic) NSImageView *fileMask; // @synthesize fileMask=_fileMask;
 @property(retain, nonatomic) NSImageView *fileEmptyIcon; // @synthesize fileEmptyIcon=_fileEmptyIcon;
 @property(retain, nonatomic) NSImageView *fileIcon; // @synthesize fileIcon=_fileIcon;
+- (void)processAutoDownload;
+- (BOOL)isAutoDownload;
 - (void)updateAppMsgState:(id)arg1 andState:(unsigned int)arg2;
 - (void)onRecvDownloadItem:(id)arg1;
 - (BOOL)isFileCanOpenWithQPL;
 - (void)updateCurrentFileMessageType;
-- (BOOL)isAutoDownload;
 - (id)getFileNameFromMsgContent:(id)arg1;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;

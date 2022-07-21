@@ -42,6 +42,7 @@
 - (BOOL)ModifyChatStatusNotifyOpen:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyIsFav:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyIsTop:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
+- (BOOL)ModifyIsFriend:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyRemarkDescWithUserName:(id)arg1 remarkDesc:(id)arg2;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2 syncToServer:(BOOL)arg3;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2;
@@ -66,6 +67,10 @@
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;
+- (id)convertDataToHexStr:(id)arg1;
+- (id)HmacSha256:(id)arg1 salt:(const char *)arg2 data:(id)arg3;
+- (id)hashEncryptSecretUserName:(id)arg1 encryptSecretType:(int)arg2;
+- (id)getUserNameWithHashUserName:(id)arg1 encryptSecretType:(int)arg2;
 - (unsigned int)deleteOpenIMContactOplog:(id)arg1;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 favour:(BOOL)arg2;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 mute:(BOOL)arg2;

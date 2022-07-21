@@ -7,12 +7,14 @@
 #import "MMWindowController.h"
 
 #import "MMCustomSearchFieldDelegate-Protocol.h"
+#import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMChatManagerDetailViewController, MMChatManagerSessionViewController, MMCustomSearchField, NSImageView, NSProgressIndicator, NSString, NSTextField, NSView;
+@class MMChatManagerDetailViewController, MMChatManagerSessionViewController, MMCustomSearchField, NSImageView, NSProgressIndicator, NSString, NSTextField, NSToolbar, NSView;
 
-@interface MMGlobalChatManagerWindowController : MMWindowController <NSWindowDelegate, MMCustomSearchFieldDelegate>
+@interface MMGlobalChatManagerWindowController : MMWindowController <NSWindowDelegate, MMCustomSearchFieldDelegate, NSToolbarDelegate>
 {
+    NSToolbar *_toolbar;
     NSView *_headerView;
     NSTextField *_headLabel;
     NSView *_globalDetailContainer;
@@ -48,6 +50,10 @@
 @property(nonatomic) __weak NSView *globalDetailContainer; // @synthesize globalDetailContainer=_globalDetailContainer;
 @property(nonatomic) __weak NSTextField *headLabel; // @synthesize headLabel=_headLabel;
 @property __weak NSView *headerView; // @synthesize headerView=_headerView;
+@property(retain, nonatomic) NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
+- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
+- (id)toolbarDefaultItemIdentifiers:(id)arg1;
+- (id)toolbarAllowedItemIdentifiers:(id)arg1;
 - (void)onSearchFiledTextDidChange:(id)arg1;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
 - (void)onSearchFiledDidEnd:(id)arg1;
@@ -58,6 +64,7 @@
 - (void)stopLoading;
 - (void)startLoading;
 - (void)setupProgressIndicator;
+- (void)setupToolbar;
 - (struct CGSize)getWindowSize;
 - (void)handleAppFontSize;
 - (void)windowDidLoad;

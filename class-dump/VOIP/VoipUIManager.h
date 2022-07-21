@@ -65,7 +65,7 @@
 - (void)orderFrontVoipWindow;
 - (BOOL)openVoipWindowWithContact:(id)arg1 isCaller:(BOOL)arg2 andMsgWrap:(id)arg3 andInitViewMode:(int)arg4;
 - (void)openVideoVoipViewWithContact:(id)arg1 isCaller:(BOOL)arg2 andMsgWrap:(id)arg3 isEarMode:(BOOL)arg4;
-- (void)renderOnOppsiteRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
 - (id)getConflictWording;
 - (BOOL)isMultiTalkWorking;
 - (BOOL)isVoipWorking;

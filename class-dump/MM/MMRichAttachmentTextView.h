@@ -21,6 +21,7 @@
     BOOL _isReturn;
     double _defaultIndentationSize;
     NSString *_downloadingHtmlIdentifier;
+    struct CGPoint _placeHolderPoint;
 }
 
 + (id)preprocessTextAttributes:(id)arg1;
@@ -39,6 +40,7 @@
 @property(nonatomic) double defaultIndentationSize; // @synthesize defaultIndentationSize=_defaultIndentationSize;
 @property(nonatomic) BOOL justDeletedBackward; // @synthesize justDeletedBackward=_justDeletedBackward;
 @property(nonatomic) BOOL justInsertAttachment; // @synthesize justInsertAttachment=_justInsertAttachment;
+@property(nonatomic) struct CGPoint placeHolderPoint; // @synthesize placeHolderPoint=_placeHolderPoint;
 - (void)scrollViewBoundsChange:(id)arg1;
 - (struct CGRect)cellFrameForAttachmentCell:(id)arg1 withWidthConstrain:(double)arg2;
 - (void)textAttachmentCell:(id)arg1 didLoadImage:(id)arg2;

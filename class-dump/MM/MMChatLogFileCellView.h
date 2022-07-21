@@ -6,34 +6,44 @@
 
 #import "MMChatLogBaseCellView.h"
 
-@class MMCircularProgressView, MMTextField, NSImageView, NSString, NSTextField, NSView;
+@class CAShapeLayer, MMCircularProgressView, MMTextField, NSImageView, NSString, NSTextField, NSView;
 
 @interface MMChatLogFileCellView : MMChatLogBaseCellView
 {
     BOOL _isShouldOpenOnDownloadFinish;
     BOOL _isExpired;
     BOOL _isDownloadFailed;
+    BOOL _isDownloading;
     NSImageView *_thumbnailImageView;
     MMTextField *_fileDescriptionTextView;
     MMTextField *_fileSizeTextView;
     NSTextField *_detailTextField;
     MMCircularProgressView *_progressView;
-    NSString *_filePath;
     NSView *_progressContainerView;
+    CAShapeLayer *_progressLayer;
+    NSImageView *_fileMask;
+    NSString *_filePath;
+    CAShapeLayer *_bottomLayer;
 }
 
 + (double)cellHeightWithFavItemDataField:(id)arg1 parentMessage:(id)arg2 parentFavItem:(id)arg3 parentDataField:(id)arg4 constrainedToWidth:(double)arg5;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSView *progressContainerView; // @synthesize progressContainerView=_progressContainerView;
+@property(retain, nonatomic) CAShapeLayer *bottomLayer; // @synthesize bottomLayer=_bottomLayer;
+@property(nonatomic) BOOL isDownloading; // @synthesize isDownloading=_isDownloading;
 @property(nonatomic) BOOL isDownloadFailed; // @synthesize isDownloadFailed=_isDownloadFailed;
 @property(nonatomic) BOOL isExpired; // @synthesize isExpired=_isExpired;
 @property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(nonatomic) BOOL isShouldOpenOnDownloadFinish; // @synthesize isShouldOpenOnDownloadFinish=_isShouldOpenOnDownloadFinish;
+@property(retain, nonatomic) NSImageView *fileMask; // @synthesize fileMask=_fileMask;
+@property(retain, nonatomic) CAShapeLayer *progressLayer; // @synthesize progressLayer=_progressLayer;
+@property(retain, nonatomic) NSView *progressContainerView; // @synthesize progressContainerView=_progressContainerView;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) NSTextField *detailTextField; // @synthesize detailTextField=_detailTextField;
 @property(retain, nonatomic) MMTextField *fileSizeTextView; // @synthesize fileSizeTextView=_fileSizeTextView;
 @property(retain, nonatomic) MMTextField *fileDescriptionTextView; // @synthesize fileDescriptionTextView=_fileDescriptionTextView;
 @property(retain, nonatomic) NSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (BOOL)isAutoDownload;
+- (void)downloadData;
 - (void)openFile;
 - (void)layoutFileContentView;
 - (void)layoutFileSizeTextView;

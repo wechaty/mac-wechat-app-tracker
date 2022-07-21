@@ -9,14 +9,15 @@
 @protocol MultiTalkMgrExt
 
 @optional
+- (void)onMultiWindowClose;
 - (void)onQuitGroupAndEndMultiTalk:(NSString *)arg1;
 - (void)onOtherDeviceHandleTalk:(NSString *)arg1;
 - (void)onMultiTalkMgrChangeToUnReachable;
 - (void)onMultiTalkMgrOpenVideoServerNotAllowed;
 - (void)onMultiTalkMgrVideoDeviceAuthFailed;
 - (void)onMultiTalkMgrChangeVideoFailed;
-- (void)onMultiTalkMgrVideoSessionStopComplete;
-- (void)onMultiTalkMgrVideoSessionStartComplete;
+- (void)onMultiTalkMgrSessionStopComplete:(unsigned long long)arg1;
+- (void)onMultiTalkMgrSessionStartComplete:(unsigned long long)arg1;
 - (void)onMultiTalkMsgMemberNil:(NSString *)arg1;
 - (void)onMultiTalkMsgCellIconChange:(NSString *)arg1;
 - (void)onMultiTalkBannerChange:(MultiTalkBannerItem *)arg1 status:(unsigned int)arg2;

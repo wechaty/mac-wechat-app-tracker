@@ -6,9 +6,11 @@
 
 #import <AppKit/NSView.h>
 
+#import "NSAccessibilityButton-Protocol.h"
+
 @class MMFlatButton, NSImage, NSString, NSTextField;
 
-@interface MMContactsToolBarIConView : NSView
+@interface MMContactsToolBarIConView : NSView <NSAccessibilityButton>
 {
     MMFlatButton *_iconButton;
     NSTextField *_titleFiled;
@@ -30,6 +32,14 @@
 - (void)updateTitle:(id)arg1;
 - (void)setup;
 - (id)init;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityLabel;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -16,8 +16,6 @@
     BOOL _draggable;
     NSColor *_mmBackgrounColor;
     long long _vibrancyMode;
-    long long _highlightMode;
-    double _mmCornerRadius;
     CDUnknownBlockType _rightMouseUpEventBlock;
     CDUnknownBlockType _magnifyWithEventBlockIsHandled;
     CDUnknownBlockType _smartMagnifyWithEventBlock;
@@ -34,9 +32,7 @@
 @property(copy, nonatomic) CDUnknownBlockType magnifyWithEventBlockIsHandled; // @synthesize magnifyWithEventBlockIsHandled=_magnifyWithEventBlockIsHandled;
 @property(copy, nonatomic) CDUnknownBlockType rightMouseUpEventBlock; // @synthesize rightMouseUpEventBlock=_rightMouseUpEventBlock;
 @property(nonatomic) BOOL draggable; // @synthesize draggable=_draggable;
-@property(nonatomic) double mmCornerRadius; // @synthesize mmCornerRadius=_mmCornerRadius;
 @property(nonatomic) BOOL drawWithAspectFill; // @synthesize drawWithAspectFill=_drawWithAspectFill;
-@property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(nonatomic) BOOL forceWindowDraggable; // @synthesize forceWindowDraggable=_forceWindowDraggable;
 @property(nonatomic) long long vibrancyMode; // @synthesize vibrancyMode=_vibrancyMode;
 @property(retain, nonatomic) NSColor *mmBackgrounColor; // @synthesize mmBackgrounColor=_mmBackgrounColor;
@@ -53,11 +49,11 @@
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)_generateAspectFillImage:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
+- (void)addSubview:(id)arg1;
 - (void)setImage:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1;
 - (BOOL)allowsVibrancy;
 - (BOOL)mouseDownCanMoveWindow;
-- (void)setCornerRadius:(double)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
 

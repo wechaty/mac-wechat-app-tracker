@@ -9,6 +9,7 @@
 #import "CAAnimationDelegate-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
 #import "IGroupMgrExt-Protocol.h"
+#import "MMAutoDownloadProtocol-Protocol.h"
 #import "NSDraggingSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSSharingServiceDelegate-Protocol.h"
@@ -17,7 +18,7 @@
 @class MMButton, MMImageView, MMMessageCellAvatarView, MMMessageTableItem, MMOutlineButton, MMView, NSButton, NSImage, NSMenu, NSProgressIndicator, NSString, NSTextField, NSTrackingArea;
 @protocol MMMessageCellViewDelegate;
 
-@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, NSMenuDelegate, CAAnimationDelegate>
+@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol>
 {
     NSImage *_savedDraggingImage;
     NSTrackingArea *_mainTrackingArea;
@@ -31,6 +32,8 @@
     BOOL _hasShownRecall;
     BOOL _isBeingDragged;
     int _accessoryType;
+    NSProgressIndicator *_waitingProgressIndicatorAccessory;
+    NSButton *_errorIndicatorAccessory;
     id <MMMessageCellViewDelegate> _delegate;
     MMMessageCellAvatarView *_avatarImgView;
     MMView *_contentView;
@@ -41,8 +44,6 @@
     unsigned long long _currentMode;
     double _hasTopPadding;
     MMMessageTableItem *_messageTableItem;
-    NSProgressIndicator *_waitingProgressIndicatorAccessory;
-    NSButton *_errorIndicatorAccessory;
     NSButton *_contextMenuButton;
     NSButton *_saveToFavoritesButton;
     NSString *_realChatUserName;
@@ -68,8 +69,6 @@
 @property(nonatomic) struct CGPoint mouseDownLocation; // @synthesize mouseDownLocation=_mouseDownLocation;
 @property(retain, nonatomic) NSButton *saveToFavoritesButton; // @synthesize saveToFavoritesButton=_saveToFavoritesButton;
 @property(retain, nonatomic) NSButton *contextMenuButton; // @synthesize contextMenuButton=_contextMenuButton;
-@property(retain, nonatomic) NSButton *errorIndicatorAccessory; // @synthesize errorIndicatorAccessory=_errorIndicatorAccessory;
-@property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicatorAccessory; // @synthesize waitingProgressIndicatorAccessory=_waitingProgressIndicatorAccessory;
 @property(readonly, nonatomic) BOOL isBeingDragged; // @synthesize isBeingDragged=_isBeingDragged;
 @property(nonatomic) BOOL hasShownRecall; // @synthesize hasShownRecall=_hasShownRecall;
 @property(nonatomic) BOOL isSearchMode; // @synthesize isSearchMode=_isSearchMode;
@@ -89,6 +88,10 @@
 @property(retain, nonatomic) MMView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MMMessageCellAvatarView *avatarImgView; // @synthesize avatarImgView=_avatarImgView;
 @property(nonatomic) __weak id <MMMessageCellViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSButton *errorIndicatorAccessory; // @synthesize errorIndicatorAccessory=_errorIndicatorAccessory;
+@property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicatorAccessory; // @synthesize waitingProgressIndicatorAccessory=_waitingProgressIndicatorAccessory;
+- (void)processAutoDownload;
+- (BOOL)isAutoDownload;
 - (void)setLocationAnimation;
 - (void)updateMessageLayer;
 - (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
@@ -96,7 +99,6 @@
 - (id)buildShareExtensionMenuItem;
 - (id)contentForSharing;
 - (void)showUIDebugGuidesChanged:(id)arg1;
-- (double)changeLocateMsgLableY;
 - (struct CGRect)bubbleFrame;
 - (id)generateMessageDisplayContent;
 - (BOOL)notMoveFar:(id)arg1;
@@ -116,8 +118,6 @@
 - (void)onModifyContacts:(id)arg1;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
 - (void)contextMenuButtonAction:(id)arg1;
-- (BOOL)showsSaveToFavoritesButton;
-- (BOOL)showsContextMenuButton;
 - (struct CGRect)rectForSaveToFavoritesButton;
 - (struct CGRect)rectForContextMenuButton;
 - (struct CGRect)rectForAccessory:(int)arg1;
@@ -244,7 +244,8 @@
 - (void)contextMenuCopy;
 - (void)contextMenuMultipleSelectMessage;
 - (void)contextMenuDelete;
-- (void)contextMenuLocateMessage;
+- (void)contextMenuLocateMessageInChatManager;
+- (void)contextMenuLocateMessageInRealChat;
 - (void)contextMenuRecall;
 - (void)contextMenuResendMessage;
 - (void)contextMenuClearAllMessage;

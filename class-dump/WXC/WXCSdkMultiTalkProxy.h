@@ -39,7 +39,7 @@
 - (void)onCancelCreateMultiTalk:(id)arg1;
 - (void)onReceiveMissMultiTalk:(id)arg1;
 - (void)onInviteMultiTalk:(id)arg1;
-- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (void)OnVideoStateChange:(BOOL)arg1 VideoOn:(BOOL)arg2;
 - (void)OnMuteStateChange:(BOOL)arg1;
 - (void)OnSpeakerStateChange:(BOOL)arg1;
@@ -56,7 +56,7 @@
 - (void)OnCreateTalkModeOKWithGroupId:(id)arg1;
 - (id)getWXCMultiTalkMemberListWithVoiceGroupMemList:(id)arg1;
 - (id)getMultiTalkGroupWithRoomData:(id)arg1;
-- (void)onNotifyVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onNotifyVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (BOOL)requestActiveGroupBriefInfoList:(id)arg1;
 - (long long)getCurMultiTalkUin;
 - (id)getCurMultiTalkUserName;
@@ -76,11 +76,16 @@
 - (BOOL)enterCurMultiTalk:(id)arg1 routId:(int)arg2 isAnswerCall:(BOOL)arg3 wxGroupId:(id)arg4;
 - (BOOL)startCreateMultiTalk:(id)arg1 wxGroupId:(id)arg2 memberList:(id)arg3;
 - (void)setCurMuteTalkInfo:(id)arg1 uin:(long long)arg2;
+- (int)ScreenEncAndSend:(void *)arg1;
+- (int)ScreenEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3;
+- (int)VideoEncAndSend:(void *)arg1;
 - (int)VideoEncAndSend:(char *)arg1 Length:(unsigned int)arg2 Format:(void *)arg3 resolutionMode:(int)arg4 cameraMode:(int)arg5;
 - (BOOL)closeVideoRecvAndSend;
 - (int)getMemberIdByUserName:(id)arg1;
 - (BOOL)subscribeGeneralVideoForUserList:(id)arg1;
-- (BOOL)subscribeVideoForUser:(id)arg1 isCancel:(BOOL)arg2;
+- (BOOL)subscribeVideoForUser:(id)arg1 isSharedScreenData:(BOOL)arg2 isCancel:(BOOL)arg3;
+- (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
+- (BOOL)setScreenSharingStatus:(int)arg1;
 - (BOOL)setVideo:(BOOL)arg1;
 - (BOOL)setMute:(BOOL)arg1;
 - (BOOL)getSpeakerStatus;

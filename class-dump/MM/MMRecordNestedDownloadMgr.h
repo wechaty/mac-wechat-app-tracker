@@ -10,13 +10,13 @@
 #import "MMAppAttachFileMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class CdnRecordMediaInfo, FavoritesItemDataField, MessageData, NSMutableArray, NSString;
+@class CdnRecordMediaInfo, MMRecordNestedDownloadInfoWrapper, MessageData, NSMutableArray, NSString;
 
 @interface MMRecordNestedDownloadMgr : MMService <MMAppAttachFileMgrExt, ICdnComMgrExt, MMService>
 {
     MessageData *_m_curDownMsgWrap;
-    FavoritesItemDataField *_m_curDownDataField;
-    FavoritesItemDataField *_m_waitDownDataField;
+    MMRecordNestedDownloadInfoWrapper *_m_currDownloadInfo;
+    MMRecordNestedDownloadInfoWrapper *_m_waitDownloadInfo;
     NSMutableArray *_m_arrCDNDownloadInfo;
     CdnRecordMediaInfo *_m_curDownMediaInfo;
 }
@@ -24,16 +24,22 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) CdnRecordMediaInfo *m_curDownMediaInfo; // @synthesize m_curDownMediaInfo=_m_curDownMediaInfo;
 @property(retain, nonatomic) NSMutableArray *m_arrCDNDownloadInfo; // @synthesize m_arrCDNDownloadInfo=_m_arrCDNDownloadInfo;
-@property(retain, nonatomic) FavoritesItemDataField *m_waitDownDataField; // @synthesize m_waitDownDataField=_m_waitDownDataField;
-@property(retain, nonatomic) FavoritesItemDataField *m_curDownDataField; // @synthesize m_curDownDataField=_m_curDownDataField;
+@property(retain, nonatomic) MMRecordNestedDownloadInfoWrapper *m_waitDownloadInfo; // @synthesize m_waitDownloadInfo=_m_waitDownloadInfo;
+@property(retain, nonatomic) MMRecordNestedDownloadInfoWrapper *m_currDownloadInfo; // @synthesize m_currDownloadInfo=_m_currDownloadInfo;
 @property(retain, nonatomic) MessageData *m_curDownMsgWrap; // @synthesize m_curDownMsgWrap=_m_curDownMsgWrap;
 - (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
 - (void)OnCdnDownloadFinished:(id)arg1;
 - (void)OnCdnDownloadProgress:(id)arg1;
 - (void)DownLoadOK;
 - (void)DownloadFail:(int)arg1 Expired:(BOOL)arg2;
+- (BOOL)checkToAddWithClientMsgID:(id)arg1;
+- (void)checkToAddDownloadInfos:(id)arg1 realDataField:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (id)genDownloadInfo:(id)arg1 RealDataField:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (void)ResetCurrDownloadInfo;
+- (void)RestoreCurrDownloadInfo;
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurDataField;
+- (void)StartDownloadByDataField:(id)arg1 withParentMsg:(id)arg2 realDataField:(id)arg3 thumb:(BOOL)arg4 data:(BOOL)arg5;
 - (void)StartDownloadByDataField:(id)arg1 withParentMsg:(id)arg2;
 - (BOOL)isRecordMsgInUploadQueue:(id)arg1;
 - (void)dealloc;

@@ -16,6 +16,6 @@
 - (void)performStartVoipVoiceChat;
 - (void)performMultiSelection:(BOOL)arg1;
 - (void)performKeyDown:(NSEvent *)arg1;
-- (BOOL)shouldMakeFirstResponder;
+- (BOOL)makeFirstResponderIfNeeded;
 @end
 

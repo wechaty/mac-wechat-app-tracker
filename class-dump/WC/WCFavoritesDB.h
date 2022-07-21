@@ -108,7 +108,6 @@
 - (unsigned long long)getCountOfAllFavItemsWithoutDeleted;
 - (BOOL)getFavItemLocalIDWithFavID:(unsigned int)arg1 retLocalID:(id)arg2;
 - (unsigned long long)countOfItemsWithTypes:(id)arg1;
-- (unsigned long long)countOfItemsWithType:(int)arg1;
 - (BOOL)getDeletedItems:(id)arg1;
 - (BOOL)getDownloadFailedItems:(id)arg1;
 - (BOOL)getDownloadingItems:(id)arg1;

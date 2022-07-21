@@ -6,13 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMCustomSearchField, NSNotification;
+@class MMCustomSearchField, NSNotification, NSTextField;
 
 @protocol MMCustomSearchFieldDelegate <NSObject>
 
 @optional
-- (BOOL)onSearchFiledControl:(MMCustomSearchField *)arg1 aCommandSelector:(SEL)arg2;
 - (void)onSearchFiledDidEnd:(MMCustomSearchField *)arg1;
+- (BOOL)onSearchFiledControl:(MMCustomSearchField *)arg1 textFiled:(NSTextField *)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledTextDidEndEditing:(MMCustomSearchField *)arg1 info:(NSNotification *)arg2;
 - (void)onSearchFiledTextDidChange:(MMCustomSearchField *)arg1;
 - (void)onSearchFiledWillBegin:(MMCustomSearchField *)arg1;

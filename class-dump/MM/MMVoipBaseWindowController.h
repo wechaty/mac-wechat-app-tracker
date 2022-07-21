@@ -86,6 +86,7 @@
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (void)popoverDidClose:(id)arg1;
+- (void)onSwitchScreenButtonClick:(id)arg1;
 - (void)onSwitchVideoButtonClick:(id)arg1;
 - (void)onSwitchButtonClick:(id)arg1;
 - (void)closeAudioInputAuto:(id)arg1;
@@ -100,7 +101,7 @@
 - (void)onCaptureDeviceChanged:(id)arg1 withType:(int)arg2;
 - (void)formVOIPUserNotification;
 - (void)formVOIPMessageWhenCallFromMyself:(BOOL)arg1;
-- (void)renderOnOppsiteRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
 - (void)renderOnPreviewRenderLayerWith:(id)arg1;
 - (void)rotateLayerToFillWindow;
 - (int)getVideoOrientationWithDegrees:(double)arg1;
@@ -131,7 +132,7 @@
 - (void)layoutSwitchAudioDeviceIndicator;
 - (void)layoutActionBtnWithMode:(int)arg1;
 - (void)onWCAudioSessionChangedFinished;
-- (void)onWCAudioSessionDeviceIDChanged;
+- (void)onAudioOutputDeviceChanged;
 - (void)updateNetStatus;
 - (void)clearNetStatusUpdateTimer;
 - (void)startNetStatusTimerToUpdateNetSatus;

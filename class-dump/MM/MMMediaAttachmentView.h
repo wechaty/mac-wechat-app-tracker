@@ -6,21 +6,36 @@
 
 #import "MMAttachmentReusableView.h"
 
-@class NSImageView, NSTextField;
+#import "GroupNoticeDownloadExt-Protocol.h"
 
-@interface MMMediaAttachmentView : MMAttachmentReusableView
+@class NSImageView, NSString, NSTextField;
+
+@interface MMMediaAttachmentView : MMAttachmentReusableView <GroupNoticeDownloadExt>
 {
     NSImageView *_imageView;
     NSTextField *_titleLable;
     NSTextField *_detailLabel;
+    NSString *_localDataID;
+    NSTextField *_statusLabel;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
+@property(retain, nonatomic) NSString *localDataID; // @synthesize localDataID=_localDataID;
 @property(retain, nonatomic) NSTextField *detailLabel; // @synthesize detailLabel=_detailLabel;
 @property(retain, nonatomic) NSTextField *titleLable; // @synthesize titleLable=_titleLable;
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
+- (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
+- (void)setupStatusLable:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

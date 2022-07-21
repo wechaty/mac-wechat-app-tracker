@@ -25,9 +25,11 @@
     long long _mImRoomId;
     long long _mMemberListSeq;
     NSString *_mSdkGroupId;
+    NSString *_mHiresScreenUsername;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *mHiresScreenUsername; // @synthesize mHiresScreenUsername=_mHiresScreenUsername;
 @property(copy, nonatomic) NSString *mSdkGroupId; // @synthesize mSdkGroupId=_mSdkGroupId;
 @property(nonatomic) long long mMemberListSeq; // @synthesize mMemberListSeq=_mMemberListSeq;
 @property(nonatomic) long long mImRoomId; // @synthesize mImRoomId=_mImRoomId;
@@ -39,6 +41,8 @@
 @property(copy, nonatomic) NSString *mWxGroupId; // @synthesize mWxGroupId=_mWxGroupId;
 @property(copy, nonatomic) NSString *mMultiTalkGroupId; // @synthesize mMultiTalkGroupId=_mMultiTalkGroupId;
 @property(copy, nonatomic) NSString *mMultiTalkClientGroupId; // @synthesize mMultiTalkClientGroupId=_mMultiTalkClientGroupId;
+- (void)updateAllMemberScreenStatus:(id)arg1;
+- (void)updateMemberScreenStatus:(int)arg1 ScreenStatus:(int)arg2;
 - (id)getMemberByMemberid:(int)arg1;
 - (id)getMemberByUsername:(id)arg1;
 - (id)getMemberByOpenid:(id)arg1;

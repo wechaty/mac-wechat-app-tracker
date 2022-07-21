@@ -14,7 +14,7 @@
 #import "MMService-Protocol.h"
 #import "VOIPVideoHWEncDelegate-Protocol.h"
 
-@class AUAudioDevice, AVVideoDevice, MMTimer, NSRecursiveLock, NSString, VOIPComponent, VOIPDialData, VOIPKernelLog, VOIPVideoHWEnc, VOIPVideoRender;
+@class AUAudioDevice, AVVideoDevice, MMTimer, NSRecursiveLock, NSString, VOIPComponent, VOIPDialData, VOIPKernelLog, VOIPVideoHWEnc;
 @protocol IVOIPVideoDeviceDelegate;
 
 @interface VOIPMgr : MMService <IVOIPSyncExt, VOIPVideoHWEncDelegate, AVVideoDataSource, AUAudioDataSource, IAUAudioDeviceExt, MMService, AVVideoDeviceSessionDelegate>
@@ -40,7 +40,6 @@
     BOOL mIsVoipAccepted;
     unsigned int mLastNetworkStatus;
     unsigned int mLastNetType;
-    NSRecursiveLock *inputVideoRenderLock;
     id <IVOIPVideoDeviceDelegate> m_videoDeviceDelegate;
     BOOL mNeedSpeedTest;
     int mSpeedTestStatus;
@@ -140,9 +139,6 @@
     int mManualRotateOrien;
     int mRemoteOrien;
     unsigned int _m_cameraChangeToOrientationLastCount;
-    VOIPVideoRender *inputVideoRender;
-    VOIPVideoRender *outputVideoRender;
-    VOIPVideoRender *smallInputVideoRender;
     VOIPDialData *mDialData;
     VOIPComponent *mComponent;
     AUAudioDevice *mAudioDevice;
@@ -157,7 +153,6 @@
     NSRecursiveLock *mStartAudioLock;
     NSRecursiveLock *mStartVideoLock;
     NSRecursiveLock *mStartRecordLock;
-    NSRecursiveLock *outputVideoRenderLock;
     MMTimer *mVoipTimer;
     char *mPreviewBuf;
     unsigned long long mSendInviteTime;
@@ -251,8 +246,6 @@
 @property(nonatomic) int mCntTryStartAudioDev; // @synthesize mCntTryStartAudioDev;
 @property(nonatomic) unsigned int mTimeCounter; // @synthesize mTimeCounter;
 @property(retain, nonatomic) MMTimer *mVoipTimer; // @synthesize mVoipTimer;
-@property(retain, nonatomic) NSRecursiveLock *outputVideoRenderLock; // @synthesize outputVideoRenderLock;
-@property(retain, nonatomic) NSRecursiveLock *inputVideoRenderLock; // @synthesize inputVideoRenderLock;
 @property(retain, nonatomic) NSRecursiveLock *mStartRecordLock; // @synthesize mStartRecordLock;
 @property(retain, nonatomic) NSRecursiveLock *mStartVideoLock; // @synthesize mStartVideoLock;
 @property(retain, nonatomic) NSRecursiveLock *mStartAudioLock; // @synthesize mStartAudioLock;
@@ -268,7 +261,6 @@
 @property(retain, nonatomic) VOIPComponent *mComponent; // @synthesize mComponent;
 @property(retain, nonatomic) VOIPDialData *mDialData; // @synthesize mDialData;
 @property(nonatomic) unsigned int mVoIPType; // @synthesize mVoIPType;
-@property(retain, nonatomic) VOIPVideoRender *outputVideoRender; // @synthesize outputVideoRender;
 - (void)onNetworkStatusChange:(unsigned int)arg1;
 - (void)ReachabilityChange:(unsigned int)arg1;
 - (void)onVideoSessionStartComplete;
@@ -307,8 +299,6 @@
 - (void)StartLocalVideo;
 - (void)setVideoDeviceDelegate:(id)arg1;
 - (void)setVideoDelegate:(id)arg1;
-@property(retain, nonatomic) VOIPVideoRender *smallInputVideoRender; // @synthesize smallInputVideoRender;
-@property(retain, nonatomic) VOIPVideoRender *inputVideoRender; // @synthesize inputVideoRender;
 - (void)updateCameraPosToFitDevice;
 - (void)initAudioConverter;
 - (void)dealloc;
@@ -347,7 +337,7 @@
 - (void)CalcCallTime;
 - (void)CalcNewDailUsedTime;
 - (void)CalcDialUsedTime;
-- (void)SetMVEInfo:(CDStruct_33d8b17a *)arg1;
+- (void)SetMVEInfo:(CDStruct_22a870ee *)arg1;
 - (int)cpuCapacity;
 - (int)getSysInfo:(unsigned int)arg1;
 - (unsigned int)GetDispRate;
@@ -399,7 +389,7 @@
 - (void)SendSpeedTestResultReq:(unsigned long long)arg1 ResultArray:(id)arg2;
 - (void)SendSpeedTestReq;
 - (void)SendRedirectRequest;
-- (void)SendNewStatReport:(unsigned long long)arg1 memberId:(unsigned int)arg2 dialReport:(id)arg3 channelReport:(id)arg4 engineReport:(id)arg5 engineExtReport:(id)arg6 directConnReport:(vector_bfe5b09a)arg7 relayConnReport:(vector_bfe5b09a)arg8 engineMPReport:(vector_bfe5b09a)arg9 natReport:(list_823ce23d)arg10;
+- (void)SendNewStatReport:(unsigned long long)arg1 memberId:(unsigned int)arg2 dialReport:(id)arg3 channelReport:(id)arg4 engineReport:(id)arg5 engineExtReport:(id)arg6 directConnReport:(vector_74824a0a)arg7 relayConnReport:(vector_74824a0a)arg8 engineMPReport:(vector_74824a0a)arg9 natReport:(list_823ce23d)arg10;
 - (void)SendStatReportRequest;
 - (void)SendHeartbeatRequest;
 - (void)SendShutdownRequest;

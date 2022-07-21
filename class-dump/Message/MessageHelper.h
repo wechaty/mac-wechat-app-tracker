@@ -12,6 +12,7 @@
 
 + (id)fileMessageExt:(id)arg1;
 + (void)locateMessageInChatMessageList:(id)arg1;
++ (void)reportChatManagerAction:(unsigned int)arg1 isGlobal:(BOOL)arg2 isGroupChat:(BOOL)arg3;
 + (void)reportFileUploadLog:(id)arg1 action:(unsigned int)arg2;
 + (void)reportFileLog:(id)arg1 action:(unsigned int)arg2;
 

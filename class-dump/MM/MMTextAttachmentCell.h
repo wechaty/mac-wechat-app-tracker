@@ -6,7 +6,7 @@
 
 #import <AppKit/NSTextAttachmentCell.h>
 
-@class NSString, WeNoteParagraphInfo;
+@class NSColor, NSString, WeNoteParagraphInfo;
 @protocol MMTextAttachmentCellDelegate;
 
 @interface MMTextAttachmentCell : NSTextAttachmentCell
@@ -16,12 +16,14 @@
     id _data;
     WeNoteParagraphInfo *_paraInfo;
     id <MMTextAttachmentCellDelegate> _delegate;
+    NSColor *_highlightedColor;
     struct CGSize _size;
     struct NSEdgeInsets _contentInset;
     struct CGRect _bounds;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSColor *highlightedColor; // @synthesize highlightedColor=_highlightedColor;
 @property(nonatomic) id <MMTextAttachmentCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) WeNoteParagraphInfo *paraInfo; // @synthesize paraInfo=_paraInfo;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;

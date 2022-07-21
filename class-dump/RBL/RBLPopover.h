@@ -12,6 +12,7 @@
 {
     BOOL _animates;
     BOOL _canBecomeKey;
+    BOOL _fitRectToScreen;
     NSViewController *_contentViewController;
     RBLPopoverBackgroundView *_backgroundView;
     unsigned long long _behavior;
@@ -33,6 +34,7 @@
 @property(nonatomic) struct CGSize originalViewSize; // @synthesize originalViewSize=_originalViewSize;
 @property(copy, nonatomic) NSSet *transientEventMonitors; // @synthesize transientEventMonitors=_transientEventMonitors;
 @property(retain, nonatomic) RBLPopoverWindow *popoverWindow; // @synthesize popoverWindow=_popoverWindow;
+@property(nonatomic) BOOL fitRectToScreen; // @synthesize fitRectToScreen=_fitRectToScreen;
 @property(nonatomic) BOOL canBecomeKey; // @synthesize canBecomeKey=_canBecomeKey;
 @property(nonatomic) double transformDuration; // @synthesize transformDuration=_transformDuration;
 @property(nonatomic) double fadeDuration; // @synthesize fadeDuration=_fadeDuration;

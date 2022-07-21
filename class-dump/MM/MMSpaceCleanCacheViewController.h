@@ -31,9 +31,11 @@
     MMView *_seperater;
     NSTextField *_storageListTitle;
     NSMutableDictionary *_storages;
+    double _loadingBeginTime;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) double loadingBeginTime; // @synthesize loadingBeginTime=_loadingBeginTime;
 @property(retain, nonatomic) NSMutableDictionary *storages; // @synthesize storages=_storages;
 @property(retain, nonatomic) NSTextField *storageListTitle; // @synthesize storageListTitle=_storageListTitle;
 @property(retain, nonatomic) MMView *seperater; // @synthesize seperater=_seperater;
@@ -64,6 +66,7 @@
 - (id)getStorageViewWithType:(unsigned int)arg1;
 - (void)reloadData;
 - (void)computeAllSpaceSizes;
+- (void)forceRecomputeSpaceSizes;
 - (void)updateTotalSizeLabel;
 - (void)drawRateBar;
 - (void)updateSpaceRates;

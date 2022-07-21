@@ -6,6 +6,7 @@
 
 #import "MMService.h"
 
+#import "AVScreenDeviceSessionDelegate-Protocol.h"
 #import "AVVideoDataSource-Protocol.h"
 #import "AVVideoDeviceDelegate-Protocol.h"
 #import "AVVideoDeviceSessionDelegate-Protocol.h"
@@ -27,11 +28,10 @@
 #import "WXCAssistHelperDelegate-Protocol.h"
 #import "WXCMultiTalkApiDelegate-Protocol.h"
 
-@class AVVideoDevice, MMMultiTalkWindowController, MMTimer, MMVoipUserNotificationWindowController, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class AVVideoDevice, MMCaptureDeviceInfo, MMMultiTalkWindowController, MMScreenInputDevice, MMTimer, MMVoipUserNotificationWindowController, MMWindowInputDevice, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
 
-@interface MMMultiTalkMgr : MMService <IMessageExt, MMCGIDelegate, AccountServiceExt, WXCMultiTalkApiDelegate, MultitalkApiDelegate, WXCAssistHelperDelegate, MultiTalkCgiDelegate, AVVideoDeviceSetupSessionDelegate, AVVideoDataSource, AVVideoDeviceDelegate, AVVideoDeviceSessionDelegate, MonoServiceMsgDelegate, MMVoipUserNotificationDelegate, IContactMgrExt, IGroupMgrExt, MMVoipBaseWindowControllerDelegate, MMMultiTalkWindowDelegate, MonoServiceMsgLogicDelegate, MMNetExt, MMService>
+@interface MMMultiTalkMgr : MMService <IMessageExt, MMCGIDelegate, AccountServiceExt, WXCMultiTalkApiDelegate, MultitalkApiDelegate, WXCAssistHelperDelegate, MultiTalkCgiDelegate, AVVideoDeviceSetupSessionDelegate, AVVideoDataSource, AVVideoDeviceDelegate, AVVideoDeviceSessionDelegate, MonoServiceMsgDelegate, MMVoipUserNotificationDelegate, IContactMgrExt, IGroupMgrExt, MMVoipBaseWindowControllerDelegate, MMMultiTalkWindowDelegate, MonoServiceMsgLogicDelegate, MMNetExt, AVScreenDeviceSessionDelegate, MMService>
 {
-    struct __CVBuffer *rotatedBuffer;
     BOOL _m_videoDeviceRunning;
     BOOL _m_haveBigVideoSubscriber;
     BOOL _m_multiTalkReady;
@@ -48,6 +48,10 @@
     NSMutableArray *_m_cgiList;
     NSMutableDictionary *_m_renderDic;
     NSMutableDictionary *_m_videoInfoDic;
+    MMScreenInputDevice *_m_screenDevice;
+    MMWindowInputDevice *_m_windowDevice;
+    MMCaptureDeviceInfo *_currentScreenSourceInfo;
+    unsigned long long _renderMode;
     NSString *_m_talkingGroupId;
     NSMutableDictionary *_m_bannerInfoList;
     NSMutableDictionary *_m_lastBannerTsList;
@@ -57,9 +61,11 @@
     NSString *_m_otherDevicehandlerGroupId;
     MMTimer *_netStatusTimer;
     NSRecursiveLock *_m_videoEncLock;
+    NSString *_lastSubscribeScreenUserName;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *lastSubscribeScreenUserName; // @synthesize lastSubscribeScreenUserName=_lastSubscribeScreenUserName;
 @property(retain, nonatomic) NSRecursiveLock *m_videoEncLock; // @synthesize m_videoEncLock=_m_videoEncLock;
 @property(nonatomic) BOOL isNoNetwork; // @synthesize isNoNetwork=_isNoNetwork;
 @property(retain, nonatomic) MMTimer *netStatusTimer; // @synthesize netStatusTimer=_netStatusTimer;
@@ -78,6 +84,10 @@
 @property(nonatomic) BOOL m_multiTalkReady; // @synthesize m_multiTalkReady=_m_multiTalkReady;
 @property(nonatomic) unsigned int currentMessageId; // @synthesize currentMessageId=_currentMessageId;
 @property(retain, nonatomic) NSString *m_talkingGroupId; // @synthesize m_talkingGroupId=_m_talkingGroupId;
+@property(nonatomic) unsigned long long renderMode; // @synthesize renderMode=_renderMode;
+@property(retain, nonatomic) MMCaptureDeviceInfo *currentScreenSourceInfo; // @synthesize currentScreenSourceInfo=_currentScreenSourceInfo;
+@property(retain, nonatomic) MMWindowInputDevice *m_windowDevice; // @synthesize m_windowDevice=_m_windowDevice;
+@property(retain, nonatomic) MMScreenInputDevice *m_screenDevice; // @synthesize m_screenDevice=_m_screenDevice;
 @property(nonatomic) BOOL m_haveBigVideoSubscriber; // @synthesize m_haveBigVideoSubscriber=_m_haveBigVideoSubscriber;
 @property(retain, nonatomic) NSMutableDictionary *m_videoInfoDic; // @synthesize m_videoInfoDic=_m_videoInfoDic;
 @property(retain, nonatomic) NSMutableDictionary *m_renderDic; // @synthesize m_renderDic=_m_renderDic;
@@ -105,14 +115,17 @@
 - (void)hasNotAudioMicDeviceAuthorized;
 - (void)onMultiTalkUserNotificationAcceptWithGroup:(id)arg1;
 - (void)showMultiTalkUserNotification:(id)arg1;
+- (void)onMultiTalkWindowSubscribe:(id)arg1;
+- (void)onMultiTalkWindowUnsubscribe:(id)arg1;
 - (void)onMultiTalkWindowMicAudioOn:(BOOL)arg1;
-- (void)onMultiTalkWindowReceiveSwithCamare:(BOOL)arg1;
+- (void)onMultiTalkWindowReceiveSwitchCamera:(BOOL)arg1;
 - (void)onMultiTalkWindowRecoverVideoOn:(BOOL)arg1;
 - (void)onMultiTalkWindowUpdateMessageWith:(id)arg1 duration:(unsigned int)arg2 messageId:(unsigned int)arg3;
 - (void)onMultiTalkWindowAddMember:(id)arg1 withGroup:(id)arg2;
 - (void)onMultiTalkWindowReceiveCancelCallWithGroup:(id)arg1;
 - (void)onMultiTalkWindowHangup:(id)arg1;
 - (void)windowDidColsed:(id)arg1;
+- (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
 - (id)getMultiTalkUserNameListWithPrivacy:(id)arg1;
 - (void)onMultiTalkBannerChange:(id)arg1 WxGroupId:(id)arg2;
 - (void)onMultiTalkBannerChange:(id)arg1;
@@ -121,7 +134,7 @@
 - (void)onMultiTalkCreateLimit:(unsigned int)arg1;
 - (void)onMultiTalkJoinLimit:(unsigned int)arg1;
 - (void)onMultiTalkRedirectOk;
-- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5;
+- (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (void)OnVideoStateChange:(BOOL)arg1 VideoOn:(BOOL)arg2;
 - (void)onMultiTalkAudioDeviceUnPlugin;
 - (void)onMultiTalkAudioDevicePlugin;
@@ -145,6 +158,8 @@
 - (void)onCreateMultiTalk:(id)arg1;
 - (void)onCancelCreateMultiTalk:(id)arg1;
 - (void)onInviteMultiTalk:(id)arg1;
+- (void)unsubscribeLargeScreen;
+- (void)subscribeLargeScreen:(id)arg1;
 - (void)showMultiTalkBanner:(BOOL)arg1 group:(id)arg2 roomId:(unsigned int)arg3 roomKey:(unsigned long long)arg4;
 - (BOOL)isMultiTalkValidWithWxGroupId:(id)arg1;
 - (id)getMultiTalkBannerItemWithGroupId:(id)arg1;
@@ -161,6 +176,7 @@
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)FFAddRecvFavZZ:(BOOL)arg1;
 - (int)GetFrmType;
+- (void)captureWindowSnapshot:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (int)VideoDevPutData:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (void)videoDevice:(id)arg1 didFailWithError:(id)arg2;
 - (void)videoDeviceSessionFinished:(id)arg1;
@@ -175,6 +191,14 @@
 - (void)startVideoDevice;
 - (void)setupVideoDevice;
 - (void)clearVideoDevice;
+- (void)onScreenSessionStopComplete;
+- (void)onScreenSessionStartComplete;
+- (void)onScreenSessionInitFailed;
+- (void)stopScreenInputDevice;
+- (void)startScreenInputDevice;
+- (void)clearScreenInputDevice;
+- (void)onMultiTalkWindowReceiveShareScreenOn:(BOOL)arg1 withInfo:(id)arg2;
+- (void)onMultiTalkWindowReceiveSwitchScreen:(id)arg1;
 - (BOOL)isMultiTalkNotificationActive;
 - (BOOL)isMultiTalkWindowActive;
 - (BOOL)isMultiTalkActive;

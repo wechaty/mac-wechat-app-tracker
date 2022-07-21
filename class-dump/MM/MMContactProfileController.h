@@ -108,7 +108,7 @@
 - (double)setupBodyView1:(double)arg1;
 - (double)setupBodyView0:(double)arg1;
 - (void)refreshUI;
-- (void)setupUI;
+- (double)setupUI;
 - (void)initUI;
 - (void)setupPopoperView:(id)arg1;
 - (void)initPopoverView;

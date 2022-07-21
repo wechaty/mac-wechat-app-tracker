@@ -23,6 +23,7 @@
 - (void)completion:(CDUnknownBlockType)arg1;
 - (void)testBlock;
 - (void)testButtonClick:(id)arg1;
+- (void)testExceptionClick:(id)arg1;
 - (void)initSubViews;
 
 @end

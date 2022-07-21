@@ -11,6 +11,7 @@
 }
 
 + (BOOL)isInDiskImageFolder:(id)arg1;
++ (BOOL)setDoNotBackupForFolder:(id)arg1;
 + (BOOL)setDoNotBackupForPath:(id)arg1;
 + (id)getSysDocumentPath;
 + (id)getSysCachePath;
@@ -76,6 +77,8 @@
 + (id)getContactAutoUpdateDataPath;
 + (id)GetWebTemplateDBPath;
 + (id)GetWebTemplateDirPath;
++ (id)imageTmpPathWithMessage:(id)arg1 midImage:(BOOL)arg2;
++ (id)imagePathWithMessage:(id)arg1 midImage:(BOOL)arg2;
 + (id)GetCdnRootPath;
 + (id)GetAcountBetaDBPath;
 + (id)GetAccountSettingsHistoryPath;
@@ -156,6 +159,14 @@
 + (id)GetFileStateSyncDBPath;
 + (id)GetAvatarPathBeforeAuthOK;
 + (id)GetAvatarPath;
++ (id)groupNoticeTpDownloadedThumbnailPathWithFavItemData:(id)arg1;
++ (id)groupNoticeTpDownloadedThumbnailFolderWithChatRoomName:(id)arg1;
++ (id)groupNoticeCDNDownloadedThumbnailPathWithFavItemData:(id)arg1;
++ (id)groupNoticeCDNDownloadedThumbnailFolderWithChatRoomName:(id)arg1;
++ (id)getGroupNoticeDataPathWithGroupNoticeData:(id)arg1;
++ (id)getGroupNoticeDataPathWithChatName:(id)arg1 sourceId:(id)arg2;
++ (id)getGroupNoticeDataPathWithChatName:(id)arg1;
++ (id)getGroupNoticeRootPath:(id)arg1;
 + (id)getGroupExtendDataPath:(id)arg1;
 + (id)getGroupDBRecoverPath;
 + (id)getGroupDBPath;

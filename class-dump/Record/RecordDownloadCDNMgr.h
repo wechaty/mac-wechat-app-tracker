@@ -36,6 +36,8 @@
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurMsg;
 - (id)genDownloadInfos:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (BOOL)checkToAddWithClientMsgID:(id)arg1;
+- (void)checkToAddDownloadInfos:(id)arg1 dataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)removeMsgWrap:(id)arg1;
 - (void)tryNextMsgWrap;
 - (void)checkDownloadCDNMsgQueue;
