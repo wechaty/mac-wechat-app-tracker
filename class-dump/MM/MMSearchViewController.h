@@ -22,6 +22,7 @@
     BOOL _isShownFirstTimeBySearch;
     BOOL _isSearchFieldTextDidEndEditing;
     BOOL _choseResult;
+    BOOL _isFirstSelectRow;
     unsigned long long _style;
     MMCustomSearchField *_searchField;
     unsigned long long _searchScene;
@@ -54,6 +55,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isFirstSelectRow; // @synthesize isFirstSelectRow=_isFirstSelectRow;
 @property(nonatomic) unsigned long long lastSelectTime; // @synthesize lastSelectTime=_lastSelectTime;
 @property(nonatomic) double popoverWidth; // @synthesize popoverWidth=_popoverWidth;
 @property(nonatomic) unsigned long long totalTableRowHeight; // @synthesize totalTableRowHeight=_totalTableRowHeight;

@@ -11,6 +11,7 @@
 @protocol IMessageServiceImageExt <NSObject>
 
 @optional
+- (void)onThumbImageDidFinishDownloadWithMessage:(MessageData *)arg1;
 - (void)onDefaultThumbImageDidGeneratedWithMessage:(MessageData *)arg1;
 - (void)onImageDidUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onImageDidFinishUploadedWithMessage:(MessageData *)arg1;

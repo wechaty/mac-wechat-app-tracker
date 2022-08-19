@@ -33,6 +33,7 @@
     BOOL _isDoingRotating;
     BOOL _isDoingQRCode;
     BOOL _hasQRCodeInRect;
+    BOOL _bDidResized;
     MMPreviewEventView *_containerView;
     NSImageView *_animationThumbView;
     MMPreviewPageController *_pageController;
@@ -77,6 +78,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
 @property(nonatomic) BOOL hasQRCodeInRect; // @synthesize hasQRCodeInRect=_hasQRCodeInRect;
 @property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) BOOL isDoingRotating; // @synthesize isDoingRotating=_isDoingRotating;
@@ -138,6 +140,8 @@
 - (void)doAnimationForImageRotateAfterResizeWindow;
 - (void)doAnimationForImageRotateAndWindowFrame:(BOOL)arg1;
 - (void)rotateFromMouseEvent:(BOOL)arg1;
+- (void)_pageControllerDidEndTransition:(id)arg1;
+- (void)_pageControllerWillStartTransition;
 - (struct CGRect)pageController:(id)arg1 frameForObject:(id)arg2;
 - (void)pageControllerDidEndLiveTransition:(id)arg1;
 - (void)pageControllerWillStartLiveTransition:(id)arg1;
@@ -217,8 +221,9 @@
 - (void)closeWithBtn:(id)arg1;
 - (void)setCanotResize;
 - (void)onQRCodeButtonClick:(id)arg1;
-- (void)nextItemWithKeyDown:(BOOL)arg1;
-- (void)prevItemWithKeyDown:(BOOL)arg1;
+- (void)nextItemWithKeyDown:(unsigned long long)arg1;
+- (void)prevItemWithKeyDown:(unsigned long long)arg1;
+- (void)resetNaviActionParameter:(unsigned long long)arg1;
 - (void)showTextToastWithHead:(BOOL)arg1;
 - (void)showTextToastWithText:(id)arg1 withDuration:(double)arg2;
 - (void)showTextToastWithText:(id)arg1;
@@ -253,6 +258,8 @@
 - (double)screenScale;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (void)nextItemFromTrackButton:(id)arg1;
+- (void)prevItemFromTrackButton:(id)arg1;
 - (void)setupNextPrevButtons;
 - (void)relayoutButtons;
 - (void)updateWindowResizeZooming;
@@ -313,6 +320,7 @@
 - (void)windowDidChangedEffectiveAppearance;
 - (void)windowDidLoad;
 - (void)dealloc;
+- (void)handleOpenPreview:(id)arg1;
 - (void)onApplicationDidResignActive:(id)arg1;
 - (void)onApplicationDidBecomeActive:(id)arg1;
 - (id)initWithWindowNibName:(id)arg1;

@@ -14,15 +14,23 @@
     unsigned int hasClientWidth:1;
     unsigned int hasFocusWindows:1;
     unsigned int hasOpenWindows:1;
+    unsigned int hasReddotNotifySwitch:1;
+    unsigned int hasFinderEntranceSwitch:1;
     unsigned int screenHeight;
     unsigned int screenWidth;
     unsigned int clientHeight;
     unsigned int clientWidth;
     unsigned long long focusWindows;
     unsigned long long openWindows;
+    unsigned long long reddotNotifySwitch;
+    unsigned long long finderEntranceSwitch;
 }
 
 + (id)parseFromData:(id)arg1;
+@property(nonatomic, setter=SetFinderEntranceSwitch:) unsigned long long finderEntranceSwitch; // @synthesize finderEntranceSwitch;
+@property(readonly, nonatomic) BOOL hasFinderEntranceSwitch; // @synthesize hasFinderEntranceSwitch;
+@property(nonatomic, setter=SetReddotNotifySwitch:) unsigned long long reddotNotifySwitch; // @synthesize reddotNotifySwitch;
+@property(readonly, nonatomic) BOOL hasReddotNotifySwitch; // @synthesize hasReddotNotifySwitch;
 @property(nonatomic, setter=SetOpenWindows:) unsigned long long openWindows; // @synthesize openWindows;
 @property(readonly, nonatomic) BOOL hasOpenWindows; // @synthesize hasOpenWindows;
 @property(nonatomic, setter=SetFocusWindows:) unsigned long long focusWindows; // @synthesize focusWindows;

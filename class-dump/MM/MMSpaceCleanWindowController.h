@@ -18,6 +18,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMSpaceCleanViewController *spaceViewController; // @synthesize spaceViewController=_spaceViewController;
+- (BOOL)isSpaceSelectSessionVCForeground;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)beforeUserLogout;
 - (void)showMainViewController;

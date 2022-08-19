@@ -48,9 +48,11 @@
     unsigned long long extStatus;
     NSString *patSuffix;
     NSString *salt;
+    unsigned long long extStatus2;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_extStatus2;
 + (void)PBArrayAdd_salt;
 + (void)PBArrayAdd_m_nsPluginInstallStatus;
 + (void)PBArrayAdd_teenagerModeMiniProgramSetting;
@@ -86,6 +88,7 @@
 + (void)PBArrayAdd_m_nsCountry;
 + (void)PBArrayAdd_m_uiSex;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long extStatus2; // @synthesize extStatus2;
 @property(retain, nonatomic) NSString *salt; // @synthesize salt;
 @property(nonatomic) unsigned int m_nsPluginInstallStatus; // @synthesize m_nsPluginInstallStatus;
 @property(nonatomic) unsigned int teenagerModeMiniProgramSetting; // @synthesize teenagerModeMiniProgramSetting;

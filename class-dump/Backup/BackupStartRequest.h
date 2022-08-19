@@ -18,16 +18,20 @@
     unsigned int hasGeneralInfo:1;
     unsigned int hasDataSize:1;
     unsigned int hasTransferType:1;
+    unsigned int hasSessionId:1;
     int transferType;
     unsigned long long bigDataSize;
     unsigned long long sessionCount;
     unsigned long long msgCount;
     BackupStartGeneralInfo *generalInfo;
     unsigned long long dataSize;
+    NSString *sessionId;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetSessionId:) NSString *sessionId; // @synthesize sessionId;
+@property(readonly, nonatomic) BOOL hasSessionId; // @synthesize hasSessionId;
 @property(nonatomic, setter=SetTransferType:) int transferType; // @synthesize transferType;
 @property(readonly, nonatomic) BOOL hasTransferType; // @synthesize hasTransferType;
 @property(nonatomic, setter=SetDataSize:) unsigned long long dataSize; // @synthesize dataSize;

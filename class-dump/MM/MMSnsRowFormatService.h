@@ -25,6 +25,8 @@
 - (void)openFinderProfileWithLive:(id)arg1 withTid:(id)arg2;
 - (void)openFeedLive:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
 - (void)openFinderFeed:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
+- (void)openUrlWithUserComment:(id)arg1 withSnsDataItem:(id)arg2 withUrl:(id)arg3;
+- (void)openUrlWithDataItem:(id)arg1 withUrl:(id)arg2;
 - (void)openUrlWithDataItem:(id)arg1;
 - (void)hideContactProfile;
 - (void)showContactProfile:(id)arg1 aView:(id)arg2 positionRect:(struct CGRect)arg3;
@@ -39,7 +41,7 @@
 - (id)getNickName:(id)arg1;
 - (id)getNickNameWithUserComment:(id)arg1;
 - (id)formatterTimeLineTextContent2:(id)arg1;
-- (id)formatterTimeLineTextContent:(id)arg1 useEmoji:(BOOL)arg2;
+- (id)formatterTimeLineTextContent:(id)arg1 formatterOptions:(id)arg2;
 - (id)formatterTimeLineTextContent:(id)arg1;
 - (id)formatterNotificationFeedTextContent:(id)arg1;
 - (BOOL)isContainEmoji:(id)arg1;

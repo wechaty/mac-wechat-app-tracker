@@ -57,10 +57,13 @@
 - (BOOL)saveImgDataToFile:(id)arg1 filePath:(id)arg2;
 - (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLargeFileForForward;
+- (BOOL)isMidFinishUploadOrDownload;
+- (BOOL)isOriginFinishUploadOrDownload;
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)cleanupMediaRes;
 - (BOOL)isNeedDownloadThumb;
 - (BOOL)isThumbImgExist;
+- (BOOL)isMidImgExist;
 - (BOOL)isImgExist;
 - (BOOL)isHDImg;
 - (BOOL)saveMsgDefaultThumbWithData:(id)arg1 shouldCached:(BOOL)arg2;

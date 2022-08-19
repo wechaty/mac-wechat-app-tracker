@@ -6,11 +6,15 @@
 
 #import <objc/NSObject.h>
 
+@class NSDictionary;
+
 @interface MMImageEditThemeManager : NSObject
 {
+    NSDictionary *jsonDic;
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (id)objectWithKey:(id)arg1;
 - (BOOL)themedEnableWithKey:(id)arg1;
 - (float)themedWeightWithKey:(id)arg1;

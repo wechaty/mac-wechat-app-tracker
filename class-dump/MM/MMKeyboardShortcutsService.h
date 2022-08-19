@@ -17,11 +17,15 @@
     BOOL _shouldOpenMainWindow;
     BOOL _shouldPasteScreenshot;
     unsigned char _isShowSystemRecordPerference;
+    BOOL _isCapturing;
+    BOOL _shouldHiddenApp;
     NSTextField *_filePathLabel;
     NSImageView *_imageView;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL shouldHiddenApp; // @synthesize shouldHiddenApp=_shouldHiddenApp;
+@property(nonatomic) BOOL isCapturing; // @synthesize isCapturing=_isCapturing;
 @property(nonatomic) unsigned char isShowSystemRecordPerference; // @synthesize isShowSystemRecordPerference=_isShowSystemRecordPerference;
 @property(nonatomic) __weak NSImageView *imageView; // @synthesize imageView=_imageView;
 @property(nonatomic) __weak NSTextField *filePathLabel; // @synthesize filePathLabel=_filePathLabel;
@@ -29,7 +33,7 @@
 @property(nonatomic) BOOL shouldOpenMainWindow; // @synthesize shouldOpenMainWindow=_shouldOpenMainWindow;
 - (void)showSystemScreenRecordSettings;
 - (void)ignoreSystemScreenRecordSettings:(id)arg1;
-- (void)captureRequest:(id)arg1 didFinishWithImageData:(id)arg2 saveToPath:(id)arg3 error:(id)arg4;
+- (void)captureRequest:(id)arg1 didFinishWithImage:(id)arg2 saveToPath:(id)arg3 error:(id)arg4;
 - (void)captureRequestDidCancel:(id)arg1;
 - (void)captureRequestDidChange:(id)arg1;
 - (void)FFAddRecvFavZZ:(BOOL)arg1;
@@ -37,6 +41,7 @@
 - (void)startScreenShot:(BOOL)arg1;
 - (void)showScreenRecordingPrompt;
 - (BOOL)checkedRecordScreen;
+- (void)checkApplicationStatus;
 - (void)registerDefaultShortcuts;
 - (void)setUpShortcutsFromDefaults;
 - (void)onServiceClearData;

@@ -113,6 +113,7 @@
 + (id)GenPushContactFromMsgData:(id)arg1;
 + (unsigned int)GetPushContactSceneFromMsg:(id)arg1;
 + (BOOL)GetStrangerContactsFromServer:(id)arg1;
++ (BOOL)GetContactsFromServer:(id)arg1 isForceGet:(BOOL)arg2;
 + (BOOL)GetContactsFromServer:(id)arg1;
 + (BOOL)RemoveChatContactForSession:(id)arg1;
 + (id)GetDisplayNameByUsrName:(id)arg1;

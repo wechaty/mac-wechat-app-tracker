@@ -18,6 +18,7 @@
 + (BOOL)p_isPNGFormat:(id)arg1;
 + (BOOL)p_isJPGFormat:(id)arg1;
 + (void)ensureCreateVideoThumb:(id)arg1 thumbPath:(id)arg2;
++ (void)ensureCreateImageThumb:(id)arg1 thumbPath:(id)arg2 thumbData:(id)arg3;
 + (void)ensureCreateImageThumb:(id)arg1 thumbPath:(id)arg2;
 + (BOOL)detectImageBlack:(id)arg1;
 + (id)generateVideoThumbImageWithAsset:(id)arg1 atTime:(double)arg2 isTimeTolerance:(BOOL)arg3;

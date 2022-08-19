@@ -8,16 +8,18 @@
 
 #import "AccountServiceExt-Protocol.h"
 #import "IBetaMgrExt-Protocol.h"
+#import "MMChatBackupInvitationExt-Protocol.h"
 
 @class MMTextField, MMTrackingButton, MMView, NSImageView, NSString, NSView, RBLPopover, RBLPopoverBackgroundView;
 
-@interface MMSettingMenuViewController : NSViewController <IBetaMgrExt, AccountServiceExt>
+@interface MMSettingMenuViewController : NSViewController <IBetaMgrExt, AccountServiceExt, MMChatBackupInvitationExt>
 {
     RBLPopover *_rblPopover;
     RBLPopoverBackgroundView *_rblBackgroundView;
     MMTrackingButton *_chatBackupBtn;
+    NSImageView *_chatBackupBadgeView;
     MMTrackingButton *_settingBtn;
-    NSImageView *_badgeView;
+    NSImageView *_settingBadgeView;
     MMTrackingButton *_feedbackBtn;
     MMTrackingButton *_lockBtn;
     MMTextField *_settingTitle;
@@ -37,13 +39,16 @@
 @property(retain, nonatomic) MMTextField *settingTitle; // @synthesize settingTitle=_settingTitle;
 @property(retain, nonatomic) MMTrackingButton *lockBtn; // @synthesize lockBtn=_lockBtn;
 @property(retain, nonatomic) MMTrackingButton *feedbackBtn; // @synthesize feedbackBtn=_feedbackBtn;
-@property(retain, nonatomic) NSImageView *badgeView; // @synthesize badgeView=_badgeView;
+@property(retain, nonatomic) NSImageView *settingBadgeView; // @synthesize settingBadgeView=_settingBadgeView;
 @property(retain, nonatomic) MMTrackingButton *settingBtn; // @synthesize settingBtn=_settingBtn;
+@property(retain, nonatomic) NSImageView *chatBackupBadgeView; // @synthesize chatBackupBadgeView=_chatBackupBadgeView;
 @property(retain, nonatomic) MMTrackingButton *chatBackupBtn; // @synthesize chatBackupBtn=_chatBackupBtn;
 @property(retain, nonatomic) RBLPopoverBackgroundView *rblBackgroundView; // @synthesize rblBackgroundView=_rblBackgroundView;
 @property(retain, nonatomic) RBLPopover *rblPopover; // @synthesize rblPopover=_rblPopover;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;
+- (void)onAcceptMigrateInvitation;
+- (void)onRecvMigrateInvitation;
 - (void)onClearUnreadBetaPackage;
 - (void)onClearUnreadBetaInvitation;
 - (void)onRecvBetaPackage:(id)arg1;

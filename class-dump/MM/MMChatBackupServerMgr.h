@@ -9,17 +9,21 @@
 #import "MMChatBackupServerLogicDelegate-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMChatBackupIndexDB, MMChatBackupServerLogic, NSArray, NSData, NSString;
+@class MMChatBackupIndexDB, MMChatBackupServerLogic, MMMigrateDataInfo, NSArray, NSData, NSString;
 
 @interface MMChatBackupServerMgr : MMService <MMChatBackupServerLogicDelegate, MMService>
 {
     MMChatBackupServerLogic *m_serverLogic;
     MMChatBackupIndexDB *m_indexDB;
+    unsigned long long m_msgCount;
     BOOL _reTransfer;
     BOOL _isBackupImport;
     BOOL _transferTxtMsg;
     BOOL _isPhoneSupportTxtMsg;
+    BOOL _bSupportPacketFilter;
     BOOL _isOneClickSucc;
+    BOOL _transferOnlyMsg;
+    BOOL _supportQuickBackup;
     unsigned short _server_port;
     unsigned int _cryptUin;
     int _chatBackupMode;
@@ -29,7 +33,9 @@
     NSString *_server_ok;
     NSString *_server_ip;
     NSString *_server_ticket;
-    NSArray *_sessionArray;
+    NSArray *_migrateSessionArray;
+    NSArray *_recoverSessionArray;
+    unsigned long long _bigDataSize;
     long long _recoverStartTime;
     long long _recoverEndTime;
     unsigned long long _totalMsgCount;
@@ -41,13 +47,18 @@
     unsigned long long _notifyCode;
     NSString *_deviceId;
     NSData *_autoReconnectToken;
+    MMMigrateDataInfo *_migrateDataInfo;
     CDUnknownBlockType _didGetConnectInfoBlock;
 }
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType didGetConnectInfoBlock; // @synthesize didGetConnectInfoBlock=_didGetConnectInfoBlock;
+@property(nonatomic) BOOL supportQuickBackup; // @synthesize supportQuickBackup=_supportQuickBackup;
+@property(nonatomic) BOOL transferOnlyMsg; // @synthesize transferOnlyMsg=_transferOnlyMsg;
+@property(retain, nonatomic) MMMigrateDataInfo *migrateDataInfo; // @synthesize migrateDataInfo=_migrateDataInfo;
 @property(nonatomic) BOOL isOneClickSucc; // @synthesize isOneClickSucc=_isOneClickSucc;
 @property(retain, nonatomic) NSData *autoReconnectToken; // @synthesize autoReconnectToken=_autoReconnectToken;
+@property(nonatomic) BOOL bSupportPacketFilter; // @synthesize bSupportPacketFilter=_bSupportPacketFilter;
 @property(nonatomic) BOOL isPhoneSupportTxtMsg; // @synthesize isPhoneSupportTxtMsg=_isPhoneSupportTxtMsg;
 @property(nonatomic) BOOL transferTxtMsg; // @synthesize transferTxtMsg=_transferTxtMsg;
 @property(nonatomic) int chatBackupMode; // @synthesize chatBackupMode=_chatBackupMode;
@@ -63,7 +74,9 @@
 @property(nonatomic) unsigned long long totalMsgCount; // @synthesize totalMsgCount=_totalMsgCount;
 @property(nonatomic) long long recoverEndTime; // @synthesize recoverEndTime=_recoverEndTime;
 @property(nonatomic) long long recoverStartTime; // @synthesize recoverStartTime=_recoverStartTime;
-@property(retain, nonatomic) NSArray *sessionArray; // @synthesize sessionArray=_sessionArray;
+@property(nonatomic) unsigned long long bigDataSize; // @synthesize bigDataSize=_bigDataSize;
+@property(retain, nonatomic) NSArray *recoverSessionArray; // @synthesize recoverSessionArray=_recoverSessionArray;
+@property(retain, nonatomic) NSArray *migrateSessionArray; // @synthesize migrateSessionArray=_migrateSessionArray;
 @property(nonatomic) unsigned short server_port; // @synthesize server_port=_server_port;
 @property(nonatomic) unsigned int cryptUin; // @synthesize cryptUin=_cryptUin;
 @property(retain, nonatomic) NSString *server_ticket; // @synthesize server_ticket=_server_ticket;
@@ -72,13 +85,28 @@
 @property(retain, nonatomic) NSString *server_hello; // @synthesize server_hello=_server_hello;
 @property(retain, nonatomic) NSData *server_key; // @synthesize server_key=_server_key;
 @property(retain, nonatomic) NSString *server_id; // @synthesize server_id=_server_id;
+- (void)unireport26824:(id)arg1;
+- (void)unireport26824:(unsigned int)arg1 withLogStr:(id)arg2;
+- (unsigned long long)getPairType;
+- (void)initMigrateDataInfoIfNeed:(BOOL)arg1;
+- (void)clearMigrateCacheData;
+- (void)clearUnreadMigrateMessage;
+- (BOOL)hasUnreadMigrateMessage;
+- (BOOL)clicfgEnableChatlogMigrate;
+- (unsigned long long)getTransferedLength;
+- (unsigned long long)getMigrateMsgCount;
+- (unsigned long long)getMigrateSessionCount;
+- (id)getAllMigrateSessionArray;
+- (void)clearServerLogic;
 - (BOOL)shouldOpenRecoverTxtMsg;
 - (void)deleteBackupRecordBy:(id)arg1;
 - (BOOL)hasBackupRecord;
 - (id)getAllBackupRecords;
+- (void)extensionProcessNotifyCode:(unsigned long long)arg1;
+- (void)clearCurrentTransferredDataWithNotifyCodeIfNeed:(unsigned long long)arg1;
 - (void)onServerLogicCurrentProcessingSession:(unsigned long long)arg1 totalSessionCount:(unsigned long long)arg2;
 - (void)onServerLogicNotifyCode:(unsigned long long)arg1;
-- (void)onServerLogicCurrentTransferSpeed:(float)arg1;
+- (void)onServerLogicCurrentTransferSpeed:(float)arg1 leftTime:(unsigned int)arg2 ratio:(double)arg3;
 - (void)onGetConnectInfo:(id)arg1;
 - (void)onGetQRCode:(id)arg1;
 - (void)getConnectInfoWithCompletion:(CDUnknownBlockType)arg1;

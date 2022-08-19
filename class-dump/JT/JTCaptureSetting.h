@@ -10,11 +10,13 @@
 
 @interface JTCaptureSetting : NSObject
 {
+    BOOL _shouldHiddenApp;
     NSString *_fileNamePrefix;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL shouldHiddenApp; // @synthesize shouldHiddenApp=_shouldHiddenApp;
 @property(retain, nonatomic) NSString *fileNamePrefix; // @synthesize fileNamePrefix=_fileNamePrefix;
 - (id)defaultValueOfThemeName;
 - (id)defaultValueOfChannel;
@@ -24,6 +26,7 @@
 - (BOOL)defaultValueOfResolution;
 - (unsigned long long)defaultValueOfFileType;
 - (BOOL)defaultValueOfPlaySound;
+- (id)imageFileNameForType:(unsigned long long)arg1 isHighResolution:(BOOL)arg2;
 @property(retain, nonatomic) NSString *themeName;
 @property(nonatomic, getter=isRunAlone) BOOL runAlone;
 @property(retain, nonatomic) NSString *channel;

@@ -7,55 +7,45 @@
 #import "MMWindowController.h"
 
 #import "MMBackupFilesInfoDetailVCDelegate-Protocol.h"
+#import "MMChatLogHeaderViewDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMBackupFilesInfoDetailViewController, MMChatBackupBackupViewController, MMChatBackupRecoverViewController, MMImageView, MMMediumDivider, MMOutlineButton, MMTextField, NSString;
+@class MMChatLogHeaderView, MMChatLogHomeViewController, MMNavigationController, MMTextField, NSString;
 
-@interface MMChatBackupBaseWindowController : MMWindowController <NSWindowDelegate, MMBackupFilesInfoDetailVCDelegate>
+@interface MMChatBackupBaseWindowController : MMWindowController <NSWindowDelegate, MMBackupFilesInfoDetailVCDelegate, MMChatLogHeaderViewDelegate>
 {
-    MMImageView *_backupImageView;
-    MMImageView *_recoverImageView;
-    MMMediumDivider *_divider;
-    MMOutlineButton *_backupDescLabel;
-    MMOutlineButton *_recoverDescLabel;
-    MMOutlineButton *_manageDescLabel;
+    MMChatLogHeaderView *_headerView;
+    MMNavigationController *_naviController;
     MMTextField *_versionSupportLabel;
-    MMChatBackupBackupViewController *_backupVC;
-    MMChatBackupRecoverViewController *_recoverVC;
-    MMBackupFilesInfoDetailViewController *_fileInfoVC;
+    MMChatLogHomeViewController *_chatlogHomeVC;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMBackupFilesInfoDetailViewController *fileInfoVC; // @synthesize fileInfoVC=_fileInfoVC;
-@property(retain, nonatomic) MMChatBackupRecoverViewController *recoverVC; // @synthesize recoverVC=_recoverVC;
-@property(retain, nonatomic) MMChatBackupBackupViewController *backupVC; // @synthesize backupVC=_backupVC;
+@property(retain, nonatomic) MMChatLogHomeViewController *chatlogHomeVC; // @synthesize chatlogHomeVC=_chatlogHomeVC;
 @property(retain, nonatomic) MMTextField *versionSupportLabel; // @synthesize versionSupportLabel=_versionSupportLabel;
-@property(retain, nonatomic) MMOutlineButton *manageDescLabel; // @synthesize manageDescLabel=_manageDescLabel;
-@property(retain, nonatomic) MMOutlineButton *recoverDescLabel; // @synthesize recoverDescLabel=_recoverDescLabel;
-@property(retain, nonatomic) MMOutlineButton *backupDescLabel; // @synthesize backupDescLabel=_backupDescLabel;
-@property(retain, nonatomic) MMMediumDivider *divider; // @synthesize divider=_divider;
-@property(retain, nonatomic) MMImageView *recoverImageView; // @synthesize recoverImageView=_recoverImageView;
-@property(retain, nonatomic) MMImageView *backupImageView; // @synthesize backupImageView=_backupImageView;
+@property(retain, nonatomic) MMNavigationController *naviController; // @synthesize naviController=_naviController;
+@property(retain, nonatomic) MMChatLogHeaderView *headerView; // @synthesize headerView=_headerView;
+- (void)tryGoToBackupRecoverController;
+- (void)tryPauseMigrateProcessWithServerID:(id)arg1;
+- (void)tryMigrateToMobile;
+- (void)tryMigrateToMac;
+- (void)tryGoToPauseStatusMigrationVC:(int)arg1;
 - (void)setAvailableSizeForRecover:(unsigned long long)arg1;
 - (void)setWindowResizable:(BOOL)arg1;
 - (void)doAnimationWithNewSize:(struct CGSize)arg1 origin:(struct CGPoint)arg2;
 - (void)dismissWindowTile;
 - (void)showWindowTitle:(id)arg1;
-- (void)showRecoverSessionListView:(id)arg1;
-- (void)_layoutManageViewWithMode:(int)arg1;
-- (void)showManageView;
-- (void)_layoutRecoverViewWithRecord:(id)arg1;
-- (void)showRecoverView;
-- (void)showBackupView;
+- (void)popToRootViewController;
 - (void)removeVersionSupportViews;
-- (void)removeEntranceSubviews;
-- (void)layoutEntranceSubviews;
-- (void)setupEntranceSubviews;
 - (void)setupVersionSupportViews;
 - (BOOL)windowShouldClose:(id)arg1;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)showWindowAnimated:(BOOL)arg1;
 - (void)orderFrontWindow;
+- (void)setupTitleBar;
+- (void)onMsgTypeSelected:(int)arg1;
+- (void)onMsgPeriodSelected:(int)arg1 startDate:(id)arg2 finishDate:(id)arg3;
+- (void)onBackBtnDidClicked;
 - (void)windowDidLoad;
 - (id)initWithWindowNibName:(id)arg1;
 

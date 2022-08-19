@@ -35,6 +35,14 @@
     unsigned int hasCookie:1;
     unsigned int hasOuterUrl:1;
     unsigned int hasSubScene:1;
+    unsigned int hasAppTitle:1;
+    unsigned int hasAppDesc:1;
+    unsigned int hasMsgUserName:1;
+    unsigned int hasMsgId:1;
+    unsigned int hasWxaPathWithQuery:1;
+    unsigned int hasContentType:1;
+    unsigned int hasAppMsgInnerType:1;
+    unsigned int hasSpamExtBuf:1;
     unsigned int opCode;
     unsigned int friendQq;
     unsigned int scene;
@@ -46,6 +54,8 @@
     unsigned int requestId;
     unsigned int walletRegion;
     unsigned int subScene;
+    unsigned int contentType;
+    unsigned int appMsgInnerType;
     BaseRequest *baseRequest;
     SKBuiltinBuffer_t *a2Key;
     SKBuiltinString_t *appId;
@@ -60,10 +70,32 @@
     NSString *functionId;
     SKBuiltinBuffer_t *cookie;
     NSString *outerUrl;
+    NSString *appTitle;
+    NSString *appDesc;
+    NSString *msgUserName;
+    NSString *msgId;
+    NSString *wxaPathWithQuery;
+    SKBuiltinBuffer_t *spamExtBuf;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetSpamExtBuf:) SKBuiltinBuffer_t *spamExtBuf; // @synthesize spamExtBuf;
+@property(readonly, nonatomic) BOOL hasSpamExtBuf; // @synthesize hasSpamExtBuf;
+@property(nonatomic, setter=SetAppMsgInnerType:) unsigned int appMsgInnerType; // @synthesize appMsgInnerType;
+@property(readonly, nonatomic) BOOL hasAppMsgInnerType; // @synthesize hasAppMsgInnerType;
+@property(nonatomic, setter=SetContentType:) unsigned int contentType; // @synthesize contentType;
+@property(readonly, nonatomic) BOOL hasContentType; // @synthesize hasContentType;
+@property(retain, nonatomic, setter=SetWxaPathWithQuery:) NSString *wxaPathWithQuery; // @synthesize wxaPathWithQuery;
+@property(readonly, nonatomic) BOOL hasWxaPathWithQuery; // @synthesize hasWxaPathWithQuery;
+@property(retain, nonatomic, setter=SetMsgId:) NSString *msgId; // @synthesize msgId;
+@property(readonly, nonatomic) BOOL hasMsgId; // @synthesize hasMsgId;
+@property(retain, nonatomic, setter=SetMsgUserName:) NSString *msgUserName; // @synthesize msgUserName;
+@property(readonly, nonatomic) BOOL hasMsgUserName; // @synthesize hasMsgUserName;
+@property(retain, nonatomic, setter=SetAppDesc:) NSString *appDesc; // @synthesize appDesc;
+@property(readonly, nonatomic) BOOL hasAppDesc; // @synthesize hasAppDesc;
+@property(retain, nonatomic, setter=SetAppTitle:) NSString *appTitle; // @synthesize appTitle;
+@property(readonly, nonatomic) BOOL hasAppTitle; // @synthesize hasAppTitle;
 @property(nonatomic, setter=SetSubScene:) unsigned int subScene; // @synthesize subScene;
 @property(readonly, nonatomic) BOOL hasSubScene; // @synthesize hasSubScene;
 @property(retain, nonatomic, setter=SetOuterUrl:) NSString *outerUrl; // @synthesize outerUrl;

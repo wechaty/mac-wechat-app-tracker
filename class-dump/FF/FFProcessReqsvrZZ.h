@@ -76,8 +76,8 @@
 - (void)cleanTempWeAppFilePath;
 - (void)addTempWeAppFilePath:(id)arg1;
 - (void)preprocessingIPXXMessage:(id)arg1;
-- (id)msgListDuplicateProcess:(id)arg1 chatName:(id)arg2 bFunFlag:(BOOL)arg3;
-- (BOOL)isMsgDuplicateProcess:(id)arg1 chatName:(id)arg2 bFunFlag:(BOOL)arg3;
+- (id)preFilterDuplicateMsgList:(id)arg1 bFunFlag:(BOOL)arg2;
+- (BOOL)preFilterDuplicateMsg:(id)arg1 chatName:(id)arg2 bFunFlag:(BOOL)arg3;
 - (BOOL)isMsgSpecialProcess:(id)arg1;
 - (void)setupDownloadMgr;
 - (void)proxySettingsDidChange:(id)arg1;
@@ -123,6 +123,7 @@
 - (id)SendStickerStoreEmoticonMsgFromUsr:(id)arg1 toUsrName:(id)arg2 md5:(id)arg3 productID:(id)arg4;
 - (id)SendEmoticonMsgFromUsr:(id)arg1 toUsrName:(id)arg2 md5:(id)arg3 emoticonType:(unsigned int)arg4;
 - (id)SendImgMessage:(id)arg1 toUsrName:(id)arg2 thumbImgData:(id)arg3 imgData:(id)arg4 imgInfo:(id)arg5;
+- (id)FFProcessTReqZZ:(id)arg1 toUsrName:(id)arg2 msgText:(id)arg3 atUserList:(id)arg4 senderInfo:(id)arg5;
 - (id)FFProcessTReqZZ:(id)arg1 toUsrName:(id)arg2 msgText:(id)arg3 atUserList:(id)arg4;
 - (BOOL)FFProcessTReqWithStrZZ:(id)arg1 toUser:(id)arg2;
 - (id)SendAppMusicMessageFromUser:(id)arg1 toUsrName:(id)arg2 withTitle:(id)arg3 url:(id)arg4 description:(id)arg5 thumbnailData:(id)arg6;
@@ -151,17 +152,18 @@
 - (void)addEnterSession:(id)arg1;
 - (void)addMarkUnRead:(id)arg1 createTime:(unsigned int)arg2;
 - (BOOL)needSessionHide:(id)arg1 clearToTime:(unsigned int *)arg2;
-- (void)processStatusNotify:(id)arg1 map:(id)arg2;
+- (void)processStatusNotify:(id)arg1 map:(id)arg2 isFastSync:(BOOL)arg3;
 - (void)OnSyncModMsgStatus:(id)arg1;
 - (void)OnSyncBatchAddFunctionMsgs:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)FFImgToOnFavInfoInfoVCZZ:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)processNormalStatusNotify:(id)arg1;
 - (void)processUnreadCountStatusNotify:(id)arg1 addMsgListCount:(unsigned long long)arg2;
+- (BOOL)addMsgListToDB:(id)arg1 chatName:(id)arg2 andIgnoreFlag:(BOOL)arg3;
 - (void)FFVideoToOnFavInfoInfoVCZZ:(id)arg1 andIsFirstSync:(BOOL)arg2;
 - (void)FFSingleToOnFavInfoInfoVCZZ:(id)arg1;
 - (void)onFastSyncBatchStashMsgs:(id)arg1 isFirstSync:(BOOL)arg2 isLastSync:(BOOL)arg3;
 - (void)postHandleAddMsg:(id)arg1 chatName:(id)arg2 bFirstSync:(BOOL)arg3 bFunFlag:(BOOL)arg4;
-- (BOOL)preFilterAddMsg:(id)arg1 chatName:(id)arg2 bFunFlag:(BOOL)arg3 duplicateVal:(int)arg4;
+- (BOOL)preFilterAddMsg:(id)arg1 chatName:(id)arg2;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;
@@ -192,7 +194,8 @@
 - (void)UpdateReferMsgAsRevoked:(id)arg1 chatName:(id)arg2;
 - (void)ClearUnReadForSync:(id)arg1 ToCreateTime:(unsigned int)arg2;
 - (void)ClearUnRead:(id)arg1 FromCreateTime:(unsigned int)arg2 ToCreateTime:(unsigned int)arg3;
-- (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 type:(unsigned long long)arg3;
+- (BOOL)p_modifyMsgData:(id)arg1 msgDataList:(id)arg2 type:(unsigned long long)arg3;
+- (BOOL)ModifyMsgDataOnType:(unsigned long long)arg1 msgDataList:(id)arg2 forChat:(id)arg3;
 - (BOOL)ModifyMsgDataOnType:(unsigned long long)arg1 msgData:(id)arg2;
 - (BOOL)p_modifyMsgData:(id)arg1 msgData:(id)arg2 msgDB:(id)arg3;
 - (void)ModifyMsgData:(id)arg1 msgData:(id)arg2;
@@ -204,6 +207,9 @@
 - (id)ExistingSvrIdList:(id)arg1 chatName:(id)arg2;
 - (BOOL)IsSvrIdExists:(unsigned long long)arg1 chatName:(id)arg2;
 - (BOOL)HasMsgInChat:(id)arg1;
+- (long long)getMessageCountFromDB:(id)arg1 where:(const void *)arg2;
+- (unsigned int)getMaxCreateTimeInMessage:(id)arg1;
+- (unsigned int)getMinCreateTimeInMessage:(id)arg1;
 - (void)GetUnReadCount:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (unsigned int)GetUnReadCount:(id)arg1;
 - (id)GetMsgData:(id)arg1 svrIdList:(id)arg2;
@@ -212,7 +218,8 @@
 - (id)GetMsgData:(id)arg1 localId:(unsigned int)arg2 opBitSet:(unsigned int)arg3;
 - (id)GetMsgData:(id)arg1 localId:(unsigned int)arg2;
 - (id)GetAllMsgWithChatName:(id)arg1 messageType:(unsigned int)arg2;
-- (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 toCreateTime:(unsigned int)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 messageTypes:(id)arg6 sortAscend:(BOOL)arg7;
+- (id)getMsgCreateTimeListWithChatName:(id)arg1 localIdList:(id)arg2;
+- (id)GetMsgListWithChatName:(id)arg1 maxCreateTime:(unsigned int)arg2 minCreateTime:(unsigned int)arg3 localId:(unsigned long long)arg4 limitCnt:(unsigned int)arg5 messageTypes:(id)arg6 fromOldToNew:(BOOL)arg7 sortAscend:(BOOL)arg8;
 - (id)GetMsgListWithChatName:(id)arg1 fromMinCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 messageTypes:(id)arg6 sortAscend:(BOOL)arg7;
 - (void)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 messageTypes:(id)arg5 sortAscend:(BOOL)arg6 completion:(CDUnknownBlockType)arg7;
@@ -259,7 +266,6 @@
 - (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(id)arg1;
 - (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3 type:(int)arg4 tryShow:(BOOL)arg5;
-- (void)downloadSightFileWithChatName:(id)arg1 mesLocalID:(unsigned int)arg2 recordMsgData:(id)arg3 isFavorite:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)downloadAppMessage:(id)arg1;
 - (BOOL)isAppMsgDownloading:(id)arg1;
 - (BOOL)isAppMsgUploading:(id)arg1;

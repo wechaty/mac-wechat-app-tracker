@@ -31,6 +31,9 @@
     unsigned int hasHeadImg:1;
     unsigned int hasCookie:1;
     unsigned int hasMenuWording:1;
+    unsigned int hasVerifyPrefetchInfo:1;
+    unsigned int hasWebComponentInfo:1;
+    unsigned int hasSpamExtBuf:1;
     unsigned int actionCode;
     unsigned int scopeCount;
     unsigned int httpHeaderCount;
@@ -54,10 +57,19 @@
     NSString *headImg;
     SKBuiltinBuffer_t *cookie;
     NSString *menuWording;
+    SKBuiltinBuffer_t *verifyPrefetchInfo;
+    SKBuiltinBuffer_t *webComponentInfo;
+    SKBuiltinBuffer_t *spamExtBuf;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetSpamExtBuf:) SKBuiltinBuffer_t *spamExtBuf; // @synthesize spamExtBuf;
+@property(readonly, nonatomic) BOOL hasSpamExtBuf; // @synthesize hasSpamExtBuf;
+@property(retain, nonatomic, setter=SetWebComponentInfo:) SKBuiltinBuffer_t *webComponentInfo; // @synthesize webComponentInfo;
+@property(readonly, nonatomic) BOOL hasWebComponentInfo; // @synthesize hasWebComponentInfo;
+@property(retain, nonatomic, setter=SetVerifyPrefetchInfo:) SKBuiltinBuffer_t *verifyPrefetchInfo; // @synthesize verifyPrefetchInfo;
+@property(readonly, nonatomic) BOOL hasVerifyPrefetchInfo; // @synthesize hasVerifyPrefetchInfo;
 @property(retain, nonatomic, setter=SetMenuWording:) NSString *menuWording; // @synthesize menuWording;
 @property(readonly, nonatomic) BOOL hasMenuWording; // @synthesize hasMenuWording;
 @property(retain, nonatomic, setter=SetCookie:) SKBuiltinBuffer_t *cookie; // @synthesize cookie;

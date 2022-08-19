@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class MMCaptureDeviceInfo, MMTimer, NSArray, NSString;
+@class MMCaptureDeviceInfo, NSArray, NSString;
 
 @interface MMAVCaptureDeviceService : MMService <MMService>
 {
@@ -18,19 +18,18 @@
     MMCaptureDeviceInfo *_defaultAudioInputDevice;
     MMCaptureDeviceInfo *_defaultAudioOutputDevice;
     MMCaptureDeviceInfo *_defaultVideoDevice;
-    MMTimer *_timer;
+    CDUnknownBlockType _audioOutputListener;
 }
 
 + (void)authorizationStatusForMediaType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMTimer *timer; // @synthesize timer=_timer;
+@property(copy, nonatomic) CDUnknownBlockType audioOutputListener; // @synthesize audioOutputListener=_audioOutputListener;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultVideoDevice; // @synthesize defaultVideoDevice=_defaultVideoDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioOutputDevice; // @synthesize defaultAudioOutputDevice=_defaultAudioOutputDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioInputDevice; // @synthesize defaultAudioInputDevice=_defaultAudioInputDevice;
 @property(retain, nonatomic) NSArray *audioOutputInfos; // @synthesize audioOutputInfos=_audioOutputInfos;
 @property(retain, nonatomic) NSArray *audioInputInfos; // @synthesize audioInputInfos=_audioInputInfos;
 @property(retain, nonatomic) NSArray *videoDevices; // @synthesize videoDevices=_videoDevices;
-- (void)detectBlueToothDevice;
 - (void)stopDetectAudioOutput;
 - (void)startDetectAudioOutput;
 - (id)getScreenCaptureSourceInfoWithThumbSize:(struct CGSize)arg1;
@@ -58,6 +57,7 @@
 - (id)convertAVCaptureDevice:(id)arg1;
 - (id)getSysDefaultVideoDevice;
 - (id)getVideoList;
+- (void)refreshAudioOutputDevice;
 - (void)freshDefaultDevices;
 - (void)refreshDeviceList;
 - (void)dealloc;

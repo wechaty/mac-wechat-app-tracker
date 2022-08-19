@@ -7,6 +7,7 @@
 #import <AppKit/NSViewController.h>
 
 #import "ICdnComMgrExt-Protocol.h"
+#import "IChatLogMigrateToMacExt-Protocol.h"
 #import "IChatSyncMgrExt-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
 #import "IGroupMgrExt-Protocol.h"
@@ -29,7 +30,7 @@
 @class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
-@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, ICdnComMgrExt>
+@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt>
 {
     BOOL _isSettingChatContact;
     BOOL _isScrollToUnReadCount;
@@ -132,6 +133,7 @@
 @property(retain, nonatomic) WCContactData *chatContact; // @synthesize chatContact=_chatContact;
 @property(copy, nonatomic) CDUnknownBlockType showBrandListViewBlock; // @synthesize showBrandListViewBlock=_showBrandListViewBlock;
 @property(copy, nonatomic) CDUnknownBlockType viewDidLoadBlock; // @synthesize viewDidLoadBlock=_viewDidLoadBlock;
+- (void)onChatLogImportFinish;
 - (void)reportVisibleFeedCell;
 - (void)OnCdnNetworkWarning:(unsigned int)arg1;
 - (void)setupChatroomReportController;

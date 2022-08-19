@@ -41,7 +41,7 @@
 - (void)HandleSendMsgResp:(id)arg1;
 - (void)HandleBatchTransCDNResp:(id)arg1;
 - (void)TryNextMsgWrap;
-- (void)SendMsgOK:(long long)arg1;
+- (void)SendMsgOK:(id)arg1;
 - (void)SendMsgFail;
 - (BOOL)SendCurAppMsg;
 - (void)RemoveMsgWrap:(id)arg1;

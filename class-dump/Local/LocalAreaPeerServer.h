@@ -9,7 +9,7 @@
 #import "MCNearbyServiceAdvertiserDelegate-Protocol.h"
 #import "MCSessionDelegate-Protocol.h"
 
-@class MCNearbyServiceAdvertiser, MCPeerID, MCSession, MMSpeedFilter, NSDate, NSDictionary, NSString;
+@class MCNearbyServiceAdvertiser, MCPeerID, MCSession, MMSpeedFilter, NSDate, NSDictionary, NSLock, NSMutableArray, NSString;
 @protocol LocalAreaPeerServerDelegate;
 
 @interface LocalAreaPeerServer : NSObject <MCNearbyServiceAdvertiserDelegate, MCSessionDelegate>
@@ -30,9 +30,13 @@
     MMSpeedFilter *m_recveSpeedFilter;
     NSDate *m_peerOpenDate;
     id <LocalAreaPeerServerDelegate> _delegate;
+    NSLock *_sendingSizeLock;
+    NSMutableArray *_sendingSizeArr;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *sendingSizeArr; // @synthesize sendingSizeArr=_sendingSizeArr;
+@property(retain, nonatomic) NSLock *sendingSizeLock; // @synthesize sendingSizeLock=_sendingSizeLock;
 @property(nonatomic) __weak id <LocalAreaPeerServerDelegate> delegate; // @synthesize delegate=_delegate;
 - (unsigned long long)getPeerOpenTime;
 - (unsigned long long)getTotalReceiveLength;

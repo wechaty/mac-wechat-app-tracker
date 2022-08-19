@@ -34,7 +34,7 @@
 + (void)PBArrayAdd_failedReason;
 + (void)PBArrayAdd_isFailed;
 - (void).cxx_destruct;
-@property(nonatomic) MessageData *message; // @synthesize message=_message;
+@property(nonatomic) __weak MessageData *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSString *translationService; // @synthesize translationService;
 @property(retain, nonatomic) NSString *translatedText; // @synthesize translatedText;
 @property(retain, nonatomic) NSString *originalText; // @synthesize originalText;

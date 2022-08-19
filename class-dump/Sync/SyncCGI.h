@@ -32,7 +32,7 @@
 - (void)callSyncSucc;
 - (BOOL)shouldContinueOpenIMSync:(id)arg1 withResponse:(id)arg2;
 - (BOOL)shouldContinueNewSync:(id)arg1 withResponse:(id)arg2;
-- (BOOL)handleSyncResponse:(id)arg1 shouldContinue:(BOOL)arg2;
+- (void)handleSyncResponse:(id)arg1 shouldContinue:(BOOL)arg2;
 - (void)handleOpenIMSyncResponse:(id)arg1 sessionId:(unsigned int)arg2;
 - (void)handleNewSyncResponse:(id)arg1 sessionId:(unsigned int)arg2;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;

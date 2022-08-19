@@ -19,7 +19,6 @@
     BOOL _isToWeCom;
     BOOL _isFromFav;
     BOOL _m_hasDownload;
-    BOOL _m_enableHitCheck;
     id <RecordUploadTaskDelegate> _delegate;
     CdnRecordMediaInfo *_cdnInfo;
     CdnFavMediaInfo *_favCdnInfo;
@@ -29,7 +28,6 @@
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) BOOL m_enableHitCheck; // @synthesize m_enableHitCheck=_m_enableHitCheck;
 @property(nonatomic) BOOL m_hasDownload; // @synthesize m_hasDownload=_m_hasDownload;
 @property(retain, nonatomic) CdnUploadTaskInfo *uploadResult; // @synthesize uploadResult=_uploadResult;
 @property(retain, nonatomic) FavoritesItemDataField *recordData; // @synthesize recordData=_recordData;

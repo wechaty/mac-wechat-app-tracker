@@ -44,11 +44,10 @@
 - (void)openWeAppWithOfficalBrandDict:(id)arg1;
 - (void)openDebugWeApp:(id)arg1;
 - (void)openWeApp:(id)arg1 withScene:(int)arg2;
+- (void)reportLaunchError:(id)arg1;
 - (void)handleLaunchError:(id)arg1;
 - (void)launchWeAppWithHost:(id)arg1;
 - (void)hideInitializeWindow;
-- (unsigned long long)getFromPreScene:(int)arg1;
-- (unsigned long long)getFromScene:(int)arg1;
 - (int)getWeAppType:(id)arg1;
 - (void)miniProgramDidTerminate:(id)arg1;
 - (void)miniProgramDidLaunch:(id)arg1;

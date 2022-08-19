@@ -20,9 +20,12 @@
     unsigned int hasType:1;
     unsigned int hasNewMsgId:1;
     unsigned int hasAeskey:1;
+    unsigned int hasMsgSource:1;
+    unsigned int hasActionFlag:1;
     unsigned int msgId;
     unsigned int createTime;
     unsigned int type;
+    unsigned int actionFlag;
     BaseResponse *baseResponse;
     NSString *appId;
     NSString *fromUserName;
@@ -30,10 +33,15 @@
     NSString *clientMsgId;
     unsigned long long newMsgId;
     NSString *aeskey;
+    NSString *msgSource;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetActionFlag:) unsigned int actionFlag; // @synthesize actionFlag;
+@property(readonly, nonatomic) BOOL hasActionFlag; // @synthesize hasActionFlag;
+@property(retain, nonatomic, setter=SetMsgSource:) NSString *msgSource; // @synthesize msgSource;
+@property(readonly, nonatomic) BOOL hasMsgSource; // @synthesize hasMsgSource;
 @property(retain, nonatomic, setter=SetAeskey:) NSString *aeskey; // @synthesize aeskey;
 @property(readonly, nonatomic) BOOL hasAeskey; // @synthesize hasAeskey;
 @property(nonatomic, setter=SetNewMsgId:) unsigned long long newMsgId; // @synthesize newMsgId;

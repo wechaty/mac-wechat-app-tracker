@@ -31,10 +31,8 @@
 @property struct CGRect screenFrame; // @synthesize screenFrame=_screenFrame;
 @property(retain, nonatomic) NSMutableArray *windowInfoArray; // @synthesize windowInfoArray=_windowInfoArray;
 @property(nonatomic) __weak id <JTCaptureWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)handleChangeThemeNotification:(id)arg1;
-- (void)unregisterForChangeThemeNotification;
-- (void)registerForChangeThemeNotification;
 - (id)windowInfoArrayOfScreenFrame:(struct CGRect)arg1;
+- (BOOL)inValidLevel:(int)arg1;
 - (void)becomeActive;
 - (void)captureDidFinishWithImage:(id)arg1 needSave:(BOOL)arg2;
 - (id)windowInfoAtPostion:(struct CGPoint)arg1;

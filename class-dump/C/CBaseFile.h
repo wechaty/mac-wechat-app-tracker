@@ -33,6 +33,7 @@
 + (id)LoadDataFromPath:(id)arg1 Offset:(unsigned int)arg2 Len:(unsigned int)arg3;
 + (BOOL)CreateHardLink:(id)arg1 LinkName:(id)arg2;
 + (BOOL)CreateSymbolLink:(id)arg1 LinkName:(id)arg2;
++ (void)SyncClearPath:(id)arg1;
 + (void)ClearFolderOnRemove:(id)arg1;
 + (void)ClearFolder:(id)arg1;
 + (BOOL)RemoveFile:(id)arg1;

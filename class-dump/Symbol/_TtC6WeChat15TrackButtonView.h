@@ -38,6 +38,8 @@
 - (void)mouseMoved:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (void)mouseDown:(id)arg1;
+- (void)mouseUp:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
 - (void)dealloc;

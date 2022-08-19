@@ -59,6 +59,7 @@
 - (struct CGPoint)findToolbarPosition;
 - (void)hideToolbar;
 - (void)showToolbar;
+- (BOOL)inValidLevel:(id)arg1;
 - (void)gotActiveWindowInfo:(id)arg1;
 - (id)windowInfoAtPostion:(struct CGPoint)arg1;
 - (void)mouseLocationDidUpdate:(struct CGPoint)arg1 needShowMagnifier:(BOOL)arg2;

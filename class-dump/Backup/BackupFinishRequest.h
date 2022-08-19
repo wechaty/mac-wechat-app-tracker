@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BackupReportList, NSString;
+@class BackupAnalyseInfo, BackupReportList, NSString;
 
 @interface BackupFinishRequest : PBGeneratedMessage
 {
@@ -23,6 +23,7 @@
     unsigned int hasServerReadFileTotalTime:1;
     unsigned int hasServerCostTotalTime:1;
     unsigned int hasServerVersion:1;
+    unsigned int hasAnalyseInfo:1;
     unsigned int serverSessionCount;
     unsigned int serverMessageCount;
     unsigned int serverFileCount;
@@ -32,10 +33,13 @@
     unsigned int serverReadFileTotalTime;
     unsigned int serverCostTotalTime;
     unsigned int serverVersion;
+    BackupAnalyseInfo *analyseInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetAnalyseInfo:) BackupAnalyseInfo *analyseInfo; // @synthesize analyseInfo;
+@property(readonly, nonatomic) BOOL hasAnalyseInfo; // @synthesize hasAnalyseInfo;
 @property(nonatomic, setter=SetServerVersion:) unsigned int serverVersion; // @synthesize serverVersion;
 @property(readonly, nonatomic) BOOL hasServerVersion; // @synthesize hasServerVersion;
 @property(nonatomic, setter=SetServerCostTotalTime:) unsigned int serverCostTotalTime; // @synthesize serverCostTotalTime;

@@ -19,6 +19,8 @@
 - (NSString *)msgReferSummary;
 - (BOOL)msgCanBeRefered;
 - (BOOL)isAppRecordFinishDownload;
+- (BOOL)isMidFinishUploadOrDownload;
+- (BOOL)isOriginFinishUploadOrDownload;
 - (BOOL)isFinishUploadOrDownload;
 - (void)ChangeForBackup;
 - (BOOL)cleanupMediaRes;

@@ -45,6 +45,7 @@
 - (id)fileCDNDownloadParaWithFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3;
 - (id)imageCDNDownloadParaWithFavItemData:(id)arg1;
 - (id)thumbnailCDNDownloadParaWithFavItemData:(id)arg1;
+- (int)videoFormat;
 - (id)videoCDNDownloadParaWithMessage:(id)arg1;
 - (id)thumbnailCDNDownloadParaWithMessage:(id)arg1;
 - (id)fileCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2;
@@ -53,7 +54,6 @@
 - (BOOL)StopHttpsDownloadTask:(id)arg1;
 - (BOOL)StartHttpsDownloadTask:(id)arg1 withUrl:(id)arg2 withSavePath:(id)arg3 withIPList:(id)arg4 withIsGzip:(BOOL)arg5 withFileType:(int)arg6;
 - (BOOL)startDownloadHeadAvatarImage:(id)arg1;
-- (id)downloadCDNFileWithChatName:(id)arg1 mesLocalID:(unsigned int)arg2 recordMsgData:(id)arg3 type:(int)arg4 isThumbnail:(BOOL)arg5;
 - (void)startFavDownloadQueue;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 type:(int)arg2;

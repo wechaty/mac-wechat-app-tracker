@@ -35,6 +35,7 @@
 - (void)enableWindowResize:(BOOL)arg1;
 - (void)adaptWindowWithViewSize:(struct CGSize)arg1;
 - (void)adaptWindowWithViewSize:(struct CGSize)arg1 identifier:(id)arg2;
+- (BOOL)isOpenBackupWindow;
 - (void)showSessionViewController;
 - (void)showCacheViewController;
 - (void)updateNavigationTitle:(id)arg1;

@@ -25,12 +25,17 @@
 - (void)setAvailableSizeForRecover:(unsigned long long)arg1;
 - (void)onUserLogout;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
+- (void)appendDebugInfo:(id)arg1;
 - (void)resetBackupMode;
-- (void)layoutEntranceSubviews;
+- (void)tryCloseMigrateWindow;
 - (void)closeBackupWindow;
 - (void)showBackupWindow;
 - (void)orderFrontBackupWindow;
 - (int)clientVersionSupport;
+- (void)checkShouldContineMigrate;
+- (BOOL)isOpenSpaceCleanSelectViewVC;
+- (void)pauseMigrateProcessWithServerID:(id)arg1;
+- (void)chatBackupEntrance:(int)arg1;
 - (void)chatBackupEntrance;
 - (void)destroy;
 - (void)onServiceClearData;

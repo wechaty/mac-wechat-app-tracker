@@ -6,20 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@protocol MMChatBackupBasicLogicDelegate;
+@protocol MMChatBackupBasicLogicDelegate, OS_dispatch_queue;
 
 @interface MMChatBackupBasicLogic : NSObject
 {
+    BOOL _retransfer;
     id <MMChatBackupBasicLogicDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_processLogicQueue;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *processLogicQueue; // @synthesize processLogicQueue=_processLogicQueue;
+@property(nonatomic) BOOL retransfer; // @synthesize retransfer=_retransfer;
 @property(nonatomic) __weak id <MMChatBackupBasicLogicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)continueSendData;
 - (void)sendStartRequest;
 - (void)processProgressCurrentSession:(unsigned long long)arg1 totalSession:(unsigned long long)arg2;
 - (void)processOnMainThreadProgressCurrentSession:(unsigned long long)arg1 totalSession:(unsigned long long)arg2;
 - (void)processOnMainThreadNotifyCode:(unsigned long long)arg1;
+- (void)processNotifyCode:(unsigned long long)arg1;
 - (void)processFinishRequest:(id)arg1;
 - (void)processFinishRequestData:(id)arg1;
 - (void)processBackupDataTagResponse:(id)arg1;
@@ -31,6 +36,8 @@
 - (void)processDataPushResponseData:(id)arg1;
 - (void)processDataPush:(id)arg1;
 - (void)processDataPushData:(id)arg1;
+- (void)processPacketFilterResponseData:(id)arg1;
+- (void)processPacketFilterRequestData:(id)arg1;
 - (void)processRequestSessionResponse:(id)arg1;
 - (void)processRequestSessionResponseData:(id)arg1;
 - (void)processRequestSession:(id)arg1;

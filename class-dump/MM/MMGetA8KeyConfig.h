@@ -13,10 +13,18 @@
     BOOL _useFullUrl;
     unsigned int _scene;
     int _reason;
+    unsigned int _contentType;
+    unsigned int _appMsgInnerType;
     NSString *_username;
+    NSString *_msgId;
+    NSString *_msgUserName;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int appMsgInnerType; // @synthesize appMsgInnerType=_appMsgInnerType;
+@property(nonatomic) unsigned int contentType; // @synthesize contentType=_contentType;
+@property(retain, nonatomic) NSString *msgUserName; // @synthesize msgUserName=_msgUserName;
+@property(retain, nonatomic) NSString *msgId; // @synthesize msgId=_msgId;
 @property(nonatomic) int reason; // @synthesize reason=_reason;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 @property(nonatomic) BOOL useFullUrl; // @synthesize useFullUrl=_useFullUrl;

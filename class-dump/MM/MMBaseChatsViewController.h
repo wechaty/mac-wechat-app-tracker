@@ -43,7 +43,7 @@
 - (void)telMeSearchViewWillHide;
 - (void)selectPreviousChat;
 - (void)selectNextChat;
-- (void)windowDidResignKeyAction:(id)arg1;
+- (void)windowDidResignMainAction:(id)arg1;
 - (BOOL)onSearchFiledControl:(id)arg1 textFiled:(id)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;

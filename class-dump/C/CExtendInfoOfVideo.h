@@ -35,12 +35,20 @@
     NSString *m_authKey;
     unsigned int _m_uiPercent;
     MessageData *m_refMessageData;
+    unsigned long long _m_uiRawFileLength;
+    NSString *_m_nsRawFileMd5;
+    NSString *_m_nsRawDataUrl;
+    NSString *_m_nsRawAeskey;
 }
 
 + (void)generateVideoMessageDataWith:(id)arg1 toUsrName:(id)arg2 extType:(int)arg3 retMessageData:(id *)arg4;
 + (void)CreateVideoMsg:(id)arg1 ToUsr:(id)arg2 VideoInfo:(id)arg3 retMessageData:(id *)arg4 compressStatus:(unsigned int)arg5;
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *m_nsRawAeskey; // @synthesize m_nsRawAeskey=_m_nsRawAeskey;
+@property(retain, nonatomic) NSString *m_nsRawDataUrl; // @synthesize m_nsRawDataUrl=_m_nsRawDataUrl;
+@property(retain, nonatomic) NSString *m_nsRawFileMd5; // @synthesize m_nsRawFileMd5=_m_nsRawFileMd5;
+@property(nonatomic) unsigned long long m_uiRawFileLength; // @synthesize m_uiRawFileLength=_m_uiRawFileLength;
 @property(nonatomic) unsigned int m_uiPercent; // @synthesize m_uiPercent=_m_uiPercent;
 @property(copy, nonatomic) NSString *m_authKey; // @synthesize m_authKey;
 @property(nonatomic) __weak MessageData *m_refMessageData; // @synthesize m_refMessageData;

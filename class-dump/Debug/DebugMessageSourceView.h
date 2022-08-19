@@ -24,6 +24,8 @@
 @property(copy, nonatomic) NSString *contentText; // @synthesize contentText=_contentText;
 @property(nonatomic) __weak MessageData *messageData; // @synthesize messageData=_messageData;
 @property(nonatomic) __weak id <DebugMessageSourceViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (id)highlightPatten;
+- (void)highlight:(id)arg1 patten:(id)arg2;
 - (void)windowWillClose:(id)arg1;
 - (void)_displayAttributeString:(id)arg1;
 - (void)dealloc;

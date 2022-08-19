@@ -151,6 +151,7 @@
 - (void)doSearchQRCode;
 - (void)searchQRCodeInVisibleRect;
 - (void)hiddenQRCodeResult;
+- (id)createGetA8KeyConfig;
 - (void)onQRCodeButtonClick:(id)arg1;
 - (void)showQRCodeResults:(id)arg1 inRect:(struct CGRect)arg2 reflect:(BOOL)arg3;
 - (void)showQRCodeResult;

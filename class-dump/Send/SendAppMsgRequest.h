@@ -21,21 +21,29 @@
     unsigned int hasHitMd5:1;
     unsigned int hasCrc32:1;
     unsigned int hasMsgForwardType:1;
+    unsigned int hasDirectShare:1;
+    unsigned int hasSendMsgTicket:1;
     unsigned int reqTime;
     unsigned int fileType;
     unsigned int hitMd5;
     unsigned int crc32;
     unsigned int msgForwardType;
+    unsigned int directShare;
     BaseRequest *baseRequest;
     AppMsg *msg;
     NSString *commentUrl;
     NSString *md5;
     NSString *signature;
     NSString *fromSence;
+    NSString *sendMsgTicket;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetSendMsgTicket:) NSString *sendMsgTicket; // @synthesize sendMsgTicket;
+@property(readonly, nonatomic) BOOL hasSendMsgTicket; // @synthesize hasSendMsgTicket;
+@property(nonatomic, setter=SetDirectShare:) unsigned int directShare; // @synthesize directShare;
+@property(readonly, nonatomic) BOOL hasDirectShare; // @synthesize hasDirectShare;
 @property(nonatomic, setter=SetMsgForwardType:) unsigned int msgForwardType; // @synthesize msgForwardType;
 @property(readonly, nonatomic) BOOL hasMsgForwardType; // @synthesize hasMsgForwardType;
 @property(nonatomic, setter=SetCrc32:) unsigned int crc32; // @synthesize crc32;

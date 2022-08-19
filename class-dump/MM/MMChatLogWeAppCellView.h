@@ -35,7 +35,7 @@
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
 - (void)viewDidChangeEffectiveAppearance;
-- (void)layoutThumbnail:(BOOL)arg1;
+- (void)layoutThumbnail;
 - (void)layoutSubViews:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

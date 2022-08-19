@@ -10,8 +10,8 @@
 #import "MMCGIDelegate-Protocol.h"
 #import "MMChatBackupBasicLogicDelegate-Protocol.h"
 
-@class MMChatBackupBackupLogic, MMChatBackupBasicLogic, MMChatBackupRecoverLogic, MMChatLogProtoHandler, MMLocalAreaCommunicationServer, MMTimer, NSDate, NSString;
-@protocol MMChatBackupServerLogicDelegate;
+@class MMChatBackupBackupLogic, MMChatBackupBasicLogic, MMChatBackupRecoverLogic, MMChatLogMigrateToMobileLogic, MMChatLogMigrateToPCLogic, MMChatLogProtoHandler, MMChatLogSyncImportMessageLogic, MMLocalAreaCommunicationServer, MMTimer, NSDate, NSString;
+@protocol MMChatBackupServerLogicDelegate, OS_dispatch_queue;
 
 @interface MMChatBackupServerLogic : NSObject <LocalAreaCommunicationServerDelegate, MMChatBackupBasicLogicDelegate, MMCGIDelegate>
 {
@@ -29,15 +29,26 @@
     BOOL m_bDone;
     MMChatBackupBackupLogic *backupLogic;
     MMChatBackupRecoverLogic *recoverLogic;
+    MMChatLogMigrateToPCLogic *syncLogic;
+    MMChatLogMigrateToMobileLogic *migrationToPhoneLogic;
     NSString *phoneType;
     unsigned long long m_transferLength;
     NSDate *m_startTransferDate;
     id <MMChatBackupServerLogicDelegate> _serverLogicDelegate;
+    NSObject<OS_dispatch_queue> *_processLogicQueue;
+    double _transferDataStartTime;
+    unsigned long long _checkTransferSpeedCount;
+    MMChatLogSyncImportMessageLogic *_chatlogSyncImportMessageLogic;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMChatLogSyncImportMessageLogic *chatlogSyncImportMessageLogic; // @synthesize chatlogSyncImportMessageLogic=_chatlogSyncImportMessageLogic;
+@property(nonatomic) unsigned long long checkTransferSpeedCount; // @synthesize checkTransferSpeedCount=_checkTransferSpeedCount;
+@property(nonatomic) double transferDataStartTime; // @synthesize transferDataStartTime=_transferDataStartTime;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *processLogicQueue; // @synthesize processLogicQueue=_processLogicQueue;
 @property(nonatomic) __weak id <MMChatBackupServerLogicDelegate> serverLogicDelegate; // @synthesize serverLogicDelegate=_serverLogicDelegate;
 - (id)genAutoReconnectTokenWithBits:(int)arg1;
+- (BOOL)isInMigrateMode;
 - (void)_recoverSpeedReport:(unsigned long long)arg1;
 - (void)_backupSpeedReport:(unsigned long long)arg1;
 - (void)processOnMainThreadCurrentSession:(unsigned long long)arg1 totalSession:(unsigned long long)arg2;
@@ -65,6 +76,7 @@
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)getConnectInfo:(id)arg1;
 - (void)getQRCodeWithIP:(id)arg1 Port:(unsigned short)arg2 WifiName:(id)arg3 TotalSize:(unsigned long long)arg4;
+- (unsigned long long)getTransferedLength;
 - (void)checkTransferWeakConnect;
 - (void)resetTransferConnectTimer;
 - (void)checkTransferConnect;

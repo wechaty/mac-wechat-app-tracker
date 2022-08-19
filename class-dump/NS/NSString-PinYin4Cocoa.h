@@ -15,7 +15,6 @@
 + (long long)captureCountForRegex:(id)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 + (long long)captureCountForRegex:(id)arg1;
 + (void)clearStringCache;
-+ (id)imageFileNameForPath:(id)arg1 defaultImageType:(unsigned long long)arg2 isHighResolution:(BOOL)arg3;
 + (id)intToConvertBinaryString:(int)arg1;
 + (id)stringFromUInt32:(unsigned int)arg1;
 + (id)stringFromUInt64:(unsigned long long)arg1;
@@ -125,8 +124,6 @@
 - (id)componentsSeparatedByRegex:(id)arg1;
 - (long long)captureCountWithOptions:(unsigned int)arg1 error:(id *)arg2;
 - (long long)captureCount;
-- (id)appendPathExtension:(unsigned long long)arg1;
-- (unsigned long long)getBitmapImageFileType;
 - (BOOL)isContentDifferentTo:(id)arg1;
 - (BOOL)isNilOrEmpty;
 - (id)URLEncodedString;

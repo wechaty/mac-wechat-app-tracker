@@ -193,6 +193,7 @@
 - (BOOL)p_handleSessionReorderTaskWhenEnterSession:(id)arg1 shouldClearUnread:(BOOL)arg2;
 - (void)doSyncSessionList:(id)arg1 source:(int)arg2;
 - (void)doSyncExecuteTask:(id)arg1;
+- (void)doSyncWhenMigrateEnd:(id)arg1;
 - (void)executeTask;
 - (void)addExecuteQueue:(id)arg1;
 - (void)stopTimer;

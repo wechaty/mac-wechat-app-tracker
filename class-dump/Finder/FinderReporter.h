@@ -26,12 +26,13 @@
 
 + (void)reportFinderReddWithDraw:(id)arg1 xml:(id)arg2;
 + (void)reportFinderReddotNotifyIsOpen:(BOOL)arg1;
-+ (void)reportFinderCloseWithReddotTip:(id)arg1 sessionBuffer:(id)arg2;
++ (void)reportFinderCloseWithReddotInfo:(id)arg1;
 + (void)reportRedTipHoverEndWithRedInfo:(id)arg1 stayTime:(unsigned long long)arg2;
 + (void)reportRedTipHoverStartWithRedInfo:(id)arg1;
 + (void)reportRedTipExposeEndWithSessionBuffer:(id)arg1 stayTime:(unsigned long long)arg2;
 + (void)reportRedTipExposeStart;
 + (id)parseReportInfoFromUrl:(id)arg1;
++ (void)reportFinderClose:(id)arg1 openTime:(unsigned long long)arg2 andType:(unsigned long long)arg3 reddotInfo:(id)arg4;
 + (void)reportFinderMsgCardShare:(id)arg1 shareStatus:(unsigned long long)arg2;
 + (void)reportFinderCardExpose:(id)arg1;
 + (void)reportFinderMsgCardExpose:(id)arg1;
@@ -59,7 +60,6 @@
 - (void)reportOpenedWindows;
 - (void)reportFinderPreloadStatus:(id)arg1;
 - (unsigned long long)reportFinderPreloadStart:(unsigned long long)arg1;
-- (void)reportFinderClose:(id)arg1 openTime:(unsigned long long)arg2 andType:(unsigned long long)arg3 reddotInfo:(id)arg4;
 - (void)reportFinderSidebarEntry:(id)arg1;
 - (void)reportFinderSidebarExpTimes;
 - (void)recordFinderSidebarExpose;

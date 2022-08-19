@@ -6,12 +6,13 @@
 
 #import "MMService.h"
 
+#import "IChatLogMigrateToMacExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class MMSpaceCleanStatistic, MMSpaceCleanerSelectSessionLogic, NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMSpaceCleanerService : MMService <MMService>
+@interface MMSpaceCleanerService : MMService <IChatLogMigrateToMacExt, MMService>
 {
     BOOL _m_isComputingSize;
     BOOL _m_isCleaningSession;
@@ -50,10 +51,15 @@
 @property(nonatomic) unsigned long long m_totalCacheSize; // @synthesize m_totalCacheSize=_m_totalCacheSize;
 @property(nonatomic) unsigned long long m_totalBackupSize; // @synthesize m_totalBackupSize=_m_totalBackupSize;
 @property(nonatomic) unsigned long long m_totalSessionSize; // @synthesize m_totalSessionSize=_m_totalSessionSize;
+- (unsigned long long)computeSingleSessionFileSize:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3 bTextOnly:(BOOL)arg4;
+- (unsigned long long)computeSingleSessionVideoSize:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3 bTextOnly:(BOOL)arg4;
+- (unsigned long long)computeSingleSessionImageSize:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3 bTextOnly:(BOOL)arg4;
+- (unsigned long long)computeSingleSessionSize:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3 bTextOnly:(BOOL)arg4;
 - (unsigned long long)computeSingleSessionTotalSizeInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
 - (unsigned long long)computeSingleSessionSizeWithoutThumbnailInternal:(id)arg1 fileInodeNumberSet:(id)arg2;
 - (void)computeSpaceRates;
 - (unsigned long long)computeDocPathWithoutMessageSize;
+- (void)onChatLogImportFinish;
 - (void)clearCache;
 - (unsigned long long)computeSingleSessionThumbnailSize:(id)arg1;
 - (id)computeAllSessionThumbnailSize;
@@ -63,7 +69,7 @@
 - (void)computeAllSessionTotalSize;
 - (void)computeTotalCacheSize;
 - (void)computeTotalBackupSize;
-- (void)computeTotalSpaceSize;
+- (void)computeTotalSpaceSizeForced:(BOOL)arg1;
 - (id)getSpaceCleanerUniqueID;
 - (id)getSizeStringWithSize:(unsigned long long)arg1;
 - (id)getSizeStringWithStorageType:(unsigned int)arg1;

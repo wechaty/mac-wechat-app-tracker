@@ -10,8 +10,6 @@
 
 @interface JTCaptureWindowInfo : NSObject
 {
-    BOOL _isTransparent;
-    BOOL _hasKonwnTransparent;
     unsigned int _displayID;
     unsigned int _windowID;
     int _pid;
@@ -19,32 +17,20 @@
     double _scaleFactor;
     NSString *_name;
     NSImage *_windowImage;
-    NSImage *_windowImageWithShadow;
-    NSImage *_areaImage;
-    double _oldHorizontalValue;
-    double _oldVerticalValue;
     struct CGRect _windowFrame;
-    struct CGRect _windowWithShadowFrame;
 }
 
 - (void).cxx_destruct;
-@property double oldVerticalValue; // @synthesize oldVerticalValue=_oldVerticalValue;
-@property double oldHorizontalValue; // @synthesize oldHorizontalValue=_oldHorizontalValue;
-@property(retain, nonatomic) NSImage *areaImage; // @synthesize areaImage=_areaImage;
-@property(retain, nonatomic) NSImage *windowImageWithShadow; // @synthesize windowImageWithShadow=_windowImageWithShadow;
 @property(retain, nonatomic) NSImage *windowImage; // @synthesize windowImage=_windowImage;
-@property(nonatomic) BOOL hasKonwnTransparent; // @synthesize hasKonwnTransparent=_hasKonwnTransparent;
-@property(nonatomic) BOOL isTransparent; // @synthesize isTransparent=_isTransparent;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property int level; // @synthesize level=_level;
-@property int pid; // @synthesize pid=_pid;
-@property unsigned int windowID; // @synthesize windowID=_windowID;
-@property struct CGRect windowWithShadowFrame; // @synthesize windowWithShadowFrame=_windowWithShadowFrame;
-@property unsigned int displayID; // @synthesize displayID=_displayID;
-@property double scaleFactor; // @synthesize scaleFactor=_scaleFactor;
-@property struct CGRect windowFrame; // @synthesize windowFrame=_windowFrame;
-- (BOOL)isTransparentImage:(struct CGImage *)arg1;
+@property(nonatomic) int level; // @synthesize level=_level;
+@property(nonatomic) int pid; // @synthesize pid=_pid;
+@property(nonatomic) unsigned int windowID; // @synthesize windowID=_windowID;
+@property(nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
+@property(nonatomic) double scaleFactor; // @synthesize scaleFactor=_scaleFactor;
+@property(nonatomic) struct CGRect windowFrame; // @synthesize windowFrame=_windowFrame;
 - (id)windowImageIsKeyWindow:(BOOL)arg1;
+- (void)updateWindowImage:(id)arg1;
 
 @end
 

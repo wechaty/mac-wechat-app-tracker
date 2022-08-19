@@ -20,8 +20,8 @@
 
 + (id)transcodingQueue;
 + (id)sharedInstance;
-+ (BOOL)supportH265VideoUpload:(unsigned long long)arg1;
-+ (BOOL)isH265VideoByPath:(id)arg1;
++ (BOOL)supportVCodec2VideoUpload:(unsigned long long)arg1;
++ (BOOL)isVCodec2VideoByPath:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *systemVersion; // @synthesize systemVersion=_systemVersion;
 @property(retain, nonatomic) NSString *modelPlatform; // @synthesize modelPlatform=_modelPlatform;

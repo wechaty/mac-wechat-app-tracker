@@ -52,6 +52,11 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
+- (void)addTaskOnUnreadCountChange:(id)arg1 to:(unsigned int)arg2;
+- (void)addTaskOnMsgDeleted:(id)arg1;
+- (void)addTaskOnModMsg:(id)arg1 msgData:(id)arg2;
+- (void)addTaskOnDeleteContact:(id)arg1;
+- (void)addTaskOnModifyContact:(id)arg1;
 - (void)processOnDeleteContacts:(id)arg1;
 - (void)processOnModifyContacts:(id)arg1;
 - (void)processOnUnreadCountChange:(id)arg1;

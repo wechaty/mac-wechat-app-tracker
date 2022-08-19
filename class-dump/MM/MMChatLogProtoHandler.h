@@ -16,13 +16,16 @@
 }
 
 - (void).cxx_destruct;
+- (id)getFinishRequestPkg:(id)arg1 analyseInfo:(id)arg2;
 - (id)getFinishRequestPkg:(id)arg1;
 - (id)getPacketBackupDataTagPkg:(id)arg1;
 - (id)getDataPushRequestPkg:(id)arg1;
 - (id)getRequestSessionPkgWithSessionNameArray:(id)arg1 withTimeArray:(id)arg2;
-- (id)getStartRequestPkgWithBakID:(id)arg1 withBigDataSize:(unsigned long long)arg2 withSessionCount:(unsigned long long)arg3 withMsgCount:(unsigned long long)arg4 withTotalSize:(long long)arg5 withTransferType:(int)arg6;
+- (id)getStartRequestPkgWithBakID:(id)arg1 withBigDataSize:(unsigned long long)arg2 withSessionCount:(unsigned long long)arg3 withMsgCount:(unsigned long long)arg4 withTotalSize:(long long)arg5 withTransferType:(int)arg6 withSessionID:(id)arg7;
 - (id)getStartResponsePkgWithBakID:(id)arg1 withBigDataSize:(unsigned long long)arg2 withStatus:(int)arg3;
 - (id)getHeartBeatResPkgWithAck:(unsigned long long)arg1;
+- (id)getPacketFilterRequestPkg:(id)arg1;
+- (id)getPacketFilterResponsePkg:(id)arg1;
 - (id)getSvrIDResponsePkg:(id)arg1;
 - (id)getCancelRequestWithID:(id)arg1;
 - (id)getDataConfigInfBy:(id)arg1;

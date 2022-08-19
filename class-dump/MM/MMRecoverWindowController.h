@@ -17,8 +17,8 @@
     NSButton *_DBDetectButton;
     NSButton *_forcewebpButton;
     NSButton *_verbosePlayerLog;
-    NSPopUpButton *_h265DownloadButton;
-    NSPopUpButton *_h265UploadButton;
+    NSPopUpButton *_vCodec2DownloadButton;
+    NSPopUpButton *_vCodec2UploadButton;
     NSPopUpButton *_playerCoreButton;
     NSStackView *_dataRepairStackView;
     NSStackView *_dataCleanStackView;
@@ -30,8 +30,8 @@
 @property __weak NSStackView *dataCleanStackView; // @synthesize dataCleanStackView=_dataCleanStackView;
 @property __weak NSStackView *dataRepairStackView; // @synthesize dataRepairStackView=_dataRepairStackView;
 @property __weak NSPopUpButton *playerCoreButton; // @synthesize playerCoreButton=_playerCoreButton;
-@property __weak NSPopUpButton *h265UploadButton; // @synthesize h265UploadButton=_h265UploadButton;
-@property __weak NSPopUpButton *h265DownloadButton; // @synthesize h265DownloadButton=_h265DownloadButton;
+@property __weak NSPopUpButton *vCodec2UploadButton; // @synthesize vCodec2UploadButton=_vCodec2UploadButton;
+@property __weak NSPopUpButton *vCodec2DownloadButton; // @synthesize vCodec2DownloadButton=_vCodec2DownloadButton;
 @property __weak NSButton *verbosePlayerLog; // @synthesize verbosePlayerLog=_verbosePlayerLog;
 @property __weak NSButton *forcewebpButton; // @synthesize forcewebpButton=_forcewebpButton;
 @property __weak NSButton *DBDetectButton; // @synthesize DBDetectButton=_DBDetectButton;
@@ -44,13 +44,14 @@
 - (void)openLocalLogDir:(id)arg1;
 - (void)openLocalCacheDir:(id)arg1;
 - (void)openLocalDataDir:(id)arg1;
-- (void)onChangeH265UploadButton:(id)arg1;
-- (void)onChangeH265DownloadButton:(id)arg1;
+- (void)onChangeVCodec2UploadButton:(id)arg1;
+- (void)onChangeVCodec2DownloadButton:(id)arg1;
 - (void)refreshGroupSession:(id)arg1;
 - (void)clearNeverReminder:(id)arg1;
 - (void)recoverSessionListFromLocal:(id)arg1;
 - (void)repairSessionList:(id)arg1;
 - (void)repairContactList:(id)arg1;
+- (void)migrateDataToFile:(id)arg1;
 - (void)showRecentCheckpointTime:(id)arg1;
 - (void)resetDBCheckpointInterval:(id)arg1;
 - (void)onPlayerCoreBtnClicked:(id)arg1;

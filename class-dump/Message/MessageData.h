@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -42,6 +42,7 @@
     id <IMsgExtendOperation> m_extendInfoWithMsgType;
     id <IMsgExtendOperation> m_extendInfoWithFromUsr;
     NSData *compressedMsgContent;
+    unsigned int msgFrom;
     BOOL isAutoIncrement;
     BOOL m_bShouldShowAll;
     BOOL m_bIsMultiForwardMessage;
@@ -76,12 +77,14 @@
     NSString *_m_nsImgFileName;
     NSString *_m_nsBigFileErrMsg;
     SecondMsgNode *_secondMsgNode;
+    AlNode *_alnode;
     MessageData *_referHostMsg;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_msgFrom;
 + (void)PBArrayAdd_dataMd5;
 + (void)PBArrayAdd_m_uiOriginalImgWidth;
 + (void)PBArrayAdd_m_uiOriginalImgHeight;
@@ -159,6 +162,7 @@
 + (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
+@property(retain, nonatomic) AlNode *alnode; // @synthesize alnode=_alnode;
 @property(retain, nonatomic) SecondMsgNode *secondMsgNode; // @synthesize secondMsgNode=_secondMsgNode;
 @property(nonatomic) unsigned int m_uiResendMessageCount; // @synthesize m_uiResendMessageCount=_m_uiResendMessageCount;
 @property(nonatomic) int m_nCdnServerRetCode; // @synthesize m_nCdnServerRetCode=_m_nCdnServerRetCode;
@@ -182,6 +186,7 @@
 @property(retain, nonatomic) id <IMsgExtendOperation> extendInfoWithMsgType; // @synthesize extendInfoWithMsgType=m_extendInfoWithMsgType;
 @property(nonatomic) BOOL m_bShouldShowAll; // @synthesize m_bShouldShowAll;
 @property(retain, nonatomic) NSData *compressedMsgContent; // @synthesize compressedMsgContent;
+@property(nonatomic) unsigned int msgFrom; // @synthesize msgFrom;
 @property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5;
 @property(nonatomic) unsigned int m_uiOriginalImgWidth; // @synthesize m_uiOriginalImgWidth;
 @property(nonatomic) unsigned int m_uiOriginalImgHeight; // @synthesize m_uiOriginalImgHeight;
@@ -243,7 +248,7 @@
 - (BOOL)isNonSupportedMessageData;
 - (id)getChatRoomUsrName;
 - (id)getChatNameForCurMsg;
-- (void)ChangeForMsgSource;
+- (void)parseMsgSourceFromXML;
 - (BOOL)IsSameMsg:(id)arg1;
 - (BOOL)isAnnouncementMsg;
 - (BOOL)isVoipInviteMsg;
@@ -263,10 +268,11 @@
 - (BOOL)isImgMsg;
 - (BOOL)isUnreadMessage;
 - (BOOL)isSendFromSelf;
-- (BOOL)isSendMsg;
+- (BOOL)isSendFromLocal;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (id)uniqueWithSvrID;
 - (id)uniqueID;
 - (id)copyWithScene:(int)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -303,7 +309,7 @@
 - (BOOL)isFileExist;
 - (BOOL)hasFileForUpload;
 - (BOOL)checkRecordUploadFile:(id)arg1;
-- (void)updateMsgSource;
+- (void)encodeMsgSourceToXML;
 - (long long)compareMessageByMsgCreatetimeAscending:(id)arg1;
 - (long long)compareMessageDescending:(id)arg1;
 - (long long)compareMessageAscending:(id)arg1;
@@ -322,8 +328,10 @@
 - (id)referMsgSenderDisplayName;
 - (id)savingImageFileNameWithLocalID;
 - (id)savingImageFileName;
-- (BOOL)isOriginalImageDownload;
+- (id)savingImageFilePathWithMid:(char *)arg1;
+- (id)savingImageFilePath;
 - (id)originalImageFilePath;
+- (id)bubbleImageFilePath;
 - (id)middleImageFilePath;
 - (id)thumbnailImageFilePath;
 - (unsigned long long)messageUploadFileStatus;
@@ -345,6 +353,7 @@
 - (id)mapsURLWithProvider:(unsigned long long)arg1;
 - (int)yoType;
 - (unsigned long long)yoCount;
+- (unsigned int)midImageSize;
 - (unsigned int)originImageSize;
 - (BOOL)isLargeImageForPreview;
 - (BOOL)isTouchImageAspectRatio;
@@ -419,6 +428,9 @@
 @property(copy, nonatomic) NSString *m_nsMsgThumbAesKey; // @dynamic m_nsMsgThumbAesKey;
 @property(retain, nonatomic) NSString *m_nsMsgThumbMd5; // @dynamic m_nsMsgThumbMd5;
 @property(copy, nonatomic) NSString *m_nsMsgThumbUrl; // @dynamic m_nsMsgThumbUrl;
+@property(retain, nonatomic) NSString *m_nsRawAeskey;
+@property(retain, nonatomic) NSString *m_nsRawDataUrl;
+@property(retain, nonatomic) NSString *m_nsRawFileMd5;
 @property(retain, nonatomic) NSString *m_nsRemindAttachId; // @dynamic m_nsRemindAttachId;
 @property(retain, nonatomic) NSString *m_nsShareOpenUrl; // @dynamic m_nsShareOpenUrl;
 @property(retain, nonatomic) NSString *m_nsShareOriginUrl; // @dynamic m_nsShareOriginUrl;
@@ -471,6 +483,7 @@
 @property(nonatomic) unsigned int m_uiOriginFormat; // @dynamic m_uiOriginFormat;
 @property(nonatomic) unsigned int m_uiOriginMsgSvrId; // @dynamic m_uiOriginMsgSvrId;
 @property(nonatomic) unsigned int m_uiPercent; // @dynamic m_uiPercent;
+@property(nonatomic) unsigned long long m_uiRawFileLength;
 @property(nonatomic) unsigned int m_uiRemindAttachTotalLen; // @dynamic m_uiRemindAttachTotalLen;
 @property(nonatomic) unsigned int m_uiRemindFormat; // @dynamic m_uiRemindFormat;
 @property(nonatomic) unsigned int m_uiRemindId; // @dynamic m_uiRemindId;

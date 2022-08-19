@@ -14,9 +14,11 @@
     unsigned long long m_tailPoint;
     unsigned long long m_windowSize;
     float m_currentSpeed;
+    BOOL _bFirstWindow;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL bFirstWindow; // @synthesize bFirstWindow=_bFirstWindow;
 - (float)getSpeed;
 - (void)addSpeed:(float)arg1;
 - (id)initWithWindowSize:(unsigned long long)arg1;

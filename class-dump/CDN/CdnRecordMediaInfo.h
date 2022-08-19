@@ -21,6 +21,7 @@
     unsigned int m_uiFileType;
     NSString *m_authKey;
     BOOL _isLargeFile;
+    BOOL _m_enableHitCheck;
     NSString *_m_nsThumbPath;
     CdnUploadTaskInfo *_m_taskResultInfo;
     FavoritesItemDataField *_recordDataField;
@@ -30,6 +31,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL m_enableHitCheck; // @synthesize m_enableHitCheck=_m_enableHitCheck;
 @property(copy, nonatomic) NSString *fakeSignature; // @synthesize fakeSignature=_fakeSignature;
 @property(copy, nonatomic) NSString *fakeAeskey; // @synthesize fakeAeskey=_fakeAeskey;
 @property(copy, nonatomic) NSString *signature; // @synthesize signature=_signature;

@@ -6,12 +6,13 @@
 
 #import "MMService.h"
 
+#import "IAccountStorageExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class ContactCheckInitLogic, GetContactLogic, NSMutableDictionary, NSRecursiveLock, NSString, WCContactDB;
 
-@interface ContactStorage : MMService <IMessageExt, MMService>
+@interface ContactStorage : MMService <IMessageExt, IAccountStorageExt, MMService>
 {
     WCContactDB *m_contactDB;
     unsigned int m_uLoadedType;
@@ -71,6 +72,9 @@
 - (id)HmacSha256:(id)arg1 salt:(const char *)arg2 data:(id)arg3;
 - (id)hashEncryptSecretUserName:(id)arg1 encryptSecretType:(int)arg2;
 - (id)getUserNameWithHashUserName:(id)arg1 encryptSecretType:(int)arg2;
+- (void)onLocalUserInfoChange;
+- (void)synchronizeQQMailMuteAndSessionTop;
+- (void)synchronizeTxNewsMuteAndSessionTop;
 - (unsigned int)deleteOpenIMContactOplog:(id)arg1;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 favour:(BOOL)arg2;
 - (unsigned int)setOpenIMContactOplog:(id)arg1 mute:(BOOL)arg2;
@@ -88,9 +92,14 @@
 - (BOOL)addOpLog_ModifyContact:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpLog_ModifyContact:(id)arg1 addScene:(unsigned int)arg2 sync:(BOOL)arg3;
 - (BOOL)addOpLog_ModifyContact:(id)arg1 withCardDescription:(id)arg2 sync:(BOOL)arg3;
+- (BOOL)addOpLog_ModifyQQMailTop:(BOOL)arg1 sync:(BOOL)arg2;
+- (BOOL)addOpLog_ModifyQQMailMuted:(BOOL)arg1 sync:(BOOL)arg2;
+- (BOOL)addOpLog_ModifyTXNewsTop:(BOOL)arg1 sync:(BOOL)arg2;
+- (BOOL)addOpLog_ModifyTXNewsMuted:(BOOL)arg1 sync:(BOOL)arg2;
 - (void)storeContactToDBAndCache:(id)arg1;
 - (BOOL)GetStrangerContactsFromSvr:(id)arg1;
 - (BOOL)GetNormalContactsFromSvr:(id)arg1;
+- (BOOL)GetNormalContactsFromSvr:(id)arg1 isForceGet:(BOOL)arg2;
 - (BOOL)ModifyAntispamTicket:(id)arg1 antispamTicket:(id)arg2;
 - (BOOL)OnDelSingleContacts_Thread:(id)arg1;
 - (void)OnModStrangerContacts_Thread:(id)arg1;

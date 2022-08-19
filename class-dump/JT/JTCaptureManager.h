@@ -18,10 +18,12 @@
     id <JTCaptureRequestDelegate> _delegate;
     NSMutableArray *_windowControllers;
     unsigned long long _screenCount;
+    unsigned long long _windowType;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long windowType; // @synthesize windowType=_windowType;
 @property(nonatomic) unsigned long long screenCount; // @synthesize screenCount=_screenCount;
 @property(retain, nonatomic) NSMutableArray *windowControllers; // @synthesize windowControllers=_windowControllers;
 @property(retain, nonatomic) id <JTCaptureRequestDelegate> delegate; // @synthesize delegate=_delegate;
@@ -32,15 +34,16 @@
 - (void)addObserver;
 - (void)defaultSaveImage:(id)arg1 isHighResolution:(BOOL)arg2;
 - (void)saveImage:(id)arg1 isHighResolution:(BOOL)arg2;
-- (void)writeImageToPasteboard:(id)arg1;
 - (void)playSound;
 - (void)captureFrame:(struct CGRect)arg1 screen:(id)arg2;
 - (void)clean;
 - (void)cleanCaptureWindow;
 - (void)captureDidFinishWithImage:(id)arg1 needSave:(BOOL)arg2 isHighResolution:(BOOL)arg3;
 - (void)captureDidCancel;
+- (BOOL)fullScreenAppPresentOn:(id)arg1;
 - (void)cancelCapture;
 - (BOOL)startCaptureByRequest:(id)arg1;
+- (unsigned long long)getJTWindowType;
 - (void)dealloc;
 - (id)init;
 

@@ -21,6 +21,7 @@
     unsigned int m_uiTranslateStatus;
     unsigned int m_uiOriginalImgHeight;
     unsigned int m_uiOriginalImgWidth;
+    unsigned int msgFrom;
     NSString *fromUsrName;
     NSString *toUsrName;
     NSString *msgRealChatUsr;
@@ -35,6 +36,7 @@
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_msgFrom;
 + (void)PBArrayAdd_dataMd5;
 + (void)PBArrayAdd_m_uiOriginalImgWidth;
 + (void)PBArrayAdd_m_uiOriginalImgHeight;
@@ -53,6 +55,7 @@
 + (void)PBArrayAdd_toUsrName;
 + (void)PBArrayAdd_fromUsrName;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int msgFrom; // @synthesize msgFrom;
 @property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5;
 @property(nonatomic) unsigned int m_uiOriginalImgWidth; // @synthesize m_uiOriginalImgWidth;
 @property(nonatomic) unsigned int m_uiOriginalImgHeight; // @synthesize m_uiOriginalImgHeight;

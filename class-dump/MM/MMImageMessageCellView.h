@@ -46,6 +46,7 @@
 - (void)onViewInSight:(BOOL)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (void)contextMenuShowImageBubble;
 - (void)contextMenuExport;
 - (void)contextMenuOpen;
 - (id)getSection2MenuItem;

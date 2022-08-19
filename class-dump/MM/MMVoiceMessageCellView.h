@@ -15,8 +15,6 @@
 {
     struct CGRect _calculatedTranslationRect;
     BOOL _mouseDown;
-    BOOL _isFirstStartTrans;
-    BOOL _isFirstEndTrans;
     MMRoundedRectangleView *_unreadTip;
     MMTextField *_voiceTimeLabel;
     SVGImageView *_voiceWavImageView;
@@ -37,8 +35,6 @@
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long recalcHeightCount; // @synthesize recalcHeightCount=_recalcHeightCount;
-@property(nonatomic) BOOL isFirstEndTrans; // @synthesize isFirstEndTrans=_isFirstEndTrans;
-@property(nonatomic) BOOL isFirstStartTrans; // @synthesize isFirstStartTrans=_isFirstStartTrans;
 @property(retain, nonatomic) NSTextField *noDataMetionTextField; // @synthesize noDataMetionTextField=_noDataMetionTextField;
 @property(retain, nonatomic) CAShapeLayer *dividerLayer; // @synthesize dividerLayer=_dividerLayer;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;

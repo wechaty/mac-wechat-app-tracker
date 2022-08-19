@@ -6,12 +6,17 @@
 
 #import "MMImageEditThemeManager.h"
 
+@class NSDictionary;
+
 @interface MMScreenshotImageEditThemeManager : MMImageEditThemeManager
 {
+    NSDictionary *jsonDic;
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (id)objectWithKey:(id)arg1;
+- (id)init;
 
 @end
 

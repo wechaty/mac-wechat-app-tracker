@@ -45,6 +45,8 @@
 - (void)jsHandlerHandle:(id)arg1;
 - (void)functionCall:(id)arg1 withParams:(id)arg2 withCallbackID:(id)arg3;
 - (id)jsEventWithFunction:(id)arg1 params:(id)arg2 callBackID:(id)arg3;
+- (void)wxShareFunCall:(id)arg1 params:(id)arg2 withCallbackID:(id)arg3;
+- (id)wxShareCSK;
 - (id)extraDataForNextJSEventCalled:(id)arg1;
 - (void)handleJSApiDispatchMessage:(id)arg1;
 - (id)webViewJavascriptFetchQueueCommand;

@@ -33,8 +33,6 @@
     unsigned int m_curFakePercent;
     BOOL _useInitContact;
     BOOL _hasClearData;
-    unsigned int _lastSyncMsgFromSelfTime;
-    NSString *_lastSyncMsgFromSelfChatName;
 }
 
 + (void)ClearBeforeInit;
@@ -42,8 +40,6 @@
 - (void).cxx_destruct;
 @property BOOL hasClearData; // @synthesize hasClearData=_hasClearData;
 @property(nonatomic) BOOL useInitContact; // @synthesize useInitContact=_useInitContact;
-@property(retain, nonatomic) NSString *lastSyncMsgFromSelfChatName; // @synthesize lastSyncMsgFromSelfChatName=_lastSyncMsgFromSelfChatName;
-@property(nonatomic) unsigned int lastSyncMsgFromSelfTime; // @synthesize lastSyncMsgFromSelfTime=_lastSyncMsgFromSelfTime;
 - (BOOL)ProcessHeartBeatResponse:(id)arg1 isSessionTimeout:(char *)arg2;
 - (BOOL)FillHeartBeatRequestBuffer:(id)arg1 reqCmdId:(int *)arg2 respCmdId:(int *)arg3;
 - (void)CheckHeartBeatIfNeeded;

@@ -22,7 +22,7 @@
     FavoritesItemDataField *_dataField;
 }
 
-+ (id)viewerWindowForNestedRecord:(id)arg1 useSingleWindow:(BOOL)arg2;
++ (id)viewerWindowForNestedRecord:(id)arg1 messageWrap:(id)arg2 useSingleWindow:(BOOL)arg3;
 + (void)initialize;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isObserverAppearance; // @synthesize isObserverAppearance=_isObserverAppearance;
@@ -55,7 +55,7 @@
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)windowDidLoad;
-- (id)initWithFavoritesItemDataField:(id)arg1;
+- (id)initWithFavoritesItemDataField:(id)arg1 windowID:(id)arg2;
 - (id)initWithMessage:(id)arg1 scene:(unsigned long long)arg2;
 
 // Remaining properties

@@ -11,7 +11,7 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMChatBackupRecord, MMOutlineButton, MMTableView, NSButton, NSImageView, NSMutableArray, NSString, NSTextField, NSView;
+@class MMChatBackupRecord, MMOutlineButton, MMTableView, NSImageView, NSMutableArray, NSString, NSTextField, NSView;
 @protocol MMBackupFilesInfoDetailVCDelegate;
 
 @interface MMBackupFilesInfoDetailViewController : MMViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, MMBackupFileInfoCellViewDelegate>
@@ -24,7 +24,6 @@
     NSView *_tableHeaderView;
     MMOutlineButton *_cancelButton;
     MMOutlineButton *_okayButton;
-    NSButton *_returnButton;
     unsigned long long _currentChoosenRow;
     MMChatBackupRecord *_currentFileInfo;
     NSTextField *_noExistedBackupTipsLabel;
@@ -38,7 +37,6 @@
 @property(retain, nonatomic) NSTextField *noExistedBackupTipsLabel; // @synthesize noExistedBackupTipsLabel=_noExistedBackupTipsLabel;
 @property(retain, nonatomic) MMChatBackupRecord *currentFileInfo; // @synthesize currentFileInfo=_currentFileInfo;
 @property(nonatomic) unsigned long long currentChoosenRow; // @synthesize currentChoosenRow=_currentChoosenRow;
-@property(retain, nonatomic) NSButton *returnButton; // @synthesize returnButton=_returnButton;
 @property(retain, nonatomic) MMOutlineButton *okayButton; // @synthesize okayButton=_okayButton;
 @property(retain, nonatomic) MMOutlineButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSView *tableHeaderView; // @synthesize tableHeaderView=_tableHeaderView;
@@ -47,10 +45,12 @@
 @property(retain, nonatomic) NSMutableArray *dataList; // @synthesize dataList=_dataList;
 @property(nonatomic) int backupMode; // @synthesize backupMode=_backupMode;
 @property(nonatomic) __weak id <MMBackupFilesInfoDetailVCDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)setWindowResizable:(BOOL)arg1;
 - (void)removeSubViews;
 - (void)updateOkayBtnUI;
 - (void)onReturnBtnClicked;
 - (void)onCancelBtnClicked;
+- (void)showRecoverSessionListView:(id)arg1;
 - (void)onOkayBtnClicked;
 - (void)updateUIOnDataListCountChange;
 - (void)setupNoExistedBackupUI;

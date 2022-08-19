@@ -69,6 +69,7 @@
 - (void)doCreateIndex:(id)arg1;
 - (void)deleteIndexForChat:(id)arg1 arrMsgList:(id)arg2;
 - (void)clearIndexForChat:(id)arg1;
+- (void)startNewOperationOrNot:(id)arg1 operation:(id)arg2;
 - (void)createIndexWhenUserInactive:(id)arg1 lastMsgData:(id)arg2;
 - (void)createIndexImmediatelyForChat:(id)arg1;
 - (void)checkQueue;

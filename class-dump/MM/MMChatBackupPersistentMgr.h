@@ -6,45 +6,42 @@
 
 #import <objc/NSObject.h>
 
-@class MMChatBackupIndexDB, NSMutableArray, NSString;
-@protocol MMChatBackupPersistentMgrDelegate, OS_dispatch_queue;
-
 @interface MMChatBackupPersistentMgr : NSObject
 {
-    MMChatBackupIndexDB *m_indexDB;
-    NSObject<OS_dispatch_queue> *m_FileSerialQueue;
-    int fileWriteBlockCount;
-    long long msgInfoOffset;
-    long long msgInfoLength;
-    NSString *msgInfoFileName;
-    NSMutableArray *mediaInfoOffset;
-    NSMutableArray *mediaInfoLength;
-    NSMutableArray *mediaInfoID;
-    NSMutableArray *mediaInfoFileName;
-    NSMutableArray *mediaInfoInnerOffSet;
-    NSMutableArray *mediaInfoTotalLength;
-    NSMutableArray *mediaInfoBeginIndex;
-    NSString *m_lastMediaStr;
-    long long aTagMediaCount;
-    long long aTagReceivedSize;
-    unsigned long long m_processedTagCount;
-    int _backupTransferType;
-    id <MMChatBackupPersistentMgrDelegate> _delegate;
-    long long _backupToken;
 }
 
-- (void).cxx_destruct;
-@property(nonatomic) int backupTransferType; // @synthesize backupTransferType=_backupTransferType;
-@property(nonatomic) long long backupToken; // @synthesize backupToken=_backupToken;
-@property(nonatomic) __weak id <MMChatBackupPersistentMgrDelegate> delegate; // @synthesize delegate=_delegate;
-- (int)fileWriteBlockCount;
-- (BOOL)p_writeMediaDataPush:(id)arg1 toPath:(id)arg2;
-- (BOOL)p_writeMsgDataPush:(id)arg1 toPath:(id)arg2;
-- (void)asyncProcessDataTag:(id)arg1;
-- (void)asyncProcessPieceOfData:(id)arg1;
-- (void)asyncProcessRequestSessionDataInfoArray:(id)arg1;
-- (void)dealloc;
-- (id)initWithDeviceId:(id)arg1;
++ (void)clearMigrateDataInfo;
++ (id)getMigrateDataInfo;
++ (void)setMigrateDataInfo:(id)arg1;
++ (id)getSessionID;
++ (void)setSessionID:(id)arg1;
++ (void)resetChatLogSyncRedDotRead;
++ (void)setChatLogSyncRedDotRead;
++ (BOOL)isChatLogSyncRedDotRead;
++ (BOOL)isExportChatLog;
++ (void)resetStateOfExportChatLog;
++ (void)setStateOfExportChatLog;
++ (BOOL)hasMigrateToMobileSelection;
++ (id)loadMigrateToMobileSelection;
++ (void)deleteMigrateToMobileSelection;
++ (BOOL)saveMigrateToMobileSelection:(id)arg1;
++ (unsigned long long)getFileSizeOfBackupPath;
++ (_Bool)checkChatLogMigrateOnlyMsg;
++ (void)writeChatLogMigrateOnlyMsg:(BOOL)arg1;
++ (id)getRelatedMemoryKV;
++ (void)p_clearChatLogSyncPath;
++ (void)p_clearChatLogSyncBufferData;
++ (void)p_syncClearChatLogSyncPath;
++ (void)p_syncClearChatLogSyncBufferData;
++ (void)p_syncClearBakChatPath;
++ (id)getChatLogSyncAppEmotionTmpDir;
++ (id)getBackupSelectionPath;
++ (id)getChatLogSyncBufferPathWithDataId:(id)arg1;
++ (id)getChatLogSyncBufferPath;
++ (id)GetPathOfBakChat;
++ (id)GetPathOfLocalUsrDir;
++ (id)getChatLogSyncPathWithDataId:(id)arg1;
++ (id)getChatLogSyncPath;
 
 @end
 

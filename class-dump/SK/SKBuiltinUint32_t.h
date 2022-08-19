@@ -13,6 +13,7 @@
 }
 
 + (id)parseFromData:(id)arg1;
++ (id)skUint32WithUint32:(unsigned int)arg1;
 @property(nonatomic, setter=SetUiVal:) unsigned int uiVal; // @synthesize uiVal;
 @property(readonly, nonatomic) BOOL hasUiVal; // @synthesize hasUiVal;
 - (id)mergeFromCodedInputStream:(id)arg1;

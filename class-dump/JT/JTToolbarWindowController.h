@@ -31,9 +31,6 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGPoint position; // @synthesize position=_position;
 @property(nonatomic) __weak id <JTToolbarWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)handleChangeThemeNotification:(id)arg1;
-- (void)unregisterForChangeThemeNotification;
-- (void)registerForChangeThemeNotification;
 - (void)fontSizeDidChange:(unsigned long long)arg1;
 - (void)widthDidChange:(unsigned long long)arg1;
 - (void)colorDidChange:(id)arg1;

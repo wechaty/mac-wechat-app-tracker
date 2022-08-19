@@ -54,6 +54,7 @@
 - (id)getRecentFTSFileMessageOnCount;
 - (id)getRecentFTSFileMessageOnDate;
 - (id)getFTSFileMessageForChatNames:(id)arg1;
+- (id)getFTSFileMessageForChatName:(id)arg1 startTime:(unsigned int)arg2 endTime:(unsigned int)arg3;
 - (id)getFTSFileMessageForChatName:(id)arg1;
 - (id)getLatestFileContextByChatName:(id)arg1;
 - (unsigned long long)getLastMesLocalID:(id)arg1;

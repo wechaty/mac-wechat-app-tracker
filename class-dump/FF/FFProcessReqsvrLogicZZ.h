@@ -46,7 +46,8 @@
 - (void)sendImageMessageWithImageData:(id)arg1 imageInfo:(id)arg2;
 - (void)sendImageMessageWithImage:(id)arg1;
 - (void)sendImageMessageWithFileUrl:(id)arg1 leavedMessage:(id)arg2;
-- (unsigned char)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2;
+- (BOOL)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2 withSenderInfo:(id)arg3;
+- (BOOL)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2;
 - (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3 leavedMessage:(id)arg4;
 - (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3;
 - (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3;

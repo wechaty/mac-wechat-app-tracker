@@ -32,7 +32,7 @@
 - (void)doShareWithDefault;
 - (void)doShareWithData:(id)arg1;
 - (id)getExtraInfoKeyByUrlString:(id)arg1;
-- (void)handleSendAppMessageJSEventWithData:(id)arg1;
+- (void)handleSendAppMessageJSEventWithData:(id)arg1 extraData:(id)arg2;
 - (void)handleJSEvent:(id)arg1 HandlerFacade:(id)arg2 ExtraData:(id)arg3;
 
 @end

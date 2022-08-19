@@ -39,8 +39,11 @@
 - (void)sendInactiveStateWithMuted:(BOOL)arg1;
 - (void)sendActiveStateWithMuted:(BOOL)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)sendStatusNotifyReq:(unsigned int)arg1 chatName:(id)arg2 function:(id)arg3;
 - (void)sendStatusNotifyReq:(unsigned int)arg1 chatName:(id)arg2;
 - (void)markVoiceMessageAsRead:(id)arg1;
+- (void)NotifyMigratePause:(id)arg1 withSvrID:(id)arg2;
+- (void)NotifyChatBackupMigrateWindowClose:(id)arg1;
 - (void)NotifyGetSessionOrderIfNeeded;
 - (void)NotifyUnReadSession:(id)arg1;
 - (void)NotifyHideSession:(id)arg1;

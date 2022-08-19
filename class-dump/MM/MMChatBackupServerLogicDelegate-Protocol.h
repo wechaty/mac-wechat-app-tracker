@@ -14,7 +14,7 @@
 - (void)onFirstPacketOK:(BOOL)arg1;
 - (void)onGetConnectInfo:(GetConnectInfoResponse *)arg1;
 - (void)onGetQRCode:(BakChatCreateQRcodeResponse *)arg1;
-- (void)onServerLogicCurrentTransferSpeed:(float)arg1;
+- (void)onServerLogicCurrentTransferSpeed:(float)arg1 leftTime:(unsigned int)arg2 ratio:(double)arg3;
 - (void)onServerLogicCurrentProcessingSession:(unsigned long long)arg1 totalSessionCount:(unsigned long long)arg2;
 - (void)onServerLogicAlertCode:(unsigned long long)arg1;
 - (void)onServerLogicNotifyCode:(unsigned long long)arg1;

@@ -104,8 +104,10 @@
 - (void)handleProfileJSEventWithUserName:(id)arg1;
 - (void)handleAddContactJSEventWithContact:(id)arg1;
 - (void)shareWithAppScene:(id)arg1;
+- (void)shareAppMessageFromWxUpdateApiData:(id)arg1;
 - (id)shareParamFormScene:(id)arg1;
 - (void)setupExtraDataForShareToTimeLine;
+- (id)createA8keyConfig;
 - (void)forwardToTimeline;
 - (void)forwardContentToWeWork;
 - (void)forwardContent;
@@ -205,7 +207,6 @@
 - (void)showNonNetworkErrorHint;
 - (void)hideErrorHint;
 - (void)informWebviewReddotInfoIfNeed:(id)arg1;
-- (id)dedupleContextId:(id)arg1;
 - (BOOL)shouldUseGetA8Key;
 - (void)loadRequestWithUrl:(id)arg1 shareUrl:(id)arg2;
 - (void)recordArrRouteUrl:(id)arg1;

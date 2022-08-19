@@ -219,6 +219,7 @@
 - (id)getMessageDataSourceFilePath:(id)arg1;
 - (void)updateFileMessageOpTime:(id)arg1;
 - (void)contextMenuSearch;
+- (void)contextMenuShowImageBubble;
 - (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuSolitaire;
 - (void)contextMenuMuteToPlay;

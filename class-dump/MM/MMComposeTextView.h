@@ -12,7 +12,7 @@
 #import "NSTextStorageDelegate-Protocol.h"
 #import "NSTextViewDelegate-Protocol.h"
 
-@class MMMentionViewController, MMTimeChecker, NSMutableArray, NSPopover, NSString;
+@class MMMentionViewController, MMTextSenderInfo, MMTimeChecker, NSMutableArray, NSPopover, NSString;
 @protocol MMComposeRichAttachmentTextViewDelegate, MMComposeTextChangeDelegate, MMComposeTextEmotionProtDelegate, MMComposeTextViewDelegate, MMComposeTextViewReferDelegate;
 
 @interface MMComposeTextView : MMRichAttachmentBaseTextView <NSTextViewDelegate, MMMentionViewControllerDelegate, NSTextStorageDelegate, NSMenuDelegate, NSFileManagerDelegate>
@@ -45,6 +45,7 @@
     NSString *_dragImgPath;
     NSString *_dragImgFolder;
     unsigned long long _editStyle;
+    MMTextSenderInfo *_textSenderInfo;
     struct _NSRange _mentionMatchedRange;
     struct _NSRange _lastSelectedRange;
 }
@@ -53,6 +54,7 @@
 + (id)getFontSizeAdjustTextAttributes;
 + (id)_textEntryParagraphStyle;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTextSenderInfo *textSenderInfo; // @synthesize textSenderInfo=_textSenderInfo;
 @property(nonatomic) unsigned long long editStyle; // @synthesize editStyle=_editStyle;
 @property(nonatomic) BOOL contentFromDraft; // @synthesize contentFromDraft=_contentFromDraft;
 @property(nonatomic) BOOL hasJustInsertAt; // @synthesize hasJustInsertAt=_hasJustInsertAt;
@@ -111,7 +113,7 @@
 - (long long)fileAndImageAttachmentCount;
 - (void)pasteFileURLWithItems:(id)arg1 names:(id)arg2 type:(id)arg3;
 - (void)pasteImageWithItem:(id)arg1 type:(id)arg2 withLineFeed:(unsigned char)arg3;
-- (unsigned char)pastePlainTextWithItem:(id)arg1 type:(id)arg2;
+- (unsigned char)pastePlainTextWithItem:(id)arg1 type:(id)arg2 isPasteFromWexin:(BOOL)arg3;
 - (BOOL)pasteAtMemberWithItem:(id)arg1 type:(id)arg2;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;

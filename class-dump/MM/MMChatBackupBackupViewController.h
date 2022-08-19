@@ -51,7 +51,7 @@
 - (void)layoutSubViews;
 - (BOOL)isValidMode;
 - (void)onServerMgrCurrentSession:(unsigned long long)arg1 totalSession:(unsigned long long)arg2;
-- (void)onServerMgrTransferSpeed:(float)arg1;
+- (void)onServerMgrTransferSpeed:(float)arg1 leftTime:(unsigned int)arg2 ratio:(double)arg3;
 - (void)onServerMgrNotifyCode:(unsigned long long)arg1;
 - (void)removeSubViews;
 - (void)setupSubViews;

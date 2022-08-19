@@ -6,10 +6,10 @@
 
 #import "NSObject-Protocol.h"
 
-@class JTCaptureRequest, NSData, NSError, NSString;
+@class JTCaptureRequest, NSError, NSImage, NSString;
 
 @protocol JTCaptureRequestDelegate <NSObject>
-- (void)captureRequest:(JTCaptureRequest *)arg1 didFinishWithImageData:(NSData *)arg2 saveToPath:(NSString *)arg3 error:(NSError *)arg4;
+- (void)captureRequest:(JTCaptureRequest *)arg1 didFinishWithImage:(NSImage *)arg2 saveToPath:(NSString *)arg3 error:(NSError *)arg4;
 - (void)captureRequestDidCancel:(JTCaptureRequest *)arg1;
 - (void)captureRequestDidChange:(JTCaptureRequest *)arg1;
 @end

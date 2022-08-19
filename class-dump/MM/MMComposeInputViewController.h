@@ -23,7 +23,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextViewDelegate-Protocol.h"
 
-@class FFProcessReqsvrLogicZZ, LVSVGImageButton, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMSolitaireWindowController, MessageData, NSClipView, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
+@class FFProcessReqsvrLogicZZ, LVSVGImageButton, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMSolitaireWindowController, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
 @protocol MMChatDetailSplitViewPositionInterface><MMChatMemberListViewDelegate><MMAnimateVoipTipsDelegate, MMComposeTextViewDelegate, MMMutipleSelectionDelegate;
 
 @interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, LVLiveServiceExt, MMMultiSelectViewDelegate, NSMenuDelegate>
@@ -59,9 +59,11 @@
     MMBrandMenuPlugin *_brandMenuPlugin;
     MessageData *_referingMsgWrap;
     MMSolitaireWindowController *_solitaireWindowController;
+    NSMenu *_contextMenu;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) MMSolitaireWindowController *solitaireWindowController; // @synthesize solitaireWindowController=_solitaireWindowController;
 @property(retain, nonatomic) MessageData *referingMsgWrap; // @synthesize referingMsgWrap=_referingMsgWrap;
 @property(retain, nonatomic) MMBrandMenuPlugin *brandMenuPlugin; // @synthesize brandMenuPlugin=_brandMenuPlugin;
@@ -102,7 +104,7 @@
 - (void)textView:(id)arg1 doubleClickedOnCell:(id)arg2 inRect:(struct CGRect)arg3 atIndex:(unsigned long long)arg4;
 - (id)textView:(id)arg1 attachmentViewWithAttachment:(id)arg2;
 - (void)analysisSolitaireWithContent:(id)arg1;
-- (BOOL)sendTextWithAnalysisSolitaire:(id)arg1 withMentionInfo:(id)arg2;
+- (BOOL)sendTextWithAnalysisSolitaire:(id)arg1 withMentionInfo:(id)arg2 withSenderInfo:(id)arg3;
 - (void)SaveMutipleSelect;
 - (void)ForwardMutipleSelect:(BOOL)arg1 toWeWork:(BOOL)arg2;
 - (void)showSessionPickerWithSendMsgList:(id)arg1 isNeedMerge:(BOOL)arg2;
@@ -156,7 +158,8 @@
 - (void)showVoiceChat:(id)arg1;
 - (void)showVideoChat:(id)arg1;
 - (BOOL)checkExclusiveTaskCanStart;
-- (void)onClickShotAndHideMainWindow;
+- (void)onClickShotAndHideMainWindow:(id)arg1;
+- (void)menuDidClose:(id)arg1;
 - (void)screenShotButtonPressAndHideMainWindow:(id)arg1;
 - (void)screenShotButtonPress:(id)arg1;
 - (void)showAttachmentMenu:(id)arg1;

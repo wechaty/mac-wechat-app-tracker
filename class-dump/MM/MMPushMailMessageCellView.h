@@ -49,6 +49,7 @@
 - (void)layoutViews;
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;

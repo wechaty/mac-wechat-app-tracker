@@ -211,6 +211,8 @@
 - (BOOL)isAppFileExpired;
 - (BOOL)isAppRecordFinishDownload;
 - (BOOL)checkSourceFileFinishDownload:(id)arg1 deep:(int)arg2;
+- (BOOL)isMidFinishUploadOrDownload;
+- (BOOL)isOriginFinishUploadOrDownload;
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)isAppFileExist;
 - (BOOL)cleanupMediaRes;

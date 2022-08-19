@@ -52,6 +52,7 @@
     unsigned int hasSalt:1;
     unsigned int hasFinderSetting:1;
     unsigned int hasNewcomeMsgDefaultVoiceNumber:1;
+    unsigned int hasExtStatus2:1;
     unsigned int bigChatRoomSize;
     unsigned int bigChatRoomQuota;
     unsigned int bigChatRoomInvite;
@@ -94,10 +95,13 @@
     NSString *textStatusExtInfo;
     NSString *salt;
     unsigned long long finderSetting;
+    unsigned long long extStatus2;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetExtStatus2:) unsigned long long extStatus2; // @synthesize extStatus2;
+@property(readonly, nonatomic) BOOL hasExtStatus2; // @synthesize hasExtStatus2;
 @property(nonatomic, setter=SetNewcomeMsgDefaultVoiceNumber:) unsigned int newcomeMsgDefaultVoiceNumber; // @synthesize newcomeMsgDefaultVoiceNumber;
 @property(readonly, nonatomic) BOOL hasNewcomeMsgDefaultVoiceNumber; // @synthesize hasNewcomeMsgDefaultVoiceNumber;
 @property(nonatomic, setter=SetFinderSetting:) unsigned long long finderSetting; // @synthesize finderSetting;

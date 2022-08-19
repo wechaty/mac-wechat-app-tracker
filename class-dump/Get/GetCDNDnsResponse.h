@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, CDNDnsInfo, SKBuiltinBuffer_t;
+@class BaseResponse, CDNDnsInfo, SKBuiltinBuffer_t, WxUserIdcInfo;
 
 @interface GetCDNDnsResponse : PBGeneratedMessage
 {
@@ -18,7 +18,11 @@
     unsigned int hasFakeCdndnsRuleBuf:1;
     unsigned int hasFakeDnsInfo:1;
     unsigned int hasNextIpv6:1;
+    unsigned int hasC2CRoamDnsInfo:1;
+    unsigned int hasCdnUserIdcInfo:1;
+    unsigned int hasVcodec1Limit:1;
     int nextIpv6;
+    int vcodec1Limit;
     BaseResponse *baseResponse;
     CDNDnsInfo *dnsInfo;
     CDNDnsInfo *snsDnsInfo;
@@ -26,10 +30,18 @@
     SKBuiltinBuffer_t *cdndnsRuleBuf;
     SKBuiltinBuffer_t *fakeCdndnsRuleBuf;
     CDNDnsInfo *fakeDnsInfo;
+    CDNDnsInfo *c2CRoamDnsInfo;
+    WxUserIdcInfo *cdnUserIdcInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetVcodec1Limit:) int vcodec1Limit; // @synthesize vcodec1Limit;
+@property(readonly, nonatomic) BOOL hasVcodec1Limit; // @synthesize hasVcodec1Limit;
+@property(retain, nonatomic, setter=SetCdnUserIdcInfo:) WxUserIdcInfo *cdnUserIdcInfo; // @synthesize cdnUserIdcInfo;
+@property(readonly, nonatomic) BOOL hasCdnUserIdcInfo; // @synthesize hasCdnUserIdcInfo;
+@property(retain, nonatomic, setter=SetC2CRoamDnsInfo:) CDNDnsInfo *c2CRoamDnsInfo; // @synthesize c2CRoamDnsInfo;
+@property(readonly, nonatomic) BOOL hasC2CRoamDnsInfo; // @synthesize hasC2CRoamDnsInfo;
 @property(nonatomic, setter=SetNextIpv6:) int nextIpv6; // @synthesize nextIpv6;
 @property(readonly, nonatomic) BOOL hasNextIpv6; // @synthesize hasNextIpv6;
 @property(retain, nonatomic, setter=SetFakeDnsInfo:) CDNDnsInfo *fakeDnsInfo; // @synthesize fakeDnsInfo;

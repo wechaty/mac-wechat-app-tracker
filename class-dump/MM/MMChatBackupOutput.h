@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, PacketBackupDataPush, PacketBackupDataTag;
+@class MMBackupDataInfo, NSString, PacketBackupDataPush, PacketBackupDataTag;
 
 @interface MMChatBackupOutput : NSObject
 {
     PacketBackupDataPush *_dataPush;
     PacketBackupDataTag *_dataTag;
+    MMBackupDataInfo *_backupDataInfo;
     unsigned long long _outputType;
     NSString *_sessionName;
 }
@@ -19,12 +20,15 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *sessionName; // @synthesize sessionName=_sessionName;
 @property(nonatomic) unsigned long long outputType; // @synthesize outputType=_outputType;
+@property(retain, nonatomic) MMBackupDataInfo *backupDataInfo; // @synthesize backupDataInfo=_backupDataInfo;
 @property(retain, nonatomic) PacketBackupDataTag *dataTag; // @synthesize dataTag=_dataTag;
 @property(retain, nonatomic) PacketBackupDataPush *dataPush; // @synthesize dataPush=_dataPush;
+- (id)getBackupDataInfo;
 - (id)getSessionName;
 - (void)setPacketBackupDataTag:(id)arg1;
 - (id)getPacketBackupDataTag;
 - (void)setBackupDataPush:(id)arg1;
+- (void)setBackupDataPush:(id)arg1 withDataInfo:(id)arg2;
 - (id)getBackupDataPush;
 - (unsigned long long)getOutputType;
 - (id)init;

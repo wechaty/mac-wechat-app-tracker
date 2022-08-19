@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSPanel.h>
+#import <AppKit/NSWindow.h>
 
 @protocol JTCaptureWindowDelegate;
 
-@interface JTCaptureWindow : NSPanel
+@interface JTCaptureWindow : NSWindow
 {
     struct CGRect _fixedFrame;
     BOOL _hasFixedFrame;
@@ -29,6 +29,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithContentRect:(struct CGRect)arg1 styleMask:(unsigned long long)arg2 backing:(unsigned long long)arg3 defer:(BOOL)arg4 screen:(id)arg5;
+- (BOOL)worksWhenModal;
 
 @end
 

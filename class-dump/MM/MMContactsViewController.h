@@ -56,7 +56,7 @@
 - (void)reportMenuShowToKVWithMenuId:(unsigned int)arg1;
 - (void)handleAppFontSize;
 - (void)windowDidBecomeKeyAction:(id)arg1;
-- (void)windowDidResignKeyAction:(id)arg1;
+- (void)windowDidResignMainAction:(id)arg1;
 - (void)_contextMenuDeleteFriendRequest:(id)arg1;
 - (id)contextMenuForFriendRequestRow:(id)arg1;
 - (void)_contextMenuChangeRemark:(id)arg1;

@@ -102,6 +102,7 @@
 - (void)leakMonitor:(id)arg1 decideForOOMAction:(CDUnknownBlockType)arg2;
 - (void)onUserChangedSystemTime:(id)arg1;
 - (void)showAppDebugWindow;
+- (void)orderBackMainWindow;
 - (void)showOrHideMainWindow;
 - (void)orderFrontMainWindow;
 - (void)showMainWindow;

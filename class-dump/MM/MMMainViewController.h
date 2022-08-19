@@ -10,6 +10,7 @@
 #import "IBetaMgrExt-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
+#import "MMChatBackupInvitationExt-Protocol.h"
 #import "MMHandoffServiceExt-Protocol.h"
 #import "MMMainWindowExtensionsDelegate-Protocol.h"
 #import "MMNetExt-Protocol.h"
@@ -21,7 +22,7 @@
 
 @class LeftViewController, MMAvatarImageView, MMBadgeOverlayView, MMChatsViewController, MMContactsViewController, MMFavoritesViewController, MMHandoffButton, MMHandoffViewController, MMLockViewController, MMMainWindowExtensionsViewController, MMSettingMenuViewController, MMSplitView, MMView, MMWABoardViewController, MMYoMessageView, NSButton, NSPopover, NSString, NSVisualEffectView, SVGButton;
 
-@interface MMMainViewController : MMViewController <NSSplitViewDelegate, MMTabbarControllerDelegate, IMessageExt, MMNetExt, AccountServiceExt, SyncExt, IContactMgrExt, IBetaMgrExt, NSWindowDelegate, MMHandoffServiceExt, MMMainWindowExtensionsDelegate, NSPopoverDelegate>
+@interface MMMainViewController : MMViewController <NSSplitViewDelegate, MMTabbarControllerDelegate, IMessageExt, MMNetExt, AccountServiceExt, SyncExt, IContactMgrExt, IBetaMgrExt, NSWindowDelegate, MMHandoffServiceExt, MMMainWindowExtensionsDelegate, NSPopoverDelegate, MMChatBackupInvitationExt>
 {
     BOOL _shouldResponseToTabClick;
     BOOL _isChaningTrafficLightButtons;
@@ -88,6 +89,8 @@
 - (void)onNetStatusChange:(int)arg1;
 - (void)onAddYoMsgWithChatName:(id)arg1 msgData:(id)arg2;
 - (void)addButtonPressed:(id)arg1;
+- (void)onAcceptMigrateInvitation;
+- (void)onRecvMigrateInvitation;
 - (void)onClearUnreadBetaPackage;
 - (void)onRecvBetaPackage:(id)arg1;
 - (void)onClearUnreadBetaInvitation;

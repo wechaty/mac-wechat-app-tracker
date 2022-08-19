@@ -8,7 +8,7 @@
 
 #import "C2ObjcServerCallBackExt-Protocol.h"
 
-@class MMSpeedFilter, NSDate, NSString;
+@class MMSpeedFilter, NSDate, NSLock, NSMutableArray, NSString;
 @protocol LocalAreaNetworkServerDelegate;
 
 @interface LocalAreaNetworkServer : NSObject <C2ObjcServerCallBackExt>
@@ -25,10 +25,14 @@
     MMSpeedFilter *m_recveSpeedFilter;
     NSDate *m_serverConnectDate;
     id <LocalAreaNetworkServerDelegate> _delegate;
+    NSLock *_sendingSizeLock;
+    NSMutableArray *_sendingSizeArr;
 }
 
 + (void)stopServer;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *sendingSizeArr; // @synthesize sendingSizeArr=_sendingSizeArr;
+@property(retain, nonatomic) NSLock *sendingSizeLock; // @synthesize sendingSizeLock=_sendingSizeLock;
 @property(nonatomic) __weak id <LocalAreaNetworkServerDelegate> delegate; // @synthesize delegate=_delegate;
 - (unsigned long long)getServerOpenTime;
 - (unsigned long long)getTotalReceiveLength;

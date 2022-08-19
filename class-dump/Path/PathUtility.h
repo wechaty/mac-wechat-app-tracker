@@ -40,6 +40,8 @@
 + (id)GetLiveDBPath;
 + (id)localUsrLibrary;
 + (id)localUsrDirPath;
++ (id)joinedBySourcePathFromXML:(id)arg1;
++ (id)trimmingSourcePathToXML:(id)arg1;
 + (id)GetSessionDBRecoverPath;
 + (id)GetSessionDBExtPath;
 + (id)GetSessionDBPath;
@@ -116,7 +118,8 @@
 + (id)getSysMsgHistoryPathWithUserName:(id)arg1 historyId:(unsigned long long)arg2;
 + (id)getMsgFileDirWithUserName:(id)arg1;
 + (id)getMsgAppOpenDataDirWithUserName:(id)arg1;
-+ (unsigned long long)_genFromSelfVideoUniqFlag:(id)arg1;
++ (id)_genFromSelfVideoUniqFlag:(id)arg1;
++ (id)getMsgVideoPathWithMessage:(id)arg1 isRawFlag:(BOOL)arg2;
 + (id)getMsgVideoPathWithMessage:(id)arg1;
 + (id)getMsgVideoPathWithUserName:(id)arg1 localId:(unsigned int)arg2;
 + (id)getMsgVideoDirWithUserName:(id)arg1;
@@ -125,9 +128,11 @@
 + (id)getUniqueMsgAudioPath:(id)arg1;
 + (id)getMsgAudioPath:(id)arg1;
 + (id)getMsgAudioDir:(id)arg1;
++ (id)getExportImageExtWithDataFmt:(id)arg1;
 + (id)getMsgTmpHDImgPath:(id)arg1 localId:(unsigned int)arg2;
 + (id)getMsgTmpImgThumbPathWithMessage:(id)arg1;
 + (id)getMsgTmpImgPath:(id)arg1 localId:(unsigned int)arg2;
++ (id)getMsgImgPreviewMidPathWithMessage:(id)arg1;
 + (id)getMsgImgPreviewThumbPathWithMessage:(id)arg1;
 + (id)getMsgCompressImage:(id)arg1;
 + (id)getMsgImgPreviewImageForLargeImage:(id)arg1;
@@ -135,11 +140,15 @@
 + (id)getMsgHDImgPathWithMessage:(id)arg1;
 + (id)getMsgImgThumbPath:(id)arg1 imgURLString:(id)arg2;
 + (id)getMsgImgThumbPathWithMessage:(id)arg1;
-+ (id)getMsgImgPathWithMessage:(id)arg1 isSend:(int)arg2;
++ (id)getDeprecatedMsgImgPathWithMessage:(id)arg1;
++ (id)getMsgBubblePathWithMessage:(id)arg1;
 + (id)getMsgImgPathWithMessage:(id)arg1;
 + (id)getMsgImgBusinessDir:(id)arg1;
 + (id)getMsgImgDir:(id)arg1;
 + (id)getMsgImagePathInType:(int)arg1 withMessage:(id)arg2;
++ (id)getUnSupportMigrateMsgMediaDirWithSessionName:(id)arg1;
++ (id)getMigrateAnalyseDBPath;
++ (id)getMediaDataDBPath;
 + (id)getMsgTempDirOfUser:(id)arg1;
 + (id)getMsgTempDir;
 + (id)getRevokeMsgDBPath;
@@ -153,6 +162,7 @@
 + (id)getBrandMsgDBPath;
 + (id)getMsgDBRecoverPath:(id)arg1;
 + (id)getMsgDBPath:(id)arg1;
++ (id)getUnSupportMigrateMsgDBPath;
 + (id)getMessageRootDir;
 + (id)cachedStatusDataPath;
 + (id)cachedStatusDataFolder;

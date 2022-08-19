@@ -9,6 +9,8 @@
 @class NSColor;
 
 @protocol JTToolbarWindowControllerDelegate <NSObject>
+
+@optional
 - (void)QRScaner;
 - (void)undo;
 - (void)widthDidChange:(unsigned long long)arg1;

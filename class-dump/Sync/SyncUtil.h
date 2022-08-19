@@ -12,7 +12,7 @@
 
 + (id)GetCurrentChatName:(id)arg1;
 + (void)HandleSyncStashMsgs:(BOOL)arg1;
-+ (BOOL)ParseCmds:(id)arg1 isInit:(BOOL)arg2 shouldContinue:(BOOL)arg3;
++ (void)ParseCmds:(id)arg1 isInit:(BOOL)arg2 shouldContinue:(BOOL)arg3;
 
 @end
 

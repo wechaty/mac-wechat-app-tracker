@@ -45,9 +45,6 @@
 @property(nonatomic) __weak id <JTPopoverWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)layoutSubViews;
 - (void)configAppearanceAndLayout;
-- (void)handleChangeThemeNotification:(id)arg1;
-- (void)unregisterForChangeThemeNotification;
-- (void)registerForChangeThemeNotification;
 - (id)defaultColor;
 - (unsigned long long)defaultFontSize;
 - (unsigned long long)defaultWidth;

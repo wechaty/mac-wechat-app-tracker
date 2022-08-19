@@ -23,16 +23,20 @@
     BOOL m_bHasGetCdnDns;
     BOOL m_bUseSafeCdn;
     BOOL m_bInitCdnCom;
+    unsigned int _vcodec1Limit;
     NSMutableDictionary *_warningCountMap;
 }
 
++ (BOOL)isSupportVCodec2;
 + (struct Config)GetWxConfig;
 + (unsigned long long)getFileMaxSizeWithType:(int)arg1;
 + (id)GetCdnRootPath;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int vcodec1Limit; // @synthesize vcodec1Limit=_vcodec1Limit;
 @property(retain, nonatomic) NSMutableDictionary *warningCountMap; // @synthesize warningCountMap=_warningCountMap;
 @property(retain, nonatomic) NSDate *m_tGetCdn; // @synthesize m_tGetCdn;
+- (int)snsVideoFormat:(id)arg1;
 - (void)setUseSafeCdn:(BOOL)arg1;
 - (BOOL)useSafeCdn;
 - (id)genarateResAesKey;
@@ -41,7 +45,7 @@
 - (int)startDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3 andDownloadMode:(int)arg4;
 - (BOOL)StartDownloadTpDataFile:(void *)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
 - (void)StopUploadRecordMedia:(id)arg1;
-- (BOOL)StartUploadRecordMedia:(id)arg1 enableHitCheck:(BOOL)arg2;
+- (BOOL)StartUploadRecordMedia:(id)arg1;
 - (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;
 - (BOOL)StartDownloadRecordMedia:(id)arg1 FromChatLog:(BOOL)arg2;
 - (BOOL)StartDownloadRecordMedia:(id)arg1;

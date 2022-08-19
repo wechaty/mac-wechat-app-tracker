@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class WCTDatabase, WCTTable;
+@class WCTDatabase;
 
 @interface SNSDB : NSObject
 {
@@ -56,13 +56,8 @@
 - (id)init;
 - (void)testTable;
 - (id)errorMessageDesc:(unsigned int)arg1;
-- (id)setupTableWithName:(id)arg1 tableClass:(Class)arg2;
+- (BOOL)setupTableWithName:(id)arg1 tableClass:(Class)arg2;
 - (void)setupTable;
-@property(retain, nonatomic) WCTTable *m_tableLikeUserName;
-@property(retain, nonatomic) WCTTable *m_tablePublish;
-@property(retain, nonatomic) WCTTable *m_tableErrorMessage;
-@property(retain, nonatomic) WCTTable *m_tableMessage;
-@property(retain, nonatomic) WCTTable *m_tableTimeline;
 @property(retain, nonatomic) WCTDatabase *m_db;
 - (id)convertToSnsDataCenterErrorWithSNSErrorMessage:(id)arg1;
 - (id)convertToSNSErrorMessageWithSnsDataCenterError:(id)arg1 createTime:(unsigned long long)arg2 feedId:(id)arg3;
