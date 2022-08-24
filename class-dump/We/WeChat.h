@@ -9,6 +9,7 @@
 #import "AccountServiceExt-Protocol.h"
 #import "DebugMessageSourceViewDelegate-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
+#import "MMConfigMgrExt-Protocol.h"
 #import "MMLeaksMonitorDelegate-Protocol.h"
 #import "MMNetServiceDelegate-Protocol.h"
 #import "MMNetServiceExt-Protocol.h"
@@ -17,7 +18,7 @@
 
 @class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMComposeTextView, MMDockItem, MMMachPortsMonitor, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
 
-@interface WeChat : NSObject <DebugMessageSourceViewDelegate, NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, WeChatInstance>
+@interface WeChat : NSObject <DebugMessageSourceViewDelegate, NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, MMConfigMgrExt, WeChatInstance>
 {
     BOOL _isLoggedIn;
     BOOL _isLocked;
@@ -57,10 +58,12 @@
     NSAlert *_oomAlert;
     NSImageView *_flagView;
     MMTimer *_timer;
+    NSMenuItem *_backupRecoverMenuItem;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+@property __weak NSMenuItem *backupRecoverMenuItem; // @synthesize backupRecoverMenuItem=_backupRecoverMenuItem;
 @property(retain, nonatomic) MMTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) int progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) NSImageView *flagView; // @synthesize flagView=_flagView;
@@ -99,6 +102,7 @@
 @property(nonatomic) __weak LeftViewController *leftViewController; // @synthesize leftViewController=_leftViewController;
 @property(nonatomic) __weak MMChatsViewController *chatsViewController; // @synthesize chatsViewController=_chatsViewController;
 @property(retain, nonatomic) MMMainWindowController *mainWindowController; // @synthesize mainWindowController=_mainWindowController;
+- (void)onMMDynamicConfigUpdated;
 - (void)leakMonitor:(id)arg1 decideForOOMAction:(CDUnknownBlockType)arg2;
 - (void)onUserChangedSystemTime:(id)arg1;
 - (void)showAppDebugWindow;
@@ -133,6 +137,7 @@
 - (void)reportLoginDevice;
 - (void)startFavSync;
 - (void)startSyncAndHeatbeat;
+- (void)updateBackupRecoverMenuItem;
 - (void)updateMainUI:(BOOL)arg1;
 - (void)doSomethingOnManualAuth;
 - (void)doSomethingOnAuth:(BOOL)arg1;

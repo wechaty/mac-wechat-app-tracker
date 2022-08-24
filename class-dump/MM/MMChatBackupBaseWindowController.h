@@ -10,7 +10,7 @@
 #import "MMChatLogHeaderViewDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMChatLogHeaderView, MMChatLogHomeViewController, MMNavigationController, MMTextField, NSString;
+@class MMChatBackupBackupRecoverViewController, MMChatLogHeaderView, MMChatLogHomeViewController, MMNavigationController, MMTextField, NSString;
 
 @interface MMChatBackupBaseWindowController : MMWindowController <NSWindowDelegate, MMBackupFilesInfoDetailVCDelegate, MMChatLogHeaderViewDelegate>
 {
@@ -18,9 +18,11 @@
     MMNavigationController *_naviController;
     MMTextField *_versionSupportLabel;
     MMChatLogHomeViewController *_chatlogHomeVC;
+    MMChatBackupBackupRecoverViewController *_backupRecoverVC;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMChatBackupBackupRecoverViewController *backupRecoverVC; // @synthesize backupRecoverVC=_backupRecoverVC;
 @property(retain, nonatomic) MMChatLogHomeViewController *chatlogHomeVC; // @synthesize chatlogHomeVC=_chatlogHomeVC;
 @property(retain, nonatomic) MMTextField *versionSupportLabel; // @synthesize versionSupportLabel=_versionSupportLabel;
 @property(retain, nonatomic) MMNavigationController *naviController; // @synthesize naviController=_naviController;

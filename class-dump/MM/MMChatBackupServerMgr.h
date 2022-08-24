@@ -7,11 +7,12 @@
 #import "MMService.h"
 
 #import "MMChatBackupServerLogicDelegate-Protocol.h"
+#import "MMConfigMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class MMChatBackupIndexDB, MMChatBackupServerLogic, MMMigrateDataInfo, NSArray, NSData, NSString;
 
-@interface MMChatBackupServerMgr : MMService <MMChatBackupServerLogicDelegate, MMService>
+@interface MMChatBackupServerMgr : MMService <MMChatBackupServerLogicDelegate, MMConfigMgrExt, MMService>
 {
     MMChatBackupServerLogic *m_serverLogic;
     MMChatBackupIndexDB *m_indexDB;
@@ -85,6 +86,7 @@
 @property(retain, nonatomic) NSString *server_hello; // @synthesize server_hello=_server_hello;
 @property(retain, nonatomic) NSData *server_key; // @synthesize server_key=_server_key;
 @property(retain, nonatomic) NSString *server_id; // @synthesize server_id=_server_id;
+- (void)onMMDynamicConfigUpdated;
 - (void)unireport26824:(id)arg1;
 - (void)unireport26824:(unsigned int)arg1 withLogStr:(id)arg2;
 - (unsigned long long)getPairType;
@@ -121,6 +123,9 @@
 - (void)stopServerMgr;
 - (void)startServerMgr;
 - (void)dealloc;
+- (void)onServiceTerminate;
+- (void)onServiceClearData;
+- (void)onServiceInit;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

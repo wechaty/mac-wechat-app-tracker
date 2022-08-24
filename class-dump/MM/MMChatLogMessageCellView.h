@@ -52,6 +52,7 @@
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;
 - (BOOL)isCanAddToFavorites;
+- (void)contextMenuShowChatLogPath;
 - (struct CGRect)clickableArea;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;

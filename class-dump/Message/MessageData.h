@@ -284,6 +284,7 @@
 - (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
+- (void)shortParseMsgFieldFromXML;
 - (id)fileSender;
 - (id)fileContent;
 - (id)finderUserName;

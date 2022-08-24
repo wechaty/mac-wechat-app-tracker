@@ -152,7 +152,7 @@
 - (void)addEnterSession:(id)arg1;
 - (void)addMarkUnRead:(id)arg1 createTime:(unsigned int)arg2;
 - (BOOL)needSessionHide:(id)arg1 clearToTime:(unsigned int *)arg2;
-- (void)processStatusNotify:(id)arg1 map:(id)arg2 isFastSync:(BOOL)arg3;
+- (void)processStatusNotify:(id)arg1 map:(id)arg2;
 - (void)OnSyncModMsgStatus:(id)arg1;
 - (void)OnSyncBatchAddFunctionMsgs:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)FFImgToOnFavInfoInfoVCZZ:(id)arg1 isFirstSync:(BOOL)arg2;
@@ -220,6 +220,7 @@
 - (id)GetAllMsgWithChatName:(id)arg1 messageType:(unsigned int)arg2;
 - (id)getMsgCreateTimeListWithChatName:(id)arg1 localIdList:(id)arg2;
 - (id)GetMsgListWithChatName:(id)arg1 maxCreateTime:(unsigned int)arg2 minCreateTime:(unsigned int)arg3 localId:(unsigned long long)arg4 limitCnt:(unsigned int)arg5 messageTypes:(id)arg6 fromOldToNew:(BOOL)arg7 sortAscend:(BOOL)arg8;
+- (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 toCreateTime:(unsigned int)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 messageTypes:(id)arg6 sortAscend:(BOOL)arg7;
 - (id)GetMsgListWithChatName:(id)arg1 fromMinCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5 messageTypes:(id)arg6 sortAscend:(BOOL)arg7;
 - (void)GetMsgListWithChatName:(id)arg1 fromCreateTime:(unsigned int)arg2 localId:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 messageTypes:(id)arg5 sortAscend:(BOOL)arg6 completion:(CDUnknownBlockType)arg7;

@@ -35,7 +35,7 @@
 @property(nonatomic) double edgeRatio; // @synthesize edgeRatio=_edgeRatio;
 @property(retain, nonatomic) NSColor *progressColor; // @synthesize progressColor=_progressColor;
 @property(retain, nonatomic) NSColor *fillColor; // @synthesize fillColor=_fillColor;
-- (void)updateProgressLayer;
+- (void)drawRect:(struct CGRect)arg1;
 - (BOOL)orientation;
 - (double)maxValue;
 - (double)currentValue;
