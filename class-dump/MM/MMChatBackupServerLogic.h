@@ -34,9 +34,9 @@
     NSString *phoneType;
     unsigned long long m_transferLength;
     NSDate *m_startTransferDate;
+    double _transferDataStartTime;
     id <MMChatBackupServerLogicDelegate> _serverLogicDelegate;
     NSObject<OS_dispatch_queue> *_processLogicQueue;
-    double _transferDataStartTime;
     unsigned long long _checkTransferSpeedCount;
     MMChatLogSyncImportMessageLogic *_chatlogSyncImportMessageLogic;
 }
@@ -44,9 +44,9 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMChatLogSyncImportMessageLogic *chatlogSyncImportMessageLogic; // @synthesize chatlogSyncImportMessageLogic=_chatlogSyncImportMessageLogic;
 @property(nonatomic) unsigned long long checkTransferSpeedCount; // @synthesize checkTransferSpeedCount=_checkTransferSpeedCount;
-@property(nonatomic) double transferDataStartTime; // @synthesize transferDataStartTime=_transferDataStartTime;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *processLogicQueue; // @synthesize processLogicQueue=_processLogicQueue;
 @property(nonatomic) __weak id <MMChatBackupServerLogicDelegate> serverLogicDelegate; // @synthesize serverLogicDelegate=_serverLogicDelegate;
+@property(nonatomic) double transferDataStartTime; // @synthesize transferDataStartTime=_transferDataStartTime;
 - (id)genAutoReconnectTokenWithBits:(int)arg1;
 - (BOOL)isInMigrateMode;
 - (void)_recoverSpeedReport:(unsigned long long)arg1;

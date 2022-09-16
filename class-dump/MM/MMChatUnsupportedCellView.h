@@ -11,6 +11,7 @@
 }
 
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
+- (double)getShowInWidth;
 
 @end
 

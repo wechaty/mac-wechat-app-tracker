@@ -239,6 +239,8 @@
 - (void)setVoipInviteViewHidden:(BOOL)arg1;
 - (void)setupChatInfoView;
 - (void)setupBannerCellView;
+- (void)makeSureRevokeMessageVisible:(long long)arg1;
+- (void)handleRevokePromptMessage:(id)arg1;
 - (void)setupTableView;
 - (void)setupEffectView;
 - (void)copySelectedMessageContent;

@@ -26,9 +26,8 @@
 - (BOOL)cleanupMediaRes;
 - (BOOL)isNonSupportedMessageData;
 - (void)clearReaderWraps;
-- (BOOL)isAppHDImageExist;
-- (NSString *)getAppHDImagePath;
 - (BOOL)isAppFileExist;
+- (BOOL)isAppMidImgExist;
 - (BOOL)isAppImgExist;
 - (NSString *)getReaderWrapDisplayTitle;
 - (void)parseReaderContent;

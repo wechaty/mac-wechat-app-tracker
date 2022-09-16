@@ -9,7 +9,7 @@
 #import "LocalAreaNetworkServerDelegate-Protocol.h"
 #import "LocalAreaPeerServerDelegate-Protocol.h"
 
-@class LocalAreaNetworkServer, LocalAreaPeerServer, MMTimer, NSString;
+@class LocalAreaNetworkServer, LocalAreaPeerServer, MMTimer, NSRecursiveLock, NSString;
 @protocol LocalAreaCommunicationServerDelegate;
 
 @interface MMLocalAreaCommunicationServer : NSObject <LocalAreaPeerServerDelegate, LocalAreaNetworkServerDelegate>
@@ -26,9 +26,11 @@
     BOOL _isIntentDisconnect;
     int _backupMode;
     id <LocalAreaCommunicationServerDelegate> _delegate;
+    NSRecursiveLock *_peerLock;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *peerLock; // @synthesize peerLock=_peerLock;
 @property(nonatomic) int backupMode; // @synthesize backupMode=_backupMode;
 @property(nonatomic) BOOL isIntentDisconnect; // @synthesize isIntentDisconnect=_isIntentDisconnect;
 @property(nonatomic) BOOL isPhoneSupportAutoReconnect; // @synthesize isPhoneSupportAutoReconnect=_isPhoneSupportAutoReconnect;

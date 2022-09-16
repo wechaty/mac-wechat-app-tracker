@@ -197,7 +197,6 @@
 - (BOOL)hasReferIcon;
 - (BOOL)hasReferThumb;
 - (BOOL)msgCanBeRefered;
-- (id)getAppDataPath;
 - (BOOL)isAppMsgUseCdn;
 - (id)generateReferMsgXML;
 - (void)parseFromReferMsgXMLNode:(struct XmlReaderNode_t *)arg1;
@@ -216,8 +215,7 @@
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)isAppFileExist;
 - (BOOL)cleanupMediaRes;
-- (BOOL)isAppHDImageExist;
-- (id)getAppHDImagePath;
+- (BOOL)isAppMidImgExist;
 - (BOOL)isAppImgExist;
 - (id)getReaderWrapDisplayTitle;
 - (void)parseReaderContent;

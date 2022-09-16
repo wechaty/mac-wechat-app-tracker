@@ -8,6 +8,7 @@
 
 @interface MMImageEditArrowItem : MMImageEditItem
 {
+    BOOL _endPointFixed;
     struct CGPath *_arrowPath;
     struct CGPoint _beginPoint;
     struct CGPoint _endPoint;
@@ -15,6 +16,7 @@
     struct CGPoint _resizeDotEndPoint;
 }
 
+@property(nonatomic) BOOL endPointFixed; // @synthesize endPointFixed=_endPointFixed;
 @property(nonatomic) struct CGPoint resizeDotEndPoint; // @synthesize resizeDotEndPoint=_resizeDotEndPoint;
 @property(nonatomic) struct CGPoint resizeDotBeginPoint; // @synthesize resizeDotBeginPoint=_resizeDotBeginPoint;
 @property(nonatomic) struct CGPoint endPoint; // @synthesize endPoint=_endPoint;
@@ -33,6 +35,7 @@
 - (void)drawGraphWithScale:(double)arg1;
 - (void)drawGraph;
 - (void)transformDidChange;
+- (void)setEditType:(unsigned long long)arg1;
 @property(readonly, nonatomic) double radius;
 @property(readonly, nonatomic) struct CGPoint beginUpDownToBeginPointVector;
 @property(readonly, nonatomic) struct CGPoint arcUpDownToBeginPointVector;

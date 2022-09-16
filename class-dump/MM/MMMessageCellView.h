@@ -54,6 +54,7 @@
 }
 
 + (BOOL)writeText:(id)arg1 toPasteboard:(id)arg2 orItem:(id)arg3 forType:(id)arg4;
++ (double)getLocatMsgLableWidth;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (Class)cellViewSubclassForSearchChatMessage:(id)arg1;
 + (Class)cellViewSubclassForMessage:(id)arg1;

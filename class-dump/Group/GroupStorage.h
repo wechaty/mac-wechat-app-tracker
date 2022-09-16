@@ -159,6 +159,7 @@
 - (void)setGroupMemberContactsCache:(id)arg1;
 - (void)setGroupMemberContactCache:(id)arg1;
 - (id)getGroupMemberContactCache:(id)arg1;
+- (unsigned long long)getGroupMemberCacheCount;
 - (void)removeGroupContactsCache:(id)arg1;
 - (void)removeGroupContactCache:(id)arg1;
 - (void)setGroupContactsCache:(id)arg1;

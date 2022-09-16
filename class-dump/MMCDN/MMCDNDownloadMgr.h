@@ -46,7 +46,7 @@
 - (id)imageCDNDownloadParaWithFavItemData:(id)arg1;
 - (id)thumbnailCDNDownloadParaWithFavItemData:(id)arg1;
 - (int)videoFormat;
-- (id)videoCDNDownloadParaWithMessage:(id)arg1;
+- (id)videoCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2;
 - (id)thumbnailCDNDownloadParaWithMessage:(id)arg1;
 - (id)fileCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2;
 - (id)appMsgImageCDNDownloadParaWithMessage:(id)arg1 bMidImage:(BOOL)arg2;

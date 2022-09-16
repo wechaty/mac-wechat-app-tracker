@@ -26,6 +26,7 @@
 + (void)reportCheckpoint:(unsigned int)arg1 identifier:(id)arg2 opTime:(unsigned int)arg3;
 + (id)buildFileInfoItems;
 + (id)genDBFileInfo;
++ (id)genMesssageDBFileSizeInfo;
 + (void)logDBFileInfoWithReport:(BOOL)arg1;
 + (void)reportAddSyncMsgList:(id)arg1 chatName:(id)arg2;
 + (void)reportAddSendMsgList:(id)arg1 chatName:(id)arg2;

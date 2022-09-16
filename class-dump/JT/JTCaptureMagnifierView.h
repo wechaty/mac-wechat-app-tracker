@@ -42,7 +42,6 @@
 @property(nonatomic) struct CGRect screenFrame; // @synthesize screenFrame=_screenFrame;
 @property(nonatomic) __weak NSImage *screenImage; // @synthesize screenImage=_screenImage;
 - (void)configAppearanceAndLayout;
-- (id)colorInfo;
 - (void)updateImageOrigin:(struct CGPoint)arg1;
 - (struct CGPoint)adjustFrameOriginByMouseLocation:(struct CGPoint)arg1;
 - (void)getColorValue:(unsigned long long *)arg1 byPoint:(struct CGPoint)arg2;

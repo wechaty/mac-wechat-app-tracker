@@ -90,6 +90,7 @@
 - (void)unireport26824:(id)arg1;
 - (void)unireport26824:(unsigned int)arg1 withLogStr:(id)arg2;
 - (unsigned long long)getPairType;
+- (double)getTransferStartTime;
 - (void)initMigrateDataInfoIfNeed:(BOOL)arg1;
 - (void)clearMigrateCacheData;
 - (void)clearUnreadMigrateMessage;

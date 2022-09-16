@@ -33,6 +33,7 @@
 - (void)headerEndRefreshing;
 - (void)headerBeginRefreshing;
 - (void)scrollWheel:(id)arg1;
+- (void)scrollToBottomWithAnimated:(BOOL)arg1;
 - (BOOL)shouldAutoScrollToBottom;
 - (BOOL)reachedBottom;
 - (BOOL)reachedTop;

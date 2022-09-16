@@ -10,10 +10,12 @@
 {
 }
 
++ (double)getPaddingLeftWidth;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void)rightMouseDown:(id)arg1;
 - (BOOL)eventIsInsideAvatarArea:(id)arg1;
 - (void)layoutUnreadTip:(struct CGRect)arg1;
+- (double)getShowInWidth;
 
 @end
 

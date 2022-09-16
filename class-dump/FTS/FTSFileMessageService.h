@@ -30,6 +30,7 @@
     NSObject<OS_dispatch_queue> *_m_ftsTaskCheckQueue;
 }
 
++ (BOOL)isStopFTSFileService;
 + (id)initialIdentifier:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_ftsTaskCheckQueue; // @synthesize m_ftsTaskCheckQueue=_m_ftsTaskCheckQueue;

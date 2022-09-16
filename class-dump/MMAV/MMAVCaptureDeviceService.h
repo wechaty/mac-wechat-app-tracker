@@ -8,7 +8,8 @@
 
 #import "MMService-Protocol.h"
 
-@class MMCaptureDeviceInfo, NSArray, NSString;
+@class MMCaptureDeviceInfo, NSArray, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface MMAVCaptureDeviceService : MMService <MMService>
 {
@@ -19,10 +20,12 @@
     MMCaptureDeviceInfo *_defaultAudioOutputDevice;
     MMCaptureDeviceInfo *_defaultVideoDevice;
     CDUnknownBlockType _audioOutputListener;
+    NSObject<OS_dispatch_queue> *_listenQueue;
 }
 
 + (void)authorizationStatusForMediaType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *listenQueue; // @synthesize listenQueue=_listenQueue;
 @property(copy, nonatomic) CDUnknownBlockType audioOutputListener; // @synthesize audioOutputListener=_audioOutputListener;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultVideoDevice; // @synthesize defaultVideoDevice=_defaultVideoDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioOutputDevice; // @synthesize defaultAudioOutputDevice=_defaultAudioOutputDevice;
