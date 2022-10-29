@@ -9,6 +9,7 @@
 @class NSArray;
 
 @protocol FavoritesSyncManagerDelegate <NSObject>
-- (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 addedItems:(NSArray *)arg2 deletedItemFavIds:(NSArray *)arg3 updatedItemFavIds:(NSArray *)arg4 totalCountChanged:(BOOL)arg5;
+- (void)onNeedUpdateFavInfo;
+- (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 selector:(int)arg2 addedItems:(NSArray *)arg3 deletedItems:(NSArray *)arg4 updatedItemFavIds:(NSArray *)arg5 totalCountChanged:(BOOL)arg6;
 @end
 

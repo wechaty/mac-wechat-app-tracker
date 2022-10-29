@@ -28,7 +28,6 @@
 - (void)loadCache;
 - (void)loadSortDataInternal;
 - (void)saveSortDataInternal;
-- (id)getSortCacheDataFilePath;
 - (void)dealloc;
 - (id)init;
 

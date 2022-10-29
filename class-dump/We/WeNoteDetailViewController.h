@@ -6,15 +6,14 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "CAAnimationDelegate-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
 #import "IMMRecordDownloadMgrExt-Protocol.h"
-#import "MMCheckBoxAttachmentViewDelegate-Protocol.h"
 #import "MMFavoritesMgrExt-Protocol.h"
 #import "MMRichAttachmentTextViewDelegate-Protocol.h"
 #import "MMRichTextViewToolBarDelegate-Protocol.h"
 #import "MMRichTextViewToolbarDataSource-Protocol.h"
 #import "MMTokenFieldDelegate-Protocol.h"
-#import "MMVideoAttachmentViewDelegate-Protocol.h"
 #import "MMVoiceAttachmentViewDelegate-Protocol.h"
 #import "NSTextViewDelegate-Protocol.h"
 #import "NSTokenFieldDelegate-Protocol.h"
@@ -22,7 +21,7 @@
 
 @class FavoritesItem, MMNoteEditorTagBar, MMRichAttachmentClipView, MMRichAttachmentTextStorage, MMRichAttachmentTextView, MMTextAttachmentCell, MMTimer, MMToastView, MMTokenField, MessageData, NSMutableArray, NSScrollView, NSString, WeNoteAudioMgr, WeNoteParagraphInfo, WeNoteWindowController;
 
-@interface WeNoteDetailViewController : NSViewController <MMRichAttachmentTextViewDelegate, NSTextViewDelegate, MMVoiceAttachmentViewDelegate, MMVideoAttachmentViewDelegate, MMCheckBoxAttachmentViewDelegate, NSTokenFieldDelegate, MMTokenFieldDelegate, IMMRecordDownloadMgrExt, IMMFavRecordDownloadMgrExt, MMFavoritesMgrExt, WeNoteArticleToolBarDelegate, MMRichTextViewToolBarDelegate, MMRichTextViewToolbarDataSource>
+@interface WeNoteDetailViewController : NSViewController <MMRichAttachmentTextViewDelegate, NSTextViewDelegate, MMVoiceAttachmentViewDelegate, NSTokenFieldDelegate, MMTokenFieldDelegate, IMMRecordDownloadMgrExt, IMMFavRecordDownloadMgrExt, MMFavoritesMgrExt, CAAnimationDelegate, WeNoteArticleToolBarDelegate, MMRichTextViewToolBarDelegate, MMRichTextViewToolbarDataSource>
 {
     MMTextAttachmentCell *highlightedCell;
     BOOL _editing;
@@ -30,6 +29,7 @@
     BOOL _waitingFirstSynUpdatedFinish;
     BOOL _waitingUserSelectedSyncActionFinish;
     BOOL _tagBarIsAnimating;
+    BOOL _justDeletedBackward;
     int _noteState;
     int _plainTextMaxLength;
     int _attachmentMaxNum;
@@ -48,17 +48,21 @@
     NSMutableArray *_paragraphArray;
     MMToastView *_toastView;
     MMTimer *_backupTimer;
-    unsigned long long _totalAttachementSizeLimit;
+    unsigned long long _totalAttachmentSizeLimit;
     NSString *_htmlDataID;
+    long long _layout;
     WeNoteAudioMgr *_audioMgr;
     MMNoteEditorTagBar *_noteTagBar;
     MMTokenField *_tagTokenField;
     NSString *_originalDeviceID;
     MMTimer *_textDidChangeTimeOutTimer;
     NSString *_dragImgPath;
+    double _openNoteTimeInterval;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) double openNoteTimeInterval; // @synthesize openNoteTimeInterval=_openNoteTimeInterval;
+@property(nonatomic) BOOL justDeletedBackward; // @synthesize justDeletedBackward=_justDeletedBackward;
 @property(retain, nonatomic) NSString *dragImgPath; // @synthesize dragImgPath=_dragImgPath;
 @property(nonatomic) BOOL tagBarIsAnimating; // @synthesize tagBarIsAnimating=_tagBarIsAnimating;
 @property(retain, nonatomic) MMTimer *textDidChangeTimeOutTimer; // @synthesize textDidChangeTimeOutTimer=_textDidChangeTimeOutTimer;
@@ -71,8 +75,9 @@
 @property(retain) MMTokenField *tagTokenField; // @synthesize tagTokenField=_tagTokenField;
 @property(retain) MMNoteEditorTagBar *noteTagBar; // @synthesize noteTagBar=_noteTagBar;
 @property(retain, nonatomic) WeNoteAudioMgr *audioMgr; // @synthesize audioMgr=_audioMgr;
+@property(nonatomic) long long layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) NSString *htmlDataID; // @synthesize htmlDataID=_htmlDataID;
-@property(nonatomic) unsigned long long totalAttachementSizeLimit; // @synthesize totalAttachementSizeLimit=_totalAttachementSizeLimit;
+@property(nonatomic) unsigned long long totalAttachmentSizeLimit; // @synthesize totalAttachmentSizeLimit=_totalAttachmentSizeLimit;
 @property(nonatomic) int attachmentMaxNum; // @synthesize attachmentMaxNum=_attachmentMaxNum;
 @property(nonatomic) int plainTextMaxLength; // @synthesize plainTextMaxLength=_plainTextMaxLength;
 @property(retain, nonatomic) MMTimer *backupTimer; // @synthesize backupTimer=_backupTimer;
@@ -93,6 +98,8 @@
 - (void)currentScrollViewBoundsChange:(id)arg1;
 - (void)showToastViewOnForwardedNote;
 - (void)updateSyncBtnWithSyncStatus:(int)arg1;
+- (void)favoritesMgrDidRemoveItem:(id)arg1;
+- (void)onAddFailed:(unsigned int)arg1;
 - (void)onAddSuccess:(unsigned int)arg1;
 - (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
 - (void)favoritesMgrDidAddItems:(id)arg1 ErrCode:(int)arg2;
@@ -116,6 +123,7 @@
 - (id)textView:(id)arg1 shouldChangeTypingAttributes:(id)arg2 toAttributes:(id)arg3;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textViewDidChangeSelection:(id)arg1;
+- (BOOL)textView:(id)arg1 formatAllToolBarStatus:(int)arg2;
 - (BOOL)textView:(id)arg1 shouldUpdateToolBarWithBulletType:(id)arg2;
 - (BOOL)textView:(id)arg1 shouldUpdateToolBarWithAttribtues:(id)arg2;
 - (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
@@ -124,6 +132,7 @@
 - (id)textView:(id)arg1 willChangeSelectionFromCharacterRanges:(id)arg2 toCharacterRanges:(id)arg3;
 - (void)textDidChange:(id)arg1;
 - (void)textDidBeginEditing:(id)arg1;
+- (void)superDeleteBackward;
 - (BOOL)superDeleteNote;
 - (BOOL)superShareToFriends;
 - (BOOL)superSaveNote;
@@ -132,15 +141,18 @@
 - (BOOL)textView:(id)arg1 shouldAcceptFileAttachment:(id)arg2;
 - (BOOL)textView:(id)arg1 shouldAcceptPastedAttributedString:(id)arg2;
 - (id)textView:(id)arg1 attachmentViewWithAttachment:(id)arg2;
-- (void)setChecked;
-- (void)attachmentView:(id)arg1 didClickOnParaInfo:(id)arg2;
-- (void)attachmentView:(id)arg1 didLoadImage:(id)arg2 withSize:(struct CGSize)arg3;
+- (void)textView:(id)arg1 attachmentView:(id)arg2 didClick:(id)arg3;
+- (void)textView:(id)arg1 attachmentView:(id)arg2 didLoadImage:(id)arg3 withSize:(struct CGSize)arg4;
+- (void)textView:(id)arg1 attachmentView:(id)arg2 didChangeLayout:(int)arg3;
+- (void)attachmentView:(id)arg1 didChangeLayout:(int)arg2 canUndo:(BOOL)arg3;
+- (void)textView:(id)arg1 attachmentView:(id)arg2 menuAction:(int)arg3;
 - (id)getAlertMessage:(long long)arg1;
 - (void)stopPlayingAudio;
 - (id)getPlayingObjectId;
 - (void)startPlayVoiceAnyway:(id)arg1 lastPlayTime:(double)arg2;
 - (void)startPlayVoice:(id)arg1 lastPlayTime:(double)arg2;
-- (void)cleanDragImgFolder;
+- (void)redoSwitchLayout:(id)arg1;
+- (void)cleanWeNoteDragFolder;
 - (void)draggingEnded:(id)arg1;
 - (struct CGRect)draggingFrameForEvent:(id)arg1 withShowSize:(struct CGSize)arg2;
 - (id)getForwardFavItem;
@@ -161,10 +173,11 @@
 - (void)richTextViewToolbarDidSelectTagNote;
 - (void)richTextViewToolbarDidSelectSyncNote;
 - (void)richTextViewToolbarDidSelectFontSize:(id)arg1;
-- (void)richTextViewToolbarDidSelectInsertSeperateLine;
+- (void)richTextViewToolbarDidSelectInsertSeparateLine;
 - (void)richTextViewToolbarDidSelectTodoBulletPoint;
 - (void)richTextViewToolbarDidSelectOrderBulletPoint;
 - (void)richTextViewToolbarDidSelectBulletPoint;
+- (void)richTextViewToolbarDidSelectHighlight;
 - (void)richTextViewToolbarDidSelectUnderline;
 - (void)richTextViewToolbarDidSelectItalic;
 - (void)richTextViewToolbarDidSelectBold;
@@ -181,12 +194,19 @@
 - (void)scheduleBackup;
 - (void)saveNoteWithAction:(int)arg1;
 - (void)saveNoteOnCreateNew;
+- (void)insertNewlineIfNeededWhenTextChanged;
+- (void)insertNewlineIfNeededWhenDeletedBackward:(unsigned long long)arg1 lastIndex:(unsigned long long)arg2 isMediaObj:(BOOL)arg3;
+- (void)insertNewlineIfNeededWhenInsertText:(unsigned long long)arg1 lastIndex:(unsigned long long)arg2 isMediaObj:(BOOL)arg3;
+- (void)reloadTextViewWhenContentChanged:(int)arg1;
 - (void)logAllInvalidDataField;
 - (void)loadAttributedStringToTextView:(id)arg1;
 - (id)parseParagrapsToAttributedString;
 - (BOOL)shouldPreLoadingHtml:(id)arg1;
 - (void)setupParentFavItem:(id)arg1 isOnWindowDidLoad:(BOOL)arg2;
 - (void)setupParentMsg:(id)arg1;
+- (void)updateLayout;
+- (id)genReportNoteID;
+- (id)genOPBaseReporter;
 - (BOOL)isWaitingSyncFinish;
 - (void)msgSendToSetupParentFavItem:(id)arg1;
 - (void)checkItemUploadStatus;
@@ -194,6 +214,7 @@
 - (void)stopLoading;
 - (void)startLoading;
 - (void)initTagBar;
+- (void)fontSizeClassChanged:(id)arg1;
 - (void)initRichTextView;
 - (void)dealloc;
 - (void)viewDidLoad;

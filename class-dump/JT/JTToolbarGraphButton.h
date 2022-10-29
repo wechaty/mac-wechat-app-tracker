@@ -11,7 +11,7 @@
 }
 
 - (void)updateToolTip;
-- (id)diabledImageOfType:(unsigned long long)arg1;
+- (id)disabledImageOfType:(unsigned long long)arg1;
 - (id)normalImageOfType:(unsigned long long)arg1;
 - (id)pressedImageOfType:(unsigned long long)arg1;
 - (id)hoverImageOfType:(unsigned long long)arg1;

@@ -18,6 +18,7 @@
 + (BOOL)isGIFFile:(id)arg1;
 + (id)getDecodedImageWithData:(id)arg1;
 + (id)getDecodedImageWithFile:(id)arg1;
++ (struct CGAffineTransform)fixOrientation:(unsigned int)arg1 withImageSize:(struct CGSize)arg2;
 + (id)mm_resizeToIdealSizeWithData:(id)arg1 originSize:(struct CGSize)arg2 size:(struct CGSize)arg3 shouldCrop:(unsigned char)arg4;
 + (id)mm_resizeToIdealSizeWithData:(id)arg1 size:(struct CGSize)arg2 shouldCrop:(unsigned char)arg3;
 + (BOOL)isWideOrLongImage:(struct CGSize)arg1;
@@ -69,6 +70,7 @@
 - (id)genPNGRepresentationOfImage:(id)arg1;
 - (BOOL)saveAnimatedGIFToFile:(id)arg1;
 - (BOOL)isGifAnimationImage;
+- (id)fixOrientation:(unsigned int)arg1 withImageRef:(struct CGImage *)arg2;
 - (BOOL)isWideImage;
 - (BOOL)isLongImage;
 - (struct CGSize)drawInRect:(struct CGRect)arg1 operation:(unsigned long long)arg2 fraction:(float)arg3 method:(int)arg4;

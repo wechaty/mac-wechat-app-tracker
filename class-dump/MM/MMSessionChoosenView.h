@@ -11,13 +11,12 @@
 #import "MMTableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
-#import "NSTextFieldDelegate-Protocol.h"
 #import "SDWebImageManagerDelegate-Protocol.h"
 
-@class DataItemForSessionPicker, FavoritesItem, MMAppReferCoverView, MMHoyKeyTextField, MMOutlineButton, MMTableView, MessageData, MessageWrapForSessionPicker, NSArray, NSBox, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSView, URLDataForSessionPicker;
+@class DataItemForSessionPicker, FavoritesItem, MMAppReferCoverView, MMHoyKeyTextView, MMOutlineButton, MMTableView, MessageData, MessageWrapForSessionPicker, NSArray, NSBox, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSView, URLDataForSessionPicker;
 @protocol MMSessionChoosenViewDelegate;
 
-@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, NSTextFieldDelegate, SDWebImageManagerDelegate, EmoticonDownloadMgrExt, MMSessionListViewDelegate>
+@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, SDWebImageManagerDelegate, EmoticonDownloadMgrExt, MMSessionListViewDelegate>
 {
     BOOL _messageCannotBeOpened;
     id <MMSessionChoosenViewDelegate> _delegate;
@@ -34,9 +33,10 @@
     MMTableView *_stripeTableView;
     MMTableView *_squareTableView;
     MMTableView *_tableView;
-    MMAppReferCoverView *_messageContainerView;
-    MMHoyKeyTextField *_toSendMessageTextView;
     NSBox *_horizonLine;
+    NSBox *_longHorizonLine;
+    MMAppReferCoverView *_messageContainerView;
+    MMHoyKeyTextView *_leaveMessageTextView;
     NSScrollView *_stripeScrollView;
     NSScrollView *_squareScrollView;
     NSScrollView *_scrollView;
@@ -56,9 +56,11 @@
     CDUnknownBlockType _didClickCancelButtonBlock;
     CDUnknownBlockType _didClickBackButtonBlock;
     NSImageView *_verticalDivider;
+    long long _overCount;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long overCount; // @synthesize overCount=_overCount;
 @property(retain, nonatomic) NSImageView *verticalDivider; // @synthesize verticalDivider=_verticalDivider;
 @property(copy, nonatomic) CDUnknownBlockType didClickBackButtonBlock; // @synthesize didClickBackButtonBlock=_didClickBackButtonBlock;
 @property(copy, nonatomic) CDUnknownBlockType didClickCancelButtonBlock; // @synthesize didClickCancelButtonBlock=_didClickCancelButtonBlock;
@@ -79,9 +81,10 @@
 @property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) NSScrollView *squareScrollView; // @synthesize squareScrollView=_squareScrollView;
 @property(retain, nonatomic) NSScrollView *stripeScrollView; // @synthesize stripeScrollView=_stripeScrollView;
-@property(retain, nonatomic) NSBox *horizonLine; // @synthesize horizonLine=_horizonLine;
-@property(retain, nonatomic) MMHoyKeyTextField *toSendMessageTextView; // @synthesize toSendMessageTextView=_toSendMessageTextView;
+@property(retain, nonatomic) MMHoyKeyTextView *leaveMessageTextView; // @synthesize leaveMessageTextView=_leaveMessageTextView;
 @property(retain, nonatomic) MMAppReferCoverView *messageContainerView; // @synthesize messageContainerView=_messageContainerView;
+@property(retain, nonatomic) NSBox *longHorizonLine; // @synthesize longHorizonLine=_longHorizonLine;
+@property(retain, nonatomic) NSBox *horizonLine; // @synthesize horizonLine=_horizonLine;
 @property(retain, nonatomic) MMTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MMTableView *squareTableView; // @synthesize squareTableView=_squareTableView;
 @property(retain, nonatomic) MMTableView *stripeTableView; // @synthesize stripeTableView=_stripeTableView;
@@ -152,9 +155,11 @@
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (void)makeScrollViewConstraint:(double)arg1;
+- (void)makeTextMessageContainerViewConstraint:(double)arg1;
 - (void)makeMessageContainerViewConstraint:(double)arg1;
+- (void)makeLongLineConstraint;
+- (void)makeShortLineConstraint;
 - (void)makeConstraint;
-- (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidLoad;
 - (void)dealloc;

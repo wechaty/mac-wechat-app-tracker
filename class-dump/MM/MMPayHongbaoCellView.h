@@ -15,6 +15,7 @@
 - (void)populateWithMessage:(id)arg1;
 - (BOOL)allowChoose;
 - (BOOL)allowMultipleSelect;
+- (BOOL)allowStickyAndUnStickly;
 
 @end
 

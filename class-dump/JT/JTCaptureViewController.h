@@ -6,16 +6,20 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "IOCRTransMgrExt-Protocol.h"
 #import "JTCaptureViewDelegate-Protocol.h"
+#import "MMOCRScannerExt-Protocol.h"
 
-@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
+@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, MMTimer, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
 @protocol JTCaptureViewControllerDelegate;
 
-@interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate>
+@interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate, IOCRTransMgrExt, MMOCRScannerExt>
 {
     BOOL _isDoingQRCode;
     BOOL _needScreenCapture;
     BOOL _hasQRCodes;
+    BOOL _isDoingTranslate;
+    BOOL _isWaitingTranslate;
     id <JTCaptureViewControllerDelegate> _delegate;
     NSImageView *_backgroundImageView;
     JTCaptureView *_captureView;
@@ -27,9 +31,19 @@
     NSArray *_QRCodeResults;
     NSMutableArray *_QRCodeResultsButtons;
     MMIgnoreEventView *_QRCodeMaskView;
+    NSImageView *_transImgMaskView;
+    NSImage *_imageTranslated;
+    NSString *_transImgKey;
+    MMTimer *_transTimer;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *transTimer; // @synthesize transTimer=_transTimer;
+@property(nonatomic) BOOL isWaitingTranslate; // @synthesize isWaitingTranslate=_isWaitingTranslate;
+@property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;
+@property(retain, nonatomic) NSString *transImgKey; // @synthesize transImgKey=_transImgKey;
+@property(retain, nonatomic) NSImage *imageTranslated; // @synthesize imageTranslated=_imageTranslated;
+@property(retain, nonatomic) NSImageView *transImgMaskView; // @synthesize transImgMaskView=_transImgMaskView;
 @property(retain, nonatomic) MMIgnoreEventView *QRCodeMaskView; // @synthesize QRCodeMaskView=_QRCodeMaskView;
 @property(retain, nonatomic) NSMutableArray *QRCodeResultsButtons; // @synthesize QRCodeResultsButtons=_QRCodeResultsButtons;
 @property(retain, nonatomic) NSArray *QRCodeResults; // @synthesize QRCodeResults=_QRCodeResults;
@@ -44,6 +58,18 @@
 @property(retain, nonatomic) NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 @property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) __weak id <JTCaptureViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
+- (void)onOCRDetectFinish:(id)arg1;
+- (void)stopTranslateTimer;
+- (void)startTranslateTimer;
+- (void)noticeTransTimeOut;
+- (void)showTranslateErrorNotice:(unsigned long long)arg1;
+- (struct CGPoint)toastCenter;
+- (void)onOCRTransButtonClick:(id)arg1;
+- (void)cancelTranslateImage;
+- (BOOL)showTranslatedImage;
+- (id)genTransImageKey;
+- (void)beginTranslateImage;
 - (void)onQRCodeDotButtonClick:(id)arg1;
 - (void)hiddenQRCodeInfos;
 - (void)showQRCodeInfos;

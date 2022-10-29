@@ -9,7 +9,7 @@
 #import "MMFavoriteFileServiceExt-Protocol.h"
 #import "MMFavoritesMgrExt-Protocol.h"
 
-@class MMFavoriteErrorTipView, MMView, NSImageView, NSMutableArray, NSString, NSTextField;
+@class MMFavoriteErrorTipView, MMView, NSImageView, NSMutableArray, NSString, NSTextField, SVGImageView;
 
 @interface MMFavoritesListNoteCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, MMFavoritesMgrExt>
 {
@@ -19,6 +19,7 @@
     MMView *_thumbnailsContainerView;
     NSMutableArray *_subThumbnailImageViewArray;
     NSMutableArray *_downloadingLocalIDArray;
+    SVGImageView *_thumbnailIconView;
     NSTextField *_maskTextField;
     NSImageView *_maskBkImageView;
     unsigned long long _layoutStyle;
@@ -28,7 +29,14 @@
 + (id)getDisplayImgDatas:(id)arg1;
 + (id)getFavTextCellText:(id)arg1;
 + (id)GetRecordDataDesc:(id)arg1;
++ (void)GetTextTitleAndDesc:(id)arg1 toTitle:(id *)arg2 toDesc:(id *)arg3 needBreakLines:(BOOL)arg4;
 + (id)GetNoteTitleAndDesc:(id)arg1;
++ (double)getDescContentHeightWithAtrr:(id)arg1 widthConstrain:(double)arg2;
++ (double)getTextStyleDescContentHeight:(id)arg1 inputDesc:(id)arg2 widthConstrain:(double)arg3;
++ (double)getTitleContentHeightWithAtrr:(id)arg1 widthConstrain:(double)arg2 limitLine:(int)arg3;
++ (double)getTextStyleTitleContentHeight:(id)arg1 inputTitle:(id)arg2 widthConstrain:(double)arg3 limitLine:(int)arg4;
++ (id)getDescAttrStr:(id)arg1 desc:(id)arg2;
++ (id)getTitleAttrStr:(id)arg1 title:(id)arg2;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMFavoriteErrorTipView *errorTip; // @synthesize errorTip=_errorTip;
@@ -36,6 +44,7 @@
 @property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(retain, nonatomic) NSImageView *maskBkImageView; // @synthesize maskBkImageView=_maskBkImageView;
 @property(retain, nonatomic) NSTextField *maskTextField; // @synthesize maskTextField=_maskTextField;
+@property(retain, nonatomic) SVGImageView *thumbnailIconView; // @synthesize thumbnailIconView=_thumbnailIconView;
 @property(retain, nonatomic) NSMutableArray *downloadingLocalIDArray; // @synthesize downloadingLocalIDArray=_downloadingLocalIDArray;
 @property(retain, nonatomic) NSMutableArray *subThumbnailImageViewArray; // @synthesize subThumbnailImageViewArray=_subThumbnailImageViewArray;
 @property(retain, nonatomic) MMView *thumbnailsContainerView; // @synthesize thumbnailsContainerView=_thumbnailsContainerView;
@@ -45,10 +54,15 @@
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
 - (void)layoutWithPlaceHolder;
+- (void)layoutStyleDesc:(id)arg1;
 - (void)layoutItemStyleDesc:(id)arg1;
+- (void)layoutStyleTitle:(id)arg1;
 - (void)layoutItemStyleTitle:(id)arg1;
+- (void)addThumbnailIconView:(id)arg1 iconName:(id)arg2;
 - (void)layoutItemStyleThumbnail:(id)arg1;
 - (BOOL)layoutWithItemStyle;
+- (void)updateThumbnailContainerFrame;
+- (void)layoutWithOneImageStyle:(id)arg1;
 - (void)layoutWithImgStyle;
 - (void)layoutWithTxtStyle:(id)arg1 desc:(id)arg2;
 - (void)layoutFavContentView;

@@ -38,11 +38,14 @@
 - (void)insertSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)hideToast;
 - (void)showToast;
+- (void)setToastCenter:(struct CGPoint)arg1;
 - (void)setupDidClickOnToastViewBlock;
+- (id)makeToastActivityWithText:(id)arg1 position:(struct CGPoint)arg2;
 - (id)makeToastActivityWithText:(id)arg1 image:(id)arg2;
 - (id)makeToastActivityWithText:(id)arg1;
 - (id)makeFailToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)makeSuccessToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)makeToastWithText:(id)arg1 duration:(double)arg2 image:(id)arg3 position:(struct CGPoint)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)makeToastWithText:(id)arg1 duration:(double)arg2 image:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)makeToastWithText:(id)arg1 image:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)makeToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;

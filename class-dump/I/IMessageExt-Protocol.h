@@ -36,6 +36,7 @@
 - (void)onRecvChatSyncMsg:(MessageData *)arg1;
 - (void)onGetNewXmlMsg:(NSString *)arg1 type:(NSString *)arg2 msgData:(MessageData *)arg3;
 - (void)onNewMsgNotification:(NSString *)arg1 msgData:(MessageData *)arg2;
+- (void)onOperateGroupTopMsg:(NSString *)arg1 msgData:(MessageData *)arg2;
 - (void)onAddRevokePromptMsg:(NSString *)arg1 msgData:(MessageData *)arg2;
 - (void)onDelMsg:(NSString *)arg1 msgData:(MessageData *)arg2 isRevoke:(BOOL)arg3;
 - (void)onModMsg:(NSString *)arg1 msgData:(MessageData *)arg2;

@@ -42,6 +42,7 @@
 - (void)updateAvatarWithContact:(id)arg1;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
+- (BOOL)allowStickyAndUnStickly;
 - (void)showProfile:(int)arg1;
 - (id)getSection1MenuItem;
 - (void)mouseUp:(id)arg1;

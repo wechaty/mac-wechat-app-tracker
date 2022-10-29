@@ -33,6 +33,7 @@
     CDUnknownBlockType _didSendMessageSucceededBlock;
     CDUnknownBlockType _didUpdateMessageBlock;
     CDUnknownBlockType _didAddRevokePromptMessageBlock;
+    CDUnknownBlockType _didOperateGroupTopMessageBlock;
     CDUnknownBlockType _didAddNewLocalSystemMessagesBlock;
     CDUnknownBlockType _didUpdateUnreadCountMessagesBlock;
     CDUnknownBlockType _didUnreadCountChangedBlock;
@@ -45,6 +46,7 @@
 @property(copy, nonatomic) CDUnknownBlockType didUnreadCountChangedBlock; // @synthesize didUnreadCountChangedBlock=_didUnreadCountChangedBlock;
 @property(copy, nonatomic) CDUnknownBlockType didUpdateUnreadCountMessagesBlock; // @synthesize didUpdateUnreadCountMessagesBlock=_didUpdateUnreadCountMessagesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didAddNewLocalSystemMessagesBlock; // @synthesize didAddNewLocalSystemMessagesBlock=_didAddNewLocalSystemMessagesBlock;
+@property(copy, nonatomic) CDUnknownBlockType didOperateGroupTopMessageBlock; // @synthesize didOperateGroupTopMessageBlock=_didOperateGroupTopMessageBlock;
 @property(copy, nonatomic) CDUnknownBlockType didAddRevokePromptMessageBlock; // @synthesize didAddRevokePromptMessageBlock=_didAddRevokePromptMessageBlock;
 @property(copy, nonatomic) CDUnknownBlockType didUpdateMessageBlock; // @synthesize didUpdateMessageBlock=_didUpdateMessageBlock;
 @property(copy, nonatomic) CDUnknownBlockType didSendMessageSucceededBlock; // @synthesize didSendMessageSucceededBlock=_didSendMessageSucceededBlock;
@@ -71,7 +73,10 @@
 - (void)onModMsg:(id)arg1 msgData:(id)arg2;
 - (void)onDelAllMsg:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
+- (void)onOperateGroupTopMsg:(id)arg1 msgData:(id)arg2;
 - (void)onAddRevokePromptMsg:(id)arg1 msgData:(id)arg2;
+- (id)getIndexSet:(id)arg1;
+- (id)parseMsgData:(id)arg1;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)shouldInsertTimeStampWithNewMessage:(id)arg1 lastTimeStamp:(unsigned int)arg2;
 - (id)messageTableItemWithType:(int)arg1 msgCreateTime:(unsigned int)arg2;

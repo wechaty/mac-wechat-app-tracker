@@ -9,6 +9,7 @@
 @class MMFavoriteSidebarItem, MMFavoritesCollectionData, NSArray, NSString;
 
 @protocol MMFavoriteDetailViewContollerDelegate <NSObject>
+- (void)detailViewOnClickTagButton:(NSString *)arg1;
 - (void)updateCurrentCollectionData:(MMFavoritesCollectionData *)arg1;
 - (MMFavoriteSidebarItem *)currentSelectedItem;
 - (NSString *)currentSearchingTag;

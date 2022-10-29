@@ -17,6 +17,7 @@
     NSMutableDictionary *_dicShareUrlForMainUrl;
     unsigned int _getA8KeyScene;
     int _reason;
+    unsigned int _requestId;
     id <WebViewGetA8KeyLogicDelegate> _delegate;
     NSString *_bundleID;
     NSString *_getA8KeyUserName;

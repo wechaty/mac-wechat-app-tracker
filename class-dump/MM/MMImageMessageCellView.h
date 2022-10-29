@@ -43,7 +43,6 @@
 @property(nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
 - (void)processAutoDownload;
 - (BOOL)isAutoDownload;
-- (void)onViewInSight:(BOOL)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)contextMenuShowImageBubble;

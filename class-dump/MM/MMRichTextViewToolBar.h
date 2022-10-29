@@ -36,9 +36,11 @@
     NSView *_syncBtnContainer;
     SVGButton *_btnSyncNote;
     MMTimer *_animationTimer;
+    SVGButton *_btnhightlight;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) SVGButton *btnhightlight; // @synthesize btnhightlight=_btnhightlight;
 @property(nonatomic) unsigned int loopIndex; // @synthesize loopIndex=_loopIndex;
 @property(retain, nonatomic) MMTimer *animationTimer; // @synthesize animationTimer=_animationTimer;
 @property(nonatomic) int syncStatus; // @synthesize syncStatus=_syncStatus;
@@ -72,6 +74,7 @@
 - (void)onUserSelectOrderBulletPoint:(id)arg1;
 - (void)onUserSelectTodoBulletPoint:(id)arg1;
 - (void)onUserSelectFontSize:(id)arg1;
+- (void)onUserSelectHighlight:(id)arg1;
 - (void)onUserSelectUnderLine:(id)arg1;
 - (void)onUserSelectItalic:(id)arg1;
 - (void)onUserSelectBold:(id)arg1;
@@ -80,6 +83,7 @@
 - (void)updateSyncBtnWithSyncStatus:(int)arg1;
 - (void)updateForwardBtnEnable:(BOOL)arg1;
 - (void)redraw;
+- (void)clearTextFormatStatus:(int)arg1;
 - (void)updateStateWithBulletType:(id)arg1;
 - (void)updateStateWithAttributes:(id)arg1;
 - (void)populateToolBar;

@@ -21,16 +21,18 @@
 #import "MMTableViewDelegate-Protocol.h"
 #import "MMViewerWindowDelegate-Protocol.h"
 #import "MultiTalkMgrExt-Protocol.h"
+#import "NSCollectionViewDataSource-Protocol.h"
+#import "NSCollectionViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 #import "SendPatExt-Protocol.h"
 #import "VoipMessageCellViewDelegate-Protocol.h"
 
-@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
+@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
-@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt>
+@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource>
 {
     BOOL _isSettingChatContact;
     BOOL _isScrollToUnReadCount;
@@ -45,6 +47,7 @@
     unsigned int _lastCurUserActiveTime;
     CDUnknownBlockType _viewDidLoadBlock;
     CDUnknownBlockType _showBrandListViewBlock;
+    CDUnknownBlockType _updateChatDetailContentViewHeightBlock;
     WCContactData *_chatContact;
     id <MMComposeInputViewDelegate> _composeInputViewDelegate;
     id <MMChatMemberListViewDelegate> _chatMemberListViewDelegate;
@@ -71,6 +74,10 @@
     MMVoIPInviteView *_voipInviteView;
     MMChatMessageBannerView *_networkBannerView;
     LVLiveBannerView *_liveBannerView;
+    MMGroupNoticeBannerView *_groupNoticeBannerView;
+    MMGroupTopMsgBannerView *_topMsgBannerView;
+    NSMutableArray *_tipBarArray;
+    NSMutableArray *_tipBarCanShowArray;
     double _scrollDeltaVal;
     MMChatRoomReportController *_chatRoomReportController;
     long long _autoWheelParameter;
@@ -93,6 +100,10 @@
 @property(nonatomic) BOOL isAutoWheeling; // @synthesize isAutoWheeling=_isAutoWheeling;
 @property(retain, nonatomic) MMChatRoomReportController *chatRoomReportController; // @synthesize chatRoomReportController=_chatRoomReportController;
 @property(nonatomic) double scrollDeltaVal; // @synthesize scrollDeltaVal=_scrollDeltaVal;
+@property(retain, nonatomic) NSMutableArray *tipBarCanShowArray; // @synthesize tipBarCanShowArray=_tipBarCanShowArray;
+@property(retain, nonatomic) NSMutableArray *tipBarArray; // @synthesize tipBarArray=_tipBarArray;
+@property(retain, nonatomic) MMGroupTopMsgBannerView *topMsgBannerView; // @synthesize topMsgBannerView=_topMsgBannerView;
+@property(retain, nonatomic) MMGroupNoticeBannerView *groupNoticeBannerView; // @synthesize groupNoticeBannerView=_groupNoticeBannerView;
 @property(retain, nonatomic) LVLiveBannerView *liveBannerView; // @synthesize liveBannerView=_liveBannerView;
 @property(retain, nonatomic) MMChatMessageBannerView *networkBannerView; // @synthesize networkBannerView=_networkBannerView;
 @property(retain, nonatomic) MMVoIPInviteView *voipInviteView; // @synthesize voipInviteView=_voipInviteView;
@@ -131,8 +142,19 @@
 @property(nonatomic) __weak id <MMComposeInputViewDelegate> composeInputViewDelegate; // @synthesize composeInputViewDelegate=_composeInputViewDelegate;
 @property(nonatomic) BOOL hasSelectedChat; // @synthesize hasSelectedChat=_hasSelectedChat;
 @property(retain, nonatomic) WCContactData *chatContact; // @synthesize chatContact=_chatContact;
+@property(copy, nonatomic) CDUnknownBlockType updateChatDetailContentViewHeightBlock; // @synthesize updateChatDetailContentViewHeightBlock=_updateChatDetailContentViewHeightBlock;
 @property(copy, nonatomic) CDUnknownBlockType showBrandListViewBlock; // @synthesize showBrandListViewBlock=_showBrandListViewBlock;
 @property(copy, nonatomic) CDUnknownBlockType viewDidLoadBlock; // @synthesize viewDidLoadBlock=_viewDidLoadBlock;
+- (void)updateTipsBarCanShowArr;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (void)collectionView:(id)arg1 didSelectItemsAtIndexPaths:(id)arg2;
+- (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (void)someActionWhenCloseOldSession;
+- (void)updateTipsBarWhenModifyContacts;
+- (void)realAdjustTipsBarHigh;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)onChatLogImportFinish;
 - (void)reportVisibleFeedCell;
 - (void)OnCdnNetworkWarning:(unsigned int)arg1;
@@ -223,18 +245,22 @@
 - (BOOL)isMultiSelectionMode;
 - (void)updateUnreadStateOfPatMessage;
 - (void)updateMessageDataSource:(id)arg1;
+- (void)updateTipsBar;
 - (void)markAllMessagesAsRead:(id)arg1;
 - (void)adjustVisableHeightForResize;
 - (void)layoutForResize;
-- (id)getLiveBannerView;
 - (void)checkLiveBannerView;
 - (void)hideLiveBannerView;
 - (void)showLiveBannerView;
+- (void)updateLiveBannerView;
 - (void)setupLiveBannerView;
 - (void)setupUnreadTipsButton;
 - (void)layoutMultiTalkContentIfNeeded;
+- (BOOL)shouldShowTipsBar;
 - (BOOL)shouldShowHintLabel;
 - (void)setupHintLabel;
+- (void)setupGroupNoticeBannerView;
+- (void)setupTopMsgBannerView;
 - (void)setupMultiTalkView;
 - (void)setVoipInviteViewHidden:(BOOL)arg1;
 - (void)setupChatInfoView;
@@ -261,6 +287,7 @@
 - (void)focusOnChatNameLabel;
 - (void)updateChatInfoSubviewEvent:(BOOL)arg1;
 - (void)onNewWindowFrame:(id)arg1;
+- (void)tipsBarHandleAppFontSize;
 - (void)fontSizeClassChanged:(id)arg1;
 - (void)forwardToWeWorkDidConfirmed:(id)arg1;
 - (void)sessionPickWindowDidConfirmed:(id)arg1;
@@ -269,6 +296,7 @@
 - (void)autoTranslateVoiceToText:(id)arg1;
 - (void)playerDidFinishPlay:(id)arg1;
 - (void)autoDownloadResource:(id)arg1;
+- (void)addTipsKVO;
 - (void)addObservers;
 - (int)getUserActiveInterval;
 - (void)receiveOnUserActive:(id)arg1;
@@ -283,9 +311,11 @@
 - (void)viewWillDisappear;
 - (void)viewDidAppear;
 - (void)userMouseEvent;
+- (void)setupTipsBar;
 - (void)viewDidLoad;
 - (void)unregisterExtensions;
 - (void)registerExtensions;
+- (void)removeTipsKVO;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

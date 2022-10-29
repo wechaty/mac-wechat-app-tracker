@@ -11,18 +11,20 @@
 @interface WCDBRegisterInfo : NSObject
 {
     unsigned int _dbTag;
-    int _cpScene;
-    int _cpMode;
+    int _sleepMode;
+    int _bgMode;
     WCTDatabase *_sqlitedb;
     NSString *_dbIdentifier;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) int cpMode; // @synthesize cpMode=_cpMode;
-@property(nonatomic) int cpScene; // @synthesize cpScene=_cpScene;
+@property(nonatomic) int bgMode; // @synthesize bgMode=_bgMode;
+@property(nonatomic) int sleepMode; // @synthesize sleepMode=_sleepMode;
 @property(nonatomic) unsigned int dbTag; // @synthesize dbTag=_dbTag;
 @property(retain, nonatomic) NSString *dbIdentifier; // @synthesize dbIdentifier=_dbIdentifier;
 @property(retain, nonatomic) WCTDatabase *sqlitedb; // @synthesize sqlitedb=_sqlitedb;
+- (id)description;
+- (id)init;
 
 @end
 

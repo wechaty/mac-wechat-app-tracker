@@ -8,7 +8,7 @@
 
 #import "NSTextViewDelegate-Protocol.h"
 
-@class MMMediumDivider, MMTextField, NSImageView, NSString, SVGButton, WCContactData;
+@class MMMediumDivider, MMTextField, NSCollectionView, NSImageView, NSString, NSView, RFOverlayScrollView, SVGButton, WCContactData;
 
 @interface MMChatInfoView : MMDragEventView <NSTextViewDelegate>
 {
@@ -16,6 +16,9 @@
     SVGButton *_chatDetailButton;
     MMTextField *_chatNameLabel;
     MMTextField *_chatSmallNameLabel;
+    RFOverlayScrollView *_tipsBarScrollView;
+    NSCollectionView *_tipsBarCollectionView;
+    NSView *_baseView;
     MMMediumDivider *_divider;
     SVGButton *_oaBackwardButton;
     MMTextField *_oaChatNameLabel;
@@ -33,6 +36,9 @@
 @property(retain, nonatomic) MMTextField *oaChatNameLabel; // @synthesize oaChatNameLabel=_oaChatNameLabel;
 @property(retain, nonatomic) SVGButton *oaBackwardButton; // @synthesize oaBackwardButton=_oaBackwardButton;
 @property(retain, nonatomic) MMMediumDivider *divider; // @synthesize divider=_divider;
+@property(retain, nonatomic) NSView *baseView; // @synthesize baseView=_baseView;
+@property(retain, nonatomic) NSCollectionView *tipsBarCollectionView; // @synthesize tipsBarCollectionView=_tipsBarCollectionView;
+@property(retain, nonatomic) RFOverlayScrollView *tipsBarScrollView; // @synthesize tipsBarScrollView=_tipsBarScrollView;
 @property(retain, nonatomic) MMTextField *chatSmallNameLabel; // @synthesize chatSmallNameLabel=_chatSmallNameLabel;
 @property(retain, nonatomic) MMTextField *chatNameLabel; // @synthesize chatNameLabel=_chatNameLabel;
 @property(nonatomic) __weak SVGButton *chatDetailButton; // @synthesize chatDetailButton=_chatDetailButton;
@@ -50,6 +56,7 @@
 - (BOOL)shouldHideChatDetailPanel;
 - (void)focusOnChatNameLabel;
 - (void)setupWithContact:(id)arg1;
+- (void)adjustTipBarHeight:(double)arg1;
 - (void)onNewWindowFrame:(id)arg1;
 - (void)handleAppFontSize;
 - (void)viewDidChangeEffectiveAppearance;

@@ -6,12 +6,13 @@
 
 #import "MMService.h"
 
+#import "MMConfSDKVideoHWencDelegate-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class ConfAVMemberList, IConfSDKRegisterableCallbackHolder, MMConfSDKAudioMgr, MMConfSDKCGIImp, MMConfSDKNativeCallbackMgr, MMTimer, MultiTalkGroup, NSMutableArray, NSMutableDictionary, NSObject, NSString;
+@class ConfAVMemberList, IConfSDKRegisterableCallbackHolder, MMConfSDKAudioMgr, MMConfSDKCGIImp, MMConfSDKNativeCallbackMgr, MMConfSDKVideoHWenc, MMTimer, MultiTalkGroup, NSMutableArray, NSMutableDictionary, NSObject, NSString;
 @protocol MultitalkApiDelegate, OS_dispatch_queue;
 
-@interface MMConfSDKService : MMService <MMService>
+@interface MMConfSDKService : MMService <MMConfSDKVideoHWencDelegate, MMService>
 {
     NSObject<OS_dispatch_queue> *_workerQueue;
     MMConfSDKNativeCallbackMgr *_nativeCallbackMgr;
@@ -68,13 +69,27 @@
     int _roomType;
     int _videoRatio;
     int _videoLength;
-    BOOL mIsHWEncEnable;
     BOOL mIsHWEnc;
-    int _hwEncW;
-    int _hwEncH;
     int _capW;
     int _capH;
     int mLastSimCardType;
+    int _encVideoWidth[2];
+    int _encVideoHeight[2];
+    int _encScreenWidth[2];
+    int _encScreenHeight[2];
+    int _hwEncStatus;
+    int _encStatusList[2];
+    BOOL _isSWEncUsing;
+    int _capStatus;
+    MMConfSDKVideoHWenc *_hwEncoderList[2];
+    struct {
+        unsigned char encStatus;
+        unsigned char capStatus;
+        unsigned char encType[2];
+    } _encModeStatus;
+    int _screenEncStatusList[2];
+    BOOL _isSWScreenEncUsing;
+    MMConfSDKVideoHWenc *_hwScreenEncoderList[2];
     NSString *m_iOSPath;
     struct __sFILE *m_pfEncSteam;
     long long _hwFrameCnt;
@@ -89,6 +104,14 @@
     NSMutableArray *_cachedVideoMemberIds;
     NSMutableArray *_cachedInviteNotify;
     NSMutableDictionary *_bannerCreateUserNameInfo;
+    struct __CVBuffer *_screenPixelBuffer;
+    int _lastScreenPlaneWidth;
+    int _lastScreenPlaneHeight;
+    int _capScreenW;
+    int _capScreenH;
+    struct __CVBuffer *_videoPixelBuffer;
+    int _lastVideoPlaneWidth;
+    int _lastVideoPlaneHeight;
 }
 
 - (void).cxx_destruct;
@@ -96,7 +119,7 @@
 - (void)onTimerExpired;
 - (void)uninitEngine;
 - (void)svrReport;
-- (void)handleBannerMsg:(id)arg1 datelen:(int)arg2;
+- (void)handleBannerMsg:(id)arg1 datelen:(int)arg2 createtime:(int)arg3;
 - (void)recvNotify:(id)arg1 datalen:(int)arg2 groupId:(id)arg3 sdkGroupId:(id)arg4 displayUserList:(id)arg5;
 - (void)joinimp:(id)arg1 wxGroupId:(id)arg2;
 - (void)joinSync:(id)arg1 wxGroupId:(id)arg2;
@@ -107,6 +130,7 @@
 - (void)accept;
 - (void)addMembers:(id)arg1;
 - (void)hangup:(int)arg1;
+- (void)checkScreenSharingStatus;
 - (void)sendBannerMsg:(unsigned int)arg1;
 - (int)engineDoMemberSelectForView:(id)arg1;
 - (id)getMemberByMemberid:(int)arg1;
@@ -115,9 +139,8 @@
 - (id)getMemberQualityInfoList;
 - (id)getTalkingMember;
 - (void)forceExitRoom:(int)arg1;
-- (void)gotXps:(id)arg1;
-- (void)gotEncodedData:(id)arg1 isKeyFrame:(BOOL)arg2;
-- (void)gotSpsPps:(id)arg1 pps:(id)arg2;
+- (int)gotXpsData:(id)arg1 codecType:(int)arg2 encIdx:(int)arg3 isScreen:(BOOL)arg4;
+- (int)gotEncodedData:(id)arg1 isKeyFrame:(BOOL)arg2 codecType:(int)arg3 encIdx:(int)arg4 isScreen:(BOOL)arg5;
 - (void)onCameraStop;
 - (void)onCameraStart;
 - (void)stopVideo;
@@ -127,10 +150,13 @@
 - (void)switchVideoWithCameraEnabled:(BOOL)arg1 screenStatus:(int)arg2;
 - (void)onVideoFrame:(int)arg1 data:(const char *)arg2 dataLen:(int)arg3 width:(int)arg4 height:(int)arg5 format:(int)arg6;
 - (int)sendScreenData:(void *)arg1;
-- (int)sendScreenData:(char *)arg1 dataLen:(int)arg2 imgBuf:(struct __CVBuffer *)arg3 width:(int)arg4 height:(int)arg5 format:(int)arg6;
 - (int)sendVideoData:(void *)arg1;
-- (int)sendVideoData:(char *)arg1 dataLen:(int)arg2 imgBuf:(struct __CVBuffer *)arg3 width:(int)arg4 height:(int)arg5;
-- (int)doHWQosCtrl;
+- (void)doQosCtrl:(BOOL)arg1;
+- (void)CloseCodec:(int)arg1 codecFlag:(int)arg2;
+- (int)GetScreenHWEncHeight:(int)arg1;
+- (int)GetScreenHWEncWidth:(int)arg1;
+- (int)GetEncHeight:(int)arg1 rmtDispW:(int)arg2 rmtDispH:(int)arg3 mode:(int)arg4;
+- (int)GetEncWidth:(int)arg1 rmtDispW:(int)arg2 rmtDispH:(int)arg3 mode:(int)arg4;
 - (void)subscribeByUsername:(id)arg1 NeedBigVideo:(BOOL)arg2;
 - (void)subscribeByUsernameList:(id)arg1 LargeUsers:(id)arg2;
 - (void)subscribeAll;

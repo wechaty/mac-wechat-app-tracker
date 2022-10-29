@@ -15,15 +15,19 @@
     unsigned int hasKeyBuf:1;
     unsigned int hasScene:1;
     unsigned int hasDeviceType:1;
+    unsigned int hasPrevDownloadFlag:1;
     unsigned int selector;
     unsigned int scene;
     CmdList *oplog;
     SKBuiltinBuffer_t *keyBuf;
     NSString *deviceType;
+    unsigned long long prevDownloadFlag;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetPrevDownloadFlag:) unsigned long long prevDownloadFlag; // @synthesize prevDownloadFlag;
+@property(readonly, nonatomic) BOOL hasPrevDownloadFlag; // @synthesize hasPrevDownloadFlag;
 @property(retain, nonatomic, setter=SetDeviceType:) NSString *deviceType; // @synthesize deviceType;
 @property(readonly, nonatomic) BOOL hasDeviceType; // @synthesize hasDeviceType;
 @property(nonatomic, setter=SetScene:) unsigned int scene; // @synthesize scene;

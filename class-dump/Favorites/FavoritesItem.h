@@ -55,6 +55,7 @@
     FavTVItem *_tvItem;
     NSString *_remark;
     NSArray *_tagList;
+    NSArray *_tagSvrIdList;
     NSArray *_recommendTagList;
     NSDate *_startUploadTime;
     double _cellHeight;
@@ -68,7 +69,8 @@
 + (id)FavoritesDataFieldToXML:(id)arg1 item:(id)arg2 deep:(int)arg3;
 + (id)FavritesItemToXML:(id)arg1 autoIncreaseVersion:(BOOL)arg2 rootTag:(id)arg3;
 + (id)FavritesItemToXML:(id)arg1 autoIncreaseVersion:(BOOL)arg2;
-+ (id)parseTagXml:(struct XmlReaderNode_t *)arg1;
++ (id)parseTagIdXml:(struct XmlReaderNode_t *)arg1;
++ (id)parseChildListXml:(struct XmlReaderNode_t *)arg1 childName:(const char *)arg2;
 + (id)parseDataNodeFromXml:(struct XmlReaderNode_t *)arg1 deep:(int)arg2;
 + (BOOL)ParseItemNote:(struct XmlReaderNode_t *)arg1 ToItem:(id)arg2;
 + (BOOL)ParseItemXML:(id)arg1 ToItem:(id)arg2;
@@ -131,6 +133,7 @@
 @property(nonatomic) unsigned int localId; // @synthesize localId=_localId;
 @property(nonatomic) int localStatus; // @synthesize localStatus=_localStatus;
 @property(retain, nonatomic) NSArray *recommendTagList; // @synthesize recommendTagList=_recommendTagList;
+@property(retain, nonatomic) NSArray *tagSvrIdList; // @synthesize tagSvrIdList=_tagSvrIdList;
 @property(retain, nonatomic) NSArray *tagList; // @synthesize tagList=_tagList;
 @property(nonatomic) unsigned int remarkTime; // @synthesize remarkTime=_remarkTime;
 @property(retain, nonatomic) NSString *remark; // @synthesize remark=_remark;

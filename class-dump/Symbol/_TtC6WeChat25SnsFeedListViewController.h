@@ -49,6 +49,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)handleAppFontSize;
+- (void)viewChangedEffectiveAppearance;
 - (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;

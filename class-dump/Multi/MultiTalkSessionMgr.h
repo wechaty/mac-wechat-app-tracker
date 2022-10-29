@@ -29,7 +29,7 @@
 - (id)getSubMessageContentWithSessionState:(unsigned int)arg1 inviteUserNickName:(id)arg2;
 - (id)getHeaderMessageContentWithSessionState:(unsigned int)arg1 inviteUserNickName:(id)arg2;
 - (id)genMsgJsonContentWithDisplayContentHeader:(id)arg1 subContent:(id)arg2 sessionItem:(id)arg3 msgLocalID:(unsigned int)arg4;
-- (BOOL)addNewMultiTalkChatroomMessageWithGroupData:(id)arg1 sessionItem:(id)arg2 msgLocalID:(unsigned int)arg3 isSelfCaller:(BOOL)arg4 sessionState:(unsigned int)arg5 inviteUsername:(id)arg6;
+- (BOOL)addNewMultiTalkChatroomMessageWithGroupData:(id)arg1 sessionItem:(id)arg2 msgLocalID:(unsigned int)arg3 isSelfCaller:(BOOL)arg4 sessionState:(unsigned int)arg5 inviteUsername:(id)arg6 createTime:(unsigned int)arg7;
 - (BOOL)isGroupDataValid:(id)arg1;
 - (void)ChangeSessionUnReadCount:(id)arg1 to:(unsigned int)arg2;
 - (unsigned int)getSessionLastMessageIDWithGroupData:(id)arg1;
@@ -56,8 +56,8 @@
 - (id)getMultiTalkBannerInfoByWxGroupId:(id)arg1;
 - (BOOL)deleteMultiTalkBannerItem:(id)arg1;
 - (BOOL)createNewMultiTalkBannerWithGroupData:(id)arg1;
-- (BOOL)createNewMultiTalkMessageWithGroupData:(id)arg1 messageID:(unsigned int)arg2 isSelfCaller:(BOOL)arg3 sessionState:(unsigned int)arg4 inviteUsername:(id)arg5;
-- (BOOL)createNewMultiTalkMessageWithGroupData:(id)arg1 messageID:(unsigned int)arg2 isSelfCaller:(BOOL)arg3 sessionState:(unsigned int)arg4;
+- (BOOL)createNewMultiTalkMessageWithGroupData:(id)arg1 messageID:(unsigned int)arg2 isSelfCaller:(BOOL)arg3 sessionState:(unsigned int)arg4 inviteUsername:(id)arg5 createTime:(unsigned int)arg6;
+- (BOOL)createNewMultiTalkMessageWithGroupData:(id)arg1 messageID:(unsigned int)arg2 isSelfCaller:(BOOL)arg3 sessionState:(unsigned int)arg4 createTime:(unsigned int)arg5;
 - (unsigned int)createNewMultiTalkMessageDataWithGroupData:(id)arg1;
 - (id)internalCreateTable:(id)arg1 tableClass:(Class)arg2;
 - (void)createTables;

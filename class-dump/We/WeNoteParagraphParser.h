@@ -21,7 +21,7 @@
 + (void)parseXmlNode:(struct XmlReaderNode_t *)arg1 toArray:(id)arg2;
 + (id)removeLastNewLineCharacter:(id)arg1;
 + (id)removeFirstNewLineCharacter:(id)arg1;
-+ (id)convertParagraphsFromAttributedString:(id)arg1;
++ (id)convertParagraphsFromAttributedString:(id)arg1 inLayout:(int)arg2 forceAttachmentNewLine:(BOOL)arg3;
 + (id)convertAttributedStringFromHtml:(id)arg1;
 + (id)convertHtmlFromAttributedString:(id)arg1;
 + (BOOL)parse:(id)arg1 toArray:(id)arg2;
@@ -36,6 +36,7 @@
 + (id)convertAttributedStringFromHTMLTextData:(id)arg1 refTextView:(id)arg2;
 + (id)convertAttributedStringFromTextData:(id)arg1 refTextView:(id)arg2;
 + (id)convertPasteboardItemsFromAttributedString:(id)arg1;
++ (id)attachmentObjectsWithParagraphs:(id)arg1;
 + (id)getVoiceFmtOfString:(unsigned int)arg1;
 + (unsigned int)getVoiceFmt:(id)arg1;
 + (void)tagParagraphs:(id)arg1 parentMsg:(id)arg2 parentFavItem:(id)arg3;

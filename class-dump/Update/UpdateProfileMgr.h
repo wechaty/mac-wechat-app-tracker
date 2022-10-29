@@ -17,7 +17,7 @@
 }
 
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)GetProfile;
 - (BOOL)UpdateLocalUserInfo:(id)arg1;
 - (void)dealloc;

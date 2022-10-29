@@ -10,6 +10,6 @@
 
 @protocol FavoritesBatchGetMgrDelegate <NSObject>
 - (void)onRegardUpdateTimeAsAddAddItem:(id)arg1;
-- (void)onBatchGetItemList:(NSArray *)arg1 ErrCode:(int)arg2;
+- (void)onBatchGetItemList:(NSArray *)arg1 updateTagFavItems:(NSArray *)arg2 ErrCode:(int)arg3;
 @end
 

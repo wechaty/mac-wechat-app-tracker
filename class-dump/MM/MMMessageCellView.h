@@ -209,6 +209,8 @@
 - (void)doAnimationAndAddFavItem:(id)arg1;
 - (BOOL)addSearchItem:(id)arg1;
 - (void)addReferItem:(id)arg1;
+- (void)addUnStickyItem:(id)arg1;
+- (void)addStickyItem:(id)arg1;
 - (void)addSaveToFavoritesItem:(id)arg1;
 - (void)addMultiSelectItem:(id)arg1;
 - (void)addForwardItem:(id)arg1;
@@ -225,6 +227,10 @@
 - (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuSolitaire;
 - (void)contextMenuMuteToPlay;
+- (void)onStickyFinish:(BOOL)arg1 newOpValue:(unsigned int)arg2 error:(id)arg3;
+- (void)contextMenuRealStick:(unsigned int)arg1;
+- (void)contextMenuUnStick;
+- (void)contextMenuStick;
 - (void)contextMenuRealFavorites;
 - (void)contextMenuFavorites;
 - (void)contextMenuRealForward;
@@ -252,6 +258,7 @@
 - (void)contextMenuRecall;
 - (void)contextMenuResendMessage;
 - (void)contextMenuClearAllMessage;
+- (id)getStickyAndUnStickyMenuItem;
 - (id)getSection3MenuItem;
 - (id)getSection2MenuItem;
 - (id)getSection1MenuItem;
@@ -266,6 +273,7 @@
 - (id)contextMenuMenuSection2;
 - (id)contextMenuMenuSection1;
 - (id)contextMenuMenuSection0;
+- (BOOL)allowStickyAndUnStickly;
 - (BOOL)allowSearch;
 - (BOOL)allowRefer;
 - (BOOL)allowMultipleSelect;

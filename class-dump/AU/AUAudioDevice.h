@@ -43,7 +43,6 @@
     NSObject<OS_dispatch_queue> *m_audioSessionQueue;
     BOOL m_isForPstn;
     _Bool bEnableRmIO;
-    BOOL _m_isChangeAU;
     BOOL _hasAudioError;
     int audioDevErrCode;
     int audioRecordingCallbackNum;
@@ -59,7 +58,6 @@
 @property(retain, nonatomic) NSString *currentSessionId; // @synthesize currentSessionId=_currentSessionId;
 @property(nonatomic) BOOL hasAudioError; // @synthesize hasAudioError=_hasAudioError;
 @property(nonatomic) int voipModeSessionCount; // @synthesize voipModeSessionCount=_voipModeSessionCount;
-@property(nonatomic) BOOL m_isChangeAU; // @synthesize m_isChangeAU=_m_isChangeAU;
 @property(nonatomic) _Bool bEnableRmIO; // @synthesize bEnableRmIO;
 @property(nonatomic) int audioPlayingCallbackNum; // @synthesize audioPlayingCallbackNum;
 @property(nonatomic) int audioRecordingCallbackNum; // @synthesize audioRecordingCallbackNum;
@@ -77,7 +75,6 @@
 - (void)onWCAudioSessionCategoryChange:(unsigned long long)arg1;
 - (void)onWCAudioSessionOldDeviceUnavailable;
 - (void)onWCAudioSessionNewDeviceAvailable;
-- (void)changeOutputAudioUint;
 - (BOOL)isF2FMode;
 - (int)getWorkMode;
 - (BOOL)isVoIPPlaying;

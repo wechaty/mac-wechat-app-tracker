@@ -18,11 +18,7 @@
     int mEncErrCount;
     struct OpaqueVTCompressionSession *mEncodingSession;
     struct opaqueCMFormatDescription *mFormat;
-    struct {
-        CDStruct_1b6d18a9 _field1;
-        CDStruct_1b6d18a9 _field2;
-        CDStruct_1b6d18a9 _field3;
-    } *mTimingInfo;
+    CDStruct_d2aef016 *mTimingInfo;
     int mFPS;
     int mBR;
     int mWidth;

@@ -10,6 +10,8 @@
 {
 }
 
++ (id)GetPredownloadQuota;
++ (void)SetPredownloadQuota:(id)arg1;
 + (int)startDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3 andDownloadMode:(int)arg4;
 + (int)StartDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
 + (BOOL)StopDownloadAppAttach:(id)arg1 CdnDownloadTaskInfo:(id)arg2;

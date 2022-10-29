@@ -35,8 +35,7 @@
     BOOL _hasClearData;
 }
 
-+ (void)ClearBeforeInit;
-+ (void)ClearForInitAgain;
++ (void)ClearForInitWithRetry:(BOOL)arg1;
 - (void).cxx_destruct;
 @property BOOL hasClearData; // @synthesize hasClearData=_hasClearData;
 @property(nonatomic) BOOL useInitContact; // @synthesize useInitContact=_useInitContact;
@@ -71,7 +70,7 @@
 - (void)StartSyncOnAuthOK;
 - (void)StartInitNoSyncBuffer;
 - (void)StartInit;
-- (void)CancelInit;
+- (void)StopInit;
 - (BOOL)IsDoingInit;
 - (BOOL)IsNeedInit;
 - (BOOL)IsInInitProcess;

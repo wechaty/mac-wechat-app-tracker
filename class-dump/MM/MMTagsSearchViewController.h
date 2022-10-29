@@ -9,13 +9,14 @@
 #import "NSTabViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 
-@class NSArray, NSString, NSTableView, RFOverlayScrollView;
+@class NSArray, NSMutableArray, NSString, NSTableView, RFOverlayScrollView;
 @protocol MMTagsSearchViewControllerDelegate;
 
 @interface MMTagsSearchViewController : MMTraitsViewController <NSTabViewDelegate, NSTableViewDataSource>
 {
     NSString *_keyWord;
     id <MMTagsSearchViewControllerDelegate> _delegate;
+    NSMutableArray *_matchTags;
     NSTableView *_tableView;
     RFOverlayScrollView *_scrollView;
     NSArray *_seachResult;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSArray *seachResult; // @synthesize seachResult=_seachResult;
 @property(nonatomic) __weak RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) NSMutableArray *matchTags; // @synthesize matchTags=_matchTags;
 @property(nonatomic) __weak id <MMTagsSearchViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *keyWord; // @synthesize keyWord=_keyWord;
 - (void)callDelegate;

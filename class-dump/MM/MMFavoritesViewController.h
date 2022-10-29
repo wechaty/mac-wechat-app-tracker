@@ -15,23 +15,27 @@
 #import "NSTextFieldDelegate-Protocol.h"
 #import "WeChatSearchProtocol-Protocol.h"
 
-@class MMCustomSearchField, MMFavSidebarHeaderRowView, MMFavoriteDetailViewContoller, MMFavoriteSidebarItem, MMFavoritesCollectionData, MMFavoritesPlaceholderViewController, MMSidebarOutlineView, NSIndexPath, NSIndexSet, NSString, NSTextField;
+@class MMCustomSearchField, MMFavSidebarHeaderRowView, MMFavoriteDetailViewContoller, MMFavoriteSidebarItem, MMFavoritesCollectionData, MMFavoritesPlaceholderViewController, MMSidebarOutlineView, MMTimer, NSIndexPath, NSIndexSet, NSString, NSTextField;
 @protocol MMFavoritesViewControllerDetailProtocol;
 
 @interface MMFavoritesViewController : MMViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, MMFavoritesMgrExt, MMFavoriteDetailViewContollerDelegate, MMSidebarOutlineViewDelegate, NSTextFieldDelegate, MMCustomSearchFieldDelegate, WeChatSearchProtocol>
 {
+    BOOL _isForceReload;
     MMSidebarOutlineView *_outlineView;
     MMFavoritesCollectionData *_currentDataCollection;
     MMFavoriteSidebarItem *_lastSelectedItem;
     NSIndexSet *_lastProposedSelectionIndexes;
     MMFavoriteSidebarItem *_rootSidebarItem;
     MMFavoriteSidebarItem *_allItemsItem;
+    MMFavoriteSidebarItem *_recentUsedItem;
     MMFavoriteSidebarItem *_urlItemsItem;
     MMFavoriteSidebarItem *_photoItemsItem;
     MMFavoriteSidebarItem *_fileItemsItem;
     MMFavoriteSidebarItem *_musicItemsItem;
     MMFavoriteSidebarItem *_noteItemsItem;
     MMFavoriteSidebarItem *_chatlogItemsItem;
+    MMFavoriteSidebarItem *_voiceItemsItem;
+    MMFavoriteSidebarItem *_locationItemsItem;
     MMFavoriteSidebarItem *_tagsItem;
     MMFavoriteSidebarItem *_addNewNoteItem;
     MMFavSidebarHeaderRowView *_tagHeaderView;
@@ -40,10 +44,13 @@
     NSTextField *_usageLabel;
     MMFavoriteDetailViewContoller *_favoriteDetailViewContoller;
     MMFavoritesPlaceholderViewController *_favoritesPlaceholderViewController;
+    MMTimer *_m_syncTimer;
 }
 
 + (void)load;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *m_syncTimer; // @synthesize m_syncTimer=_m_syncTimer;
+@property(nonatomic) BOOL isForceReload; // @synthesize isForceReload=_isForceReload;
 @property(retain, nonatomic) MMFavoritesPlaceholderViewController *favoritesPlaceholderViewController; // @synthesize favoritesPlaceholderViewController=_favoritesPlaceholderViewController;
 @property(retain, nonatomic) MMFavoriteDetailViewContoller *favoriteDetailViewContoller; // @synthesize favoriteDetailViewContoller=_favoriteDetailViewContoller;
 @property(retain, nonatomic) NSTextField *usageLabel; // @synthesize usageLabel=_usageLabel;
@@ -52,12 +59,15 @@
 @property(retain, nonatomic) MMFavSidebarHeaderRowView *tagHeaderView; // @synthesize tagHeaderView=_tagHeaderView;
 @property(retain, nonatomic) MMFavoriteSidebarItem *addNewNoteItem; // @synthesize addNewNoteItem=_addNewNoteItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *tagsItem; // @synthesize tagsItem=_tagsItem;
+@property(retain, nonatomic) MMFavoriteSidebarItem *locationItemsItem; // @synthesize locationItemsItem=_locationItemsItem;
+@property(retain, nonatomic) MMFavoriteSidebarItem *voiceItemsItem; // @synthesize voiceItemsItem=_voiceItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *chatlogItemsItem; // @synthesize chatlogItemsItem=_chatlogItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *noteItemsItem; // @synthesize noteItemsItem=_noteItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *musicItemsItem; // @synthesize musicItemsItem=_musicItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *fileItemsItem; // @synthesize fileItemsItem=_fileItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *photoItemsItem; // @synthesize photoItemsItem=_photoItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *urlItemsItem; // @synthesize urlItemsItem=_urlItemsItem;
+@property(retain, nonatomic) MMFavoriteSidebarItem *recentUsedItem; // @synthesize recentUsedItem=_recentUsedItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *allItemsItem; // @synthesize allItemsItem=_allItemsItem;
 @property(retain, nonatomic) MMFavoriteSidebarItem *rootSidebarItem; // @synthesize rootSidebarItem=_rootSidebarItem;
 @property(retain, nonatomic) NSIndexSet *lastProposedSelectionIndexes; // @synthesize lastProposedSelectionIndexes=_lastProposedSelectionIndexes;
@@ -66,15 +76,20 @@
 @property(nonatomic) __weak MMSidebarOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void)handleAppFontSize;
 - (void)favSearchWithKeyWord:(id)arg1;
+- (void)refreshRecentItem;
+- (void)onAddRecentFavItems:(id)arg1;
+- (void)onAddRecentFavItem:(unsigned int)arg1;
+- (void)onUpdateTagNameSuccess:(unsigned int)arg1 oldTagName:(id)arg2 newTagName:(id)arg3;
+- (void)onDeleteTagSuccess:(id)arg1;
+- (void)onUpdateItemsTagsSuccess:(id)arg1;
 - (void)onAddLocalNoteItem:(id)arg1 ErrCode:(int)arg2;
 - (void)favoritesMgrDidUpdatedItemWithLocalID:(unsigned int)arg1;
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;
 - (void)favoritesMgrDidAddItems:(id)arg1;
-- (void)favoritesMgrDidUpdateTags:(id)arg1 forItemLocalID:(unsigned int)arg2;
-- (void)favoritesMgrDidUpdateTotalTagsCount:(unsigned int)arg1;
 - (void)favoritesMgrDidUpdateTotalItemsCount:(unsigned long long)arg1;
 - (void)favoritesMgrDidUpdateFavSetting;
+- (void)detailViewOnClickTagButton:(id)arg1;
 - (void)updateCurrentCollectionData:(id)arg1;
 - (id)currentSearchingUserName;
 - (id)currentSearchingTag;
@@ -104,8 +119,11 @@
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (id)setupAddNewNoteItem;
 - (id)setupTagsItem;
+- (id)setupLocationItemsItem;
+- (id)setupVoiceItemsItem;
 - (id)setupChatlogItemsItem;
 - (id)setupFileItemsItem;
+- (id)setupRecentUsedItemsItem;
 - (id)setupNoteItemsItem;
 - (id)setupMusicItemsItem;
 - (id)setupPhotoItemsItem;
@@ -117,11 +135,14 @@
 - (void)updateUsageLable;
 - (void)outlineViewClicked:(id)arg1;
 - (void)startAddNewNoteToFav:(id)arg1;
-- (void)clearSearch;
 - (BOOL)showAllFavoritesWithItem:(id)arg1;
 - (void)scrollDetailViewToLatest;
 - (void)performSearchAction;
+- (void)onTimeSync;
+- (void)stopAutoSyncTimer;
+- (void)startAutoSyncTimer;
 - (void)viewChangedEffectiveAppearance;
+- (void)viewWillDisappear;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 - (void)dealloc;

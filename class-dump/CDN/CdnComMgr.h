@@ -89,6 +89,10 @@
 - (BOOL)StartUploadGroupNoticeMedia:(id)arg1 error:(int *)arg2;
 - (void)StopUploadFavMedia:(id)arg1;
 - (BOOL)StartUploadFavMedia:(id)arg1 error:(int *)arg2;
+- (void)StopDownloadTranslateImgae:(id)arg1;
+- (BOOL)StartDownloadTranslateImgae:(id)arg1;
+- (void)StopUploadTransImage:(id)arg1;
+- (BOOL)StartUploadTransImage:(id)arg1;
 - (void)StopDownloadComMedia:(id)arg1;
 - (BOOL)StartDownloadComMedia:(id)arg1;
 - (id)GetDownloadProgressInfo:(id)arg1;

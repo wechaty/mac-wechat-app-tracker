@@ -11,7 +11,7 @@
 #import "NSAnimationDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class AVAudioPlayer, MMAvatarImageView, MMTimer, MessageData, MultiTalkGroup, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, SVGButton, WCContactData;
+@class AVAudioPlayer, MMAvatarImageView, MMButton, MMMouseEventView, MMTimer, MessageData, MultiTalkGroup, NSImageView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, NSVisualEffectView, SVGButton, WCContactData;
 @protocol MMVoipUserNotificationDelegate;
 
 @interface MMVoipUserNotificationWindowController : MMWindowController <NSWindowDelegate, IVOIPExt, NSAnimationDelegate, MultiTalkMgrExt>
@@ -26,8 +26,7 @@
     MMAvatarImageView *_avatarView;
     SVGButton *_hangUpBtn;
     SVGButton *_answerBtn;
-    SVGButton *_switchToVoiceChatBtn;
-    NSTextField *_switchVoiceLabel;
+    MMButton *_expandBtn;
     NSTextField *_nameLabel;
     NSTextField *_notifyField;
     NSView *_avatarContanier;
@@ -35,9 +34,17 @@
     NSMutableArray *_userNames;
     AVAudioPlayer *_player;
     MMTimer *_m_timeOutTimer;
+    MMMouseEventView *_visualEffectContainerView;
+    NSImageView *_hdAvatarView;
+    NSVisualEffectView *_visualEffectView;
+    NSView *_effectiveViewAboveRenderView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSView *effectiveViewAboveRenderView; // @synthesize effectiveViewAboveRenderView=_effectiveViewAboveRenderView;
+@property(retain, nonatomic) NSVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
+@property(retain, nonatomic) NSImageView *hdAvatarView; // @synthesize hdAvatarView=_hdAvatarView;
+@property(retain, nonatomic) MMMouseEventView *visualEffectContainerView; // @synthesize visualEffectContainerView=_visualEffectContainerView;
 @property(retain, nonatomic) MMTimer *m_timeOutTimer; // @synthesize m_timeOutTimer=_m_timeOutTimer;
 @property(nonatomic) BOOL isSelfCancelCallBeforeAnswer; // @synthesize isSelfCancelCallBeforeAnswer=_isSelfCancelCallBeforeAnswer;
 @property(retain, nonatomic) AVAudioPlayer *player; // @synthesize player=_player;
@@ -46,8 +53,7 @@
 @property(retain, nonatomic) NSView *avatarContanier; // @synthesize avatarContanier=_avatarContanier;
 @property(retain, nonatomic) NSTextField *notifyField; // @synthesize notifyField=_notifyField;
 @property(retain, nonatomic) NSTextField *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(retain, nonatomic) NSTextField *switchVoiceLabel; // @synthesize switchVoiceLabel=_switchVoiceLabel;
-@property(retain, nonatomic) SVGButton *switchToVoiceChatBtn; // @synthesize switchToVoiceChatBtn=_switchToVoiceChatBtn;
+@property(retain, nonatomic) MMButton *expandBtn; // @synthesize expandBtn=_expandBtn;
 @property(retain, nonatomic) SVGButton *answerBtn; // @synthesize answerBtn=_answerBtn;
 @property(retain, nonatomic) SVGButton *hangUpBtn; // @synthesize hangUpBtn=_hangUpBtn;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
@@ -78,14 +84,18 @@
 - (void)closeWithAnimation;
 - (void)onAnswerBtnClick:(id)arg1;
 - (void)onHandUpBtnClick:(id)arg1;
-- (void)onSwitchBtnClick:(id)arg1;
+- (void)onExpandBtnClick:(id)arg1;
 - (void)endCall;
 - (void)endCallByCancel;
+- (void)closeCameraService;
+- (void)openCameraService;
 - (void)layoutAvatarContainer;
 - (void)setupAvatarContainer;
 - (void)loadContent;
 - (void)initUI;
 - (void)showWindow:(id)arg1;
+- (struct CGSize)windowWillResize:(id)arg1 toSize:(struct CGSize)arg2;
+- (void)windowDidResize:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)dealloc;
 - (void)startAnimation;

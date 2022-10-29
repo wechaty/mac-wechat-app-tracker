@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MMChatBackupIndexDB, NSCondition, NSLock, NSMutableArray, NSString;
+@class NSCondition, NSLock, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MMChatBackupTransferMgr : NSObject
@@ -15,7 +15,7 @@
     NSLock *m_inputDataLock;
     BOOL m_bProducing;
     NSObject<OS_dispatch_queue> *m_getDataQueue;
-    MMChatBackupIndexDB *m_indexDB;
+    NSString *m_deviceId;
     NSCondition *m_bufferCondition;
     NSMutableArray *m_producerArray;
     NSMutableArray *m_bufferArray;

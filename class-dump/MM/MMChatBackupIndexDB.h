@@ -15,7 +15,6 @@
 }
 
 - (void).cxx_destruct;
-- (BOOL)checkPointAll;
 - (BOOL)rollbackTransaction;
 - (BOOL)commitTransaction;
 - (BOOL)beginTransaction;
@@ -31,8 +30,6 @@
 - (id)getBackupMsgFilePathByFileSize:(unsigned int)arg1;
 - (id)getBackupMediaFilePathByIndex:(unsigned long long)arg1;
 - (id)getBackupMsgFilePathByIndex:(unsigned long long)arg1;
-- (id)getBackupIndexDataBasePath;
-- (id)getBackupPath;
 - (id)getNeededTimeIntervalsOfSession:(id)arg1 fromTime:(long long)arg2 toTime:(long long)arg3 withTransferType:(int)arg4;
 - (id)getOrderedTimeIntervalsFromTxtMsgTableOfSession:(id)arg1;
 - (id)getOrderedTimeIntervalsFromMsgTableOfSession:(id)arg1;
@@ -53,6 +50,7 @@
 - (id)getAllMsgListIDOfSessionId:(long long)arg1;
 - (unsigned long long)getSessionCount;
 - (id)getAllSessionName;
+- (BOOL)insertOrUpdateConfigObjectWithGeneralInfo:(id)arg1;
 - (void)insertDataWithMsgFileSegmentObject:(id)arg1;
 - (void)insertDataWithUnFinishSessionObject:(id)arg1;
 - (void)insertDataWithConfigObject:(id)arg1;
@@ -62,20 +60,12 @@
 - (void)insertDataWithTxtMsgSegmentsObject:(id)arg1;
 - (void)insertDataWithMsgSegmentsObject:(id)arg1;
 - (void)insertDataWithSessionObject:(id)arg1;
-- (id)p_getMediaStr2IDTable;
-- (id)p_getName2IDTable;
-- (id)p_getMsgFileSegmentTable;
-- (id)p_getUnFinishSessionTable;
-- (id)p_getConfigTable;
-- (id)p_getMsgMediaTable;
-- (id)p_getTxtMsgSegmentsTable;
-- (id)p_getMsgSegmentsTable;
-- (id)p_getSessionTable;
+- (id)currDeviceId;
 - (void)removeDBFile;
 - (void)closeDB;
 - (void)closeDBBeforeInit;
 - (void)backupDB;
-- (void)initDataBase;
+- (BOOL)initDataBase;
 - (void)dealloc;
 - (id)initWithDeviceId:(id)arg1;
 

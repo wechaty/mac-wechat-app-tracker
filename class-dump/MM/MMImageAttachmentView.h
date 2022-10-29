@@ -6,16 +6,41 @@
 
 #import "MMAttachmentReusableView.h"
 
-@class MMImageView;
+#import "GroupNoticeDownloadExt-Protocol.h"
+#import "IMMFavFileDataMgrExt-Protocol.h"
+#import "IMMFavRecordDownloadMgrExt-Protocol.h"
+#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@interface MMImageAttachmentView : MMAttachmentReusableView
+@class MMImageView, NSImage, NSString;
+
+@interface MMImageAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, IMMFavFileDataMgrExt, GroupNoticeDownloadExt, NSMenuDelegate>
 {
+    NSImage *_displayImage;
     MMImageView *_imageView;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) NSImage *displayImage; // @synthesize displayImage=_displayImage;
+- (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
+- (id)menuForEvent:(id)arg1;
+- (void)menuDidClose:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
+- (void)onMidImageGenerated:(id)arg1 paraInfo:(id)arg2;
+- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)reloadImage;
+- (void)setAttachmentCell:(id)arg1;
+- (void)setupSubView;
+- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -15,9 +15,11 @@
     unsigned int hasIndexCount:1;
     unsigned int hasObjectCount:1;
     unsigned int hasReplaceObject:1;
+    unsigned int hasScene:1;
     unsigned int favId;
     unsigned int indexCount;
     unsigned int objectCount;
+    unsigned int scene;
     BaseRequest *baseRequest;
     NSMutableArray *mutableIndexListList;
     NSMutableArray *mutableObjectListList;
@@ -26,6 +28,8 @@
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetScene:) unsigned int scene; // @synthesize scene;
+@property(readonly, nonatomic) BOOL hasScene; // @synthesize hasScene;
 @property(retain, nonatomic, setter=SetReplaceObject:) NSString *replaceObject; // @synthesize replaceObject;
 @property(readonly, nonatomic) BOOL hasReplaceObject; // @synthesize hasReplaceObject;
 @property(retain, nonatomic) NSMutableArray *mutableObjectListList; // @synthesize mutableObjectListList;

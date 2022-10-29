@@ -6,12 +6,14 @@
 
 #import <AppKit/NSTextView.h>
 
+#import "MMAttachmentReusableViewDelegate-Protocol.h"
+#import "MMAttachmentReusableViewMenuDelegate-Protocol.h"
 #import "MMTextAttachmentCellDelegate-Protocol.h"
 
 @class NSMutableDictionary, NSMutableSet, NSString;
 @protocol MMRichAttachmentBaseTextViewDelegate;
 
-@interface MMRichAttachmentBaseTextView : NSTextView <MMTextAttachmentCellDelegate>
+@interface MMRichAttachmentBaseTextView : NSTextView <MMTextAttachmentCellDelegate, MMAttachmentReusableViewDelegate, MMAttachmentReusableViewMenuDelegate>
 {
     BOOL _typingAttributesInProgress;
     NSMutableDictionary *_registerViewDictionary;
@@ -26,7 +28,10 @@
 @property(nonatomic) __weak id <MMRichAttachmentBaseTextViewDelegate> richAttachmentDelegate; // @synthesize richAttachmentDelegate=_richAttachmentDelegate;
 @property(retain, nonatomic) NSMutableSet *attachmentViews; // @synthesize attachmentViews=_attachmentViews;
 @property(retain, nonatomic) NSMutableDictionary *registerViewDictionary; // @synthesize registerViewDictionary=_registerViewDictionary;
-- (BOOL)replaceTextInRange:(struct _NSRange)arg1 withReferAttributeText:(id)arg2;
+- (void)attachmentView:(id)arg1 menuAction:(int)arg2;
+- (void)attachmentView:(id)arg1 didClick:(id)arg2;
+- (void)attachmentView:(id)arg1 didLoadImage:(id)arg2 withSize:(struct CGSize)arg3;
+- (void)attachmentView:(id)arg1 didChangeLayout:(int)arg2;
 - (struct CGRect)cellFrameForAttachmentCell:(id)arg1 withWidthConstrain:(double)arg2;
 - (void)textAttachmentCell:(id)arg1 didLoadImage:(id)arg2;
 - (id)attachmentViewForAttachment:(id)arg1;

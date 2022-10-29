@@ -10,6 +10,7 @@
 {
 }
 
++ (struct CGSize)chatLogSizeWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (id)_genSenderAndContentString:(id)arg1 isLastOne:(BOOL)arg2;
 + (id)formattedChatLogContentWithDataField:(id)arg1;
 + (id)formattedChatLogContentWithMsg:(id)arg1;

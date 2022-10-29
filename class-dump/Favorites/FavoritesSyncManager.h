@@ -14,6 +14,9 @@
     NSData *_syncKeyBuffer;
     WCFavoritesDB *_favItemDB;
     MMCGIRequester *_requester;
+    int _syncSelector;
+    int _needSyncSelector;
+    BOOL _hasUpdateInfo;
     BOOL _m_isSendingReq;
     id <FavoritesSyncManagerDelegate> _delegate;
 }
@@ -23,11 +26,11 @@
 @property(nonatomic) __weak id <FavoritesSyncManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)loadSyncKeyBuffer;
 - (BOOL)saveSyncKeyBuffer:(id)arg1;
+- (BOOL)resetSyncValue:(int)arg1;
 - (void)clearSyncKey;
 - (void)_handleCmdList:(id)arg1 response:(id)arg2;
 - (void)_handleFailRequest;
 - (void)syncByNotify:(unsigned int)arg1;
-- (void)sync;
 - (void)dealloc;
 - (id)initWithDatabase:(id)arg1;
 

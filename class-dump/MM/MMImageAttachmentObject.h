@@ -13,8 +13,10 @@
     NSImage *_image;
 }
 
++ (struct CGSize)contentGridSize:(double)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
+- (struct CGSize)contentSize:(double)arg1;
 
 @end
 

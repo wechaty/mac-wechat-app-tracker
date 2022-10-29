@@ -53,7 +53,7 @@
 - (void)_switchToProgressState;
 - (void)_switchToNormal;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;
-- (void)onFileDidFinishDownloadWithMessage:(id)arg1;
+- (void)onFileDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onFileDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (BOOL)isMediaDownloaded;
 - (double)changeDesLableY;

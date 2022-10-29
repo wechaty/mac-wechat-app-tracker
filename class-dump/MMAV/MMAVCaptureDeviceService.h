@@ -8,7 +8,7 @@
 
 #import "MMService-Protocol.h"
 
-@class MMCaptureDeviceInfo, NSArray, NSObject, NSString;
+@class MMCaptureDeviceInfo, NSArray, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MMAVCaptureDeviceService : MMService <MMService>
@@ -19,14 +19,26 @@
     MMCaptureDeviceInfo *_defaultAudioInputDevice;
     MMCaptureDeviceInfo *_defaultAudioOutputDevice;
     MMCaptureDeviceInfo *_defaultVideoDevice;
+    MMCaptureDeviceInfo *_userAudioInputDevice;
+    MMCaptureDeviceInfo *_userAudioOutputDevice;
+    MMCaptureDeviceInfo *_userVideoDevice;
     CDUnknownBlockType _audioOutputListener;
-    NSObject<OS_dispatch_queue> *_listenQueue;
+    CDUnknownBlockType _audioInputListener;
+    NSObject<OS_dispatch_queue> *_listenerInQueue;
+    NSObject<OS_dispatch_queue> *_listenerOutQueue;
+    NSRecursiveLock *_lock;
 }
 
 + (void)authorizationStatusForMediaType:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *listenQueue; // @synthesize listenQueue=_listenQueue;
+@property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *listenerOutQueue; // @synthesize listenerOutQueue=_listenerOutQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *listenerInQueue; // @synthesize listenerInQueue=_listenerInQueue;
+@property(copy, nonatomic) CDUnknownBlockType audioInputListener; // @synthesize audioInputListener=_audioInputListener;
 @property(copy, nonatomic) CDUnknownBlockType audioOutputListener; // @synthesize audioOutputListener=_audioOutputListener;
+@property(retain, nonatomic) MMCaptureDeviceInfo *userVideoDevice; // @synthesize userVideoDevice=_userVideoDevice;
+@property(retain, nonatomic) MMCaptureDeviceInfo *userAudioOutputDevice; // @synthesize userAudioOutputDevice=_userAudioOutputDevice;
+@property(retain, nonatomic) MMCaptureDeviceInfo *userAudioInputDevice; // @synthesize userAudioInputDevice=_userAudioInputDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultVideoDevice; // @synthesize defaultVideoDevice=_defaultVideoDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioOutputDevice; // @synthesize defaultAudioOutputDevice=_defaultAudioOutputDevice;
 @property(retain, nonatomic) MMCaptureDeviceInfo *defaultAudioInputDevice; // @synthesize defaultAudioInputDevice=_defaultAudioInputDevice;
@@ -35,7 +47,13 @@
 @property(retain, nonatomic) NSArray *videoDevices; // @synthesize videoDevices=_videoDevices;
 - (void)stopDetectAudioOutput;
 - (void)startDetectAudioOutput;
-- (id)getScreenCaptureSourceInfoWithThumbSize:(struct CGSize)arg1;
+- (void)stopDetectAudioInput;
+- (void)startDetectAudioInput;
+- (void)checkAudioOutputWhenWhenSystemChanged:(unsigned int)arg1;
+- (void)checkAudioInputWhenSystemChanged:(unsigned int)arg1;
+- (void)checkAudioOutputWhenDisconnect;
+- (void)checkAudioInputWhenDisconnect;
+- (void)checkVideoDeviceWhenDisconnect;
 - (void)devicesWasDisconnected:(id)arg1;
 - (void)devicesWasConnected:(id)arg1;
 - (unsigned int)getDefaultAudioOutputDevice;
@@ -49,6 +67,7 @@
 - (id)getAudioDeviceList:(unsigned int)arg1;
 - (id)getSysDefaultAudioDevice:(int)arg1;
 - (unsigned int)getSysDefaultAudioDeviceID:(int)arg1;
+- (BOOL)isDeviceAvailable:(id)arg1;
 - (BOOL)isCurrentDevice:(id)arg1;
 - (void)updateCurrentSelectedDevice:(id)arg1 withType:(int)arg2;
 - (id)getCurrentSelectedDevice:(int)arg1;
@@ -57,15 +76,20 @@
 - (BOOL)hasRecordScreenAuthorized;
 - (BOOL)hasAudioMicDeviceAuthorized;
 - (BOOL)hasCameraDeviceAuthorized;
+- (id)getScreenCaptureSourceInfoWithThumbSize:(struct CGSize)arg1;
+- (id)getSysDefaultDevice:(int)arg1;
 - (id)convertAVCaptureDevice:(id)arg1;
 - (id)getSysDefaultVideoDevice;
 - (id)getVideoList;
-- (void)refreshAudioOutputDevice;
-- (void)freshDefaultDevices;
+- (void)setupDefaultDevices;
 - (void)refreshDeviceList;
+- (void)clearDeviceInfoWhenVoIPFinish;
+- (void)stopSession;
+- (void)startSession;
 - (void)dealloc;
 - (void)onServiceClearData;
 - (void)onServiceInit;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

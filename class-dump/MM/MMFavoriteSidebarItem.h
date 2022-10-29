@@ -16,12 +16,14 @@
 }
 
 + (id)spacer;
-+ (id)tagItemWithTagString:(id)arg1;
++ (unsigned int)tagLocalIdWithIdentifier:(id)arg1;
++ (id)tagItemIdentifier:(unsigned int)arg1;
++ (id)tagItemWithTag:(id)arg1 withLocalId:(unsigned int)arg2;
 + (id)itemWithType:(int)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL expanded; // @synthesize expanded=_expanded;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
-@property(readonly, nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) int type; // @synthesize type=_type;
 - (BOOL)expandable;
 - (BOOL)isHeader;
 - (void)_configureWithType:(int)arg1;

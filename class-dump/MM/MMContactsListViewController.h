@@ -14,7 +14,7 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class CAShapeLayer, MMContactsBatchModifyLogic, MMContactsDataSource, MMContactsModel, MMContactsToolBarView, MMOutlineButton, NSImageView, NSMutableDictionary, NSRecursiveLock, NSSortDescriptor, NSString, NSTableView, NSTextField, RFOverlayScrollView, WCContactData;
+@class CAShapeLayer, MMContactsBatchModifyLogic, MMContactsDataSource, MMContactsModel, MMContactsTagEditLogic, MMContactsToolBarView, MMOutlineButton, NSImageView, NSMutableDictionary, NSRecursiveLock, NSSortDescriptor, NSString, NSTableView, NSTextField, RFOverlayScrollView, WCContactData;
 
 @interface MMContactsListViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMContactsToolBarDelegate, MMContactsMgrExt, IContactMgrExt, MMContactsBatchModifyLogicDelegate, MMContactsRowViewDelegate>
 {
@@ -40,6 +40,7 @@
     WCContactData *_handleContact;
     NSSortDescriptor *_sortDescriptor;
     MMContactsModel *_preContactModel;
+    MMContactsTagEditLogic *_tagLogic;
     unsigned long long _opScene;
     struct CGPoint _eventPoint;
     struct CGPoint _dragStartPoint;
@@ -48,6 +49,7 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long opScene; // @synthesize opScene=_opScene;
+@property(retain, nonatomic) MMContactsTagEditLogic *tagLogic; // @synthesize tagLogic=_tagLogic;
 @property(nonatomic) BOOL runModal; // @synthesize runModal=_runModal;
 @property(retain, nonatomic) MMContactsModel *preContactModel; // @synthesize preContactModel=_preContactModel;
 @property(retain, nonatomic) NSSortDescriptor *sortDescriptor; // @synthesize sortDescriptor=_sortDescriptor;

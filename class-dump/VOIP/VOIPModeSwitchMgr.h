@@ -39,6 +39,8 @@
 - (BOOL)isRemoteVideoClosed;
 - (BOOL)isLocalVideoClosed;
 - (void)StopSession;
+- (void)VideoStatusChange:(BOOL)arg1 bSync:(BOOL)arg2;
+- (void)VideoStatusChange:(BOOL)arg1;
 - (void)CloseLocalMic;
 - (void)OpenLocalMic;
 - (void)OpenLocalVideoMode;

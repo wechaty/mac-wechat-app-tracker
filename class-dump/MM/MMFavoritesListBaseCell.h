@@ -6,43 +6,62 @@
 
 #import "MMFavoritesDetailBaseCell.h"
 
-@class MMDivider, MMOutlineButton, NSTextField;
+#import "MMFavoritesTagContainerViewExt-Protocol.h"
+#import "MMMultipleSelectable-Protocol.h"
 
-@interface MMFavoritesListBaseCell : MMFavoritesDetailBaseCell
+@class MMDivider, MMFavoritesTagContainerViewController, MMImageView, MMOutlineButton, NSString, NSTextField;
+
+@interface MMFavoritesListBaseCell : MMFavoritesDetailBaseCell <MMFavoritesTagContainerViewExt, MMMultipleSelectable>
 {
     BOOL _mouseUpOpenItem;
+    BOOL _multipleSelecting;
     NSTextField *_nickNameLabel;
     NSTextField *_timeLabel;
+    MMFavoritesTagContainerViewController *_tagContainer;
     MMDivider *_divider;
     MMOutlineButton *_deleteButton;
+    MMImageView *_multipleSelectingIcon;
 }
 
 + (double)getTextStyleActualContent:(id)arg1 inputTitle:(id)arg2 inputDescription:(id)arg3 widthConstrain:(double)arg4 outputTextContent:(id *)arg5;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMImageView *multipleSelectingIcon; // @synthesize multipleSelectingIcon=_multipleSelectingIcon;
+@property(nonatomic) BOOL multipleSelecting; // @synthesize multipleSelecting=_multipleSelecting;
 @property(nonatomic) BOOL mouseUpOpenItem; // @synthesize mouseUpOpenItem=_mouseUpOpenItem;
 @property(retain, nonatomic) MMOutlineButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(retain, nonatomic) MMDivider *divider; // @synthesize divider=_divider;
+@property(retain, nonatomic) MMFavoritesTagContainerViewController *tagContainer; // @synthesize tagContainer=_tagContainer;
 @property(retain, nonatomic) NSTextField *timeLabel; // @synthesize timeLabel=_timeLabel;
 @property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;
+- (void)tagContainerOnClickTagButton:(id)arg1;
+@property(nonatomic) BOOL canMultipleSelection;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)onSwipeDeleteItem;
 - (void)showSwipeEffect;
 - (void)cleanSwipeEffect;
 - (id)contactDataWithUserName:(id)arg1;
+- (void)setMultipleSelected:(BOOL)arg1;
 - (double)getSenderInfoTimeLabelWidth;
 - (double)getSenderInfoNickNameLabelWidth;
 - (double)getSenderInfoWidth;
 - (id)genNoImageTextAttrs:(id)arg1;
 - (id)genSenderInfoDateAttributedString;
 - (id)genSenderInfoNickNameAttributedString;
+- (id)getShowTags;
 - (void)layoutSenderInfo;
 - (id)favItemDescriptionString;
 - (void)layoutFavContentView;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

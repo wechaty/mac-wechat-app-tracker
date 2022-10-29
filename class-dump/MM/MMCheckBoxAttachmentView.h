@@ -7,27 +7,26 @@
 #import "MMBaseBulletAttachmentView.h"
 
 @class MMButton, NSTrackingArea;
-@protocol MMCheckBoxAttachmentViewDelegate;
 
 @interface MMCheckBoxAttachmentView : MMBaseBulletAttachmentView
 {
     NSTrackingArea *_trackingArea;
     BOOL _checked;
+    BOOL _enable;
     MMButton *_checkBoxButton;
-    id <MMCheckBoxAttachmentViewDelegate> _checkboxAttachmentViewDelegate;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <MMCheckBoxAttachmentViewDelegate> checkboxAttachmentViewDelegate; // @synthesize checkboxAttachmentViewDelegate=_checkboxAttachmentViewDelegate;
+@property(nonatomic) BOOL enable; // @synthesize enable=_enable;
 @property(nonatomic) BOOL checked; // @synthesize checked=_checked;
 @property(retain, nonatomic) MMButton *checkBoxButton; // @synthesize checkBoxButton=_checkBoxButton;
 - (BOOL)getState;
 - (void)checkState:(id)arg1;
-- (void)mouseExited:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)updateTrackingAreas;
 - (void)adjustCheckBoxButtonImage:(BOOL)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithIdentifier:(id)arg1;
 
 @end

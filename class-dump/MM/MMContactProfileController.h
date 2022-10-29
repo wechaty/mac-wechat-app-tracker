@@ -93,6 +93,8 @@
 - (BOOL)isShown;
 - (void)hide;
 - (void)setCanBecomeKey:(BOOL)arg1;
+- (void)showTopMsgOperaterProfileInView:(id)arg1;
+- (void)realShowInView:(id)arg1 isTopMsgOperater:(BOOL)arg2;
 - (void)showInView:(id)arg1;
 - (void)sendGetAppBrandContact:(id)arg1;
 - (void)sendGetOpenIMContact:(id)arg1 withGroupName:(id)arg2;

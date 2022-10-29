@@ -9,18 +9,22 @@
 #import "MMFavoritesMgrExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class CALayer, FavoritesItem, MMView, NSImageView, NSString, SwipeDeleteView, WCContactData;
+@class CALayer, FavoritesItem, MMView, NSArray, NSImageView, NSString, SwipeDeleteView, WCContactData;
 @protocol MMFavoritesDetailCellDelegate;
 
 @interface MMFavoritesDetailBaseCell : JNWCollectionViewCell <NSMenuDelegate, MMFavoritesMgrExt>
 {
     BOOL _highlighted;
+    BOOL _multipleSelected;
     BOOL _draggingStarted;
     id <MMFavoritesDetailCellDelegate> _delegate;
     MMView *_containerView;
     SwipeDeleteView *_favContentView;
     FavoritesItem *_favItem;
     WCContactData *_realContact;
+    NSArray *_showTags;
+    NSString *_siderBarItemIdentifer;
+    NSString *_siderBarItemTitle;
     NSImageView *_iconImageView;
     unsigned long long _rowIndex;
     CALayer *_highlightLayer;
@@ -32,8 +36,12 @@
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
 @property(retain, nonatomic) CALayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
 @property(nonatomic) unsigned long long rowIndex; // @synthesize rowIndex=_rowIndex;
+@property(nonatomic) BOOL multipleSelected; // @synthesize multipleSelected=_multipleSelected;
 @property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
+@property(retain, nonatomic) NSString *siderBarItemTitle; // @synthesize siderBarItemTitle=_siderBarItemTitle;
+@property(retain, nonatomic) NSString *siderBarItemIdentifer; // @synthesize siderBarItemIdentifer=_siderBarItemIdentifer;
+@property(retain, nonatomic) NSArray *showTags; // @synthesize showTags=_showTags;
 @property(retain, nonatomic) WCContactData *realContact; // @synthesize realContact=_realContact;
 @property(retain, nonatomic) FavoritesItem *favItem; // @synthesize favItem=_favItem;
 @property(retain, nonatomic) SwipeDeleteView *favContentView; // @synthesize favContentView=_favContentView;
@@ -51,11 +59,12 @@
 - (void)clearAttributedStringCacheForItem;
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)downloadFavSightIfNeed:(id)arg1;
 - (void)downloadFavNoteIfNeed;
 - (void)downloadFavoritesItemDataIfNeed;
 - (id)firstDataField;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)updateHighlightLayer;
 - (void)layoutIconImgView:(struct CGRect)arg1;
 - (void)layoutSubView;
 - (void)cleanSwipeEffect;
@@ -65,6 +74,7 @@
 - (id)imageForDragging;
 - (void)willBeRecycled;
 - (void)populateWithFavItem:(id)arg1;
+- (void)prepareForReuse;
 - (void)setupContainerView;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;

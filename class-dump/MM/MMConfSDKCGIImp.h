@@ -18,11 +18,13 @@
     CDUnknownBlockType _currentGetUserInfoCGICallback;
     CDUnknownBlockType _currentInviteCGICallback;
     CDUnknownBlockType _currentSendBannerMsgCGICallback;
+    CDUnknownBlockType _currentCheckScreenShareCGICallback;
 }
 
 - (void).cxx_destruct;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)sendRequest:(id)arg1 Retry:(int)arg2;
+- (void)cgiScreenSharingSecurityCheck:(id)arg1 sdkGroupId:(id)arg2 fromUserName:(id)arg3 fromSdkUserName:(id)arg4 roomId:(long long)arg5 callback:(CDUnknownBlockType)arg6;
 - (void)cgiReportLog:(id)arg1 sdkGroupId:(id)arg2 fromUserName:(id)arg3 fromSdkUserName:(id)arg4 reportList:(id)arg5;
 - (void)cgiSendBannerMsg:(unsigned int)arg1 groupid:(id)arg2 roomId:(long long)arg3 fromUserName:(id)arg4 fromSdkUserName:(id)arg5 bannerMsg:(id)arg6 callback:(CDUnknownBlockType)arg7;
 - (void)cgiInvite:(unsigned int)arg1 groupId:(id)arg2 roomId:(long long)arg3 sdkGroupId:(id)arg4 fromUserName:(id)arg5 fromSdkUserName:(id)arg6 toUserList:(id)arg7 inviteItems:(id)arg8 callback:(CDUnknownBlockType)arg9;

@@ -83,9 +83,9 @@
 - (void)mouseDown:(id)arg1;
 - (BOOL)isReferMessageCanClick;
 - (BOOL)eventIsInsideReferArea:(id)arg1;
-- (void)onVideoDidFinishDownloadWithMessage:(id)arg1;
+- (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onDefaultThumbImageDidGeneratedWithMessage:(id)arg1;
-- (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2;
+- (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2 isPredownload:(BOOL)arg3;
 - (void)emoticonDownloadFinished:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)setIsChosenStyleBackground:(BOOL)arg1;

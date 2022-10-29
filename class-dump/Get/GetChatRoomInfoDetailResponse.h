@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, NSString, RoomBindAppList, RoomTools;
+@class BaseResponse, NSString, RoomBindAppList, RoomTools, SKBuiltinBuffer_t;
 
 @interface GetChatRoomInfoDetailResponse : PBGeneratedMessage
 {
@@ -22,6 +22,7 @@
     unsigned int hasRoomBindAppList:1;
     unsigned int hasSpamStatus:1;
     unsigned int hasXmlAnnouncement:1;
+    unsigned int hasTopMsgInfo:1;
     unsigned int chatRoomInfoVersion;
     unsigned int announcementPublishTime;
     unsigned int chatRoomStatus;
@@ -34,10 +35,13 @@
     NSString *associateOpenImroomName;
     RoomBindAppList *roomBindAppList;
     NSString *xmlAnnouncement;
+    SKBuiltinBuffer_t *topMsgInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetTopMsgInfo:) SKBuiltinBuffer_t *topMsgInfo; // @synthesize topMsgInfo;
+@property(readonly, nonatomic) BOOL hasTopMsgInfo; // @synthesize hasTopMsgInfo;
 @property(retain, nonatomic, setter=SetXmlAnnouncement:) NSString *xmlAnnouncement; // @synthesize xmlAnnouncement;
 @property(readonly, nonatomic) BOOL hasXmlAnnouncement; // @synthesize hasXmlAnnouncement;
 @property(nonatomic, setter=SetSpamStatus:) unsigned int spamStatus; // @synthesize spamStatus;

@@ -9,6 +9,7 @@
 @class WCContactData;
 
 @protocol MMChatsViewControllerDelegate <NSObject>
+- (BOOL)makeFirstResponderIfNeeded;
 - (void)didChangeChatDetailVC:(unsigned long long)arg1 withContact:(WCContactData *)arg2;
 @end
 

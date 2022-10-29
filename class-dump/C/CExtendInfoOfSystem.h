@@ -17,6 +17,10 @@
     unsigned int m_historyFileLength;
     unsigned int m_historyMsgCount;
     int _m_newxmlType;
+    unsigned int _op;
+    unsigned int _msgType;
+    unsigned int _topId;
+    unsigned int _chatroominfoversion;
     MessageData *m_historyRecordMsg;
     unsigned long long m_historyId;
     NSString *m_historyFileId;
@@ -27,10 +31,20 @@
     unsigned long long _m_svrId;
     NSString *_m_typeStr;
     NSString *_m_sessionId;
+    unsigned long long _newMsgId;
+    NSString *_opUserName;
+    NSString *_nickname;
 }
 
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int chatroominfoversion; // @synthesize chatroominfoversion=_chatroominfoversion;
+@property(retain, nonatomic) NSString *nickname; // @synthesize nickname=_nickname;
+@property(retain, nonatomic) NSString *opUserName; // @synthesize opUserName=_opUserName;
+@property(nonatomic) unsigned int topId; // @synthesize topId=_topId;
+@property(nonatomic) unsigned int msgType; // @synthesize msgType=_msgType;
+@property(nonatomic) unsigned int op; // @synthesize op=_op;
+@property(nonatomic) unsigned long long newMsgId; // @synthesize newMsgId=_newMsgId;
 @property(retain, nonatomic) NSString *m_sessionId; // @synthesize m_sessionId=_m_sessionId;
 @property(retain, nonatomic) NSString *m_typeStr; // @synthesize m_typeStr=_m_typeStr;
 @property(nonatomic) unsigned long long m_svrId; // @synthesize m_svrId=_m_svrId;

@@ -12,6 +12,7 @@
 
 @interface MMAlert : NSWindowController <NSWindowDelegate>
 {
+    BOOL _isTopMsgAlert;
     BOOL _runModal;
     NSString *_messageText;
     NSString *_informativeText;
@@ -28,6 +29,7 @@
 @property(nonatomic) BOOL runModal; // @synthesize runModal=_runModal;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
+@property(nonatomic) BOOL isTopMsgAlert; // @synthesize isTopMsgAlert=_isTopMsgAlert;
 @property(nonatomic) __weak NSWindow *relativeWindow; // @synthesize relativeWindow=_relativeWindow;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *cancel; // @synthesize cancel=_cancel;

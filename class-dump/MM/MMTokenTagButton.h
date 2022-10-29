@@ -30,6 +30,7 @@
 - (double)getRealWidth;
 - (void)sizeAutoFixToStringLengthWithTitle:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)initView;
 - (id)initWithFrame:(struct CGRect)arg1;
 

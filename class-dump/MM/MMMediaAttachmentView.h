@@ -7,13 +7,14 @@
 #import "MMAttachmentReusableView.h"
 
 #import "GroupNoticeDownloadExt-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class NSImageView, NSString, NSTextField;
 
-@interface MMMediaAttachmentView : MMAttachmentReusableView <GroupNoticeDownloadExt>
+@interface MMMediaAttachmentView : MMAttachmentReusableView <GroupNoticeDownloadExt, NSMenuDelegate>
 {
     NSImageView *_imageView;
-    NSTextField *_titleLable;
+    NSTextField *_titleLabel;
     NSTextField *_detailLabel;
     NSString *_localDataID;
     NSTextField *_statusLabel;
@@ -23,8 +24,12 @@
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
 @property(retain, nonatomic) NSString *localDataID; // @synthesize localDataID=_localDataID;
 @property(retain, nonatomic) NSTextField *detailLabel; // @synthesize detailLabel=_detailLabel;
-@property(retain, nonatomic) NSTextField *titleLable; // @synthesize titleLable=_titleLable;
+@property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
+- (BOOL)isFileNoteItem;
+- (id)menuForEvent:(id)arg1;
+- (void)menuDidClose:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
 - (void)setupStatusLable:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;

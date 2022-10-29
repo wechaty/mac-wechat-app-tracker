@@ -10,12 +10,11 @@
 #import "MMConfigMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMChatBackupIndexDB, MMChatBackupServerLogic, MMMigrateDataInfo, NSArray, NSData, NSString;
+@class MMChatBackupServerLogic, MMMigrateDataInfo, NSArray, NSData, NSMutableDictionary, NSRecursiveLock, NSString;
 
 @interface MMChatBackupServerMgr : MMService <MMChatBackupServerLogicDelegate, MMConfigMgrExt, MMService>
 {
     MMChatBackupServerLogic *m_serverLogic;
-    MMChatBackupIndexDB *m_indexDB;
     unsigned long long m_msgCount;
     BOOL _reTransfer;
     BOOL _isBackupImport;
@@ -50,9 +49,13 @@
     NSData *_autoReconnectToken;
     MMMigrateDataInfo *_migrateDataInfo;
     CDUnknownBlockType _didGetConnectInfoBlock;
+    NSMutableDictionary *_indexDBList;
+    NSRecursiveLock *_indexDBLock;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *indexDBLock; // @synthesize indexDBLock=_indexDBLock;
+@property(retain, nonatomic) NSMutableDictionary *indexDBList; // @synthesize indexDBList=_indexDBList;
 @property(copy, nonatomic) CDUnknownBlockType didGetConnectInfoBlock; // @synthesize didGetConnectInfoBlock=_didGetConnectInfoBlock;
 @property(nonatomic) BOOL supportQuickBackup; // @synthesize supportQuickBackup=_supportQuickBackup;
 @property(nonatomic) BOOL transferOnlyMsg; // @synthesize transferOnlyMsg=_transferOnlyMsg;
@@ -86,7 +89,10 @@
 @property(retain, nonatomic) NSString *server_hello; // @synthesize server_hello=_server_hello;
 @property(retain, nonatomic) NSData *server_key; // @synthesize server_key=_server_key;
 @property(retain, nonatomic) NSString *server_id; // @synthesize server_id=_server_id;
+- (id)backupIndexDBWithDeviceId:(id)arg1;
+- (void)closeBackupIndexDB;
 - (void)onMMDynamicConfigUpdated;
+- (unsigned int)getCommunicationTransferType;
 - (void)unireport26824:(id)arg1;
 - (void)unireport26824:(unsigned int)arg1 withLogStr:(id)arg2;
 - (unsigned long long)getPairType;
@@ -104,6 +110,7 @@
 - (BOOL)shouldOpenRecoverTxtMsg;
 - (void)deleteBackupRecordBy:(id)arg1;
 - (BOOL)hasBackupRecord;
+- (id)getAllBackupRecordsWithData:(BOOL)arg1;
 - (id)getAllBackupRecords;
 - (void)extensionProcessNotifyCode:(unsigned long long)arg1;
 - (void)clearCurrentTransferredDataWithNotifyCodeIfNeed:(unsigned long long)arg1;
@@ -123,7 +130,6 @@
 - (void)startWorkLogic;
 - (void)stopServerMgr;
 - (void)startServerMgr;
-- (void)dealloc;
 - (void)onServiceTerminate;
 - (void)onServiceClearData;
 - (void)onServiceInit;

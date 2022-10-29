@@ -16,10 +16,12 @@
     NSTextField *_textField;
     MMImageView *_loadingImageView;
     CDUnknownBlockType _didClickOnToastView;
+    struct CGPoint _toastCenter;
 }
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType didClickOnToastView; // @synthesize didClickOnToastView=_didClickOnToastView;
+@property(nonatomic) struct CGPoint toastCenter; // @synthesize toastCenter=_toastCenter;
 @property(retain, nonatomic) MMImageView *loadingImageView; // @synthesize loadingImageView=_loadingImageView;
 @property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
 @property(retain, nonatomic) NSProgressIndicator *activityView; // @synthesize activityView=_activityView;
@@ -31,7 +33,9 @@
 - (void)makeToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)makeToastActivityWithText:(id)arg1 image:(id)arg2;
 - (void)startAnimation;
+- (void)makeToastActivityWithText:(id)arg1 position:(struct CGPoint)arg2;
 - (void)makeToastActivityWithText:(id)arg1;
+- (void)makeToastWithText:(id)arg1 duration:(double)arg2 image:(id)arg3 position:(struct CGPoint)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)makeToastWithText:(id)arg1 duration:(double)arg2 image:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)makeToastWithText:(id)arg1 image:(id)arg2;
 - (void)setupImaegViewWithImage:(id)arg1;

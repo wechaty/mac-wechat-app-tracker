@@ -47,9 +47,6 @@
 - (void)autoUpdateMainStatusStringAndDotViewImage;
 - (void)setupTipsLabel:(id)arg1;
 - (void)layoutStatusLabelWithStr:(id)arg1 andMode:(int)arg2;
-- (void)closeAudioInputAuto:(id)arg1;
-- (void)switchAudioInput;
-- (void)switchCamera;
 - (void)switchToVoiceChat;
 - (void)startCamera;
 - (void)endCall;

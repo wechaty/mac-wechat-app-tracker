@@ -23,7 +23,7 @@
 + (void)reportBusinessWithDBTag:(unsigned int)arg1 identifier:(id)arg2 type:(unsigned int)arg3 cost:(double)arg4 funcName:(id)arg5;
 + (void)reportDBOpType:(unsigned int)arg1 dbTag:(unsigned int)arg2;
 + (void)reportTableCount:(unsigned int)arg1 dbIdentifier:(id)arg2 dbTag:(unsigned int)arg3;
-+ (void)reportCheckpoint:(unsigned int)arg1 identifier:(id)arg2 opTime:(unsigned int)arg3;
++ (void)reportCheckpoint:(unsigned int)arg1 identifier:(id)arg2 opTime:(unsigned int)arg3 scene:(int)arg4 mode:(int)arg5;
 + (id)buildFileInfoItems;
 + (id)genDBFileInfo;
 + (id)genMesssageDBFileSizeInfo;

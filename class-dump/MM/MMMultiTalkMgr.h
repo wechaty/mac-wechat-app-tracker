@@ -38,11 +38,13 @@
     BOOL _m_isCalling;
     BOOL _isLockScreen;
     BOOL _isNoNetwork;
+    BOOL _isCheckingStatus;
     unsigned int _currentMessageId;
     unsigned int _m_nextCanJoinTalkTime;
     unsigned int _m_nextCanCreateTalkTime;
     unsigned int _m_nextCanOpenCameraTime;
     int _mode;
+    unsigned int _bannerBeginTime;
     AVVideoDevice *_m_videoDevice;
     NSMutableDictionary *__currentSDKModeList;
     NSMutableArray *_m_cgiList;
@@ -62,9 +64,13 @@
     MMTimer *_netStatusTimer;
     NSRecursiveLock *_m_videoEncLock;
     NSString *_lastSubscribeScreenUserName;
+    CDUnknownBlockType _didCheckStatusBlock;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isCheckingStatus; // @synthesize isCheckingStatus=_isCheckingStatus;
+@property(copy, nonatomic) CDUnknownBlockType didCheckStatusBlock; // @synthesize didCheckStatusBlock=_didCheckStatusBlock;
+@property(nonatomic) unsigned int bannerBeginTime; // @synthesize bannerBeginTime=_bannerBeginTime;
 @property(copy, nonatomic) NSString *lastSubscribeScreenUserName; // @synthesize lastSubscribeScreenUserName=_lastSubscribeScreenUserName;
 @property(retain, nonatomic) NSRecursiveLock *m_videoEncLock; // @synthesize m_videoEncLock=_m_videoEncLock;
 @property(nonatomic) BOOL isNoNetwork; // @synthesize isNoNetwork=_isNoNetwork;
@@ -108,8 +114,8 @@
 - (BOOL)isMonoServiceCheckingServer;
 - (BOOL)isMonoServiceUIWorking;
 - (BOOL)isMonoServiceUIExist;
-- (void)onReciveCallCancle;
-- (void)didWindowClose;
+- (void)notificationWindowEndCallByCancel;
+- (void)notificationWindowWillClose;
 - (void)onMultiTalkUserNotificationReceiveTimeOutWithGroup:(id)arg1;
 - (void)onMultiTalkUserNotificationRejectWithGroup:(id)arg1;
 - (void)hasNotAudioMicDeviceAuthorized;
@@ -117,18 +123,19 @@
 - (void)showMultiTalkUserNotification:(id)arg1;
 - (void)onMultiTalkWindowSubscribe:(id)arg1;
 - (void)onMultiTalkWindowUnsubscribe:(id)arg1;
-- (void)onMultiTalkWindowMicAudioOn:(BOOL)arg1;
+- (void)onMultiTalkWindowAudioOutputSelected:(BOOL)arg1;
+- (void)onMultiTalkWindowAudioInputSelected:(BOOL)arg1;
 - (void)onMultiTalkWindowReceiveSwitchCamera:(BOOL)arg1;
 - (void)onMultiTalkWindowRecoverVideoOn:(BOOL)arg1;
 - (void)onMultiTalkWindowUpdateMessageWith:(id)arg1 duration:(unsigned int)arg2 messageId:(unsigned int)arg3;
 - (void)onMultiTalkWindowAddMember:(id)arg1 withGroup:(id)arg2;
 - (void)onMultiTalkWindowReceiveCancelCallWithGroup:(id)arg1;
 - (void)onMultiTalkWindowHangup:(id)arg1;
-- (void)windowDidColsed:(id)arg1;
+- (void)VoIPWindowDidClosed:(id)arg1;
 - (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
 - (id)getMultiTalkUserNameListWithPrivacy:(id)arg1;
 - (void)onMultiTalkBannerChange:(id)arg1 WxGroupId:(id)arg2;
-- (void)onMultiTalkBannerChange:(id)arg1;
+- (void)onMultiTalkBannerChange:(id)arg1 createTime:(unsigned int)arg2;
 - (void)onOtherDeviceHandleTalk:(id)arg1;
 - (void)onMultiTalkNotAllowCameraLimit:(unsigned int)arg1;
 - (void)onMultiTalkCreateLimit:(unsigned int)arg1;
@@ -136,6 +143,7 @@
 - (void)onMultiTalkRedirectOk;
 - (void)onVideoData:(unsigned int)arg1 Bgra:(char *)arg2 Width:(unsigned int)arg3 Height:(unsigned int)arg4 frontCamera:(BOOL)arg5 screenData:(BOOL)arg6;
 - (void)OnVideoStateChange:(BOOL)arg1 VideoOn:(BOOL)arg2;
+- (void)onScreenSharingCheckSecurity:(int)arg1;
 - (void)onMultiTalkAudioDeviceUnPlugin;
 - (void)onMultiTalkAudioDevicePlugin;
 - (void)onReceiveVideoMemberChangeMsg:(id)arg1 extArray:(id)arg2;
@@ -174,7 +182,7 @@
 - (void)forceToCloseAllWindow;
 - (void)onUserLogout;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (int)GetFrmType;
 - (void)captureWindowSnapshot:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (int)VideoDevPutData:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
@@ -208,6 +216,7 @@
 - (void)docreateMultiTalkWithContacts:(id)arg1 withChatroomUsername:(id)arg2;
 - (void)sendRequest:(id)arg1 Retry:(int)arg2;
 - (void)createMultiTalkWithContacts:(id)arg1 withChatroomUsername:(id)arg2;
+- (void)checkScreenSharingStatus:(CDUnknownBlockType)arg1;
 - (int)getCurrentMode;
 - (void)orderFrontVoipWindow;
 - (id)getOtherDeviceHandlerGroupId;

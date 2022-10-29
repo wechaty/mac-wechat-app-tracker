@@ -6,7 +6,7 @@
 
 #import <AppKit/NSWindow.h>
 
-@class CAGradientLayer, MMAnimateTextFieldWrapper, MMAvatarImageView, MMScaleToFillNSImageView, MMStringToastView, MMTextView, MMTimerLabel, MMVoipRenderView, NSButton, NSImageView, NSTextField, NSView, SVGButton;
+@class CAGradientLayer, MMAnimateTextFieldWrapper, MMAvatarImageView, MMImageView, MMStringToastView, MMTimerLabel, MMVoIPButton, MMVoipRenderView, NSButton, NSImageView, NSTextField, NSView, SVGButton;
 
 @interface MMVoipBaseWindow : NSWindow
 {
@@ -15,13 +15,13 @@
     NSView *_controlView;
     MMVoipRenderView *_renderView;
     MMAvatarImageView *_avatarView;
-    MMTextView *_nameLabel;
+    NSTextField *_nickNameLabel;
     NSTextField *_inviteStatusLabel;
     MMTimerLabel *_callTimeLabel;
     MMStringToastView *_tipsLabel;
     unsigned long long _dotCountIncrement;
     NSView *_buttonContainer;
-    NSButton *_muteBtn;
+    MMVoIPButton *_mutedBtn;
     SVGButton *_hangUpBtn;
     MMAnimateTextFieldWrapper *_hangUpBtnTipsLabel;
     SVGButton *_answerBtn;
@@ -31,48 +31,52 @@
     MMAnimateTextFieldWrapper *_muteBtnTipsLabel;
     NSTextField *_switchToVoiceBtnTipsLabel;
     NSTextField *_rotateTipsLabel;
-    SVGButton *_switchIndicator;
-    SVGButton *_switchVideoIndicator;
     SVGButton *_switchScreenIndicator;
     CAGradientLayer *_upperGradientLayer;
     CAGradientLayer *_lowerGradientLayer;
-    MMScaleToFillNSImageView *_hdAvatarImgView;
+    MMImageView *_hdAvatarImageView;
     NSImageView *_voiceModeAnimateDotView;
     NSView *_effectiveViewAboveRenderView;
     NSButton *_stickButton;
     NSView *_visualEffectView;
+    NSImageView *_buttonContainerBkgView;
     NSView *_toolVisualEffectView;
+    NSImageView *_toolBarBkgView;
     NSView *_toolBarContainerView;
-    SVGButton *_openCameraBtn;
+    MMVoIPButton *_cameraBtn;
     NSTextField *_openCameraTipLabel;
     SVGButton *_addMemberBtn;
     NSTextField *_addMemberTipLabel;
     SVGButton *_shareScreenBtn;
     NSTextField *_shareScreenTipLabel;
     NSTextField *_talkingLabel;
+    MMVoIPButton *_speakerBtn;
+    NSTextField *_speakerTipLabel;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL renderLayerAspectRatioBeforeEnterFullScreen; // @synthesize renderLayerAspectRatioBeforeEnterFullScreen=_renderLayerAspectRatioBeforeEnterFullScreen;
+@property(retain, nonatomic) NSTextField *speakerTipLabel; // @synthesize speakerTipLabel=_speakerTipLabel;
+@property(retain, nonatomic) MMVoIPButton *speakerBtn; // @synthesize speakerBtn=_speakerBtn;
 @property(retain, nonatomic) NSTextField *talkingLabel; // @synthesize talkingLabel=_talkingLabel;
 @property(retain, nonatomic) NSTextField *shareScreenTipLabel; // @synthesize shareScreenTipLabel=_shareScreenTipLabel;
 @property(retain, nonatomic) SVGButton *shareScreenBtn; // @synthesize shareScreenBtn=_shareScreenBtn;
 @property(retain, nonatomic) NSTextField *addMemberTipLabel; // @synthesize addMemberTipLabel=_addMemberTipLabel;
 @property(retain, nonatomic) SVGButton *addMemberBtn; // @synthesize addMemberBtn=_addMemberBtn;
 @property(retain, nonatomic) NSTextField *openCameraTipLabel; // @synthesize openCameraTipLabel=_openCameraTipLabel;
-@property(retain, nonatomic) SVGButton *openCameraBtn; // @synthesize openCameraBtn=_openCameraBtn;
+@property(retain, nonatomic) MMVoIPButton *cameraBtn; // @synthesize cameraBtn=_cameraBtn;
 @property(retain, nonatomic) NSView *toolBarContainerView; // @synthesize toolBarContainerView=_toolBarContainerView;
+@property(retain, nonatomic) NSImageView *toolBarBkgView; // @synthesize toolBarBkgView=_toolBarBkgView;
 @property(retain, nonatomic) NSView *toolVisualEffectView; // @synthesize toolVisualEffectView=_toolVisualEffectView;
+@property(retain, nonatomic) NSImageView *buttonContainerBkgView; // @synthesize buttonContainerBkgView=_buttonContainerBkgView;
 @property(retain, nonatomic) NSView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
 @property(retain, nonatomic) NSButton *stickButton; // @synthesize stickButton=_stickButton;
 @property(retain, nonatomic) NSView *effectiveViewAboveRenderView; // @synthesize effectiveViewAboveRenderView=_effectiveViewAboveRenderView;
 @property(retain, nonatomic) NSImageView *voiceModeAnimateDotView; // @synthesize voiceModeAnimateDotView=_voiceModeAnimateDotView;
-@property(retain, nonatomic) MMScaleToFillNSImageView *hdAvatarImgView; // @synthesize hdAvatarImgView=_hdAvatarImgView;
+@property(retain, nonatomic) MMImageView *hdAvatarImageView; // @synthesize hdAvatarImageView=_hdAvatarImageView;
 @property(retain, nonatomic) CAGradientLayer *lowerGradientLayer; // @synthesize lowerGradientLayer=_lowerGradientLayer;
 @property(retain, nonatomic) CAGradientLayer *upperGradientLayer; // @synthesize upperGradientLayer=_upperGradientLayer;
 @property(retain, nonatomic) SVGButton *switchScreenIndicator; // @synthesize switchScreenIndicator=_switchScreenIndicator;
-@property(retain, nonatomic) SVGButton *switchVideoIndicator; // @synthesize switchVideoIndicator=_switchVideoIndicator;
-@property(retain, nonatomic) SVGButton *switchIndicator; // @synthesize switchIndicator=_switchIndicator;
 @property(retain, nonatomic) NSTextField *rotateTipsLabel; // @synthesize rotateTipsLabel=_rotateTipsLabel;
 @property(retain, nonatomic) NSTextField *switchToVoiceBtnTipsLabel; // @synthesize switchToVoiceBtnTipsLabel=_switchToVoiceBtnTipsLabel;
 @property(retain, nonatomic) MMAnimateTextFieldWrapper *muteBtnTipsLabel; // @synthesize muteBtnTipsLabel=_muteBtnTipsLabel;
@@ -82,14 +86,14 @@
 @property(retain, nonatomic) SVGButton *answerBtn; // @synthesize answerBtn=_answerBtn;
 @property(retain, nonatomic) MMAnimateTextFieldWrapper *hangUpBtnTipsLabel; // @synthesize hangUpBtnTipsLabel=_hangUpBtnTipsLabel;
 @property(retain, nonatomic) SVGButton *hangUpBtn; // @synthesize hangUpBtn=_hangUpBtn;
-@property(retain, nonatomic) NSButton *muteBtn; // @synthesize muteBtn=_muteBtn;
+@property(retain, nonatomic) MMVoIPButton *mutedBtn; // @synthesize mutedBtn=_mutedBtn;
 @property(retain, nonatomic) NSView *buttonContainer; // @synthesize buttonContainer=_buttonContainer;
 @property(nonatomic) BOOL renderLayerAspectRatio; // @synthesize renderLayerAspectRatio=_renderLayerAspectRatio;
 @property(nonatomic) unsigned long long dotCountIncrement; // @synthesize dotCountIncrement=_dotCountIncrement;
 @property(retain, nonatomic) MMStringToastView *tipsLabel; // @synthesize tipsLabel=_tipsLabel;
 @property(retain, nonatomic) MMTimerLabel *callTimeLabel; // @synthesize callTimeLabel=_callTimeLabel;
 @property(retain, nonatomic) NSTextField *inviteStatusLabel; // @synthesize inviteStatusLabel=_inviteStatusLabel;
-@property(retain, nonatomic) MMTextView *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) MMVoipRenderView *renderView; // @synthesize renderView=_renderView;
 @property(retain, nonatomic) NSView *controlView; // @synthesize controlView=_controlView;

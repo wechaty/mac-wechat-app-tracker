@@ -13,13 +13,12 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMButton, MMChatBackupIndexDB, MMChatBackupSessionLogic, MMDatePickerInputView, MMImageView, MMOutlineButton, MMTableView, MMTextField, MMView, NSButton, NSString, NSView;
+@class MMButton, MMChatBackupSessionLogic, MMDatePickerInputView, MMImageView, MMOutlineButton, MMTableView, MMTextField, MMView, NSButton, NSString, NSView;
 
 @interface MMChatBackupRecoverViewController : MMViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, MMChatBackupSessionLogicDelegate, MMChatBackupServerMgrExt, MMNetExt>
 {
     MMChatBackupSessionLogic *m_sessionLogic;
     NSString *m_deviceId;
-    MMChatBackupIndexDB *m_indexDB;
     unsigned long long m_currentSessionCount;
     unsigned long long m_totalSessionCount;
     NSString *m_speedString;

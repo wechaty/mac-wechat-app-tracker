@@ -7,20 +7,38 @@
 #import <AppKit/NSView.h>
 
 @class MMTextAttachmentCell, NSColor;
+@protocol MMAttachmentReusableViewDelegate, MMAttachmentReusableViewMenuDelegate;
 
 @interface MMAttachmentReusableView : NSView
 {
+    BOOL _enableSwitchLayout;
+    int _objectLayout;
+    int _state;
+    id <MMAttachmentReusableViewDelegate> _delegate;
+    id <MMAttachmentReusableViewMenuDelegate> _menuDelegate;
     MMTextAttachmentCell *_attachmentCell;
     NSView *_containerView;
     NSColor *_normalColor;
-    NSColor *_highlightColor;
+    NSColor *_highlightedColor;
+    NSColor *_strokeColor;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSColor *highlightColor; // @synthesize highlightColor=_highlightColor;
+@property(nonatomic) int state; // @synthesize state=_state;
+@property(nonatomic) int objectLayout; // @synthesize objectLayout=_objectLayout;
+@property(nonatomic) BOOL enableSwitchLayout; // @synthesize enableSwitchLayout=_enableSwitchLayout;
+@property(retain, nonatomic) NSColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+@property(retain, nonatomic) NSColor *highlightedColor; // @synthesize highlightedColor=_highlightedColor;
 @property(retain, nonatomic) NSColor *normalColor; // @synthesize normalColor=_normalColor;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) MMTextAttachmentCell *attachmentCell; // @synthesize attachmentCell=_attachmentCell;
+@property(nonatomic) __weak id <MMAttachmentReusableViewMenuDelegate> menuDelegate; // @synthesize menuDelegate=_menuDelegate;
+@property(nonatomic) __weak id <MMAttachmentReusableViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)doSwitch;
+- (void)doDelelte;
+- (void)doPaste;
+- (void)doCopy;
+- (void)doCut;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)highlightAttachmentView:(BOOL)arg1;
 - (id)initWithIdentifier:(id)arg1 normalColor:(id)arg2 highlightColor:(id)arg3;

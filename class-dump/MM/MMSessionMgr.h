@@ -225,6 +225,7 @@
 - (BOOL)isValidSyncSession:(id)arg1;
 - (id)genSessionInfo:(id)arg1 withEnterTime:(unsigned int)arg2;
 - (id)genSessionInfo:(id)arg1 withAddMsg:(id)arg2;
+- (id)genSessionInfoIgnoreMsgByContact:(id)arg1 hideSession:(char *)arg2;
 - (id)genSessionInfoByContact:(id)arg1;
 - (void)loadExtendedMsgData:(id)arg1;
 - (void)loadBrandSessionData;

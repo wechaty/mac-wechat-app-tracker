@@ -6,12 +6,16 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMAttachmentReusableView, MMRichAttachmentBaseTextView, MMTextAttachmentCell, NSArray, NSString;
+@class MMAttachmentReusableView, MMRichAttachmentBaseTextView, MMTextAttachmentCell, NSArray, NSImage, NSString;
 
 @protocol MMRichAttachmentBaseTextViewDelegate <NSObject>
 - (MMAttachmentReusableView *)textView:(MMRichAttachmentBaseTextView *)arg1 attachmentViewWithAttachment:(MMTextAttachmentCell *)arg2;
 
 @optional
+- (void)textView:(MMRichAttachmentBaseTextView *)arg1 attachmentView:(MMAttachmentReusableView *)arg2 didClick:(id)arg3;
+- (void)textView:(MMRichAttachmentBaseTextView *)arg1 attachmentView:(MMAttachmentReusableView *)arg2 didLoadImage:(NSImage *)arg3 withSize:(struct CGSize)arg4;
+- (void)textView:(MMRichAttachmentBaseTextView *)arg1 attachmentView:(MMAttachmentReusableView *)arg2 didChangeLayout:(int)arg3;
+- (void)textView:(MMRichAttachmentBaseTextView *)arg1 attachmentView:(MMAttachmentReusableView *)arg2 menuAction:(int)arg3;
 - (void)textView:(MMRichAttachmentBaseTextView *)arg1 didDeleteAttachments:(NSArray *)arg2;
 - (void)textView:(MMRichAttachmentBaseTextView *)arg1 willDeleteAttachments:(NSArray *)arg2;
 - (BOOL)textView:(MMRichAttachmentBaseTextView *)arg1 shouldChangeAttachments:(NSArray *)arg2 andTextInRange:(struct _NSRange)arg3 replacementText:(NSString *)arg4;

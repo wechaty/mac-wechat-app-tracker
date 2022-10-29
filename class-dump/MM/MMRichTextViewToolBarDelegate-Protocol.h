@@ -23,11 +23,12 @@
 - (void)richTextViewToolbarDidSelectFontSize:(NSNumber *)arg1;
 - (void)richTextViewToolbarDidSelectParagraphIndentation:(int)arg1;
 - (void)richTextViewToolbarDidSelectParagraphFirstLineHeadIndent;
-- (void)richTextViewToolbarDidSelectInsertSeperateLine;
+- (void)richTextViewToolbarDidSelectInsertSeparateLine;
 - (void)richTextViewToolbarDidSelectTodoBulletPoint;
 - (void)richTextViewToolbarDidSelectOrderBulletPoint;
 - (void)richTextViewToolbarDidSelectBulletPoint;
 - (void)richTextViewToolbarDidSelectStrikeThrough;
+- (void)richTextViewToolbarDidSelectHighlight;
 - (void)richTextViewToolbarDidSelectUnderline;
 - (void)richTextViewToolbarDidSelectItalic;
 - (void)richTextViewToolbarDidSelectBold;

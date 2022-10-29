@@ -14,10 +14,10 @@
 - (void)onMultiTalkUserNotificationReceiveTimeOutWithGroup:(MultiTalkGroup *)arg1;
 - (void)onMultiTalkUserNotificationRejectWithGroup:(MultiTalkGroup *)arg1;
 - (void)onMultiTalkUserNotificationAcceptWithGroup:(MultiTalkGroup *)arg1;
-- (void)onReciveCallCancle;
-- (void)didWindowClose;
+- (void)notificationWindowEndCallByCancel;
+- (void)notificationWindowWillClose;
 - (void)onHangUpButtonClick:(id)arg1;
-- (void)onSwitchVoiceButtonClick:(id)arg1;
+- (void)onExpandButtonClick:(id)arg1;
 - (void)onAnswerButtonClick:(id)arg1;
 - (void)hasNotAudioMicDeviceAuthorized;
 @end

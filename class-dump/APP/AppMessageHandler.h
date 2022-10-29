@@ -25,20 +25,21 @@
 - (void)notifyUploadProgress:(id)arg1 msgData:(id)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
 - (void)onUploadFinished:(unsigned long long)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
-- (void)addAppMsgToDownloadQueue:(id)arg1 msgData:(id)arg2;
 - (void)cancelUpload:(id)arg1 withMessage:(id)arg2;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2 scene:(unsigned int)arg3;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
 - (void)addMsgToUploadQueueForWeWork:(id)arg1 msgData:(id)arg2 andUploadExtendInfos:(id)arg3;
 - (id)init;
-- (void)notifyDownloadProgress:(id)arg1 msgData:(id)arg2 downloadedBytes:(int)arg3 totalBytes:(int)arg4;
+- (void)notifyDownloadProgress:(id)arg1 downloadedBytes:(int)arg2 totalBytes:(int)arg3;
+- (void)onDownloadCancel:(id)arg1;
 - (void)onDownloadExpired:(id)arg1;
 - (void)onDownloadFinish:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)onDownloading:(id)arg1;
 - (void)cancelDownload:(id)arg1 withMessage:(id)arg2;
 - (BOOL)IsMsgDownloading:(id)arg1;
 - (BOOL)isInDownloadingQueue:(id)arg1;
 - (void)checkDownloadQueue;
-- (void)addTaskToDownloadQueue:(id)arg1 msgData:(id)arg2;
+- (void)addTaskToDownloadQueue:(id)arg1 msgData:(id)arg2 downloadType:(int)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

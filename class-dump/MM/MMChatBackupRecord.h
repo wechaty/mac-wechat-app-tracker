@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSString *creatTime; // @synthesize creatTime=_creatTime;
 @property(retain, nonatomic) NSString *recordName; // @synthesize recordName=_recordName;
 @property(retain, nonatomic) NSString *deviceId; // @synthesize deviceId=_deviceId;
+- (id)description;
 - (id)init;
 
 @end

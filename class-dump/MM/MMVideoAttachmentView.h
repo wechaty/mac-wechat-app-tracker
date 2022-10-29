@@ -9,32 +9,33 @@
 #import "GroupNoticeDownloadExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
 #import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@class MMButton, MMImageView, NSString, WeNoteParagraphInfo;
-@protocol MMVideoAttachmentViewDelegate;
+@class MMButton, MMImageView, NSImage, NSString;
 
-@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, GroupNoticeDownloadExt>
+@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, GroupNoticeDownloadExt, NSMenuDelegate>
 {
+    NSImage *_displayImage;
     MMImageView *_thumbnailImageView;
     MMButton *_playBtn;
-    WeNoteParagraphInfo *_paraInfo;
-    id <MMVideoAttachmentViewDelegate> _videoAttachementViewDelegate;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <MMVideoAttachmentViewDelegate> videoAttachementViewDelegate; // @synthesize videoAttachementViewDelegate=_videoAttachementViewDelegate;
-@property(retain, nonatomic) WeNoteParagraphInfo *paraInfo; // @synthesize paraInfo=_paraInfo;
 @property(retain, nonatomic) MMButton *playBtn; // @synthesize playBtn=_playBtn;
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+@property(retain, nonatomic) NSImage *displayImage; // @synthesize displayImage=_displayImage;
+- (id)menuForEvent:(id)arg1;
+- (void)menuDidClose:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)reloadImage;
-- (void)onClickPaly;
-- (void)layoutIcon;
+- (void)onClickPlay;
 - (void)layoutThumb;
-- (void)dealloc;
+- (void)setAttachmentCell:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
 
 // Remaining properties

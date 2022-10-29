@@ -6,22 +6,28 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse;
+@class BaseResponse, NSMutableArray;
 
 @interface CheckFavItemResponse : PBGeneratedMessage
 {
     unsigned int hasBaseResponse:1;
     BaseResponse *baseResponse;
+    NSMutableArray *mutableCheckFavItemRequestListList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *mutableCheckFavItemRequestListList; // @synthesize mutableCheckFavItemRequestListList;
 @property(retain, nonatomic, setter=SetBaseResponse:) BaseResponse *baseResponse; // @synthesize baseResponse;
 @property(readonly, nonatomic) BOOL hasBaseResponse; // @synthesize hasBaseResponse;
+- (void)addCheckFavItemRequestList:(id)arg1;
+- (void)addCheckFavItemRequestListFromArray:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *checkFavItemRequestList; // @dynamic checkFavItemRequestList;
+- (id)checkFavItemRequestListList;
 - (id)init;
 
 @end

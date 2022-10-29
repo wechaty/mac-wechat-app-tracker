@@ -6,11 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMFavoritesDetailBaseCell, NSEvent, NSMenu;
+@class MMFavoritesDetailBaseCell, NSEvent, NSMenu, NSString;
 
 @protocol MMFavoritesDetailCellDelegate <NSObject>
 
 @optional
+- (void)cellViewOnClickTagButton:(MMFavoritesDetailBaseCell *)arg1 tag:(NSString *)arg2;
+- (BOOL)shouldShouldSelectIcon:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellViewNeedsHeightRecalculated:(MMFavoritesDetailBaseCell *)arg1;
 - (BOOL)cellSwipeDeleteButtonShown;
 - (void)cellCleanSwipeEffect:(MMFavoritesDetailBaseCell *)arg1;
@@ -18,7 +20,7 @@
 - (void)cellShowSwipeEffect:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellDragged:(MMFavoritesDetailBaseCell *)arg1 dragEvent:(NSEvent *)arg2 originalPosition:(struct CGPoint)arg3;
 - (void)closedContextMenuFromCell:(MMFavoritesDetailBaseCell *)arg1;
-- (void)openedContextMenuFromCell:(MMFavoritesDetailBaseCell *)arg1 fromButton:(BOOL)arg2;
+- (void)openedContextMenuFromCell:(MMFavoritesDetailBaseCell *)arg1;
 - (NSMenu *)contextMenuForCell:(MMFavoritesDetailBaseCell *)arg1 forEvent:(NSEvent *)arg2;
 @end
 

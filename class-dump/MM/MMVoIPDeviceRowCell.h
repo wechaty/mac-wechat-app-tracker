@@ -6,19 +6,23 @@
 
 #import <AppKit/NSTableCellView.h>
 
-@class NSImageView, NSTextField, NSTrackingArea, NSView;
+@class MMView, NSImageView, NSTextField, NSTrackingArea, NSView;
 
 @interface MMVoIPDeviceRowCell : NSTableCellView
 {
     BOOL _isSelected;
+    BOOL _hasLine;
     NSTextField *_name;
     NSImageView *_check;
     NSTrackingArea *_trackingArea;
     NSView *_trackLayer;
     NSView *_backgroundView;
+    MMView *_divider;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL hasLine; // @synthesize hasLine=_hasLine;
+@property(retain, nonatomic) MMView *divider; // @synthesize divider=_divider;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(retain, nonatomic) NSView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) NSView *trackLayer; // @synthesize trackLayer=_trackLayer;

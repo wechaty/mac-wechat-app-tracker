@@ -45,6 +45,7 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
+- (BOOL)currentNetworkIsWifi;
 - (void)onServerNotify:(int)arg1 cmdID:(int)arg2 notifyData:(id)arg3;
 - (void)mmnetNotifyStatus:(int)arg1;
 - (void)reachabilityChange:(id)arg1;

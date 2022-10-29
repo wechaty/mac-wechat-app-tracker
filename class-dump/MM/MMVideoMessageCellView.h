@@ -83,7 +83,7 @@
 - (void)onVideoUploaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)onVideoDidFinishUploadWithMessage:(id)arg1;
 - (void)onVideoDidFailDownloadWithMessage:(id)arg1;
-- (void)onVideoDidFinishDownloadWithMessage:(id)arg1;
+- (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)resetThumbnailIamgeViewAction;
 - (void)setClickHighLightWithImageName:(id)arg1 andAction:(CDUnknownBlockType)arg2;

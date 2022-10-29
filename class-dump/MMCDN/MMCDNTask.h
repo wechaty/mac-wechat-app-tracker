@@ -10,10 +10,10 @@
 
 @interface MMCDNTask : NSObject
 {
-    BOOL _inSight;
     BOOL _inPreviewWindow;
     unsigned int _localID;
     int _fileType;
+    int _downloadType;
     MessageData *_message;
     FavoritesItemDataField *_favItemData;
     NSString *_chatName;
@@ -28,12 +28,13 @@
     struct C2CDownloadRequest _request;
 }
 
++ (BOOL)isPredownloadType:(int)arg1;
 + (long long)comparePriorityInfo:(id)arg1 withOther:(id)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
 @property(nonatomic) struct C2CDownloadRequest request; // @synthesize request=_request;
 @property(nonatomic) BOOL inPreviewWindow; // @synthesize inPreviewWindow=_inPreviewWindow;
-@property(nonatomic) BOOL inSight; // @synthesize inSight=_inSight;
 @property(retain, nonatomic) MMCDNTaskPriorityInfo *priorityInfo; // @synthesize priorityInfo=_priorityInfo;
 @property(retain, nonatomic) NSString *fileMD5; // @synthesize fileMD5=_fileMD5;
 @property(retain, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
@@ -48,6 +49,7 @@
 @property(retain, nonatomic) FavoritesItemDataField *favItemData; // @synthesize favItemData=_favItemData;
 @property(retain, nonatomic) MessageData *message; // @synthesize message=_message;
 - (id)description;
+- (id)init;
 - (long long)compareTaskPriority:(id)arg1;
 
 @end

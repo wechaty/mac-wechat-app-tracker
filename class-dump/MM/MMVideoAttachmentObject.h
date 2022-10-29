@@ -10,5 +10,8 @@
 {
 }
 
++ (struct CGSize)contentGridSize:(double)arg1;
+- (struct CGSize)contentSize;
+
 @end
 

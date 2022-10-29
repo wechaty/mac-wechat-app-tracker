@@ -6,20 +6,64 @@
 
 #import <objc/NSObject.h>
 
-@class WCFavoritesDB;
+#import "MMCGIDelegate-Protocol.h"
 
-@interface FavoritesTagMgr : NSObject
+@class NSMutableArray, NSMutableDictionary, NSString, WCFavoritesDB;
+
+@interface FavoritesTagMgr : NSObject <MMCGIDelegate>
 {
     WCFavoritesDB *_favTagDB;
+    CDUnknownBlockType m_completionBlock;
+    NSMutableArray *m_editingLocalIds;
+    NSMutableDictionary *_sessionIdDic;
 }
 
 - (void).cxx_destruct;
-- (id)getItemTags:(unsigned int)arg1;
-- (id)getAllTags;
-- (void)updateItemTags:(id)arg1 byFavLocalId:(unsigned int)arg2;
-- (void)deleteItemTagsByFavLocalId:(unsigned int)arg1;
+@property(retain, nonatomic) NSMutableDictionary *sessionIdDic; // @synthesize sessionIdDic=_sessionIdDic;
+- (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)handleBatchBindTagsResp:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)handleBatchRenameResp:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)handleBatchDelTagsResp:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)deleteTagCGIWithId:(unsigned int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)renameTagNameCGI:(unsigned int)arg1 toNewTagName:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)newUpdateTagNameCGI:(id)arg1 to:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)newUpdateItemTagCGI:(id)arg1 tags:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)handleBatchModFavItemResp:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)updateTagNameCGI:(id)arg1 to:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)handleModifyFavItemResp:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)updateItemTagsCGI:(id)arg1 tags:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)setReponseCallBack:(unsigned int)arg1 isSuccess:(BOOL)arg2;
+- (id)saveAllTags:(id)arg1;
+- (id)processTagsFromServer:(id)arg1;
+- (BOOL)deleteNotBindTagInfos;
+- (BOOL)deleteBindTagsByFavLocalId:(unsigned int)arg1;
+- (BOOL)deleteItemTagsByFavLocalId:(unsigned int)arg1 withTagNames:(id)arg2;
+- (BOOL)deleteItemTagsByFavLocalId:(unsigned int)arg1 withTagLocalIds:(id)arg2;
+- (BOOL)deleteItemTagsByFavLocalId:(unsigned int)arg1;
+- (BOOL)deleteItemTagsByTagLocalId:(unsigned int)arg1;
+- (id)insertOrUpdateTagInfo:(id)arg1 byTagNames:(id)arg2 byFavLocalId:(unsigned int)arg3;
+- (BOOL)bindItemTagWithFavLocalId:(unsigned int)arg1 withTagSvrIds:(id)arg2 withTagNames:(id)arg3;
+- (BOOL)updateItem:(unsigned int)arg1 withTagLocalIds:(id)arg2;
+- (BOOL)updateItem:(unsigned int)arg1 withTags:(id)arg2;
+- (BOOL)addItemTags:(unsigned int)arg1 withTagSvrIds:(id)arg2 withTagNames:(id)arg3;
+- (id)getAllDistinctBindTagNames;
+- (unsigned long long)getAllBindTagsCount;
+- (unsigned long long)getBindTagsCountByFavLocalId:(unsigned int)arg1;
+- (id)getItemTagLocalIds:(id)arg1;
+- (id)getItemTagNames:(unsigned int)arg1;
+- (id)getItemTagInfos:(unsigned int)arg1;
+- (id)getAllBindTagsWithDistinctAndSort;
+- (id)getAllBindTags;
+- (id)getOldDataToNewTables:(id)arg1;
+- (BOOL)loadOldDataToNewTagTables;
 - (void)dealloc;
 - (id)initWithDatabase:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

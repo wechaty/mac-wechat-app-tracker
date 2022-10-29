@@ -29,7 +29,7 @@
 - (void)onAuthFaildWithWrongPasswordOrUsername;
 - (void)onAuthFaild:(NSString *)arg1;
 - (void)onLoginAuth;
-- (void)onAuthOK:(BOOL)arg1;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)onAuthOK:(int)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 @end
 

@@ -12,6 +12,7 @@
 
 @interface WCFavoriteTagTableData : NSObject <WCTTableCoding>
 {
+    unsigned int _ROWID;
     unsigned int _localId;
     NSString *_tag;
     WCFavoriteTagTableDataPackedInfo *_m_packedInfo;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) WCFavoriteTagTableDataPackedInfo *m_packedInfo; // @synthesize m_packedInfo=_m_packedInfo;
 @property(retain, nonatomic) NSString *tag; // @synthesize tag=_tag;
 @property(nonatomic) unsigned int localId; // @synthesize localId=_localId;
+@property(nonatomic) unsigned int ROWID; // @synthesize ROWID=_ROWID;
 
 // Remaining properties
 @property(nonatomic) BOOL isAutoIncrement;

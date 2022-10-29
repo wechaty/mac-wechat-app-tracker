@@ -6,62 +6,43 @@
 
 #import <AppKit/NSView.h>
 
-#import "LVLiveBannerCellViewDelegate-Protocol.h"
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
+@class MMGroupTipsBarView, NSColor, NSMutableArray, WCContactData;
 
-@class MMTextField, NSImageView, NSMutableArray, NSScrollView, NSString, NSTableView, SVGImageView, WCContactData;
-
-@interface LVLiveBannerView : NSView <NSTableViewDataSource, NSTableViewDelegate, LVLiveBannerCellViewDelegate>
+@interface LVLiveBannerView : NSView
 {
-    BOOL _fold;
-    BOOL _isFoldAnimating;
+    BOOL _isHighLight;
     WCContactData *_contact;
-    NSView *_topContainerView;
-    SVGImageView *_iconView;
-    MMTextField *_titleTextView;
-    NSScrollView *_scrollView;
-    NSTableView *_tableView;
-    NSView *_bottomView;
-    NSImageView *_foldView;
     NSMutableArray *_viewModels;
+    NSColor *_backgroundColor;
+    NSColor *_hightlightBackgroundColor;
+    CDUnknownBlockType _updatePopoverBlock;
+    CDUnknownBlockType _joinLiveWithIdReportBlock;
+    CDUnknownBlockType _openLVLivePopoverReport;
+    CDUnknownBlockType _closeLVLivePopoverReport;
+    MMGroupTipsBarView *_tipView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMGroupTipsBarView *tipView; // @synthesize tipView=_tipView;
+@property(copy, nonatomic) CDUnknownBlockType closeLVLivePopoverReport; // @synthesize closeLVLivePopoverReport=_closeLVLivePopoverReport;
+@property(copy, nonatomic) CDUnknownBlockType openLVLivePopoverReport; // @synthesize openLVLivePopoverReport=_openLVLivePopoverReport;
+@property(copy, nonatomic) CDUnknownBlockType joinLiveWithIdReportBlock; // @synthesize joinLiveWithIdReportBlock=_joinLiveWithIdReportBlock;
+@property(copy, nonatomic) CDUnknownBlockType updatePopoverBlock; // @synthesize updatePopoverBlock=_updatePopoverBlock;
+@property(retain, nonatomic) NSColor *hightlightBackgroundColor; // @synthesize hightlightBackgroundColor=_hightlightBackgroundColor;
+@property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) BOOL isHighLight; // @synthesize isHighLight=_isHighLight;
 @property(retain, nonatomic) NSMutableArray *viewModels; // @synthesize viewModels=_viewModels;
-@property(nonatomic) BOOL isFoldAnimating; // @synthesize isFoldAnimating=_isFoldAnimating;
-@property(retain, nonatomic) NSImageView *foldView; // @synthesize foldView=_foldView;
-@property(retain, nonatomic) NSView *bottomView; // @synthesize bottomView=_bottomView;
-@property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
-@property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
-@property(retain, nonatomic) MMTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-@property(retain, nonatomic) SVGImageView *iconView; // @synthesize iconView=_iconView;
-@property(retain, nonatomic) NSView *topContainerView; // @synthesize topContainerView=_topContainerView;
-@property(nonatomic, getter=isFold) BOOL fold; // @synthesize fold=_fold;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
-- (void)bannerCellDidClickWatchButton:(id)arg1 viewModel:(id)arg2;
-- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
-- (long long)numberOfRowsInTableView:(id)arg1;
-- (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
 - (void)joinLiveWithId:(unsigned long long)arg1;
-- (void)fold:(id)arg1;
-- (void)unfold:(id)arg1;
-- (void)hide:(id)arg1;
-- (void)show:(id)arg1;
+- (void)realShowPopover;
 - (void)reloadData;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)rightMouseDown:(id)arg1;
 - (void)mouseDragged:(id)arg1;
-- (void)initView;
-- (void)viewDidChangeEffectiveAppearance;
+- (void)handleAppFontSize;
+- (void)initView:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

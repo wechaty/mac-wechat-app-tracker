@@ -11,15 +11,20 @@
 @protocol IMessageServiceFileExt <NSObject>
 
 @optional
+- (void)onFileDidCancelPredownloadWithMessage:(MessageData *)arg1;
+- (void)onFileDidFailPredownloadWithMessage:(MessageData *)arg1;
+- (void)onFileDidStartPredownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidCancelUploadWithMessage:(MessageData *)arg1;
 - (void)onFileDidFinishUploadWithMessage:(MessageData *)arg1;
 - (void)onFileUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
+- (void)onFileDidCancelDownloadWithRecordMessage:(MessageData *)arg1;
 - (void)onFileDidExpireDownloadWithRecordMessage:(MessageData *)arg1;
 - (void)onFileDidFailDownloadWithRecordMessage:(MessageData *)arg1;
 - (void)onFileDidFinishDownloadWithRecordMessage:(MessageData *)arg1;
+- (void)onFileDownloaded:(int)arg1 of:(int)arg2 withRecordMessage:(MessageData *)arg3;
 - (void)onFileDidCancelDownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidFailDownloadWithMessage:(MessageData *)arg1;
-- (void)onFileDidFinishDownloadWithMessage:(MessageData *)arg1;
+- (void)onFileDidFinishDownloadWithMessage:(MessageData *)arg1 isPredownload:(BOOL)arg2;
 - (void)onFileDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 @end
 

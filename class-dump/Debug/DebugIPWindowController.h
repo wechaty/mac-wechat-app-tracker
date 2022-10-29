@@ -8,13 +8,30 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSString;
+@class NSArray, NSPopUpButton, NSString, NSTextField;
 
 @interface DebugIPWindowController : NSWindowController <NSWindowDelegate>
 {
+    NSArray *_serverConfig;
+    NSPopUpButton *_serverButton;
+    NSTextField *_longLinkTextField;
+    NSTextField *_shortLinkTextField;
+    NSTextField *_cdnIPTextField;
+    NSTextField *_groupKeyTextField;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) __weak NSTextField *groupKeyTextField; // @synthesize groupKeyTextField=_groupKeyTextField;
+@property(nonatomic) __weak NSTextField *cdnIPTextField; // @synthesize cdnIPTextField=_cdnIPTextField;
+@property(nonatomic) __weak NSTextField *shortLinkTextField; // @synthesize shortLinkTextField=_shortLinkTextField;
+@property(nonatomic) __weak NSTextField *longLinkTextField; // @synthesize longLinkTextField=_longLinkTextField;
+@property(nonatomic) __weak NSPopUpButton *serverButton; // @synthesize serverButton=_serverButton;
+@property(retain, nonatomic) NSArray *serverConfig; // @synthesize serverConfig=_serverConfig;
 - (void)windowWillClose:(id)arg1;
+- (void)onClickServerButton:(id)arg1;
+- (void)onClickConfirmButton:(id)arg1;
+- (void)onClickApplyButton:(id)arg1;
+- (void)setupViews;
 - (void)windowDidLoad;
 - (id)init;
 

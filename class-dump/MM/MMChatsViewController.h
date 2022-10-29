@@ -53,6 +53,8 @@
 - (void)hideToast;
 - (void)showToast:(id)arg1;
 - (void)hideChatMemberListWithAnimate:(unsigned char)arg1;
+- (void)selectPreviousChat;
+- (void)selectNextChat;
 - (void)goToChatAndTwinkleWithUserName:(id)arg1;
 - (void)goToNextUnreadChat;
 - (void)scrollToNextUnreadChat;

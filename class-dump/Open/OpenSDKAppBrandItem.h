@@ -10,6 +10,7 @@
 
 @interface OpenSDKAppBrandItem : NSObject
 {
+    BOOL _disableForward;
     unsigned int _appBrandVersion;
     NSString *_appBrandUserName;
     NSString *_appBrandPath;
@@ -19,6 +20,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL disableForward; // @synthesize disableForward=_disableForward;
 @property(retain, nonatomic) WAAppPackageInfo *packInfo; // @synthesize packInfo=_packInfo;
 @property(retain, nonatomic) NSString *shareKey; // @synthesize shareKey=_shareKey;
 @property(retain, nonatomic) NSString *appBrandIconUrl; // @synthesize appBrandIconUrl=_appBrandIconUrl;

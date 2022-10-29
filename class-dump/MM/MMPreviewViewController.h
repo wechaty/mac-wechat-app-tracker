@@ -6,9 +6,11 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MMIgnoreEventView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSArray, NSImageView, NSMutableArray, NSString, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView, _TtC6WeChat21PreviewTiledImageView;
+#import "IOCRTransMgrExt-Protocol.h"
 
-@interface MMPreviewViewController : NSViewController
+@class MMIgnoreEventView, MMPreviewSnsVideoPlayerView, MMPreviewVideoPlayerView, MMQLPreviewPageInfo, MMTimer, NSArray, NSImage, NSImageView, NSMutableArray, NSString, NSView, _TtC6WeChat16PreviewImageView, _TtC6WeChat17PreviewScrollView, _TtC6WeChat21PreviewTiledImageView;
+
+@interface MMPreviewViewController : NSViewController <IOCRTransMgrExt>
 {
     BOOL _isSwapingMouse;
     BOOL _isTouchEdge;
@@ -16,6 +18,8 @@
     BOOL _isRestore;
     BOOL _bDidResized;
     BOOL _isShowQRCode;
+    BOOL _isDoingTranslate;
+    BOOL _isWaitingTranslate;
     int _rotateDegrees;
     int _reflectRotateDegrees;
     CDUnknownBlockType _zoomImageBlock;
@@ -23,11 +27,13 @@
     CDUnknownBlockType _restoreActionBlock;
     CDUnknownBlockType _retryDownloadImageBlock;
     CDUnknownBlockType _finishDownloadVideoBlock;
-    CDUnknownBlockType _didFinishLoadImage;
+    CDUnknownBlockType _didFinishScanQRCode;
     CDUnknownBlockType _didChangeQRCodeButtonStatus;
+    CDUnknownBlockType _didFinishOCRScan;
     MMQLPreviewPageInfo *_pageInfo;
     _TtC6WeChat17PreviewScrollView *_scrollView;
     NSImageView *_thumbImageView;
+    _TtC6WeChat16PreviewImageView *_imageView;
     MMPreviewVideoPlayerView *_videoPlayerView;
     MMPreviewSnsVideoPlayerView *_snsVideoPlayerView;
     double _originZoomFactor;
@@ -38,17 +44,21 @@
     long long _scanQRRetryCount;
     MMTimer *_scrollEndtimer;
     NSView *_maskView;
-    _TtC6WeChat16PreviewImageView *_imageView;
     _TtC6WeChat21PreviewTiledImageView *_tiledImageView;
+    MMTimer *_transTimer;
+    NSImage *_transImage;
     struct CGSize _originContentSizeBeforeResize;
     struct CGRect _originFrameBeforeFullScreen;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *transImage; // @synthesize transImage=_transImage;
+@property(retain, nonatomic) MMTimer *transTimer; // @synthesize transTimer=_transTimer;
 @property(retain, nonatomic) _TtC6WeChat21PreviewTiledImageView *tiledImageView; // @synthesize tiledImageView=_tiledImageView;
-@property(retain, nonatomic) _TtC6WeChat16PreviewImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) NSView *maskView; // @synthesize maskView=_maskView;
 @property(retain, nonatomic) MMTimer *scrollEndtimer; // @synthesize scrollEndtimer=_scrollEndtimer;
+@property(nonatomic) BOOL isWaitingTranslate; // @synthesize isWaitingTranslate=_isWaitingTranslate;
+@property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;
 @property(nonatomic) long long scanQRRetryCount; // @synthesize scanQRRetryCount=_scanQRRetryCount;
 @property(retain, nonatomic) NSArray *QRCodeResults; // @synthesize QRCodeResults=_QRCodeResults;
 @property(retain, nonatomic) NSMutableArray *QRCodeResultsButtons; // @synthesize QRCodeResultsButtons=_QRCodeResultsButtons;
@@ -67,16 +77,26 @@
 @property(nonatomic) BOOL isSwapingMouse; // @synthesize isSwapingMouse=_isSwapingMouse;
 @property(retain, nonatomic) MMPreviewSnsVideoPlayerView *snsVideoPlayerView; // @synthesize snsVideoPlayerView=_snsVideoPlayerView;
 @property(retain, nonatomic) MMPreviewVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
+@property(retain, nonatomic) _TtC6WeChat16PreviewImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) NSImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
 @property __weak _TtC6WeChat17PreviewScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMQLPreviewPageInfo *pageInfo; // @synthesize pageInfo=_pageInfo;
+@property(copy, nonatomic) CDUnknownBlockType didFinishOCRScan; // @synthesize didFinishOCRScan=_didFinishOCRScan;
 @property(copy, nonatomic) CDUnknownBlockType didChangeQRCodeButtonStatus; // @synthesize didChangeQRCodeButtonStatus=_didChangeQRCodeButtonStatus;
-@property(copy, nonatomic) CDUnknownBlockType didFinishLoadImage; // @synthesize didFinishLoadImage=_didFinishLoadImage;
+@property(copy, nonatomic) CDUnknownBlockType didFinishScanQRCode; // @synthesize didFinishScanQRCode=_didFinishScanQRCode;
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadVideoBlock; // @synthesize finishDownloadVideoBlock=_finishDownloadVideoBlock;
 @property(copy, nonatomic) CDUnknownBlockType retryDownloadImageBlock; // @synthesize retryDownloadImageBlock=_retryDownloadImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreActionBlock; // @synthesize restoreActionBlock=_restoreActionBlock;
 @property(copy, nonatomic) CDUnknownBlockType restoreImageBlock; // @synthesize restoreImageBlock=_restoreImageBlock;
 @property(copy, nonatomic) CDUnknownBlockType zoomImageBlock; // @synthesize zoomImageBlock=_zoomImageBlock;
+- (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
+- (void)stopTranslateTimer;
+- (void)startTranslateTimer;
+- (void)noticeTransTimeOut;
+- (void)showTranslateErrorNotice:(unsigned int)arg1;
+- (BOOL)showTranslateImage;
+- (void)hideImageTranslateResult;
+- (void)showImageTranslateResult;
 - (void)rotateByAngle:(double)arg1;
 - (void)rotateLeft;
 - (void)setFlipViewAnchorPoint:(struct CGPoint)arg1;
@@ -144,6 +164,7 @@
 - (void)setupRecordPageInfo;
 - (void)setupFavPageInfo;
 - (void)setupMessagePageInfo;
+- (void)handleOCRWhenLoadOriginImage;
 - (void)handleQRCodeWhenLoadOriginImage;
 - (void)handleImageWhenRecallOrDel;
 - (struct CGRect)convertPointToContentView:(id)arg1 imageRect:(struct CGRect)arg2;
@@ -185,6 +206,12 @@
 - (void)zoomActionWithFactor:(double)arg1;
 - (void)resetAdjust;
 - (void)reset;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

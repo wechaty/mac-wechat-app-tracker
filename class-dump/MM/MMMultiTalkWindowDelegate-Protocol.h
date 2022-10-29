@@ -14,7 +14,8 @@
 - (void)onMultiTalkWindowReceiveSwitchScreen:(MMCaptureDeviceInfo *)arg1;
 - (void)onMultiTalkWindowReceiveShareScreenOn:(BOOL)arg1 withInfo:(MMCaptureDeviceInfo *)arg2;
 - (void)onMultiTalkWindowReceiveSwitchCamera:(BOOL)arg1;
-- (void)onMultiTalkWindowMicAudioOn:(BOOL)arg1;
+- (void)onMultiTalkWindowAudioOutputSelected:(BOOL)arg1;
+- (void)onMultiTalkWindowAudioInputSelected:(BOOL)arg1;
 - (void)onMultiTalkWindowRecoverVideoOn:(BOOL)arg1;
 - (void)onMultiTalkWindowUpdateMessageWith:(MultiTalkGroup *)arg1 duration:(unsigned int)arg2 messageId:(unsigned int)arg3;
 - (void)onMultiTalkWindowAddMember:(NSArray *)arg1 withGroup:(MultiTalkGroup *)arg2;

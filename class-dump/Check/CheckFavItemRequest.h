@@ -6,30 +6,32 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseRequest, NSString;
+@class FavResendObject, NSMutableArray;
 
 @interface CheckFavItemRequest : PBGeneratedMessage
 {
-    unsigned int hasBaseRequest:1;
-    unsigned int hasSourceType:1;
-    unsigned int hasSourceId:1;
-    unsigned int sourceType;
-    BaseRequest *baseRequest;
-    NSString *sourceId;
+    unsigned int hasScene:1;
+    unsigned int hasFavResendObject:1;
+    unsigned int scene;
+    NSMutableArray *mutableFavIdandObjectListList;
+    FavResendObject *favResendObject;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic, setter=SetSourceId:) NSString *sourceId; // @synthesize sourceId;
-@property(readonly, nonatomic) BOOL hasSourceId; // @synthesize hasSourceId;
-@property(nonatomic, setter=SetSourceType:) unsigned int sourceType; // @synthesize sourceType;
-@property(readonly, nonatomic) BOOL hasSourceType; // @synthesize hasSourceType;
-@property(retain, nonatomic, setter=SetBaseRequest:) BaseRequest *baseRequest; // @synthesize baseRequest;
-@property(readonly, nonatomic) BOOL hasBaseRequest; // @synthesize hasBaseRequest;
+@property(retain, nonatomic, setter=SetFavResendObject:) FavResendObject *favResendObject; // @synthesize favResendObject;
+@property(readonly, nonatomic) BOOL hasFavResendObject; // @synthesize hasFavResendObject;
+@property(nonatomic, setter=SetScene:) unsigned int scene; // @synthesize scene;
+@property(readonly, nonatomic) BOOL hasScene; // @synthesize hasScene;
+@property(retain, nonatomic) NSMutableArray *mutableFavIdandObjectListList; // @synthesize mutableFavIdandObjectListList;
+- (void)addFavIdandObjectList:(id)arg1;
+- (void)addFavIdandObjectListFromArray:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *favIdandObjectList; // @dynamic favIdandObjectList;
+- (id)favIdandObjectListList;
 - (id)init;
 
 @end

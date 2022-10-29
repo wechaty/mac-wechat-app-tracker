@@ -9,6 +9,9 @@
 @protocol IVOIPExt
 
 @optional
+- (void)onVoIPExtRemoteTerminate;
+- (void)onVoIPExtRemoteCaptureResume;
+- (void)onVoIPExtRemoteCaptureSuspend;
 - (void)OnStartAudioUintFailed;
 - (void)OnCallOverLoad:(WCContactData *)arg1 errNo:(int)arg2 errMsg:(NSString *)arg3;
 - (void)OnCallBanned:(WCContactData *)arg1 errNo:(int)arg2 errMsg:(NSString *)arg3;

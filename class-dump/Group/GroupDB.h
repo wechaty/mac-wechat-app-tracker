@@ -13,10 +13,25 @@
     WCTDatabase *m_db;
     WCTTable *m_groupTable;
     WCTTable *m_memberTable;
+    WCTTable *m_topMsgTable;
 }
 
 + (void)deleteGroupDB;
 - (void).cxx_destruct;
+- (void)transferNetworkTopMsgToMsgData:(id)arg1 msgData:(id)arg2;
+- (BOOL)updateStatusOnGroupTopMsg:(unsigned long long)arg1;
+- (BOOL)updateRevokeOnGroupTopMsg:(unsigned long long)arg1;
+- (id)getGroupTopMsg:(unsigned long long)arg1;
+- (id)getGroupTopMsg:(id)arg1 topId:(unsigned int)arg2;
+- (id)getGroupTopMsgArrNotCheck:(id)arg1;
+- (id)getGroupTopMsgArr:(id)arg1;
+- (BOOL)deleteAllGroupTopMsg:(id)arg1;
+- (BOOL)deleteGroupTopMsg:(unsigned long long)arg1;
+- (BOOL)deleteGroupDefaultTopMsg:(id)arg1;
+- (BOOL)deleteGroupTopMsg:(id)arg1 topId:(unsigned int)arg2;
+- (BOOL)insertGroupTopMsgArr:(id)arg1 groupName:(id)arg2 currentTopMsgList:(id)arg3 finalTopMsgList:(id)arg4;
+- (BOOL)insertDefaultGroupTopMsg:(id)arg1;
+- (BOOL)insertGroupTopMsg:(id)arg1;
 - (BOOL)addOrModifyGroupMembersKeepLocalField:(id)arg1 onlyInsertNew:(BOOL)arg2 retArray:(id)arg3;
 - (BOOL)addOrModifyGroupMembersKeepLocalField:(id)arg1;
 - (BOOL)addOrModifyGroupMemberKeepLocalField:(id)arg1;

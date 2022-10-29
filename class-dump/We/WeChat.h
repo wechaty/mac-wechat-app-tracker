@@ -128,7 +128,6 @@
 - (void)delayReportSettingsData;
 - (void)delayReportDBData;
 - (void)delayCheckInvalidContact;
-- (void)delayUpdateSessionGroupChat;
 - (void)delayInitPanel;
 - (void)createSearchCaches;
 - (void)setupAuthServices;
@@ -139,10 +138,9 @@
 - (void)startSyncAndHeatbeat;
 - (void)updateBackupRecoverMenuItem;
 - (void)updateMainUI:(BOOL)arg1;
-- (void)doSomethingOnManualAuth;
-- (void)doSomethingOnAuth:(BOOL)arg1;
+- (void)doSomethingOnAuth:(int)arg1;
 - (void)initDBMonitor;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)onLoginAuth;
 - (void)performDelayCleanUpExtension;
 - (void)onUserManualLogout;
@@ -201,6 +199,8 @@
 - (void)showLagReportWindow;
 - (void)showAppLogReportWindow;
 - (void)showLogReportWindow;
+- (void)showDBCheckPointInfo;
+- (void)resetDBCheckPointInfo;
 - (void)showBrandDBFileInfo;
 - (void)showDBFileInfo;
 - (void)showFavDBEssentialInfo;
@@ -247,6 +247,7 @@
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerRunloopException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_showOCRDebug:(id)arg1;
 - (void)_showFinderDebug:(id)arg1;
 - (void)_showGroupNoticeDebugWindow:(id)arg1;
 - (void)_showAddFriendDebug:(id)arg1;
@@ -306,7 +307,10 @@
 - (void)selectChatWithUserName:(id)arg1;
 - (void)showContactsTabWithUserName:(id)arg1;
 - (void)goToChatAndTwinkleWithUserName:(id)arg1;
+- (void)goToPreviousChat:(id)arg1;
+- (void)goToNextChat:(id)arg1;
 - (void)goToNextUnreadChat:(id)arg1;
+- (void)closeSearchViewIfNeeded;
 - (id)currentChatListViewController;
 - (long long)chatLastSelectedRow;
 - (id)currentSelectedUserName;

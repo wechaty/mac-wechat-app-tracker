@@ -12,20 +12,24 @@
 {
     NSString *_iconName;
     NSImage *_icon;
+    NSString *_title;
     NSImage *_arrowIcon;
-    MMSidebarLabelTextField *_titleLabel;
     SVGImageView *_iconView;
     MMSidebarColorIconView *_arrowIconView;
+    MMSidebarLabelTextField *_titleLabel;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMSidebarLabelTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) MMSidebarColorIconView *arrowIconView; // @synthesize arrowIconView=_arrowIconView;
 @property(retain, nonatomic) SVGImageView *iconView; // @synthesize iconView=_iconView;
-@property(retain, nonatomic) MMSidebarLabelTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSImage *arrowIcon; // @synthesize arrowIcon=_arrowIcon;
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSImage *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) NSString *iconName; // @synthesize iconName=_iconName;
-- (void)dealloc;
+- (void)layoutArrowIcon;
+- (void)layoutIconView;
+- (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

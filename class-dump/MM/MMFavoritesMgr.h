@@ -14,25 +14,29 @@
 #import "MMNetExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class FavoritesBatchDelMgr, FavoritesBatchGetMgr, FavoritesSetting, FavoritesSyncManager, FavoritesTagMgr, FavoritesUploadMgr, NSMutableSet, NSString, WCFavoritesDB;
+@class FavRecentDataMgr, FavoritesBatchDelMgr, FavoritesBatchGetMgr, FavoritesSetting, FavoritesSyncManager, FavoritesTagMgr, FavoritesUploadMgr, NSMutableSet, NSString, WCFavoritesDB;
 
 @interface MMFavoritesMgr : MMService <FavoritesBatchGetMgrDelegate, FavoritesSyncManagerDelegate, FavoritesBatchDelMgrDelegate, AccountServiceExt, MMNetExt, FavoritesUploadMgrDelegate, MMService>
 {
     BOOL m_invalidWalFlag;
+    BOOL _isSyncingTag;
     WCFavoritesDB *_favItemDB;
     FavoritesSyncManager *_syncMgr;
     FavoritesUploadMgr *_uploadMgr;
     FavoritesBatchGetMgr *_batchGetMgr;
     FavoritesTagMgr *_tagMgr;
     FavoritesBatchDelMgr *_batchDelMgr;
+    FavRecentDataMgr *_recentMgr;
     NSMutableSet *_modingItems;
     FavoritesSetting *_setting;
 }
 
 + (void)clearDataFolder;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isSyncingTag; // @synthesize isSyncingTag=_isSyncingTag;
 @property(retain, nonatomic) FavoritesSetting *setting; // @synthesize setting=_setting;
 @property(retain, nonatomic) NSMutableSet *modingItems; // @synthesize modingItems=_modingItems;
+@property(retain, nonatomic) FavRecentDataMgr *recentMgr; // @synthesize recentMgr=_recentMgr;
 @property(retain, nonatomic) FavoritesBatchDelMgr *batchDelMgr; // @synthesize batchDelMgr=_batchDelMgr;
 @property(retain, nonatomic) FavoritesTagMgr *tagMgr; // @synthesize tagMgr=_tagMgr;
 @property(retain, nonatomic) FavoritesBatchGetMgr *batchGetMgr; // @synthesize batchGetMgr=_batchGetMgr;
@@ -51,7 +55,7 @@
 - (void)onServerNotify:(int)arg1 cmdID:(int)arg2 notifyData:(id)arg3;
 - (void)removeFileItemWithDataList:(id)arg1;
 - (void)removeSavedFileForFavorteItem:(id)arg1;
-- (BOOL)deleteFavoriteItemById:(unsigned int)arg1;
+- (BOOL)deleteFavoriteItemDBByFavId:(unsigned int)arg1 callExtension:(BOOL)arg2;
 - (BOOL)batchDelFavoritesItem:(id)arg1;
 - (BOOL)delFavoritesItems:(id)arg1;
 - (BOOL)delFavoritesItem:(id)arg1;
@@ -61,28 +65,47 @@
 - (void)HandleModifyFavItemResp:(id)arg1 cgiWrap:(id)arg2;
 - (BOOL)updateItemInFavItemDB:(id)arg1;
 - (BOOL)updateItemXml:(id)arg1;
-- (void)updateSearchTableWithFavoriteItem:(id)arg1;
+- (BOOL)updateSearchTableWithFavoriteItem:(id)arg1;
 - (void)reIndexAllItemsIntoSearchTable;
 - (void)updateItemUpdateTime:(id)arg1;
 - (id)updateTagWithFavoriteItem:(id)arg1;
 - (void)searchFavSourceWithKeyword:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 progress:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (BOOL)updateItem:(id)arg1 tags:(id)arg2;
+- (BOOL)updateOrAddItemTagWithFavLocalId:(unsigned int)arg1 withTagSvrIds:(id)arg2 withTagNames:(id)arg3;
+- (void)handleDeleteTag:(BOOL)arg1 tag:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)deleteTag:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)handleUpdateTagName:(BOOL)arg1 oldTag:(id)arg2 to:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)checkUpdateTagNameParameters:(id)arg1 newTagName:(id)arg2;
+- (void)updateTag:(id)arg1 to:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (BOOL)updateFavItemTagDB:(id)arg1 tags:(id)arg2;
+- (void)handleUpdateItemTags:(BOOL)arg1 items:(id)arg2 tags:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)updateItemTagsForOldCGI:(id)arg1 tags:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)updateItems:(id)arg1 tags:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addItems:(id)arg1 toTag:(id)arg2;
 - (void)addItem:(id)arg1 toTag:(id)arg2;
-- (id)tagsWithItem:(id)arg1;
+- (unsigned int)itemTagLocalIdWithTagString:(id)arg1;
+- (id)getFavItemTags:(unsigned int)arg1;
+- (id)getTagNameWithTagLocalId:(unsigned int)arg1;
+- (unsigned long long)countOfItemsWithTagLocalId:(unsigned int)arg1;
 - (unsigned long long)countOfItemsWithTagString:(id)arg1;
 - (id)itemLocalIDsWithTagString:(id)arg1;
 - (id)itemsWithTagsStrings:(id)arg1;
 - (id)itemsWithTagString:(id)arg1;
-- (unsigned int)allTagsCount;
 - (id)topTagsWithLimit:(unsigned int)arg1;
-- (id)allTags;
+- (unsigned long long)countOfAllTags;
+- (id)allTagNames;
+- (BOOL)processTagsFromServer:(id)arg1;
 - (id)allFavEssentialInfosInDB;
 - (id)allGroupChatSenderContacts;
 - (id)allItemSenderContacts;
 - (id)allItemSenderUserNames;
+- (void)deleteRecentFavItem:(unsigned int)arg1;
+- (void)addRecentFavItems:(id)arg1;
+- (void)addRecentFavItem:(unsigned int)arg1;
+- (id)getRecentFavItems;
+- (unsigned long long)countOfRecentFavItems;
+- (BOOL)hasBeforeAsyncUploadingItem;
 - (id)favoritesSetting;
 - (id)getFavItemWithFavID:(unsigned int)arg1 checkUpdateIfNeed:(BOOL)arg2;
 - (id)getFavItemWithLocalID:(unsigned int)arg1 checkUpdateIfNeed:(BOOL)arg2;
@@ -106,13 +129,16 @@
 - (BOOL)addFavoritesItem:(id)arg1 delayUpload:(BOOL)arg2;
 - (BOOL)addFavoriteItem:(id)arg1;
 - (void)onRegardUpdateTimeAsAddAddItem:(id)arg1;
-- (void)onBatchGetItemList:(id)arg1 ErrCode:(int)arg2;
+- (void)onBatchGetItemList:(id)arg1 updateTagFavItems:(id)arg2 ErrCode:(int)arg3;
 - (void)addFavIDsToBatchGetQueue:(id)arg1;
-- (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 addedItems:(id)arg2 deletedItemFavIds:(id)arg3 updatedItemFavIds:(id)arg4 totalCountChanged:(BOOL)arg5;
+- (void)onNeedUpdateFavInfo;
+- (void)syncMgrDidFinishSyncWithSuccess:(BOOL)arg1 selector:(int)arg2 addedItems:(id)arg3 deletedItems:(id)arg4 updatedItemFavIds:(id)arg5 totalCountChanged:(BOOL)arg6;
+- (void)SyncByNotify:(unsigned int)arg1;
 - (void)sync;
 - (BOOL)checkCanRetrySync:(id)arg1;
 - (void)checkShouldShowFavErrorHint;
 - (void)onServiceClearData;
+- (void)loadOldDataToNewToNewTables;
 - (void)onServiceInit;
 - (void)dealloc;
 - (void)setupMgr;

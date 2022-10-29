@@ -10,6 +10,7 @@
 {
 }
 
++ (double)getBulletAdjustWidth;
 + (double)getOrderIndexWidth:(long long)arg1;
 + (id)excludeParagraphTag:(id)arg1;
 + (BOOL)isToDoBulletInAttributesStringWithRange:(id)arg1 range:(struct _NSRange)arg2;

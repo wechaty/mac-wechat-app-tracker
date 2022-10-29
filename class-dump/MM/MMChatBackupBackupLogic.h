@@ -8,13 +8,13 @@
 
 #import "MMChatBackupBackupHelperDelegate-Protocol.h"
 
-@class MMChatBackupBackupHelper, MMChatBackupIndexDB, MMChatLogProtoHandler, MMTimer, NSMutableSet, NSString;
+@class MMChatBackupBackupHelper, MMChatLogProtoHandler, MMTimer, NSMutableSet, NSString;
 
 @interface MMChatBackupBackupLogic : MMChatBackupBasicLogic <MMChatBackupBackupHelperDelegate>
 {
     MMChatLogProtoHandler *m_protoHandler;
     MMChatBackupBackupHelper *m_chatBackupBackupHelper;
-    MMChatBackupIndexDB *m_indexDB;
+    NSString *m_deviceId;
     BOOL m_bStopService;
     unsigned long long m_totalSessionCount;
     NSMutableSet *m_sessionProgressSet;
@@ -25,6 +25,7 @@
 
 - (void).cxx_destruct;
 - (BOOL)sendData:(id)arg1;
+- (void)copyLogFile;
 - (void)backupFinish;
 - (void)processFinishRequestData:(id)arg1;
 - (void)sendDataTagResponseForDataTag:(id)arg1;
@@ -37,7 +38,6 @@
 - (void)onRequestSessionProcessEndWithResponse:(id)arg1;
 - (void)processRequestSessionData:(id)arg1;
 - (void)sendStartResponseWithStatus:(int)arg1;
-- (void)storeOrUpdateBackupRecordInfo:(id)arg1;
 - (void)processStartRequestData:(id)arg1;
 - (void)stopService;
 - (void)startService;

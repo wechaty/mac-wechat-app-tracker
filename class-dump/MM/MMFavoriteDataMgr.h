@@ -26,7 +26,7 @@
 - (void)setBrowseDetailReportData:(id)arg1 forKey:(id)arg2;
 - (void)onServiceClearData;
 - (void)onServiceInit;
-- (void)loadDataForSelectedItem:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)loadDataForSelectedItem:(id)arg1 forCollectionView:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

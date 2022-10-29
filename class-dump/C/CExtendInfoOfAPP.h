@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AppProductItem, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, FavoritesItem, FileMsgPreDownloadInfo, GroupNoticeItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 
 @interface CExtendInfoOfAPP : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -88,6 +88,7 @@
     unsigned int m_uiTempAccessBizType;
     unsigned int m_uiTempAccessAgreenTime;
     GroupNoticeItem *groupNoticeItem;
+    FileMsgPreDownloadInfo *filePreDownloadInfo;
     BOOL bAppMsgCompleteFlag;
     BOOL m_isReaderForbidForward;
     unsigned int m_uiTemplateShowType;
@@ -117,6 +118,7 @@
 @property(nonatomic) unsigned int m_uiWeAppState; // @synthesize m_uiWeAppState=_m_uiWeAppState;
 @property(retain, nonatomic) NSString *referMessageSenderDisplayName; // @synthesize referMessageSenderDisplayName=_referMessageSenderDisplayName;
 @property(retain, nonatomic) NSString *referMessageSenderUsrname; // @synthesize referMessageSenderUsrname=_referMessageSenderUsrname;
+@property(retain, nonatomic) FileMsgPreDownloadInfo *filePreDownloadInfo; // @synthesize filePreDownloadInfo;
 @property(nonatomic) unsigned int m_uiTemplateShowType; // @synthesize m_uiTemplateShowType;
 @property(nonatomic) BOOL m_isReaderForbidForward; // @synthesize m_isReaderForbidForward;
 @property(retain, nonatomic) MessageData *referingMessageWrap; // @synthesize referingMessageWrap;

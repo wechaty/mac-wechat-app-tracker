@@ -42,6 +42,7 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)showAlert:(id)arg1;
 - (void)handleAppFontSize;
+- (void)viewChangedEffectiveAppearance;
 - (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;

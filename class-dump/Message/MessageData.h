@@ -300,6 +300,7 @@
 - (void)setPasterDataProvider:(id)arg1;
 - (void)writeToPasteboardItem:(id)arg1;
 @property(nonatomic) unsigned long long readerWrapIndex;
+- (id)getMsgFilePredownloadInfo;
 - (void)UpdateContent:(id)arg1;
 - (BOOL)allowFavorite;
 - (BOOL)allowMergeForwardToWework;
@@ -354,6 +355,8 @@
 - (id)mapsURLWithProvider:(unsigned long long)arg1;
 - (int)yoType;
 - (unsigned long long)yoCount;
+- (id)getMsgVideoPredownloadInfo;
+- (id)getMsgImgPredownloadInfo;
 - (unsigned int)midImageSize;
 - (unsigned int)originImageSize;
 - (BOOL)isLargeImageForPreview;

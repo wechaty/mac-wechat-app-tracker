@@ -9,6 +9,9 @@
 @protocol MMComposeTextViewDelegate <NSObject>
 
 @optional
+- (void)onEscapeInputMode;
+- (void)onBackward;
+- (void)onForward;
 - (void)selectRightItem;
 - (void)selectLeftItem;
 - (void)selectNextItem;

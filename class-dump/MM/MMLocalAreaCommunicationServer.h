@@ -44,6 +44,7 @@
 - (void)onNetworkDisconnect;
 - (void)onNetworkConnected;
 - (void)onNetworkReciveData:(id)arg1 andLength:(unsigned int)arg2;
+- (unsigned int)getCommunicationTransferType;
 - (unsigned long long)getServerOpenTime;
 - (unsigned long long)getTotalReceiveLength;
 - (unsigned long long)getTotalSendLength;

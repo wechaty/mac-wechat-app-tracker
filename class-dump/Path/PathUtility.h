@@ -42,6 +42,7 @@
 + (id)localUsrDirPath;
 + (id)joinedBySourcePathFromXML:(id)arg1;
 + (id)trimmingSourcePathToXML:(id)arg1;
++ (id)GetSessionSortCacheDataFilePath;
 + (id)GetSessionDBRecoverPath;
 + (id)GetSessionDBExtPath;
 + (id)GetSessionDBPath;
@@ -70,6 +71,8 @@
 + (void)CreateEmoticonBasePaths;
 + (id)emoticonPathNonPersistenceCompatible:(id)arg1;
 + (id)emoticonPathPersistenceCompatible:(id)arg1;
++ (id)getContactInitFailedUserNamePath;
++ (id)getContactInitDir;
 + (id)getWCContactDBRecoverPathNew;
 + (id)getWCContactDBPathNew;
 + (id)getWCContactDBPath;
@@ -102,6 +105,11 @@
 + (id)GetCurUserDocumentPath;
 + (id)GetUserCachePathWithUserName:(id)arg1;
 + (id)GetUserDocumentPathWithUserName:(id)arg1;
++ (id)getPredownloadRequestDataPath;
++ (id)getPredownloadQuotaPath:(unsigned long long)arg1;
++ (id)getPredownloadDBPath:(unsigned long long)arg1;
++ (id)getPredownloadDirWithBizId:(unsigned long long)arg1;
++ (id)getPredownloadRootDir;
 + (id)getAbtestCachePath;
 + (id)getAbtestRootPath;
 + (id)getKvConfigDBPath;
@@ -150,6 +158,7 @@
 + (id)getMigrateAnalyseDBPath;
 + (id)getMediaDataDBPath;
 + (id)getMsgTempDirOfUser:(id)arg1;
++ (id)getGroupTopMsgDBPath;
 + (id)getMsgTempDir;
 + (id)getRevokeMsgDBPath;
 + (id)getSpamMsgDBPath;
@@ -164,6 +173,12 @@
 + (id)getMsgDBPath:(id)arg1;
 + (id)getUnSupportMigrateMsgDBPath;
 + (id)getMessageRootDir;
++ (id)getBackupLogPath:(id)arg1;
++ (id)getBackupIndexDataBasePath:(id)arg1;
++ (id)getBackupRecoverPath:(id)arg1;
++ (id)getBackupPath:(id)arg1;
++ (id)getCurUsrBackupDir;
++ (id)getCurUsrDeviceIdList;
 + (id)cachedStatusDataPath;
 + (id)cachedStatusDataFolder;
 + (id)GetFileStateSyncDBPath;
@@ -190,6 +205,7 @@
 + (id)favoritesTpDownloadedThumbnailFolder;
 + (id)favoritesCDNDownloadedThumbnailPathWithFavItemData:(id)arg1;
 + (id)favoritesCDNDownloadedThumbnailFolder;
++ (id)favoritesRecentItemsPath;
 + (id)favoritesTempFolder;
 + (id)favoritesUICacheFolder;
 + (id)favoritesSettingPath;

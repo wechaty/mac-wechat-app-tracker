@@ -6,14 +6,15 @@
 
 #import "NSObject-Protocol.h"
 
-@class MessageData, NSString;
+@class AppDownloadTask, MessageData, NSString;
 
 @protocol AppMessageHandlerDelegate <NSObject>
 
 @optional
-- (void)notifyAppMsgDownloadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 downloadedBytes:(int)arg3 totalBytes:(int)arg4;
-- (void)onAppMsgDownloadExpired:(NSString *)arg1 msgData:(MessageData *)arg2 type:(int)arg3;
-- (void)onAppMsgDownloadFinish:(NSString *)arg1 msgData:(MessageData *)arg2 type:(int)arg3 isSuccess:(BOOL)arg4;
+- (void)notifyAppMsgDownloadProgress:(AppDownloadTask *)arg1 downloadedBytes:(int)arg2 totalBytes:(int)arg3;
+- (void)onAppMsgDownloadExpired:(AppDownloadTask *)arg1;
+- (void)onAppMsgDownloadCancel:(AppDownloadTask *)arg1;
+- (void)onAppMsgDownloadFinish:(AppDownloadTask *)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyAppMsgUploadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 - (void)onAppMsgSendFinish:(NSString *)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 - (void)onAppMsgUploadFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;

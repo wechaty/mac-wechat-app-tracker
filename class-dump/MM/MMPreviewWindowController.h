@@ -6,6 +6,8 @@
 
 #import "MMWindowController.h"
 
+#import "IOCRTransMgrExt-Protocol.h"
+#import "MMOCRScannerExt-Protocol.h"
 #import "MMPreviewWindowDelegate-Protocol.h"
 #import "MMQRCodeScannerExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
@@ -15,7 +17,7 @@
 
 @class MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPreviewEventView, MMPreviewPageController, MMPreviewToggleRestoreButton, MMPreviewViewController, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat15TrackButtonView;
 
-@interface MMPreviewWindowController : MMWindowController <NSWindowDelegate, NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, NSPageControllerDelegate>
+@interface MMPreviewWindowController : MMWindowController <NSWindowDelegate, NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMOCRScannerExt, NSPageControllerDelegate>
 {
     BOOL _isUpdatingItemList;
     BOOL _isFullScreen;
@@ -33,6 +35,7 @@
     BOOL _isDoingRotating;
     BOOL _isDoingQRCode;
     BOOL _hasQRCodeInRect;
+    BOOL _isDoingTranslate;
     BOOL _bDidResized;
     MMPreviewEventView *_containerView;
     NSImageView *_animationThumbView;
@@ -59,6 +62,7 @@
     MMCustomDisableButton *_zoomInButton;
     MMPreviewToggleRestoreButton *_restoreButton;
     MMButton *_qrButton;
+    MMButton *_translateButton;
     MMMediumDivider *_secondDivider;
     MMCustomDisableButton *_rotateButton;
     MMCustomDisableButton *_editButton;
@@ -79,6 +83,7 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
+@property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;
 @property(nonatomic) BOOL hasQRCodeInRect; // @synthesize hasQRCodeInRect=_hasQRCodeInRect;
 @property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) BOOL isDoingRotating; // @synthesize isDoingRotating=_isDoingRotating;
@@ -98,6 +103,7 @@
 @property(retain, nonatomic) MMCustomDisableButton *editButton; // @synthesize editButton=_editButton;
 @property(retain, nonatomic) MMCustomDisableButton *rotateButton; // @synthesize rotateButton=_rotateButton;
 @property(retain, nonatomic) MMMediumDivider *secondDivider; // @synthesize secondDivider=_secondDivider;
+@property(retain, nonatomic) MMButton *translateButton; // @synthesize translateButton=_translateButton;
 @property(retain, nonatomic) MMButton *qrButton; // @synthesize qrButton=_qrButton;
 @property(retain, nonatomic) MMPreviewToggleRestoreButton *restoreButton; // @synthesize restoreButton=_restoreButton;
 @property(retain, nonatomic) MMCustomDisableButton *zoomInButton; // @synthesize zoomInButton=_zoomInButton;
@@ -136,6 +142,8 @@
 @property(retain, nonatomic) MMPreviewPageController *pageController; // @synthesize pageController=_pageController;
 @property(retain, nonatomic) NSImageView *animationThumbView; // @synthesize animationThumbView=_animationThumbView;
 @property(retain, nonatomic) MMPreviewEventView *containerView; // @synthesize containerView=_containerView;
+- (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
+- (void)onOCRDetectFinish:(id)arg1;
 - (void)doAnimationForImageRotate;
 - (void)doAnimationForImageRotateAfterResizeWindow;
 - (void)doAnimationForImageRotateAndWindowFrame:(BOOL)arg1;
@@ -158,6 +166,8 @@
 - (void)updateToolbarButtonWithLoading:(BOOL)arg1;
 - (void)updateToolbarControls;
 - (struct CGRect)toolbarFrame;
+- (void)hideTranslateImage;
+- (void)willShowTranslateImage;
 - (void)successToParseQRCodeResult:(id)arg1;
 - (void)unknownForParseQRCodeResult:(id)arg1;
 - (void)failToParseQRCodeResult:(id)arg1 errorInfo:(id)arg2;
@@ -220,7 +230,9 @@
 - (void)fullScreenWithBtn:(id)arg1;
 - (void)closeWithBtn:(id)arg1;
 - (void)setCanotResize;
+- (void)onTranslateButtonClick:(id)arg1;
 - (void)onQRCodeButtonClick:(id)arg1;
+- (void)onPageDidTransition:(id)arg1;
 - (void)nextItemWithKeyDown:(unsigned long long)arg1;
 - (void)prevItemWithKeyDown:(unsigned long long)arg1;
 - (void)resetNaviActionParameter:(unsigned long long)arg1;
@@ -247,6 +259,7 @@
 - (struct CGRect)initialWindowFrameWithImageSize:(struct CGSize)arg1 sourceFrame:(struct CGRect)arg2;
 - (struct CGSize)handleFloatingSize:(struct CGSize)arg1;
 - (void)closeWithMenu;
+- (BOOL)shouldShowImageTranlateEntrance;
 - (unsigned long long)QRCodeResultCount;
 - (BOOL)shouldShowQRCodeEntrance;
 - (BOOL)shouldShowShareEntrance;
@@ -296,6 +309,7 @@
 - (BOOL)isUpdatingPageController:(id)arg1;
 - (void)preloadVideoOfInfo:(id)arg1;
 - (void)setupFullScreenToolBar;
+- (void)updateButtonsAnimator;
 - (void)_layoutToolbarToolBtns;
 - (void)_layoutToolbarControlBtns;
 - (void)setupToolBarContainer;

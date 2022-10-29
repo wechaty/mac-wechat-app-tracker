@@ -14,6 +14,7 @@
 + (id)makeUnsupportedTableItemWithItem:(id)arg1;
 - (BOOL)allowRefer;
 - (BOOL)allowChoose;
+- (BOOL)allowStickyAndUnStickly;
 - (BOOL)allowMultipleSelect;
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;

@@ -45,14 +45,14 @@
 - (void)onUserLogout;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onNewMsgNotification:(id)arg1 msgData:(id)arg2;
-- (void)onReciveCallCancle;
-- (void)didWindowClose;
+- (void)notificationWindowEndCallByCancel;
+- (void)notificationWindowWillClose;
 - (void)onHangUpButtonClick:(id)arg1;
-- (void)onSwitchVoiceButtonClick:(id)arg1;
+- (void)onExpandButtonClick:(id)arg1;
 - (void)onAnswerButtonClick:(id)arg1;
 - (void)hasNotAudioMicDeviceAuthorized;
 - (void)handleVoipMsgNotification:(id)arg1 msgData:(id)arg2;
-- (void)windowDidColsed:(id)arg1;
+- (void)VoIPWindowDidClosed:(id)arg1;
 - (void)alertVoipCallerWindow:(id)arg1 contact:(id)arg2 initViewMode:(int)arg3;
 - (void)showMultiTalkWindowController;
 - (void)alertReceiverWindow:(id)arg1 contact:(id)arg2 initViewMode:(int)arg3;

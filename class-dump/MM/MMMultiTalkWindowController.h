@@ -114,11 +114,11 @@
 - (void)tryStartTimerView;
 - (void)onAddMemberBtnClick;
 - (void)onShareScreenBtnClick;
-- (void)closeAudioInputAuto:(id)arg1;
-- (void)closeCameraAuto:(id)arg1;
+- (void)closeLocalCameraForMultiTalk:(id)arg1;
 - (void)realHandleCameraStatus;
+- (void)updateLocalCameraStatus;
 - (void)onOpenCameraButtonClick;
-- (void)deviceCountChanged;
+- (void)switchAudioOutput;
 - (void)switchAudioInput;
 - (void)switchCamera;
 - (void)realCallHangupDelegate;
@@ -144,6 +144,7 @@
 - (void)reloadAvatarMemberRenderViews;
 - (void)setUpAvatarMemberRenderViews;
 - (void)layoutButtonContainer;
+- (struct CGSize)getButtonSize;
 - (void)layoutRenderViewContainer;
 - (void)addEffectiveViewAboveRenderView;
 - (void)layoutContentView;

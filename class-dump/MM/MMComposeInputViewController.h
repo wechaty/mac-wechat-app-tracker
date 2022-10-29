@@ -178,7 +178,6 @@
 - (void)handleCreateSolitarie:(id)arg1;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidDisappear;
-- (void)viewDidAppear;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

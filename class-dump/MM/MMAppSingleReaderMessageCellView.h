@@ -6,7 +6,7 @@
 
 #import "MMMessageCellView.h"
 
-@class CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMTextField, MMTextView, NSImageView, ReaderWrap;
+@class CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMTextView, ReaderWrap;
 
 @interface MMAppSingleReaderMessageCellView : MMMessageCellView
 {
@@ -16,24 +16,20 @@
     MMImageView *_readerThumbnail;
     MMCTTextView *_readerDescription;
     MMDivider *_readerSeperator;
-    MMTextField *_readMore;
-    NSImageView *_rightArrowIcon;
     CAShapeLayer *_strokeLayer;
     CAShapeLayer *_highlightLayer;
 }
 
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
++ (double)contentHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (BOOL)isAppReaderMessage:(id)arg1;
 + (BOOL)hasUrlForMessage:(id)arg1;
 + (double)heightForTopNewsDescriptionStr:(id)arg1 withContentWidth:(double)arg2;
 + (BOOL)hasThumbnailForMessage:(id)arg1;
 + (double)thumbnailHeightWithContentWidth:(double)arg1;
-+ (double)contentWidthWithCellWidth:(double)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
-@property(retain, nonatomic) NSImageView *rightArrowIcon; // @synthesize rightArrowIcon=_rightArrowIcon;
-@property(retain, nonatomic) MMTextField *readMore; // @synthesize readMore=_readMore;
 @property(retain, nonatomic) MMDivider *readerSeperator; // @synthesize readerSeperator=_readerSeperator;
 @property(retain, nonatomic) MMCTTextView *readerDescription; // @synthesize readerDescription=_readerDescription;
 @property(retain, nonatomic) MMImageView *readerThumbnail; // @synthesize readerThumbnail=_readerThumbnail;
@@ -52,11 +48,11 @@
 - (struct CGRect)clickableArea;
 - (void)formattedLinkAttributed:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
 - (void)formattedMsgContent:(id)arg1 content:(id)arg2;
-- (void)layoutReaderSeperator;
-- (void)layoutReadMoreView;
 - (void)layoutDescription;
 - (void)layoutThumbnail;
 - (void)layoutReaderTitleLabel;
+- (id)getReaderTitleAttr:(id)arg1;
+- (id)getReaderTitleWithReaderData:(id)arg1;
 - (void)layoutContainerView;
 - (void)layoutViews;
 - (void)viewDidMoveToSuperview;

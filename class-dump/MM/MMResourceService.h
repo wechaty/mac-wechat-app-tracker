@@ -68,7 +68,7 @@
 - (void)saveAESKeyInKeyChain:(id)arg1 WithResType:(unsigned int)arg2 WithSubtype:(unsigned int)arg3 WithKeyVersion:(unsigned int)arg4 WithEID:(unsigned int)arg5;
 - (id)getAESKeyInKeyChain:(unsigned int)arg1 WithSubtype:(unsigned int)arg2 WithKeyVersion:(unsigned int)arg3 WithEID:(unsigned int)arg4;
 - (BOOL)isRequestInNonAuth;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;

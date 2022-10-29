@@ -10,6 +10,7 @@
 {
 }
 
++ (int)imageConvert:(void *)arg1 dstImg:(void *)arg2;
 + (int)accept:(int)arg1;
 + (void)recvNotify:(const char *)arg1 datalen:(int)arg2 netType:(int)arg3;
 + (void)ack;

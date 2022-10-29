@@ -22,6 +22,7 @@
 @property(retain, nonatomic) MMContactTag *tagInfo; // @synthesize tagInfo=_tagInfo;
 @property(nonatomic) BOOL bSelected; // @synthesize bSelected=_bSelected;
 @property(nonatomic) __weak id <MMTagCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)rightMouseDown:(id)arg1;
 - (void)updateContent:(id)arg1;
 - (void)onContactTagButtonClick;
 - (void)initSubViews;

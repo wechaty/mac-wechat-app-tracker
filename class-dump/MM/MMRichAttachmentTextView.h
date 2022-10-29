@@ -19,6 +19,8 @@
     BOOL _inBulletedList;
     BOOL _isInTextDidChange;
     BOOL _isReturn;
+    int _formatFeature;
+    long long _layout;
     double _defaultIndentationSize;
     NSString *_downloadingHtmlIdentifier;
     struct CGPoint _placeHolderPoint;
@@ -33,6 +35,7 @@
 + (id)contentDefaultParagraphStyle;
 + (id)contentDefaultTextAttribute;
 - (void).cxx_destruct;
+@property(nonatomic) int formatFeature; // @synthesize formatFeature=_formatFeature;
 @property(retain, nonatomic) NSString *downloadingHtmlIdentifier; // @synthesize downloadingHtmlIdentifier=_downloadingHtmlIdentifier;
 @property(nonatomic) BOOL isReturn; // @synthesize isReturn=_isReturn;
 @property(nonatomic) BOOL isInTextDidChange; // @synthesize isInTextDidChange=_isInTextDidChange;
@@ -40,6 +43,7 @@
 @property(nonatomic) double defaultIndentationSize; // @synthesize defaultIndentationSize=_defaultIndentationSize;
 @property(nonatomic) BOOL justDeletedBackward; // @synthesize justDeletedBackward=_justDeletedBackward;
 @property(nonatomic) BOOL justInsertAttachment; // @synthesize justInsertAttachment=_justInsertAttachment;
+@property(nonatomic) long long layout; // @synthesize layout=_layout;
 @property(nonatomic) struct CGPoint placeHolderPoint; // @synthesize placeHolderPoint=_placeHolderPoint;
 - (void)scrollViewBoundsChange:(id)arg1;
 - (struct CGRect)cellFrameForAttachmentCell:(id)arg1 withWidthConstrain:(double)arg2;
@@ -64,6 +68,9 @@
 - (id)dataFromPasteboard:(id)arg1 item:(id)arg2 withType:(id)arg3;
 - (BOOL)performDragOperation:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
+- (void)cleanWeNoteDragFolder;
+- (BOOL)dragSelectionWithEvent:(id)arg1 offset:(struct CGSize)arg2 slideBack:(BOOL)arg3;
+- (void)draggingEnded:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
 - (id)readablePasteboardTypes;
@@ -85,11 +92,17 @@
 - (void)_willDeleteAttachments:(id)arg1;
 - (void)userChangedToFontSize:(id)arg1;
 - (void)userSelectedNormalBullet;
-- (void)userSelectInsertSeperateLine:(id)arg1;
+- (void)userSelectInsertSeparateLine:(id)arg1;
+- (BOOL)removeSelectedHighlight;
+- (void)formatSelectedHighlightWithRange:(struct _NSRange)arg1;
+- (void)userSelectedHighlight;
 - (void)userSelectedUnderline;
 - (void)userSelectedItalic;
 - (void)userSelectedBold;
 - (void)insertAttachment:(id)arg1;
+- (int)getAllFormatFeature;
+- (int)getAllFormatFeatureWithAttr:(id)arg1;
+- (BOOL)removeAttributesIfNeededWhenInsertNewline;
 - (void)updateToolbarState;
 - (id)attributesInSelectedRange;
 - (BOOL)replaceTextInRange:(struct _NSRange)arg1 withAttributeText:(id)arg2;

@@ -26,7 +26,7 @@
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)onFileDidCancelDownloadWithMessage:(id)arg1;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;
-- (void)onFileDidFinishDownloadWithMessage:(id)arg1;
+- (void)onFileDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onFileDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)pauseDownload;
 - (void)startDownload;

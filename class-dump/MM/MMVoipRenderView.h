@@ -6,27 +6,39 @@
 
 #import <AppKit/NSView.h>
 
-@class AVCaptureVideoPreviewLayer, CALayer;
+@class AVCaptureVideoPreviewLayer, CALayer, WCContactData;
 
 @interface MMVoipRenderView : NSView
 {
     BOOL _isSmallVideoShouldMove;
     BOOL _shouldAcceptMouseDownToSwapLayer;
-    BOOL _canMoveWindow;
+    int _videoStatus;
     AVCaptureVideoPreviewLayer *_previewRenderLayer;
     CALayer *_oppositeRenderLayer;
     CALayer *_movableLayer;
+    CALayer *_avatarLayer;
+    WCContactData *_oContact;
+    double _degree;
     struct CGPoint _mouseToMovableLayerPoint;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) BOOL canMoveWindow; // @synthesize canMoveWindow=_canMoveWindow;
+@property(nonatomic) double degree; // @synthesize degree=_degree;
+@property(retain, nonatomic) WCContactData *oContact; // @synthesize oContact=_oContact;
+@property(nonatomic) int videoStatus; // @synthesize videoStatus=_videoStatus;
 @property(nonatomic) BOOL shouldAcceptMouseDownToSwapLayer; // @synthesize shouldAcceptMouseDownToSwapLayer=_shouldAcceptMouseDownToSwapLayer;
 @property(nonatomic) struct CGPoint mouseToMovableLayerPoint; // @synthesize mouseToMovableLayerPoint=_mouseToMovableLayerPoint;
 @property(nonatomic) BOOL isSmallVideoShouldMove; // @synthesize isSmallVideoShouldMove=_isSmallVideoShouldMove;
+@property(retain, nonatomic) CALayer *avatarLayer; // @synthesize avatarLayer=_avatarLayer;
 @property(retain, nonatomic) CALayer *movableLayer; // @synthesize movableLayer=_movableLayer;
 @property(retain, nonatomic) CALayer *oppositeRenderLayer; // @synthesize oppositeRenderLayer=_oppositeRenderLayer;
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewRenderLayer; // @synthesize previewRenderLayer=_previewRenderLayer;
+- (void)reloadAvatarLayer;
+- (void)fadeOutLayer:(id)arg1 removedOnCompletion:(BOOL)arg2;
+- (void)clearContentsAndFadeOutWhenEndCall;
+- (void)loadContactAvatarImage;
+- (void)loadSelfContactAvatarImage;
+- (void)relayoutSubLayers;
 - (void)adsorbedSmallVideoToEdge;
 - (void)bringSublayerToFront:(id)arg1;
 - (void)swapPreviewRenderLayerAndOppositeRenderLayer;

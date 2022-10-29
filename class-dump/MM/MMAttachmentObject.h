@@ -12,9 +12,8 @@
 }
 
 + (id)mergeObjIfNeed:(id)arg1;
-+ (id)attributedStringWithObjects:(id)arg1 textView:(id)arg2 forceAttachmentNewLine:(BOOL)arg3 highlightedColor:(id)arg4;
-+ (id)attributedStringWithObjects:(id)arg1 textView:(id)arg2 forceAttachmentNewLine:(BOOL)arg3;
-+ (id)attachmentObjectsWithParagraphs:(id)arg1;
++ (id)attributedStringWithObjects:(id)arg1 textView:(id)arg2 forceAttachmentNewLine:(BOOL)arg3 highlightedColor:(id)arg4 inLayout:(long long)arg5;
++ (id)attributedStringWithObjects:(id)arg1 textView:(id)arg2 forceAttachmentNewLine:(BOOL)arg3 inLayout:(long long)arg4;
 - (void).cxx_destruct;
 @property(retain, nonatomic) id uniqueID; // @synthesize uniqueID=_uniqueID;
 

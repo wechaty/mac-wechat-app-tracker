@@ -15,6 +15,7 @@
     NSMutableArray *m_arrRecvSeq;
 }
 
++ (id)getDataConfigInfBy:(id)arg1;
 - (void).cxx_destruct;
 - (id)getFinishRequestPkg:(id)arg1 analyseInfo:(id)arg2;
 - (id)getFinishRequestPkg:(id)arg1;
@@ -28,7 +29,6 @@
 - (id)getPacketFilterResponsePkg:(id)arg1;
 - (id)getSvrIDResponsePkg:(id)arg1;
 - (id)getCancelRequestWithID:(id)arg1;
-- (id)getDataConfigInfBy:(id)arg1;
 - (id)getPacketBackupDataTagResponsePkg:(id)arg1;
 - (id)getCommandResponsePkgWithID:(int)arg1;
 - (id)getCommandRequestPkgWithID:(int)arg1;

@@ -74,6 +74,7 @@
 - (void)processSvrIDRequest:(id)arg1;
 - (void)p_dataProcess:(id)arg1 andLength:(unsigned int)arg2;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (unsigned int)getCommunicationTransferType;
 - (void)getConnectInfo:(id)arg1;
 - (void)getQRCodeWithIP:(id)arg1 Port:(unsigned short)arg2 WifiName:(id)arg3 TotalSize:(unsigned long long)arg4;
 - (unsigned long long)getTransferedLength;

@@ -158,6 +158,7 @@
 - (BOOL)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)keyDown:(id)arg1;
+- (struct CGRect)cellFrameForAttachmentCell:(id)arg1 withWidthConstrain:(double)arg2;
 - (void)_sendMessage;
 - (void)clearEditingContent;
 - (void)clearContentAndOther;
@@ -174,6 +175,7 @@
 - (id)_getMentionedUserDisplayName:(id)arg1;
 - (void)insertQuotedMessage:(id)arg1;
 - (void)resetReferMessage;
+- (BOOL)replaceTextInRange:(struct _NSRange)arg1 withReferAttributeText:(id)arg2;
 - (BOOL)doReplaceReferMessage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)insertReferAttachmentObj:(id)arg1;
 - (void)insertAtMemberAttachmentObj:(id)arg1;

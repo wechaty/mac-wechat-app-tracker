@@ -34,7 +34,7 @@
 - (void)tryToSaveExpt;
 - (void)tryToLoadExpt;
 - (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)getSvrExpt;
 - (void)dealloc;
 - (void)onServiceEnterForeground;

@@ -42,9 +42,6 @@
 - (void)endCallByCancel;
 - (void)acceptVoipInvite;
 - (BOOL)checkDeviceAuthorized;
-- (void)closeAudioInputAuto:(id)arg1;
-- (void)switchAudioInput;
-- (void)switchCamera;
 - (void)displaySelfCaptureWhenReceiveInvite;
 - (void)resizePreviewContentLayer;
 - (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;

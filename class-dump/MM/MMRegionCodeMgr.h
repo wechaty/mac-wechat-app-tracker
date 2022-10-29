@@ -22,7 +22,7 @@
 + (int)numberOfOccurrencesOfString:(id)arg1 inString:(id)arg2;
 + (id)encodeCountry:(id)arg1 province:(id)arg2 city:(id)arg3;
 - (void).cxx_destruct;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)doCheckUpdateDelay;
 - (BOOL)isProvinceMO:(id)arg1;
 - (BOOL)isProvinceHK:(id)arg1;

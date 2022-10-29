@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MessageData, NSData, NSString, SendImageInfo;
+@class ImgMsgPreDownloadInfo, MessageData, NSData, NSString, SendImageInfo;
 
 @interface CExtendInfoOfImg : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -31,11 +31,13 @@
     NSString *m_nsCommentUrl;
     NSString *m_nsMsgMd5;
     NSString *m_authKey;
+    ImgMsgPreDownloadInfo *imgPreDownloadInfo;
     MessageData *m_refMessageData;
 }
 
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) ImgMsgPreDownloadInfo *imgPreDownloadInfo; // @synthesize imgPreDownloadInfo;
 @property(nonatomic) unsigned int m_uiPercent; // @synthesize m_uiPercent;
 @property(nonatomic) __weak MessageData *m_refMessageData; // @synthesize m_refMessageData;
 @property(retain, nonatomic) SendImageInfo *imageInfo; // @synthesize imageInfo=m_oImageInfo;

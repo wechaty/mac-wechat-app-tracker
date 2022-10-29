@@ -10,6 +10,11 @@
 {
 }
 
++ (int)belongToFavSidebarItemType:(int)arg1;
++ (id)containFavItemTypes:(int)arg1;
++ (id)formatTime:(long long)arg1;
++ (long long)compareTagName:(id)arg1 tagName2:(id)arg2;
++ (BOOL)startChinese:(id)arg1;
 + (void)showUploadFailForCapacityTips;
 + (BOOL)isAlertItemDataDownloading:(id)arg1;
 

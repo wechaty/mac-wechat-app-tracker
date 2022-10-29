@@ -74,6 +74,7 @@
 - (BOOL)saveVideoResource:(SendVideoInfo *)arg1 toUser:(NSString *)arg2;
 - (BOOL)isVideoExist;
 - (BOOL)isThumbImgExist;
+- (BOOL)isMidImgExist;
 - (BOOL)isImgExist;
 - (BOOL)isHDImg;
 - (BOOL)saveMsgDefaultThumbWithData:(NSData *)arg1 shouldCached:(BOOL)arg2;

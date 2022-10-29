@@ -4,19 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSLayoutManager.h>
+#import "MMRichAttachmentBaseLayoutManager.h"
 
-@interface MMAttachmentLayoutManager : NSLayoutManager
+@interface MMAttachmentLayoutManager : MMRichAttachmentBaseLayoutManager
 {
 }
 
-- (void)highlightAttachmentView:(id)arg1 withFlag:(BOOL)arg2;
-- (struct _NSRange)rangeForAttachmentCell:(id)arg1;
-- (void)setNeedsDisplay:(id)arg1;
-- (void)setNeedsLayout:(id)arg1;
 - (void)drawGlyphsForGlyphRange:(struct _NSRange)arg1 atPoint:(struct CGPoint)arg2;
-- (void)dealloc;
-- (id)init;
 
 @end
 

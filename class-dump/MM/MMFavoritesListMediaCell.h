@@ -9,11 +9,12 @@
 #import "IContactMgrExt-Protocol.h"
 #import "MMFavoriteFileServiceExt-Protocol.h"
 
-@class FavThumbRequestParam, MMCircularProgressView, NSImageView, NSString, NSTextField, NSView;
+@class FavThumbRequestParam, MMCircularProgressView, NSString, NSTextField, NSView, SVGImageView;
 
 @interface MMFavoritesListMediaCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, IContactMgrExt>
 {
-    NSImageView *_thumbnailImageView;
+    SVGImageView *_thumbnailImageView;
+    SVGImageView *_thumbnailIconView;
     NSTextField *_titleTextView;
     NSTextField *_descTextView;
     NSTextField *_sourceTextView;
@@ -30,11 +31,13 @@
 @property(retain, nonatomic) NSTextField *sourceTextView; // @synthesize sourceTextView=_sourceTextView;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 @property(retain, nonatomic) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-@property(retain, nonatomic) NSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+@property(retain, nonatomic) SVGImageView *thumbnailIconView; // @synthesize thumbnailIconView=_thumbnailIconView;
+@property(retain, nonatomic) SVGImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 - (BOOL)isImageMedia;
 - (BOOL)isLinkMeida;
 - (BOOL)isNormalMeida;
 - (void)layoutFavContentView;
+- (void)setThumbnailImageIconView:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -48,10 +51,12 @@
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
+- (id)getFileIconImageName;
 - (id)getFileIconImage;
 - (id)getRecommendTagSource;
 - (id)getRecommendTagTitle;
 - (id)getRecommendTagAuthor;
+- (id)getVoiceTime;
 - (id)getContent;
 - (unsigned int)getFileBytes;
 - (id)getSource;

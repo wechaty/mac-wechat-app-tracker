@@ -26,7 +26,6 @@
 - (unsigned int)identifierToLocalID:(id)arg1;
 - (void)onSyncNoteConflict:(id)arg1;
 - (void)onWeNoteWindowDidClosed:(id)arg1;
-- (BOOL)shouldAlertOnDeleteNote:(id)arg1;
 - (void)openWeNoteWindowControllerWithParentMsg:(id)arg1 parentFavItem:(id)arg2;
 - (id)noteIdentifierWithParentMsg:(id)arg1 parentFavItem:(id)arg2;
 - (void)onServiceTerminate;

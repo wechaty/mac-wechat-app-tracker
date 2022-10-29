@@ -11,6 +11,7 @@
 @interface SwipeDeleteView : NSView
 {
     int _state;
+    BOOL _enableSwipe;
     CDUnknownBlockType _onSwipeDetected;
     CDUnknownBlockType _onSwipeCanceled;
     NSColor *_backgroundColor;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(copy, nonatomic) CDUnknownBlockType onSwipeCanceled; // @synthesize onSwipeCanceled=_onSwipeCanceled;
 @property(copy, nonatomic) CDUnknownBlockType onSwipeDetected; // @synthesize onSwipeDetected=_onSwipeDetected;
+@property(nonatomic, getter=isEnableSwipe) BOOL enableSwipe; // @synthesize enableSwipe=_enableSwipe;
 - (void)fireWithDirection:(int)arg1;
 - (void)superScrollWheel:(id)arg1;
 - (void)scrollWheel:(id)arg1;

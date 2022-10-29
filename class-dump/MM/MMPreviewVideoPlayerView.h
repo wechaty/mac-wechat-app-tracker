@@ -38,7 +38,7 @@
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
 - (void)onVideoDidCancelDownloadWithMessage:(id)arg1;
 - (void)onVideoDidFailDownloadWithMessage:(id)arg1;
-- (void)onVideoDidFinishDownloadWithMessage:(id)arg1;
+- (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)startDownloadRecordVideo;
 - (void)startDownloadFavVideo;

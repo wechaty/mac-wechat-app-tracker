@@ -7,11 +7,12 @@
 @class MultiTalkGroup, NSMutableArray, NSString, VoIPMtBannerMsg;
 
 @protocol MultitalkApiDelegate
+- (void)onScreenSharingCheckSecurity:(int)arg1;
 - (void)onSetMultiTalkScreenSharingStatus:(int)arg1 ScreenSharingStatus:(int)arg2;
 - (void)onMultiTalkNotAllowCameraLimit:(unsigned int)arg1;
 - (void)onMultiTalkCreateLimit:(unsigned int)arg1;
 - (void)onMultiTalkJoinLimit:(unsigned int)arg1;
-- (void)onMultiTalkBannerChange:(VoIPMtBannerMsg *)arg1;
+- (void)onMultiTalkBannerChange:(VoIPMtBannerMsg *)arg1 createTime:(unsigned int)arg2;
 - (void)onOtherDeviceHandleTalk:(NSString *)arg1;
 - (void)onMultiTalkRedirectOk;
 - (void)onReceiveSubscribeMemberChangeMsg:(int)arg1;

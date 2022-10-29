@@ -36,7 +36,7 @@
 - (unsigned int)getNextUpdateTimeFromCache;
 - (void)updateNextUpdateTime:(unsigned int)arg1;
 - (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)getABTestFromSvr;
 - (void)tryUpdateAbTestFromSvr;
 - (void)forceGetAbTestFromSvr;

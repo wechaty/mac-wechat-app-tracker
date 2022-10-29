@@ -72,7 +72,7 @@
 - (void)onGetSessionListFromStatusNotify:(id)arg1;
 - (void)onGetSessionListFromSyncCGI:(id)arg1;
 - (void)onRecvChatSyncMsg:(id)arg1;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)onServiceDidWake;
 - (void)onServiceClearData;
 - (void)onServiceInit;

@@ -76,7 +76,7 @@
 - (void)onPreAuthOKOfUser:(id)arg1 nickName:(id)arg2;
 - (void)autoLoginSwitchChanged;
 - (void)loginAuth;
-- (void)loginAuthFinish:(BOOL)arg1;
+- (void)loginAuthFinish:(int)arg1;
 - (void)saveSessionKey:(id)arg1 withServerId:(id)arg2;
 - (void)ResetForKeyInfoInvalid;
 - (BOOL)IsQRCodeAuth;

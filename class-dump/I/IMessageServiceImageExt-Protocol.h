@@ -13,10 +13,14 @@
 @optional
 - (void)onThumbImageDidFinishDownloadWithMessage:(MessageData *)arg1;
 - (void)onDefaultThumbImageDidGeneratedWithMessage:(MessageData *)arg1;
+- (void)onImageDidCancelPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
+- (void)onImageDidFailedPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
+- (void)onImageDidStartPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
 - (void)onImageDidUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onImageDidFinishUploadedWithMessage:(MessageData *)arg1;
 - (void)onImageDidDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
+- (void)onImageDidCancelDownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
 - (void)onImageDidFailedDownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
-- (void)onImageDidFinishedDownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
+- (void)onImageDidFinishedDownloadWithMessage:(MessageData *)arg1 type:(int)arg2 isPredownload:(BOOL)arg3;
 @end
 

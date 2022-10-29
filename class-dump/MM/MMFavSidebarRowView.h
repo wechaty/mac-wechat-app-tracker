@@ -6,39 +6,51 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class MMImageView, MMSidebarLabelTextField, MMView, NSImage, NSString, SVGImageView;
+#import "NSTextFieldDelegate-Protocol.h"
+
+@class MMImageView, MMSidebarLabelTextField, MMTextField, MMView, NSImage, NSString, SVGImageView;
 @protocol MMFavSidebarRowViewDelegate;
 
-@interface MMFavSidebarRowView : NSTableRowView
+@interface MMFavSidebarRowView : NSTableRowView <NSTextFieldDelegate>
 {
     NSImage *_icon;
+    MMTextField *_titleLabel;
+    id <MMFavSidebarRowViewDelegate> _delegate;
     NSString *_iconName;
     NSImage *_selectedIcon;
-    MMSidebarLabelTextField *_titleLabel;
     MMSidebarLabelTextField *_countLabel;
     SVGImageView *_iconView;
-    id <MMFavSidebarRowViewDelegate> _delegate;
-    MMImageView *_avatarView;
     MMView *_containerView;
+    MMImageView *_avatarView;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) MMImageView *avatarView; // @synthesize avatarView=_avatarView;
-@property(nonatomic) __weak id <MMFavSidebarRowViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) SVGImageView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) MMSidebarLabelTextField *countLabel; // @synthesize countLabel=_countLabel;
-@property(retain, nonatomic) MMSidebarLabelTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSImage *selectedIcon; // @synthesize selectedIcon=_selectedIcon;
 @property(retain, nonatomic) NSString *iconName; // @synthesize iconName=_iconName;
+@property(nonatomic) __weak id <MMFavSidebarRowViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) MMTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)mouseDown:(id)arg1;
-- (void)_updateSelectionAppearance;
+- (void)updateSelectionAppearance;
 - (void)setSelected:(BOOL)arg1;
 @property(retain, nonatomic) NSImage *avatar;
 @property(retain, nonatomic) NSImage *icon;
+- (void)layoutSubViews;
+- (void)populateWithItem:(id)arg1;
+- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
+- (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

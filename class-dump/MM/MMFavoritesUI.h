@@ -10,5 +10,7 @@
 {
 }
 
++ (double)adjustLableCorner:(double)arg1;
+
 @end
 

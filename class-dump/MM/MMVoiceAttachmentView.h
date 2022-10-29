@@ -7,17 +7,16 @@
 #import "MMAttachmentReusableView.h"
 
 #import "FavAudioPlayerExt-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 #import "WNAudioMgrExt-Protocol.h"
 #import "WeNoteSliderCellDelegate-Protocol.h"
 
-@class MMTimer, NSImageView, NSString, NSTextField, NSTrackingArea, WeNoteParagraphInfo, WeNoteSlider;
+@class MMTimer, NSImageView, NSString, NSTextField, WeNoteSlider;
 @protocol MMVoiceAttachmentViewDelegate;
 
-@interface MMVoiceAttachmentView : MMAttachmentReusableView <FavAudioPlayerExt, WNAudioMgrExt, WeNoteSliderCellDelegate>
+@interface MMVoiceAttachmentView : MMAttachmentReusableView <FavAudioPlayerExt, WNAudioMgrExt, WeNoteSliderCellDelegate, NSMenuDelegate>
 {
-    NSTrackingArea *_trackingArea;
     int _viewType;
-    WeNoteParagraphInfo *_paraInfo;
     id <MMVoiceAttachmentViewDelegate> _voiceAttachmentViewDelegate;
     NSTextField *_titleLabel;
     NSImageView *_playStateImageView;
@@ -38,12 +37,11 @@
 @property(retain, nonatomic) NSImageView *playStateImageView; // @synthesize playStateImageView=_playStateImageView;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) __weak id <MMVoiceAttachmentViewDelegate> voiceAttachmentViewDelegate; // @synthesize voiceAttachmentViewDelegate=_voiceAttachmentViewDelegate;
-@property(retain, nonatomic) WeNoteParagraphInfo *paraInfo; // @synthesize paraInfo=_paraInfo;
+- (id)menuForEvent:(id)arg1;
+- (void)menuDidClose:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (void)callPlayOrStopVoice;
 - (void)mouseDown:(id)arg1;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
-- (void)updateTrackingAreas;
 - (void)playingTimerHandle:(id)arg1;
 - (void)sliderValueDidChange:(id)arg1;
 - (void)stopVoicePlayingTimer;
@@ -53,6 +51,8 @@
 - (id)getDuration:(int)arg1;
 - (void)onClickObject;
 - (void)layoutView;
+- (void)setAttachmentCell:(id)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
 

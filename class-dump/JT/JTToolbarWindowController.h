@@ -16,6 +16,7 @@
 {
     BOOL _enableUndo;
     BOOL _enableQR;
+    BOOL _enableOCR;
     id <JTToolbarWindowControllerDelegate> _delegate;
     NSColor *_backgroundColor;
     JTToolbarView *_toolbarView;
@@ -26,6 +27,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) JTPopoverWindowController *popoverWindowController; // @synthesize popoverWindowController=_popoverWindowController;
 @property(retain, nonatomic) JTToolbarView *toolbarView; // @synthesize toolbarView=_toolbarView;
+@property(nonatomic) BOOL enableOCR; // @synthesize enableOCR=_enableOCR;
 @property(nonatomic) BOOL enableQR; // @synthesize enableQR=_enableQR;
 @property(nonatomic) BOOL enableUndo; // @synthesize enableUndo=_enableUndo;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
@@ -34,11 +36,17 @@
 - (void)fontSizeDidChange:(unsigned long long)arg1;
 - (void)widthDidChange:(unsigned long long)arg1;
 - (void)colorDidChange:(id)arg1;
+- (void)hidePopover;
+- (void)showPopover;
 - (void)showPopoverViewType:(long long)arg1 width:(unsigned long long)arg2 color:(id)arg3;
 - (void)showPopoverViewType:(long long)arg1;
 - (void)QRScaner;
 - (void)undo;
 - (void)graphTypeDidChange:(long long)arg1;
+- (void)endOCRTransLoading;
+- (void)beginOCRTransLoading;
+- (void)cancelOCRTranslate;
+- (void)beginOCRTranslate;
 - (void)cancelQRCode;
 - (void)onUndoRedoCheckNotification:(id)arg1;
 - (void)beginCreateItem:(id)arg1;

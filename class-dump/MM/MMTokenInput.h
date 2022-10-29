@@ -54,6 +54,7 @@
 - (void)doSearch;
 - (void)stopTimer;
 - (void)textDidChange:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

@@ -24,6 +24,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)handleAppFontSize;
+- (void)viewChangedEffectiveAppearance;
 - (void)dealloc;
 - (void)viewDidAppear;
 - (void)viewDidLoad;

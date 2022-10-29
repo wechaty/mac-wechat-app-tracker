@@ -15,7 +15,7 @@
 #import "NSTableViewDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 
-@class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSString, NSView, NSVisualEffectView, RBLPopover;
+@class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSMutableDictionary, NSString, NSView, NSVisualEffectView, RBLPopover;
 
 @interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, AccountServiceExt, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate, MMSearchTableCellViewDelegate>
 {
@@ -52,9 +52,11 @@
     unsigned long long _totalTableRowHeight;
     double _popoverWidth;
     unsigned long long _lastSelectTime;
+    NSMutableDictionary *_keyWordShowResultCountDic;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *keyWordShowResultCountDic; // @synthesize keyWordShowResultCountDic=_keyWordShowResultCountDic;
 @property(nonatomic) BOOL isFirstSelectRow; // @synthesize isFirstSelectRow=_isFirstSelectRow;
 @property(nonatomic) unsigned long long lastSelectTime; // @synthesize lastSelectTime=_lastSelectTime;
 @property(nonatomic) double popoverWidth; // @synthesize popoverWidth=_popoverWidth;
@@ -131,6 +133,7 @@
 - (BOOL)shouldShowSearchFriendCell:(id)arg1;
 - (id)handleMouseDown:(id)arg1;
 - (void)showPopoverWindow;
+- (void)setKeyWordShowResultCount;
 - (void)_doShowWithResults:(id)arg1;
 - (void)doShowWithResults:(id)arg1;
 - (void)showWithResults:(id)arg1 resultsWithKeyword:(id)arg2;

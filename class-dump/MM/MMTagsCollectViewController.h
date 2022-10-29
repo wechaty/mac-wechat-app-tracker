@@ -19,19 +19,19 @@
     id <MMTagsCollectionVCDelegate> _delegate;
     long long _scene;
     NSMutableArray *_preSelectedTagIDs;
+    NSMutableArray *_tagInfos;
     RFOverlayScrollView *_scrollView;
     NSCollectionView *_collectionView;
     NSTextField *_titleField;
-    NSMutableArray *_tagInfos;
     NSMutableArray *_currentSelectedTags;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *currentSelectedTags; // @synthesize currentSelectedTags=_currentSelectedTags;
-@property(retain, nonatomic) NSMutableArray *tagInfos; // @synthesize tagInfos=_tagInfos;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(nonatomic) __weak NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) __weak RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(retain, nonatomic) NSMutableArray *tagInfos; // @synthesize tagInfos=_tagInfos;
 @property(retain, nonatomic) NSMutableArray *preSelectedTagIDs; // @synthesize preSelectedTagIDs=_preSelectedTagIDs;
 @property(nonatomic) long long scene; // @synthesize scene=_scene;
 @property(nonatomic) __weak id <MMTagsCollectionVCDelegate> delegate; // @synthesize delegate=_delegate;

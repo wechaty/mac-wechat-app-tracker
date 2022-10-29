@@ -6,62 +6,43 @@
 
 #import <AppKit/NSView.h>
 
-@class MMOutlineButton, MultiTalkBannerItem, NSArray, NSButton, NSMutableDictionary, NSTextField, SVGImageView;
+@class MMGroupTipsBarView, MultiTalkBannerItem, NSArray;
 
 @interface MMVoIPInviteView : NSView
 {
     BOOL _isFolder;
     MultiTalkBannerItem *_bannerItem;
-    SVGImageView *_iconImgView;
-    NSTextField *_descTitleField;
-    NSButton *_indicatorBtn;
-    NSTextField *_titleField;
-    NSTextField *_subTitleField;
-    NSView *_avatarViewContainer;
-    NSMutableDictionary *_avatarViewDict;
-    MMOutlineButton *_confirmButton;
-    MMOutlineButton *_cancelButton;
-    double _maxHeight;
-    NSArray *_columeInRow;
+    CDUnknownBlockType _updatePopoverBlock;
+    CDUnknownBlockType _joinVoIPReportBlock;
+    CDUnknownBlockType _openVoIPPopoverReport;
+    CDUnknownBlockType _closeVoIPPopoverReport;
+    MMGroupTipsBarView *_tipView;
     NSArray *_userNames;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *userNames; // @synthesize userNames=_userNames;
-@property(retain, nonatomic) NSArray *columeInRow; // @synthesize columeInRow=_columeInRow;
-@property(nonatomic) double maxHeight; // @synthesize maxHeight=_maxHeight;
-@property(retain, nonatomic) MMOutlineButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(retain, nonatomic) MMOutlineButton *confirmButton; // @synthesize confirmButton=_confirmButton;
-@property(retain, nonatomic) NSMutableDictionary *avatarViewDict; // @synthesize avatarViewDict=_avatarViewDict;
-@property(retain, nonatomic) NSView *avatarViewContainer; // @synthesize avatarViewContainer=_avatarViewContainer;
-@property(retain, nonatomic) NSTextField *subTitleField; // @synthesize subTitleField=_subTitleField;
-@property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
-@property(retain, nonatomic) NSButton *indicatorBtn; // @synthesize indicatorBtn=_indicatorBtn;
-@property(retain, nonatomic) NSTextField *descTitleField; // @synthesize descTitleField=_descTitleField;
-@property(retain, nonatomic) SVGImageView *iconImgView; // @synthesize iconImgView=_iconImgView;
+@property(retain, nonatomic) MMGroupTipsBarView *tipView; // @synthesize tipView=_tipView;
+@property(copy, nonatomic) CDUnknownBlockType closeVoIPPopoverReport; // @synthesize closeVoIPPopoverReport=_closeVoIPPopoverReport;
+@property(copy, nonatomic) CDUnknownBlockType openVoIPPopoverReport; // @synthesize openVoIPPopoverReport=_openVoIPPopoverReport;
+@property(copy, nonatomic) CDUnknownBlockType joinVoIPReportBlock; // @synthesize joinVoIPReportBlock=_joinVoIPReportBlock;
+@property(copy, nonatomic) CDUnknownBlockType updatePopoverBlock; // @synthesize updatePopoverBlock=_updatePopoverBlock;
 @property(nonatomic) BOOL isFolder; // @synthesize isFolder=_isFolder;
 @property(retain, nonatomic) MultiTalkBannerItem *bannerItem; // @synthesize bannerItem=_bannerItem;
 - (void)joinCurrentBannerMultiTalk;
 - (void)onConfirmButtonClick;
-- (void)onCancleButtonClick;
-- (void)onIndicatorButtonClick;
-- (void)setUnFolderIfNeed;
+- (void)realShowPopover;
+- (void)setPopoverIfNeed;
+- (BOOL)canShowPopover;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (void)handleAppFontSize;
 - (void)dismiss;
 - (void)updateContent;
-- (void)showContent:(BOOL)arg1;
-- (void)calMaxContanierHeight;
-- (void)adjustAvatarImageViews;
-- (void)setupAvatarContainer;
-- (void)reloadAvatarContainer;
-- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
-- (void)initUI;
-- (void)viewDidChangeEffectiveAppearance;
-- (void)setFrame:(struct CGRect)arg1;
+- (void)initUI:(struct CGRect)arg1;
 - (id)initWithMsg:(id)arg1;
-- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -11,6 +11,12 @@
 @protocol MMFavoritesMgrExt <NSObject>
 
 @optional
+- (void)onDeleteRecentFavItem:(unsigned int)arg1;
+- (void)onAddRecentFavItems:(NSArray *)arg1;
+- (void)onAddRecentFavItem:(unsigned int)arg1;
+- (void)onDeleteTagSuccess:(NSString *)arg1;
+- (void)onUpdateTagNameSuccess:(unsigned int)arg1 oldTagName:(NSString *)arg2 newTagName:(NSString *)arg3;
+- (void)onUpdateItemsTagsSuccess:(NSArray *)arg1;
 - (void)OnGetNextPageFavoritesCapacityItemList:(NSArray *)arg1 ErrCode:(int)arg2 HasMoreItems:(BOOL)arg3;
 - (void)OnGetFirstPageFavoritesCapacityItemList:(NSArray *)arg1 ErrCode:(int)arg2 HasMoreItems:(BOOL)arg3;
 - (void)onGetFavObjectByIdFail:(NSString *)arg1;
@@ -43,7 +49,7 @@
 - (void)onSyncNoteConflict:(FavoritesItem *)arg1;
 - (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
 - (void)onAddLocalNoteItem:(FavoritesItem *)arg1 ErrCode:(int)arg2;
-- (void)favoritesMgrDidUpdateTotalTagsCount:(unsigned int)arg1;
+- (void)favoritesMgrDidProcessTagFromService:(NSArray *)arg1 updateTags:(NSArray *)arg2 deleteTags:(NSArray *)arg3;
 - (void)favoritesMgrDidUpdateTagsWithLocalIDArray:(NSArray *)arg1;
 - (void)favoritesMgrDidRemoveItem:(FavoritesItem *)arg1;
 - (void)favoritesMgrDidUpdatedItemWithLocalID:(unsigned int)arg1;

@@ -36,7 +36,7 @@
 - (void)captureRequest:(id)arg1 didFinishWithImage:(id)arg2 saveToPath:(id)arg3 error:(id)arg4;
 - (void)captureRequestDidCancel:(id)arg1;
 - (void)captureRequestDidChange:(id)arg1;
-- (void)FFAddRecvFavZZ:(BOOL)arg1;
+- (void)FFAddRecvFavZZ:(int)arg1;
 - (void)openMainWindow;
 - (void)startScreenShot:(BOOL)arg1;
 - (void)showScreenRecordingPrompt;

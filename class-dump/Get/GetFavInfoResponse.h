@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse;
+@class BaseResponse, FavConfig;
 
 @interface GetFavInfoResponse : PBGeneratedMessage
 {
@@ -16,16 +16,36 @@
     unsigned int hasMxFavFileSize:1;
     unsigned int hasMxAutoUploadSize:1;
     unsigned int hasMxAutoDownloadSize:1;
+    unsigned int hasDuration:1;
+    unsigned int hasBuyDate:1;
+    unsigned int hasAmount:1;
+    unsigned int hasPayChannel:1;
+    unsigned int hasConfig:1;
     unsigned int mxFavFileSize;
     unsigned int mxAutoUploadSize;
     unsigned int mxAutoDownloadSize;
+    unsigned int payChannel;
     BaseResponse *baseResponse;
     unsigned long long usedSize;
     unsigned long long totalSize;
+    unsigned long long duration;
+    unsigned long long buyDate;
+    unsigned long long amount;
+    FavConfig *config;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetConfig:) FavConfig *config; // @synthesize config;
+@property(readonly, nonatomic) BOOL hasConfig; // @synthesize hasConfig;
+@property(nonatomic, setter=SetPayChannel:) unsigned int payChannel; // @synthesize payChannel;
+@property(readonly, nonatomic) BOOL hasPayChannel; // @synthesize hasPayChannel;
+@property(nonatomic, setter=SetAmount:) unsigned long long amount; // @synthesize amount;
+@property(readonly, nonatomic) BOOL hasAmount; // @synthesize hasAmount;
+@property(nonatomic, setter=SetBuyDate:) unsigned long long buyDate; // @synthesize buyDate;
+@property(readonly, nonatomic) BOOL hasBuyDate; // @synthesize hasBuyDate;
+@property(nonatomic, setter=SetDuration:) unsigned long long duration; // @synthesize duration;
+@property(readonly, nonatomic) BOOL hasDuration; // @synthesize hasDuration;
 @property(nonatomic, setter=SetMxAutoDownloadSize:) unsigned int mxAutoDownloadSize; // @synthesize mxAutoDownloadSize;
 @property(readonly, nonatomic) BOOL hasMxAutoDownloadSize; // @synthesize hasMxAutoDownloadSize;
 @property(nonatomic, setter=SetMxAutoUploadSize:) unsigned int mxAutoUploadSize; // @synthesize mxAutoUploadSize;

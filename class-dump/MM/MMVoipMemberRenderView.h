@@ -9,7 +9,7 @@
 #import "CAAnimationDelegate-Protocol.h"
 #import "MultiTalkContactCellExt-Protocol.h"
 
-@class CALayer, MMImageView, MMTimer, MMVoIPRenderToolView, MMVoipDotAnimateView, MultiTalkGroupMember, NSString, NSTextField, NSTrackingArea, VoiceIconView, WCContactData;
+@class CALayer, MMImageView, MMTimer, MMVoIPRenderToolView, MMVoIPStatusIconView, MMVoipDotAnimateView, MultiTalkGroupMember, NSString, NSTextField, NSTrackingArea, WCContactData;
 
 @interface MMVoIPMemberRenderView : NSView <MultiTalkContactCellExt, CAAnimationDelegate>
 {
@@ -29,7 +29,7 @@
     MMVoipDotAnimateView *_dotLoadingView;
     NSView *_maskImageView;
     MMVoIPRenderToolView *_toolView;
-    VoiceIconView *_voiceIconView;
+    MMVoIPStatusIconView *_voiceIconView;
     unsigned long long _layoutStyle;
     unsigned long long _mode;
     MultiTalkGroupMember *_oMember;
@@ -62,7 +62,7 @@
 @property(retain, nonatomic) MultiTalkGroupMember *oMember; // @synthesize oMember=_oMember;
 @property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
-@property(retain, nonatomic) VoiceIconView *voiceIconView; // @synthesize voiceIconView=_voiceIconView;
+@property(retain, nonatomic) MMVoIPStatusIconView *voiceIconView; // @synthesize voiceIconView=_voiceIconView;
 @property(retain, nonatomic) MMVoIPRenderToolView *toolView; // @synthesize toolView=_toolView;
 @property(nonatomic) BOOL isVideoAvailable; // @synthesize isVideoAvailable=_isVideoAvailable;
 @property(retain, nonatomic) NSView *maskImageView; // @synthesize maskImageView=_maskImageView;
@@ -95,6 +95,7 @@
 - (void)fpsTimerCheck;
 - (void)initUI;
 - (void)dealloc;
+- (void)mouseDown:(id)arg1;
 - (void)viewDidChangeBackingProperties;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)init;

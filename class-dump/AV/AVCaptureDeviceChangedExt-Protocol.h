@@ -11,7 +11,7 @@
 @protocol AVCaptureDeviceChangedExt <NSObject>
 
 @optional
-- (void)onCurrentCaptureDeviceChanged:(MMCaptureDeviceInfo *)arg1 withType:(int)arg2;
+- (void)onCurrentCaptureDeviceChanged:(MMCaptureDeviceInfo *)arg1 withType:(int)arg2 withScene:(int)arg3;
 - (void)onCaptureDeviceCountChanged;
 - (void)onCaptureDeviceChanged:(MMCaptureDeviceInfo *)arg1 withType:(int)arg2;
 @end

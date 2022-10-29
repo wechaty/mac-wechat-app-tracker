@@ -44,6 +44,7 @@
     BOOL mNeedSpeedTest;
     int mSpeedTestStatus;
     struct _SpeedTestInfo mSpeedTestInfo;
+    int miHWParam;
     unsigned int muiHWEncExceptionMask;
     unsigned int muiHWDecExceptionMask;
     unsigned int muiUnKnowDataNum;
@@ -138,6 +139,7 @@
     int mVTDecStatus;
     int mManualRotateOrien;
     int mRemoteOrien;
+    int _remoteCaptureStatus;
     unsigned int _m_cameraChangeToOrientationLastCount;
     VOIPDialData *mDialData;
     VOIPComponent *mComponent;
@@ -164,6 +166,7 @@
     struct VOIPSpeedTestChannelAdapter *mSpeedTestAdapter;
     struct OpaqueVTDecompressionSession *mVTDecompressionSession;
     struct __CVBuffer *decodedFrameBuffer;
+    double _remoteCaptureStatusLastSyncTimestamp;
     NSRecursiveLock *_mAudioPlayLock;
     struct timeval dialStartTime;
     struct timeval mStartTalkTime;
@@ -177,6 +180,8 @@
 @property(nonatomic) BOOL mIsVideoInited; // @synthesize mIsVideoInited=_mIsVideoInited;
 @property(nonatomic) struct DialReport_t dialReport; // @synthesize dialReport=_dialReport;
 @property(retain, nonatomic) NSRecursiveLock *mAudioPlayLock; // @synthesize mAudioPlayLock=_mAudioPlayLock;
+@property(nonatomic) int remoteCaptureStatus; // @synthesize remoteCaptureStatus=_remoteCaptureStatus;
+@property(nonatomic) double remoteCaptureStatusLastSyncTimestamp; // @synthesize remoteCaptureStatusLastSyncTimestamp=_remoteCaptureStatusLastSyncTimestamp;
 @property struct __CVBuffer *decodedFrameBuffer; // @synthesize decodedFrameBuffer;
 @property _Bool mIsRemotePad; // @synthesize mIsRemotePad;
 @property _Bool mIsPC2PC; // @synthesize mIsPC2PC;
@@ -211,6 +216,7 @@
 @property(nonatomic) int AudioTsdfBeyond3G; // @synthesize AudioTsdfBeyond3G;
 @property(nonatomic) unsigned int muiUnKnowDataNum; // @synthesize muiUnKnowDataNum;
 @property(nonatomic) unsigned int muiHWEncExceptionMask; // @synthesize muiHWEncExceptionMask;
+@property(nonatomic) int miHWParam; // @synthesize miHWParam;
 @property(nonatomic) int mDoubleLinkS2PSeq; // @synthesize mDoubleLinkS2PSeq;
 @property(nonatomic) int mDoubleLinkSwitchSucToRelayCnt; // @synthesize mDoubleLinkSwitchSucToRelayCnt;
 @property(nonatomic) int mDoubleLinkSwitchSucToDirectCnt; // @synthesize mDoubleLinkSwitchSucToDirectCnt;
@@ -264,6 +270,8 @@
 - (void)onNetworkStatusChange:(unsigned int)arg1;
 - (void)ReachabilityChange:(unsigned int)arg1;
 - (void)onVideoSessionStartComplete;
+- (void)sendRUDPVoIPForVideoMode:(int)arg1;
+- (void)syncRemoteCaptureStatus:(int)arg1 withTimestamp:(double)arg2 fromRemote:(BOOL)arg3;
 - (void)setCap720pCapacity:(BOOL)arg1;
 - (BOOL)getHWCap;
 - (BOOL)getIsNetDetecting;
@@ -337,7 +345,7 @@
 - (void)CalcCallTime;
 - (void)CalcNewDailUsedTime;
 - (void)CalcDialUsedTime;
-- (void)SetMVEInfo:(CDStruct_22a870ee *)arg1;
+- (void)SetMVEInfo:(CDStruct_14ccea6e *)arg1;
 - (int)cpuCapacity;
 - (int)getSysInfo:(unsigned int)arg1;
 - (unsigned int)GetDispRate;

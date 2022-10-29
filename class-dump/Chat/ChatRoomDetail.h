@@ -20,11 +20,13 @@
     NSString *richChatRoomDesc;
     unsigned long long m_uiChatRoomDescTime;
     NSString *m_nsChatRoomDescModer;
+    unsigned long long m_hasClosedDescTime;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_hasClosedDescTime;
 + (void)PBArrayAdd_m_nsChatRoomDescModer;
 + (void)PBArrayAdd_m_uiChatRoomDescTime;
 + (void)PBArrayAdd_richChatRoomDesc;
@@ -33,6 +35,7 @@
 + (void)PBArrayAdd_m_uiChatRoomInfoSvrVersion;
 + (void)PBArrayAdd_m_uiChatRoomInfoVersion;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long m_hasClosedDescTime; // @synthesize m_hasClosedDescTime;
 @property(retain, nonatomic) NSString *m_nsChatRoomDescModer; // @synthesize m_nsChatRoomDescModer;
 @property(nonatomic) unsigned long long m_uiChatRoomDescTime; // @synthesize m_uiChatRoomDescTime;
 @property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;

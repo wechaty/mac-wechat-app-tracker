@@ -65,6 +65,7 @@
 - (BOOL)IsContactExistInCache:(id)arg1;
 - (BOOL)IsContactExist:(id)arg1;
 - (void)addLocalHardCodeContacts;
+- (void)resetContactDB;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;

@@ -6,41 +6,40 @@
 
 #import "MMMessageCellView.h"
 
-@class CAShapeLayer, MMImageView, MMReaderWrapView, MMTextField, MMView, NSArray, NSMutableArray, NSTextField, NSView;
+@class CAGradientLayer, CAShapeLayer, MMImageView, MMReaderWrapView, MMTextField, MMView, NSArray, NSMutableArray, NSTextField, NSView;
 
 @interface MMAppMultipleReaderMessageCellView : MMMessageCellView
 {
     NSView *_containerView;
     NSArray *_readerMessages;
     NSTextField *_readerTitleLabel;
-    NSView *_readerTitleContainer;
     MMTextField *_readerTimeLabel;
     MMReaderWrapView *_coverContainer;
     MMImageView *_coverThumbnail;
-    NSView *_coverThumbnailContainer;
     MMView *_othersContainer;
     unsigned long long _selectedReaderWrapIndex;
     NSMutableArray *_viewsInOthersContainer;
     CAShapeLayer *_strokeLayer;
     CAShapeLayer *_highlightLayer;
+    CAGradientLayer *_readerTitleBackLayer;
+    NSView *_readerTitleBackView;
 }
 
 + (id)otherNewsTitleAttributedStringWithReaderMessage:(id)arg1;
 + (double)heightForOtherNewsTitleString:(id)arg1 withTitleWidth:(double)arg2;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (double)coverThumbnailHeightWithContentWidth:(double)arg1 withImageWidth:(double)arg2 imageHeight:(double)arg3;
-+ (double)contentWidthWithCellWidth:(double)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSView *readerTitleBackView; // @synthesize readerTitleBackView=_readerTitleBackView;
+@property(retain, nonatomic) CAGradientLayer *readerTitleBackLayer; // @synthesize readerTitleBackLayer=_readerTitleBackLayer;
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) NSMutableArray *viewsInOthersContainer; // @synthesize viewsInOthersContainer=_viewsInOthersContainer;
 @property(nonatomic) unsigned long long selectedReaderWrapIndex; // @synthesize selectedReaderWrapIndex=_selectedReaderWrapIndex;
 @property(retain, nonatomic) MMView *othersContainer; // @synthesize othersContainer=_othersContainer;
-@property(retain, nonatomic) NSView *coverThumbnailContainer; // @synthesize coverThumbnailContainer=_coverThumbnailContainer;
 @property(retain, nonatomic) MMImageView *coverThumbnail; // @synthesize coverThumbnail=_coverThumbnail;
 @property(retain, nonatomic) MMReaderWrapView *coverContainer; // @synthesize coverContainer=_coverContainer;
 @property(retain, nonatomic) MMTextField *readerTimeLabel; // @synthesize readerTimeLabel=_readerTimeLabel;
-@property(retain, nonatomic) NSView *readerTitleContainer; // @synthesize readerTitleContainer=_readerTitleContainer;
 @property(retain, nonatomic) NSTextField *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
 @property(retain, nonatomic) NSArray *readerMessages; // @synthesize readerMessages=_readerMessages;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
@@ -64,8 +63,9 @@
 - (id)draggingImage;
 - (id)bubbleImage;
 - (struct CGRect)bubbleFrame;
-- (id)rowWithReaderMessage:(id)arg1 row:(unsigned long long)arg2;
+- (id)rowWithReaderMessage:(id)arg1 row:(unsigned long long)arg2 isLastRow:(BOOL)arg3;
 - (void)layoutOtherMessages;
+- (void)layoutReaderTitleBackgroudView;
 - (void)layoutCover;
 - (void)layoutTitleLabel;
 - (void)layoutViews;

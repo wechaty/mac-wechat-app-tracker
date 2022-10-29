@@ -11,6 +11,6 @@
 @protocol MMVoipBaseWindowControllerDelegate <NSObject>
 
 @optional
-- (void)windowDidColsed:(MMVoipBaseWindowController *)arg1;
+- (void)VoIPWindowDidClosed:(MMVoipBaseWindowController *)arg1;
 @end
 

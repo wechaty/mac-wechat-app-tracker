@@ -19,6 +19,7 @@
 
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;
+- (void)viewDBCpInfoContent;
 - (void)viewBrandDBFileInfoContent;
 - (void)viewDBFileInfoContent;
 - (void)viewConfigContent;

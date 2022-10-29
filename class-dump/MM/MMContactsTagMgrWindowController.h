@@ -6,24 +6,25 @@
 
 #import "MMWindowController.h"
 
-#import "MMContactsMgrExt-Protocol.h"
-#import "MMContactsTagMgrExt-Protocol.h"
 #import "MMTagsCollectionVCDelegate-Protocol.h"
 #import "MMTagsSearchViewControllerDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMContactsModel, MMOutlineButton, MMTagsCollectViewController, MMTagsSearchViewController, MMTimer, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, RFOverlayScrollView;
+@class MMOutlineButton, MMTagsCollectViewController, MMTagsSearchViewController, MMTimer, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSView, RFOverlayScrollView;
+@protocol MMTagEditControllerDataSource, MMTagEditControllerDelegate;
 
-@interface MMContactsTagMgrWindowController : MMWindowController <MMContactsMgrExt, MMContactsTagMgrExt, MMTagsCollectionVCDelegate, NSTextFieldDelegate, NSWindowDelegate, MMTagsSearchViewControllerDelegate>
+@interface MMContactsTagMgrWindowController : MMWindowController <MMTagsCollectionVCDelegate, NSTextFieldDelegate, NSWindowDelegate, MMTagsSearchViewControllerDelegate>
 {
     BOOL _bChanged;
-    NSArray *_contactsForAddToTags;
+    BOOL _isSaving;
+    id <MMTagEditControllerDataSource> _dataSource;
+    id <MMTagEditControllerDelegate> _delegate;
     long long _scene;
-    unsigned long long _OPScene;
-    MMContactsModel *_aModel;
-    MMOutlineButton *_confirmButton;
-    MMOutlineButton *_cancelButton;
+    NSString *_placeholderString;
+    NSString *_title;
+    NSArray *_existTags;
+    NSMutableArray *_allTags;
     NSTextField *_tagTextField;
     RFOverlayScrollView *_scrollView;
     NSView *_inputView;
@@ -33,19 +34,26 @@
     NSMutableArray *_deleteTags;
     MMTagsCollectViewController *_collectionVC;
     MMTagsSearchViewController *_searchVC;
+    MMOutlineButton *_confirmButton;
+    MMOutlineButton *_cancelButton;
     long long _inputViewHeight;
     long long _lines;
     NSString *_waitForDeleteTag;
     id _userActiveEvent;
     MMTimer *_searchDelayTimer;
+    NSString *_identifier;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isSaving; // @synthesize isSaving=_isSaving;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) MMTimer *searchDelayTimer; // @synthesize searchDelayTimer=_searchDelayTimer;
 @property(retain, nonatomic) id userActiveEvent; // @synthesize userActiveEvent=_userActiveEvent;
 @property(retain, nonatomic) NSString *waitForDeleteTag; // @synthesize waitForDeleteTag=_waitForDeleteTag;
 @property(nonatomic) long long lines; // @synthesize lines=_lines;
 @property(nonatomic) long long inputViewHeight; // @synthesize inputViewHeight=_inputViewHeight;
+@property(retain, nonatomic) MMOutlineButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) MMOutlineButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) MMTagsSearchViewController *searchVC; // @synthesize searchVC=_searchVC;
 @property(retain, nonatomic) MMTagsCollectViewController *collectionVC; // @synthesize collectionVC=_collectionVC;
 @property(retain, nonatomic) NSMutableArray *deleteTags; // @synthesize deleteTags=_deleteTags;
@@ -56,28 +64,32 @@
 @property(retain, nonatomic) NSView *inputView; // @synthesize inputView=_inputView;
 @property(retain, nonatomic) RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) NSTextField *tagTextField; // @synthesize tagTextField=_tagTextField;
-@property(retain, nonatomic) MMOutlineButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(retain, nonatomic) MMOutlineButton *confirmButton; // @synthesize confirmButton=_confirmButton;
-@property(retain, nonatomic) MMContactsModel *aModel; // @synthesize aModel=_aModel;
-@property(nonatomic) unsigned long long OPScene; // @synthesize OPScene=_OPScene;
+@property(retain, nonatomic) NSMutableArray *allTags; // @synthesize allTags=_allTags;
+@property(retain, nonatomic) NSArray *existTags; // @synthesize existTags=_existTags;
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) NSString *placeholderString; // @synthesize placeholderString=_placeholderString;
 @property(nonatomic) long long scene; // @synthesize scene=_scene;
-@property(retain, nonatomic) NSArray *contactsForAddToTags; // @synthesize contactsForAddToTags=_contactsForAddToTags;
-- (BOOL)checkAddNewTagInfo:(id)arg1;
+@property(nonatomic) __weak id <MMTagEditControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MMTagEditControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
+- (BOOL)isAlreadyExistTagName:(id)arg1;
+- (id)tagInfoForTagTitle:(id)arg1;
+- (BOOL)checkAddNewTagInfo:(id)arg1 isFromSearch:(BOOL)arg2;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
 - (void)doSearch;
 - (void)stopTimer;
-- (void)onContactsTagMgrDidLableOPSuccess:(int)arg1 withTags:(id)arg2;
-- (void)onContactsTagMgrDidLableOPFailed:(int)arg1 withTags:(id)arg2;
 - (void)onSearchItemClick:(id)arg1;
 - (void)onTagViewItemSelected:(BOOL)arg1 withTagInfo:(id)arg2;
-- (void)showToastAndClose;
 - (void)hideToast;
-- (void)showToast;
-- (void)saveEditContent;
+- (void)showToast:(id)arg1;
 - (void)justCloseWindow;
 - (void)onConfirmButtonClick:(id)arg1;
+- (void)showFailureToast:(id)arg1;
+- (void)showSuccessToastAndClose;
+- (void)showToastLoading;
+- (void)onSave;
 - (void)onCancleButtonClick:(id)arg1;
+- (id)findTag:(id)arg1 title:(id)arg2;
 - (void)realRemoveButtonFromInputViewWithTitle:(id)arg1;
 - (void)prepareRemoveButtonFromInputView;
 - (void)clearPrepareRemoveButton;
@@ -97,11 +109,19 @@
 - (void)setupSubview;
 - (void)setupContact;
 - (void)checkTagsMgrWindowStatus;
+- (BOOL)canCloseWindow;
 - (BOOL)windowShouldClose:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidChangedEffectiveAppearance;
+- (void)initDataSource;
 - (void)windowDidLoad;
-- (void)showWindow:(id)arg1;
+- (id)getDeleteTags;
+- (id)getCreateTags;
+- (id)getAddTags;
+- (void)dealloc;
+- (void)pushWindow:(id)arg1 withIdentifier:(id)arg2;
+- (id)initWithDataSource:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

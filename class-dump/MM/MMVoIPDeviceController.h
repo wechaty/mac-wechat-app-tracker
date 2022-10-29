@@ -10,25 +10,37 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMTableView, NSArray, NSScrollView, NSString;
+@class MMTableView, NSArray, NSScrollView, NSString, NSTrackingArea;
 
 @interface MMVoIPDeviceController : NSViewController <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate>
 {
+    BOOL _clearPreSelected;
+    BOOL _isTracking;
     int _type;
     CDUnknownBlockType _onVoIPDeviceChanged;
+    CDUnknownBlockType _onCloseDeviceMenuSelected;
+    CDUnknownBlockType _onMouseExited;
     MMTableView *_tableView;
     NSScrollView *_scrollView;
     NSArray *_deviceList;
     NSArray *_menuTitle;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isTracking; // @synthesize isTracking=_isTracking;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSArray *menuTitle; // @synthesize menuTitle=_menuTitle;
 @property(retain, nonatomic) NSArray *deviceList; // @synthesize deviceList=_deviceList;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMTableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) BOOL clearPreSelected; // @synthesize clearPreSelected=_clearPreSelected;
+@property(copy, nonatomic) CDUnknownBlockType onMouseExited; // @synthesize onMouseExited=_onMouseExited;
+@property(copy, nonatomic) CDUnknownBlockType onCloseDeviceMenuSelected; // @synthesize onCloseDeviceMenuSelected=_onCloseDeviceMenuSelected;
 @property(copy, nonatomic) CDUnknownBlockType onVoIPDeviceChanged; // @synthesize onVoIPDeviceChanged=_onVoIPDeviceChanged;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
@@ -37,6 +49,8 @@
 - (long long)numberOfSectionsInTableView;
 - (double)suggestDisplayHeight;
 - (void)reloadData:(int)arg1;
+- (id)wordingInType;
+- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

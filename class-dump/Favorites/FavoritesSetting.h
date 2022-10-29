@@ -12,6 +12,9 @@
 
 @interface FavoritesSetting : NSObject <PBCoding>
 {
+    BOOL useNewTagLogic;
+    BOOL hasGetFavSetting;
+    BOOL useNewTagTables;
     unsigned int maxAutoUploadSize;
     unsigned int maxAutoDownloadSize;
     unsigned int maxFavFileSize;
@@ -20,11 +23,17 @@
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_useNewTagTables;
++ (void)PBArrayAdd_hasGetFavSetting;
++ (void)PBArrayAdd_useNewTagLogic;
 + (void)PBArrayAdd_maxFavFileSize;
 + (void)PBArrayAdd_maxAutoDownloadSize;
 + (void)PBArrayAdd_maxAutoUploadSize;
 + (void)PBArrayAdd_usedCapacity;
 + (void)PBArrayAdd_totalCapacity;
+@property(nonatomic) BOOL useNewTagTables; // @synthesize useNewTagTables;
+@property(nonatomic) BOOL hasGetFavSetting; // @synthesize hasGetFavSetting;
+@property(nonatomic) BOOL useNewTagLogic; // @synthesize useNewTagLogic;
 @property(nonatomic) unsigned int maxFavFileSize; // @synthesize maxFavFileSize;
 @property(nonatomic) unsigned int maxAutoDownloadSize; // @synthesize maxAutoDownloadSize;
 @property(nonatomic) unsigned int maxAutoUploadSize; // @synthesize maxAutoUploadSize;

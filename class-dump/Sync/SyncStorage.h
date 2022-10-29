@@ -19,12 +19,14 @@
 }
 
 + (void)DeleteSyncBufferFile;
++ (void)ClearAllSyncBuffer;
 + (id)mergeSyncBuffer:(id)arg1 withSvrBuffer:(id)arg2;
 + (id)SyncBufferToString:(id)arg1;
 + (id)syncKeyToString:(id)arg1;
 + (id)mergeLocalKey:(id)arg1 withSvrKey:(id)arg2;
 - (void).cxx_destruct;
 @property BOOL m_hasClearData; // @synthesize m_hasClearData=_m_hasClearData;
+- (void)ResetAndSaveSyncBuffer:(id)arg1;
 - (id)GetSyncBuffer;
 - (void)MergeSyncBufferInMemory:(id)arg1;
 - (void)MergeSyncBuffer:(id)arg1;

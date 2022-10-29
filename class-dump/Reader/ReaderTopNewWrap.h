@@ -14,9 +14,15 @@
     NSString *m_nsDigest;
     unsigned int m_uiCoverWidth;
     unsigned int m_uiCoverHeight;
+    NSString *_m_nsCover_1_1;
+    NSString *_m_nsCover_16_9;
+    NSString *_m_nsCover_235_1;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *m_nsCover_235_1; // @synthesize m_nsCover_235_1=_m_nsCover_235_1;
+@property(retain, nonatomic) NSString *m_nsCover_16_9; // @synthesize m_nsCover_16_9=_m_nsCover_16_9;
+@property(retain, nonatomic) NSString *m_nsCover_1_1; // @synthesize m_nsCover_1_1=_m_nsCover_1_1;
 @property(nonatomic) unsigned int m_uiCoverHeight; // @synthesize m_uiCoverHeight;
 @property(nonatomic) unsigned int m_uiCoverWidth; // @synthesize m_uiCoverWidth;
 @property(retain, nonatomic) NSString *m_nsDigest; // @synthesize m_nsDigest;

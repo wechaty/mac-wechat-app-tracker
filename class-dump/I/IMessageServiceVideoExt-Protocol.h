@@ -11,12 +11,15 @@
 @protocol IMessageServiceVideoExt <NSObject>
 
 @optional
+- (void)onVideoDidCancelPredownloadWithMessage:(MessageData *)arg1;
+- (void)onVideoDidFailPredownloadWithMessage:(MessageData *)arg1;
+- (void)onVideoDidStartPredownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidCancelUploadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidFinishUploadWithMessage:(MessageData *)arg1;
 - (void)onVideoUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onVideoDidCancelDownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidFailDownloadWithMessage:(MessageData *)arg1;
-- (void)onVideoDidFinishDownloadWithMessage:(MessageData *)arg1;
+- (void)onVideoDidFinishDownloadWithMessage:(MessageData *)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 @end
 

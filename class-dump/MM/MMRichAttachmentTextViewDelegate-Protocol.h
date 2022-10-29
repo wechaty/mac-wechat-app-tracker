@@ -12,11 +12,13 @@
 @protocol MMRichAttachmentTextViewDelegate <MMRichAttachmentBaseTextViewDelegate>
 
 @optional
+- (void)superDeleteBackward;
 - (BOOL)superDeleteNote;
 - (BOOL)superShareToFriends;
 - (BOOL)superSaveNote;
 - (BOOL)superHandlePickFile;
 - (BOOL)superHandleEscapeEvent;
+- (BOOL)textView:(MMRichAttachmentTextView *)arg1 formatAllToolBarStatus:(int)arg2;
 - (BOOL)textView:(MMRichAttachmentTextView *)arg1 shouldUpdateToolBarWithBulletType:(WeNoteBulletInfo *)arg2;
 - (BOOL)textView:(MMRichAttachmentTextView *)arg1 shouldUpdateToolBarWithAttribtues:(NSDictionary *)arg2;
 - (BOOL)textView:(MMRichAttachmentTextView *)arg1 shouldAcceptFileAttachment:(NSString *)arg2;

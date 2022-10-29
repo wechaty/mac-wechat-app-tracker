@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)shouldShowTipsBar;
 - (BOOL)shouldShowHintLabel;
 - (Class)classWithMessage:(id)arg1;
 - (id)cellViewWithMessage:(id)arg1;

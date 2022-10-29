@@ -23,6 +23,6 @@
 - (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withFavItemData:(FavoritesItemDataField *)arg3 type:(int)arg4 tryShow:(BOOL)arg5;
-- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3 type:(int)arg4 tryShow:(BOOL)arg5;
+- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3 type:(int)arg4 downloadType:(int)arg5;
 @end
 

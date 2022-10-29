@@ -12,6 +12,7 @@
 
 @interface MMProfileHeaderView : NSView <IContactMgrExt>
 {
+    MMMediumDivider *_lineView;
     CDUnknownBlockType _didAvatarViewClick;
     ContactProfileHeader *_data;
     WCContactData *_contact;
@@ -19,13 +20,11 @@
     MMTextField *_wechatIdText;
     NSImageView *_genderImgView;
     MMAvatarImageView *_avatarView;
-    MMMediumDivider *_lineView;
     double _maxContentWidth;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) double maxContentWidth; // @synthesize maxContentWidth=_maxContentWidth;
-@property(retain, nonatomic) MMMediumDivider *lineView; // @synthesize lineView=_lineView;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSImageView *genderImgView; // @synthesize genderImgView=_genderImgView;
 @property(retain, nonatomic) MMTextField *wechatIdText; // @synthesize wechatIdText=_wechatIdText;
@@ -33,6 +32,7 @@
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) ContactProfileHeader *data; // @synthesize data=_data;
 @property(copy, nonatomic) CDUnknownBlockType didAvatarViewClick; // @synthesize didAvatarViewClick=_didAvatarViewClick;
+@property(retain, nonatomic) MMMediumDivider *lineView; // @synthesize lineView=_lineView;
 - (struct CGPoint)getLastLinePoint:(id)arg1;
 - (double)getTextHeight:(id)arg1 withConstraint:(double)arg2 isAdjust:(BOOL)arg3;
 - (void)convertNickNameFontSize;

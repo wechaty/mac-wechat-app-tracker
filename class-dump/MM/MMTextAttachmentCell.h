@@ -12,19 +12,18 @@
 @interface MMTextAttachmentCell : NSTextAttachmentCell
 {
     BOOL _fillWidth;
+    id <MMTextAttachmentCellDelegate> _delegate;
+    NSColor *_highlightedColor;
+    NSColor *_strokeColor;
     NSString *_placeholderString;
     id _data;
     WeNoteParagraphInfo *_paraInfo;
-    id <MMTextAttachmentCellDelegate> _delegate;
-    NSColor *_highlightedColor;
     struct CGSize _size;
     struct NSEdgeInsets _contentInset;
     struct CGRect _bounds;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSColor *highlightedColor; // @synthesize highlightedColor=_highlightedColor;
-@property(nonatomic) id <MMTextAttachmentCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) WeNoteParagraphInfo *paraInfo; // @synthesize paraInfo=_paraInfo;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
@@ -32,6 +31,9 @@
 @property(nonatomic) BOOL fillWidth; // @synthesize fillWidth=_fillWidth;
 @property(retain, nonatomic) id data; // @synthesize data=_data;
 @property(copy, nonatomic) NSString *placeholderString; // @synthesize placeholderString=_placeholderString;
+@property(retain, nonatomic) NSColor *strokeColor; // @synthesize strokeColor=_strokeColor;
+@property(retain, nonatomic) NSColor *highlightedColor; // @synthesize highlightedColor=_highlightedColor;
+@property(nonatomic) id <MMTextAttachmentCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (struct CGRect)cellFrameForTextContainer:(id)arg1 proposedLineFragment:(struct CGRect)arg2 glyphPosition:(struct CGPoint)arg3 characterIndex:(unsigned long long)arg4;
 - (void)dealloc;

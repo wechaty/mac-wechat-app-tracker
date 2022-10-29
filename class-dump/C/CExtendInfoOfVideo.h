@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class DownloadVideoReportData, MessageData, NSString, UploadVideoReportData;
+@class DownloadVideoReportData, MessageData, NSString, UploadVideoReportData, VideoMsgPreDownloadInfo;
 
 @interface CExtendInfoOfVideo : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -33,6 +33,7 @@
     NSString *m_nsCommentUrl;
     NSString *m_nsMsgMd5;
     NSString *m_authKey;
+    VideoMsgPreDownloadInfo *videoPreDownloadInfo;
     unsigned int _m_uiPercent;
     MessageData *m_refMessageData;
     unsigned long long _m_uiRawFileLength;
@@ -50,6 +51,7 @@
 @property(retain, nonatomic) NSString *m_nsRawFileMd5; // @synthesize m_nsRawFileMd5=_m_nsRawFileMd5;
 @property(nonatomic) unsigned long long m_uiRawFileLength; // @synthesize m_uiRawFileLength=_m_uiRawFileLength;
 @property(nonatomic) unsigned int m_uiPercent; // @synthesize m_uiPercent=_m_uiPercent;
+@property(retain, nonatomic) VideoMsgPreDownloadInfo *videoPreDownloadInfo; // @synthesize videoPreDownloadInfo;
 @property(copy, nonatomic) NSString *m_authKey; // @synthesize m_authKey;
 @property(nonatomic) __weak MessageData *m_refMessageData; // @synthesize m_refMessageData;
 @property(retain, nonatomic) NSString *m_nsMsgDataUrl; // @synthesize m_nsMsgDataUrl;

@@ -171,6 +171,7 @@
 - (void)hideWithMouseEvent:(id)arg1;
 - (void)hideWithAnimated:(BOOL)arg1 makeFirstResponder:(unsigned char)arg2;
 - (void)showWithAnimated:(BOOL)arg1;
+- (void)updateContentViewHeight:(double)arg1;
 - (void)toggle;
 - (void)setupContentView;
 - (void)viewChangedEffectiveAppearance;

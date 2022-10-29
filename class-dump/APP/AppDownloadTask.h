@@ -23,13 +23,15 @@
     unsigned int m_uTotalLen;
     unsigned int m_cgiSessionId;
     int _type;
+    int _downloadType;
     FavoritesItemDataField *_recordMsgData;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) FavoritesItemDataField *recordMsgData; // @synthesize recordMsgData=_recordMsgData;
-@property(nonatomic) id <AppDownloadTaskDelegate> delegate; // @synthesize delegate=m_delegate;
+@property(nonatomic) __weak id <AppDownloadTaskDelegate> delegate; // @synthesize delegate=m_delegate;
 @property(retain, nonatomic) NSString *chatName; // @synthesize chatName=m_nsChatName;
 @property(nonatomic) unsigned long long taskId; // @synthesize taskId=m_taskId;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=m_msgData;
@@ -42,12 +44,14 @@
 - (void)downloadOk:(id)arg1;
 - (void)downloadFail:(unsigned int)arg1;
 - (void)downloadExpired:(unsigned int)arg1;
-- (BOOL)isAppFileDataExist;
+- (id)appFileDataPath;
+- (void)downloadExpiredByCDN:(int)arg1;
 - (void)downloadFailByCDN:(int)arg1;
 - (void)downloadOkByCDN;
 - (BOOL)sendAppDownloadReq;
 - (void)downloadAppContent;
 - (void)downloadAppContentByCDN;
+@property(readonly, copy) NSString *description;
 - (void)startDownloading;
 - (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
@@ -55,7 +59,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

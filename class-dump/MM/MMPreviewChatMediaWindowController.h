@@ -22,7 +22,7 @@
 
 - (void).cxx_destruct;
 - (void)onImageDidFailedDownloadWithMessage:(id)arg1 type:(int)arg2;
-- (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2;
+- (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2 isPredownload:(BOOL)arg3;
 - (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
 - (void)pageController:(id)arg1 prepareViewController:(id)arg2 withObject:(id)arg3;
 - (void)onDelAllMsg:(id)arg1;
