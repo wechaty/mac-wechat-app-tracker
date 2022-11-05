@@ -6,12 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class MessageData, NSString, SendVideoInfo;
+@class NSString, SendVideoInfo;
 
 @protocol IMessageDataExt <NSObject>
 
 @optional
-+ (void)generateVideoMessageDataWith:(MessageData *)arg1 toUsrName:(NSString *)arg2 extType:(int)arg3 retMessageData:(id *)arg4;
 + (void)CreateVideoMsg:(NSString *)arg1 ToUsr:(NSString *)arg2 VideoInfo:(SendVideoInfo *)arg3 retMessageData:(id *)arg4 compressStatus:(unsigned int)arg5;
 + (void)CreateExtendInfoWithUserName:(NSString *)arg1 retExtendInfo:(id *)arg2 retIsContinueDispatch:(char *)arg3;
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;

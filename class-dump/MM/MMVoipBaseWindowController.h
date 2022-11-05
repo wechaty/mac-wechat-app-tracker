@@ -61,9 +61,11 @@
     NSView *_visualEffectContainerView;
     id _monitorMouseEvent;
     double _lastPopoverDismiss;
+    NSString *_toastContentStr;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *toastContentStr; // @synthesize toastContentStr=_toastContentStr;
 @property(nonatomic) double lastPopoverDismiss; // @synthesize lastPopoverDismiss=_lastPopoverDismiss;
 @property(retain, nonatomic) id monitorMouseEvent; // @synthesize monitorMouseEvent=_monitorMouseEvent;
 @property(nonatomic) BOOL closeCameraBeforeConnectOK; // @synthesize closeCameraBeforeConnectOK=_closeCameraBeforeConnectOK;
@@ -186,6 +188,7 @@
 - (void)showCurrentTips:(id)arg1;
 - (void)hidePreviousTips;
 - (void)layoutTipsLabelWithMode:(int)arg1;
+- (void)delayShowTiplabel;
 - (void)layoutRelatedControlsWithContact:(id)arg1 andSetCurrentMode:(int)arg2;
 - (void)layoutToolbarContainer;
 - (void)makeHangUpBtnUnavailable;
@@ -196,6 +199,7 @@
 - (void)changeRenderLayerDisplayFromW16H9ToW9H16OnFullScreen;
 - (void)changeRenderLayerDisplayFromW9H16ToW16H9OnFullScreen;
 - (void)changeRenderLayerDisplayNotOnFullScreen;
+- (void)switchPlaySoundDevice;
 - (void)playEndingSound;
 - (void)resumePlaySound;
 - (void)pausePlaySound;

@@ -11,6 +11,7 @@
 
 @interface WAHost : NSObject
 {
+    BOOL _launched;
     id <WAMiniProgramHostDataSource> _dataSource;
     id <WAMiniProgramHostDelegate> _delegate;
     WAHostConfig *_config;
@@ -24,6 +25,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) WATaskCenter *taskCenter; // @synthesize taskCenter=_taskCenter;
 @property(retain, nonatomic) WAHostConfig *config; // @synthesize config=_config;
+@property(nonatomic, getter=isLaunched) BOOL launched; // @synthesize launched=_launched;
 @property(nonatomic) __weak id <WAMiniProgramHostDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <WAMiniProgramHostDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) id <IWALaunchProtocol> launchProxy;
@@ -37,8 +39,8 @@
 - (void)launchMiniProgram:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)clearHost;
 - (void)terminate;
-- (BOOL)launch:(BOOL)arg1;
-- (BOOL)launch;
+- (id)launch:(BOOL)arg1;
+- (id)launch;
 - (void)setup:(id)arg1;
 - (id)init;
 - (id)ipcHelperUrl;

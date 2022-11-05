@@ -89,6 +89,7 @@
 @property(retain, nonatomic) NSString *server_hello; // @synthesize server_hello=_server_hello;
 @property(retain, nonatomic) NSData *server_key; // @synthesize server_key=_server_key;
 @property(retain, nonatomic) NSString *server_id; // @synthesize server_id=_server_id;
+- (void)removeBackupIndexDBWithDeviceId:(id)arg1;
 - (id)backupIndexDBWithDeviceId:(id)arg1;
 - (void)closeBackupIndexDB;
 - (void)onMMDynamicConfigUpdated;

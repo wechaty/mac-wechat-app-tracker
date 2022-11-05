@@ -23,6 +23,9 @@
 + (id)getSysInfoByName:(char *)arg1;
 + (id)currentDevice;
 + (void)initialize;
++ (BOOL)isVenturaOrLater;
++ (BOOL)isMontereyOrLater;
++ (BOOL)isBigSurOrLater;
 + (BOOL)isCatalinaOrLater;
 + (BOOL)isMojaveOrLater;
 + (BOOL)isHighSierraOrLater;

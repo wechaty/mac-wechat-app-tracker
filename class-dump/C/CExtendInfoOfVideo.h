@@ -42,7 +42,6 @@
     NSString *_m_nsRawAeskey;
 }
 
-+ (void)generateVideoMessageDataWith:(id)arg1 toUsrName:(id)arg2 extType:(int)arg3 retMessageData:(id *)arg4;
 + (void)CreateVideoMsg:(id)arg1 ToUsr:(id)arg2 VideoInfo:(id)arg3 retMessageData:(id *)arg4 compressStatus:(unsigned int)arg5;
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;

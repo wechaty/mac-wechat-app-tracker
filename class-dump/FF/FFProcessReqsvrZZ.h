@@ -339,10 +339,10 @@
 - (BOOL)isEmojiMsgUploading:(id)arg1;
 - (BOOL)isTextMsgUploading:(id)arg1;
 - (BOOL)normalDownloadWithMsgData:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
-- (BOOL)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3 bAsync:(BOOL)arg4;
-- (BOOL)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 bAsync:(BOOL)arg3;
-- (BOOL)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
-- (BOOL)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2;
+- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3 bAsync:(BOOL)arg4;
+- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 bAsync:(BOOL)arg3;
+- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
+- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2;
 - (BOOL)checkFileNeedDownload:(id)arg1;
 - (BOOL)checkOriginImageNeedDownload:(id)arg1;
 - (BOOL)checkMidImageNeedDownload:(id)arg1;

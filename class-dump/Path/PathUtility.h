@@ -82,6 +82,7 @@
 + (id)getContactAutoUpdateDataPath;
 + (id)GetWebTemplateDBPath;
 + (id)GetWebTemplateDirPath;
++ (id)videoTmpPathWithMessage:(id)arg1 rawVideo:(BOOL)arg2;
 + (id)imageTmpPathWithMessage:(id)arg1 midImage:(BOOL)arg2;
 + (id)imagePathWithMessage:(id)arg1 midImage:(BOOL)arg2;
 + (id)GetCdnRootPath;
@@ -126,7 +127,10 @@
 + (id)getSysMsgHistoryPathWithUserName:(id)arg1 historyId:(unsigned long long)arg2;
 + (id)getMsgFileDirWithUserName:(id)arg1;
 + (id)getMsgAppOpenDataDirWithUserName:(id)arg1;
++ (id)getMsgRawVideoTmpPath:(id)arg1 localId:(unsigned int)arg2;
++ (id)getMsgVideoTmpPath:(id)arg1 localId:(unsigned int)arg2;
 + (id)_genFromSelfVideoUniqFlag:(id)arg1;
++ (id)getSendMsgVideoFileName:(id)arg1;
 + (id)getMsgVideoPathWithMessage:(id)arg1 isRawFlag:(BOOL)arg2;
 + (id)getMsgVideoPathWithMessage:(id)arg1;
 + (id)getMsgVideoPathWithUserName:(id)arg1 localId:(unsigned int)arg2;

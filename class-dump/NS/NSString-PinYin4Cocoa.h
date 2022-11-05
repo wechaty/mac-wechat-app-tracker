@@ -217,6 +217,8 @@
 - (id)replaceHighlightTagWithColor:(id)arg1;
 - (BOOL)isImageUTType;
 - (BOOL)isPlainTextUTType;
+- (id)substringToWithEmoji:(long long)arg1;
+- (id)substringToWithoutEmoji:(long long)arg1;
 - (BOOL)containsEmojiString;
 - (id)emojiUnifiedString;
 - (id)emojiSoftBankString;
