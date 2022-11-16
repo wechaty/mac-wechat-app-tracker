@@ -343,10 +343,10 @@
 - (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 bAsync:(BOOL)arg3;
 - (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
 - (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2;
-- (BOOL)checkFileNeedDownload:(id)arg1;
-- (BOOL)checkOriginImageNeedDownload:(id)arg1;
+- (BOOL)checkFileNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
+- (BOOL)checkOriginImageNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
 - (BOOL)checkMidImageNeedDownload:(id)arg1;
-- (BOOL)checkVideoNeedDownload:(id)arg1;
+- (BOOL)checkVideoNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
 - (BOOL)checkMessageTypeNeedDownload:(id)arg1;
 - (void)cleanUploadTask:(id)arg1;
 - (void)cleanDownloadTask:(id)arg1;

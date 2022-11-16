@@ -6,12 +6,13 @@
 
 #import "MMService.h"
 
+#import "IMessageServiceVoiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class NSMutableArray, NSMutableDictionary, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMVoiceTranslateMgr : MMService <MMService>
+@interface MMVoiceTranslateMgr : MMService <IMessageServiceVoiceExt, MMService>
 {
     BOOL _m_isStop;
     NSRecursiveLock *_m_lock;
@@ -28,11 +29,14 @@
 @property(retain, nonatomic) NSMutableArray *m_pendingMsgList; // @synthesize m_pendingMsgList=_m_pendingMsgList;
 @property(nonatomic) BOOL m_isStop; // @synthesize m_isStop=_m_isStop;
 @property(retain, nonatomic) NSRecursiveLock *m_lock; // @synthesize m_lock=_m_lock;
+- (void)onVoiceDidFailDownloadWithMessage:(id)arg1;
+- (void)onVoiceDidFinishDownloadWithMessage:(id)arg1;
 - (void)updateTranscribeVoiceMessage:(id)arg1 voiceText:(id)arg2 voiceToTextStatus:(unsigned int)arg3;
 - (void)tryNextMsgWrap:(id)arg1;
 - (void)stopTranslate;
 - (void)stopTranslateTask:(id)arg1 isCancel:(BOOL)arg2;
-- (void)sendTranslateRequest;
+- (void)sendTranslateRequest:(id)arg1;
+- (void)checkAndSendTranslateRequest;
 - (void)doTranslate:(id)arg1 isAuto:(BOOL)arg2;
 - (void)onServiceClearData;
 - (void)onServiceInit;

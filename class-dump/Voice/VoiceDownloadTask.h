@@ -29,6 +29,7 @@
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)sendDownloadingRequest:(unsigned int)arg1 endFlag:(unsigned int)arg2;
 - (void)startDownloading;
+- (BOOL)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
 
