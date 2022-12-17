@@ -26,6 +26,8 @@
 @property(retain, nonatomic) MMTextView *msgTextView; // @synthesize msgTextView=_msgTextView;
 - (void)OnHistoryRecordRevoked:(id)arg1 historyId:(unsigned long long)arg2;
 - (void)messageCellViewReloadLayout:(id)arg1;
+- (void)showSessionPickerForRevokeAddMember:(id)arg1 revokeMemberList:(id)arg2 shouldRevokeHistory:(BOOL)arg3;
+- (void)onClickRevokeAddMemberLink;
 - (struct CGRect)originScreenRectForAnimationForWindow:(id)arg1;
 - (void)copyActionInTextView:(id)arg1;
 - (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;

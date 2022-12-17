@@ -7,16 +7,17 @@
 #import "MMTraitsViewController.h"
 
 #import "EmoticonDownloadMgrExt-Protocol.h"
+#import "HistoryRecordUploadMgrExt-Protocol.h"
 #import "MMSessionListViewDelegate-Protocol.h"
 #import "MMTableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 #import "SDWebImageManagerDelegate-Protocol.h"
 
-@class DataItemForSessionPicker, FavoritesItem, MMAppReferCoverView, MMHoyKeyTextView, MMOutlineButton, MMTableView, MessageData, MessageWrapForSessionPicker, NSArray, NSBox, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSView, URLDataForSessionPicker;
+@class DataItemForSessionPicker, FavoritesItem, HistoryInfo, MMAppReferCoverView, MMHoyKeyTextView, MMOutlineButton, MMTableView, MessageData, MessageWrapForSessionPicker, NSArray, NSBox, NSImageView, NSMutableArray, NSScrollView, NSString, NSTextField, NSView, ShareHistorySelectionForSessionPicker, URLDataForSessionPicker;
 @protocol MMSessionChoosenViewDelegate;
 
-@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, SDWebImageManagerDelegate, EmoticonDownloadMgrExt, MMSessionListViewDelegate>
+@interface MMSessionChoosenView : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, SDWebImageManagerDelegate, EmoticonDownloadMgrExt, HistoryRecordUploadMgrExt, MMSessionListViewDelegate>
 {
     BOOL _messageCannotBeOpened;
     id <MMSessionChoosenViewDelegate> _delegate;
@@ -28,6 +29,9 @@
     URLDataForSessionPicker *_uRLDataForSessionPicker;
     MessageWrapForSessionPicker *_messageWrap;
     unsigned long long _customAppearance;
+    ShareHistorySelectionForSessionPicker *_shareHistorySelection;
+    HistoryInfo *_uploadedHistoryInfo;
+    double _uploadBeginTime;
     NSTextField *_headingTitleField;
     NSTextField *_titleTextField;
     MMTableView *_stripeTableView;
@@ -57,9 +61,11 @@
     CDUnknownBlockType _didClickBackButtonBlock;
     NSImageView *_verticalDivider;
     long long _overCount;
+    NSString *_uploadingHistoryTaskId;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *uploadingHistoryTaskId; // @synthesize uploadingHistoryTaskId=_uploadingHistoryTaskId;
 @property(nonatomic) long long overCount; // @synthesize overCount=_overCount;
 @property(retain, nonatomic) NSImageView *verticalDivider; // @synthesize verticalDivider=_verticalDivider;
 @property(copy, nonatomic) CDUnknownBlockType didClickBackButtonBlock; // @synthesize didClickBackButtonBlock=_didClickBackButtonBlock;
@@ -90,6 +96,9 @@
 @property(retain, nonatomic) MMTableView *stripeTableView; // @synthesize stripeTableView=_stripeTableView;
 @property(retain, nonatomic) NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(retain, nonatomic) NSTextField *headingTitleField; // @synthesize headingTitleField=_headingTitleField;
+@property(nonatomic) double uploadBeginTime; // @synthesize uploadBeginTime=_uploadBeginTime;
+@property(retain, nonatomic) HistoryInfo *uploadedHistoryInfo; // @synthesize uploadedHistoryInfo=_uploadedHistoryInfo;
+@property(retain, nonatomic) ShareHistorySelectionForSessionPicker *shareHistorySelection; // @synthesize shareHistorySelection=_shareHistorySelection;
 @property(nonatomic) unsigned long long customAppearance; // @synthesize customAppearance=_customAppearance;
 @property(retain, nonatomic) MessageWrapForSessionPicker *messageWrap; // @synthesize messageWrap=_messageWrap;
 @property(retain, nonatomic) URLDataForSessionPicker *uRLDataForSessionPicker; // @synthesize uRLDataForSessionPicker=_uRLDataForSessionPicker;
@@ -103,6 +112,8 @@
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
+- (void)onHistoryRecordUploadFailed:(id)arg1;
+- (void)onHistoryRecordUploadSuccess:(id)arg1 historyInfo:(id)arg2;
 - (void)emoticonDownloadFailed:(id)arg1;
 - (void)emoticonDownloadFinished:(id)arg1;
 - (void)keyDownBlock:(id)arg1;
@@ -113,6 +124,7 @@
 - (void)updateSessionChoosenView:(id)arg1 insertOrNot:(BOOL)arg2;
 - (void)updateSessionChoosenText:(unsigned long long)arg1;
 - (void)setupPickerType:(unsigned long long)arg1;
+- (void)showAlert:(id)arg1;
 - (void)setEnabledTextWithType:(unsigned long long)arg1 sessionCount:(long long)arg2;
 - (void)setDisabledTextWithType:(unsigned long long)arg1 count:(long long)arg2;
 - (void)setupBottomButtons;
@@ -128,6 +140,8 @@
 - (id)appName;
 - (id)bottomString;
 - (struct CGColor *)getColorRef:(id)arg1;
+- (void)showRevokeHistoryEntry;
+- (void)showShareHistoryEntry;
 - (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)showAppFeedMessageView;
 - (void)showAppBrandMessageView;
@@ -143,6 +157,7 @@
 - (double)imageWidthScaleToX:(id)arg1;
 - (id)genNewNSImageView;
 - (id)msgReferSummary;
+- (void)setShowsShareHistoryEntry:(BOOL)arg1;
 - (void)setForwardSnsItemForSessionPicker:(id)arg1 messageCannotBeOpened:(BOOL)arg2;
 - (void)setForwardMessageWrap:(id)arg1 messageCannotBeOpened:(BOOL)arg2;
 - (void)setForwardURLDataForSessionPicker:(id)arg1 messageCannotBeOpened:(BOOL)arg2;
@@ -155,6 +170,7 @@
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (void)makeScrollViewConstraint:(double)arg1;
+- (void)makeHistoryMessageContainerViewConstraint;
 - (void)makeTextMessageContainerViewConstraint:(double)arg1;
 - (void)makeMessageContainerViewConstraint:(double)arg1;
 - (void)makeLongLineConstraint;

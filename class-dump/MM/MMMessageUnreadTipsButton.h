@@ -28,6 +28,7 @@
 @property(nonatomic) unsigned int unreadCount; // @synthesize unreadCount=_unreadCount;
 - (void)handleAppFontSize;
 - (void)setHidden:(BOOL)arg1 withSlideTransition:(BOOL)arg2;
+- (void)setupBackToReferDesc;
 - (void)setState:(long long)arg1;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;

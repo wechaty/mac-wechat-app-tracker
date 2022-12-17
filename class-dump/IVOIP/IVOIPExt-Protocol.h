@@ -9,6 +9,7 @@
 @protocol IVOIPExt
 
 @optional
+- (void)onOtherDeviceHandleTalk:(WCContactData *)arg1 WithStatus:(int)arg2;
 - (void)onVoIPExtRemoteTerminate;
 - (void)onVoIPExtRemoteCaptureResume;
 - (void)onVoIPExtRemoteCaptureSuspend;

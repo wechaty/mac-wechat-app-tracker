@@ -33,6 +33,7 @@
     _Bool bSpeakerphone;
     _Bool bEnableProximity;
     _Bool bSoundCardFlag;
+    int curAudioDeviceType;
     NSString *mOutFromName;
     PCMAudioFile *mOutPCMFile;
     BOOL mIsNeedRestartAudioTalk;
@@ -75,6 +76,7 @@
 - (void)onWCAudioSessionCategoryChange:(unsigned long long)arg1;
 - (void)onWCAudioSessionOldDeviceUnavailable;
 - (void)onWCAudioSessionNewDeviceAvailable;
+- (void)notifyAudioOutputDeviceChange:(BOOL)arg1;
 - (BOOL)isF2FMode;
 - (int)getWorkMode;
 - (BOOL)isVoIPPlaying;

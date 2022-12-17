@@ -14,7 +14,7 @@
 #import "MMService-Protocol.h"
 #import "VOIPVideoHWEncDelegate-Protocol.h"
 
-@class AUAudioDevice, AVVideoDevice, MMTimer, NSRecursiveLock, NSString, VOIPComponent, VOIPDialData, VOIPKernelLog, VOIPVideoHWEnc;
+@class AUAudioDevice, AVVideoDevice, MMTimer, NSImage, NSRecursiveLock, NSString, VOIPComponent, VOIPDialData, VOIPKernelLog, VOIPVideoHWEnc;
 @protocol IVOIPVideoDeviceDelegate;
 
 @interface VOIPMgr : MMService <IVOIPSyncExt, VOIPVideoHWEncDelegate, AVVideoDataSource, AUAudioDataSource, IAUAudioDeviceExt, MMService, AVVideoDeviceSessionDelegate>
@@ -168,6 +168,7 @@
     struct __CVBuffer *decodedFrameBuffer;
     double _remoteCaptureStatusLastSyncTimestamp;
     NSRecursiveLock *_mAudioPlayLock;
+    NSImage *_lastCapture;
     struct timeval dialStartTime;
     struct timeval mStartTalkTime;
     struct DialReport_t _dialReport;
@@ -175,6 +176,7 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *lastCapture; // @synthesize lastCapture=_lastCapture;
 @property(nonatomic) unsigned int m_cameraChangeToOrientationLastCount; // @synthesize m_cameraChangeToOrientationLastCount=_m_cameraChangeToOrientationLastCount;
 @property(nonatomic) BOOL m_usingFrontCameraLastFrame; // @synthesize m_usingFrontCameraLastFrame=_m_usingFrontCameraLastFrame;
 @property(nonatomic) BOOL mIsVideoInited; // @synthesize mIsVideoInited=_mIsVideoInited;
@@ -267,6 +269,7 @@
 @property(retain, nonatomic) VOIPComponent *mComponent; // @synthesize mComponent;
 @property(retain, nonatomic) VOIPDialData *mDialData; // @synthesize mDialData;
 @property(nonatomic) unsigned int mVoIPType; // @synthesize mVoIPType;
+- (void)onSecureNotifyWithData:(id)arg1;
 - (void)onNetworkStatusChange:(unsigned int)arg1;
 - (void)ReachabilityChange:(unsigned int)arg1;
 - (void)onVideoSessionStartComplete;
@@ -345,7 +348,7 @@
 - (void)CalcCallTime;
 - (void)CalcNewDailUsedTime;
 - (void)CalcDialUsedTime;
-- (void)SetMVEInfo:(CDStruct_14ccea6e *)arg1;
+- (void)SetMVEInfo:(CDStruct_259f0c51 *)arg1;
 - (int)cpuCapacity;
 - (int)getSysInfo:(unsigned int)arg1;
 - (unsigned int)GetDispRate;
@@ -355,6 +358,7 @@
 - (void)SendLocalNetWorkChangeCmd:(int)arg1;
 - (void)StopHWDec;
 - (void)StopHWEnc;
+- (void)CloseRoomReqFromTEG:(id)arg1;
 - (void)TalkBroken:(id)arg1;
 - (void)StopTalk;
 - (void)ShowVideoView;
@@ -388,6 +392,7 @@
 - (void)YUV420PToRGBAInt:(char *)arg1 dst:(char *)arg2 width:(unsigned long long)arg3 height:(unsigned long long)arg4 yRowStride:(unsigned long long)arg5 uvRowStride:(unsigned long long)arg6 uvPixelStride:(unsigned long long)arg7 format:(int)arg8;
 - (void)RenderTexture:(struct __CVBuffer *)arg1;
 - (float)getVideoDegreesWithOrientation:(int)arg1;
+- (void)audioPlayAndCapDeviceRestart:(id)arg1;
 - (void)audioDeviceStartedSuccess:(id)arg1;
 - (void)audioDeviceStartedFail:(id)arg1;
 - (void)audioDeviceUnPluginHeadset:(id)arg1;

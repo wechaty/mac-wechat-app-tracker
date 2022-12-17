@@ -26,6 +26,7 @@
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
 - (void)onUploadFinished:(unsigned long long)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)cancelUpload:(id)arg1 withMessage:(id)arg2;
+- (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2 scene:(unsigned int)arg3;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
 - (void)addMsgToUploadQueueForWeWork:(id)arg1 msgData:(id)arg2 andUploadExtendInfos:(id)arg3;

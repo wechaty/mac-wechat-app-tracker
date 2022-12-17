@@ -10,6 +10,10 @@
 {
 }
 
++ (void)reportReferMsgNotExist:(id)arg1 chatName:(id)arg2 hasLocalMsg:(BOOL)arg3;
++ (void)reportOriginMsgNotExist:(id)arg1 chatName:(id)arg2 hasLocalMsg:(BOOL)arg3;
++ (void)reportReturnToReferMsg:(id)arg1 chatName:(id)arg2 hasLocalMsg:(BOOL)arg3;
++ (void)reportReturnToOriginMsg:(id)arg1 chatName:(id)arg2 hasLocalMsg:(BOOL)arg3;
 + (void)reportClickReferMsg:(id)arg1 chatName:(id)arg2 hasLocalMsg:(BOOL)arg3;
 + (void)reportSendReferMsg:(id)arg1 chatName:(id)arg2;
 + (void)reportMenuReferMsg:(id)arg1 chatName:(id)arg2;

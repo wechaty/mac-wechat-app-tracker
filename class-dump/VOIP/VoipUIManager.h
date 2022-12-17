@@ -20,6 +20,7 @@
 {
     BOOL m_isCaller;
     BOOL _isLockScreen;
+    int _viewInitMode;
     MMVoipCallerWindowController *m_VoipCallerWindowController;
     MMVoipReceiverWindowController *m_VoipReceiverWindowController;
     MMVoipUserNotificationWindowController *m_VoipUserNotiWindowController;
@@ -29,6 +30,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) int viewInitMode; // @synthesize viewInitMode=_viewInitMode;
 @property(nonatomic) BOOL isLockScreen; // @synthesize isLockScreen=_isLockScreen;
 @property(retain, nonatomic) NSLock *m_lock; // @synthesize m_lock=_m_lock;
 @property(retain, nonatomic) NSMutableSet *processingNotifyVoipInviteMsgSet; // @synthesize processingNotifyVoipInviteMsgSet=_processingNotifyVoipInviteMsgSet;
@@ -51,6 +53,7 @@
 - (void)onExpandButtonClick:(id)arg1;
 - (void)onAnswerButtonClick:(id)arg1;
 - (void)hasNotAudioMicDeviceAuthorized;
+- (void)handleVoIPSecurityNotify:(id)arg1 status:(int)arg2;
 - (void)handleVoipMsgNotification:(id)arg1 msgData:(id)arg2;
 - (void)VoIPWindowDidClosed:(id)arg1;
 - (void)alertVoipCallerWindow:(id)arg1 contact:(id)arg2 initViewMode:(int)arg3;

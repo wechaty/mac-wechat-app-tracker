@@ -29,6 +29,7 @@
 + (id)pastedboardItemWithFilePath:(id)arg1 fileName:(id)arg2;
 + (id)pastedboardItemWithImage:(id)arg1 imageFileUrlStr:(id)arg2;
 + (id)pastedboardItemWithParaInfo:(id)arg1;
++ (id)pastedboardItemWithAttributedString:(id)arg1;
 + (id)pastedboardItemWithString:(id)arg1;
 + (id)convertAttributedStringFromWebArchivePasteboardItem:(id)arg1 refTextView:(id)arg2;
 + (id)convertAttributedStringFromFileURLData:(id)arg1 fileName:(id)arg2 refTextView:(id)arg3;

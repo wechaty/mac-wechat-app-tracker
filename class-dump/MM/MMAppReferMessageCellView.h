@@ -79,6 +79,8 @@
 @property(retain, nonatomic) MMCTTextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 @property(nonatomic) BOOL resizedForNewBounds; // @synthesize resizedForNewBounds=_resizedForNewBounds;
 - (void)handleReferMouseUpEvent;
+- (void)locateToReferMsgClicked:(id)arg1;
+- (id)menuForEvent:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (BOOL)isReferMessageCanClick;

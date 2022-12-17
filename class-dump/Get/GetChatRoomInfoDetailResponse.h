@@ -23,6 +23,9 @@
     unsigned int hasSpamStatus:1;
     unsigned int hasXmlAnnouncement:1;
     unsigned int hasTopMsgInfo:1;
+    unsigned int hasExtStatus:1;
+    unsigned int hasMigrateImunionWording:1;
+    unsigned int hasMigrateImunionUrl:1;
     unsigned int chatRoomInfoVersion;
     unsigned int announcementPublishTime;
     unsigned int chatRoomStatus;
@@ -36,10 +39,19 @@
     RoomBindAppList *roomBindAppList;
     NSString *xmlAnnouncement;
     SKBuiltinBuffer_t *topMsgInfo;
+    unsigned long long extStatus;
+    NSString *migrateImunionWording;
+    NSString *migrateImunionUrl;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetMigrateImunionUrl:) NSString *migrateImunionUrl; // @synthesize migrateImunionUrl;
+@property(readonly, nonatomic) BOOL hasMigrateImunionUrl; // @synthesize hasMigrateImunionUrl;
+@property(retain, nonatomic, setter=SetMigrateImunionWording:) NSString *migrateImunionWording; // @synthesize migrateImunionWording;
+@property(readonly, nonatomic) BOOL hasMigrateImunionWording; // @synthesize hasMigrateImunionWording;
+@property(nonatomic, setter=SetExtStatus:) unsigned long long extStatus; // @synthesize extStatus;
+@property(readonly, nonatomic) BOOL hasExtStatus; // @synthesize hasExtStatus;
 @property(retain, nonatomic, setter=SetTopMsgInfo:) SKBuiltinBuffer_t *topMsgInfo; // @synthesize topMsgInfo;
 @property(readonly, nonatomic) BOOL hasTopMsgInfo; // @synthesize hasTopMsgInfo;
 @property(retain, nonatomic, setter=SetXmlAnnouncement:) NSString *xmlAnnouncement; // @synthesize xmlAnnouncement;

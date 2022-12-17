@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MMViewController.h"
+#import "MMSimpleWebViewController.h"
 
 #import "BaseWebViewFontAdjustDelegate-Protocol.h"
 #import "MMQRCodeScannerExt-Protocol.h"
@@ -16,10 +16,10 @@
 #import "WebViewJSApiVerifyMgrDelegate-Protocol.h"
 #import "WebViewJSLogicDelegate-Protocol.h"
 
-@class MMProgressView, MMTimer, MMToastView, MMWKWebView, MMWebViewErrorView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
+@class MMProgressView, MMTimer, MMToastView, MMWebViewErrorView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
 @protocol BaseWebViewControllerDelegate;
 
-@interface BaseWebViewController : MMViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate>
+@interface BaseWebViewController : MMSimpleWebViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate>
 {
     BOOL m_openAllPermission;
     BOOL _isMiniWindowMode;
@@ -27,7 +27,6 @@
     int _fontSize;
     MMWebViewPluginScheduler *_pluginScheduler;
     unsigned long long _type;
-    MMWKWebView *_wkWebView;
     WebViewJSLogic *_webViewJSLogic;
     WebViewJSApiVerifyMgr *_jsapiVerifyMgr;
     WebViewDataItem *_dataItem;
@@ -78,7 +77,6 @@
 @property(retain, nonatomic) WebViewDataItem *dataItem; // @synthesize dataItem=_dataItem;
 @property(retain, nonatomic) WebViewJSApiVerifyMgr *jsapiVerifyMgr; // @synthesize jsapiVerifyMgr=_jsapiVerifyMgr;
 @property(retain, nonatomic) WebViewJSLogic *webViewJSLogic; // @synthesize webViewJSLogic=_webViewJSLogic;
-@property(retain, nonatomic) MMWKWebView *wkWebView; // @synthesize wkWebView=_wkWebView;
 @property(nonatomic) BOOL isMiniWindowMode; // @synthesize isMiniWindowMode=_isMiniWindowMode;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(retain, nonatomic) MMWebViewPluginScheduler *pluginScheduler; // @synthesize pluginScheduler=_pluginScheduler;
@@ -218,13 +216,12 @@
 - (void)permitTempAccessOfJSApi:(id)arg1;
 - (void)removePermitTempAccessOfJSApi:(id)arg1;
 - (BOOL)sholudAddFinderSuffix;
-- (void)preloadWebViewWithDataItem:(unsigned long long)arg1 andUrl:(id)arg2;
 - (void)tryReloadUrl:(id)arg1;
 - (void)noticeToPreload:(id)arg1;
 - (void)showWebViewWithDataItem:(id)arg1 initialShowing:(BOOL)arg2;
 - (void)showAlertSheetWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)resetViewInfo;
-- (void)resetWebView:(BOOL)arg1;
+- (void)resetWebView;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)webViewUserScript;
 - (void)viewChangedEffectiveAppearance;

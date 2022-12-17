@@ -15,6 +15,7 @@
 
 @property(nonatomic) id <VideoMessageHandlerDelegate> delegate; // @synthesize delegate=m_delegate;
 - (void)cancelUpload:(id)arg1 withMessage:(id)arg2;
+- (void)stopMsgUpload:(id)arg1;
 - (void)notifyUploadProgress:(id)arg1 msgData:(id)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;

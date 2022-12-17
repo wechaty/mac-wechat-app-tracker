@@ -77,6 +77,7 @@
 - (id)getContactByReTransferURL:(id)arg1;
 - (id)getContactUserNameByVerifyURL:(id)arg1;
 - (id)getContactByVerifyURL:(id)arg1;
+- (BOOL)isWXWorkSchemaUrl:(id)arg1;
 - (BOOL)isLearnMoreURL:(id)arg1;
 - (BOOL)isCancelDownloadURL:(id)arg1;
 - (BOOL)isRecallURL:(id)arg1;

@@ -52,6 +52,7 @@
 - (BOOL)isNoteMsg;
 - (BOOL)isCustomEmojiMsg;
 - (BOOL)isAppTransferMsg;
+- (BOOL)isAppAAReceiptMsg;
 - (BOOL)isAppHongbaoMsg;
 - (BOOL)isAppC2CMsg;
 - (BOOL)isAppRecordMsg;

@@ -6,21 +6,29 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSMutableArray;
+@class NSData, NSMutableArray;
 
 @interface BatchEmojiDownLoadRequest : PBGeneratedMessage
 {
     unsigned int hasIndex:1;
     unsigned int hasReqType:1;
     unsigned int hasPanelType:1;
+    unsigned int hasReqBuff:1;
+    unsigned int hasSyncParam:1;
     unsigned int index;
     unsigned int reqType;
     unsigned int panelType;
     NSMutableArray *mutableReqMd5List;
+    NSData *reqBuff;
+    NSData *syncParam;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetSyncParam:) NSData *syncParam; // @synthesize syncParam;
+@property(readonly, nonatomic) BOOL hasSyncParam; // @synthesize hasSyncParam;
+@property(retain, nonatomic, setter=SetReqBuff:) NSData *reqBuff; // @synthesize reqBuff;
+@property(readonly, nonatomic) BOOL hasReqBuff; // @synthesize hasReqBuff;
 @property(nonatomic, setter=SetPanelType:) unsigned int panelType; // @synthesize panelType;
 @property(readonly, nonatomic) BOOL hasPanelType; // @synthesize hasPanelType;
 @property(retain, nonatomic) NSMutableArray *mutableReqMd5List; // @synthesize mutableReqMd5List;

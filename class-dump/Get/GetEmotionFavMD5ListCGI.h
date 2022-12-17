@@ -6,21 +6,32 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class GetEmoticonByMD5ListCGI, NSData, NSMutableArray;
 @protocol GetEmotionFavMD5ListCGIDelegate;
 
 @interface GetEmotionFavMD5ListCGI : NSObject
 {
-    NSMutableArray *_emojiList;
-    unsigned int _lastIndex;
     BOOL _isGetting;
+    unsigned int _lastIndex;
     id <GetEmotionFavMD5ListCGIDelegate> _delegate;
+    NSMutableArray *_emojiList;
+    NSMutableArray *_md5List;
+    NSData *_reqBuff;
+    GetEmoticonByMD5ListCGI *_batchEmojiInfosByMd5ListCgi;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) GetEmoticonByMD5ListCGI *batchEmojiInfosByMd5ListCgi; // @synthesize batchEmojiInfosByMd5ListCgi=_batchEmojiInfosByMd5ListCgi;
+@property(nonatomic) unsigned int lastIndex; // @synthesize lastIndex=_lastIndex;
+@property(retain, nonatomic) NSData *reqBuff; // @synthesize reqBuff=_reqBuff;
+@property(retain, nonatomic) NSMutableArray *md5List; // @synthesize md5List=_md5List;
+@property(retain, nonatomic) NSMutableArray *emojiList; // @synthesize emojiList=_emojiList;
 @property(nonatomic) __weak id <GetEmotionFavMD5ListCGIDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL isGetting; // @synthesize isGetting=_isGetting;
+- (id)convertMd5List:(id)arg1;
+- (void)handleBatchEmojiDownLoadSuccess;
 - (void)handleBatchEmojiDownLoadFailed;
+- (void)requestAllEmojiInfoList;
 - (void)startGetEmojiList;
 - (void)dealloc;
 - (id)init;

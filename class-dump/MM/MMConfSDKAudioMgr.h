@@ -27,6 +27,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)audioPlayAndCapDeviceRestart:(id)arg1;
 - (void)HeadSetPlugin:(BOOL)arg1;
 - (void)audioDeviceUnPluginHeadset:(id)arg1;
 - (void)audioDevicePluginHeadset:(id)arg1;

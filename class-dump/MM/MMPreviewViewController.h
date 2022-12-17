@@ -148,6 +148,7 @@
 - (void)layoutScrollView;
 - (void)layoutThumbImageView;
 - (void)dealloc;
+- (void)setNeedsDisplay;
 - (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;

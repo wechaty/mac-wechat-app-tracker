@@ -54,9 +54,11 @@
     NSMutableArray *_multipleSelectedItems;
     MMBoxSelectionView *_boxSelectionView;
     NSResponder *_lastFirstResponder;
+    long long _multiSelectFrom;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long multiSelectFrom; // @synthesize multiSelectFrom=_multiSelectFrom;
 @property(nonatomic) BOOL clearSearchReload; // @synthesize clearSearchReload=_clearSearchReload;
 @property(nonatomic) BOOL isControlViewAnimating; // @synthesize isControlViewAnimating=_isControlViewAnimating;
 @property(nonatomic) __weak NSResponder *lastFirstResponder; // @synthesize lastFirstResponder=_lastFirstResponder;
@@ -86,8 +88,8 @@
 @property(nonatomic) __weak id <MMFavoriteDetailViewContollerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)cellViewOnClickTagButton:(id)arg1 tag:(id)arg2;
 - (struct CGRect)_adjustRectForSelectedRect:(struct CGRect)arg1;
-- (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2;
-- (void)boxSelectionView:(id)arg1 selectedRectChange:(struct CGRect)arg2;
+- (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
+- (void)boxSelectionView:(id)arg1 selectedRectChange:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
 - (BOOL)boxSelectionView:(id)arg1 shouldBeginDragging:(struct CGPoint)arg2;
 - (void)multipleControlViewDidClickCloseButton:(id)arg1;
 - (double)collectionView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
@@ -139,9 +141,12 @@
 - (void)delaySearchOrReloadData;
 - (BOOL)canReload:(id)arg1;
 - (BOOL)isUnderCurrentSelectSiderBar:(id)arg1 currentSideItemType:(int)arg2;
+- (void)reportMultilSelectLog:(int)arg1 selectedItemsCount:(long long)arg2;
 - (void)onClickMultipleShare:(id)arg1;
 - (void)onClickMultipleAddTag:(id)arg1;
 - (void)onClickMultipleDelete:(id)arg1;
+- (void)onSelectItemChange;
+- (BOOL)isSelectItemChange;
 - (void)exitMultipleSelection;
 - (void)setMultipleControlViewHidden:(BOOL)arg1;
 - (void)exportFileItems:(id)arg1;
@@ -186,7 +191,6 @@
 - (void)scrollToItem:(id)arg1;
 - (void)_reloadData;
 - (id)getCurrentSelectItem;
-- (void)reloadData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reloadData:(CDUnknownBlockType)arg1;
 - (void)reloadData;
 - (void)setupDraggingOverlayView;

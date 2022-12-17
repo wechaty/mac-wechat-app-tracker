@@ -44,6 +44,8 @@
 - (id)calcFileMd5WithFilePath:(id)arg1;
 - (int)startDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3 andDownloadMode:(int)arg4;
 - (BOOL)StartDownloadTpDataFile:(void *)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3;
+- (void)StopUploadBufferMedia:(id)arg1;
+- (BOOL)StartUploadBufferMedia:(id)arg1;
 - (void)StopUploadRecordMedia:(id)arg1;
 - (BOOL)StartUploadRecordMedia:(id)arg1;
 - (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;

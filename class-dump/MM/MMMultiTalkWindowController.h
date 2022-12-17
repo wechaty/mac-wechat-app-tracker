@@ -167,6 +167,12 @@
 - (struct CGSize)windowWillResize:(id)arg1 toSize:(struct CGSize)arg2;
 - (void)windowDidResize:(id)arg1;
 - (void)windowDidLoad;
+- (void)windowWillEnterFullScreenAction:(id)arg1;
+- (void)windowDidExitFullScreenAction:(id)arg1;
+- (void)windowDidExitFullScreen:(id)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
+- (void)windowWillEnterFullScreen:(id)arg1;
 - (void)stopPlaySound;
 - (void)playSound;
 - (void)calAvatarViewsLayout;

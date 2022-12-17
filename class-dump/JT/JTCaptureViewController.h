@@ -10,7 +10,7 @@
 #import "JTCaptureViewDelegate-Protocol.h"
 #import "MMOCRScannerExt-Protocol.h"
 
-@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, MMTimer, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
+@class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, MMImageOCRTaskResult, MMTimer, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
 @protocol JTCaptureViewControllerDelegate;
 
 @interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate, IOCRTransMgrExt, MMOCRScannerExt>
@@ -35,9 +35,11 @@
     NSImage *_imageTranslated;
     NSString *_transImgKey;
     MMTimer *_transTimer;
+    MMImageOCRTaskResult *_lastOCRResult;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMImageOCRTaskResult *lastOCRResult; // @synthesize lastOCRResult=_lastOCRResult;
 @property(retain, nonatomic) MMTimer *transTimer; // @synthesize transTimer=_transTimer;
 @property(nonatomic) BOOL isWaitingTranslate; // @synthesize isWaitingTranslate=_isWaitingTranslate;
 @property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;

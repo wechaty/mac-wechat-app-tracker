@@ -31,6 +31,7 @@
 @property(retain, nonatomic) NSRecursiveLock *m_lock; // @synthesize m_lock=_m_lock;
 - (void)onVoiceDidFailDownloadWithMessage:(id)arg1;
 - (void)onVoiceDidFinishDownloadWithMessage:(id)arg1;
+- (BOOL)isCurrentPendingMsg:(id)arg1;
 - (void)updateTranscribeVoiceMessage:(id)arg1 voiceText:(id)arg2 voiceToTextStatus:(unsigned int)arg3;
 - (void)tryNextMsgWrap:(id)arg1;
 - (void)stopTranslate;

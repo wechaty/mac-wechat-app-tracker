@@ -26,6 +26,7 @@
     BOOL _showsOtherNonhumanChats;
     WCContactData *_preSelectedContact;
     WCContactData *_assignedContact;
+    NSArray *_availableContacts;
     NSArray *_filteredUserNames;
     NSArray *_preSelectedUserNames;
     NSArray *_initialSelectedResults;
@@ -56,8 +57,11 @@
 @property(nonatomic) BOOL showsGroupChats; // @synthesize showsGroupChats=_showsGroupChats;
 @property(nonatomic) BOOL allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;
 @property(retain, nonatomic) NSArray *filteredUserNames; // @synthesize filteredUserNames=_filteredUserNames;
+@property(retain, nonatomic) NSArray *availableContacts; // @synthesize availableContacts=_availableContacts;
 @property(retain, nonatomic) WCContactData *assignedContact; // @synthesize assignedContact=_assignedContact;
 @property(retain, nonatomic) WCContactData *preSelectedContact; // @synthesize preSelectedContact=_preSelectedContact;
+- (void)handleGetFullResultsAfterSearch:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)handleGetFoldedResultsAfterSearch:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleSearchResults:(id)arg1 withKeyWord:(id)arg2;
 - (void)reloadSearchResultDataWithKeyword:(id)arg1 resultContainer:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)doSearchWithKeyword:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -71,6 +75,7 @@
 - (void)updatePickerRow:(id)arg1 withContact:(id)arg2;
 - (void)updatePickerRow:(id)arg1 withTag:(id)arg2;
 - (id)pickerRowFromContact:(id)arg1;
+- (BOOL)isSkipKeyboardFocus:(id)arg1;
 - (unsigned long long)firstKeyboardFocusableRow;
 - (BOOL)focusPreviousRow;
 - (BOOL)focusNextRow;

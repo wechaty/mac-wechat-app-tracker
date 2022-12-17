@@ -16,14 +16,17 @@
     unsigned long long m_taskId;
     NSMutableDictionary *m_dictMsgSender;
     NSRecursiveLock *m_oLockForDictMsgSender;
+    BOOL m_uploadMediaOnly;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL uploadMediaOnly; // @synthesize uploadMediaOnly=m_uploadMediaOnly;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
 - (BOOL)IsMsgSending:(id)arg1;
 - (BOOL)isInSendingQueue:(id)arg1;
 - (void)checkQueueWithoutSending;
 - (void)checkQueue;
+- (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
 - (id)init;
 

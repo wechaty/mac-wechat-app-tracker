@@ -11,6 +11,9 @@
 @protocol IMMHistoryRecordDownloadMgrExt <NSObject>
 
 @optional
+- (void)OnDownloadHistoryAddMsgOK:(MessageData *)arg1 historyId:(unsigned long long)arg2;
+- (void)OnDownloadHistoryAddMsgFail:(MessageData *)arg1 historyId:(unsigned long long)arg2;
+- (void)OnDownloadHistoryAddMsgExpired:(MessageData *)arg1 historyId:(unsigned long long)arg2;
 - (void)OnDownloadHistoryRecordMsgOK:(MessageData *)arg1 historyId:(unsigned long long)arg2;
 - (void)OnDownloadHistoryRecordMsgFail:(MessageData *)arg1 historyId:(unsigned long long)arg2;
 - (void)OnDownloadHistoryRecordMsgExpired:(MessageData *)arg1 historyId:(unsigned long long)arg2;

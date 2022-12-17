@@ -97,19 +97,8 @@
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) MMVoipRenderView *renderView; // @synthesize renderView=_renderView;
 @property(retain, nonatomic) NSView *controlView; // @synthesize controlView=_controlView;
-- (void)addFadeInAnimation:(id)arg1;
-- (void)excuteAnimationAtActionDid;
-- (void)prepareAnimationAtActionWill;
-- (void)autoChangeButtomControlsYOffset:(BOOL)arg1;
 - (unsigned long long)convertSubRect:(struct CGRect)arg1 ToQuadrantInSuperRect:(struct CGRect)arg2;
-- (void)windowDidDeminiaturize:(id)arg1;
-- (void)windowDidMiniaturize:(id)arg1;
-- (void)windowDidExitFullScreen:(id)arg1;
-- (void)windowWillExitFullScreen:(id)arg1;
-- (void)windowDidEnterFullScreen:(id)arg1;
-- (void)windowWillEnterFullScreen:(id)arg1;
 - (void)toggleFullScreen:(id)arg1;
-- (void)dealloc;
 - (void)setupSubViews;
 
 @end

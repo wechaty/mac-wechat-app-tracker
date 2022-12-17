@@ -13,13 +13,14 @@
 #import "MMCDNDownloadMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 #import "RecordMessageHandlerDelegate-Protocol.h"
+#import "RoomHistoryMessageHandlerDelegate-Protocol.h"
 #import "TextMessageHandlerDelegate-Protocol.h"
 #import "VideoMessageHandlerDelegate-Protocol.h"
 #import "VoiceMessageHandlerDelegate-Protocol.h"
 
-@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, MessageDBWrapper, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
+@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, MessageDBWrapper, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, RoomHistoryMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
 
-@interface FFProcessReqsvrZZ : MMService <TextMessageHandlerDelegate, ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, VoiceMessageHandlerDelegate, AppMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, MMService>
+@interface FFProcessReqsvrZZ : MMService <TextMessageHandlerDelegate, ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, VoiceMessageHandlerDelegate, AppMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, RoomHistoryMessageHandlerDelegate, MMService>
 {
     TextMessageHandler *m_textMsgHandler;
     VoiceMessageHandler *m_voiceMsgHandler;
@@ -28,6 +29,7 @@
     AppMessageHandler *m_appMsgHandler;
     EmoticonMessageHandler *m_emoticonMsgHandler;
     RecordMessageHandler *m_recordMsgHandler;
+    RoomHistoryMessageHandler *m_roomHistoryMsgHandler;
     BOOL _m_hasClearData;
     MessageDBWrapper *_msgDBWrapper;
     NSOperationQueue *_batchSyncImagesDownloadQueue;
@@ -69,6 +71,7 @@
 @property(retain, nonatomic) NSOperationQueue *batchSyncImagesDownloadQueue; // @synthesize batchSyncImagesDownloadQueue=_batchSyncImagesDownloadQueue;
 @property BOOL m_hasClearData; // @synthesize m_hasClearData=_m_hasClearData;
 @property(retain, nonatomic) MessageDBWrapper *msgDBWrapper; // @synthesize msgDBWrapper=_msgDBWrapper;
+- (BOOL)hasRoomHistoryMsgProcessed:(id)arg1 historyId:(unsigned long long)arg2;
 - (void)filterAtUserWithMsg:(id)arg1;
 - (int)delMultiSelectMsg:(id)arg1;
 - (int)addMultiSelectMsg:(id)arg1;
@@ -142,6 +145,7 @@
 - (void)processYoMsg:(id)arg1;
 - (void)processNewXMLMsg:(id)arg1 sessionMsgList:(id)arg2;
 - (void)onRevokeRoomHistory:(id)arg1;
+- (void)OnSyncBatchHistoryMsgs:(id)arg1 chatName:(id)arg2 historyId:(unsigned long long)arg3;
 - (void)addNewMsgToDBAndNotify:(id)arg1 sessionMsgList:(id)arg2 nsChatName:(id)arg3 msgDB:(id)arg4;
 - (void)onTemplateNewXmlMsg:(id)arg1 sessionMsgList:(id)arg2;
 - (void)addDeleteMessages:(id)arg1 inChat:(id)arg2;
@@ -160,6 +164,7 @@
 - (void)processStatusNotify:(id)arg1 map:(id)arg2;
 - (void)OnSyncModMsgStatus:(id)arg1;
 - (void)OnSyncBatchAddFunctionMsgs:(id)arg1 isFirstSync:(BOOL)arg2;
+- (void)BatchAddFilteredMsgList:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)FFImgToOnFavInfoInfoVCZZ:(id)arg1 isFirstSync:(BOOL)arg2;
 - (void)processNormalStatusNotify:(id)arg1;
 - (void)processUnreadCountStatusNotify:(id)arg1 addMsgListCount:(unsigned long long)arg2;
@@ -207,11 +212,13 @@
 - (void)ModifyMsgData:(id)arg1 msgData:(id)arg2;
 - (BOOL)p_modifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3 msgDB:(id)arg4;
 - (void)ModifyMsgDataField:(id)arg1 msgData:(id)arg2 bitSet:(unsigned int)arg3;
+- (BOOL)UpdateImageOriginSize:(id)arg1 realSize:(struct CGSize)arg2;
 - (void)CheckDownloadStatus:(id)arg1;
 - (void)CheckUploadStatus:(id)arg1;
 - (void)CheckReferMessageAsRevoked:(id)arg1 chatName:(id)arg2;
 - (id)ExistingSvrIdList:(id)arg1 chatName:(id)arg2;
 - (BOOL)IsSvrIdExists:(unsigned long long)arg1 chatName:(id)arg2;
+- (BOOL)IsLocalIdExists:(unsigned int)arg1 chatName:(id)arg2;
 - (BOOL)HasMsgInChat:(id)arg1;
 - (long long)getMessageCountFromDB:(id)arg1 where:(const void *)arg2;
 - (unsigned int)getMaxCreateTimeInMessage:(id)arg1;
@@ -245,8 +252,6 @@
 - (id)GetMsgDB:(id)arg1;
 - (id)GetImgOrVideoNextMsg:(id)arg1 FromID:(unsigned int)arg2 CreateTime:(unsigned int)arg3 Limit:(unsigned int)arg4;
 - (id)GetImgOrVideoLastMsg:(id)arg1 FromID:(unsigned int)arg2 CreateTime:(unsigned int)arg3 Limit:(unsigned int)arg4;
-- (BOOL)isPreviewVideoMsgDownloading:(id)arg1;
-- (BOOL)isPreviewImageMsgDownloading:(id)arg1;
 - (id)GetFileMsgList:(id)arg1 arrFTSMessageData:(id)arg2;
 - (long long)GetAppMsgListCount:(id)arg1 minMesLocalId:(unsigned int)arg2;
 - (id)GetAppMsgList:(id)arg1 minMesLocalId:(unsigned int)arg2 limitCnt:(unsigned int)arg3;
@@ -347,6 +352,7 @@
 - (BOOL)checkOriginImageNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
 - (BOOL)checkMidImageNeedDownload:(id)arg1;
 - (BOOL)checkVideoNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
+- (BOOL)checkMessageExistInDB:(id)arg1;
 - (BOOL)checkMessageTypeNeedDownload:(id)arg1;
 - (void)cleanUploadTask:(id)arg1;
 - (void)cleanDownloadTask:(id)arg1;

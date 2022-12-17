@@ -29,6 +29,7 @@
 + (id)validateExcelFilePath:(id)arg1;
 + (id)firstFrameDataOfGifWithFilePath:(id)arg1;
 + (id)firstFrameImageOfVideoWithFilePath:(id)arg1;
++ (struct CGSize)videoSizeOfFilePath:(id)arg1;
 + (id)standardGenerateFilePathWithFileName:(id)arg1 folderPath:(id)arg2;
 + (id)generateTempFilePathWithLocalId:(unsigned int)arg1 folderPath:(id)arg2;
 + (id)generateFilePathWithFileName:(id)arg1 folderPath:(id)arg2;

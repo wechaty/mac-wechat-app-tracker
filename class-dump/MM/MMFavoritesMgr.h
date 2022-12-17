@@ -70,6 +70,8 @@
 - (void)updateItemUpdateTime:(id)arg1;
 - (id)updateTagWithFavoriteItem:(id)arg1;
 - (void)searchFavSourceWithKeyword:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (BOOL)containFavItemInList:(id)arg1 item:(id)arg2;
+- (id)getFavItemsWithSenderUserNames:(id)arg1 inLocalIds:(id)arg2;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 progress:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (BOOL)updateOrAddItemTagWithFavLocalId:(unsigned int)arg1 withTagSvrIds:(id)arg2 withTagNames:(id)arg3;

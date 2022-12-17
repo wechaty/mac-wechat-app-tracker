@@ -59,6 +59,7 @@
 - (void)mouseEntered:(id)arg1;
 - (void)setupTrackingArea;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)clear;
 - (void)prepareForReuse;

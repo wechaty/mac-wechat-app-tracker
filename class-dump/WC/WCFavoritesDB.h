@@ -71,6 +71,7 @@
 - (BOOL)deleteItemTableDataByFavId:(unsigned int)arg1;
 - (BOOL)deleteItemTableDataByLocalId:(unsigned int)arg1;
 - (id)getItemTableDataBySourceId:(id)arg1;
+- (id)getItemTableDataByLocalIds:(id)arg1;
 - (id)getItemTableDataByLocalId:(unsigned int)arg1 limit:(unsigned int)arg2;
 - (id)getItemTableDataByLocalId:(unsigned int)arg1;
 - (id)getItemTableDataByFavId:(unsigned int)arg1;
@@ -111,7 +112,7 @@
 - (id)xmlOfFavItem:(id)arg1;
 - (id)getAllSenderUserNamesInDB;
 - (BOOL)getAllFavItemsWithTag:(id)arg1 retList:(id)arg2;
-- (BOOL)getAllGroupChatSenderUserNamesInDB:(id)arg1;
+- (id)getAllGroupChatSenderUserNamesInDB;
 - (BOOL)getFavItemsWithSenderUserNames:(id)arg1 types:(id)arg2 retList:(id)arg3;
 - (unsigned long long)getCountOfAllFavItemsWithoutDeleted;
 - (BOOL)getFavItemLocalIDWithFavID:(unsigned int)arg1 retLocalID:(id)arg2;
@@ -122,6 +123,7 @@
 - (BOOL)getUploadFailedItems:(id)arg1;
 - (BOOL)getUploadingItems:(id)arg1;
 - (id)getFavItemWithSourceID:(id)arg1;
+- (id)getFavItemsWithLocalIDs:(id)arg1;
 - (id)getFavItemWithLocalID:(unsigned int)arg1;
 - (id)getFavItemWithFavID:(unsigned int)arg1;
 - (BOOL)getAllFavItemsWithType:(int)arg1 retList:(id)arg2;

@@ -15,15 +15,35 @@
     unsigned int hasFileMd5:1;
     unsigned int hasFileLength:1;
     unsigned int hasMsgCount:1;
+    unsigned int hasNewFormatFileId:1;
+    unsigned int hasNewFormatAeskey:1;
+    unsigned int hasNewFormatFileMd5:1;
+    unsigned int hasNewFormatFileLength:1;
+    unsigned int hasNewFormatMsgCount:1;
     unsigned int fileLength;
     unsigned int msgCount;
+    unsigned int newFormatFileLength;
+    unsigned int newFormatMsgCount;
     NSString *fileId;
     NSString *aeskey;
     NSString *fileMd5;
+    NSString *newFormatFileId;
+    NSString *newFormatAeskey;
+    NSString *newFormatFileMd5;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetNewFormatMsgCount:) unsigned int newFormatMsgCount; // @synthesize newFormatMsgCount;
+@property(readonly, nonatomic) BOOL hasNewFormatMsgCount; // @synthesize hasNewFormatMsgCount;
+@property(nonatomic, setter=SetNewFormatFileLength:) unsigned int newFormatFileLength; // @synthesize newFormatFileLength;
+@property(readonly, nonatomic) BOOL hasNewFormatFileLength; // @synthesize hasNewFormatFileLength;
+@property(retain, nonatomic, setter=SetNewFormatFileMd5:) NSString *newFormatFileMd5; // @synthesize newFormatFileMd5;
+@property(readonly, nonatomic) BOOL hasNewFormatFileMd5; // @synthesize hasNewFormatFileMd5;
+@property(retain, nonatomic, setter=SetNewFormatAeskey:) NSString *newFormatAeskey; // @synthesize newFormatAeskey;
+@property(readonly, nonatomic) BOOL hasNewFormatAeskey; // @synthesize hasNewFormatAeskey;
+@property(retain, nonatomic, setter=SetNewFormatFileId:) NSString *newFormatFileId; // @synthesize newFormatFileId;
+@property(readonly, nonatomic) BOOL hasNewFormatFileId; // @synthesize hasNewFormatFileId;
 @property(nonatomic, setter=SetMsgCount:) unsigned int msgCount; // @synthesize msgCount;
 @property(readonly, nonatomic) BOOL hasMsgCount; // @synthesize hasMsgCount;
 @property(nonatomic, setter=SetFileLength:) unsigned int fileLength; // @synthesize fileLength;

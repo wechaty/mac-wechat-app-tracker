@@ -10,12 +10,15 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MessageData, NSString;
+@class MessageData, NSArray, NSString;
 
 @interface CExtendInfoOfSystem : NSObject <NSCopying, IMsgExtendOperation, IMessageDataExt>
 {
+    BOOL _isInvitor;
     unsigned int m_historyFileLength;
     unsigned int m_historyMsgCount;
+    unsigned int m_historyFileLengthNew;
+    unsigned int m_historyMsgCountNew;
     int _m_newxmlType;
     unsigned int _op;
     unsigned int _msgType;
@@ -26,11 +29,17 @@
     NSString *m_historyFileId;
     NSString *m_historyAesKey;
     NSString *m_historyMd5;
+    NSString *m_historyFileIdNew;
+    NSString *m_historyAesKeyNew;
+    NSString *m_historyMd5New;
+    NSArray *m_arrMembers;
     MessageData *m_refMessageData;
     NSString *m_content;
     unsigned long long _m_svrId;
     NSString *_m_typeStr;
     NSString *_m_sessionId;
+    NSString *_m_historyTitle;
+    NSString *_m_historyTitleNew;
     unsigned long long _newMsgId;
     NSString *_opUserName;
     NSString *_nickname;
@@ -45,12 +54,21 @@
 @property(nonatomic) unsigned int msgType; // @synthesize msgType=_msgType;
 @property(nonatomic) unsigned int op; // @synthesize op=_op;
 @property(nonatomic) unsigned long long newMsgId; // @synthesize newMsgId=_newMsgId;
+@property(retain, nonatomic) NSString *m_historyTitleNew; // @synthesize m_historyTitleNew=_m_historyTitleNew;
+@property(retain, nonatomic) NSString *m_historyTitle; // @synthesize m_historyTitle=_m_historyTitle;
+@property(nonatomic) BOOL isInvitor; // @synthesize isInvitor=_isInvitor;
 @property(retain, nonatomic) NSString *m_sessionId; // @synthesize m_sessionId=_m_sessionId;
 @property(retain, nonatomic) NSString *m_typeStr; // @synthesize m_typeStr=_m_typeStr;
 @property(nonatomic) unsigned long long m_svrId; // @synthesize m_svrId=_m_svrId;
 @property(nonatomic) int m_newxmlType; // @synthesize m_newxmlType=_m_newxmlType;
 @property(retain, nonatomic) NSString *m_content; // @synthesize m_content;
 @property(nonatomic) __weak MessageData *m_refMessageData; // @synthesize m_refMessageData;
+@property(retain, nonatomic) NSArray *m_arrMembers; // @synthesize m_arrMembers;
+@property(nonatomic) unsigned int m_historyMsgCountNew; // @synthesize m_historyMsgCountNew;
+@property(nonatomic) unsigned int m_historyFileLengthNew; // @synthesize m_historyFileLengthNew;
+@property(retain, nonatomic) NSString *m_historyMd5New; // @synthesize m_historyMd5New;
+@property(retain, nonatomic) NSString *m_historyAesKeyNew; // @synthesize m_historyAesKeyNew;
+@property(retain, nonatomic) NSString *m_historyFileIdNew; // @synthesize m_historyFileIdNew;
 @property(nonatomic) unsigned int m_historyMsgCount; // @synthesize m_historyMsgCount;
 @property(nonatomic) unsigned int m_historyFileLength; // @synthesize m_historyFileLength;
 @property(retain, nonatomic) NSString *m_historyMd5; // @synthesize m_historyMd5;

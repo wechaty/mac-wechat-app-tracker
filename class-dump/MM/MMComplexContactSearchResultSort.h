@@ -10,10 +10,12 @@
 
 @interface MMComplexContactSearchResultSort : NSObject
 {
+    unsigned int _now;
     NSMutableArray *_results;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int now; // @synthesize now=_now;
 @property(retain, nonatomic) NSMutableArray *results; // @synthesize results=_results;
 - (long long)compareLastMsgCreateTime:(id)arg1 with:(id)arg2;
 - (long long)compareFirstChar:(id)arg1 with:(id)arg2;
@@ -22,6 +24,9 @@
 - (long long)compareFieldType:(id)arg1 with:(id)arg2;
 - (long long)compareKeywordType:(id)arg1 with:(id)arg2;
 - (long long)compareDisplayName:(id)arg1 with:(id)arg2;
+- (BOOL)_isLessThan60Days:(unsigned int)arg1;
+- (long long)compareLastMsgCreateTimeIsMoreThan60Days:(id)arg1 with:(id)arg2;
+- (long long)compareContact:(id)arg1 with:(id)arg2;
 - (void)sort;
 - (id)initWithResults:(id)arg1;
 

@@ -32,6 +32,7 @@
 - (void)setupTrackingArea;
 - (void)updateButtonStatus;
 - (void)updateUIWithContact:(id)arg1;
+- (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)initPrivacySubViews;

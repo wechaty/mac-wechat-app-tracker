@@ -7,19 +7,18 @@
 #import "MMViewController.h"
 
 #import "IMMSpaceCleanSelectSessionExt-Protocol.h"
+#import "MMBoxSelectionViewDelegate-Protocol.h"
 #import "MMSpaceCleanSessionRowViewDelegate-Protocol.h"
 #import "MMTableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MMOutlineButton, MMSpaceCleanerSelectSessionLogic, MMTableView, NSProgressIndicator, NSString, NSTextField, NSTimer, NSView;
+@class MMBoxSelectionView, MMOutlineButton, MMSpaceCleanerSelectSessionLogic, MMTableView, NSProgressIndicator, NSString, NSTextField, NSView;
 
-@interface MMSpaceSelectSessionViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMSpaceCleanSessionRowViewDelegate, IMMSpaceCleanSelectSessionExt>
+@interface MMSpaceSelectSessionViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMSpaceCleanSessionRowViewDelegate, IMMSpaceCleanSelectSessionExt, MMBoxSelectionViewDelegate>
 {
     BOOL _isSelectAll;
     BOOL _isResumeFromLock;
-    BOOL _isAutoWheeling;
-    BOOL _beginDragging;
     unsigned int _currentType;
     MMTableView *_tableView;
     NSTextField *_allLabel;
@@ -35,29 +34,11 @@
     double _loadingBeginTime;
     double _cleanBeginTime;
     id _userActiveEvent;
-    long long _autoWheelParameter;
-    NSTimer *_autoWheelTimer;
-    NSView *_shapeLayerView;
-    long long _absoluteDragStartposition;
-    long long _absoluteDragEndposition;
-    struct CGPoint _eventPoint;
-    struct CGPoint _dragStartPoint;
-    struct CGPoint _dragEndPoint;
-    struct CGRect _draggedRect;
+    MMBoxSelectionView *_boxSelectionView;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) long long absoluteDragEndposition; // @synthesize absoluteDragEndposition=_absoluteDragEndposition;
-@property(nonatomic) long long absoluteDragStartposition; // @synthesize absoluteDragStartposition=_absoluteDragStartposition;
-@property(nonatomic) BOOL beginDragging; // @synthesize beginDragging=_beginDragging;
-@property(retain, nonatomic) NSView *shapeLayerView; // @synthesize shapeLayerView=_shapeLayerView;
-@property(retain, nonatomic) NSTimer *autoWheelTimer; // @synthesize autoWheelTimer=_autoWheelTimer;
-@property(nonatomic) long long autoWheelParameter; // @synthesize autoWheelParameter=_autoWheelParameter;
-@property(nonatomic) BOOL isAutoWheeling; // @synthesize isAutoWheeling=_isAutoWheeling;
-@property(nonatomic) struct CGRect draggedRect; // @synthesize draggedRect=_draggedRect;
-@property(nonatomic) struct CGPoint dragEndPoint; // @synthesize dragEndPoint=_dragEndPoint;
-@property(nonatomic) struct CGPoint dragStartPoint; // @synthesize dragStartPoint=_dragStartPoint;
-@property(nonatomic) struct CGPoint eventPoint; // @synthesize eventPoint=_eventPoint;
+@property(retain, nonatomic) MMBoxSelectionView *boxSelectionView; // @synthesize boxSelectionView=_boxSelectionView;
 @property(retain, nonatomic) id userActiveEvent; // @synthesize userActiveEvent=_userActiveEvent;
 @property(nonatomic) double cleanBeginTime; // @synthesize cleanBeginTime=_cleanBeginTime;
 @property(nonatomic) double loadingBeginTime; // @synthesize loadingBeginTime=_loadingBeginTime;
@@ -91,16 +72,8 @@
 - (void)selectAllSession;
 - (void)selectAllClick:(id)arg1;
 - (void)clicked:(id)arg1;
-- (void)mouseDragSelectedItems;
-- (void)autoWheelDetails;
-- (void)stopAutoWheel;
-- (void)startAutoWheel;
-- (void)handleOutsideEventDuringDragging:(id)arg1;
-- (void)handleEventDuringDragging:(id)arg1;
-- (void)handleEventBeforeDragging:(id)arg1;
-- (BOOL)locationInsideTableView:(struct CGPoint)arg1;
-- (struct CGRect)dragValidBounds;
-- (BOOL)dragFarEnough:(struct CGPoint)arg1 from:(struct CGPoint)arg2;
+- (BOOL)boxSelectionView:(id)arg1 shouldDropMouseDownEventAtPoint:(struct CGPoint)arg2;
+- (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
 - (void)tableView:(id)arg1 didClickTableColumn:(id)arg2;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
@@ -114,8 +87,6 @@
 - (void)startLoading;
 - (void)onSessionsLoaded;
 - (void)setupSessions;
-- (id)handleLeftMouseUp:(id)arg1;
-- (id)handleLeftMouseDragged:(id)arg1;
 - (void)setResumeFromLock:(BOOL)arg1;
 - (void)viewDidAppear;
 - (void)viewChangedEffectiveAppearance;

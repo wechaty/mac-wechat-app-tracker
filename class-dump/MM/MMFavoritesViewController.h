@@ -100,6 +100,7 @@
 - (id)acceptableDragTypesForOutlineView:(id)arg1;
 - (id)menuForItem:(id)arg1 inOutlineView:(id)arg2;
 - (id)favDetailViewController;
+- (void)reportSelectSubType:(int)arg1;
 - (void)outlineViewSelectionDidChange:(id)arg1;
 - (id)outlineView:(id)arg1 selectionIndexesForProposedSelection:(id)arg2;
 - (id)currentSelectedItem;
@@ -117,6 +118,7 @@
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
 - (void)onSearchFiledTextDidChange:(id)arg1;
 - (void)onSearchFiledDidEnd:(id)arg1;
+- (void)onSearchFiledWillBegin:(id)arg1;
 - (id)setupAddNewNoteItem;
 - (id)setupTagsItem;
 - (id)setupLocationItemsItem;

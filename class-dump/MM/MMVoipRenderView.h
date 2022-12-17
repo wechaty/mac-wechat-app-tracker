@@ -35,7 +35,7 @@
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewRenderLayer; // @synthesize previewRenderLayer=_previewRenderLayer;
 - (void)reloadAvatarLayer;
 - (void)fadeOutLayer:(id)arg1 removedOnCompletion:(BOOL)arg2;
-- (void)clearContentsAndFadeOutWhenEndCall;
+- (void)displayLastVideoCapture;
 - (void)loadContactAvatarImage;
 - (void)loadSelfContactAvatarImage;
 - (void)relayoutSubLayers;

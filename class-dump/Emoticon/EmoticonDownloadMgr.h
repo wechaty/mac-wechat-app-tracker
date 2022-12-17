@@ -6,7 +6,6 @@
 
 #import "MMService.h"
 
-#import "GetEmoticonByMD5ListCGIDelegate-Protocol.h"
 #import "ICdnComMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMEmoticonAddFromServerLogicDelegate-Protocol.h"
@@ -15,11 +14,10 @@
 
 @class EmoticonMsgInfoQueue, GetEmoticonByMD5ListCGI, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, NSURLSession;
 
-@interface EmoticonDownloadMgr : MMService <ICdnComMgrExt, IMessageExt, GetEmoticonByMD5ListCGIDelegate, MMEmoticonAddFromServerLogicDelegate, MMEmoticonDeleteFromServerLogicDelegate, MMService>
+@interface EmoticonDownloadMgr : MMService <ICdnComMgrExt, IMessageExt, MMEmoticonAddFromServerLogicDelegate, MMEmoticonDeleteFromServerLogicDelegate, MMService>
 {
     EmoticonMsgInfoQueue *m_downloadDataQueue;
     NSMutableDictionary *m_httpDownloadTask;
-    GetEmoticonByMD5ListCGI *m_getEmoticonCgi;
     BOOL m_isDownloading;
     NSRecursiveLock *m_Lock;
     int _downloadType;
@@ -29,9 +27,11 @@
     NSMutableArray *_storeItemDownloadQueue;
     NSURLSession *_downloadMgr;
     NSMutableDictionary *_packageDownloads;
+    GetEmoticonByMD5ListCGI *_m_getEmoticonCgi;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) GetEmoticonByMD5ListCGI *m_getEmoticonCgi; // @synthesize m_getEmoticonCgi=_m_getEmoticonCgi;
 @property(retain, nonatomic) NSMutableDictionary *packageDownloads; // @synthesize packageDownloads=_packageDownloads;
 @property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
@@ -65,7 +65,6 @@
 - (id)donwloadQueueInfoPath;
 - (_Bool)saveEmoticonDownloadQueue;
 - (void)loadEmoticonDownloadQueue;
-- (void)onGetEmoticonByMD5ListFinishedWithMsgInfo:(id)arg1 emojiList:(id)arg2;
 - (void)handleDownloadFinishedWithEmoticonMsgInfo:(id)arg1 isSucc:(BOOL)arg2;
 - (void)cancelDownloadEmoticonWithMessageData:(id)arg1;
 - (void)startDownloadEmoticonByInfo:(id)arg1 isWxamAvailable:(BOOL)arg2;

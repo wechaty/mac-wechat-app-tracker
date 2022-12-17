@@ -7,6 +7,7 @@
 #import "MMTraitsViewController.h"
 
 #import "IContactMgrExt-Protocol.h"
+#import "MMBoxSelectionViewDelegate-Protocol.h"
 #import "MMContactsBatchModifyLogicDelegate-Protocol.h"
 #import "MMContactsMgrExt-Protocol.h"
 #import "MMContactsRowViewDelegate-Protocol.h"
@@ -14,13 +15,14 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class CAShapeLayer, MMContactsBatchModifyLogic, MMContactsDataSource, MMContactsModel, MMContactsTagEditLogic, MMContactsToolBarView, MMOutlineButton, NSImageView, NSMutableDictionary, NSRecursiveLock, NSSortDescriptor, NSString, NSTableView, NSTextField, RFOverlayScrollView, WCContactData;
+@class CAShapeLayer, MMBoxSelectionView, MMContactsBatchModifyLogic, MMContactsDataSource, MMContactsModel, MMContactsTagEditLogic, MMContactsToolBarView, MMOutlineButton, NSImageView, NSMutableDictionary, NSRecursiveLock, NSSortDescriptor, NSString, NSTableView, NSTextField, RFOverlayScrollView, WCContactData;
 
-@interface MMContactsListViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMContactsToolBarDelegate, MMContactsMgrExt, IContactMgrExt, MMContactsBatchModifyLogicDelegate, MMContactsRowViewDelegate>
+@interface MMContactsListViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMContactsToolBarDelegate, MMContactsMgrExt, IContactMgrExt, MMContactsBatchModifyLogicDelegate, MMContactsRowViewDelegate, MMBoxSelectionViewDelegate>
 {
     BOOL _beginDragging;
     BOOL _enterShift;
     BOOL _isSearch;
+    BOOL _needAnimatedLast;
     BOOL _runModal;
     int _lastSortType;
     RFOverlayScrollView *_scrollView;
@@ -36,6 +38,7 @@
     NSRecursiveLock *_lock;
     id _userActiveEvent;
     CAShapeLayer *_shapeLayer;
+    MMBoxSelectionView *_boxSelectionView;
     long long _lastSelectedRow;
     WCContactData *_handleContact;
     NSSortDescriptor *_sortDescriptor;
@@ -55,8 +58,10 @@
 @property(retain, nonatomic) NSSortDescriptor *sortDescriptor; // @synthesize sortDescriptor=_sortDescriptor;
 @property(nonatomic) int lastSortType; // @synthesize lastSortType=_lastSortType;
 @property(retain, nonatomic) WCContactData *handleContact; // @synthesize handleContact=_handleContact;
+@property(nonatomic) BOOL needAnimatedLast; // @synthesize needAnimatedLast=_needAnimatedLast;
 @property(nonatomic) long long lastSelectedRow; // @synthesize lastSelectedRow=_lastSelectedRow;
 @property(nonatomic) BOOL isSearch; // @synthesize isSearch=_isSearch;
+@property(retain, nonatomic) MMBoxSelectionView *boxSelectionView; // @synthesize boxSelectionView=_boxSelectionView;
 @property(nonatomic) BOOL enterShift; // @synthesize enterShift=_enterShift;
 @property(nonatomic) BOOL beginDragging; // @synthesize beginDragging=_beginDragging;
 @property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
@@ -130,17 +135,9 @@
 - (void)clearData;
 - (void)addMembersWithTag:(id)arg1;
 - (void)onAddMemberButtonClick;
-- (BOOL)dragFarEnough:(struct CGPoint)arg1 from:(struct CGPoint)arg2;
-- (struct CGRect)dragValidBounds;
-- (BOOL)locationInsideTableView:(struct CGPoint)arg1;
-- (void)handleOutsideEventDuringDragging:(id)arg1;
-- (void)handleEventDuringDragging:(id)arg1;
-- (void)handleEventBeforeDragging:(id)arg1;
-- (id)handleLeftMouseDragged:(id)arg1;
+- (BOOL)boxSelectionView:(id)arg1 shouldDropMouseDownEventAtPoint:(struct CGPoint)arg2;
+- (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
 - (void)shiftEnterSelectedCellView:(id)arg1;
-- (void)mouseDragSelectedCellView;
-- (id)handleLeftMouseUp:(id)arg1;
-- (id)handleLeftMouseDown:(id)arg1;
 - (void)initViews;
 - (void)animateFooterView:(BOOL)arg1;
 - (void)setupToolBarContainer;

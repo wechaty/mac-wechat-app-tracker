@@ -46,6 +46,7 @@
 - (BOOL)SendCurAppMsg;
 - (void)RemoveMsgWrap:(id)arg1;
 - (void)UploadRecordData;
+- (void)HandleFinishRecordUpload;
 - (void)CheckCDNUploadMsgQueue;
 - (void)StopCurUpload;
 - (void)StopUploadRecordMsgByUsername:(id)arg1;

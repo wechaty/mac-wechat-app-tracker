@@ -107,6 +107,16 @@
 @property(retain, nonatomic) MMVoIPDeviceController *deviceViewController; // @synthesize deviceViewController=_deviceViewController;
 @property(retain, nonatomic) NSPopover *popover; // @synthesize popover=_popover;
 @property(nonatomic) __weak id <MMVoipBaseWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)addFadeInAnimation:(id)arg1;
+- (void)excuteAnimationAtActionDid;
+- (void)prepareAnimationAtActionWill;
+- (void)autoChangeButtomControlsYOffset:(BOOL)arg1;
+- (void)windowDidDeminiaturize:(id)arg1;
+- (void)windowDidMiniaturize:(id)arg1;
+- (void)windowDidExitFullScreen:(id)arg1;
+- (void)windowWillExitFullScreen:(id)arg1;
+- (void)windowDidEnterFullScreen:(id)arg1;
+- (void)windowWillEnterFullScreen:(id)arg1;
 - (void)setupMouseEventMonitor;
 - (void)delayDismissPopover;
 - (void)delayShowPopover:(id)arg1;

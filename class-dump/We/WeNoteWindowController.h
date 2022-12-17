@@ -78,6 +78,8 @@
 - (void)share;
 - (void)initToolBarWithNoteState:(int)arg1;
 - (void)layoutReadOnlyModeToolBarView;
+- (struct CGRect)resumeWindowFrame;
+- (void)backupWindowFrame;
 - (void)setHiddenWindowTitleBar:(BOOL)arg1;
 - (void)windowWillExitFullScreen:(id)arg1;
 - (void)windowDidEnterFullScreen:(id)arg1;

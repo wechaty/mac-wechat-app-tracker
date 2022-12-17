@@ -1013,8 +1013,8 @@ struct NewDirectReport {
     unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
+    unsigned long long _field5;
+    unsigned long long _field6;
     unsigned int _field7;
     unsigned int _field8;
     unsigned int _field9;
@@ -1089,8 +1089,8 @@ struct NewRelayReport {
     unsigned int _field5;
     unsigned int _field6;
     unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
+    unsigned long long _field8;
+    unsigned long long _field9;
     unsigned int _field10;
     unsigned int _field11;
     unsigned int _field12;
@@ -1201,8 +1201,8 @@ struct RelayTcpReport {
     unsigned int _field6;
     unsigned int _field7;
     unsigned int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
+    unsigned long long _field9;
+    unsigned long long _field10;
     unsigned int _field11;
     unsigned int _field12;
     unsigned int _field13;
@@ -3464,16 +3464,16 @@ struct tagAVQualityReportInfo {
     unsigned int _field778;
     unsigned int _field779;
     unsigned int _field780;
-    int _field781;
-    unsigned int _field782;
+    unsigned int _field781;
+    int _field782;
     unsigned int _field783;
     unsigned int _field784;
-    int _field785;
+    unsigned int _field785;
     int _field786;
     int _field787;
     int _field788;
     int _field789;
-    unsigned int _field790;
+    int _field790;
     unsigned int _field791;
     unsigned int _field792;
     unsigned int _field793;
@@ -3507,10 +3507,10 @@ struct tagAVQualityReportInfo {
     unsigned int _field821;
     unsigned int _field822;
     unsigned int _field823;
-    int _field824;
+    unsigned int _field824;
     int _field825;
     int _field826;
-    unsigned int _field827;
+    int _field827;
     unsigned int _field828;
     unsigned int _field829;
     unsigned int _field830;
@@ -3521,7 +3521,9 @@ struct tagAVQualityReportInfo {
     unsigned int _field835;
     unsigned int _field836;
     unsigned int _field837;
-    int _field838;
+    unsigned int _field838;
+    int _field839;
+    char _field840[256];
 };
 
 struct tagDecInfoParam {
@@ -4495,7 +4497,10 @@ typedef struct {
     short _field13;
     short _field14;
     int _field15;
-} CDStruct_14ccea6e;
+    int _field16;
+    int _field17;
+    int _field18;
+} CDStruct_259f0c51;
 
 typedef struct CDStruct_183601bc;
 

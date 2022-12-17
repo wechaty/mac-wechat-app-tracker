@@ -172,6 +172,7 @@
 + (BOOL)IsFilterStatusNotify:(id)arg1 chatName:(id)arg2;
 + (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2 syncMsgList:(id)arg3;
 + (BOOL)CanAddToDB:(id)arg1 chatName:(id)arg2;
++ (id)GenAddMsgFromMsgData:(id)arg1;
 + (id)GenMsgDataFromAddMsg:(id)arg1;
 + (void)CleanupAllMediaRes:(id)arg1;
 + (id)GetMsgLocalUsrName:(id)arg1;

@@ -8,13 +8,14 @@
 
 #import "MMService-Protocol.h"
 
-@class GetContactLogic, GroupDB, MMCache, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class GetContactLogic, GroupDB, MMCache, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, RevokeAddMemberLogic;
 
 @interface GroupStorage : MMService <MMService>
 {
     GroupDB *m_groupDB;
     unsigned int m_uLoadedType;
     GetContactLogic *_getContactLogic;
+    RevokeAddMemberLogic *m_revokeAddMemberLogic;
     NSMutableDictionary *m_dictGroupContacts;
     MMCache *m_groupMembersCache;
     MMCache *m_groupTopMsgsCache;
@@ -81,9 +82,10 @@
 - (BOOL)IsGroupContactExist:(id)arg1;
 - (id)GetGroupContactWithNickName:(id)arg1;
 - (BOOL)QuitGroup:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (BOOL)DeleteGroupMemberWithGroupUserName:(id)arg1 memberUserNameList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (BOOL)InviteGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (BOOL)AddGroupMembers:(id)arg1 withGroupUserName:(id)arg2 withExamineContent:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)RevokeHistoryWithGroupUserName:(id)arg1 memberUserNameList:(id)arg2 msgData:(id)arg3 shouldRemoveMember:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
+- (BOOL)DeleteGroupMemberWithGroupUserName:(id)arg1 memberUserNameList:(id)arg2 scene:(unsigned int)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)InviteGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 historyInfo:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)AddGroupMembers:(id)arg1 withGroupUserName:(id)arg2 withExamineContent:(id)arg3 withHistoryInfo:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)CreateGroupChatWithTopic:(id)arg1 groupMembers:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)resetGroupDB;
 - (void)onServiceClearData;
@@ -99,19 +101,20 @@
 - (int)handleCreateNormalChatRoomResponse:(id)arg1;
 - (void)createNormalChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)UICreateGroup:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (BOOL)UIRevokeHistoryInChatRoom:(id)arg1 withMemberList:(id)arg2 withMsgData:(id)arg3 shouldRemoveMember:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)handleDelOpenIMChatRoomMemberFailed:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteMemberFromOpenIMChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)handleDelChatRoomMemberFailed:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)deleteMemberFromChatRoom:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (BOOL)UIDeleteGroupMember:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)inviteNormalGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)handleDelChatRoomMemberFailed:(id)arg1 errMsg:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)deleteMemberFromChatRoom:(id)arg1 withMemberList:(id)arg2 scene:(unsigned int)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)UIDeleteGroupMember:(id)arg1 withMemberList:(id)arg2 scene:(unsigned int)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)inviteNormalGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 historyInfo:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)inviteOpenIMMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (BOOL)UIInviteGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (BOOL)UIInviteGroupMemberWithChatRoomName:(id)arg1 memberList:(id)arg2 historyInfo:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)handleAddChatRoomMemberFailed:(id)arg1;
-- (void)addGroupMemberToChatRoom:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)addGroupMemberToChatRoom:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 withHistoryInfo:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)handleAddOpenIMChatRoomMemberFailed:(id)arg1;
 - (void)addGroupMemberToOpenIMChatRoom:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (BOOL)UIAddGroupMember:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (BOOL)UIAddGroupMember:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 withHistoryInfo:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)contactWithOpenImMemberResp:(id)arg1;
 - (id)contactWithMemberResp:(id)arg1;
 - (void)addChatMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2;

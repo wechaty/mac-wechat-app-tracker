@@ -11,6 +11,7 @@
 @protocol IAUAudioDeviceExt <NSObject>
 
 @optional
+- (void)audioPlayAndCapDeviceRestart:(AUAudioDevice *)arg1;
 - (void)audioDeviceStartedSuccess:(AUAudioDevice *)arg1;
 - (void)audioDeviceStartedFail:(AUAudioDevice *)arg1;
 - (void)audioDeviceRestart:(AUAudioDevice *)arg1;

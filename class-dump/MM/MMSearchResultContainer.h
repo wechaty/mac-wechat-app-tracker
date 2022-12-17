@@ -18,9 +18,11 @@
     NSMutableArray *_functionResults;
     NSMutableArray *_webSearchResults;
     unsigned long long _logicSearchResultFlag;
+    unsigned long long _searchScene;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long searchScene; // @synthesize searchScene=_searchScene;
 @property(nonatomic) unsigned long long logicSearchResultFlag; // @synthesize logicSearchResultFlag=_logicSearchResultFlag;
 @property(retain, nonatomic) NSMutableArray *webSearchResults; // @synthesize webSearchResults=_webSearchResults;
 @property(retain, nonatomic) NSMutableArray *functionResults; // @synthesize functionResults=_functionResults;

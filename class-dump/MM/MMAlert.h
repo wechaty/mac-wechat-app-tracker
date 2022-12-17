@@ -39,6 +39,7 @@
 @property(retain, nonatomic) NSString *messageText; // @synthesize messageText=_messageText;
 - (void)dismiss;
 - (void)showInModal;
+- (void)showInCriticalSheet;
 - (void)showInSheet;
 - (double)getButtonAdjustWidth;
 - (struct CGSize)intrinsicContentSize;

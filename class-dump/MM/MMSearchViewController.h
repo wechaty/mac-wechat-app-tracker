@@ -134,6 +134,7 @@
 - (id)handleMouseDown:(id)arg1;
 - (void)showPopoverWindow;
 - (void)setKeyWordShowResultCount;
+- (id)getShowSearchResults:(id)arg1;
 - (void)_doShowWithResults:(id)arg1;
 - (void)doShowWithResults:(id)arg1;
 - (void)showWithResults:(id)arg1 resultsWithKeyword:(id)arg2;

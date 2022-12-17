@@ -6,22 +6,28 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, NSMutableArray;
+@class BaseResponse, NSData, NSMutableArray;
 
 @interface BatchEmojiDownLoadResponse : PBGeneratedMessage
 {
     unsigned int hasBaseResponse:1;
     unsigned int hasIndex:1;
     unsigned int hasEndFlag:1;
+    unsigned int hasReqBuff:1;
     unsigned int index;
     unsigned int endFlag;
     BaseResponse *baseResponse;
     NSMutableArray *mutableMd5ListList;
     NSMutableArray *mutableEmojiListList;
+    NSData *reqBuff;
+    NSMutableArray *mutableNeedUpdateList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *mutableNeedUpdateList; // @synthesize mutableNeedUpdateList;
+@property(retain, nonatomic, setter=SetReqBuff:) NSData *reqBuff; // @synthesize reqBuff;
+@property(readonly, nonatomic) BOOL hasReqBuff; // @synthesize hasReqBuff;
 @property(retain, nonatomic) NSMutableArray *mutableEmojiListList; // @synthesize mutableEmojiListList;
 @property(nonatomic, setter=SetEndFlag:) unsigned int endFlag; // @synthesize endFlag;
 @property(readonly, nonatomic) BOOL hasEndFlag; // @synthesize hasEndFlag;
@@ -30,6 +36,8 @@
 @property(readonly, nonatomic) BOOL hasIndex; // @synthesize hasIndex;
 @property(retain, nonatomic, setter=SetBaseResponse:) BaseResponse *baseResponse; // @synthesize baseResponse;
 @property(readonly, nonatomic) BOOL hasBaseResponse; // @synthesize hasBaseResponse;
+- (void)addNeedUpdateFromArray:(id)arg1;
+- (void)addNeedUpdate:(BOOL)arg1;
 - (void)addEmojiList:(id)arg1;
 - (void)addEmojiListFromArray:(id)arg1;
 - (void)addMd5ListFromArray:(id)arg1;
@@ -38,6 +46,8 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *needUpdate; // @dynamic needUpdate;
+- (id)needUpdateList;
 @property(retain, nonatomic) NSMutableArray *emojiList; // @dynamic emojiList;
 - (id)emojiListList;
 @property(retain, nonatomic) NSMutableArray *md5List; // @dynamic md5List;

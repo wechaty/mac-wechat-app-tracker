@@ -12,6 +12,7 @@
 {
     int _type;
     unsigned int _deviceID;
+    int _audioOutputDeviceType;
     NSString *_deviceName;
     NSString *_manufactureName;
     NSString *_uniqueID;
@@ -19,6 +20,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) int audioOutputDeviceType; // @synthesize audioOutputDeviceType=_audioOutputDeviceType;
 @property(retain, nonatomic) TRTCScreenCaptureSourceInfo *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
 @property(nonatomic) unsigned int deviceID; // @synthesize deviceID=_deviceID;

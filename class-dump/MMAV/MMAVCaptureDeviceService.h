@@ -62,6 +62,10 @@
 - (BOOL)isDeviceSupportsOutput:(unsigned int)arg1;
 - (BOOL)isDeviceSupportsInput:(unsigned int)arg1;
 - (unsigned int)getDeviceTransportType:(unsigned int)arg1;
+- (int)getaudioOutputDeviceType:(unsigned int)arg1;
+- (BOOL)isaudioOutputDeviceSpeaker:(unsigned int)arg1;
+- (BOOL)isaudioOutputDeviceLine:(unsigned int)arg1;
+- (BOOL)isaudioOutputDeviceWireless:(unsigned int)arg1;
 - (BOOL)isVirtualDevice:(unsigned int)arg1;
 - (BOOL)isAggregateDevice:(unsigned int)arg1;
 - (id)getAudioDeviceList:(unsigned int)arg1;

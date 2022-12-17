@@ -123,6 +123,8 @@
 + (id)GetOpLogDBPath;
 + (id)GetSyncBufferPath;
 + (id)getSyncRootDir;
++ (id)getTmpUploadHistoryPath;
++ (id)getTmpAddMsgHistoryPathWithUserName:(id)arg1 historyId:(unsigned long long)arg2;
 + (id)getTmpSysMsgHistoryPathWithUserName:(id)arg1 historyId:(unsigned long long)arg2;
 + (id)getSysMsgHistoryPathWithUserName:(id)arg1 historyId:(unsigned long long)arg2;
 + (id)getMsgFileDirWithUserName:(id)arg1;
@@ -144,7 +146,6 @@
 + (id)getMsgTmpHDImgPath:(id)arg1 localId:(unsigned int)arg2;
 + (id)getMsgTmpImgThumbPathWithMessage:(id)arg1;
 + (id)getMsgTmpImgPath:(id)arg1 localId:(unsigned int)arg2;
-+ (id)getMsgImgPreviewMidPathWithMessage:(id)arg1;
 + (id)getMsgImgPreviewThumbPathWithMessage:(id)arg1;
 + (id)getMsgCompressImage:(id)arg1;
 + (id)getMsgImgPreviewImageForLargeImage:(id)arg1;
@@ -156,6 +157,7 @@
 + (id)getMsgBubblePathWithMessage:(id)arg1;
 + (id)getMsgImgPathWithMessage:(id)arg1;
 + (id)getMsgImgBusinessDir:(id)arg1;
++ (id)getMsgImgBusinessRootDir;
 + (id)getMsgImgDir:(id)arg1;
 + (id)getMsgImagePathInType:(int)arg1 withMessage:(id)arg2;
 + (id)getUnSupportMigrateMsgMediaDirWithSessionName:(id)arg1;

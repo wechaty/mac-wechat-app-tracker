@@ -16,11 +16,13 @@
     MessageData *m_msgData;
     unsigned int m_cgiSessionId;
     BOOL m_didRetryForEmptyAeskey;
+    BOOL m_uploadMediaOnly;
     id <MessageSenderDelegate> m_delegate;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MessageSenderDelegate> delegate; // @synthesize delegate=m_delegate;
+@property(nonatomic) BOOL uploadMediaOnly; // @synthesize uploadMediaOnly=m_uploadMediaOnly;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=m_msgData;
 @property(nonatomic) unsigned long long taskId; // @synthesize taskId=m_taskId;
 @property(retain, nonatomic) NSString *chatName; // @synthesize chatName=m_nsChatName;

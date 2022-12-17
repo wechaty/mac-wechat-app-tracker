@@ -15,12 +15,14 @@
     int _reason;
     unsigned int _contentType;
     unsigned int _appMsgInnerType;
+    unsigned int _requestId;
     NSString *_username;
     NSString *_msgId;
     NSString *_msgUserName;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int requestId; // @synthesize requestId=_requestId;
 @property(nonatomic) unsigned int appMsgInnerType; // @synthesize appMsgInnerType=_appMsgInnerType;
 @property(nonatomic) unsigned int contentType; // @synthesize contentType=_contentType;
 @property(retain, nonatomic) NSString *msgUserName; // @synthesize msgUserName=_msgUserName;

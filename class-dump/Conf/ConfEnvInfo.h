@@ -25,7 +25,7 @@
     unsigned int hasAudioFlag:1;
     unsigned int hasVideoRatio:1;
     unsigned int hasDefVideoLength:1;
-    unsigned int hasVideoFlag:1;
+    unsigned int hasVideoConfig:1;
     unsigned int hasImMode:1;
     unsigned int hasBrokenMode:1;
     unsigned int hasOneUpload:1;
@@ -56,7 +56,7 @@
     unsigned int audioFlag;
     unsigned int videoRatio;
     unsigned int defVideoLength;
-    unsigned int videoFlag;
+    unsigned int videoConfig;
     unsigned int imMode;
     unsigned int brokenMode;
     unsigned int oneUpload;
@@ -138,8 +138,8 @@
 @property(readonly, nonatomic) BOOL hasBrokenMode; // @synthesize hasBrokenMode;
 @property(nonatomic, setter=SetImMode:) unsigned int imMode; // @synthesize imMode;
 @property(readonly, nonatomic) BOOL hasImMode; // @synthesize hasImMode;
-@property(nonatomic, setter=SetVideoFlag:) unsigned int videoFlag; // @synthesize videoFlag;
-@property(readonly, nonatomic) BOOL hasVideoFlag; // @synthesize hasVideoFlag;
+@property(nonatomic, setter=SetVideoConfig:) unsigned int videoConfig; // @synthesize videoConfig;
+@property(readonly, nonatomic) BOOL hasVideoConfig; // @synthesize hasVideoConfig;
 @property(nonatomic, setter=SetDefVideoLength:) unsigned int defVideoLength; // @synthesize defVideoLength;
 @property(readonly, nonatomic) BOOL hasDefVideoLength; // @synthesize hasDefVideoLength;
 @property(nonatomic, setter=SetVideoRatio:) unsigned int videoRatio; // @synthesize videoRatio;

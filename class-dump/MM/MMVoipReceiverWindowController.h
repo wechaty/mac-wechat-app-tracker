@@ -16,6 +16,7 @@
 - (void)changeToRemoteEarModeBeforeAnswer;
 - (void)OnRemoteEarModeFor2G;
 - (void)OnRemoteEarMode;
+- (void)onOtherDeviceHandleTalk:(id)arg1 WithStatus:(int)arg2;
 - (void)OnStartAudioUintFailed;
 - (void)OnBeHanguped:(id)arg1;
 - (void)OnSyncError:(id)arg1 ErrNo:(int)arg2;

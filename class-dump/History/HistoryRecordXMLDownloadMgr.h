@@ -9,11 +9,11 @@
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class CdnRecordMediaInfo, MessageData, NSMutableArray, NSRecursiveLock, NSString;
+@class CdnRecordMediaInfo, HistoryRecordXMLDownloadTaskInfo, NSMutableArray, NSRecursiveLock, NSString;
 
 @interface HistoryRecordXMLDownloadMgr : MMService <ICdnComMgrExt, MMService>
 {
-    MessageData *_m_curDownMsgWrap;
+    HistoryRecordXMLDownloadTaskInfo *_m_curDownTaskInfo;
     NSMutableArray *_m_arrWaitDownMsg;
     NSMutableArray *_m_arrCDNDownloadInfo;
     CdnRecordMediaInfo *_m_curDownMediaInfo;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) CdnRecordMediaInfo *m_curDownMediaInfo; // @synthesize m_curDownMediaInfo=_m_curDownMediaInfo;
 @property(retain, nonatomic) NSMutableArray *m_arrCDNDownloadInfo; // @synthesize m_arrCDNDownloadInfo=_m_arrCDNDownloadInfo;
 @property(retain, nonatomic) NSMutableArray *m_arrWaitDownMsg; // @synthesize m_arrWaitDownMsg=_m_arrWaitDownMsg;
-@property(retain, nonatomic) MessageData *m_curDownMsgWrap; // @synthesize m_curDownMsgWrap=_m_curDownMsgWrap;
+@property(retain, nonatomic) HistoryRecordXMLDownloadTaskInfo *m_curDownTaskInfo; // @synthesize m_curDownTaskInfo=_m_curDownTaskInfo;
 - (void)OnCdnDownloadFinished:(id)arg1;
 - (void)OnSetCdnDnsInfo;
 - (void)onCurMsgDownLoadFinished;
@@ -33,12 +33,13 @@
 - (void)checkDownloadRecordData;
 - (void)stopCurDownload;
 - (void)startDownloadCurMsg;
+- (id)genHistoryRecordAddMsgMediaInfo:(id)arg1;
 - (id)genHistoryRecordRecordMediaInfo:(id)arg1;
 - (void)removeMsgWrap:(id)arg1;
 - (void)tryNextMsgWrap;
 - (void)checkDownloadCDNMsgQueue;
 - (void)stopDownloadByHistoryRecordData:(id)arg1;
-- (void)startDownloadByHistoryRecordData:(id)arg1;
+- (void)startDownloadByHistoryRecordData:(id)arg1 xmlType:(unsigned long long)arg2;
 - (void)dealloc;
 - (void)onServiceClearData;
 - (void)onServiceInit;

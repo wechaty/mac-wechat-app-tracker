@@ -41,6 +41,8 @@
 @property(retain, nonatomic) ReaderWrap *readerWrap; // @synthesize readerWrap=_readerWrap;
 @property(retain, nonatomic) MessageData *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
+- (Class)viewControllerClass;
+- (Class)windowControllerClass;
 - (id)init;
 
 @end

@@ -29,7 +29,7 @@
 #import "SendPatExt-Protocol.h"
 #import "VoipMessageCellViewDelegate-Protocol.h"
 
-@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
+@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupMigrationView, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageReferMgr, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
 @interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource>
@@ -76,6 +76,7 @@
     LVLiveBannerView *_liveBannerView;
     MMGroupNoticeBannerView *_groupNoticeBannerView;
     MMGroupTopMsgBannerView *_topMsgBannerView;
+    MMGroupMigrationView *_groupMigrationView;
     NSMutableArray *_tipBarArray;
     NSMutableArray *_tipBarCanShowArray;
     double _scrollDeltaVal;
@@ -85,6 +86,8 @@
     long long _absoluteDragStartposition;
     long long _absoluteDragEndposition;
     NSTimer *_reportTimer;
+    MMMessageUnreadTipsButton *_backToReferButton;
+    MMMessageReferMgr *_messageReferMgr;
     struct CGPoint _eventPoint;
     struct CGPoint _dragStartPoint;
     struct CGPoint _dragEndPoint;
@@ -92,6 +95,8 @@
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMMessageReferMgr *messageReferMgr; // @synthesize messageReferMgr=_messageReferMgr;
+@property(retain, nonatomic) MMMessageUnreadTipsButton *backToReferButton; // @synthesize backToReferButton=_backToReferButton;
 @property(retain, nonatomic) NSTimer *reportTimer; // @synthesize reportTimer=_reportTimer;
 @property(nonatomic) long long absoluteDragEndposition; // @synthesize absoluteDragEndposition=_absoluteDragEndposition;
 @property(nonatomic) long long absoluteDragStartposition; // @synthesize absoluteDragStartposition=_absoluteDragStartposition;
@@ -102,6 +107,7 @@
 @property(nonatomic) double scrollDeltaVal; // @synthesize scrollDeltaVal=_scrollDeltaVal;
 @property(retain, nonatomic) NSMutableArray *tipBarCanShowArray; // @synthesize tipBarCanShowArray=_tipBarCanShowArray;
 @property(retain, nonatomic) NSMutableArray *tipBarArray; // @synthesize tipBarArray=_tipBarArray;
+@property(retain, nonatomic) MMGroupMigrationView *groupMigrationView; // @synthesize groupMigrationView=_groupMigrationView;
 @property(retain, nonatomic) MMGroupTopMsgBannerView *topMsgBannerView; // @synthesize topMsgBannerView=_topMsgBannerView;
 @property(retain, nonatomic) MMGroupNoticeBannerView *groupNoticeBannerView; // @synthesize groupNoticeBannerView=_groupNoticeBannerView;
 @property(retain, nonatomic) LVLiveBannerView *liveBannerView; // @synthesize liveBannerView=_liveBannerView;
@@ -193,12 +199,19 @@
 - (void)onModifyContacts:(id)arg1;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
 - (void)clearUnReadCount;
+- (void)checkBackToRefer;
 - (void)checkFirstUnreadMessageShown;
 - (void)relayoutUnreadTips;
 - (void)unreadTipsDidClicked;
 - (void)clearAndScrollToFirstUnReadCount:(unsigned long long)arg1;
 - (void)scrollToMessage:(id)arg1;
-- (BOOL)showLocatedMessage:(unsigned int)arg1;
+- (void)scrollToMessage:(id)arg1 needHighLighted:(BOOL)arg2;
+- (void)handleBackToReferBtnAppFontSize;
+- (void)resetBackToReferbtn;
+- (void)backToReferBtnDidClicked;
+- (void)checkAndClearUnreadTip;
+- (void)returnToOriginalMsg:(id)arg1;
+- (BOOL)showLocatedMessage:(unsigned int)arg1 needHighLighted:(BOOL)arg2;
 - (BOOL)scrollToFirstUnReadMessages:(unsigned long long)arg1;
 - (void)showUnreadTipsIfNeededAnimated:(BOOL)arg1 isShowOnTop:(BOOL)arg2 scene:(int)arg3;
 - (BOOL)isUnreadTipsShownOnBottom;
@@ -249,16 +262,19 @@
 - (void)markAllMessagesAsRead:(id)arg1;
 - (void)adjustVisableHeightForResize;
 - (void)layoutForResize;
+- (id)getMessageTableView;
 - (void)checkLiveBannerView;
 - (void)hideLiveBannerView;
 - (void)showLiveBannerView;
 - (void)updateLiveBannerView;
 - (void)setupLiveBannerView;
+- (void)setupBackToReferButton;
 - (void)setupUnreadTipsButton;
 - (void)layoutMultiTalkContentIfNeeded;
 - (BOOL)shouldShowTipsBar;
 - (BOOL)shouldShowHintLabel;
 - (void)setupHintLabel;
+- (void)setupGroupMigrationView;
 - (void)setupGroupNoticeBannerView;
 - (void)setupTopMsgBannerView;
 - (void)setupMultiTalkView;
@@ -272,6 +288,7 @@
 - (void)copySelectedMessageContent;
 - (void)keyDown:(id)arg1;
 - (void)showAlert:(int)arg1;
+- (long long)mouseDragStartIndex:(long long)arg1 endIndex:(long long)arg2 up2Down:(BOOL)arg3;
 - (void)mouseDragSelectedMessageCellView;
 - (void)autoWheelDetails;
 - (void)stopAutoWheel;
@@ -313,6 +330,7 @@
 - (void)userMouseEvent;
 - (void)setupTipsBar;
 - (void)viewDidLoad;
+- (void)registerDelegates;
 - (void)unregisterExtensions;
 - (void)registerExtensions;
 - (void)removeTipsKVO;

@@ -10,14 +10,16 @@
 
 @interface MMSearchResultHeaderItem : MMSearchResultItem
 {
+    BOOL _isExpand;
     NSString *_title;
     unsigned long long _itemCount;
     unsigned long long _resultType;
 }
 
-+ (id)allItemWithCount:(unsigned long long)arg1 resultType:(unsigned long long)arg2;
++ (id)allItemWithCount:(unsigned long long)arg1 resultType:(unsigned long long)arg2 isExpand:(BOOL)arg3;
 + (id)headerItemWithTitle:(id)arg1 itemCount:(unsigned long long)arg2 resultType:(unsigned long long)arg3;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isExpand; // @synthesize isExpand=_isExpand;
 @property(nonatomic) unsigned long long resultType; // @synthesize resultType=_resultType;
 @property(nonatomic) unsigned long long itemCount; // @synthesize itemCount=_itemCount;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;

@@ -111,6 +111,8 @@
 - (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)tokenFieldDoShow:(BOOL)arg1 diffHeight:(double)arg2;
+- (long long)tagDeleteCount:(id)arg1;
+- (long long)tagAddedCount:(id)arg1;
 - (BOOL)tagHasChanged:(id)arg1;
 - (void)tokenFieldEscDidKeyUp:(id)arg1;
 - (void)tokenFieldSizeDidChange:(struct CGRect)arg1 oldSize:(struct CGRect)arg2;

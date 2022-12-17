@@ -7,6 +7,7 @@
 #import "MMTraitsViewController.h"
 
 #import "IContactMgrExt-Protocol.h"
+#import "MMBoxSelectionViewDelegate-Protocol.h"
 #import "MMCollectionDelegate-Protocol.h"
 #import "MMMessageCellViewDelegate-Protocol.h"
 #import "MMMultiSelectViewDelegate-Protocol.h"
@@ -16,16 +17,15 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class CAShapeLayer, FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMButton, MMChatCollectionViewController, MMChatFTSSearchLogic, MMChatManagerDataSource, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMouseEventView, MMMultiSelectView, MMOutlineButton, MMTableView, MMTextField, MMTimer, MMView, NSImageView, NSMutableArray, NSMutableDictionary, NSProgressIndicator, NSString, NSTextField, NSView, SVGButton, WCContactData;
+@class FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMBoxSelectionView, MMButton, MMChatCollectionViewController, MMChatFTSSearchLogic, MMChatManagerDataSource, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMouseEventView, MMMultiSelectView, MMOutlineButton, MMTableView, MMTextField, MMTimer, MMView, NSImageView, NSMutableArray, NSMutableDictionary, NSProgressIndicator, NSString, NSTextField, NSView, SVGButton, WCContactData;
 
-@interface MMChatManagerDetailViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, MMCollectionDelegate, MessageBatchExportMgrExt, MMMultiSelectViewDelegate>
+@interface MMChatManagerDetailViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, MMCollectionDelegate, MessageBatchExportMgrExt, MMMultiSelectViewDelegate, MMBoxSelectionViewDelegate>
 {
     BOOL _multiSelectionMode;
     unsigned char _isGlobalSearch;
     BOOL _isLoadingHistory;
     BOOL _isFromGlobalSearch;
     BOOL _isSettingChatContact;
-    BOOL _beginDragging;
     MMChatFTSSearchLogic *_ftsSearchLogic;
     CDUnknownBlockType _viewDidLoadBlock;
     CDUnknownBlockType _searchDidFinishBlock;
@@ -82,16 +82,12 @@
     MMTimer *_timer;
     unsigned long long _lastCalledTime;
     unsigned long long _lastPaingSearchTime;
-    CAShapeLayer *_shapeLayer;
     MMMessageTableItem *_preSelectedTableItem;
-    id _mouseEvent;
+    MMBoxSelectionView *_boxSelectionView;
     NSView *_searchDetailContainerView;
     MMMessageCellView *_lastShowLocateTipsCellView;
     NSMutableDictionary *_viewerWindowDic;
     NSMutableDictionary *_pagingSearchResultCountDic;
-    struct CGPoint _eventPoint;
-    struct CGPoint _dragStartPoint;
-    struct CGRect _draggedRect;
 }
 
 - (void).cxx_destruct;
@@ -99,13 +95,8 @@
 @property(retain, nonatomic) NSMutableDictionary *viewerWindowDic; // @synthesize viewerWindowDic=_viewerWindowDic;
 @property(nonatomic) __weak MMMessageCellView *lastShowLocateTipsCellView; // @synthesize lastShowLocateTipsCellView=_lastShowLocateTipsCellView;
 @property __weak NSView *searchDetailContainerView; // @synthesize searchDetailContainerView=_searchDetailContainerView;
-@property(retain, nonatomic) id mouseEvent; // @synthesize mouseEvent=_mouseEvent;
-@property(nonatomic) BOOL beginDragging; // @synthesize beginDragging=_beginDragging;
+@property(retain, nonatomic) MMBoxSelectionView *boxSelectionView; // @synthesize boxSelectionView=_boxSelectionView;
 @property(retain, nonatomic) MMMessageTableItem *preSelectedTableItem; // @synthesize preSelectedTableItem=_preSelectedTableItem;
-@property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
-@property(nonatomic) struct CGRect draggedRect; // @synthesize draggedRect=_draggedRect;
-@property(nonatomic) struct CGPoint dragStartPoint; // @synthesize dragStartPoint=_dragStartPoint;
-@property(nonatomic) struct CGPoint eventPoint; // @synthesize eventPoint=_eventPoint;
 @property(nonatomic) unsigned long long lastPaingSearchTime; // @synthesize lastPaingSearchTime=_lastPaingSearchTime;
 @property(nonatomic) BOOL isSettingChatContact; // @synthesize isSettingChatContact=_isSettingChatContact;
 @property BOOL isFromGlobalSearch; // @synthesize isFromGlobalSearch=_isFromGlobalSearch;
@@ -189,12 +180,7 @@
 - (id)getMultiSelectedMessages;
 - (void)layoutForMultiSelection:(BOOL)arg1;
 - (void)showAlert:(int)arg1;
-- (void)mouseDragMultiSelectedCellView;
-- (void)handleEventDuringDragging:(id)arg1;
-- (void)handleEventBeforeDragging:(id)arg1;
 - (BOOL)locationInsideMessageCellView:(struct CGPoint)arg1;
-- (BOOL)locationInsideContentView:(struct CGPoint)arg1;
-- (BOOL)dragFarEnough:(struct CGPoint)arg1 from:(struct CGPoint)arg2;
 - (void)onBackClicked:(id)arg1;
 - (void)onGlobalOpenChatClicked:(id)arg1;
 - (void)onLinkClicked:(id)arg1;
@@ -203,6 +189,9 @@
 - (void)onAllClicked:(id)arg1;
 - (void)copySelectedMessageContent;
 - (void)keyDown:(id)arg1;
+- (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
+- (BOOL)boxSelectionView:(id)arg1 shouldBeginDragging:(struct CGPoint)arg2;
+- (void)updateBoxSelectionView;
 - (void)SaveMutipleSelect;
 - (void)ForwardMutipleSelect:(BOOL)arg1 toWeWork:(BOOL)arg2;
 - (void)showSessionPickerWithSendMsgList:(id)arg1 isNeedMerge:(BOOL)arg2;
@@ -275,7 +264,6 @@
 - (void)setupTableView;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
-- (void)multiSelectEvent;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidLoad;
 - (void)dealloc;

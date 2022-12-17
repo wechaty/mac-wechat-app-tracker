@@ -177,7 +177,6 @@
 - (BOOL)isWeWorkCdnUrl;
 - (BOOL)IsDataFileDownloaded;
 - (unsigned long long)getCreateTime;
-- (id)GetDataFilePreviewPath;
 - (id)GetDataFilePath;
 - (id)GetDataClientMediaID;
 - (id)GetSenderUsername;

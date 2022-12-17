@@ -28,6 +28,7 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)setupTrackingArea;
+- (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)formatSearchResult;
 - (void)updateUIWithSearchResult:(id)arg1;

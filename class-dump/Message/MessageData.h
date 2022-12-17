@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -78,6 +78,8 @@
     NSString *_m_nsBigFileErrMsg;
     SecondMsgNode *_secondMsgNode;
     AlNode *_alnode;
+    NSString *_m_historyTitleNew;
+    ShareMsgNode *_shareMsgNode;
     MessageData *_referHostMsg;
 }
 
@@ -162,6 +164,8 @@
 + (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
+@property(retain, nonatomic) ShareMsgNode *shareMsgNode; // @synthesize shareMsgNode=_shareMsgNode;
+@property(retain, nonatomic) NSString *m_historyTitleNew; // @synthesize m_historyTitleNew=_m_historyTitleNew;
 @property(retain, nonatomic) AlNode *alnode; // @synthesize alnode=_alnode;
 @property(retain, nonatomic) SecondMsgNode *secondMsgNode; // @synthesize secondMsgNode=_secondMsgNode;
 @property(nonatomic) unsigned int m_uiResendMessageCount; // @synthesize m_uiResendMessageCount=_m_uiResendMessageCount;
@@ -291,6 +295,7 @@
 - (id)finderDesc;
 - (id)content;
 - (BOOL)doRevokeHistoryRecord;
+- (BOOL)canRevokeHistoryRecord;
 - (BOOL)hasRevokedHistoryRecord;
 - (BOOL)hasDownloadHistoryRecord;
 - (BOOL)isWithHistoryRecord;
@@ -320,6 +325,7 @@
 - (BOOL)canSaveToFavorites;
 - (BOOL)canForward;
 - (BOOL)canRecall;
+- (unsigned int)sourceCreateTime;
 - (id)realChatUserName;
 - (id)realMessageContent;
 - (void)handleNewsAppMsgIfNeed;
@@ -376,6 +382,7 @@
 @property(retain, nonatomic) SendImageInfo *imageInfo; // @dynamic imageInfo;
 @property(retain, nonatomic) MMLiveAppMsgInnerItem *liveAppMsgInnerItem; // @dynamic liveAppMsgInnerItem;
 @property(retain, nonatomic) NSArray *m_arrCustomWrap; // @dynamic m_arrCustomWrap;
+@property(retain, nonatomic) NSArray *m_arrMembers; // @dynamic m_arrMembers;
 @property(retain, nonatomic) NSArray *m_arrReaderWaps; // @dynamic m_arrReaderWaps;
 @property(copy, nonatomic) NSString *m_authKey; // @dynamic m_authKey;
 @property(nonatomic) BOOL m_bIsForceUpdate; // @dynamic m_bIsForceUpdate;
@@ -386,12 +393,18 @@
 @property(nonatomic) unsigned int m_duration; // @dynamic m_duration;
 @property(nonatomic) unsigned int m_fullXmlLength; // @dynamic m_fullXmlLength;
 @property(retain, nonatomic) NSString *m_historyAesKey; // @dynamic m_historyAesKey;
+@property(retain, nonatomic) NSString *m_historyAesKeyNew; // @dynamic m_historyAesKeyNew;
 @property(retain, nonatomic) NSString *m_historyFileId; // @dynamic m_historyFileId;
+@property(retain, nonatomic) NSString *m_historyFileIdNew; // @dynamic m_historyFileIdNew;
 @property(nonatomic) unsigned int m_historyFileLength; // @dynamic m_historyFileLength;
+@property(nonatomic) unsigned int m_historyFileLengthNew; // @dynamic m_historyFileLengthNew;
 @property(nonatomic) unsigned long long m_historyId; // @dynamic m_historyId;
 @property(retain, nonatomic) NSString *m_historyMd5; // @dynamic m_historyMd5;
+@property(retain, nonatomic) NSString *m_historyMd5New; // @dynamic m_historyMd5New;
 @property(nonatomic) unsigned int m_historyMsgCount; // @dynamic m_historyMsgCount;
+@property(nonatomic) unsigned int m_historyMsgCountNew; // @dynamic m_historyMsgCountNew;
 @property(retain, nonatomic) MessageData *m_historyRecordMsg; // @dynamic m_historyRecordMsg;
+@property(retain, nonatomic) NSString *m_historyTitle;
 @property(nonatomic) long long m_i64VoipKey; // @dynamic m_i64VoipKey;
 @property(nonatomic) int m_iFromAnswer; // @dynamic m_iFromAnswer;
 @property(nonatomic) int m_iVoipRoomid; // @dynamic m_iVoipRoomid;

@@ -6,21 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class EmoticonMsgInfo, NSString;
-@protocol GetEmoticonByMD5ListCGIDelegate;
+@class NSMutableArray;
 
 @interface GetEmoticonByMD5ListCGI : NSObject
 {
-    EmoticonMsgInfo *m_msgInfo;
-    NSString *m_emoticonPath;
-    id <GetEmoticonByMD5ListCGIDelegate> _delegate;
+    unsigned int _maxCountPerRequest;
+    CDUnknownBlockType _onFinishBlock;
+    NSMutableArray *_waitForRequestMd5List;
+    NSMutableArray *_emojiInfoList;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <GetEmoticonByMD5ListCGIDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSMutableArray *emojiInfoList; // @synthesize emojiInfoList=_emojiInfoList;
+@property(retain, nonatomic) NSMutableArray *waitForRequestMd5List; // @synthesize waitForRequestMd5List=_waitForRequestMd5List;
+@property(nonatomic) unsigned int maxCountPerRequest; // @synthesize maxCountPerRequest=_maxCountPerRequest;
+@property(copy, nonatomic) CDUnknownBlockType onFinishBlock; // @synthesize onFinishBlock=_onFinishBlock;
+- (void)handleBatchEmojiDownLoadSuccess;
 - (void)handleBatchEmojiDownLoadFailed;
+- (void)continueRequestEmojiMD5List;
 - (void)startRequestWithMd5List:(id)arg1;
-- (void)startRequestWithMsgInfo:(id)arg1;
 - (id)init;
 
 @end

@@ -10,6 +10,7 @@
 
 @interface MMFavTagEditReportData : NSObject
 {
+    BOOL _isDone;
     unsigned int _favId;
     unsigned int _itemTagCount;
     unsigned int _totalTagCount;
@@ -18,11 +19,15 @@
     unsigned int _favSourceTime;
     unsigned int _favSourceType;
     unsigned int _editTagPath;
+    unsigned int _newTagCount;
     NSString *_favInfoLength;
     NSString *_favSourceInfo;
 }
 
++ (int)convertFavListPageType:(int)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int newTagCount; // @synthesize newTagCount=_newTagCount;
+@property(nonatomic) BOOL isDone; // @synthesize isDone=_isDone;
 @property(nonatomic) unsigned int editTagPath; // @synthesize editTagPath=_editTagPath;
 @property(retain, nonatomic) NSString *favSourceInfo; // @synthesize favSourceInfo=_favSourceInfo;
 @property(nonatomic) unsigned int favSourceType; // @synthesize favSourceType=_favSourceType;

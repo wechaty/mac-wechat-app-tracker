@@ -57,6 +57,7 @@
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (id)getSection1MenuItem;
+- (void)contextMenuShowChatLogPath;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (id)draggablePasteboardTypes;
 - (id)draggingImage;

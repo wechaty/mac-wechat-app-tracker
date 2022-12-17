@@ -180,6 +180,7 @@
 - (void)onPreQuit;
 - (void)onServiceInit;
 - (void)dealloc;
+- (void)onReceivedCancel;
 - (void)registerNotifications;
 - (void)UnInitAll;
 - (void)InitAll;

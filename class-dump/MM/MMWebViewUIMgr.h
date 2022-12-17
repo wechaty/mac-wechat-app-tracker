@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSMutableDictionary *floatWindowInfo; // @synthesize floatWindowInfo=_floatWindowInfo;
 - (void)deletePreloadWebViewForType:(unsigned long long)arg1;
 - (id)getPreloadWebViewForType:(unsigned long long)arg1;
+- (void)preloadWebView:(id)arg1 forType:(unsigned long long)arg2 andUrl:(id)arg3;
 - (unsigned long long)setupPreloadWebView:(unsigned long long)arg1 andUrl:(id)arg2;
 - (id)getFloatWindowInfo:(id)arg1;
 - (void)removeFloatWindowInfo:(id)arg1;

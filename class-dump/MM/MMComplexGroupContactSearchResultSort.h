@@ -18,7 +18,6 @@
 @property(nonatomic) unsigned int now; // @synthesize now=_now;
 @property(retain, nonatomic) NSMutableArray *results; // @synthesize results=_results;
 - (long long)compareGroupLastMsgCreateTime:(id)arg1 with:(id)arg2;
-- (long long)compareGroupMoreThan14Days:(id)arg1 with:(id)arg2;
 - (long long)compareGroupMemebersSearch:(id)arg1 with:(id)arg2;
 - (long long)compareGroupNameSearch:(id)arg1 with:(id)arg2;
 - (long long)compareSearchType:(id)arg1 with:(id)arg2;

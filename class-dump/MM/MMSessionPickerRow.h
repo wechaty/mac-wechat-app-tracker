@@ -12,6 +12,7 @@
 {
     BOOL _chosen;
     BOOL _preSelected;
+    BOOL _isExpand;
     unsigned long long _type;
     NSString *_title;
     NSString *_tagTitle;
@@ -21,11 +22,13 @@
     MMSearchResultItem *_searchResultItem;
 }
 
++ (id)createMoreButtonRow:(BOOL)arg1;
 + (id)createSessionButtonRow;
 + (id)loadingRow;
 + (id)groupRowUnderCreateButtonWithTitle:(id)arg1;
 + (id)groupRowWithTitle:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isExpand; // @synthesize isExpand=_isExpand;
 @property(retain, nonatomic) MMSearchResultItem *searchResultItem; // @synthesize searchResultItem=_searchResultItem;
 @property(nonatomic) BOOL preSelected; // @synthesize preSelected=_preSelected;
 @property(nonatomic) BOOL chosen; // @synthesize chosen=_chosen;
