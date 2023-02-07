@@ -10,6 +10,7 @@
 
 @protocol MessageSenderDelegate <NSObject>
 - (void)onSendFinished:(NSString *)arg1 taskId:(unsigned long long)arg2 msgData:(MessageData *)arg3 isSuccess:(BOOL)arg4;
+- (void)onCheckExistFinished:(unsigned long long)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 - (void)onUploadFinished:(unsigned long long)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 
 @optional

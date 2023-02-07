@@ -48,9 +48,12 @@
 - (void)onClickInvalidFileCount;
 - (void)showConfirmWindow;
 - (void)showToastViewOnSuccess;
+- (void)didFinishPaperShareToWeWork:(id)arg1;
+- (void)clearTmpFile;
 - (void)didFinishShare;
 - (void)favToWeChat;
 - (id)wrapDataForSessionPicker;
+- (void)sendToWeWork;
 - (void)sendToFriend;
 - (void)handleShareExt;
 - (void)layoutLogo;

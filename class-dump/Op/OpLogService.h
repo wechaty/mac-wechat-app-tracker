@@ -31,6 +31,7 @@
 - (BOOL)addOpLog:(unsigned int)arg1 Oplog:(id)arg2;
 - (BOOL)addOpLog:(unsigned int)arg1 message:(id)arg2;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)handeOplogFailed:(BOOL)arg1 cgiWrap:(id)arg2;
 - (void)startSyncOplog;
 - (void)checkSyncOplog;
 - (void)NeedToSyncOplog;

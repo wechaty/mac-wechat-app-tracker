@@ -13,7 +13,7 @@
 #import "MMService-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class MMSessionSortLogic, MMSessionStorage, MMSessionsWrapper, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString;
+@class MMSessionSortLogic, MMSessionStorage, MMSessionsWrapper, MMThreadSafeDictionary, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MMSessionMgr : MMService <IGroupMgrExt, SyncExt, IMessageExt, IContactMgrExt, IChatSyncMgrExt, MMService>
@@ -29,9 +29,11 @@
     MMTimer *_updateTimer;
     NSObject<OS_dispatch_queue> *_updateQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
+    MMThreadSafeDictionary *_needEnterSessionSet;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMThreadSafeDictionary *needEnterSessionSet; // @synthesize needEnterSessionSet=_needEnterSessionSet;
 @property BOOL bSessionLoaded; // @synthesize bSessionLoaded=_bSessionLoaded;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *updateQueue; // @synthesize updateQueue=_updateQueue;

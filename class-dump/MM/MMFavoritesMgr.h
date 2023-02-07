@@ -11,12 +11,13 @@
 #import "FavoritesBatchGetMgrDelegate-Protocol.h"
 #import "FavoritesSyncManagerDelegate-Protocol.h"
 #import "FavoritesUploadMgrDelegate-Protocol.h"
+#import "IContactMgrExt-Protocol.h"
 #import "MMNetExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class FavRecentDataMgr, FavoritesBatchDelMgr, FavoritesBatchGetMgr, FavoritesSetting, FavoritesSyncManager, FavoritesTagMgr, FavoritesUploadMgr, NSMutableSet, NSString, WCFavoritesDB;
 
-@interface MMFavoritesMgr : MMService <FavoritesBatchGetMgrDelegate, FavoritesSyncManagerDelegate, FavoritesBatchDelMgrDelegate, AccountServiceExt, MMNetExt, FavoritesUploadMgrDelegate, MMService>
+@interface MMFavoritesMgr : MMService <FavoritesBatchGetMgrDelegate, FavoritesSyncManagerDelegate, FavoritesBatchDelMgrDelegate, AccountServiceExt, MMNetExt, FavoritesUploadMgrDelegate, IContactMgrExt, MMService>
 {
     BOOL m_invalidWalFlag;
     BOOL _isSyncingTag;
@@ -29,10 +30,12 @@
     FavRecentDataMgr *_recentMgr;
     NSMutableSet *_modingItems;
     FavoritesSetting *_setting;
+    NSMutableSet *_waitGetContactsFavItems;
 }
 
 + (void)clearDataFolder;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableSet *waitGetContactsFavItems; // @synthesize waitGetContactsFavItems=_waitGetContactsFavItems;
 @property(nonatomic) BOOL isSyncingTag; // @synthesize isSyncingTag=_isSyncingTag;
 @property(retain, nonatomic) FavoritesSetting *setting; // @synthesize setting=_setting;
 @property(retain, nonatomic) NSMutableSet *modingItems; // @synthesize modingItems=_modingItems;
@@ -43,6 +46,8 @@
 @property(retain, nonatomic) FavoritesUploadMgr *uploadMgr; // @synthesize uploadMgr=_uploadMgr;
 @property(retain, nonatomic) FavoritesSyncManager *syncMgr; // @synthesize syncMgr=_syncMgr;
 @property(readonly, nonatomic) WCFavoritesDB *favItemDB; // @synthesize favItemDB=_favItemDB;
+- (id)findWaitGetContactsFavItem:(id)arg1;
+- (void)onModifyStrangerContacts:(id)arg1;
 - (void)checkInvalidNote:(id)arg1 batchgetList:(id)arg2;
 - (void)getFirstPageFavoritesList:(int)arg1;
 - (id)xmlForFavoriteItem:(id)arg1;
@@ -72,6 +77,9 @@
 - (void)searchFavSourceWithKeyword:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (BOOL)containFavItemInList:(id)arg1 item:(id)arg2;
 - (id)getFavItemsWithSenderUserNames:(id)arg1 inLocalIds:(id)arg2;
+- (BOOL)matchSearchFiledWithTask:(id)arg1 searchFiled:(id)arg2 matchKeyWordResults:(id)arg3;
+- (BOOL)matchTagList:(id)arg1 keyWord:(id)arg2;
+- (id)filterSearchResult:(id)arg1 keyWord:(id)arg2;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 progress:(CDUnknownBlockType)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)searchWithKeyword:(id)arg1 types:(id)arg2 senderUserName:(id)arg3 tag:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (BOOL)updateOrAddItemTagWithFavLocalId:(unsigned int)arg1 withTagSvrIds:(id)arg2 withTagNames:(id)arg3;
@@ -99,6 +107,8 @@
 - (id)allTagNames;
 - (BOOL)processTagsFromServer:(id)arg1;
 - (id)allFavEssentialInfosInDB;
+- (id)getWCContactData:(id)arg1;
+- (id)allItemSenderContactsContainerGroup;
 - (id)allGroupChatSenderContacts;
 - (id)allItemSenderContacts;
 - (id)allItemSenderUserNames;

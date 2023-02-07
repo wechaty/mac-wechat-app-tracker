@@ -6,12 +6,13 @@
 
 #import "MMViewController.h"
 
+#import "MMLoginTwiceConfirmationViewControllerDelegate-Protocol.h"
 #import "MMNetExt-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class MMLockViewController, MMLoginOneClickViewController, MMLoginQRCodeViewController, MMLoginStateMachine, MMLoginWaitingConfirmViewController, MMNavigationController, MMTimer, NSAlert, NSString, NSTextField, PushLoginLogic, QRCodeLoginLogic;
+@class MMLockViewController, MMLoginOneClickViewController, MMLoginQRCodeViewController, MMLoginStateMachine, MMLoginTwiceConfirmationViewController, MMLoginWaitingConfirmViewController, MMNavigationController, MMTimer, NSAlert, NSString, NSTextField, PushLoginLogic, QRCodeLoginLogic;
 
-@interface MMLoginViewController : MMViewController <SyncExt, MMNetExt>
+@interface MMLoginViewController : MMViewController <SyncExt, MMNetExt, MMLoginTwiceConfirmationViewControllerDelegate>
 {
     BOOL _shouldTryAutoAuthWhenNetworkConnected;
     MMLoginStateMachine *_stateMachine;
@@ -22,6 +23,7 @@
     MMLoginWaitingConfirmViewController *_waitingConfirmViewController;
     MMNavigationController *_navController;
     MMLockViewController *_lockViewController;
+    MMLoginTwiceConfirmationViewController *_twiceConfirmationViewController;
     CDUnknownBlockType _initCGICallbackBlock;
     MMTimer *_checkNetTimer;
     id _keyEventMonitor;
@@ -35,6 +37,7 @@
 @property(retain, nonatomic) id keyEventMonitor; // @synthesize keyEventMonitor=_keyEventMonitor;
 @property(retain, nonatomic) MMTimer *checkNetTimer; // @synthesize checkNetTimer=_checkNetTimer;
 @property(copy, nonatomic) CDUnknownBlockType initCGICallbackBlock; // @synthesize initCGICallbackBlock=_initCGICallbackBlock;
+@property(retain, nonatomic) MMLoginTwiceConfirmationViewController *twiceConfirmationViewController; // @synthesize twiceConfirmationViewController=_twiceConfirmationViewController;
 @property(retain, nonatomic) MMLockViewController *lockViewController; // @synthesize lockViewController=_lockViewController;
 @property(retain, nonatomic) MMNavigationController *navController; // @synthesize navController=_navController;
 @property(retain, nonatomic) MMLoginWaitingConfirmViewController *waitingConfirmViewController; // @synthesize waitingConfirmViewController=_waitingConfirmViewController;
@@ -44,6 +47,8 @@
 @property(retain, nonatomic) QRCodeLoginLogic *qrCodeLoginLogic; // @synthesize qrCodeLoginLogic=_qrCodeLoginLogic;
 @property(retain, nonatomic) MMLoginStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(nonatomic) BOOL shouldTryAutoAuthWhenNetworkConnected; // @synthesize shouldTryAutoAuthWhenNetworkConnected=_shouldTryAutoAuthWhenNetworkConnected;
+- (void)viewController:(id)arg1 twiceConfirmationDidCancel:(id)arg2;
+- (void)viewController:(id)arg1 twiceConfirmationDidComplete:(id)arg2;
 - (void)proxySettingsDidChange:(id)arg1;
 - (BOOL)isLoginStateReset;
 - (void)handleInitFailed;
@@ -73,6 +78,7 @@
 - (void)setupOneClickEvents;
 - (void)setupQRCodeEvents;
 - (void)setupCommonEvents;
+- (void)setupTwiceConfirmationEvent;
 - (void)setupEvents;
 - (void)setupStates;
 - (void)setupStateMachine;

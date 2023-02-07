@@ -14,7 +14,9 @@
 + (BOOL)sendMessagesToWeWork:(id)arg1 appType:(long long)arg2 andKey:(id)arg3 andMsgType:(long long)arg4 andErrCode:(int)arg5;
 + (BOOL)openWeWorkBySchema:(id)arg1 andSendMsgType:(long long)arg2;
 + (BOOL)openWeWork;
-+ (BOOL)requestForwardMessagesFromWeWork:(id)arg1;
++ (BOOL)requestForwardMessagesFromWeWork:(id)arg1 andMsgType:(long long)arg2;
++ (BOOL)isWeWorkCdnUrl:(id)arg1;
++ (BOOL)isCanIgnoreUploadMsg:(id)arg1;
 + (BOOL)isCanIgnoreUpload:(id)arg1 andFieldDepth:(unsigned int)arg2 andIsHDImage:(BOOL)arg3;
 + (BOOL)isCanIgnoreUpload:(id)arg1 andFieldDepth:(unsigned int)arg2;
 + (BOOL)isWeWorkRunning:(long long)arg1;
@@ -22,7 +24,11 @@
 + (id)getWeWorkDisplayName;
 + (id)getWeWorkVersion:(long long)arg1;
 + (BOOL)isWeWorkAppId:(long long)arg1 andAppId:(id)arg2;
++ (BOOL)isAvailableSeparateVersion:(long long)arg1 andVersion:(id)arg2;
 + (BOOL)isAvailableVersion:(long long)arg1 andVersion:(id)arg2;
++ (BOOL)isCanCheckTpMediaMd5;
++ (BOOL)isCanSeparateForwardToWeWork:(long long)arg1;
++ (BOOL)checkExptAndScheme:(long long)arg1;
 + (BOOL)isWeWorkInstalled:(long long)arg1;
 + (id)p_wxworkGovernmentScheme;
 + (id)p_wxworkEnterpriseScheme;

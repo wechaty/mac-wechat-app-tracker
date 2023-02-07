@@ -8,7 +8,7 @@
 
 #import "MMMultipleSelectable-Protocol.h"
 
-@class FavThumbRequestParam, MMFavoritesAlbumMultipleSelectMaskView, NSImageView, NSString;
+@class FavThumbRequestParam, MMFavoritesAlbumMultipleSelectMaskView, NSImageView, NSString, NSTextField;
 
 @interface MMFavoritesAlbumImageCell : MMFavoritesDetailBaseCell <MMMultipleSelectable>
 {
@@ -16,17 +16,20 @@
     NSImageView *_imageView;
     FavThumbRequestParam *_favThumbRequest;
     MMFavoritesAlbumMultipleSelectMaskView *_maskView;
+    NSTextField *_timeFiled;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTextField *timeFiled; // @synthesize timeFiled=_timeFiled;
 @property(retain, nonatomic) MMFavoritesAlbumMultipleSelectMaskView *maskView; // @synthesize maskView=_maskView;
 @property(nonatomic) BOOL multipleSelecting; // @synthesize multipleSelecting=_multipleSelecting;
 @property(retain, nonatomic) FavThumbRequestParam *favThumbRequest; // @synthesize favThumbRequest=_favThumbRequest;
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
+- (struct CGRect)bubbleFrame;
 @property(nonatomic) BOOL canMultipleSelection;
-- (void)updateMaskView;
-- (void)setHighlighted:(BOOL)arg1;
-- (void)setMultipleSelected:(BOOL)arg1;
+- (void)updateHighlightLayer;
+- (id)getVideoTime;
+- (void)layoutIconImgView:(struct CGRect)arg1;
 - (void)layoutFavContentView;
 - (void)prepareForReuse;
 - (void)willBeRecycled;

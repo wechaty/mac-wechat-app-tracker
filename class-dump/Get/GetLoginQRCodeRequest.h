@@ -20,6 +20,7 @@
     unsigned int hasSoftType:1;
     unsigned int hasMsgContextPubKey:1;
     unsigned int hasDisableNextAutoLoginInfo:1;
+    unsigned int hasExtSpamInfo:1;
     unsigned int opcode;
     unsigned int extDevLoginType;
     BaseRequest *baseRequest;
@@ -30,10 +31,13 @@
     NSString *softType;
     SKBuiltinBuffer_t *msgContextPubKey;
     SKBuiltinBuffer_t *disableNextAutoLoginInfo;
+    SKBuiltinBuffer_t *extSpamInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetExtSpamInfo:) SKBuiltinBuffer_t *extSpamInfo; // @synthesize extSpamInfo;
+@property(readonly, nonatomic) BOOL hasExtSpamInfo; // @synthesize hasExtSpamInfo;
 @property(retain, nonatomic, setter=SetDisableNextAutoLoginInfo:) SKBuiltinBuffer_t *disableNextAutoLoginInfo; // @synthesize disableNextAutoLoginInfo;
 @property(readonly, nonatomic) BOOL hasDisableNextAutoLoginInfo; // @synthesize hasDisableNextAutoLoginInfo;
 @property(retain, nonatomic, setter=SetMsgContextPubKey:) SKBuiltinBuffer_t *msgContextPubKey; // @synthesize msgContextPubKey;

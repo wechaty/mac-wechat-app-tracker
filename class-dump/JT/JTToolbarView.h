@@ -12,7 +12,8 @@
 @interface JTToolbarView : NSView
 {
     BOOL _enableQR;
-    BOOL _enableOCR;
+    BOOL _enableTranslate;
+    BOOL _enableRecognize;
     BOOL _postedBeginEditNotification;
     id <JTToolbarViewDelegate> _delegate;
     long long _graphTypeSelected;
@@ -30,7 +31,8 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSMutableArray *functionButtonArray; // @synthesize functionButtonArray=_functionButtonArray;
 @property(retain, nonatomic) NSMutableArray *graphButtonArray; // @synthesize graphButtonArray=_graphButtonArray;
-@property(nonatomic) BOOL enableOCR; // @synthesize enableOCR=_enableOCR;
+@property(nonatomic) BOOL enableRecognize; // @synthesize enableRecognize=_enableRecognize;
+@property(nonatomic) BOOL enableTranslate; // @synthesize enableTranslate=_enableTranslate;
 @property(nonatomic) BOOL enableQR; // @synthesize enableQR=_enableQR;
 @property(nonatomic) long long graphTypeSelected; // @synthesize graphTypeSelected=_graphTypeSelected;
 @property(nonatomic) __weak id <JTToolbarViewDelegate> delegate; // @synthesize delegate=_delegate;

@@ -23,7 +23,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextViewDelegate-Protocol.h"
 
-@class FFProcessReqsvrLogicZZ, LVSVGImageButton, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMSolitaireWindowController, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
+@class FFProcessReqsvrLogicZZ, LVSVGImageButton, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMNoGroupMumberTipView, MMSolitaireWindowController, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
 @protocol MMChatDetailSplitViewPositionInterface><MMChatMemberListViewDelegate><MMAnimateVoipTipsDelegate, MMComposeTextViewDelegate, MMMutipleSelectionDelegate;
 
 @interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, LVLiveServiceExt, MMMultiSelectViewDelegate, NSMenuDelegate>
@@ -60,9 +60,11 @@
     MessageData *_referingMsgWrap;
     MMSolitaireWindowController *_solitaireWindowController;
     NSMenu *_contextMenu;
+    MMNoGroupMumberTipView *_noGroupMumberTipView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMNoGroupMumberTipView *noGroupMumberTipView; // @synthesize noGroupMumberTipView=_noGroupMumberTipView;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) MMSolitaireWindowController *solitaireWindowController; // @synthesize solitaireWindowController=_solitaireWindowController;
 @property(retain, nonatomic) MessageData *referingMsgWrap; // @synthesize referingMsgWrap=_referingMsgWrap;
@@ -129,6 +131,7 @@
 - (void)onSendVideoMsgFailed:(id)arg1 toUsrName:(id)arg2 videoPath:(id)arg3;
 - (void)setupMultipleSelect;
 - (void)updateChatComposeTextViewDelegate;
+- (void)setupNotGroupNumberTipView;
 - (void)insertFileAttachmentView:(id)arg1;
 - (void)setupView;
 - (void)addButtonsConstraints;
@@ -168,6 +171,7 @@
 - (void)updateLiveButtonMargin;
 - (void)updateLiveButton;
 - (void)updateViewAndLayouts;
+- (BOOL)shouldShowNotGroupNumberTip;
 - (void)layoutForResize;
 - (double)brandMenuViewHeight;
 - (double)multipleSelectViewHeight;

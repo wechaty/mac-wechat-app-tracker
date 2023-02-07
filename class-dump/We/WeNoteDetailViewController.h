@@ -30,6 +30,7 @@
     BOOL _waitingUserSelectedSyncActionFinish;
     BOOL _tagBarIsAnimating;
     BOOL _justDeletedBackward;
+    BOOL _isReported;
     int _noteState;
     int _plainTextMaxLength;
     int _attachmentMaxNum;
@@ -61,6 +62,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isReported; // @synthesize isReported=_isReported;
 @property(nonatomic) double openNoteTimeInterval; // @synthesize openNoteTimeInterval=_openNoteTimeInterval;
 @property(nonatomic) BOOL justDeletedBackward; // @synthesize justDeletedBackward=_justDeletedBackward;
 @property(retain, nonatomic) NSString *dragImgPath; // @synthesize dragImgPath=_dragImgPath;
@@ -162,6 +164,7 @@
 - (BOOL)operationOutOfTotalSizeLimit:(unsigned long long)arg1;
 - (void)forwardMsgContentToContactsWithUserNames:(id)arg1 leavedMessage:(id)arg2;
 - (void)forwardFavContentToContactsWithUserNames:(id)arg1 leavedMessage:(id)arg2;
+- (void)favContent;
 - (void)forwardContent:(id)arg1;
 - (id)selectedRangeFontForRichTextEditorToolbar;
 - (int)infoTypeToFailedInsertIdKey:(int)arg1;
@@ -169,7 +172,7 @@
 - (void)onPreprocessFilesDidFinish;
 - (void)onPreprocessFilesWillStart;
 - (void)richTextViewToolbarShouldAnimatedUpdateSynsStatusTipsLabel:(int)arg1 dotCount:(unsigned int)arg2;
-- (void)richTextViewToolbarDidSelectShowMore:(id)arg1;
+- (void)richTextViewToolbarDidSelectShowMore:(int)arg1;
 - (void)richTextViewToolbarDidSelectDeleteNote;
 - (void)richTextViewToolbarDidSelectPickFiles:(id)arg1;
 - (void)richTextViewToolbarDidSelectTagNote;

@@ -30,6 +30,7 @@
 - (void)showToast:(id)arg1 isSuccess:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)forwardToWeWorkDidConfirmed:(id)arg1;
 - (void)sessionPickWindowDidConfirmed:(id)arg1;
+- (void)forwardToWeWork:(id)arg1 isNeedMerge:(BOOL)arg2;
 - (void)showSessionPickerWithSendMsgList:(id)arg1 isNeedMerge:(BOOL)arg2;
 - (void)forwardMutipleSelect:(BOOL)arg1 withMsgList:(id)arg2 toWeWork:(BOOL)arg3;
 - (void)contextMenuLocation:(id)arg1;

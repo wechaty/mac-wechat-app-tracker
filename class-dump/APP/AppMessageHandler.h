@@ -29,7 +29,6 @@
 - (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2 scene:(unsigned int)arg3;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
-- (void)addMsgToUploadQueueForWeWork:(id)arg1 msgData:(id)arg2 andUploadExtendInfos:(id)arg3;
 - (id)init;
 - (void)notifyDownloadProgress:(id)arg1 downloadedBytes:(int)arg2 totalBytes:(int)arg3;
 - (void)onDownloadCancel:(id)arg1;
@@ -40,7 +39,7 @@
 - (BOOL)IsMsgDownloading:(id)arg1;
 - (BOOL)isInDownloadingQueue:(id)arg1;
 - (void)checkDownloadQueue;
-- (void)addTaskToDownloadQueue:(id)arg1 msgData:(id)arg2 downloadType:(int)arg3;
+- (void)addTaskToDownloadQueue:(id)arg1 msgData:(id)arg2 downloadType:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

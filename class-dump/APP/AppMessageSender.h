@@ -30,6 +30,8 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_senderQueue; // @synthesize m_senderQueue=_m_senderQueue;
 @property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 - (void)onStartUploadRet:(id)arg1 success:(BOOL)arg2;
+- (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
+- (void)retryUploadAndNoHitCheck;
 - (void)OnCdnUpload:(id)arg1;
 - (void)OnCdnUploadProgress:(id)arg1;
 - (void)uploadSuccess:(BOOL)arg1;

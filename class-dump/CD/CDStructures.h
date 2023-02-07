@@ -248,7 +248,7 @@ struct BufNode {
 
 struct C2CDownloadRequest {
     _Bool use_uniform_callback;
-    struct shared_ptr<mars::cdn::Callback> sp_callback;
+    struct shared_ptr<mars::cdn::TaskCallback> sp_callback;
     basic_string_8e19b51d debugip;
     basic_string_8e19b51d authkey;
     basic_string_8e19b51d filekey;
@@ -270,6 +270,7 @@ struct C2CDownloadRequest {
     basic_string_8e19b51d custom_request_header;
     unsigned long long filesize_hint;
     int download_behavior;
+    basic_string_8e19b51d flowtag;
     _Bool issmallvideo;
     int islargesvide;
     int request_video_format;
@@ -318,11 +319,13 @@ struct C2CDownloadRequest {
     CDUnknownFunctionPointerType decoder;
     unsigned int backup_offset;
     unsigned int backup_length;
+    unsigned long long initial_offset;
+    unsigned long long initial_length;
 };
 
 struct C2CUploadRequest {
     _Bool _field1;
-    struct shared_ptr<mars::cdn::Callback> _field2;
+    struct shared_ptr<mars::cdn::TaskCallback> _field2;
     basic_string_8e19b51d _field3;
     basic_string_8e19b51d _field4;
     int _field5;
@@ -343,27 +346,29 @@ struct C2CUploadRequest {
     unsigned int _field20;
     basic_string_8e19b51d _field21;
     int _field22;
-    _Bool _field23;
+    basic_string_8e19b51d _field23;
     _Bool _field24;
-    basic_string_8e19b51d _field25;
+    _Bool _field25;
     basic_string_8e19b51d _field26;
     basic_string_8e19b51d _field27;
-    int _field28;
-    _Bool _field29;
-    basic_string_8e19b51d _field30;
+    basic_string_8e19b51d _field28;
+    int _field29;
+    _Bool _field30;
     basic_string_8e19b51d _field31;
     basic_string_8e19b51d _field32;
     basic_string_8e19b51d _field33;
-    _Bool _field34;
+    basic_string_8e19b51d _field34;
     _Bool _field35;
     _Bool _field36;
     _Bool _field37;
-    basic_string_8e19b51d _field38;
-    _Bool _field39;
-    basic_string_8e19b51d _field40;
+    _Bool _field38;
+    basic_string_8e19b51d _field39;
+    _Bool _field40;
     basic_string_8e19b51d _field41;
-    int _field42;
-    struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> _field43;
+    basic_string_8e19b51d _field42;
+    int _field43;
+    struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> _field44;
+    struct vector<mars::cdn::CheckHitFileInfo, std::allocator<mars::cdn::CheckHitFileInfo>> _field45;
 };
 
 struct CATransform3D {
@@ -693,9 +698,9 @@ struct CVSMPTETime {
     short _field9;
 };
 
-struct Callback;
-
 struct CdnCallback;
+
+struct CheckHitFileInfo;
 
 struct CodedInputData {
     id _field1;
@@ -1158,6 +1163,8 @@ struct PBClassInfo {
     unsigned long long *_field4;
     CDStruct_183601bc *_field5;
 };
+
+struct ParaOCRResult;
 
 struct PendingVideoFrame;
 
@@ -1728,6 +1735,8 @@ struct TXVideoConfig {
     unsigned int _field1;
     _Bool _field2;
 };
+
+struct TaskCallback;
 
 struct VOIPChannelAdapter {
     CDUnknownFunctionPointerType *_field1;
@@ -2506,8 +2515,8 @@ struct shared_ptr<WCTColumnBinding> {
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<mars::cdn::Callback> {
-    struct Callback *__ptr_;
+struct shared_ptr<mars::cdn::TaskCallback> {
+    struct TaskCallback *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -4316,6 +4325,14 @@ struct vector<mars::cdn::BatchSnsReqImageData, std::allocator<mars::cdn::BatchSn
     } __end_cap_;
 };
 
+struct vector<mars::cdn::CheckHitFileInfo, std::allocator<mars::cdn::CheckHitFileInfo>> {
+    struct CheckHitFileInfo *_field1;
+    struct CheckHitFileInfo *_field2;
+    struct __compressed_pair<mars::cdn::CheckHitFileInfo *, std::allocator<mars::cdn::CheckHitFileInfo>> {
+        struct CheckHitFileInfo *_field1;
+    } _field3;
+};
+
 struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> {
     struct FileID *_field1;
     struct FileID *_field2;
@@ -4356,6 +4373,14 @@ struct vector<objc_method_description, std::allocator<objc_method_description>> 
     } _field3;
 };
 
+struct vector<ocrlite::ParaOCRResult, std::allocator<ocrlite::ParaOCRResult>> {
+    struct ParaOCRResult *_field1;
+    struct ParaOCRResult *_field2;
+    struct __compressed_pair<ocrlite::ParaOCRResult *, std::allocator<ocrlite::ParaOCRResult>> {
+        struct ParaOCRResult *_field1;
+    } _field3;
+};
+
 struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
     basic_string_23d93216 *_field1;
     basic_string_23d93216 *_field2;
@@ -4378,6 +4403,14 @@ struct vector<std::tuple<NSString *, NSString *, NSString *, NSString *>, std::a
     struct __compressed_pair<std::tuple<NSString *, NSString *, NSString *, NSString *>*, std::allocator<std::tuple<NSString *, NSString *, NSString *, NSString *>>> {
         void *__value_;
     } __end_cap_;
+};
+
+struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
+    void *_field1;
+    void *_field2;
+    struct __compressed_pair<std::vector<float>*, std::allocator<std::vector<float>>> {
+        void *_field1;
+    } _field3;
 };
 
 struct vector<txliteav::TRTCMixUserInternal, std::__1::allocator<txliteav::TRTCMixUserInternal>> {
@@ -4792,6 +4825,14 @@ typedef struct vector<objc_method_description, std::allocator<objc_method_descri
     } _field3;
 } vector_c11dd721;
 
+typedef struct vector<ocrlite::ParaOCRResult, std::allocator<ocrlite::ParaOCRResult>> {
+    struct ParaOCRResult *_field1;
+    struct ParaOCRResult *_field2;
+    struct __compressed_pair<ocrlite::ParaOCRResult *, std::allocator<ocrlite::ParaOCRResult>> {
+        struct ParaOCRResult *_field1;
+    } _field3;
+} vector_f08cc19b;
+
 typedef struct vector<std::string, std::allocator<std::string>> {
     void *_field1;
     void *_field2;
@@ -4799,6 +4840,14 @@ typedef struct vector<std::string, std::allocator<std::string>> {
         void *_field1;
     } _field3;
 } vector_74824a0a;
+
+typedef struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
+    void *_field1;
+    void *_field2;
+    struct __compressed_pair<std::vector<float>*, std::allocator<std::vector<float>>> {
+        void *_field1;
+    } _field3;
+} vector_9a474c4d;
 
 typedef struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
     struct _AudioDeviceInfo *_field1;

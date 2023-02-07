@@ -16,12 +16,13 @@
     BOOL m_bOpen;
 }
 
++ (BOOL)SetFileToReadOnly:(id)arg1;
 + (BOOL)IsFolder:(id)arg1;
 + (long long)GetFolderSizeAtPath:(id)arg1;
 + (id)AttributesOfFile:(id)arg1;
 + (id)GetFileReferenceCount:(id)arg1;
 + (id)GetFileINodeNumber:(id)arg1;
-+ (id)GetFileCreateTime:(id)arg1;
++ (id)GetFileModificationTime:(id)arg1;
 + (id)GetFileSHA1:(id)arg1;
 + (id)GetFileMD5:(id)arg1;
 + (BOOL)SysAppendData:(id)arg1 toPath:(id)arg2;
@@ -31,6 +32,7 @@
 + (BOOL)WriteDataToPath:(id)arg1 Offset:(unsigned int)arg2 Data:(id)arg3;
 + (id)LoadDataFromPathEx:(id)arg1 Offset:(unsigned int)arg2 MaxLen:(unsigned int)arg3;
 + (id)LoadDataFromPath:(id)arg1 Offset:(unsigned int)arg2 Len:(unsigned int)arg3;
++ (BOOL)CreateHardLinkOrCopyFromPath:(id)arg1 toPath:(id)arg2;
 + (BOOL)CreateHardLink:(id)arg1 LinkName:(id)arg2;
 + (BOOL)CreateSymbolLink:(id)arg1 LinkName:(id)arg2;
 + (void)SyncClearPath:(id)arg1;
@@ -47,6 +49,7 @@
 + (BOOL)SafeCopyFile:(id)arg1 To:(id)arg2;
 + (BOOL)CopyFile:(id)arg1 To:(id)arg2;
 + (BOOL)RenameFile:(id)arg1 To:(id)arg2;
++ (BOOL)RawRenameFile:(id)arg1 To:(id)arg2;
 + (void)EnsureCreateParentDir:(id)arg1;
 + (BOOL)CreateFolder:(id)arg1;
 + (BOOL)CreateFile:(id)arg1;

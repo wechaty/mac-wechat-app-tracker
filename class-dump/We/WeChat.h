@@ -184,6 +184,8 @@
 - (void)registerExtensions;
 - (void)dealloc;
 - (id)init;
+- (void)queryHardLinkData;
+- (void)resetHardLinkData;
 - (void)hiddenQRCodeOverlayerWindow;
 - (void)showQRCodeOverlayerWindow:(id)arg1 withWindowFrame:(struct CGRect)arg2 withSelectedDotInfo:(id)arg3;
 - (id)QRCodeWindow;
@@ -247,6 +249,7 @@
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerRunloopException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_newRecordDownloadDebug:(id)arg1;
 - (void)_showOCRDebug:(id)arg1;
 - (void)_showFinderDebug:(id)arg1;
 - (void)_showGroupNoticeDebugWindow:(id)arg1;
@@ -298,6 +301,7 @@
 - (void)pasteRevokeReferMessage:(id)arg1 atUserList:(id)arg2;
 - (void)pasteRevokMsgContent:(id)arg1 atUserList:(id)arg2;
 - (void)pasteScreenshotToInputView:(id)arg1;
+- (void)cancelDragOperation;
 - (void)sendDragOperationToInputView:(id)arg1;
 - (void)openFavoritesTabToFavoritesWithKeyWord:(id)arg1;
 - (void)startANewGroupChatWithUserNames:(id)arg1 completion:(CDUnknownBlockType)arg2;

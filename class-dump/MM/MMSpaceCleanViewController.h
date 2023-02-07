@@ -6,11 +6,12 @@
 
 #import "MMViewController.h"
 
+#import "IMMSpaceCleanSelectSessionExt-Protocol.h"
 #import "MMNavigationControllerDelegate-Protocol.h"
 
 @class MMBorderView, MMNavigationController, MMSpaceCleanCacheViewController, MMView, NSPopUpButton, NSString, NSTextField, SVGButton;
 
-@interface MMSpaceCleanViewController : MMViewController <MMNavigationControllerDelegate>
+@interface MMSpaceCleanViewController : MMViewController <MMNavigationControllerDelegate, IMMSpaceCleanSelectSessionExt>
 {
     unsigned int _headerViewStyle;
     MMNavigationController *_navController;
@@ -31,6 +32,8 @@
 @property(nonatomic) unsigned int headerViewStyle; // @synthesize headerViewStyle=_headerViewStyle;
 @property(retain, nonatomic) MMSpaceCleanCacheViewController *cacheViewController; // @synthesize cacheViewController=_cacheViewController;
 @property(retain, nonatomic) MMNavigationController *navController; // @synthesize navController=_navController;
+- (void)resumeReturnBtn;
+- (void)disableReturnBtn;
 - (void)handlePopupButton;
 - (void)enableWindowResize:(BOOL)arg1;
 - (void)adaptWindowWithViewSize:(struct CGSize)arg1;
@@ -46,6 +49,8 @@
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 - (void)loadView;
+- (void)dealloc;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

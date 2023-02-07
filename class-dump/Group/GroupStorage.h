@@ -6,11 +6,13 @@
 
 #import "MMService.h"
 
+#import "IOpLogServiceExt-Protocol.h"
+#import "IOpenIMOplogServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class GetContactLogic, GroupDB, MMCache, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, RevokeAddMemberLogic;
 
-@interface GroupStorage : MMService <MMService>
+@interface GroupStorage : MMService <IOpLogServiceExt, IOpenIMOplogServiceExt, MMService>
 {
     GroupDB *m_groupDB;
     unsigned int m_uLoadedType;
@@ -21,6 +23,7 @@
     MMCache *m_groupTopMsgsCache;
     BOOL m_hasClearData;
     NSRecursiveLock *_m_groupLock;
+    NSMutableDictionary *_dicShouldDeleteAllMsgAfterQuit;
     NSMutableArray *_getMemberDetailTasks;
     NSMutableArray *_getChatRoomInfoTasks;
     NSMutableArray *_arrGetGroupContactsDetail;
@@ -36,6 +39,7 @@
 @property(retain, nonatomic) NSMutableArray *arrGetGroupContactsDetail; // @synthesize arrGetGroupContactsDetail=_arrGetGroupContactsDetail;
 @property(retain, nonatomic) NSMutableArray *getChatRoomInfoTasks; // @synthesize getChatRoomInfoTasks=_getChatRoomInfoTasks;
 @property(retain, nonatomic) NSMutableArray *getMemberDetailTasks; // @synthesize getMemberDetailTasks=_getMemberDetailTasks;
+@property(retain, nonatomic) NSMutableDictionary *dicShouldDeleteAllMsgAfterQuit; // @synthesize dicShouldDeleteAllMsgAfterQuit=_dicShouldDeleteAllMsgAfterQuit;
 @property(retain, nonatomic) NSRecursiveLock *m_groupLock; // @synthesize m_groupLock=_m_groupLock;
 - (void)sendRequest;
 - (void)doNext;
@@ -49,7 +53,7 @@
 - (id)GetAllGroups;
 - (BOOL)GetGroupContactsFromSvr:(id)arg1 isForceGet:(BOOL)arg2;
 - (BOOL)GetGroupContactsFromSvr:(id)arg1;
-- (BOOL)DeleteGroupContactByUI:(id)arg1 ListType:(unsigned int)arg2;
+- (BOOL)DeleteGroupContactByUI:(id)arg1 ListType:(unsigned int)arg2 needNotify:(BOOL)arg3;
 - (BOOL)RemoveGroupFromContactBook:(id)arg1 updateStatus:(unsigned long long)arg2;
 - (BOOL)AddGroupToContactBook:(id)arg1 updateStatus:(unsigned long long)arg2;
 - (void)ModifyGroupContact:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -92,12 +96,12 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
-- (BOOL)UIQuitGroup:(id)arg1;
+- (BOOL)UIQuitGroup:(id)arg1 deleteAllMsg:(BOOL)arg2;
 - (BOOL)UIQuitGroup:(id)arg1 withConfirm:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)genOpenIMErrorString:(id)arg1;
 - (int)handleCreateOpenIMChatRoomResponse:(id)arg1;
 - (void)createOpenIMChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)genErrorString:(id)arg1 needVerify:(char *)arg2;
+- (id)genCreateGroupErrorString:(id)arg1 needVerify:(char *)arg2;
 - (int)handleCreateNormalChatRoomResponse:(id)arg1;
 - (void)createNormalChatRoom:(id)arg1 WithMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)UICreateGroup:(id)arg1 withMemberList:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -115,6 +119,7 @@
 - (void)handleAddOpenIMChatRoomMemberFailed:(id)arg1;
 - (void)addGroupMemberToOpenIMChatRoom:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (BOOL)UIAddGroupMember:(id)arg1 withMemberList:(id)arg2 withExamineContent:(id)arg3 withHistoryInfo:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (id)genAddMemberErrorString:(id)arg1;
 - (id)contactWithOpenImMemberResp:(id)arg1;
 - (id)contactWithMemberResp:(id)arg1;
 - (void)addChatMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2;
@@ -130,6 +135,9 @@
 - (void)OnModGroupMemberContacts_Thread:(id)arg1;
 - (void)OnModGroupContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 - (void)OnModGroupContacts_Thread:(id)arg1;
+- (void)realQuitGroupHandle:(BOOL)arg1 errMsg:(id)arg2 groupName:(id)arg3;
+- (void)onQuitGroupImOplogRet:(BOOL)arg1 errMsg:(id)arg2 groupName:(id)arg3;
+- (void)onOpLogRet:(int)arg1 errMsg:(id)arg2 oplog:(id)arg3;
 - (BOOL)quitOpenIMGroupChatRoom:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpenIMChatRoomToContactBook:(id)arg1 inContactBook:(BOOL)arg2 sync:(BOOL)arg3;
 - (BOOL)addOpenIMGroupSelfDisplayName:(id)arg1 DisplayName:(id)arg2 sync:(BOOL)arg3;
@@ -170,9 +178,11 @@
 - (void)notifyDeleteGroupContactsOnMainThread:(id)arg1;
 - (BOOL)deleteMemberContactsInLocal:(id)arg1;
 - (BOOL)deleteMemberContactInLocal:(id)arg1;
+- (BOOL)quitGroupInLocal:(id)arg1;
 - (BOOL)deleteGroupContactsInLocal:(id)arg1;
 - (BOOL)deleteGroupContactInLocal:(id)arg1;
 - (void)deleteGroupMember:(id)arg1 removedMemberNameList:(id)arg2;
+- (BOOL)checkIsGroupNumberForQuitGroup:(id)arg1;
 - (BOOL)addOrModifyGroupContactMembers:(id)arg1 onlyInsertNew:(BOOL)arg2;
 - (BOOL)addOrModifyGroupContactMembers:(id)arg1;
 - (BOOL)addOrModifyGroupContact:(id)arg1 arrMembersList:(id)arg2;

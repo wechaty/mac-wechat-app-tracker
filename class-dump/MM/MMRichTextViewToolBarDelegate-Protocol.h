@@ -11,9 +11,9 @@
 @protocol MMRichTextViewToolBarDelegate <NSObject>
 
 @optional
+- (void)richTextViewToolbarDidSelectShowMore:(int)arg1;
 - (void)richTextViewToolbarShouldAnimatedUpdateSynsStatusTipsLabel:(int)arg1 dotCount:(unsigned int)arg2;
 - (void)richTextViewToolbarDidSelectDeleteNote;
-- (void)richTextViewToolbarDidSelectShowMore:(id)arg1;
 - (void)richTextViewToolbarDidSelectSyncNote;
 - (void)richTextViewToolbarDidSelectTagNote;
 - (void)richTextViewToolbarDidSelectTextAlignment:(long long)arg1;

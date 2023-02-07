@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)CheckMediaIsExist:(id)arg1;
 + (id)GetPredownloadQuota;
 + (void)SetPredownloadQuota:(id)arg1;
 + (int)startDownloadTpDataFile:(struct C2CDownloadRequest)arg1 andTpUrl:(id)arg2 andAuthkey:(id)arg3 andDownloadMode:(int)arg4;

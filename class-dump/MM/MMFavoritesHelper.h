@@ -10,6 +10,12 @@
 {
 }
 
++ (id)sortTagList:(id)arg1 topTag:(id)arg2;
++ (id)genFavCellTimeStringByUInt:(unsigned int)arg1;
++ (BOOL)isImageMedia:(id)arg1;
++ (BOOL)isLinkMeida:(id)arg1;
++ (BOOL)isNormalMeida:(id)arg1;
++ (BOOL)matchKeyWord:(id)arg1 keyWord:(id)arg2;
 + (int)belongToFavSidebarItemType:(int)arg1;
 + (id)containFavItemTypes:(int)arg1;
 + (id)formatTime:(long long)arg1;

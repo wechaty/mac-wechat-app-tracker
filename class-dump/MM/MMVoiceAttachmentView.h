@@ -37,10 +37,13 @@
 @property(retain, nonatomic) NSImageView *playStateImageView; // @synthesize playStateImageView=_playStateImageView;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) __weak id <MMVoiceAttachmentViewDelegate> voiceAttachmentViewDelegate; // @synthesize voiceAttachmentViewDelegate=_voiceAttachmentViewDelegate;
+- (void)doPlay;
+- (void)doPause;
 - (id)menuForEvent:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)callPlayOrStopVoice;
+- (void)onAction;
 - (void)mouseDown:(id)arg1;
 - (void)playingTimerHandle:(id)arg1;
 - (void)sliderValueDidChange:(id)arg1;

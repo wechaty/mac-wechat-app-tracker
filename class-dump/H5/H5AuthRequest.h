@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseRequest, NSString, SKBuiltinBuffer_t;
+@class BaseRequest, NSString, PubKeyInfo, SKBuiltinBuffer_t;
 
 @interface H5AuthRequest : PBGeneratedMessage
 {
@@ -15,15 +15,19 @@
     unsigned int hasH5Url:1;
     unsigned int hasClientCheckData:1;
     unsigned int hasScope:1;
+    unsigned int hasPubkey:1;
     unsigned int h5Version;
     BaseRequest *baseRequest;
     NSString *h5Url;
     SKBuiltinBuffer_t *clientCheckData;
     NSString *scope;
+    PubKeyInfo *pubkey;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetPubkey:) PubKeyInfo *pubkey; // @synthesize pubkey;
+@property(readonly, nonatomic) BOOL hasPubkey; // @synthesize hasPubkey;
 @property(retain, nonatomic, setter=SetScope:) NSString *scope; // @synthesize scope;
 @property(readonly, nonatomic) BOOL hasScope; // @synthesize hasScope;
 @property(retain, nonatomic, setter=SetClientCheckData:) SKBuiltinBuffer_t *clientCheckData; // @synthesize clientCheckData;

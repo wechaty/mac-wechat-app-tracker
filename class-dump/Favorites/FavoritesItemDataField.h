@@ -24,6 +24,10 @@
     int _illegalType;
     unsigned int _srcMsgLocalId;
     unsigned int _srcMsgCreateTime;
+    unsigned int _midDataSize;
+    unsigned int _thumbFileType;
+    unsigned int _midFileType;
+    unsigned int _fileType;
     NSString *_dataFmt;
     NSString *_sourceDataID;
     NSString *_localDataID;
@@ -66,6 +70,9 @@
     FavWeAppItem *_weAppItem;
     NSString *_messageUUID;
     long long _fromnewmsgid;
+    NSString *_midDataUrl;
+    NSString *_midDataKey;
+    NSString *_midDataMd5;
     double _imageWidth;
     double _imageHeight;
     NSString *_statExtStr;
@@ -106,6 +113,13 @@
 @property(retain, nonatomic) NSString *statExtStr; // @synthesize statExtStr=_statExtStr;
 @property(nonatomic) double imageHeight; // @synthesize imageHeight=_imageHeight;
 @property(nonatomic) double imageWidth; // @synthesize imageWidth=_imageWidth;
+@property(nonatomic) unsigned int fileType; // @synthesize fileType=_fileType;
+@property(nonatomic) unsigned int midFileType; // @synthesize midFileType=_midFileType;
+@property(nonatomic) unsigned int thumbFileType; // @synthesize thumbFileType=_thumbFileType;
+@property(retain, nonatomic) NSString *midDataMd5; // @synthesize midDataMd5=_midDataMd5;
+@property(nonatomic) unsigned int midDataSize; // @synthesize midDataSize=_midDataSize;
+@property(retain, nonatomic) NSString *midDataKey; // @synthesize midDataKey=_midDataKey;
+@property(retain, nonatomic) NSString *midDataUrl; // @synthesize midDataUrl=_midDataUrl;
 @property(nonatomic) long long fromnewmsgid; // @synthesize fromnewmsgid=_fromnewmsgid;
 @property(retain, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
 @property(retain, nonatomic) FavWeAppItem *weAppItem; // @synthesize weAppItem=_weAppItem;
@@ -157,10 +171,13 @@
 @property(retain, nonatomic) NSString *sourceDataID; // @synthesize sourceDataID=_sourceDataID;
 @property(retain, nonatomic) NSString *dataFmt; // @synthesize dataFmt=_dataFmt;
 @property(nonatomic) int dataType; // @synthesize dataType=_dataType;
+- (id)keyValueStoragePath;
+- (BOOL)needDownloadMiddleData;
 - (BOOL)needDownloadData;
 - (BOOL)needDownloadThumb;
 - (id)thumbDataId;
 - (id)thumbTaskID;
+- (id)midTaskID;
 - (id)dataTaskID;
 - (BOOL)needUploadData;
 - (BOOL)needUploadThumb;
@@ -182,9 +199,11 @@
 - (id)GetSenderUsername;
 - (id)GetPreviewThumbImage;
 - (id)GetThumbImage;
+- (id)GetMidClientMediaID;
 - (id)GetThumbClientMediaID;
 - (id)GetPreviewThumbFilePath;
 - (void)clearCDNInfo;
+- (id)GetMiddleDataFilePath;
 - (id)GetThumbFilePath;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -198,6 +217,11 @@
 - (id)savingImageFileNameWithLocalDataID;
 - (void)pasteboard:(id)arg1 item:(id)arg2 provideDataForType:(id)arg3;
 - (void)writeToPasteboardItem:(id)arg1;
+- (BOOL)hasOriginData;
+- (BOOL)hasMiddleData;
+- (BOOL)hasThumbData;
+- (id)expireKeyForType:(unsigned long long)arg1;
+- (id)sizeKeyForType:(unsigned long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

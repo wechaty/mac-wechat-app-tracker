@@ -57,6 +57,7 @@
 - (void)setPreSelectedContact:(id)arg1;
 - (void)setCancelButtonText:(id)arg1;
 - (void)setConfirmButtonText:(id)arg1;
+- (void)setType:(unsigned long long)arg1 showToWeWork:(BOOL)arg2;
 - (void)setType:(unsigned long long)arg1;
 - (void)setShowsOtherNonhumanChats:(BOOL)arg1;
 - (void)setShowsOfficialAccounts:(BOOL)arg1;
@@ -68,6 +69,7 @@
 - (void)showWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)rebeginSheet;
 - (void)beginSnsRightSheetForWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 cancelHandler:(CDUnknownBlockType)arg3;
+- (void)beginSheetForWindow:(id)arg1 allowsToWeWork:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3 cancelHandler:(CDUnknownBlockType)arg4;
 - (void)beginSheetForWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 cancelHandler:(CDUnknownBlockType)arg3;
 - (void)beginSheetForWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setWindowResizable:(BOOL)arg1;
@@ -79,8 +81,11 @@
 - (void)beginRemoveMemberSheetForWindow:(id)arg1 assignedContact:(id)arg2 confirmButtonText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)beginAddMemberSheetForWindow:(id)arg1 preSelectedContact:(id)arg2 confirmButtonText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)beginNewChatSheetForWindow:(id)arg1 confirmButtonText:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 showsGroupChats:(BOOL)arg3 showsOtherNonhumanChats:(BOOL)arg4 allowsToWeWork:(BOOL)arg5 allowsMultiSelection:(BOOL)arg6 messageCannotBeOpened:(BOOL)arg7 confirmButtonText:(id)arg8 completionHandler:(CDUnknownBlockType)arg9 cancelHandler:(CDUnknownBlockType)arg10;
+- (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 showsGroupChats:(BOOL)arg3 showsOtherNonhumanChats:(BOOL)arg4 allowsToWeWork:(BOOL)arg5 messageCannotBeOpened:(BOOL)arg6 confirmButtonText:(id)arg7 completionHandler:(CDUnknownBlockType)arg8 cancelHandler:(CDUnknownBlockType)arg9;
+- (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 showsGroupChats:(BOOL)arg3 showsOtherNonhumanChats:(BOOL)arg4 messageCannotBeOpened:(BOOL)arg5 confirmButtonText:(id)arg6 completionHandler:(CDUnknownBlockType)arg7 cancelHandler:(CDUnknownBlockType)arg8;
 - (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 showsGroupChats:(BOOL)arg3 showsOtherNonhumanChats:(BOOL)arg4 messageCannotBeOpened:(BOOL)arg5 confirmButtonText:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
-- (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 confirmButtonText:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 cancelHandler:(CDUnknownBlockType)arg5;
+- (void)beginForwardSheetForWindow:(id)arg1 data:(id)arg2 allowsToWeWork:(BOOL)arg3 confirmButtonText:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 cancelHandler:(CDUnknownBlockType)arg6;
 - (void)listViewControllerDidChanged;
 - (void)clearDataOnWindowDidEndSheet;
 - (void)windowDidResize:(id)arg1;

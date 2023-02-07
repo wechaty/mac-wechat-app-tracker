@@ -39,7 +39,7 @@
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
 - (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(id)arg1;
-- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3 type:(int)arg4 downloadType:(int)arg5;
+- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3 type:(int)arg4 downloadType:(unsigned long long)arg5;
 - (void)cancelDownloadTaskByCdn:(id)arg1;
 - (void)sendDownloadTaskByCdn:(id)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;

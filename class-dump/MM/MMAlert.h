@@ -16,18 +16,23 @@
     BOOL _runModal;
     NSString *_messageText;
     NSString *_informativeText;
+    NSString *_checkBoxTitleText;
     NSString *_confirm;
     NSString *_sedConfirm;
     NSString *_cancel;
     long long _style;
     NSWindow *_relativeWindow;
     CDUnknownBlockType _completion;
+    CDUnknownBlockType _completionAndCheckBoxStatus;
     NSView *_containerView;
+    long long _checkBoxState;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long checkBoxState; // @synthesize checkBoxState=_checkBoxState;
 @property(nonatomic) BOOL runModal; // @synthesize runModal=_runModal;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
+@property(copy, nonatomic) CDUnknownBlockType completionAndCheckBoxStatus; // @synthesize completionAndCheckBoxStatus=_completionAndCheckBoxStatus;
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic) BOOL isTopMsgAlert; // @synthesize isTopMsgAlert=_isTopMsgAlert;
 @property(nonatomic) __weak NSWindow *relativeWindow; // @synthesize relativeWindow=_relativeWindow;
@@ -35,6 +40,7 @@
 @property(retain, nonatomic) NSString *cancel; // @synthesize cancel=_cancel;
 @property(retain, nonatomic) NSString *sedConfirm; // @synthesize sedConfirm=_sedConfirm;
 @property(retain, nonatomic) NSString *confirm; // @synthesize confirm=_confirm;
+@property(retain, nonatomic) NSString *checkBoxTitleText; // @synthesize checkBoxTitleText=_checkBoxTitleText;
 @property(retain, nonatomic) NSString *informativeText; // @synthesize informativeText=_informativeText;
 @property(retain, nonatomic) NSString *messageText; // @synthesize messageText=_messageText;
 - (void)dismiss;
@@ -47,6 +53,7 @@
 - (id)createSedConfirmButton;
 - (id)createConfirmButton;
 - (id)createSingleButton;
+- (void)onRadioButtonClick:(id)arg1;
 - (void)setupButtons:(double)arg1;
 - (void)setupTitleView;
 - (void)windowWillClose:(id)arg1;

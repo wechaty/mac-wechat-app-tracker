@@ -16,7 +16,6 @@
     unsigned int _m_uiDataSize;
     unsigned int _m_uiCDNEncryVer;
     unsigned int _m_uiDuration;
-    int _downloadStatus;
     NSString *_m_nsDataID;
     NSString *_m_nsDataFmt;
     NSString *_m_nsAppId;
@@ -43,10 +42,11 @@
     RecordMsgProductItem *_m_productItem;
     RecordMsgTVItem *_m_tvItem;
     double _m_nodeHeight;
+    long long _downloadStatus;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) int downloadStatus; // @synthesize downloadStatus=_downloadStatus;
+@property(nonatomic) long long downloadStatus; // @synthesize downloadStatus=_downloadStatus;
 @property(nonatomic) double m_nodeHeight; // @synthesize m_nodeHeight=_m_nodeHeight;
 @property(retain, nonatomic) RecordMsgTVItem *m_tvItem; // @synthesize m_tvItem=_m_tvItem;
 @property(retain, nonatomic) RecordMsgProductItem *m_productItem; // @synthesize m_productItem=_m_productItem;

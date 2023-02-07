@@ -23,11 +23,13 @@
     NSString *_streamId;
     NSString *_dataFmt;
     NSString *_clientMsgID;
+    NSString *_dataPath;
 }
 
 + (id)cdnInfoWithTableData:(id)arg1;
 + (id)cdnInfoWithUploadTableData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *dataPath; // @synthesize dataPath=_dataPath;
 @property(retain, nonatomic) NSString *clientMsgID; // @synthesize clientMsgID=_clientMsgID;
 @property(retain, nonatomic) NSString *dataFmt; // @synthesize dataFmt=_dataFmt;
 @property(nonatomic) int dataType; // @synthesize dataType=_dataType;

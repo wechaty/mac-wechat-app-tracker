@@ -25,6 +25,7 @@
 @property(retain, nonatomic) OpenIMOplogDB *oplogDb; // @synthesize oplogDb=_oplogDb;
 @property(nonatomic) BOOL isDoingSync; // @synthesize isDoingSync=_isDoingSync;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)handleQuitGroupOpLog:(id)arg1 request:(id)arg2;
 - (void)onGetOpenIMOplogResponse:(id)arg1;
 - (unsigned int)sendOpenIMOplogType:(unsigned int)arg1 dtInput:(id)arg2;
 - (BOOL)addOpenIMOplogType:(unsigned int)arg1 dtInput:(id)arg2 needSync:(BOOL)arg3;

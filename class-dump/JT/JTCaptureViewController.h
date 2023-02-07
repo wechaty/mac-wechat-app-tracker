@@ -35,11 +35,11 @@
     NSImage *_imageTranslated;
     NSString *_transImgKey;
     MMTimer *_transTimer;
-    MMImageOCRTaskResult *_lastOCRResult;
+    MMImageOCRTaskResult *_recognizeTextResult;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMImageOCRTaskResult *lastOCRResult; // @synthesize lastOCRResult=_lastOCRResult;
+@property(retain, nonatomic) MMImageOCRTaskResult *recognizeTextResult; // @synthesize recognizeTextResult=_recognizeTextResult;
 @property(retain, nonatomic) MMTimer *transTimer; // @synthesize transTimer=_transTimer;
 @property(nonatomic) BOOL isWaitingTranslate; // @synthesize isWaitingTranslate=_isWaitingTranslate;
 @property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;
@@ -61,17 +61,20 @@
 @property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) __weak id <JTCaptureViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
+- (void)onOCRRecognizeFinish:(id)arg1;
 - (void)onOCRDetectFinish:(id)arg1;
 - (void)stopTranslateTimer;
 - (void)startTranslateTimer;
 - (void)noticeTransTimeOut;
 - (void)showTranslateErrorNotice:(unsigned long long)arg1;
 - (struct CGPoint)toastCenter;
+- (void)onOCRRecognizeButtonClick:(id)arg1;
 - (void)onOCRTransButtonClick:(id)arg1;
 - (void)cancelTranslateImage;
 - (BOOL)showTranslatedImage;
-- (id)genTransImageKey;
+- (id)genImageUniqueKey;
 - (void)beginTranslateImage;
+- (void)doOCR:(id)arg1;
 - (void)onQRCodeDotButtonClick:(id)arg1;
 - (void)hiddenQRCodeInfos;
 - (void)showQRCodeInfos;

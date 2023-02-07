@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSMutableDictionary *reportDataDic; // @synthesize reportDataDic=_reportDataDic;
 - (void)reportFavTagDelete:(BOOL)arg1;
 - (void)reportFavTagRename:(BOOL)arg1 oldTagName:(id)arg2 newTagName:(id)arg3;
+- (void)reportFavSearch:(unsigned long long)arg1;
 - (void)reportFavMutileSelectItem:(int)arg1 multiSelectEntity:(unsigned long long)arg2 multiSelectNum:(unsigned long long)arg3 multiSelectTo:(int)arg4;
 - (void)reportFavSelectSubType:(int)arg1;
 - (void)reportFavCapacityExceed:(unsigned long long)arg1;

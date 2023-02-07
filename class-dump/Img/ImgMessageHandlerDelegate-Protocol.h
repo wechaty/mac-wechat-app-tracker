@@ -11,6 +11,8 @@
 @protocol ImgMessageHandlerDelegate <NSObject>
 
 @optional
+- (void)onImgMsgCheckExistFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;
+- (void)onImgMsgUploadFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyImgMsgUploadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 - (void)onImgMsgSendFinish:(NSString *)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 @end

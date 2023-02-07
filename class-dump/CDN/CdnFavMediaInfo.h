@@ -4,33 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import "CdnBaseMediaInfo.h"
 
 @class NSString;
 
-@interface CdnFavMediaInfo : NSObject
+@interface CdnFavMediaInfo : CdnBaseMediaInfo
 {
     BOOL _m_bStreamMedia;
     BOOL _m_bFromRetry;
-    unsigned int _m_uiFileTotalLen;
-    unsigned int _m_uiFileType;
-    NSString *_m_nsClientMsgID;
-    NSString *_m_nsFilePath;
-    NSString *_m_nsFileID;
-    NSString *_m_nsAesKey;
-    NSString *_m_nsExtInfo;
+    int _dataType;
+    unsigned int _dataSize;
+    NSString *_dataMd5;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int dataSize; // @synthesize dataSize=_dataSize;
+@property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5=_dataMd5;
+@property(nonatomic) int dataType; // @synthesize dataType=_dataType;
 @property(nonatomic) BOOL m_bFromRetry; // @synthesize m_bFromRetry=_m_bFromRetry;
-@property(retain, nonatomic) NSString *m_nsExtInfo; // @synthesize m_nsExtInfo=_m_nsExtInfo;
-@property(nonatomic) unsigned int m_uiFileType; // @synthesize m_uiFileType=_m_uiFileType;
-@property(nonatomic) unsigned int m_uiFileTotalLen; // @synthesize m_uiFileTotalLen=_m_uiFileTotalLen;
-@property(retain, nonatomic) NSString *m_nsAesKey; // @synthesize m_nsAesKey=_m_nsAesKey;
-@property(retain, nonatomic) NSString *m_nsFileID; // @synthesize m_nsFileID=_m_nsFileID;
 @property(nonatomic) BOOL m_bStreamMedia; // @synthesize m_bStreamMedia=_m_bStreamMedia;
-@property(retain, nonatomic) NSString *m_nsFilePath; // @synthesize m_nsFilePath=_m_nsFilePath;
-@property(retain, nonatomic) NSString *m_nsClientMsgID; // @synthesize m_nsClientMsgID=_m_nsClientMsgID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

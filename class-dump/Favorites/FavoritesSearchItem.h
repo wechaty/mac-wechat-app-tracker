@@ -21,6 +21,9 @@
     FavoritesSearchItemPackedInfo *_m_packedInfo;
 }
 
++ (id)getSearchOriginStrFromDataList:(id)arg1;
++ (id)getSearchOriginStrFromFavItemDataField:(id)arg1;
++ (id)getSearchOriginStrFromFavItem:(id)arg1;
 + (id)searchItemWithFavoritesItem:(id)arg1;
 + (const void *)m_packedInfo;
 + (const void *)updateTime;

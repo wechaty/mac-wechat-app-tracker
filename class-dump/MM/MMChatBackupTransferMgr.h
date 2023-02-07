@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import "MMBackupTransferProtocol-Protocol.h"
+
 @class NSCondition, NSLock, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MMChatBackupTransferMgr : NSObject
+@interface MMChatBackupTransferMgr : NSObject <MMBackupTransferProtocol>
 {
     NSMutableArray *m_inputData;
     NSLock *m_inputDataLock;
@@ -30,12 +32,12 @@
     unsigned long long m_consumerWait;
     NSString *m_backupPath;
     struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::hash<long long>, std::equal_to<long long>, std::allocator<std::pair<const long long, const WCDBBackupMediaStr2IDObject *>>> m_allMediaStr2IDObjects;
-    int _transferType;
+    int transferType;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(nonatomic) int transferType; // @synthesize transferType=_transferType;
+@property(nonatomic) int transferType; // @synthesize transferType;
 - (id)p_getDataFromConsumer;
 - (void)p_bufferAddDataToConsumer;
 - (void)p_producerAddDataToBuffer;
@@ -54,6 +56,12 @@
 - (void)inputWithBackupSessionInfo:(id)arg1;
 - (void)dealloc;
 - (id)initWithDeviceId:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

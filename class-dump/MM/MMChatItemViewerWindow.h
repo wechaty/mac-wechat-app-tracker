@@ -45,6 +45,7 @@
 - (void)sharingService:(id)arg1 willShareItems:(id)arg2;
 - (void)share:(id)arg1;
 - (id)getFavoritesItemDataField;
+- (void)forwardContentToWeWork;
 - (void)forwardContentToContactsWithUserNames:(id)arg1 leaveMessage:(id)arg2;
 - (void)forwardContent:(id)arg1;
 - (void)copyContent;

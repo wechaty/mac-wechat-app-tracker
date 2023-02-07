@@ -22,8 +22,9 @@
 @property(retain, nonatomic) NSMutableDictionary *downloadingTasks; // @synthesize downloadingTasks=_downloadingTasks;
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 WithFavItemData:(id)arg3 type:(int)arg4;
-- (void)cdnDownloadMgrDidFailedDownloadWithFavItemData:(id)arg1 type:(int)arg2 taskID:(id)arg3 errorCode:(long long)arg4;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
+- (void)cdnDownloadMgrDidFailedDownloadWithFavCdnTask:(id)arg1 errorCode:(int)arg2;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
+- (id)downloadCDNFileWithHandoffFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3 switchFileType:(BOOL)arg4;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 type:(int)arg2;

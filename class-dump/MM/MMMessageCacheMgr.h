@@ -54,6 +54,7 @@
 - (void)cachedBubbleImageWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cachedThumbImageWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)cachedImageWithFilePath:(id)arg1 isThumbnail:(BOOL)arg2;
+- (id)cachedImageWithKey:(id)arg1 isThumbnail:(BOOL)arg2;
 - (BOOL)cacheImageWithImage:(id)arg1 FilePath:(id)arg2 isThumbnail:(BOOL)arg3;
 - (BOOL)cacheImageWithImageData:(id)arg1 FilePath:(id)arg2 isThumbnail:(BOOL)arg3;
 - (void)cacheBubbleImageWithMessage:(id)arg1 cacheType:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

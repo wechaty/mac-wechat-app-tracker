@@ -81,11 +81,13 @@
 - (id)getItemTableDataWithSenderUserNames:(id)arg1 types:(id)arg2;
 - (id)getItemTableDataWithSenderUserNames:(id)arg1 type:(unsigned int)arg2;
 - (id)getItemTableDataWithSenderUserName:(id)arg1;
+- (id)getAllSenderUserNamesContainerGroupInItemTable;
 - (id)getAllSenderUserNamesInItemTable;
 - (id)topSenderUserNamesWithLimit:(unsigned int)arg1;
 - (id)getTopGroupChatSenderUserNamesWithLimitInItemTable:(unsigned int)arg1;
 - (id)getAllItemTableDataWithEssentialFieldsContainDeleted;
 - (id)getAllGroupChatSenderUserNamesInItemTable;
+- (id)getAllItemTableDataWithFullFieldsWithTypes:(id)arg1;
 - (id)getAllItemTableDataWithFullFieldsWithType:(int)arg1;
 - (id)getAllItemTableDataWithEssentialFieldsWithTypes:(id)arg1;
 - (id)getAllItemTableDataWithEssentialFieldsWithType:(int)arg1;
@@ -191,7 +193,9 @@
 - (id)searchWithKeyword:(id)arg1 types:(id)arg2 userName:(id)arg3 inLocalIDs:(id)arg4;
 - (id)searchWithKeyword:(id)arg1 type:(unsigned int)arg2 userName:(id)arg3 inLocalIDs:(id)arg4;
 - (BOOL)deleteSearchItem:(unsigned int)arg1;
+- (BOOL)updateSearchItemWithLocalId:(unsigned int)arg1 searchStr:(id)arg2;
 - (BOOL)updateOrInsertSearchItemWithFavoritesItem:(id)arg1;
+- (id)getSearchItem:(unsigned int)arg1;
 
 @end
 

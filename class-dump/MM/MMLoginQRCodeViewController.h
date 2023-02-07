@@ -6,14 +6,14 @@
 
 #import "MMViewController.h"
 
-@class MMBetaWebViewWindowController, MMImageView, MMView, NSButton, NSProgressIndicator, NSTextField, NSView, SVGButton;
+@class MMBetaWebViewWindowController, MMImageView, MMProgressIndicator, MMView, NSButton, NSTextField, NSView, SVGButton;
 
 @interface MMLoginQRCodeViewController : MMViewController
 {
     MMView *_containerView;
     MMView *_qrCodeContainerView;
     MMImageView *_qrCodeImgView;
-    NSProgressIndicator *_loadingView;
+    MMProgressIndicator *_loadingView;
     NSTextField *_titleLabel;
     NSTextField *_descriptionLabel;
     SVGButton *_refreshButton;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) SVGButton *refreshButton; // @synthesize refreshButton=_refreshButton;
 @property(nonatomic) __weak NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(nonatomic) __weak NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
-@property(nonatomic) __weak NSProgressIndicator *loadingView; // @synthesize loadingView=_loadingView;
+@property(nonatomic) __weak MMProgressIndicator *loadingView; // @synthesize loadingView=_loadingView;
 @property(nonatomic) __weak MMImageView *qrCodeImgView; // @synthesize qrCodeImgView=_qrCodeImgView;
 @property(retain, nonatomic) MMView *qrCodeContainerView; // @synthesize qrCodeContainerView=_qrCodeContainerView;
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;

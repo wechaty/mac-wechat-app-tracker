@@ -16,7 +16,8 @@
 {
     BOOL _enableUndo;
     BOOL _enableQR;
-    BOOL _enableOCR;
+    BOOL _enableTranslate;
+    BOOL _enableRecognize;
     id <JTToolbarWindowControllerDelegate> _delegate;
     NSColor *_backgroundColor;
     JTToolbarView *_toolbarView;
@@ -27,7 +28,8 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) JTPopoverWindowController *popoverWindowController; // @synthesize popoverWindowController=_popoverWindowController;
 @property(retain, nonatomic) JTToolbarView *toolbarView; // @synthesize toolbarView=_toolbarView;
-@property(nonatomic) BOOL enableOCR; // @synthesize enableOCR=_enableOCR;
+@property(nonatomic) BOOL enableRecognize; // @synthesize enableRecognize=_enableRecognize;
+@property(nonatomic) BOOL enableTranslate; // @synthesize enableTranslate=_enableTranslate;
 @property(nonatomic) BOOL enableQR; // @synthesize enableQR=_enableQR;
 @property(nonatomic) BOOL enableUndo; // @synthesize enableUndo=_enableUndo;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

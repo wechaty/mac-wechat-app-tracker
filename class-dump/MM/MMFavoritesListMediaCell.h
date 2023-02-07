@@ -9,44 +9,53 @@
 #import "IContactMgrExt-Protocol.h"
 #import "MMFavoriteFileServiceExt-Protocol.h"
 
-@class FavThumbRequestParam, MMCircularProgressView, NSString, NSTextField, NSView, SVGImageView;
+@class FavThumbRequestParam, MMImageView, NSImageView, NSString, NSTextField, NSView, SVGImageView;
 
 @interface MMFavoritesListMediaCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, IContactMgrExt>
 {
-    SVGImageView *_thumbnailImageView;
-    SVGImageView *_thumbnailIconView;
+    MMImageView *_thumbnailImageView;
+    NSView *_thumbnailIconView;
     NSTextField *_titleTextView;
     NSTextField *_descTextView;
-    NSTextField *_sourceTextView;
-    MMCircularProgressView *_progressView;
     NSView *_progressContainerView;
     FavThumbRequestParam *_favThumbRequest;
+    NSImageView *_thumbnailIconView_bkg;
+    SVGImageView *_thumbnailIconView_icon;
 }
 
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
++ (double)cellLinkDescTextHeight;
++ (double)cellLinkTitleTextHeight;
++ (double)cellLinkThumbnailImageHeight;
++ (double)cellLinkContentHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
++ (double)cellNormalDescTextHeight;
++ (double)cellNormalTitleAndDescTopMargin;
++ (double)cellNormalTitleTextHeight;
++ (double)cellNormalThumbnailImageHeight;
++ (double)cellNormalMediaContentHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) SVGImageView *thumbnailIconView_icon; // @synthesize thumbnailIconView_icon=_thumbnailIconView_icon;
+@property(retain, nonatomic) NSImageView *thumbnailIconView_bkg; // @synthesize thumbnailIconView_bkg=_thumbnailIconView_bkg;
 @property(retain, nonatomic) FavThumbRequestParam *favThumbRequest; // @synthesize favThumbRequest=_favThumbRequest;
 @property(retain, nonatomic) NSView *progressContainerView; // @synthesize progressContainerView=_progressContainerView;
-@property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
-@property(retain, nonatomic) NSTextField *sourceTextView; // @synthesize sourceTextView=_sourceTextView;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 @property(retain, nonatomic) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-@property(retain, nonatomic) SVGImageView *thumbnailIconView; // @synthesize thumbnailIconView=_thumbnailIconView;
-@property(retain, nonatomic) SVGImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
-- (BOOL)isImageMedia;
-- (BOOL)isLinkMeida;
-- (BOOL)isNormalMeida;
+@property(retain, nonatomic) NSView *thumbnailIconView; // @synthesize thumbnailIconView=_thumbnailIconView;
+@property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (void)onModifyStrangerContacts:(id)arg1;
 - (void)layoutFavContentView;
 - (void)setThumbnailImageIconView:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
-- (void)onModifyStrangerContacts:(id)arg1;
-- (void)layoutLinkStyleSourceTextView;
-- (void)layoutLinkStyleDescriptionTextView;
+- (void)layoutLinkStyleDescriptionTextView:(id)arg1;
 - (id)favItemDescriptionString;
+- (id)getTitleText;
+- (id)getTextDescExtrAttrs:(id)arg1;
+- (id)getTextTitleExtrAttrs:(id)arg1;
 - (void)layoutLinkStyleTitleTextView;
+- (void)layoutThumbnailImage;
 - (void)layoutWithLinkMediaStyle;
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;
@@ -57,12 +66,13 @@
 - (id)getRecommendTagTitle;
 - (id)getRecommendTagAuthor;
 - (id)getVoiceTime;
-- (id)getContent;
+- (id)getDescText;
+- (id)getFileFormat;
 - (unsigned int)getFileBytes;
-- (id)getSource;
+- (id)formatTime:(long long)arg1;
 - (id)getTitle;
 - (void)layoutNormalProgressView;
-- (void)layoutNormalSourceTextView;
+- (id)getDescAttrs;
 - (void)layoutNormalDescriptionTextView;
 - (void)layoutNormalTitleTextView;
 - (void)layoutNormalThumbnailImage;

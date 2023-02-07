@@ -6,12 +6,13 @@
 
 #import <AppKit/NSView.h>
 
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "IMessageServiceVideoExt-Protocol.h"
 #import "MMFavoriteFileServiceExt-Protocol.h"
 
-@class MMButton, MMCircularProgressView, MMImageView, MMQLPreviewItem, NSString, TKStateMachine;
+@class MMButton, MMCircularProgressView, MMImageView, MMPreviewVideoPlayerControl, MMQLPreviewItem, NSString, TKStateMachine;
 
-@interface MMPreviewVideoPlayerView : NSView <IMessageServiceVideoExt, MMFavoriteFileServiceExt>
+@interface MMPreviewVideoPlayerView : NSView <IMessageServiceVideoExt, MMFavoriteFileServiceExt, IMMNewRecordDownloadServiceExt>
 {
     BOOL _shouldPlayVideo;
     CDUnknownBlockType _finishDownloadBlock;
@@ -21,9 +22,11 @@
     MMButton *_actionButton;
     MMImageView *_progressBgView;
     MMCircularProgressView *_progressView;
+    MMPreviewVideoPlayerControl *_playerControl;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMPreviewVideoPlayerControl *playerControl; // @synthesize playerControl=_playerControl;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) MMImageView *progressBgView; // @synthesize progressBgView=_progressBgView;
 @property(retain, nonatomic) MMButton *actionButton; // @synthesize actionButton=_actionButton;
@@ -33,6 +36,11 @@
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadBlock; // @synthesize finishDownloadBlock=_finishDownloadBlock;
 @property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
 - (void)onDownloadPartLen:(unsigned int)arg1 TotalLen:(unsigned int)arg2;
+- (BOOL)_checkRecordExtContext:(id)arg1;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordPart:(id)arg1 key:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4 context:(id)arg5;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
@@ -43,6 +51,7 @@
 - (void)startDownloadRecordVideo;
 - (void)startDownloadFavVideo;
 - (void)startDownloadMessageVideoWithManual:(BOOL)arg1;
+- (void)startDownloadThumbIfNeeded;
 - (BOOL)isAutoDownload;
 - (void)popupVideoInfo;
 - (void)retryDownload:(id)arg1;
@@ -51,8 +60,9 @@
 - (void)_setupWithDataField;
 - (void)_setupWithFav;
 - (void)_setupWithMessage;
+- (BOOL)_isVideoAvailable;
 - (void)setupWithPreviewItem:(id)arg1;
-- (BOOL)releasePlayer;
+- (void)releasePlayer;
 - (BOOL)onSpacePressed;
 - (void)addPlayView;
 - (void)appendVideoPlayerView;

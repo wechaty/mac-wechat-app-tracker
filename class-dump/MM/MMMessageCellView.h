@@ -222,7 +222,7 @@
 - (id)getMessageDataSourceFilePath:(id)arg1;
 - (void)updateFileMessageOpTime:(id)arg1;
 - (void)contextMenuSearch;
-- (void)contextMenuShowChatLogPath;
+- (void)contextMenuShowResourcePath;
 - (void)contextMenuShowImageBubble;
 - (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuSolitaire;
@@ -237,6 +237,7 @@
 - (void)contextMenuForward;
 - (void)contextMenuHideTranslation;
 - (void)contextMenuTranslate;
+- (BOOL)shouleSkipQuote;
 - (void)contextMenuQuote;
 - (void)contextMenuOpenInWebview;
 - (void)contextMenuOpenWith:(id)arg1;

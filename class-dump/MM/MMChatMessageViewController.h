@@ -162,8 +162,10 @@
 - (void)realAdjustTipsBarHigh;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)onChatLogImportFinish;
+- (void)reportOnShowDetailIfNeeded:(id)arg1;
 - (void)reportVisibleFeedCell;
 - (void)OnCdnNetworkWarning:(unsigned int)arg1;
+- (void)enterQuitChatRoomReport;
 - (void)setupChatroomReportController;
 - (void)reportOnChange;
 - (void)reportClickUnreadTips;
@@ -193,6 +195,7 @@
 - (void)doScrollViewBoundsDidChanged;
 - (void)onScrollViewBoundsDidChanged:(id)arg1;
 - (void)onChatSyncMessagesMerged:(id)arg1;
+- (void)OnQuitGroupUIAction:(id)arg1 withResult:(BOOL)arg2 errorMsg:(id)arg3 deleteAllMsg:(BOOL)arg4;
 - (void)OnChangeMemberShowDisplayName:(id)arg1;
 - (void)OnDelGroupMember:(id)arg1 withResult:(unsigned int)arg2 memberList:(id)arg3;
 - (void)OnAddGroupMember:(id)arg1 withStatus:(unsigned int)arg2 memberList:(id)arg3 contactList:(id)arg4;

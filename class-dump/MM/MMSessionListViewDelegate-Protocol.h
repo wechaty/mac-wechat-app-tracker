@@ -9,6 +9,7 @@
 @class MMSessionPickerLogic;
 
 @protocol MMSessionListViewDelegate <NSObject>
+- (void)sendToWeWork;
 - (void)setFirstResponder;
 - (void)setupPickerType:(unsigned long long)arg1;
 - (void)closeChoosenViewWithConfirm:(BOOL)arg1;

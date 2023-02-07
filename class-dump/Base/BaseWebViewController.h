@@ -19,10 +19,12 @@
 @class MMProgressView, MMTimer, MMToastView, MMWebViewErrorView, MMWebViewPluginScheduler, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTextField, NSView, WKWebViewConfiguration, WebViewDataItem, WebViewDataLogic, WebViewGetA8KeyLogic, WebViewJSApiVerifyMgr, WebViewJSLogic, WebViewOAuthLogic;
 @protocol BaseWebViewControllerDelegate;
 
-@interface BaseWebViewController : MMSimpleWebViewController <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate>
+@interface BaseWebViewController : MMSimpleWebViewController <WKScriptMessageHandler, WebViewGetA8KeyLogicDelegate, WebViewJSLogicDelegate, WebViewJSApiVerifyMgrDelegate, MMWKWebViewMenuDelegate, MMQRCodeScannerExt, BaseWebViewFontAdjustDelegate, WKNavigationDelegate, WKUIDelegate>
 {
     BOOL m_openAllPermission;
     BOOL _isMiniWindowMode;
+    BOOL _isTranslateH5;
+    BOOL _hasTranslateH5Result;
     BOOL _isInitial;
     int _fontSize;
     MMWebViewPluginScheduler *_pluginScheduler;
@@ -67,6 +69,8 @@
 @property(nonatomic) double pageZoom; // @synthesize pageZoom=_pageZoom;
 @property(nonatomic) int fontSize; // @synthesize fontSize=_fontSize;
 @property(retain, nonatomic) NSString *loadingUrl; // @synthesize loadingUrl=_loadingUrl;
+@property(nonatomic) BOOL hasTranslateH5Result; // @synthesize hasTranslateH5Result=_hasTranslateH5Result;
+@property(nonatomic) BOOL isTranslateH5; // @synthesize isTranslateH5=_isTranslateH5;
 @property(retain, nonatomic) MMWebViewErrorView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) NSView *contentContainer; // @synthesize contentContainer=_contentContainer;
 @property(retain, nonatomic) NSTextField *hostLabel; // @synthesize hostLabel=_hostLabel;
@@ -106,6 +110,8 @@
 - (id)shareParamFormScene:(id)arg1;
 - (void)setupExtraDataForShareToTimeLine;
 - (id)createA8keyConfig;
+- (void)translateH5:(BOOL)arg1;
+- (void)evaluateTranslateSdk;
 - (void)forwardToTimeline;
 - (void)forwardContentToWeWork;
 - (void)forwardContent;
@@ -161,6 +167,7 @@
 - (void)onCopyAction:(id)arg1;
 - (void)onDomReadyAction;
 - (void)onPageStateChangeAction:(id)arg1;
+- (void)onTranslateH5Finish:(BOOL)arg1;
 - (void)openBlankInWebView;
 - (void)openInExternalBrowser:(id)arg1;
 - (void)openInExternalBrowser;

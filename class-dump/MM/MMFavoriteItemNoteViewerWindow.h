@@ -41,7 +41,7 @@
 - (struct CGSize)sizeForContent;
 - (BOOL)toolbarAutohides;
 - (void)willStartOpening:(BOOL)arg1;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
 - (id)noteItemFromLocalEditorId:(id)arg1;
 - (void)configItemId:(id)arg1;
 - (void)updateItem:(id)arg1;

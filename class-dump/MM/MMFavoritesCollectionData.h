@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MMFavoriteSidebarItem, NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class MMFavoriteSidebarItem, NSArray, NSMutableArray, NSString;
 
 @interface MMFavoritesCollectionData : NSObject
 {
@@ -16,13 +16,12 @@
     MMFavoriteSidebarItem *_siderBarItem;
     NSArray *_sections;
     NSMutableArray *_previewItems;
-    NSMutableDictionary *_heightCache;
 }
 
 + (id)keyFroRow:(unsigned long long)arg1 section:(unsigned long long)arg2;
++ (id)handleFavoriteItems:(id)arg1 title:(id)arg2;
 + (id)dataWithFavoriteItems:(id)arg1 title:(id)arg2 grouping:(unsigned long long)arg3 layoutStyle:(unsigned long long)arg4 siderBarItem:(id)arg5;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableDictionary *heightCache; // @synthesize heightCache=_heightCache;
 @property(retain, nonatomic) NSMutableArray *previewItems; // @synthesize previewItems=_previewItems;
 @property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(nonatomic) BOOL allowMultipleItemsPreview; // @synthesize allowMultipleItemsPreview=_allowMultipleItemsPreview;
@@ -32,8 +31,6 @@
 - (void)clearAllItems;
 - (id)getCollectionViewCellIdWithIndexPath:(id)arg1;
 - (double)getListRowHeightWithIndexPath:(id)arg1 andWidthConstrain:(double)arg2;
-- (double)itemHeightAtIndexPath:(id)arg1;
-- (void)cacheHeightForDataWithWidthConstraint:(double)arg1;
 - (unsigned long long)numberOfItemsInSection:(unsigned long long)arg1;
 - (id)dateSectionsWithItems:(id)arg1;
 - (id)searchSectionsWithItems:(id)arg1;

@@ -44,6 +44,7 @@
 - (void)replaceObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
 - (void)removeObjectAtIndex:(unsigned long long)arg1;
 - (void)removeLastObject;
+- (void)removeFirstObject;
 - (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addObject:(id)arg1;
 - (unsigned long long)indexOfObject:(id)arg1 inSortedRange:(struct _NSRange)arg2 options:(unsigned long long)arg3 usingComparator:(CDUnknownBlockType)arg4;

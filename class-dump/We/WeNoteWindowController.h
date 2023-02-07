@@ -33,11 +33,13 @@
     NSView *_windowControlContainer;
     NSView *_noteDetailViewContainer;
     NSTextField *_syncStatusWordingLabel;
-    SVGButton *_actionButton;
+    SVGButton *_forwardButton;
+    SVGButton *_favButton;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) SVGButton *actionButton; // @synthesize actionButton=_actionButton;
+@property(retain, nonatomic) SVGButton *favButton; // @synthesize favButton=_favButton;
+@property(retain, nonatomic) SVGButton *forwardButton; // @synthesize forwardButton=_forwardButton;
 @property(retain, nonatomic) NSTextField *syncStatusWordingLabel; // @synthesize syncStatusWordingLabel=_syncStatusWordingLabel;
 @property(retain) NSView *noteDetailViewContainer; // @synthesize noteDetailViewContainer=_noteDetailViewContainer;
 @property(retain) NSView *windowControlContainer; // @synthesize windowControlContainer=_windowControlContainer;
@@ -75,7 +77,8 @@
 - (id)getCurrentTitleStr;
 - (void)setupTitle:(id)arg1;
 - (void)initTitleTextView;
-- (void)share;
+- (void)doFav;
+- (void)doForward;
 - (void)initToolBarWithNoteState:(int)arg1;
 - (void)layoutReadOnlyModeToolBarView;
 - (struct CGRect)resumeWindowFrame;

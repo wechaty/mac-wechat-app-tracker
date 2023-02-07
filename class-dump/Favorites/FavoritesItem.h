@@ -200,7 +200,7 @@
 - (void)writeToPasteboardItem:(id)arg1;
 - (id)UICacheKey;
 @property(nonatomic) int searchResultType;
-- (void)downloadFavoritesItemDataIfNeedWhenHighlight;
+- (BOOL)downloadFavoritesItemDataIfNeedWhenHighlight;
 - (id)fakeMsgDataWithType;
 - (BOOL)exportToPath:(id)arg1;
 - (id)fileNameForExportWithFormat:(id)arg1;

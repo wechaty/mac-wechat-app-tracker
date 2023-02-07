@@ -16,11 +16,13 @@
     CDUnknownBlockType _didCancelQRCodeLoginLogicBlock;
     CDUnknownBlockType _handleErrorBlock;
     CDUnknownBlockType _didExpiredQRCodeLoginLogicBlock;
+    CDUnknownBlockType _didReceiveAuthUrlBlock;
     QRCodeLoginCGI *_qrCodeCGI;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) QRCodeLoginCGI *qrCodeCGI; // @synthesize qrCodeCGI=_qrCodeCGI;
+@property(copy, nonatomic) CDUnknownBlockType didReceiveAuthUrlBlock; // @synthesize didReceiveAuthUrlBlock=_didReceiveAuthUrlBlock;
 @property(copy, nonatomic) CDUnknownBlockType didExpiredQRCodeLoginLogicBlock; // @synthesize didExpiredQRCodeLoginLogicBlock=_didExpiredQRCodeLoginLogicBlock;
 @property(copy, nonatomic) CDUnknownBlockType handleErrorBlock; // @synthesize handleErrorBlock=_handleErrorBlock;
 @property(copy, nonatomic) CDUnknownBlockType didCancelQRCodeLoginLogicBlock; // @synthesize didCancelQRCodeLoginLogicBlock=_didCancelQRCodeLoginLogicBlock;
@@ -30,6 +32,7 @@
 - (void)stopCGI;
 - (void)cleanupCGICallbacks;
 - (void)getQRCode;
+- (void)continueCheck;
 - (void)setupQRCodeCGI;
 - (void)dealloc;
 - (id)init;

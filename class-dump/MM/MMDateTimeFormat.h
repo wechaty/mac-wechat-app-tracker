@@ -10,9 +10,11 @@
 {
 }
 
++ (long long)absoluteDayIntervalSince:(id)arg1 currDate:(id)arg2 todaySeconds:(long long)arg3;
 + (id)timeAdjustDateString:(id)arg1 timeHour:(long long)arg2;
 + (id)dateFormatLong:(id)arg1 dateStyle:(unsigned long long)arg2;
 + (id)timeFormat:(id)arg1;
++ (id)genWeekDayString:(long long)arg1;
 + (id)dateTimeStringFromTimeStamp:(unsigned int)arg1 withDateTimeStyle:(unsigned long long)arg2;
 
 @end

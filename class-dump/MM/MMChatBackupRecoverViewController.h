@@ -125,6 +125,7 @@
 - (void)setupTimeSelectionViews;
 - (void)onSelectAllBtnClicked;
 - (void)onSessionSelectCancelBtnClicked;
+- (void)recoverFromBakTxt;
 - (void)onSessionSelectConfirmBtnClicked;
 - (void)returnToSelectSessionView;
 - (void)_reselectSessionListView;

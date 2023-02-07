@@ -34,7 +34,9 @@
 
 - (void).cxx_destruct;
 - (void)hideButton;
+- (id)hitTest:(struct CGPoint)arg1;
 - (void)magnifyWithEvent:(id)arg1;
+- (void)mouseDragged:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;

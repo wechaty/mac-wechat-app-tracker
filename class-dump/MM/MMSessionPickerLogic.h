@@ -98,6 +98,7 @@
 @property(readonly, nonatomic) NSArray *contactsForSearch;
 @property(readonly, nonatomic) NSArray *selectedRows;
 @property(readonly, nonatomic) NSArray *displayedRows;
+- (long long)getRowViewIndex:(id)arg1;
 - (void)updateAvailableRowsStatus;
 - (void)_determineSearchedRows;
 - (void)_determineDisplayedRows;

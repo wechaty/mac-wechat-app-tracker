@@ -9,7 +9,9 @@
 @protocol IMMSpaceCleanSelectSessionExt <NSObject>
 
 @optional
+- (void)resumeReturnBtn;
 - (void)resumeControls;
+- (void)disableReturnBtn;
 - (void)disableControls;
 - (void)unselectAllSessionItem;
 - (void)selectAllSessionItem;

@@ -9,6 +9,7 @@
 @protocol IGroupMgrExt
 
 @optional
+- (void)OnQuitGroupUIAction:(NSString *)arg1 withResult:(BOOL)arg2 errorMsg:(NSString *)arg3 deleteAllMsg:(BOOL)arg4;
 - (void)OnQuitGroup:(NSString *)arg1;
 - (void)OnModifyGroupMemberContact:(NSArray *)arg1;
 - (void)OnChangeMemberShowDisplayName:(NSString *)arg1;

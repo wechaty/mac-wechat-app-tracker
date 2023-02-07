@@ -12,6 +12,7 @@
 
 @interface MMQLPreviewItem : NSObject <QLPreviewItem>
 {
+    BOOL _shouldPlayVideo;
     BOOL _isParentMsg;
     NSString *_uniqueID;
     NSURL *_itemUrl;
@@ -35,10 +36,14 @@
     id _parentData;
     NSImage *_urlImage;
     NSURL *_webUrl;
+    NSImage *_tempImage;
+    NSString *_tempImagePath;
     struct CGSize _originalImageSize;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *tempImagePath; // @synthesize tempImagePath=_tempImagePath;
+@property(retain, nonatomic) NSImage *tempImage; // @synthesize tempImage=_tempImage;
 @property(retain, nonatomic) NSURL *webUrl; // @synthesize webUrl=_webUrl;
 @property(retain, nonatomic) NSImage *urlImage; // @synthesize urlImage=_urlImage;
 @property(retain, nonatomic) id parentData; // @synthesize parentData=_parentData;
@@ -56,6 +61,7 @@
 @property(retain, nonatomic) MMSnsMediaItem *snsItem; // @synthesize snsItem=_snsItem;
 @property(nonatomic) unsigned long long previewScene; // @synthesize previewScene=_previewScene;
 @property(nonatomic) unsigned long long previewType; // @synthesize previewType=_previewType;
+@property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
 @property(retain, nonatomic) NSString *videoThumbPath; // @synthesize videoThumbPath=_videoThumbPath;
 @property(retain, nonatomic) NSImage *animatedImage; // @synthesize animatedImage=_animatedImage;
 @property(nonatomic) struct CGSize originalImageSize; // @synthesize originalImageSize=_originalImageSize;
@@ -69,7 +75,10 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) NSURL *previewItemURL;
 @property(readonly) NSString *previewItemTitle;
+- (BOOL)isEqual:(id)arg1;
 - (id)init;
+- (id)imageLoadStrategy;
+- (id)viewControllerName;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

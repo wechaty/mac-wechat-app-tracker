@@ -77,6 +77,7 @@
 - (void)onAddRevokePromptMsg:(id)arg1 msgData:(id)arg2;
 - (id)getIndexSet:(id)arg1;
 - (id)parseMsgData:(id)arg1;
+- (void)setupLastTimeStampIfNeeded;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (BOOL)shouldInsertTimeStampWithNewMessage:(id)arg1 lastTimeStamp:(unsigned int)arg2;
 - (id)messageTableItemWithType:(int)arg1 msgCreateTime:(unsigned int)arg2;

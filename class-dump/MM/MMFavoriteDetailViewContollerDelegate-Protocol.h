@@ -15,6 +15,6 @@
 - (NSString *)currentSearchingTag;
 - (NSString *)currentSearchingUserName;
 - (NSArray *)currentSearchingTypes;
-- (int)currentSiderbarItemType;
+- (int)currentSidebarItemType;
 @end
 

@@ -20,6 +20,7 @@
     TKState *_stateInitializingData;
     TKState *_stateShowingOneClick;
     TKState *_stateTryingAutoLogin;
+    TKState *_stateTwiceConfirmation;
     TKEvent *_cancelLogin;
     TKEvent *_loginFailed;
     TKEvent *_useQRCodeLogin;
@@ -33,6 +34,9 @@
     TKEvent *_oneClickRequestFailed;
     TKEvent *_oneClickRequestSent;
     TKEvent *_oneClickRequestConfirmed;
+    TKEvent *_needTwiceConfirmation;
+    TKEvent *_twiceConfirmationCompletion;
+    TKEvent *_twiceConfirmationFailed;
     TKEvent *_useAutoLogin;
     TKEvent *_autoLoginFailed;
     TKEvent *_sendInitCGI;
@@ -46,6 +50,9 @@
 @property(retain, nonatomic) TKEvent *sendInitCGI; // @synthesize sendInitCGI=_sendInitCGI;
 @property(retain, nonatomic) TKEvent *autoLoginFailed; // @synthesize autoLoginFailed=_autoLoginFailed;
 @property(retain, nonatomic) TKEvent *useAutoLogin; // @synthesize useAutoLogin=_useAutoLogin;
+@property(retain, nonatomic) TKEvent *twiceConfirmationFailed; // @synthesize twiceConfirmationFailed=_twiceConfirmationFailed;
+@property(retain, nonatomic) TKEvent *twiceConfirmationCompletion; // @synthesize twiceConfirmationCompletion=_twiceConfirmationCompletion;
+@property(retain, nonatomic) TKEvent *needTwiceConfirmation; // @synthesize needTwiceConfirmation=_needTwiceConfirmation;
 @property(retain, nonatomic) TKEvent *oneClickRequestConfirmed; // @synthesize oneClickRequestConfirmed=_oneClickRequestConfirmed;
 @property(retain, nonatomic) TKEvent *oneClickRequestSent; // @synthesize oneClickRequestSent=_oneClickRequestSent;
 @property(retain, nonatomic) TKEvent *oneClickRequestFailed; // @synthesize oneClickRequestFailed=_oneClickRequestFailed;
@@ -59,6 +66,7 @@
 @property(retain, nonatomic) TKEvent *useQRCodeLogin; // @synthesize useQRCodeLogin=_useQRCodeLogin;
 @property(retain, nonatomic) TKEvent *loginFailed; // @synthesize loginFailed=_loginFailed;
 @property(retain, nonatomic) TKEvent *cancelLogin; // @synthesize cancelLogin=_cancelLogin;
+@property(retain, nonatomic) TKState *stateTwiceConfirmation; // @synthesize stateTwiceConfirmation=_stateTwiceConfirmation;
 @property(retain, nonatomic) TKState *stateTryingAutoLogin; // @synthesize stateTryingAutoLogin=_stateTryingAutoLogin;
 @property(retain, nonatomic) TKState *stateShowingOneClick; // @synthesize stateShowingOneClick=_stateShowingOneClick;
 @property(retain, nonatomic) TKState *stateInitializingData; // @synthesize stateInitializingData=_stateInitializingData;

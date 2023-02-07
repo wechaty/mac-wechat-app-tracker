@@ -22,10 +22,16 @@
     unsigned long long _totalSpaceSize;
     double _lastLoadFinishTime;
     NSMutableDictionary *_displayedItemsDict;
+    NSString *_cleaningChatName;
+    NSMutableArray *_cleanedPathList;
+    NSMutableDictionary *_cleanedPathDict;
 }
 
 + (id)formatterItemTime:(unsigned long long)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *cleanedPathDict; // @synthesize cleanedPathDict=_cleanedPathDict;
+@property(retain, nonatomic) NSMutableArray *cleanedPathList; // @synthesize cleanedPathList=_cleanedPathList;
+@property(retain, nonatomic) NSString *cleaningChatName; // @synthesize cleaningChatName=_cleaningChatName;
 @property(retain) NSMutableDictionary *displayedItemsDict; // @synthesize displayedItemsDict=_displayedItemsDict;
 @property(nonatomic) double lastLoadFinishTime; // @synthesize lastLoadFinishTime=_lastLoadFinishTime;
 @property(nonatomic) BOOL isLoadingSessions; // @synthesize isLoadingSessions=_isLoadingSessions;
@@ -41,6 +47,8 @@
 - (void)deleteSelectedSession:(id)arg1;
 - (void)addSelectedSession:(id)arg1;
 - (BOOL)isSessionSelected:(id)arg1;
+- (void)clearCleanedPathDict;
+- (void)appendCleanedDictWithChatName:(id)arg1 withCleanedPath:(id)arg2;
 - (void)updateMediaDBWithItem:(id)arg1;
 - (void)recomputeAllDirtyItems;
 - (void)markDirtyForItem:(id)arg1;

@@ -17,9 +17,11 @@
     NSString *_avatarUrl;
     NSString *_nickName;
     NSString *_pairWaitTip;
+    NSString *_authUrl;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *authUrl; // @synthesize authUrl=_authUrl;
 @property(nonatomic) unsigned int flag; // @synthesize flag=_flag;
 @property(retain, nonatomic) NSString *pairWaitTip; // @synthesize pairWaitTip=_pairWaitTip;
 @property(retain, nonatomic) NSString *nickName; // @synthesize nickName=_nickName;

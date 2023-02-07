@@ -225,6 +225,7 @@
 - (id)getSingleReaderCoverUrl;
 - (void)clearReaderWraps;
 - (id)getReaderWraps;
+- (BOOL)isAssetsMsg;
 - (BOOL)isGroupNoticeMsg;
 - (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;
@@ -269,6 +270,7 @@
 - (BOOL)isCanUseCdnUpload;
 - (void)encodeMsgFieldToXML:(id)arg1;
 - (id)getMessageTitleByDataList:(id)arg1;
+- (void)parseFavoritesLikeNode:(struct XmlReaderNode_t *)arg1 withInnerNodeName:(const char *)arg2;
 - (void)parseMsgFieldFromXML;
 - (void)limitRecordItemDeep:(id)arg1 deep:(int)arg2;
 - (id)getMsgContentWithXMLFormat;

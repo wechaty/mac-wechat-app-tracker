@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MMView.h"
+#import <AppKit/NSView.h>
 
-@interface MMPreviewEventView : MMView
+@interface MMPreviewEventView : NSView
 {
     CDUnknownBlockType _menuForEventBlock;
 }
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType menuForEventBlock; // @synthesize menuForEventBlock=_menuForEventBlock;
+- (void)scrollWheel:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 
 @end

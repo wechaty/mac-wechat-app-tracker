@@ -17,17 +17,29 @@
     unsigned int hasH5Url:1;
     unsigned int hasJsApiControlBytesIndex:1;
     unsigned int hasScope:1;
+    unsigned int hasPubkeytoken:1;
+    unsigned int hasAppid:1;
+    unsigned int hasScene:1;
     unsigned int jsApiControlBytesIndex;
+    unsigned int scene;
     BaseRequest *baseRequest;
     JsApiRequest *jsApiRequest;
     NSString *h5Authtoken;
     SKBuiltinBuffer_t *clientCheckData;
     NSString *h5Url;
     NSString *scope;
+    NSString *pubkeytoken;
+    NSString *appid;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetScene:) unsigned int scene; // @synthesize scene;
+@property(readonly, nonatomic) BOOL hasScene; // @synthesize hasScene;
+@property(retain, nonatomic, setter=SetAppid:) NSString *appid; // @synthesize appid;
+@property(readonly, nonatomic) BOOL hasAppid; // @synthesize hasAppid;
+@property(retain, nonatomic, setter=SetPubkeytoken:) NSString *pubkeytoken; // @synthesize pubkeytoken;
+@property(readonly, nonatomic) BOOL hasPubkeytoken; // @synthesize hasPubkeytoken;
 @property(retain, nonatomic, setter=SetScope:) NSString *scope; // @synthesize scope;
 @property(readonly, nonatomic) BOOL hasScope; // @synthesize hasScope;
 @property(nonatomic, setter=SetJsApiControlBytesIndex:) unsigned int jsApiControlBytesIndex; // @synthesize jsApiControlBytesIndex;

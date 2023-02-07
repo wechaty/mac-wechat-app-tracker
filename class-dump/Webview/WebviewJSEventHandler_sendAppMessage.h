@@ -20,6 +20,7 @@
 - (void)forwardDataField:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
 - (void)forwardFavoriteItem:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
 - (void)forwardMessage:(id)arg1 toUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)forwardMessageFromUserName:(id)arg1 toUserNames:(id)arg2 withMsgInfo:(id)arg3 leavedMessage:(id)arg4 isToWeWork:(BOOL)arg5;
 - (void)forwardMessageFromUserName:(id)arg1 toUserNames:(id)arg2 withMsgInfo:(id)arg3 leavedMessage:(id)arg4;
 - (void)forwardFeedMessage:(id)arg1 toUserNames:(id)arg2 withMsgData:(id)arg3 leavedMessage:(id)arg4;
 - (void)forwardWithDefault;

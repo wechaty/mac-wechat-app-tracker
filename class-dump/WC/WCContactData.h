@@ -388,6 +388,7 @@
 - (id)chatNickNameWith:(id)arg1;
 - (id)groupChatNickNameInGroup:(id)arg1;
 - (id)getGroupChatNickNameInGroup:(id)arg1;
+- (BOOL)isChatRoomNumber;
 - (BOOL)containsMember:(id)arg1;
 @property(readonly, nonatomic) unsigned long long groupMemberCount;
 - (id)groupChatDisplayNameInGroup:(id)arg1;

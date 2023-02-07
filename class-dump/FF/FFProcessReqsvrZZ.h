@@ -9,6 +9,9 @@
 #import "AppMessageHandlerDelegate-Protocol.h"
 #import "EmoticonMessageHandlerDelegate-Protocol.h"
 #import "IMessageExt-Protocol.h"
+#import "IMessageServiceFileExt-Protocol.h"
+#import "IMessageServiceImageExt-Protocol.h"
+#import "IMessageServiceVideoExt-Protocol.h"
 #import "ImgMessageHandlerDelegate-Protocol.h"
 #import "MMCDNDownloadMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
@@ -18,10 +21,13 @@
 #import "VideoMessageHandlerDelegate-Protocol.h"
 #import "VoiceMessageHandlerDelegate-Protocol.h"
 
-@class AppMessageHandler, EmoticonMessageHandler, FastSyncMsgFilter, ImgMessageHandler, MMThreadSafeDictionary, MessageDBWrapper, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, RoomHistoryMessageHandler, TextMessageHandler, VideoMessageHandler, VoiceMessageHandler;
+@class AppMessageHandler, AppMessageHandlerForWeWork, EmoticonMessageHandler, FIFOQueue, FastSyncMsgFilter, ImgMessageHandler, ImgMessageHandlerForWeWork, MMThreadSafeDictionary, MessageDBWrapper, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, NSURLSession, RecordMessageHandler, RoomHistoryMessageHandler, TextMessageHandler, VideoMessageHandler, VideoMessageHandlerForWeWork, VoiceMessageHandler;
 
-@interface FFProcessReqsvrZZ : MMService <TextMessageHandlerDelegate, ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, VoiceMessageHandlerDelegate, AppMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, RoomHistoryMessageHandlerDelegate, MMService>
+@interface FFProcessReqsvrZZ : MMService <ImgMessageHandlerDelegate, VideoMessageHandlerDelegate, AppMessageHandlerDelegate, TextMessageHandlerDelegate, VoiceMessageHandlerDelegate, EmoticonMessageHandlerDelegate, RecordMessageHandlerDelegate, MMCDNDownloadMgrExt, IMessageExt, RoomHistoryMessageHandlerDelegate, IMessageServiceVideoExt, IMessageServiceImageExt, IMessageServiceFileExt, MMService>
 {
+    ImgMessageHandlerForWeWork *m_imgMsgHandlerForWeWork;
+    VideoMessageHandlerForWeWork *m_videoMessageHandlerForWeWork;
+    AppMessageHandlerForWeWork *m_appMessageHandlerForWeWork;
     TextMessageHandler *m_textMsgHandler;
     VoiceMessageHandler *m_voiceMsgHandler;
     ImgMessageHandler *m_imgMsgHandler;
@@ -44,6 +50,10 @@
     MMThreadSafeDictionary *_downloadingOriginImageSet;
     MMThreadSafeDictionary *_downloadingMidImageSet;
     NSMutableDictionary *_cdnDownloadTasks;
+    MMThreadSafeDictionary *_checkingTpMediaMd5MessageSet;
+    FIFOQueue *_fileSilentDownloadQueue;
+    NSMutableDictionary *_videoSilentDownloadAndUploadTasks;
+    NSMutableDictionary *_fileSilentDownloadAndUploadTasks;
     NSMutableDictionary *_fileDownloadedCallbacks;
     NSRecursiveLock *_cdnTaskLock;
     NSURLSession *_downloadMgr;
@@ -57,6 +67,10 @@
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
 @property(retain, nonatomic) NSRecursiveLock *cdnTaskLock; // @synthesize cdnTaskLock=_cdnTaskLock;
 @property(retain, nonatomic) NSMutableDictionary *fileDownloadedCallbacks; // @synthesize fileDownloadedCallbacks=_fileDownloadedCallbacks;
+@property(retain, nonatomic) NSMutableDictionary *fileSilentDownloadAndUploadTasks; // @synthesize fileSilentDownloadAndUploadTasks=_fileSilentDownloadAndUploadTasks;
+@property(retain, nonatomic) NSMutableDictionary *videoSilentDownloadAndUploadTasks; // @synthesize videoSilentDownloadAndUploadTasks=_videoSilentDownloadAndUploadTasks;
+@property(retain, nonatomic) FIFOQueue *fileSilentDownloadQueue; // @synthesize fileSilentDownloadQueue=_fileSilentDownloadQueue;
+@property(retain, nonatomic) MMThreadSafeDictionary *checkingTpMediaMd5MessageSet; // @synthesize checkingTpMediaMd5MessageSet=_checkingTpMediaMd5MessageSet;
 @property(retain, nonatomic) NSMutableDictionary *cdnDownloadTasks; // @synthesize cdnDownloadTasks=_cdnDownloadTasks;
 @property(retain, nonatomic) MMThreadSafeDictionary *downloadingMidImageSet; // @synthesize downloadingMidImageSet=_downloadingMidImageSet;
 @property(retain, nonatomic) MMThreadSafeDictionary *downloadingOriginImageSet; // @synthesize downloadingOriginImageSet=_downloadingOriginImageSet;
@@ -90,6 +104,7 @@
 - (id)forwardAppReferMsgMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
 - (id)forwardAppMsgMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
 - (id)forwardAppImageMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
+- (id)forwardNameCardMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
 - (id)forwardVideoMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
 - (id)forwardMessage:(id)arg1 withReaderWrap:(id)arg2 toUser:(id)arg3;
 - (id)forwardMessage:(id)arg1 toUser:(id)arg2 errMsg:(id *)arg3;
@@ -116,8 +131,8 @@
 - (id)CreateAppSolitaireTextMsgWithSolitaire:(id)arg1;
 - (id)SendNoteAppMsgTo:(id)arg1 withFavoritesItem:(id)arg2;
 - (id)SendRecordAppMsgTo:(id)arg1 withFavoritesItem:(id)arg2;
-- (id)SendVideoMsgTo:(id)arg1 withFavoritesItem:(id)arg2;
-- (BOOL)createHardLink:(id)arg1 descFilePath:(id)arg2;
+- (id)ForwardRawVideoMessageTo:(id)arg1 withFavoritesItem:(id)arg2 isSight:(BOOL)arg3;
+- (id)ForwardVideoMessageTo:(id)arg1 withFavoritesItem:(id)arg2;
 - (id)SendFileAppMsgTo:(id)arg1 fileName:(id)arg2 filePath:(id)arg3;
 - (id)SendGifAppMsgFromUsr:(id)arg1 toUser:(id)arg2 gifFilePath:(id)arg3;
 - (id)SendGifFileMsgFromUsr:(id)arg1 toUser:(id)arg2 gifFileName:(id)arg3 gifFilePath:(id)arg4;
@@ -148,6 +163,7 @@
 - (void)OnSyncBatchHistoryMsgs:(id)arg1 chatName:(id)arg2 historyId:(unsigned long long)arg3;
 - (void)addNewMsgToDBAndNotify:(id)arg1 sessionMsgList:(id)arg2 nsChatName:(id)arg3 msgDB:(id)arg4;
 - (void)onTemplateNewXmlMsg:(id)arg1 sessionMsgList:(id)arg2;
+- (void)addSyncShareCardStatus:(id)arg1 arg:(id)arg2;
 - (void)addDeleteMessages:(id)arg1 inChat:(id)arg2;
 - (void)addClearSession:(id)arg1;
 - (void)addDeleteSession:(id)arg1;
@@ -271,33 +287,37 @@
 - (void)onImgMsgSendFinish:(id)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)onTextMsgSendFinish:(id)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)onEmoticonMsgSendFinish:(id)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
-- (void)_finishDownloadImageWithMessage:(id)arg1 type:(int)arg2 downloadType:(int)arg3 isSuccess:(BOOL)arg4;
+- (void)_finishDownloadImageWithMessage:(id)arg1 type:(int)arg2 downloadType:(unsigned long long)arg3 isSuccess:(BOOL)arg4 msgIsFromWeWork:(BOOL)arg5;
+- (void)_finishDownloadImageWithMessage:(id)arg1 type:(int)arg2 downloadType:(unsigned long long)arg3 isSuccess:(BOOL)arg4;
 - (void)cdnDownloadMgrDidFinishedDownloadWithChatName:(id)arg1 localID:(unsigned int)arg2 recordMsgData:(id)arg3 type:(int)arg4 isSuccess:(BOOL)arg5;
 - (void)cdnDownloadMgrDidFailedDownloadWithChatName:(id)arg1 localID:(unsigned int)arg2 recordMsgData:(id)arg3 type:(int)arg4;
 - (void)cdnDownloadMgrDidFinishedDownloadWithChatName:(id)arg1 localID:(unsigned int)arg2 recordMsgData:(id)arg3 type:(int)arg4;
 - (void)cdnDownloadMgrDidCanceledDownloadWithCdnTask:(id)arg1;
 - (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(id)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(id)arg1;
-- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3 type:(int)arg4 downloadType:(int)arg5;
+- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3 type:(int)arg4 downloadType:(unsigned long long)arg5;
 - (void)canceldDownloadAppMessage:(id)arg1;
-- (void)downloadAppMessage:(id)arg1 downloadType:(int)arg2;
+- (void)downloadAppMessage:(id)arg1 downloadType:(unsigned long long)arg2;
 - (void)downloadAppMessage:(id)arg1;
 - (BOOL)isAppMsgDownloading:(id)arg1;
 - (BOOL)isAppMsgUploading:(id)arg1;
 - (void)downloadVoiceWithMessage:(id)arg1;
+- (id)getCheckingTpMediaMd5MessageForUniqueID:(id)arg1;
 - (id)getUploadingVideoMessageForUniqueID:(id)arg1;
 - (id)getDownloadingVideoMessageForUniqueID:(id)arg1;
 - (void)cancelUploadVideoWithMessage:(id)arg1;
 - (void)cancelPredownloadVideoWithMessage:(id)arg1 mediaType:(unsigned long long)arg2;
 - (void)cancelDownloadVideoWithMessage:(id)arg1;
-- (BOOL)downloadVideoWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(int)arg3;
+- (BOOL)downloadVideoWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(unsigned long long)arg3;
 - (BOOL)downloadVideoWithMessage:(id)arg1;
-- (void)onVideoDownloadCancel:(id)arg1 downloadType:(int)arg2;
-- (void)onVideoDownloadFailed:(id)arg1 downloadType:(int)arg2;
-- (void)onVideoDownloadFinished:(id)arg1 downloadType:(int)arg2;
-- (void)onVideoDownloading:(id)arg1 downloadType:(int)arg2;
+- (void)onVideoSilentDownloadedSuccess:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onVideoDownloadCancel:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onVideoDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onVideoDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onVideoDownloading:(id)arg1 downloadType:(unsigned long long)arg2;
 - (BOOL)isVideoMsgDownloading:(id)arg1;
 - (BOOL)isVideoMsgUploading:(id)arg1;
+- (BOOL)isFileSilentDownloading:(id)arg1;
 - (BOOL)isFileMessageUploading:(id)arg1;
 - (BOOL)isFileMessageDownloading:(id)arg1;
 - (void)fileReTransferOfChat:(id)arg1 forMessage:(long long)arg2;
@@ -309,14 +329,14 @@
 - (void)cancelUploadFileWithMessage:(id)arg1;
 - (void)cancelPredownloadFileWithMessage:(id)arg1;
 - (void)cancelDownloadFileWithMessage:(id)arg1;
-- (void)_startDownloadFileWithMessage:(id)arg1 destinationPath:(id)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5 priorityInfo:(id)arg6 downloadType:(int)arg7;
-- (void)downloadFileWithMessage:(id)arg1 chatName:(id)arg2 destinationPath:(id)arg3 priorityInfo:(id)arg4 downloadType:(int)arg5;
+- (void)_startDownloadFileWithMessage:(id)arg1 destinationPath:(id)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5 priorityInfo:(id)arg6 downloadType:(unsigned long long)arg7;
+- (void)downloadFileWithMessage:(id)arg1 chatName:(id)arg2 destinationPath:(id)arg3 priorityInfo:(id)arg4 downloadType:(unsigned long long)arg5;
 - (void)downloadFileWithMessage:(id)arg1 chatName:(id)arg2 destinationPath:(id)arg3;
 - (void)addFileDownloadedCallback:(CDUnknownBlockType)arg1 withMessage:(id)arg2;
-- (void)onFileDownloadCancel:(id)arg1 downloadType:(int)arg2;
-- (void)onFileDownloadFailed:(id)arg1 downloadType:(int)arg2;
-- (void)onFileDownloadFinished:(id)arg1 downloadType:(int)arg2;
-- (void)onFileDownloading:(id)arg1 downloadType:(int)arg2;
+- (void)onFileDownloadCancel:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onFileDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onFileDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onFileDownloading:(id)arg1 downloadType:(unsigned long long)arg2;
 - (void)cancelPredownloadImageWithMessage:(id)arg1 mediaType:(unsigned long long)arg2;
 - (void)cancelDownloadImageWithMessage:(id)arg1;
 - (BOOL)_startDownloadThumbImageByHttp:(id)arg1 httpUrl:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -324,20 +344,20 @@
 - (BOOL)_startDownloadThumbImageByCDN:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)downloadThumbImageByCDN:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)downloadThumbImage:(id)arg1 httpUrl:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (BOOL)downloadMidImageWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(int)arg3;
+- (BOOL)downloadMidImageWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(unsigned long long)arg3;
 - (BOOL)downloadMidImageWithMessage:(id)arg1;
-- (BOOL)downloadImageWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(int)arg3;
+- (BOOL)downloadImageWithMessage:(id)arg1 priorityInfo:(id)arg2 downloadType:(unsigned long long)arg3;
 - (BOOL)downloadImageWithMessage:(id)arg1;
-- (void)onImageDownloadCancel:(id)arg1 downloadType:(int)arg2;
-- (void)onImageDownloadFailed:(id)arg1 downloadType:(int)arg2;
-- (void)onImageDownloadFinished:(id)arg1 downloadType:(int)arg2 fileMD5:(id)arg3;
-- (void)onImageDownloading:(id)arg1 downloadType:(int)arg2;
-- (void)onMidImageDownloadCancel:(id)arg1 downloadType:(int)arg2;
-- (void)onMidImageDownloadFailed:(id)arg1 downloadType:(int)arg2;
-- (void)onMidImageDownloadFinished:(id)arg1 downloadType:(int)arg2;
-- (void)onMidImageDownloading:(id)arg1 downloadType:(int)arg2;
-- (void)onThumbImageDownloadFailed:(id)arg1 downloadType:(int)arg2;
-- (void)onThumbImageDownloadFinished:(id)arg1 downloadType:(int)arg2;
+- (void)onImageDownloadCancel:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onImageDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onImageDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2 fileMD5:(id)arg3;
+- (void)onImageDownloading:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onMidImageDownloadCancel:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onMidImageDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onMidImageDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onMidImageDownloading:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onThumbImageDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
+- (void)onThumbImageDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2;
 - (BOOL)isMidImgMsgDownloading:(id)arg1;
 - (BOOL)isImgMsgDownloading:(id)arg1;
 - (BOOL)isImgMsgUploading:(id)arg1;
@@ -362,6 +382,55 @@
 - (id)GetMsgListWithChatName:(id)arg1 minMesLocalId:(unsigned int)arg2 limitCnt:(unsigned int)arg3;
 - (id)GetMaxLocalIdMsg:(id)arg1;
 - (id)SearchWithKeyword:(id)arg1 chatName:(id)arg2 minMesLocalID:(unsigned int)arg3 limitCount:(unsigned int)arg4;
+- (id)genMessage:(id)arg1 withReaderWrap:(id)arg2 msgLocalId:(unsigned int)arg3;
+- (id)forwardMessageToWeWork:(id)arg1 withReaderWrap:(id)arg2;
+- (id)SendRecordAppMsgToWeWork:(id)arg1 isSeparate:(BOOL)arg2;
+- (id)SendEmojiMsgToWeWork:(BOOL)arg1 msgLocalId:(unsigned int)arg2;
+- (id)SendNoteAppMsgToWeWork:(id)arg1 isSeparate:(BOOL)arg2;
+- (id)SendFileAppMsgToWeWork:(id)arg1 filePath:(id)arg2 isSeparate:(BOOL)arg3 msgLocalId:(unsigned int)arg4;
+- (id)SendVideoMsgToWeWork:(id)arg1 isSeparate:(BOOL)arg2;
+- (void)asyncCompressVideoInGlobalQueueForWeWork:(id)arg1 videoDataInfo:(id)arg2 toUsrName:(id)arg3 isSeparate:(BOOL)arg4;
+- (id)SendVideoMessageToWeWork:(id)arg1 msgType:(unsigned int)arg2 refMesageData:(id)arg3 isSeparate:(BOOL)arg4 msgLocalId:(unsigned int)arg5;
+- (id)sendWebStreamVideoMessageToWeWork:(id)arg1 isSeparate:(BOOL)arg2;
+- (id)SendImgMessageToWeWork:(id)arg1 imgData:(id)arg2 imgInfo:(id)arg3 isSeparate:(BOOL)arg4 msgLocalId:(unsigned int)arg5;
+- (id)SendLocationMsgToWeWork:(double)arg1 longitude:(double)arg2 poiName:(id)arg3 label:(id)arg4 isSeparate:(BOOL)arg5 msgLocalId:(unsigned int)arg6;
+- (id)SendMusicMsgToWeWork:(BOOL)arg1 msgLocalId:(unsigned int)arg2;
+- (id)SendAppMusicMessageToWeWork:(id)arg1 url:(id)arg2 description:(id)arg3 thumbnailData:(id)arg4 isSeparate:(BOOL)arg5 msgLocalId:(unsigned int)arg6;
+- (id)SendAppURLMessageToWeWork:(id)arg1 url:(id)arg2 description:(id)arg3 thumbnailData:(id)arg4 isSeparate:(BOOL)arg5 msgLocalId:(unsigned int)arg6;
+- (id)SendAppURLMessageToWeWork:(id)arg1 url:(id)arg2 description:(id)arg3 thumbUrl:(id)arg4 sourceUserName:(id)arg5 sourceDisplayName:(id)arg6 isSeparate:(BOOL)arg7 msgLocalId:(unsigned int)arg8;
+- (id)SendTextMessageToWeWork:(id)arg1 atUserList:(id)arg2 senderInfo:(id)arg3 isSeparate:(BOOL)arg4 msgLocalId:(unsigned int)arg5;
+- (id)forwardUnsupportTypeMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardSolitaireAppMsgToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardGroupNoticeAppMsgToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardAppReferMsgMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardAppFileMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardAppMessageToWeWork:(id)arg1 isSeparateForward:(BOOL)arg2 mustUploadSource:(BOOL)arg3;
+- (id)forwardVideoMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardImageMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardTextMessageToWeWork:(id)arg1 isSpeperateForward:(BOOL)arg2;
+- (id)forwardSingleMessageToWeWork:(id)arg1 isSeparateForward:(BOOL)arg2;
+- (id)forwardSingleMessageToWeWork:(id)arg1;
+- (BOOL)forwardMessageDatasToWeWork:(id)arg1;
+- (id)sendImageFromFile:(id)arg1 idx:(unsigned int)arg2;
+- (BOOL)sendFilesToWeWork:(id)arg1;
+- (void)onAppMsgCheckIsExist:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)checkOneAppMsgIsExist:(id)arg1;
+- (void)pushAndCheckFileQueue:(id)arg1;
+- (void)trySilentDownloadNextFile;
+- (void)onFileDidCancelSilentDownloadWithMessage:(id)arg1;
+- (void)onFileDidFailDownloadWithMessage:(id)arg1;
+- (void)onFileDidFinishSilentDownloadWithMessage:(id)arg1;
+- (void)silentUploadFile:(id)arg1;
+- (id)forwardRecordMsgFromWeWork:(id)arg1 spMsgData:(id)arg2 toUser:(id)arg3 isSingleRecord:(BOOL)arg4 errMsg:(id *)arg5;
+- (id)downloadAndForwardAppFileMessage:(id)arg1 spMsgData:(id)arg2 toUser:(id)arg3 errMsg:(id *)arg4;
+- (void)onImgMsgCheckExistFinish:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)silentUploadImg:(id)arg1;
+- (id)downloadAndForwardImageMessage:(id)arg1 spMsgData:(id)arg2 toUser:(id)arg3 errMsg:(id *)arg4;
+- (void)onVideoCheckExistFinish:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)silentUploadVideo:(id)arg1;
+- (id)downloadAndForwardVideoMessage:(id)arg1 spMsgData:(id)arg2 toUser:(id)arg3 errMsg:(id *)arg4;
+- (id)forwardMessageFromWeWork:(id)arg1 spMsgData:(id)arg2 toUser:(id)arg3 isSingleRecord:(BOOL)arg4 errMsg:(id *)arg5;
+- (BOOL)checkMediaFileSize:(id)arg1 tarFileSize:(unsigned int)arg2;
 - (id)getMsgDeletion:(id)arg1 mesSvrId:(long long)arg2 msgDB:(id)arg3;
 - (id)getLastMsgDeletion:(id)arg1 msgDB:(id)arg2;
 - (BOOL)deleteMsgGapBy:(id)arg1;

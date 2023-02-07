@@ -23,12 +23,12 @@
     unsigned int m_uTotalLen;
     unsigned int m_cgiSessionId;
     int _type;
-    int _downloadType;
     FavoritesItemDataField *_recordMsgData;
+    unsigned long long _downloadType;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
+@property(nonatomic) unsigned long long downloadType; // @synthesize downloadType=_downloadType;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(retain, nonatomic) FavoritesItemDataField *recordMsgData; // @synthesize recordMsgData=_recordMsgData;
 @property(nonatomic) __weak id <AppDownloadTaskDelegate> delegate; // @synthesize delegate=m_delegate;
@@ -39,6 +39,7 @@
 - (id)getDownloadFilePathWithMessageData:(id)arg1;
 - (void)OnCdnDownloadProgress:(id)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (BOOL)isRecordBigAppMessage:(id)arg1;
 - (void)updataRecorsMessageData:(id)arg1;
 - (void)cancelDownload;
 - (void)downloadOk:(id)arg1;

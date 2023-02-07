@@ -39,7 +39,7 @@
 - (void)addOpenIMFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 verifyMsg:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2;
-- (void)showFriendVerifyWindowWithContact:(id)arg1 verifyContactWrap:(id)arg2;
+- (void)showFriendVerifyWindowWithContact:(id)arg1 verifyContactWrap:(id)arg2 confirmCompletion:(CDUnknownBlockType)arg3;
 - (unsigned long long)calculateUnreadRequestSum;
 - (void)clearUnreadFriendRequestCount;
 - (id)friendRequests;

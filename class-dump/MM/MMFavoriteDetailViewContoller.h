@@ -22,25 +22,26 @@
 #import "NSSearchFieldDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class MMBoxSelectionView, MMDragEventView, MMDraggingOverlayView, MMFavoriteCollectionView, MMFavoriteTagEditLogic, MMFavoritesCollectionData, MMFavoritesDetailBaseCell, MMFavoritesMultipleControlView, MMMediumDivider, MMTimer, NSArray, NSMutableArray, NSMutableDictionary, NSResponder, NSString, NSTextField, NSView;
+@class FavoritesItem, MMBoxSelectionView, MMDragEventView, MMDraggingOverlayView, MMFavSearchSectionView, MMFavoriteCollectionView, MMFavoriteTagEditLogic, MMFavoritesCollectionData, MMFavoritesMultipleControlView, MMMediumDivider, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSResponder, NSString, NSTextField, NSView;
 @protocol MMFavoriteDetailViewContollerDelegate;
 
 @interface MMFavoriteDetailViewContoller : MMViewController <MMFavoritesDetailCellDelegate, NSTextFieldDelegate, NSDraggingSource, MMFavoritesMgrExt, AccountServiceExt, MMViewerWindowDelegate, MMFavoritesMultipleControlViewDelegate, NSSearchFieldDelegate, MMNetExt, JNWCollectionViewDelegate, JNWCollectionViewDataSource, JNWCollectionViewGridLayoutDelegate, JNWCollectionViewListLayoutDelegate, MMBoxSelectionViewDelegate, MMFavoritesViewControllerDetailProtocol>
 {
     BOOL _isMultipleSelecting;
     BOOL _isControlViewAnimating;
-    BOOL _clearSearchReload;
+    BOOL _reloadByCallBack;
+    int _currentClickSearchType;
     id <MMFavoriteDetailViewContollerDelegate> _delegate;
     MMDragEventView *_headerView;
     NSTextField *_titleTextField;
     MMMediumDivider *_divider;
     MMDraggingOverlayView *_draggingOverlayView;
     id _mouseDraggedEvent;
-    MMTimer *_timer;
     unsigned long long _lastCalledSearchTime;
     NSString *_searchingString;
     NSView *_noSearchResultView;
     NSTextField *_noSearchResultTextFiled;
+    MMFavSearchSectionView *_searchSectionView;
     NSMutableDictionary *_viewerWindowDic;
     unsigned long long _currentLayoutStyle;
     MMFavoriteCollectionView *_collectionView;
@@ -48,18 +49,20 @@
     MMFavoritesCollectionData *_originCollectionData;
     NSArray *_allPreviewItems;
     NSArray *_cellsBeingDragged;
-    MMFavoritesDetailBaseCell *_cellShowSwipe;
+    NSDictionary *_searchMatchContactsResult;
     MMFavoriteTagEditLogic *_tagLogic;
     MMFavoritesMultipleControlView *_multipleControlView;
     NSMutableArray *_multipleSelectedItems;
     MMBoxSelectionView *_boxSelectionView;
     NSResponder *_lastFirstResponder;
     long long _multiSelectFrom;
+    FavoritesItem *_waitForOpenItem;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) FavoritesItem *waitForOpenItem; // @synthesize waitForOpenItem=_waitForOpenItem;
 @property(nonatomic) long long multiSelectFrom; // @synthesize multiSelectFrom=_multiSelectFrom;
-@property(nonatomic) BOOL clearSearchReload; // @synthesize clearSearchReload=_clearSearchReload;
+@property(nonatomic) BOOL reloadByCallBack; // @synthesize reloadByCallBack=_reloadByCallBack;
 @property(nonatomic) BOOL isControlViewAnimating; // @synthesize isControlViewAnimating=_isControlViewAnimating;
 @property(nonatomic) __weak NSResponder *lastFirstResponder; // @synthesize lastFirstResponder=_lastFirstResponder;
 @property(retain, nonatomic) MMBoxSelectionView *boxSelectionView; // @synthesize boxSelectionView=_boxSelectionView;
@@ -67,7 +70,7 @@
 @property(nonatomic) BOOL isMultipleSelecting; // @synthesize isMultipleSelecting=_isMultipleSelecting;
 @property(retain, nonatomic) MMFavoritesMultipleControlView *multipleControlView; // @synthesize multipleControlView=_multipleControlView;
 @property(retain, nonatomic) MMFavoriteTagEditLogic *tagLogic; // @synthesize tagLogic=_tagLogic;
-@property(retain, nonatomic) MMFavoritesDetailBaseCell *cellShowSwipe; // @synthesize cellShowSwipe=_cellShowSwipe;
+@property(retain, nonatomic) NSDictionary *searchMatchContactsResult; // @synthesize searchMatchContactsResult=_searchMatchContactsResult;
 @property(retain, nonatomic) NSArray *cellsBeingDragged; // @synthesize cellsBeingDragged=_cellsBeingDragged;
 @property(retain, nonatomic) NSArray *allPreviewItems; // @synthesize allPreviewItems=_allPreviewItems;
 @property(retain, nonatomic) MMFavoritesCollectionData *originCollectionData; // @synthesize originCollectionData=_originCollectionData;
@@ -75,17 +78,20 @@
 @property(retain, nonatomic) MMFavoriteCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic) unsigned long long currentLayoutStyle; // @synthesize currentLayoutStyle=_currentLayoutStyle;
 @property(retain, nonatomic) NSMutableDictionary *viewerWindowDic; // @synthesize viewerWindowDic=_viewerWindowDic;
+@property(nonatomic) int currentClickSearchType; // @synthesize currentClickSearchType=_currentClickSearchType;
+@property(retain, nonatomic) MMFavSearchSectionView *searchSectionView; // @synthesize searchSectionView=_searchSectionView;
 @property __weak NSTextField *noSearchResultTextFiled; // @synthesize noSearchResultTextFiled=_noSearchResultTextFiled;
 @property(nonatomic) __weak NSView *noSearchResultView; // @synthesize noSearchResultView=_noSearchResultView;
 @property(retain, nonatomic) NSString *searchingString; // @synthesize searchingString=_searchingString;
 @property(nonatomic) unsigned long long lastCalledSearchTime; // @synthesize lastCalledSearchTime=_lastCalledSearchTime;
-@property(retain, nonatomic) MMTimer *timer; // @synthesize timer=_timer;
 @property(retain, nonatomic) id mouseDraggedEvent; // @synthesize mouseDraggedEvent=_mouseDraggedEvent;
 @property(retain, nonatomic) MMDraggingOverlayView *draggingOverlayView; // @synthesize draggingOverlayView=_draggingOverlayView;
 @property(retain, nonatomic) MMMediumDivider *divider; // @synthesize divider=_divider;
 @property(retain, nonatomic) NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(retain, nonatomic) MMDragEventView *headerView; // @synthesize headerView=_headerView;
 @property(nonatomic) __weak id <MMFavoriteDetailViewContollerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)cellDidFinishDownload:(id)arg1;
+- (void)cellDidStartDownload:(id)arg1;
 - (void)cellViewOnClickTagButton:(id)arg1 tag:(id)arg2;
 - (struct CGRect)_adjustRectForSelectedRect:(struct CGRect)arg1;
 - (void)boxSelectionView:(id)arg1 didFinishSelecting:(struct CGRect)arg2 direction:(struct CGPoint)arg3;
@@ -93,13 +99,14 @@
 - (BOOL)boxSelectionView:(id)arg1 shouldBeginDragging:(struct CGPoint)arg2;
 - (void)multipleControlViewDidClickCloseButton:(id)arg1;
 - (double)collectionView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)collectionView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (double)collectionView:(id)arg1 heightForHeaderInSection:(long long)arg2;
-- (id)genBrowseDetailDataWithItem:(id)arg1;
+- (BOOL)shouldPerformCellDragOperation:(struct CGPoint)arg1;
 - (id)genEnterDetailDataWithItem:(id)arg1 indexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 mouseUpInItemAtIndexPath:(id)arg2 withEvent:(id)arg3;
 - (void)collectionView:(id)arg1 mouseExitedInItemAtIndexPath:(id)arg2 withEvent:(id)arg3;
-- (void)collectionView:(id)arg1 mouseDownInItemAtIndexPath:(id)arg2;
+- (void)collectionView:(id)arg1 mouseDownInItemAtIndexPath:(id)arg2 withEvent:(id)arg3;
 - (BOOL)collectionView:(id)arg1 shouldDeselectItemAtIndexPath:(id)arg2;
 - (BOOL)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (BOOL)shouldShowSectionHeader;
@@ -115,6 +122,7 @@
 - (void)_enableMultipleControlButtons:(BOOL)arg1;
 - (void)_deselectedItem:(id)arg1;
 - (BOOL)_selectedItem:(id)arg1;
+- (void)forwardFavItemsToWeWork:(id)arg1;
 - (void)_shareBySessionPickerWithItems:(id)arg1;
 - (void)_showModelAlertWithStyle:(long long)arg1 title:(id)arg2 message:(id)arg3 confirm:(id)arg4 cancel:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (id)_errorStringByTypeSet:(id)arg1;
@@ -122,15 +130,15 @@
 - (void)setupMultipleControlViewButtons:(id)arg1;
 - (void)registerCollectionViewCell;
 - (void)setupCollectionViewLayout;
+- (void)onViewFrameDidChangeNotification:(id)arg1;
 - (void)setupCollectionView;
 - (void)handleAppFontSize;
 - (void)windowDidBecomeKeyAction:(id)arg1;
 - (void)windowDidResignKeyAction:(id)arg1;
 - (void)onNetStatusChange:(int)arg1;
-- (BOOL)cellSwipeDeleteButtonShown;
-- (void)cellCleanSwipeEffect:(id)arg1;
-- (void)cellShowSwipeEffect:(id)arg1;
-- (void)cellSwipeDeleteConfirm:(id)arg1;
+- (void)onUpdateTagNameSuccess:(unsigned int)arg1 oldTagName:(id)arg2 newTagName:(id)arg3;
+- (void)onDeleteTagSuccess:(id)arg1;
+- (void)onUpdateItemsTagsSuccess:(id)arg1;
 - (void)favoritesMgrDidProcessTagFromService:(id)arg1 updateTags:(id)arg2 deleteTags:(id)arg3;
 - (void)favoritesMgrDidUpdateTagsWithLocalIDArray:(id)arg1;
 - (void)onAddLocalNoteItem:(id)arg1 ErrCode:(int)arg2;
@@ -138,7 +146,7 @@
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;
 - (void)favoritesMgrDidAddItems:(id)arg1 ErrCode:(int)arg2;
-- (void)delaySearchOrReloadData;
+- (void)callBackSearchOrReloadDataWhenItemsChanged;
 - (BOOL)canReload:(id)arg1;
 - (BOOL)isUnderCurrentSelectSiderBar:(id)arg1 currentSideItemType:(int)arg2;
 - (void)reportMultilSelectLog:(int)arg1 selectedItemsCount:(long long)arg2;
@@ -161,7 +169,11 @@
 - (void)_copyFavoritesItems:(id)arg1;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)clearSearch;
+- (void)handleSearchResults:(id)arg1;
+- (void)showSearchSectionView;
+- (void)hiddenSearchSectionView;
 - (void)doSearch;
+- (void)doSearchWithKeyWord;
 - (void)searchWithKeyword:(id)arg1;
 - (BOOL)isSearching;
 - (void)draggingSession:(id)arg1 endedAtPoint:(struct CGPoint)arg2 operation:(unsigned long long)arg3;
@@ -195,6 +207,9 @@
 - (void)reloadData;
 - (void)setupDraggingOverlayView;
 - (void)setupTitleText:(id)arg1;
+- (double)contentTopInset;
+- (void)setupNoSearchResult;
+- (void)setupSearchSection;
 - (void)setupHeaderView;
 - (void)viewChangedEffectiveAppearance;
 - (void)handleCellUpdateNotification;

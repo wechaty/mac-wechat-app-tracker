@@ -16,7 +16,9 @@
 - (void)onAddRecentFavItem:(unsigned int)arg1;
 - (void)onDeleteTagSuccess:(NSString *)arg1;
 - (void)onUpdateTagNameSuccess:(unsigned int)arg1 oldTagName:(NSString *)arg2 newTagName:(NSString *)arg3;
+- (void)onFinishUpdateItemsTags:(NSArray *)arg1;
 - (void)onUpdateItemsTagsSuccess:(NSArray *)arg1;
+- (void)onStartUpdateItemsTags:(NSArray *)arg1;
 - (void)OnGetNextPageFavoritesCapacityItemList:(NSArray *)arg1 ErrCode:(int)arg2 HasMoreItems:(BOOL)arg3;
 - (void)OnGetFirstPageFavoritesCapacityItemList:(NSArray *)arg1 ErrCode:(int)arg2 HasMoreItems:(BOOL)arg3;
 - (void)onGetFavObjectByIdFail:(NSString *)arg1;

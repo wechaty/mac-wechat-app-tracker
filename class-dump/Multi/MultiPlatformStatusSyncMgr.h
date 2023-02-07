@@ -30,6 +30,7 @@
 - (void)onGetStatusNotifyHideSessionFunction:(id)arg1;
 - (void)onGetStatusNotifyMarkFunction:(id)arg1;
 - (void)onGetStatusNotifyCommand:(id)arg1;
+- (void)NotifyShareCardMsgStatus:(id)arg1;
 - (BOOL)shouldSendSyncDeviceNameCGI;
 - (id)mainDeviceName;
 - (void)saveCache;

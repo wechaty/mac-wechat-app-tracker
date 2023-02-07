@@ -7,12 +7,14 @@
 #import "MMService.h"
 
 #import "IMessageExt-Protocol.h"
+#import "MMCGIDelegate-Protocol.h"
 #import "MMPackageDownloadMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
+#import "SyncExt-Protocol.h"
 
 @class JDWebViewMenuData, NSDictionary, NSMutableDictionary, NSString;
 
-@interface MMConfigMgr : MMService <MMPackageDownloadMgrExt, IMessageExt, MMService>
+@interface MMConfigMgr : MMService <MMPackageDownloadMgrExt, IMessageExt, SyncExt, MMCGIDelegate, MMService>
 {
     NSMutableDictionary *m_dicCacheConfigSeperator;
     NSMutableDictionary *m_dicCacheConfig;
@@ -24,9 +26,11 @@
     JDWebViewMenuData *m_JDMenuCache;
     NSDictionary *m_dicPrefetchDomains;
     BOOL m_bDomainPrefetchEnabled;
+    BOOL _hasSyncedConfig;
 }
 
 - (void).cxx_destruct;
+@property BOOL hasSyncedConfig; // @synthesize hasSyncedConfig=_hasSyncedConfig;
 @property(retain) NSMutableDictionary *m_dicCacheConfig; // @synthesize m_dicCacheConfig;
 @property(retain) NSMutableDictionary *m_dicCacheConfigSeperator; // @synthesize m_dicCacheConfigSeperator;
 - (id)getJDWebviewMenuData;
@@ -42,12 +46,16 @@
 - (unsigned int)uintForKey:(id)arg1 config:(id)arg2;
 - (id)valueForKey:(id)arg1 config:(id)arg2;
 - (id)arrSubValueForKey:(id)arg1 config:(id)arg2 seperator:(id)arg3;
+- (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
+- (void)checkDynamicConfig;
+- (void)onSyncSuccess;
+- (void)updateDynamicConfig:(id)arg1;
 - (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
 - (void)onLanguageChange;
 - (void)FFAddRecvFavZZ;
 - (void)dealloc;
 - (id)init;
-- (void)onServiceReloadData;
+- (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)loadData;
 - (long long)getMultiAgcRxLimiter;

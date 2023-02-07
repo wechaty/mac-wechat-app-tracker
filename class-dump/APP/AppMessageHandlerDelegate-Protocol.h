@@ -16,6 +16,7 @@
 - (void)onAppMsgDownloadCancel:(AppDownloadTask *)arg1;
 - (void)onAppMsgDownloadFinish:(AppDownloadTask *)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyAppMsgUploadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
+- (void)onAppMsgCheckIsExist:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)onAppMsgSendFinish:(NSString *)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 - (void)onAppMsgUploadFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 @end

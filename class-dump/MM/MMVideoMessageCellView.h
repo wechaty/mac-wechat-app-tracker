@@ -103,6 +103,7 @@
 - (void)layoutThumbnailImage;
 - (void)_makeButtonsRightPosition;
 - (void)setupAccessibility;
+- (id)fetchForwardFromWeWorkMsg;
 - (void)populateWithMessage:(id)arg1;
 - (void)_setupStateMachine;
 - (struct CGRect)clickableArea;

@@ -36,6 +36,7 @@
 - (void)OnDownloadHistoryRecordMsgFail:(id)arg1 historyId:(unsigned long long)arg2;
 - (void)OnDownloadHistoryRecordMsgOK:(id)arg1 historyId:(unsigned long long)arg2;
 - (id)getFavoritesItemDataField;
+- (void)forwardContentToWeWork;
 - (void)forwardContentToContactsWithUserNames:(id)arg1 leaveMessage:(id)arg2;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)reloadHeightReCalculateData;

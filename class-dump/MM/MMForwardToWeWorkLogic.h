@@ -26,12 +26,14 @@
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (BOOL)sendRequest:(id)arg1;
 - (BOOL)informWeWorkCannotDelRequest:(id)arg1 andSendMsgType:(long long)arg2;
+- (BOOL)decryptSingleForwardMessage:(id)arg1;
 - (BOOL)decryptForwardMessage:(id)arg1;
 - (BOOL)openWeWorkBySchema:(id)arg1 andSendMsgType:(long long)arg2;
-- (BOOL)requesetMessageFromWeWork:(id)arg1;
+- (BOOL)requesetMessageFromWeWork:(id)arg1 andMsgType:(long long)arg2;
 - (BOOL)isLawfulSchemaInfo:(id)arg1 andBase64AppCert:(id)arg2;
 - (void)stopCheckAndEncryptData;
 - (BOOL)checkAndEncryptData:(id)arg1;
+- (BOOL)checkAndEncryptMessageDataSeparate:(id)arg1;
 - (id)init;
 
 // Remaining properties

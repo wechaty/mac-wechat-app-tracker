@@ -80,6 +80,10 @@
 + (id)getContactAutoUpdateDataOldPath;
 + (id)getContactAutoCheckDataPath;
 + (id)getContactAutoUpdateDataPath;
++ (id)getHardLinkTempFilePath:(id)arg1;
++ (id)getHardLinkTempFilePathWithDefault;
++ (id)getHardLinkDBPath;
++ (id)getHardLinkRootDir;
 + (id)GetWebTemplateDBPath;
 + (id)GetWebTemplateDirPath;
 + (id)videoTmpPathWithMessage:(id)arg1 rawVideo:(BOOL)arg2;

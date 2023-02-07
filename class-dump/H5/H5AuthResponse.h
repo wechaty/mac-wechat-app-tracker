@@ -6,23 +6,31 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseResponse, NSData;
+@class BaseResponse, NSString, TransferCgiInfoList;
 
 @interface H5AuthResponse : PBGeneratedMessage
 {
     unsigned int hasBaseresponse:1;
     unsigned int hasH5Authtoken:1;
     unsigned int hasExpiredTime:1;
+    unsigned int hasPubkeytoken:1;
+    unsigned int hasCgiinfolist:1;
     unsigned int expiredTime;
     BaseResponse *baseresponse;
-    NSData *h5Authtoken;
+    NSString *h5Authtoken;
+    NSString *pubkeytoken;
+    TransferCgiInfoList *cgiinfolist;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetCgiinfolist:) TransferCgiInfoList *cgiinfolist; // @synthesize cgiinfolist;
+@property(readonly, nonatomic) BOOL hasCgiinfolist; // @synthesize hasCgiinfolist;
+@property(retain, nonatomic, setter=SetPubkeytoken:) NSString *pubkeytoken; // @synthesize pubkeytoken;
+@property(readonly, nonatomic) BOOL hasPubkeytoken; // @synthesize hasPubkeytoken;
 @property(nonatomic, setter=SetExpiredTime:) unsigned int expiredTime; // @synthesize expiredTime;
 @property(readonly, nonatomic) BOOL hasExpiredTime; // @synthesize hasExpiredTime;
-@property(retain, nonatomic, setter=SetH5Authtoken:) NSData *h5Authtoken; // @synthesize h5Authtoken;
+@property(retain, nonatomic, setter=SetH5Authtoken:) NSString *h5Authtoken; // @synthesize h5Authtoken;
 @property(readonly, nonatomic) BOOL hasH5Authtoken; // @synthesize hasH5Authtoken;
 @property(retain, nonatomic, setter=SetBaseresponse:) BaseResponse *baseresponse; // @synthesize baseresponse;
 @property(readonly, nonatomic) BOOL hasBaseresponse; // @synthesize hasBaseresponse;

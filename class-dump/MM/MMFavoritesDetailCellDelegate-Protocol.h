@@ -11,13 +11,11 @@
 @protocol MMFavoritesDetailCellDelegate <NSObject>
 
 @optional
+- (void)cellDidStartDownload:(MMFavoritesDetailBaseCell *)arg1;
+- (void)cellDidFinishDownload:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellViewOnClickTagButton:(MMFavoritesDetailBaseCell *)arg1 tag:(NSString *)arg2;
 - (BOOL)shouldShouldSelectIcon:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellViewNeedsHeightRecalculated:(MMFavoritesDetailBaseCell *)arg1;
-- (BOOL)cellSwipeDeleteButtonShown;
-- (void)cellCleanSwipeEffect:(MMFavoritesDetailBaseCell *)arg1;
-- (void)cellSwipeDeleteConfirm:(MMFavoritesDetailBaseCell *)arg1;
-- (void)cellShowSwipeEffect:(MMFavoritesDetailBaseCell *)arg1;
 - (void)cellDragged:(MMFavoritesDetailBaseCell *)arg1 dragEvent:(NSEvent *)arg2 originalPosition:(struct CGPoint)arg3;
 - (void)closedContextMenuFromCell:(MMFavoritesDetailBaseCell *)arg1;
 - (void)openedContextMenuFromCell:(MMFavoritesDetailBaseCell *)arg1;

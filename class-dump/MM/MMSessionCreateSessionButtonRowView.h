@@ -19,11 +19,14 @@
 @property(nonatomic) BOOL isHighlighted; // @synthesize isHighlighted=_isHighlighted;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSView *backgroundView; // @synthesize backgroundView=_backgroundView;
+- (void)changeButtonTypeForWeWork:(long long)arg1;
 - (void)changeButtonType:(long long)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)setHighlighted:(BOOL)arg1;
+- (void)initUI:(id)arg1 isToWeWorkBtn:(BOOL)arg2;
+- (id)initWithFrameForWeWorkBtn:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 

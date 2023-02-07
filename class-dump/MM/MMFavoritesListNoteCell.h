@@ -7,25 +7,27 @@
 #import "MMFavoritesListBaseCell.h"
 
 #import "MMFavoriteFileServiceExt-Protocol.h"
-#import "MMFavoritesMgrExt-Protocol.h"
 
-@class MMFavoriteErrorTipView, MMView, NSImageView, NSMutableArray, NSString, NSTextField, SVGImageView;
+@class MMView, NSImageView, NSMutableArray, NSString, NSTextField, SVGImageView;
 
-@interface MMFavoritesListNoteCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt, MMFavoritesMgrExt>
+@interface MMFavoritesListNoteCell : MMFavoritesListBaseCell <MMFavoriteFileServiceExt>
 {
-    BOOL _isLayoutWithMultiImgImgStyle;
+    BOOL _isLayoutWithMultiImgStyle;
     NSTextField *_titleTextView;
     NSTextField *_descTextView;
     MMView *_thumbnailsContainerView;
     NSMutableArray *_subThumbnailImageViewArray;
+    NSMutableArray *_subIconImageViewArray;
     NSMutableArray *_downloadingLocalIDArray;
     SVGImageView *_thumbnailIconView;
     NSTextField *_maskTextField;
     NSImageView *_maskBkImageView;
     unsigned long long _layoutStyle;
-    MMFavoriteErrorTipView *_errorTip;
+    NSMutableArray *_senderArray;
+    NSMutableArray *_descArray;
 }
 
++ (id)getDisplayTextDatas:(id)arg1;
 + (id)getDisplayImgDatas:(id)arg1;
 + (id)getFavTextCellText:(id)arg1;
 + (id)GetRecordDataDesc:(id)arg1;
@@ -35,36 +37,42 @@
 + (double)getTextStyleDescContentHeight:(id)arg1 inputDesc:(id)arg2 widthConstrain:(double)arg3;
 + (double)getTitleContentHeightWithAtrr:(id)arg1 widthConstrain:(double)arg2 limitLine:(int)arg3;
 + (double)getTextStyleTitleContentHeight:(id)arg1 inputTitle:(id)arg2 widthConstrain:(double)arg3 limitLine:(int)arg4;
++ (id)getTitleFormatterOptions;
++ (id)getDescFormatterOptions;
 + (id)getDescAttrStr:(id)arg1 desc:(id)arg2;
 + (id)getTitleAttrStr:(id)arg1 title:(id)arg2;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMFavoriteErrorTipView *errorTip; // @synthesize errorTip=_errorTip;
-@property(nonatomic) BOOL isLayoutWithMultiImgImgStyle; // @synthesize isLayoutWithMultiImgImgStyle=_isLayoutWithMultiImgImgStyle;
+@property(retain, nonatomic) NSMutableArray *descArray; // @synthesize descArray=_descArray;
+@property(retain, nonatomic) NSMutableArray *senderArray; // @synthesize senderArray=_senderArray;
+@property(nonatomic) BOOL isLayoutWithMultiImgStyle; // @synthesize isLayoutWithMultiImgStyle=_isLayoutWithMultiImgStyle;
 @property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 @property(retain, nonatomic) NSImageView *maskBkImageView; // @synthesize maskBkImageView=_maskBkImageView;
 @property(retain, nonatomic) NSTextField *maskTextField; // @synthesize maskTextField=_maskTextField;
 @property(retain, nonatomic) SVGImageView *thumbnailIconView; // @synthesize thumbnailIconView=_thumbnailIconView;
 @property(retain, nonatomic) NSMutableArray *downloadingLocalIDArray; // @synthesize downloadingLocalIDArray=_downloadingLocalIDArray;
+@property(retain, nonatomic) NSMutableArray *subIconImageViewArray; // @synthesize subIconImageViewArray=_subIconImageViewArray;
 @property(retain, nonatomic) NSMutableArray *subThumbnailImageViewArray; // @synthesize subThumbnailImageViewArray=_subThumbnailImageViewArray;
 @property(retain, nonatomic) MMView *thumbnailsContainerView; // @synthesize thumbnailsContainerView=_thumbnailsContainerView;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 @property(retain, nonatomic) NSTextField *titleTextView; // @synthesize titleTextView=_titleTextView;
-- (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
+- (void)layoutRecordInfo;
 - (void)layoutWithPlaceHolder;
 - (void)layoutStyleDesc:(id)arg1;
-- (void)layoutItemStyleDesc:(id)arg1;
-- (void)layoutStyleTitle:(id)arg1;
-- (void)layoutItemStyleTitle:(id)arg1;
+- (id)getItemDataFiledDesc:(id)arg1;
+- (void)layoutStyleTitle:(id)arg1 limitLine:(int)arg2;
+- (id)getItemDataFiledTitle:(id)arg1;
+- (void)layoutImgIconView:(id)arg1 index:(long long)arg2 isBigSize:(BOOL)arg3;
 - (void)addThumbnailIconView:(id)arg1 iconName:(id)arg2;
 - (void)layoutItemStyleThumbnail:(id)arg1;
 - (BOOL)layoutWithItemStyle;
-- (void)updateThumbnailContainerFrame;
-- (void)layoutWithOneImageStyle:(id)arg1;
+- (void)layoutWithOneImageStyle:(id)arg1 isSetRight:(BOOL)arg2;
 - (void)layoutWithImgStyle;
 - (void)layoutWithTxtStyle:(id)arg1 desc:(id)arg2;
+- (void)layoutNoteItem;
+- (void)layoutRecordItem;
 - (void)layoutFavContentView;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)prepareForReuse;

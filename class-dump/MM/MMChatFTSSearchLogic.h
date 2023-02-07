@@ -30,7 +30,7 @@
 - (id)searchFromLastGlobalResults:(BOOL)arg1 nsChatName:(id)arg2;
 - (void)doSearch:(id)arg1;
 - (void)doSearchWithKeyword:(id)arg1 chatName:(id)arg2 realFromUser:(id)arg3 messageType:(unsigned int)arg4 minMsgCreateTime:(unsigned int)arg5 maxMsgCreateTime:(unsigned int)arg6 limitCount:(unsigned int)arg7 isFromGlobalSearch:(unsigned char)arg8 isScrollingToBottom:(unsigned char)arg9 completion:(CDUnknownBlockType)arg10;
-- (void)doSearchAndLoadMessageOfNextPageWithKeyword:(id)arg1 chatName:(id)arg2 realFromUser:(id)arg3 messageType:(unsigned int)arg4 isFromGlobalSearch:(unsigned char)arg5 isScrollingToBottom:(unsigned char)arg6 completion:(CDUnknownBlockType)arg7;
+- (void)doSearchAndLoadMessageOfNextPageWithKeyword:(id)arg1 chatName:(id)arg2 realFromUser:(id)arg3 messageType:(unsigned int)arg4 limitCount:(int)arg5 isFromGlobalSearch:(unsigned char)arg6 isScrollingToBottom:(unsigned char)arg7 completion:(CDUnknownBlockType)arg8;
 - (id)init;
 
 @end

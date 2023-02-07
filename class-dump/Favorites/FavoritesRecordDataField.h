@@ -11,13 +11,16 @@
 @interface FavoritesRecordDataField : FavoritesItemDataField
 {
     unsigned int _msgLocalId;
+    unsigned int _msgCreateTime;
     NSString *_chatName;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int msgCreateTime; // @synthesize msgCreateTime=_msgCreateTime;
 @property(nonatomic) unsigned int msgLocalId; // @synthesize msgLocalId=_msgLocalId;
 @property(retain, nonatomic) NSString *chatName; // @synthesize chatName=_chatName;
 - (id)GetDataFilePath;
+- (id)GetMiddleDataFilePath;
 - (id)GetThumbFilePath;
 - (id)copy2FavoritesDataField;
 - (id)copyWithZone:(struct _NSZone *)arg1;

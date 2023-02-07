@@ -20,7 +20,6 @@
 
 @interface MMFavoritesViewController : MMViewController <NSOutlineViewDataSource, NSOutlineViewDelegate, MMFavoritesMgrExt, MMFavoriteDetailViewContollerDelegate, MMSidebarOutlineViewDelegate, NSTextFieldDelegate, MMCustomSearchFieldDelegate, WeChatSearchProtocol>
 {
-    BOOL _isForceReload;
     MMSidebarOutlineView *_outlineView;
     MMFavoritesCollectionData *_currentDataCollection;
     MMFavoriteSidebarItem *_lastSelectedItem;
@@ -50,7 +49,6 @@
 + (void)load;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMTimer *m_syncTimer; // @synthesize m_syncTimer=_m_syncTimer;
-@property(nonatomic) BOOL isForceReload; // @synthesize isForceReload=_isForceReload;
 @property(retain, nonatomic) MMFavoritesPlaceholderViewController *favoritesPlaceholderViewController; // @synthesize favoritesPlaceholderViewController=_favoritesPlaceholderViewController;
 @property(retain, nonatomic) MMFavoriteDetailViewContoller *favoriteDetailViewContoller; // @synthesize favoriteDetailViewContoller=_favoriteDetailViewContoller;
 @property(retain, nonatomic) NSTextField *usageLabel; // @synthesize usageLabel=_usageLabel;
@@ -94,13 +92,14 @@
 - (id)currentSearchingUserName;
 - (id)currentSearchingTag;
 - (id)currentSearchingTypes;
-- (int)currentSiderbarItemType;
+- (int)currentSidebarItemType;
 - (void)item:(id)arg1 didRecieveDragOperation:(id)arg2 inOutlineView:(id)arg3;
 - (BOOL)item:(id)arg1 canRecieveDragOperation:(id)arg2 inOutlineView:(id)arg3;
 - (id)acceptableDragTypesForOutlineView:(id)arg1;
 - (id)menuForItem:(id)arg1 inOutlineView:(id)arg2;
 - (id)favDetailViewController;
 - (void)reportSelectSubType:(int)arg1;
+- (void)deselectAllRowsWhenSearch;
 - (void)outlineViewSelectionDidChange:(id)arg1;
 - (id)outlineView:(id)arg1 selectionIndexesForProposedSelection:(id)arg2;
 - (id)currentSelectedItem;
@@ -116,6 +115,7 @@
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (void)onSearchFiledTextDidEndEditing:(id)arg1 info:(id)arg2;
+- (BOOL)onSearchFiledControl:(id)arg1 textFiled:(id)arg2 aCommandSelector:(SEL)arg3;
 - (void)onSearchFiledTextDidChange:(id)arg1;
 - (void)onSearchFiledDidEnd:(id)arg1;
 - (void)onSearchFiledWillBegin:(id)arg1;
@@ -131,6 +131,7 @@
 - (id)setupPhotoItemsItem;
 - (id)setupUrlItemsItem;
 - (id)setupAllItemsItem;
+- (void)restoreLastSelected;
 - (void)reloadSidebarData;
 - (id)title;
 - (void)setTabbarItem:(id)arg1;

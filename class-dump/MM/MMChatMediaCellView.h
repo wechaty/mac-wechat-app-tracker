@@ -90,6 +90,7 @@
 - (void)layoutSourceLabel;
 - (void)layoutDescLabel;
 - (void)layoutTitleLabel;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)layoutDownloadIcon;
 - (void)layoutThumbImageView;
 - (void)layoutCheckBox;

@@ -4,51 +4,44 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import "CdnBaseMediaInfo.h"
 
 @class CdnUploadTaskInfo, FavoritesItemDataField, NSString;
 
-@interface CdnRecordMediaInfo : NSObject
+@interface CdnRecordMediaInfo : CdnBaseMediaInfo
 {
-    NSString *m_nsClientMsgID;
-    NSString *m_nsFilePath;
-    NSString *m_nsUsername;
-    NSString *m_nsFileID;
-    NSString *m_nsAesKey;
-    unsigned int m_uiFileTotalLen;
-    unsigned int m_uiScene;
-    NSString *m_nsExtInfo;
-    unsigned int m_uiFileType;
-    NSString *m_authKey;
     BOOL _isLargeFile;
     BOOL _m_enableHitCheck;
+    unsigned int _m_uiScene;
+    int _dataType;
+    unsigned int _dataSize;
     NSString *_m_nsThumbPath;
+    NSString *_m_nsUsername;
     CdnUploadTaskInfo *_m_taskResultInfo;
+    NSString *_m_authKey;
     FavoritesItemDataField *_recordDataField;
     NSString *_signature;
     NSString *_fakeAeskey;
     NSString *_fakeSignature;
+    NSString *_dataMd5;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int dataSize; // @synthesize dataSize=_dataSize;
+@property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5=_dataMd5;
+@property(nonatomic) int dataType; // @synthesize dataType=_dataType;
 @property(nonatomic) BOOL m_enableHitCheck; // @synthesize m_enableHitCheck=_m_enableHitCheck;
 @property(copy, nonatomic) NSString *fakeSignature; // @synthesize fakeSignature=_fakeSignature;
 @property(copy, nonatomic) NSString *fakeAeskey; // @synthesize fakeAeskey=_fakeAeskey;
 @property(copy, nonatomic) NSString *signature; // @synthesize signature=_signature;
 @property(nonatomic) BOOL isLargeFile; // @synthesize isLargeFile=_isLargeFile;
 @property(retain, nonatomic) FavoritesItemDataField *recordDataField; // @synthesize recordDataField=_recordDataField;
+@property(copy, nonatomic) NSString *m_authKey; // @synthesize m_authKey=_m_authKey;
 @property(retain, nonatomic) CdnUploadTaskInfo *m_taskResultInfo; // @synthesize m_taskResultInfo=_m_taskResultInfo;
+@property(nonatomic) unsigned int m_uiScene; // @synthesize m_uiScene=_m_uiScene;
+@property(retain, nonatomic) NSString *m_nsUsername; // @synthesize m_nsUsername=_m_nsUsername;
 @property(retain, nonatomic) NSString *m_nsThumbPath; // @synthesize m_nsThumbPath=_m_nsThumbPath;
-@property(copy, nonatomic) NSString *m_authKey; // @synthesize m_authKey;
-@property(nonatomic) unsigned int m_uiFileType; // @synthesize m_uiFileType;
-@property(retain, nonatomic) NSString *m_nsExtInfo; // @synthesize m_nsExtInfo;
-@property(nonatomic) unsigned int m_uiScene; // @synthesize m_uiScene;
-@property(nonatomic) unsigned int m_uiFileTotalLen; // @synthesize m_uiFileTotalLen;
-@property(retain, nonatomic) NSString *m_nsAesKey; // @synthesize m_nsAesKey;
-@property(retain, nonatomic) NSString *m_nsFileID; // @synthesize m_nsFileID;
-@property(retain, nonatomic) NSString *m_nsUsername; // @synthesize m_nsUsername;
-@property(retain, nonatomic) NSString *m_nsFilePath; // @synthesize m_nsFilePath;
-@property(retain, nonatomic) NSString *m_nsClientMsgID; // @synthesize m_nsClientMsgID;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

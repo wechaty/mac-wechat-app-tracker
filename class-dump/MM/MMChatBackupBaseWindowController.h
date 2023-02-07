@@ -27,6 +27,7 @@
 @property(retain, nonatomic) MMTextField *versionSupportLabel; // @synthesize versionSupportLabel=_versionSupportLabel;
 @property(retain, nonatomic) MMNavigationController *naviController; // @synthesize naviController=_naviController;
 @property(retain, nonatomic) MMChatLogHeaderView *headerView; // @synthesize headerView=_headerView;
+- (void)tryRecoverChatLogFromBakTxt;
 - (void)tryGoToBackupRecoverController;
 - (void)tryPauseMigrateProcessWithServerID:(id)arg1;
 - (void)tryMigrateToMobile;

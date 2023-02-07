@@ -14,14 +14,14 @@
     int m_customItemCount;
 }
 
-+ (void)insertH5TransferCGIItem:(int)arg1;
++ (void)updateH5TransferCGIItem:(int)arg1 andCgiUrl:(id)arg2;
 + (void)addCGIItem:(const struct MMCGIItem *)arg1;
 + (const struct MMCGIItem *)findItemWithCmdID:(int)arg1;
 + (const struct MMCGIItem *)findItemWithFunc:(int)arg1;
 + (id)sharedInstance;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)insertH5TransferCGIItemInternal:(int)arg1;
+- (void)updateH5TransferCGIItem:(int)arg1 andCgiUrl:(id)arg2;
 - (void)addCGIItemInternal:(const struct MMCGIItem *)arg1;
 - (const struct MMCGIItem *)findItemWithCmdIDInternal:(int)arg1;
 - (const struct MMCGIItem *)findItemWithFuncInternal:(int)arg1;

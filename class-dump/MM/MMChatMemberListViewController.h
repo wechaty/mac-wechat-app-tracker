@@ -115,6 +115,7 @@
 - (void)handleModifyGroupChatNameOplogRet:(int)arg1 errMsg:(id)arg2 groupName:(id)arg3;
 - (void)onOpenImOplogRet:(int)arg1 errMsg:(id)arg2 openImlog:(id)arg3;
 - (void)onOpLogRet:(int)arg1 errMsg:(id)arg2 oplog:(id)arg3;
+- (void)OnQuitGroupUIAction:(id)arg1 withResult:(BOOL)arg2 errorMsg:(id)arg3 deleteAllMsg:(BOOL)arg4;
 - (void)OnModifyGroupMemberContact:(id)arg1;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
 - (void)updateGroupMemberOnModifyContacts:(id)arg1;

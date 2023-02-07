@@ -6,11 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSString;
+@class BaseWebViewController, NSDictionary, NSString;
 
 @protocol BaseWebViewControllerDelegate <NSObject>
 
 @optional
+- (void)webViewController:(BaseWebViewController *)arg1 closeWithParam:(NSDictionary *)arg2;
+- (void)webViewController:(BaseWebViewController *)arg1 closeAndGoNext:(NSDictionary *)arg2;
 - (void)canGoForwardStatusChange:(BOOL)arg1;
 - (void)canGoBackStatusChange:(BOOL)arg1;
 - (void)exitMiniMode;

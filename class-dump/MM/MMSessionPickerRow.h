@@ -22,6 +22,7 @@
     MMSearchResultItem *_searchResultItem;
 }
 
++ (id)forwardToWeWorkButtonRow;
 + (id)createMoreButtonRow:(BOOL)arg1;
 + (id)createSessionButtonRow;
 + (id)loadingRow;

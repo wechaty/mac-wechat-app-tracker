@@ -39,6 +39,7 @@
 - (BOOL)isAppSoliataireMsg;
 - (BOOL)isAppBrandNativeMsg;
 - (BOOL)isOpenSDKAppBrandMsg;
+- (BOOL)isAssetsMsg;
 - (BOOL)isGroupNoticeMsg;
 - (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;

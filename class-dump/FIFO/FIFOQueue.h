@@ -19,6 +19,8 @@
 - (BOOL)isInQueue:(id)arg1;
 - (BOOL)isEmpty;
 - (void)cleanup;
+- (BOOL)popFirst;
+- (id)getFirst;
 - (BOOL)pop;
 - (id)getTop;
 - (BOOL)push:(id)arg1;

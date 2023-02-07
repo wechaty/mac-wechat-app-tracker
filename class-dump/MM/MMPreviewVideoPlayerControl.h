@@ -17,7 +17,6 @@
     NSString *_currentPath;
 }
 
-+ (id)sharedInstance;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *currentPath; // @synthesize currentPath=_currentPath;
 @property(retain, nonatomic) _TtC6WeChat9WCMPlayer *player; // @synthesize player=_player;

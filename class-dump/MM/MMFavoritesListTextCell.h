@@ -13,7 +13,9 @@
     NSTextField *_descTextView;
 }
 
++ (id)getFavTextCellText:(id)arg1;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
++ (double)getTextStyleActualContent:(id)arg1 inputTitle:(id)arg2 inputDescription:(id)arg3 widthConstrain:(double)arg4 outputTextContent:(id *)arg5;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *descTextView; // @synthesize descTextView=_descTextView;
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;

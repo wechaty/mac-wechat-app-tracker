@@ -11,6 +11,8 @@
 @protocol VideoMessageHandlerDelegate <NSObject>
 
 @optional
+- (void)onVideoCheckExistFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;
+- (void)onVideoMsgUploadFinish:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyVideoMsgUploadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 - (void)onVideoMsgSendFinish:(NSString *)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 @end

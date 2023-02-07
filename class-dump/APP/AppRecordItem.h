@@ -18,6 +18,7 @@
     NSString *_m_nsFavUsername;
 }
 
++ (id)GetRecordResourceStatePathByUsername:(id)arg1 LocalID:(unsigned int)arg2;
 + (id)GetNestedRecordDataPathByParentDataField:(id)arg1 currentDataField:(id)arg2;
 + (id)GetNestedRecordDataPathByBreadPath:(id)arg1 DataID:(id)arg2 DataExt:(id)arg3;
 + (id)GetNestedRecordThumbPathByParentDataField:(id)arg1 currentDataField:(id)arg2;
@@ -28,6 +29,7 @@
 + (id)GetRecordDataPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3 DataExt:(id)arg4;
 + (id)GetRecordDataPathByParentMessage:(id)arg1 dataField:(id)arg2;
 + (id)GetRecordDataTempPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3;
++ (id)GetRecordDataMidPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3 DataExt:(id)arg4;
 + (id)GetRecordThumbPathByUsername:(id)arg1 LocalID:(unsigned int)arg2 DataID:(id)arg3;
 + (id)GetRecordThumbPathByParentMessage:(id)arg1 dataField:(id)arg2;
 + (void)GetPathOfAppDir:(id)arg1 retStrPath:(id *)arg2;
@@ -36,7 +38,7 @@
 + (id)RecordItemToXML:(id)arg1;
 + (id)genRecordTitleByDataList:(id)arg1;
 + (id)parseDataList:(struct XmlReaderNode_t *)arg1 msg:(id)arg2 dataIdSet:(id)arg3 deep:(int)arg4;
-+ (BOOL)ParserRecordXML:(id)arg1 TORecordItem:(id)arg2 msg:(id)arg3;
++ (BOOL)ParserRecordXML:(id)arg1 TORecordItem:(id)arg2 msg:(id)arg3 innerNodeName:(const char *)arg4;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *m_nsFavUsername; // @synthesize m_nsFavUsername=_m_nsFavUsername;
 @property(nonatomic) unsigned int m_uiFromScene; // @synthesize m_uiFromScene=_m_uiFromScene;

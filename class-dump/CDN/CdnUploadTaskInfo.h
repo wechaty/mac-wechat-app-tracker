@@ -27,6 +27,7 @@
     NSString *_m_nsThumbAesKey;
     unsigned long long _m_nFileLength;
     NSString *_m_nsFileMD5;
+    NSString *_m_nsMidimgMD5;
     NSString *_m_nsTransInfo;
     NSString *_m_nsChatName;
     NSString *_m_nsVideoNewMd5;
@@ -62,6 +63,7 @@
 @property(retain, nonatomic) NSString *m_nsChatName; // @synthesize m_nsChatName=_m_nsChatName;
 @property(nonatomic) int m_nRetCode; // @synthesize m_nRetCode=_m_nRetCode;
 @property(retain, nonatomic) NSString *m_nsTransInfo; // @synthesize m_nsTransInfo=_m_nsTransInfo;
+@property(retain, nonatomic) NSString *m_nsMidimgMD5; // @synthesize m_nsMidimgMD5=_m_nsMidimgMD5;
 @property(nonatomic) int m_nMidimgLength; // @synthesize m_nMidimgLength=_m_nMidimgLength;
 @property(retain, nonatomic) NSString *m_nsFileMD5; // @synthesize m_nsFileMD5=_m_nsFileMD5;
 @property(nonatomic) unsigned long long m_nFileLength; // @synthesize m_nFileLength=_m_nFileLength;

@@ -23,7 +23,7 @@
 }
 
 + (BOOL)usePriorityDownloadQueue:(id)arg1;
-+ (int)convertDownloadTypeToBehavior:(int)arg1;
++ (int)convertDownloadTypeToBehavior:(unsigned long long)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSRecursiveLock *m_lock; // @synthesize m_lock=_m_lock;
 @property(retain, nonatomic) NSMutableArray *favStartedSet; // @synthesize favStartedSet=_favStartedSet;
@@ -37,7 +37,7 @@
 - (void)processDownloadTaskOnType:(int)arg1;
 - (void)callHttpDownloadExt:(id)arg1 bRet:(BOOL)arg2;
 - (void)callMessageDataDownloadExt:(id)arg1 bRet:(BOOL)arg2;
-- (void)callFavItemDataDownloadExt:(id)arg1 cdnDownloadInfo:(id)arg2 bRet:(BOOL)arg3;
+- (void)callFavItemDataDownloadExt:(id)arg1 retCode:(int)arg2;
 - (void)callRecordMsgDownloadExt:(id)arg1 bRet:(BOOL)arg2;
 - (void)continueDownloadQueue:(id)arg1 clientMediaID:(id)arg2;
 - (void)OnCdnDownloadFinished:(id)arg1;
@@ -46,28 +46,28 @@
 - (id)imageCDNDownloadParaWithFavItemData:(id)arg1;
 - (id)thumbnailCDNDownloadParaWithFavItemData:(id)arg1;
 - (int)videoFormat;
-- (id)videoCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2 downloadType:(int)arg3;
+- (id)videoCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2 downloadType:(unsigned long long)arg3;
 - (id)thumbnailCDNDownloadParaWithMessage:(id)arg1;
-- (id)fileCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5 downloadType:(int)arg6;
-- (id)appMsgImageCDNDownloadParaWithMessage:(id)arg1 bMidImage:(BOOL)arg2 downloadType:(int)arg3;
-- (id)msgImageCDNDownloadParaWithMessage:(id)arg1 disableHevc:(BOOL)arg2 bMidImage:(BOOL)arg3 downloadType:(int)arg4;
+- (id)fileCDNDownloadParaWithMessage:(id)arg1 destinationPath:(id)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5 downloadType:(unsigned long long)arg6;
+- (id)appMsgImageCDNDownloadParaWithMessage:(id)arg1 bMidImage:(BOOL)arg2 downloadType:(unsigned long long)arg3;
+- (id)msgImageCDNDownloadParaWithMessage:(id)arg1 disableHevc:(BOOL)arg2 bMidImage:(BOOL)arg3 downloadType:(unsigned long long)arg4;
 - (BOOL)StopHttpsDownloadTask:(id)arg1;
 - (BOOL)StartHttpsDownloadTask:(id)arg1 withUrl:(id)arg2 withSavePath:(id)arg3 withIPList:(id)arg4 withIsGzip:(BOOL)arg5 withFileType:(int)arg6;
 - (BOOL)startDownloadHeadAvatarImage:(id)arg1;
 - (void)startFavDownloadQueue;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 destinationPath:(id)arg2 type:(int)arg3;
 - (id)downloadCDNFileWithFavItemData:(id)arg1 type:(int)arg2;
-- (BOOL)downloadCDNFileWithMessage:(id)arg1 type:(int)arg2 destinationPath:(id)arg3 signature:(id)arg4 fakeAeskey:(id)arg5 fakeSignature:(id)arg6 downloadType:(int)arg7;
+- (BOOL)downloadCDNFileWithMessage:(id)arg1 type:(int)arg2 destinationPath:(id)arg3 signature:(id)arg4 fakeAeskey:(id)arg5 fakeSignature:(id)arg6 downloadType:(unsigned long long)arg7;
 - (BOOL)downloadCDNFileWithMessage:(id)arg1 type:(int)arg2 destinationPath:(id)arg3 signature:(id)arg4 fakeAeskey:(id)arg5 fakeSignature:(id)arg6;
 - (BOOL)downloadCDNFileWithMessage:(id)arg1 type:(int)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5;
-- (BOOL)downloadMidImageWithMessage:(id)arg1 disableHevc:(BOOL)arg2 downloadType:(int)arg3;
-- (BOOL)downloadImageWithMessage:(id)arg1 disableHevc:(BOOL)arg2 downloadType:(int)arg3;
-- (BOOL)downloadMidImageWithMessage:(id)arg1 downloadType:(int)arg2;
-- (BOOL)downloadImageWithMessage:(id)arg1 downloadType:(int)arg2;
+- (BOOL)downloadMidImageWithMessage:(id)arg1 disableHevc:(BOOL)arg2 downloadType:(unsigned long long)arg3;
+- (BOOL)downloadImageWithMessage:(id)arg1 disableHevc:(BOOL)arg2 downloadType:(unsigned long long)arg3;
+- (BOOL)downloadMidImageWithMessage:(id)arg1 downloadType:(unsigned long long)arg2;
+- (BOOL)downloadImageWithMessage:(id)arg1 downloadType:(unsigned long long)arg2;
 - (void)cancelDownloadWithClientMsgID:(id)arg1;
 - (void)cancelDownloadWithMessage:(id)arg1 mediaType:(unsigned long long)arg2;
 - (void)cancelDownloadWithMessage:(id)arg1 type:(int)arg2;
-- (void)updatePriorityInfo:(id)arg1 downloadType:(int)arg2 forTask:(id)arg3 bRecommit:(char *)arg4;
+- (void)updatePriorityInfo:(id)arg1 downloadType:(unsigned long long)arg2 forTask:(id)arg3 bRecommit:(char *)arg4;
 - (void)addPriorityInfo:(id)arg1 forTask:(id)arg2;
 - (double)downloadProgressOfTask:(id)arg1;
 - (BOOL)isTaskInDownloadingList:(id)arg1;

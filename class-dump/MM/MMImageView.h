@@ -6,7 +6,7 @@
 
 #import <AppKit/NSImageView.h>
 
-@class NSColor, NSImage;
+@class NSImage;
 
 @interface MMImageView : NSImageView
 {
@@ -14,7 +14,6 @@
     BOOL _forceWindowDraggable;
     BOOL _drawWithAspectFill;
     BOOL _draggable;
-    NSColor *_mmBackgrounColor;
     long long _vibrancyMode;
     CDUnknownBlockType _rightMouseUpEventBlock;
     CDUnknownBlockType _magnifyWithEventBlockIsHandled;
@@ -35,7 +34,6 @@
 @property(nonatomic) BOOL drawWithAspectFill; // @synthesize drawWithAspectFill=_drawWithAspectFill;
 @property(nonatomic) BOOL forceWindowDraggable; // @synthesize forceWindowDraggable=_forceWindowDraggable;
 @property(nonatomic) long long vibrancyMode; // @synthesize vibrancyMode=_vibrancyMode;
-@property(retain, nonatomic) NSColor *mmBackgrounColor; // @synthesize mmBackgrounColor=_mmBackgrounColor;
 - (void)setAnchorPoint:(struct CGPoint)arg1;
 - (void)touchesMovedWithEvent:(id)arg1;
 - (void)touchesCancelledWithEvent:(id)arg1;

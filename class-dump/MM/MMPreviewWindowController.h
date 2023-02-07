@@ -7,17 +7,21 @@
 #import "MMWindowController.h"
 
 #import "IOCRTransMgrExt-Protocol.h"
+#import "MMBasePreviewViewControllerDelegate-Protocol.h"
 #import "MMOCRScannerExt-Protocol.h"
+#import "MMPageControllerDelegate-Protocol.h"
 #import "MMPreviewWindowDelegate-Protocol.h"
+#import "MMPreviewWindowOCRPluginDelegate-Protocol.h"
+#import "MMPreviewWindowPluginDelegate-Protocol.h"
 #import "MMQRCodeScannerExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
-#import "NSPageControllerDelegate-Protocol.h"
 #import "NSSharingServiceDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPreviewEventView, MMPreviewPageController, MMPreviewToggleRestoreButton, MMPreviewViewController, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat15TrackButtonView;
+@class MMBasePreviewViewController, MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPageController, MMPreviewEventView, MMPreviewToggleRestoreButton, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSMutableArray, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat28PreviewTransitionTrackButton;
+@protocol MMPreviewWindowControllerDelegate;
 
-@interface MMPreviewWindowController : MMWindowController <NSWindowDelegate, NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMOCRScannerExt, NSPageControllerDelegate>
+@interface MMPreviewWindowController : MMWindowController <NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMOCRScannerExt, MMPreviewWindowPluginDelegate, MMBasePreviewViewControllerDelegate, MMPreviewWindowOCRPluginDelegate, NSWindowDelegate, MMPageControllerDelegate>
 {
     BOOL _isUpdatingItemList;
     BOOL _isFullScreen;
@@ -25,7 +29,6 @@
     BOOL _useButtonNavigation;
     BOOL _useSwipeNavigation;
     BOOL _bAtCenterBeforeDownload;
-    BOOL _touchEdge;
     BOOL _isAnimationOpening;
     BOOL _canResizeWindow;
     BOOL _initialOpening;
@@ -37,15 +40,16 @@
     BOOL _hasQRCodeInRect;
     BOOL _isDoingTranslate;
     BOOL _bDidResized;
+    id <MMPreviewWindowControllerDelegate> _delegate;
+    NSString *_uniqueID;
     MMPreviewEventView *_containerView;
     NSImageView *_animationThumbView;
-    MMPreviewPageController *_pageController;
-    MMPreviewViewController *_previewViewController;
+    MMPageController *_pageController;
+    MMBasePreviewViewController *_previewViewController;
     NSArray *_previewItemList;
     unsigned long long _previewType;
     unsigned long long _previewScene;
     unsigned long long _previewSubScene;
-    unsigned long long _preIndex;
     NSView *_failedBgView;
     NSView *_failedImageViewContainer;
     NSImageView *_failedContrastView;
@@ -63,25 +67,33 @@
     MMPreviewToggleRestoreButton *_restoreButton;
     MMButton *_qrButton;
     MMButton *_translateButton;
+    MMCustomDisableButton *_textRecognizeButton;
     MMMediumDivider *_secondDivider;
     MMCustomDisableButton *_rotateButton;
     MMCustomDisableButton *_editButton;
     MMButton *_menuButton;
     MMTimer *_resizeTimer;
+    NSView *_previewContainerView;
+    NSView *_rightPluginContainer;
     MMView *_fullScreenToolbar;
     NSButton *_fullScreenCloseBtn;
     NSButton *_fullScreenZoomBtn;
     NSTrackingArea *_fullScreenTrackingArea;
     MMTimer *_fullScreenToolbarTimer;
-    double _startLiveTransitionTime;
-    _TtC6WeChat15TrackButtonView *_prevButton;
-    _TtC6WeChat15TrackButtonView *_nextButton;
+    _TtC6WeChat28PreviewTransitionTrackButton *_prevButton;
+    _TtC6WeChat28PreviewTransitionTrackButton *_nextButton;
     NSTrackingArea *_leftTrackingArea;
     NSTrackingArea *_rightTrackingArea;
+    NSMutableArray *_windowPlugins;
+    NSView *_invalidMaskView;
+    long long _sessionId;
     struct CGRect _windowFrame;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long sessionId; // @synthesize sessionId=_sessionId;
+@property(retain, nonatomic) NSView *invalidMaskView; // @synthesize invalidMaskView=_invalidMaskView;
+@property(retain, nonatomic) NSMutableArray *windowPlugins; // @synthesize windowPlugins=_windowPlugins;
 @property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
 @property(nonatomic) BOOL isDoingTranslate; // @synthesize isDoingTranslate=_isDoingTranslate;
 @property(nonatomic) BOOL hasQRCodeInRect; // @synthesize hasQRCodeInRect=_hasQRCodeInRect;
@@ -89,20 +101,22 @@
 @property(nonatomic) BOOL isDoingRotating; // @synthesize isDoingRotating=_isDoingRotating;
 @property(retain, nonatomic) NSTrackingArea *rightTrackingArea; // @synthesize rightTrackingArea=_rightTrackingArea;
 @property(retain, nonatomic) NSTrackingArea *leftTrackingArea; // @synthesize leftTrackingArea=_leftTrackingArea;
-@property(retain, nonatomic) _TtC6WeChat15TrackButtonView *nextButton; // @synthesize nextButton=_nextButton;
-@property(retain, nonatomic) _TtC6WeChat15TrackButtonView *prevButton; // @synthesize prevButton=_prevButton;
-@property(nonatomic) double startLiveTransitionTime; // @synthesize startLiveTransitionTime=_startLiveTransitionTime;
+@property(retain, nonatomic) _TtC6WeChat28PreviewTransitionTrackButton *nextButton; // @synthesize nextButton=_nextButton;
+@property(retain, nonatomic) _TtC6WeChat28PreviewTransitionTrackButton *prevButton; // @synthesize prevButton=_prevButton;
 @property(retain, nonatomic) MMTimer *fullScreenToolbarTimer; // @synthesize fullScreenToolbarTimer=_fullScreenToolbarTimer;
 @property(retain, nonatomic) NSTrackingArea *fullScreenTrackingArea; // @synthesize fullScreenTrackingArea=_fullScreenTrackingArea;
 @property(retain, nonatomic) NSButton *fullScreenZoomBtn; // @synthesize fullScreenZoomBtn=_fullScreenZoomBtn;
 @property(retain, nonatomic) NSButton *fullScreenCloseBtn; // @synthesize fullScreenCloseBtn=_fullScreenCloseBtn;
 @property(retain, nonatomic) MMView *fullScreenToolbar; // @synthesize fullScreenToolbar=_fullScreenToolbar;
+@property(retain, nonatomic) NSView *rightPluginContainer; // @synthesize rightPluginContainer=_rightPluginContainer;
+@property(retain, nonatomic) NSView *previewContainerView; // @synthesize previewContainerView=_previewContainerView;
 @property(nonatomic) BOOL isClosing; // @synthesize isClosing=_isClosing;
 @property(retain, nonatomic) MMTimer *resizeTimer; // @synthesize resizeTimer=_resizeTimer;
 @property(retain, nonatomic) MMButton *menuButton; // @synthesize menuButton=_menuButton;
 @property(retain, nonatomic) MMCustomDisableButton *editButton; // @synthesize editButton=_editButton;
 @property(retain, nonatomic) MMCustomDisableButton *rotateButton; // @synthesize rotateButton=_rotateButton;
 @property(retain, nonatomic) MMMediumDivider *secondDivider; // @synthesize secondDivider=_secondDivider;
+@property(retain, nonatomic) MMCustomDisableButton *textRecognizeButton; // @synthesize textRecognizeButton=_textRecognizeButton;
 @property(retain, nonatomic) MMButton *translateButton; // @synthesize translateButton=_translateButton;
 @property(retain, nonatomic) MMButton *qrButton; // @synthesize qrButton=_qrButton;
 @property(retain, nonatomic) MMPreviewToggleRestoreButton *restoreButton; // @synthesize restoreButton=_restoreButton;
@@ -115,19 +129,17 @@
 @property(retain, nonatomic) NSButton *mmCloseBtn; // @synthesize mmCloseBtn=_mmCloseBtn;
 @property(retain, nonatomic) MMDragEventView *toolBarContainer; // @synthesize toolBarContainer=_toolBarContainer;
 @property(retain, nonatomic) NSView *toolBarBgContainer; // @synthesize toolBarBgContainer=_toolBarBgContainer;
-@property __weak NSTextField *errMsgLabel; // @synthesize errMsgLabel=_errMsgLabel;
-@property __weak NSImageView *failedImageView; // @synthesize failedImageView=_failedImageView;
-@property __weak NSImageView *failedContrastView; // @synthesize failedContrastView=_failedContrastView;
-@property __weak NSView *failedImageViewContainer; // @synthesize failedImageViewContainer=_failedImageViewContainer;
-@property __weak NSView *failedBgView; // @synthesize failedBgView=_failedBgView;
+@property(retain, nonatomic) NSTextField *errMsgLabel; // @synthesize errMsgLabel=_errMsgLabel;
+@property(retain, nonatomic) NSImageView *failedImageView; // @synthesize failedImageView=_failedImageView;
+@property(retain, nonatomic) NSImageView *failedContrastView; // @synthesize failedContrastView=_failedContrastView;
+@property(retain, nonatomic) NSView *failedImageViewContainer; // @synthesize failedImageViewContainer=_failedImageViewContainer;
+@property(retain, nonatomic) NSView *failedBgView; // @synthesize failedBgView=_failedBgView;
 @property(nonatomic) BOOL isShowWindowResize; // @synthesize isShowWindowResize=_isShowWindowResize;
 @property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
 @property(nonatomic) struct CGRect windowFrame; // @synthesize windowFrame=_windowFrame;
 @property(nonatomic) BOOL initialOpening; // @synthesize initialOpening=_initialOpening;
 @property(nonatomic) BOOL canResizeWindow; // @synthesize canResizeWindow=_canResizeWindow;
-@property(nonatomic) unsigned long long preIndex; // @synthesize preIndex=_preIndex;
 @property(nonatomic) BOOL isAnimationOpening; // @synthesize isAnimationOpening=_isAnimationOpening;
-@property(nonatomic) BOOL touchEdge; // @synthesize touchEdge=_touchEdge;
 @property(nonatomic) BOOL bAtCenterBeforeDownload; // @synthesize bAtCenterBeforeDownload=_bAtCenterBeforeDownload;
 @property(nonatomic) BOOL useSwipeNavigation; // @synthesize useSwipeNavigation=_useSwipeNavigation;
 @property(nonatomic) BOOL useButtonNavigation; // @synthesize useButtonNavigation=_useButtonNavigation;
@@ -138,21 +150,38 @@
 @property(nonatomic) unsigned long long previewScene; // @synthesize previewScene=_previewScene;
 @property(nonatomic) unsigned long long previewType; // @synthesize previewType=_previewType;
 @property(retain, nonatomic) NSArray *previewItemList; // @synthesize previewItemList=_previewItemList;
-@property(retain, nonatomic) MMPreviewViewController *previewViewController; // @synthesize previewViewController=_previewViewController;
-@property(retain, nonatomic) MMPreviewPageController *pageController; // @synthesize pageController=_pageController;
+@property(retain, nonatomic) MMBasePreviewViewController *previewViewController; // @synthesize previewViewController=_previewViewController;
+@property(retain, nonatomic) MMPageController *pageController; // @synthesize pageController=_pageController;
 @property(retain, nonatomic) NSImageView *animationThumbView; // @synthesize animationThumbView=_animationThumbView;
 @property(retain, nonatomic) MMPreviewEventView *containerView; // @synthesize containerView=_containerView;
+@property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
+@property(nonatomic) __weak id <MMPreviewWindowControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)onRecognizedTextSelectedRangeChange:(struct _NSRange)arg1;
+- (id)recognizedText;
+- (id)windowPluginWithProtocol:(id)arg1;
+- (id)topWindowPlugin;
+- (void)removeWindowPlugin:(id)arg1;
+- (void)addWindowPlugin:(id)arg1;
 - (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
+- (void)onOCRRecognizeFinish:(id)arg1;
 - (void)onOCRDetectFinish:(id)arg1;
+- (void)reportOcr:(unsigned long long)arg1;
+- (void)hideRecognizeText;
+- (void)showRecognizeText;
+- (void)showAllRecognizeText;
+- (void)onTextRecognizeButtonClick:(id)arg1;
+- (void)rightMouseTextRecognize;
+- (BOOL)isOcrPluginActive;
 - (void)doAnimationForImageRotate;
 - (void)doAnimationForImageRotateAfterResizeWindow;
 - (void)doAnimationForImageRotateAndWindowFrame:(BOOL)arg1;
 - (void)rotateFromMouseEvent:(BOOL)arg1;
-- (void)_pageControllerDidEndTransition:(id)arg1;
 - (void)_pageControllerWillStartTransition;
 - (struct CGRect)pageController:(id)arg1 frameForObject:(id)arg2;
-- (void)pageControllerDidEndLiveTransition:(id)arg1;
-- (void)pageControllerWillStartLiveTransition:(id)arg1;
+- (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
+- (void)pageControllerDidEndLiveTransition:(id)arg1 isForward:(BOOL)arg2;
+- (void)pageControllerWillStartLiveTransition:(id)arg1 isForward:(BOOL)arg2;
+- (void)pageController:(id)arg1 prepareViewController:(id)arg2 withObject:(id)arg3;
 - (id)pageController:(id)arg1 viewControllerForIdentifier:(id)arg2;
 - (id)pageController:(id)arg1 identifierForObject:(id)arg2;
 - (void)showQRBarButton;
@@ -164,7 +193,9 @@
 - (void)updateToolbarButtonWithZoomInEnabled:(BOOL)arg1 zoomOutEnabled:(BOOL)arg2;
 - (void)updateToolbarButtonWithPrevEnabled:(BOOL)arg1 isNextEnabled:(BOOL)arg2;
 - (void)updateToolbarButtonWithLoading:(BOOL)arg1;
+- (void)updateContentViewPrevNextButton;
 - (void)updateToolbarControls;
+- (void)resetToolbarControls;
 - (struct CGRect)toolbarFrame;
 - (void)hideTranslateImage;
 - (void)willShowTranslateImage;
@@ -177,13 +208,24 @@
 - (void)doSomethingWhenUserLogout;
 - (void)doSomethingWhenUnLocked;
 - (void)doSomethingWhenLocked;
+- (void)_searchRecognizedText;
+- (void)rightMouseSearchRecognizedText;
+- (BOOL)_favoriteRecognizedText;
+- (void)rightMouseFavoriteRecognizedText;
+- (BOOL)_forwardRecognizedText;
+- (void)rightMouseForwardRecognizedText;
+- (BOOL)_copyRecognizedText;
+- (void)rightMouseCopyRecognizedText;
 - (void)_clickButtonSharingServiceAction:(id)arg1;
 - (void)_rightMouseSharingServiceAction:(id)arg1;
 - (void)_menuActionExport;
 - (void)doAddFavItem:(id)arg1;
 - (void)_menuActionFavorite;
+- (void)forwardPreviewItemToWeWork:(id)arg1;
 - (void)forwardPreviewItem:(id)arg1 toContactsWithUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)sendPreviewItemToWeWork:(id)arg1;
 - (void)sendPreviewItem:(id)arg1 toContactsWithUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)sendAndForWardPreviewItemToWeWork:(id)arg1;
 - (void)_menuActionForward;
 - (void)_menuActionCopy;
 - (void)_menuActionOpenWith;
@@ -203,6 +245,7 @@
 - (id)makeRightContextMenu;
 - (void)resetContextMenu;
 - (void)setupContextMenu;
+- (void)shortCutMenuActionSelectAllText;
 - (void)shortCutMenuActionCopy;
 - (void)shortCutMenuActionExport;
 - (void)shortCutCloseActionWithEscape;
@@ -233,6 +276,8 @@
 - (void)onTranslateButtonClick:(id)arg1;
 - (void)onQRCodeButtonClick:(id)arg1;
 - (void)onPageDidTransition:(id)arg1;
+- (void)nextPageWithKeyDown;
+- (void)prevPageWithKeyDown;
 - (void)nextItemWithKeyDown:(unsigned long long)arg1;
 - (void)prevItemWithKeyDown:(unsigned long long)arg1;
 - (void)resetNaviActionParameter:(unsigned long long)arg1;
@@ -259,11 +304,15 @@
 - (struct CGRect)initialWindowFrameWithImageSize:(struct CGSize)arg1 sourceFrame:(struct CGRect)arg2;
 - (struct CGSize)handleFloatingSize:(struct CGSize)arg1;
 - (void)closeWithMenu;
+- (unsigned int)reportIsCollection;
+- (BOOL)shouldShowTextRecognizeEntrance;
 - (BOOL)shouldShowImageTranlateEntrance;
 - (unsigned long long)QRCodeResultCount;
 - (BOOL)shouldShowQRCodeEntrance;
 - (BOOL)shouldShowShareEntrance;
 - (BOOL)shouldShowEditEntrance;
+- (BOOL)shouldEnableNextButton;
+- (BOOL)shouldEnablePrevButton;
 - (BOOL)shouldShowMainwindow;
 - (void)setupThumbForAnimationWithItem:(id)arg1 targetFrame:(struct CGRect)arg2 isOpening:(BOOL)arg3;
 - (id)currentWindow;
@@ -274,7 +323,6 @@
 - (void)nextItemFromTrackButton:(id)arg1;
 - (void)prevItemFromTrackButton:(id)arg1;
 - (void)setupNextPrevButtons;
-- (void)relayoutButtons;
 - (void)updateWindowResizeZooming;
 - (void)updateDidExitFullScreenZooming;
 - (void)updateWillEnterFullScreenZooming;
@@ -308,8 +356,12 @@
 - (void)setupPageController;
 - (BOOL)isUpdatingPageController:(id)arg1;
 - (void)preloadVideoOfInfo:(id)arg1;
+- (void)onPreviewInvalid:(id)arg1;
 - (void)setupFullScreenToolBar;
 - (void)updateButtonsAnimator;
+- (void)updateImageOperateBtnStatus:(BOOL)arg1;
+- (void)resetImageOperateBtnSetting:(BOOL)arg1;
+- (void)resetPrevNextBtn:(BOOL)arg1;
 - (void)_layoutToolbarToolBtns;
 - (void)_layoutToolbarControlBtns;
 - (void)setupToolBarContainer;
@@ -319,6 +371,7 @@
 - (BOOL)_dragFarEnough:(struct CGPoint)arg1 from:(struct CGPoint)arg2;
 - (void)removeAnimationThumbView;
 - (void)setupAnimationThumbView;
+- (void)initViews;
 - (void)commonSetup;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidMove:(id)arg1;

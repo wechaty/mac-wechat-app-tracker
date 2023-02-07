@@ -24,6 +24,7 @@
     unsigned int hasIsKidAcct:1;
     unsigned int hasSessionList:1;
     unsigned int hasFlag:1;
+    unsigned int hasAuthUrl:1;
     unsigned int status;
     unsigned int pushLoginUrlexpiredTime;
     unsigned int expiredTime;
@@ -38,10 +39,13 @@
     NSString *pairWaitTip;
     NSString *authorDeviceType;
     NSString *sessionList;
+    NSString *authUrl;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetAuthUrl:) NSString *authUrl; // @synthesize authUrl;
+@property(readonly, nonatomic) BOOL hasAuthUrl; // @synthesize hasAuthUrl;
 @property(nonatomic, setter=SetFlag:) unsigned int flag; // @synthesize flag;
 @property(readonly, nonatomic) BOOL hasFlag; // @synthesize hasFlag;
 @property(retain, nonatomic, setter=SetSessionList:) NSString *sessionList; // @synthesize sessionList;

@@ -60,6 +60,7 @@
     unsigned int _m_uiTotalBytes;
     int _m_nCdnServerRetCode;
     unsigned int _m_uiResendMessageCount;
+    unsigned int _m_uiShareCardMessageStatus;
     long long lastInsertedRowID;
     NSString *StrRes1;
     NSString *StrRes2;
@@ -75,6 +76,7 @@
     NSString *m_nsAtUserList;
     MessageData *_fromMsgData;
     NSString *_m_nsImgFileName;
+    NSString *_m_nsMidImgMD5;
     NSString *_m_nsBigFileErrMsg;
     SecondMsgNode *_secondMsgNode;
     AlNode *_alnode;
@@ -164,6 +166,7 @@
 + (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
+@property(nonatomic) unsigned int m_uiShareCardMessageStatus; // @synthesize m_uiShareCardMessageStatus=_m_uiShareCardMessageStatus;
 @property(retain, nonatomic) ShareMsgNode *shareMsgNode; // @synthesize shareMsgNode=_shareMsgNode;
 @property(retain, nonatomic) NSString *m_historyTitleNew; // @synthesize m_historyTitleNew=_m_historyTitleNew;
 @property(retain, nonatomic) AlNode *alnode; // @synthesize alnode=_alnode;
@@ -175,6 +178,7 @@
 @property(nonatomic) unsigned int m_uiUploadedBytes; // @synthesize m_uiUploadedBytes=_m_uiUploadedBytes;
 @property(nonatomic) unsigned int m_nsMsgCrc32; // @synthesize m_nsMsgCrc32=_m_nsMsgCrc32;
 @property(retain, nonatomic) NSString *m_nsBigFileErrMsg; // @synthesize m_nsBigFileErrMsg=_m_nsBigFileErrMsg;
+@property(retain, nonatomic) NSString *m_nsMidImgMD5; // @synthesize m_nsMidImgMD5=_m_nsMidImgMD5;
 @property(retain, nonatomic) NSString *m_nsImgFileName; // @synthesize m_nsImgFileName=_m_nsImgFileName;
 @property(nonatomic) __weak MessageData *fromMsgData; // @synthesize fromMsgData=_fromMsgData;
 @property(nonatomic) BOOL m_bHasOriginalMessage; // @synthesize m_bHasOriginalMessage;
@@ -262,6 +266,7 @@
 - (BOOL)isPushMailMessage;
 - (BOOL)isTencentNewsMessage;
 - (BOOL)isChatRoomMessage;
+- (BOOL)isShareCardMsg;
 - (BOOL)isSendBySendMsg;
 - (BOOL)isQQMsg;
 - (BOOL)isAppMsg;
@@ -299,6 +304,8 @@
 - (BOOL)hasRevokedHistoryRecord;
 - (BOOL)hasDownloadHistoryRecord;
 - (BOOL)isWithHistoryRecord;
+- (void)disableShareCardMsgStatus:(unsigned int)arg1 isSync:(BOOL)arg2;
+- (BOOL)isPersonalShareCardMsg;
 - (void)writeToPasteboardItemEncodeByPBCoder:(id)arg1;
 - (void)pasteboard:(id)arg1 item:(id)arg2 provideDataForType:(id)arg3;
 - (void)writeToPasteboard:(id)arg1;
@@ -324,6 +331,9 @@
 - (BOOL)canExport;
 - (BOOL)canSaveToFavorites;
 - (BOOL)canForward;
+- (BOOL)needContinueUpload;
+- (BOOL)isForwardWithWeWork;
+- (BOOL)isMsgSent;
 - (BOOL)canRecall;
 - (unsigned int)sourceCreateTime;
 - (id)realChatUserName;

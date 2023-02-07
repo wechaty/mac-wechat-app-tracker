@@ -17,12 +17,12 @@
 - (void)cdnDownloadMgrDidFinishedDownloadWithChatName:(NSString *)arg1 localID:(unsigned int)arg2 recordMsgData:(FavoritesItemDataField *)arg3 type:(int)arg4;
 - (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 WithFavItemData:(FavoritesItemDataField *)arg3 type:(int)arg4;
 - (void)cdnDownloadMgrDidStartDownloadWithFavItemData:(FavoritesItemDataField *)arg1 type:(int)arg2 taskID:(NSString *)arg3;
-- (void)cdnDownloadMgrDidFailedDownloadWithFavItemData:(FavoritesItemDataField *)arg1 type:(int)arg2 taskID:(NSString *)arg3 errorCode:(long long)arg4;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(FavoritesItemDataField *)arg1 type:(int)arg2 filePath:(NSString *)arg3 taskID:(NSString *)arg4;
+- (void)cdnDownloadMgrDidFailedDownloadWithFavCdnTask:(MMCDNTask *)arg1 errorCode:(int)arg2;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDidCanceledDownloadWithCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(MMCDNTask *)arg1;
 - (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withFavItemData:(FavoritesItemDataField *)arg3 type:(int)arg4 tryShow:(BOOL)arg5;
-- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3 type:(int)arg4 downloadType:(int)arg5;
+- (void)cdnDownloadMgrDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3 type:(int)arg4 downloadType:(unsigned long long)arg5;
 @end
 

@@ -6,55 +6,64 @@
 
 #import "MMFavoritesDetailBaseCell.h"
 
-#import "MMFavoritesTagContainerViewExt-Protocol.h"
+#import "MMFavNewTagListViewControllerExt-Protocol.h"
 #import "MMMultipleSelectable-Protocol.h"
 
-@class MMDivider, MMFavoritesTagContainerViewController, MMImageView, MMOutlineButton, NSString, NSTextField;
+@class CAShapeLayer, MMDivider, MMFavNewTagListViewController, NSImageView, NSString, NSTextField, SVGImageView;
 
-@interface MMFavoritesListBaseCell : MMFavoritesDetailBaseCell <MMFavoritesTagContainerViewExt, MMMultipleSelectable>
+@interface MMFavoritesListBaseCell : MMFavoritesDetailBaseCell <MMFavNewTagListViewControllerExt, MMMultipleSelectable>
 {
     BOOL _mouseUpOpenItem;
     BOOL _multipleSelecting;
+    int _iconType;
     NSTextField *_nickNameLabel;
     NSTextField *_timeLabel;
-    MMFavoritesTagContainerViewController *_tagContainer;
-    MMDivider *_divider;
-    MMOutlineButton *_deleteButton;
-    MMImageView *_multipleSelectingIcon;
+    NSTextField *_sourceTextView;
+    MMDivider *_sourceTextDivider;
+    SVGImageView *_sourceIconView;
+    NSImageView *_multipleSelectingIcon;
+    MMFavNewTagListViewController *_tagCollectionView;
+    CAShapeLayer *_highlightLayer;
 }
 
-+ (double)getTextStyleActualContent:(id)arg1 inputTitle:(id)arg2 inputDescription:(id)arg3 widthConstrain:(double)arg4 outputTextContent:(id *)arg5;
 + (double)cellHeightWithFavItem:(id)arg1 andWidthConstrain:(double)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMImageView *multipleSelectingIcon; // @synthesize multipleSelectingIcon=_multipleSelectingIcon;
+@property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
+@property(retain, nonatomic) MMFavNewTagListViewController *tagCollectionView; // @synthesize tagCollectionView=_tagCollectionView;
+@property(retain, nonatomic) NSImageView *multipleSelectingIcon; // @synthesize multipleSelectingIcon=_multipleSelectingIcon;
 @property(nonatomic) BOOL multipleSelecting; // @synthesize multipleSelecting=_multipleSelecting;
 @property(nonatomic) BOOL mouseUpOpenItem; // @synthesize mouseUpOpenItem=_mouseUpOpenItem;
-@property(retain, nonatomic) MMOutlineButton *deleteButton; // @synthesize deleteButton=_deleteButton;
-@property(retain, nonatomic) MMDivider *divider; // @synthesize divider=_divider;
-@property(retain, nonatomic) MMFavoritesTagContainerViewController *tagContainer; // @synthesize tagContainer=_tagContainer;
+@property(nonatomic) int iconType; // @synthesize iconType=_iconType;
+@property(retain, nonatomic) SVGImageView *sourceIconView; // @synthesize sourceIconView=_sourceIconView;
+@property(retain, nonatomic) MMDivider *sourceTextDivider; // @synthesize sourceTextDivider=_sourceTextDivider;
+@property(retain, nonatomic) NSTextField *sourceTextView; // @synthesize sourceTextView=_sourceTextView;
 @property(retain, nonatomic) NSTextField *timeLabel; // @synthesize timeLabel=_timeLabel;
 @property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;
+- (void)onFinishUpdateItemsTags:(id)arg1;
+- (void)onStartUpdateItemsTags:(id)arg1;
+- (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
+- (void)tagListOnClickTagView:(id)arg1;
 - (void)tagContainerOnClickTagButton:(id)arg1;
 @property(nonatomic) BOOL canMultipleSelection;
-- (void)mouseUp:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (void)onSwipeDeleteItem;
-- (void)showSwipeEffect;
-- (void)cleanSwipeEffect;
 - (id)contactDataWithUserName:(id)arg1;
+- (struct CGRect)bubbleFrame;
 - (void)setMultipleSelected:(BOOL)arg1;
-- (double)getSenderInfoTimeLabelWidth;
-- (double)getSenderInfoNickNameLabelWidth;
-- (double)getSenderInfoWidth;
-- (id)genNoImageTextAttrs:(id)arg1;
-- (id)genSenderInfoDateAttributedString;
-- (id)genSenderInfoNickNameAttributedString;
-- (id)getShowTags;
-- (void)layoutSenderInfo;
+- (id)getSourceIconName;
+- (void)layoutTagList:(BOOL)arg1 size:(struct CGSize)arg2;
+- (void)setSourceIconViewAnchorPoint;
+- (void)animatedSourceIconImageViewIfNeeded;
+- (void)layoutBottomSourceInfo;
+- (void)setNickNameLable:(id)arg1;
+- (void)layoutTimeLabel:(BOOL)arg1;
 - (id)favItemDescriptionString;
+- (BOOL)hasTagList;
 - (void)layoutFavContentView;
+- (void)updateHighlightLayer;
 - (void)prepareForReuse;
 - (void)dealloc;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)updateMaskLayer;
+- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

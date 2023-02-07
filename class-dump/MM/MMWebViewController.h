@@ -12,7 +12,7 @@
 #import "MMHandoffServiceExt-Protocol.h"
 #import "MMWebViewFontAdjustControllerDelegate-Protocol.h"
 
-@class MMTimer, MMWebViewFontAdjustController, NSPopover, NSString, SVGButton;
+@class MMAnimationButton, MMTimer, MMWebViewFontAdjustController, NSPopover, NSString, NSTextField, NSView, SVGButton;
 
 @interface MMWebViewController : BaseWebViewController <IContactMgrExt, IMessageExt, AccountServiceExt, MMWebViewFontAdjustControllerDelegate, MMHandoffServiceExt>
 {
@@ -27,15 +27,19 @@
     SVGButton *_favoriteBtn;
     SVGButton *_doCopyUrlBtn;
     SVGButton *_externalBrowserBtn;
+    MMAnimationButton *_translateH5Btn;
+    NSView *_translateH5BtnBkgView;
     SVGButton *_fontAdjustBtn;
     NSPopover *_fontAdjustPopover;
     MMWebViewFontAdjustController *_fontAdjustViewController;
     MMTimer *_fontAdjustTimer;
     SVGButton *_handoffBtn;
     unsigned long long _timeStamp;
+    NSTextField *_translateH5Label;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTextField *translateH5Label; // @synthesize translateH5Label=_translateH5Label;
 @property(nonatomic) unsigned long long timeStamp; // @synthesize timeStamp=_timeStamp;
 @property(nonatomic) BOOL canAddFloatWindow; // @synthesize canAddFloatWindow=_canAddFloatWindow;
 @property(retain, nonatomic) SVGButton *handoffBtn; // @synthesize handoffBtn=_handoffBtn;
@@ -43,6 +47,8 @@
 @property(retain, nonatomic) MMWebViewFontAdjustController *fontAdjustViewController; // @synthesize fontAdjustViewController=_fontAdjustViewController;
 @property(retain, nonatomic) NSPopover *fontAdjustPopover; // @synthesize fontAdjustPopover=_fontAdjustPopover;
 @property(retain, nonatomic) SVGButton *fontAdjustBtn; // @synthesize fontAdjustBtn=_fontAdjustBtn;
+@property(retain, nonatomic) NSView *translateH5BtnBkgView; // @synthesize translateH5BtnBkgView=_translateH5BtnBkgView;
+@property(retain, nonatomic) MMAnimationButton *translateH5Btn; // @synthesize translateH5Btn=_translateH5Btn;
 @property(retain, nonatomic) SVGButton *externalBrowserBtn; // @synthesize externalBrowserBtn=_externalBrowserBtn;
 @property(retain, nonatomic) SVGButton *doCopyUrlBtn; // @synthesize doCopyUrlBtn=_doCopyUrlBtn;
 @property(retain, nonatomic) SVGButton *favoriteBtn; // @synthesize favoriteBtn=_favoriteBtn;
@@ -53,6 +59,8 @@
 @property(retain, nonatomic) SVGButton *nextItemBtn; // @synthesize nextItemBtn=_nextItemBtn;
 @property(retain, nonatomic) SVGButton *prevItemBtn; // @synthesize prevItemBtn=_prevItemBtn;
 @property(retain, nonatomic) NSString *chatUserName; // @synthesize chatUserName=_chatUserName;
+- (BOOL)isTranslatingH5;
+- (void)onContextMenuTranslateH5Action;
 - (void)onPreverifyFinished;
 - (void)handleH5ExtTransfer:(id)arg1;
 - (void)handleH5Auth:(id)arg1;
@@ -62,6 +70,8 @@
 - (void)handleCurrentMpInfo:(id)arg1;
 - (void)updateFloatWindowStatus;
 - (void)handleCloseWindowJSEvent;
+- (void)onTranslateH5StatusChange:(BOOL)arg1;
+- (void)onTranslateH5Finish:(BOOL)arg1;
 - (void)onCopyAction:(id)arg1;
 - (void)onDomReadyAction;
 - (void)onPageStateChangeAction:(id)arg1;
@@ -74,6 +84,8 @@
 - (void)doAdjustFontSize:(id)arg1;
 - (void)adjustFontSize:(int)arg1;
 - (void)showFontAdjust;
+- (void)translateH5:(BOOL)arg1;
+- (void)onTranslateH5BtnClick;
 - (void)forwardToTimeline;
 - (void)forwardContent;
 - (void)forwardContentToWeWork;
@@ -87,7 +99,9 @@
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onModifyContacts:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
+- (void)viewChangedEffectiveAppearance;
 - (void)_setupColorScheme;
+- (void)_setupTranslateLabel;
 - (void)_setupContentContainer;
 - (void)_setupHostLabel;
 - (void)_setupProgressView;

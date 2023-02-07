@@ -11,6 +11,7 @@
 }
 
 + (void)copySourceDataPath:(id)arg1 withDataList:(id)arg2 withFavItem:(id)arg3;
++ (void)copySourceDataPathFromPreview:(id)arg1 withDataList:(id)arg2 parentDataField:(id)arg3;
 + (void)copySourceDataPath:(id)arg1 withDataList:(id)arg2 withOriginMsgData:(id)arg3;
 + (id)findRecordDataInList:(id)arg1 withLocalDataId:(id)arg2;
 + (id)getNoteDescByFavItem:(id)arg1;
@@ -44,6 +45,9 @@
 + (id)convertMsgList2MsgData:(id)arg1;
 + (id)convertMsgData2FavItem:(id)arg1;
 + (id)convertMsgList2FavItem:(id)arg1;
++ (id)forwardFavoriteItem2WeWork:(id)arg1 isSeparate:(BOOL)arg2;
++ (id)forwardFavoriteItemDataField2WeWork:(id)arg1;
++ (BOOL)forwardFavoriteItems2WeWork:(id)arg1;
 
 @end
 

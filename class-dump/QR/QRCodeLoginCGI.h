@@ -21,9 +21,11 @@
     CDUnknownBlockType _didConfirmedQRCodeLoginCGIBlock;
     CDUnknownBlockType _didCancelQRCodeLoginCGIBlock;
     CDUnknownBlockType _didExpiredQRCodeLoginCGIBlock;
+    CDUnknownBlockType _didReceiveAuthUrlBlock;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) CDUnknownBlockType didReceiveAuthUrlBlock; // @synthesize didReceiveAuthUrlBlock=_didReceiveAuthUrlBlock;
 @property(copy, nonatomic) CDUnknownBlockType didExpiredQRCodeLoginCGIBlock; // @synthesize didExpiredQRCodeLoginCGIBlock=_didExpiredQRCodeLoginCGIBlock;
 @property(copy, nonatomic) CDUnknownBlockType didCancelQRCodeLoginCGIBlock; // @synthesize didCancelQRCodeLoginCGIBlock=_didCancelQRCodeLoginCGIBlock;
 @property(copy, nonatomic) CDUnknownBlockType didConfirmedQRCodeLoginCGIBlock; // @synthesize didConfirmedQRCodeLoginCGIBlock=_didConfirmedQRCodeLoginCGIBlock;
@@ -34,13 +36,14 @@
 @property(nonatomic) unsigned int qrCheckTime; // @synthesize qrCheckTime=_qrCheckTime;
 @property(retain, nonatomic) NSString *qrUUID; // @synthesize qrUUID=_qrUUID;
 - (void)onServerNotify:(int)arg1 cmdID:(int)arg2 notifyData:(id)arg3;
-- (BOOL)handleNotify:(id)arg1 withOpcode:(unsigned int)arg2;
+- (void)handleNotify:(id)arg1 withOpcode:(unsigned int)arg2;
 - (void)checkLoginQRCode;
 - (void)expireTimeCheckDidFire;
 - (void)clearLoginCheckWithOpCode:(unsigned int)arg1;
 - (void)stopCGI;
 - (void)getQRCodeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stopQRCodeExpireTimer;
+- (void)startCheckQRCodeTimer;
 - (void)stopCheckQRCodeTimer;
 - (void)dealloc;
 - (id)init;

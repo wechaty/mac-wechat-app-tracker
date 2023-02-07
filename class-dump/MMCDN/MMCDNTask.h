@@ -13,7 +13,7 @@
     BOOL _inPreviewWindow;
     unsigned int _localID;
     int _fileType;
-    int _downloadType;
+    unsigned int _fileLength;
     MessageData *_message;
     FavoritesItemDataField *_favItemData;
     NSString *_chatName;
@@ -25,17 +25,19 @@
     NSString *_urlString;
     NSString *_fileMD5;
     MMCDNTaskPriorityInfo *_priorityInfo;
+    unsigned long long _downloadType;
     struct C2CDownloadRequest _request;
 }
 
-+ (BOOL)isPredownloadType:(int)arg1;
++ (BOOL)isPredownloadType:(unsigned long long)arg1;
 + (long long)comparePriorityInfo:(id)arg1 withOther:(id)arg2;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(nonatomic) int downloadType; // @synthesize downloadType=_downloadType;
+@property(nonatomic) unsigned long long downloadType; // @synthesize downloadType=_downloadType;
 @property(nonatomic) struct C2CDownloadRequest request; // @synthesize request=_request;
 @property(nonatomic) BOOL inPreviewWindow; // @synthesize inPreviewWindow=_inPreviewWindow;
 @property(retain, nonatomic) MMCDNTaskPriorityInfo *priorityInfo; // @synthesize priorityInfo=_priorityInfo;
+@property(nonatomic) unsigned int fileLength; // @synthesize fileLength=_fileLength;
 @property(retain, nonatomic) NSString *fileMD5; // @synthesize fileMD5=_fileMD5;
 @property(retain, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
 @property(retain, nonatomic) NSString *authKey; // @synthesize authKey=_authKey;

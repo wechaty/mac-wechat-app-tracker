@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL setupStatus; // @synthesize setupStatus=_setupStatus;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
 - (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
 - (void)pageController:(id)arg1 prepareViewController:(id)arg2 withObject:(id)arg3;
 - (void)openWith;

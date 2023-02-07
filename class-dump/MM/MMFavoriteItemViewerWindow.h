@@ -65,6 +65,7 @@
 - (void)exportContent:(id)arg1;
 - (void)performDelete;
 - (void)deleteItem:(id)arg1;
+- (void)forwardContentToWeWork;
 - (void)forwardContentToContactsWithUserNames:(id)arg1 leaveMessage:(id)arg2;
 - (void)forwardContent:(id)arg1;
 - (BOOL)checkIsDataFileDownloaded:(id)arg1;

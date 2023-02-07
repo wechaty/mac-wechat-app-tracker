@@ -22,7 +22,7 @@
 - (void)setupDownloadMgr;
 - (void)proxySettingsDidChange:(id)arg1;
 - (void)onCdnDownloadFinish:(id)arg1 taskID:(id)arg2;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavItemData:(id)arg1 type:(int)arg2 filePath:(id)arg3 taskID:(id)arg4;
+- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
 - (void)useCDNToProcessFavThumbRequest:(id)arg1 downloadPath:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)useHttpToProcessFavThumbRequest:(id)arg1 downloadPath:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)processFavThumbRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

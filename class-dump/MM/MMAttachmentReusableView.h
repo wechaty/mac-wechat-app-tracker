@@ -35,6 +35,8 @@
 @property(nonatomic) __weak id <MMAttachmentReusableViewMenuDelegate> menuDelegate; // @synthesize menuDelegate=_menuDelegate;
 @property(nonatomic) __weak id <MMAttachmentReusableViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)doSwitch;
+- (void)doPlay;
+- (void)doPause;
 - (void)doDelelte;
 - (void)doPaste;
 - (void)doCopy;

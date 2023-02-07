@@ -54,6 +54,7 @@
     MMOutlineButton *_photoButton;
     MMOutlineButton *_fileButton;
     MMOutlineButton *_linkButton;
+    MMOutlineButton *_appButton;
     NSView *_globalTabButtonContainer;
     MMMouseEventView *_globalOpenChatView;
     MMButton *_globalOpenChatButton;
@@ -63,6 +64,7 @@
     MMMouseEventView *_photo;
     MMMouseEventView *_file;
     MMMouseEventView *_link;
+    MMMouseEventView *_app;
     MMMultiSelectView *_multiSelectView;
     MMView *_multipleSelectView;
     NSView *_multipleButtonContainer;
@@ -119,6 +121,7 @@
 @property __weak NSView *multipleButtonContainer; // @synthesize multipleButtonContainer=_multipleButtonContainer;
 @property __weak MMView *multipleSelectView; // @synthesize multipleSelectView=_multipleSelectView;
 @property(retain, nonatomic) MMMultiSelectView *multiSelectView; // @synthesize multiSelectView=_multiSelectView;
+@property __weak MMMouseEventView *app; // @synthesize app=_app;
 @property __weak MMMouseEventView *link; // @synthesize link=_link;
 @property __weak MMMouseEventView *file; // @synthesize file=_file;
 @property __weak MMMouseEventView *photo; // @synthesize photo=_photo;
@@ -128,6 +131,7 @@
 @property __weak MMButton *globalOpenChatButton; // @synthesize globalOpenChatButton=_globalOpenChatButton;
 @property __weak MMMouseEventView *globalOpenChatView; // @synthesize globalOpenChatView=_globalOpenChatView;
 @property __weak NSView *globalTabButtonContainer; // @synthesize globalTabButtonContainer=_globalTabButtonContainer;
+@property __weak MMOutlineButton *appButton; // @synthesize appButton=_appButton;
 @property __weak MMOutlineButton *linkButton; // @synthesize linkButton=_linkButton;
 @property __weak MMOutlineButton *fileButton; // @synthesize fileButton=_fileButton;
 @property __weak MMOutlineButton *photoButton; // @synthesize photoButton=_photoButton;
@@ -160,6 +164,7 @@
 @property(retain, nonatomic) MMChatFTSSearchLogic *ftsSearchLogic; // @synthesize ftsSearchLogic=_ftsSearchLogic;
 - (void)forwardToWeWorkDidConfirmed:(id)arg1;
 - (void)sessionPickWindowDidConfirmed:(id)arg1;
+- (void)reportOnShowDetailIfNeeded:(id)arg1;
 - (void)_limitStickerPlay;
 - (void)handleAppFontSizeChanged;
 - (void)locateMsgInRealChat:(id)arg1 mesLocalID:(unsigned int)arg2;
@@ -183,6 +188,7 @@
 - (BOOL)locationInsideMessageCellView:(struct CGPoint)arg1;
 - (void)onBackClicked:(id)arg1;
 - (void)onGlobalOpenChatClicked:(id)arg1;
+- (void)onAppClicked:(id)arg1;
 - (void)onLinkClicked:(id)arg1;
 - (void)onFileClicked:(id)arg1;
 - (void)onPhotoClicked:(id)arg1;
@@ -219,6 +225,7 @@
 - (void)messageCellView:(id)arg1 didClickOnAvatarWithItem:(id)arg2;
 - (void)messageCellView:(id)arg1 didDoubleClickOnAvatarWithItem:(id)arg2;
 - (void)messageCellView:(id)arg1 didPasteQuotedMessageWithItem:(id)arg2;
+- (void)forwardToWeWork:(id)arg1;
 - (void)messageCellViewDidStartForwardMessageCommand:(id)arg1;
 - (void)messageCellViewNeedsReload:(id)arg1;
 - (void)messageCellViewNeedsHeightRecalculated:(id)arg1;
@@ -245,6 +252,7 @@
 - (id)getGlobalSearchSessionsResult;
 - (void)reloadData;
 - (void)setTabChosen:(id)arg1;
+- (void)showApps;
 - (void)showLinks;
 - (void)showFiles;
 - (void)showPhotos;

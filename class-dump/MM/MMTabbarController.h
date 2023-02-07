@@ -29,6 +29,7 @@
 @property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(retain, nonatomic) NSArray *viewControllers; // @synthesize viewControllers=_viewControllers;
 @property(nonatomic) __weak id <MMTabbarControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)tabBarButtonEndLongDrop:(id)arg1;
 - (void)tabBarButtonCancelledLongDrop:(id)arg1;
 - (void)tabBarButtonWantsLongDrop:(id)arg1;
 - (void)onTabbarButtonClicked:(id)arg1;

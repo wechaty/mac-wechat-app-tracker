@@ -21,9 +21,11 @@
     CDUnknownBlockType _didFailedAutoLogin;
     CDUnknownBlockType _didConfirmPushLoginCGIBlock;
     CDUnknownBlockType _didCancelPushLoginCGIBlock;
+    CDUnknownBlockType _didReceiveAuthUrlBlock;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) CDUnknownBlockType didReceiveAuthUrlBlock; // @synthesize didReceiveAuthUrlBlock=_didReceiveAuthUrlBlock;
 @property(copy, nonatomic) CDUnknownBlockType didCancelPushLoginCGIBlock; // @synthesize didCancelPushLoginCGIBlock=_didCancelPushLoginCGIBlock;
 @property(copy, nonatomic) CDUnknownBlockType didConfirmPushLoginCGIBlock; // @synthesize didConfirmPushLoginCGIBlock=_didConfirmPushLoginCGIBlock;
 @property(copy, nonatomic) CDUnknownBlockType didFailedAutoLogin; // @synthesize didFailedAutoLogin=_didFailedAutoLogin;

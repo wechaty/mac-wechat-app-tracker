@@ -45,6 +45,7 @@
 @property(nonatomic) __weak id <MMCollectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) WCContactData *chatContact; // @synthesize chatContact=_chatContact;
 @property(nonatomic) BOOL multiSelectionMode; // @synthesize multiSelectionMode=_multiSelectionMode;
+- (void)reportOnShowDetailIfNeeded:(id)arg1;
 - (void)doScrollViewBoundsDidChanged;
 - (void)onScrollViewBoundsDidChanged:(id)arg1;
 - (id)replaceLastMouseEnterCellViewWith:(id)arg1;
@@ -78,6 +79,9 @@
 - (id)getMultiSelectedMessages;
 - (void)reloadData;
 - (BOOL)flushLinks;
+- (BOOL)flushApps;
+- (void)loadAppMessage:(unsigned int)arg1 mediaType:(unsigned long long)arg2;
+- (BOOL)showApps;
 - (BOOL)showLinks;
 - (BOOL)flushFiles;
 - (BOOL)showFiles;

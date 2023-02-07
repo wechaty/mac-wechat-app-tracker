@@ -23,6 +23,7 @@
 @property(retain, nonatomic) CdnFavMediaInfo *m_curCdnFavMediaInfo; // @synthesize m_curCdnFavMediaInfo;
 @property(retain, nonatomic) FavoritesItem *m_waitDownFavItem; // @synthesize m_waitDownFavItem;
 @property(retain, nonatomic) FavoritesItem *m_curDownFavItem; // @synthesize m_curDownFavItem;
+- (void)downloadRecordOK:(id)arg1 ClientMsgId:(id)arg2;
 - (void)OnCdnDownloadFinished:(id)arg1;
 - (void)OnCdnDownloadProgress:(id)arg1;
 - (void)OnSetCdnDnsInfo;
@@ -30,7 +31,7 @@
 - (void)DownloadFail:(int)arg1 Expired:(BOOL)arg2;
 - (void)CheckDownloadRecordData;
 - (void)StartDownloadCurFav;
-- (void)addDownloadItem:(id)arg1 withDataList:(id)arg2;
+- (void)addDownloadItemWithDataList:(id)arg1 retItemList:(id)arg2;
 - (id)genDownloadInfo:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (BOOL)checkToAddWithClientMsgID:(id)arg1;
 - (void)checkToAddDownloadInfos:(id)arg1 dataField:(id)arg2 dataId:(id)arg3 thumb:(BOOL)arg4 data:(BOOL)arg5;

@@ -91,8 +91,11 @@
 - (void)_menuActionExport:(id)arg1;
 - (void)doAddFavItem:(id)arg1;
 - (void)_menuActionFavorite:(id)arg1;
+- (void)forwardPreviewItemToWeWork:(id)arg1;
 - (void)forwardPreviewItem:(id)arg1 toContactsWithUserNames:(id)arg2 leavedMessage:(id)arg3;
 - (void)sendPreviewItem:(id)arg1 toContactsWithUserNames:(id)arg2 leavedMessage:(id)arg3;
+- (void)sendPreviewItemToWeWork:(id)arg1;
+- (void)sendAndForwardPreviewItemToWeWork:(id)arg1;
 - (void)_menuActionForward:(id)arg1;
 - (void)_menuActionCopy;
 - (void)_menuActionOpenMethods:(id)arg1;

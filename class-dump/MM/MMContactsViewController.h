@@ -53,6 +53,7 @@
 @property __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) __weak MMDragEventView *topView; // @synthesize topView=_topView;
 - (void)onVerifyWindowWillOpen;
+- (void)quitGroupActionReport;
 - (void)reportMenuShowToKVWithMenuId:(unsigned int)arg1;
 - (void)handleAppFontSize;
 - (void)windowDidBecomeKeyAction:(id)arg1;

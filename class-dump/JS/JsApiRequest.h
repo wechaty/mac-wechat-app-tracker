@@ -6,30 +6,40 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSString;
+@class NSMutableArray, NSString;
 
 @interface JsApiRequest : PBGeneratedMessage
 {
     unsigned int hasUrl:1;
     unsigned int hasReqJson:1;
     unsigned int hasCgiCmdid:1;
+    unsigned int hasMethod:1;
     unsigned int cgiCmdid;
+    unsigned int method;
     NSString *url;
     NSString *reqJson;
+    NSMutableArray *mutableHeaderList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetMethod:) unsigned int method; // @synthesize method;
+@property(readonly, nonatomic) BOOL hasMethod; // @synthesize hasMethod;
+@property(retain, nonatomic) NSMutableArray *mutableHeaderList; // @synthesize mutableHeaderList;
 @property(nonatomic, setter=SetCgiCmdid:) unsigned int cgiCmdid; // @synthesize cgiCmdid;
 @property(readonly, nonatomic) BOOL hasCgiCmdid; // @synthesize hasCgiCmdid;
 @property(retain, nonatomic, setter=SetReqJson:) NSString *reqJson; // @synthesize reqJson;
 @property(readonly, nonatomic) BOOL hasReqJson; // @synthesize hasReqJson;
 @property(retain, nonatomic, setter=SetUrl:) NSString *url; // @synthesize url;
 @property(readonly, nonatomic) BOOL hasUrl; // @synthesize hasUrl;
+- (void)addHeader:(id)arg1;
+- (void)addHeaderFromArray:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *header; // @dynamic header;
+- (id)headerList;
 - (id)init;
 
 @end

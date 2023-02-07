@@ -9,7 +9,7 @@
 #import "MMFavoritesMgrExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class CALayer, FavoritesItem, MMView, NSArray, NSImageView, NSString, SwipeDeleteView, WCContactData;
+@class FavoritesItem, MMFavContentView, MMView, NSArray, NSImageView, NSString, WCContactData;
 @protocol MMFavoritesDetailCellDelegate;
 
 @interface MMFavoritesDetailBaseCell : JNWCollectionViewCell <NSMenuDelegate, MMFavoritesMgrExt>
@@ -19,7 +19,7 @@
     BOOL _draggingStarted;
     id <MMFavoritesDetailCellDelegate> _delegate;
     MMView *_containerView;
-    SwipeDeleteView *_favContentView;
+    MMFavContentView *_cellContentView;
     FavoritesItem *_favItem;
     WCContactData *_realContact;
     NSArray *_showTags;
@@ -27,14 +27,16 @@
     NSString *_siderBarItemTitle;
     NSImageView *_iconImageView;
     unsigned long long _rowIndex;
-    CALayer *_highlightLayer;
+    NSString *_searchKeyWord;
+    NSArray *_searchMatchContactsKeyWords;
     struct CGPoint _mouseDownPoint;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL draggingStarted; // @synthesize draggingStarted=_draggingStarted;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
-@property(retain, nonatomic) CALayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
+@property(retain, nonatomic) NSArray *searchMatchContactsKeyWords; // @synthesize searchMatchContactsKeyWords=_searchMatchContactsKeyWords;
+@property(retain, nonatomic) NSString *searchKeyWord; // @synthesize searchKeyWord=_searchKeyWord;
 @property(nonatomic) unsigned long long rowIndex; // @synthesize rowIndex=_rowIndex;
 @property(nonatomic) BOOL multipleSelected; // @synthesize multipleSelected=_multipleSelected;
 @property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
@@ -44,13 +46,15 @@
 @property(retain, nonatomic) NSArray *showTags; // @synthesize showTags=_showTags;
 @property(retain, nonatomic) WCContactData *realContact; // @synthesize realContact=_realContact;
 @property(retain, nonatomic) FavoritesItem *favItem; // @synthesize favItem=_favItem;
-@property(retain, nonatomic) SwipeDeleteView *favContentView; // @synthesize favContentView=_favContentView;
+@property(retain, nonatomic) MMFavContentView *cellContentView; // @synthesize cellContentView=_cellContentView;
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
 @property(nonatomic) __weak id <MMFavoritesDetailCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (BOOL)locationIsInsideAvatarArea:(struct CGPoint)arg1;
 - (BOOL)eventIsInsideClickableArea:(id)arg1;
 - (struct CGRect)bubbleFrame;
+- (BOOL)canPerformDragOperation;
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuForEvent:(id)arg1;
@@ -63,11 +67,7 @@
 - (void)downloadFavNoteIfNeed;
 - (void)downloadFavoritesItemDataIfNeed;
 - (id)firstDataField;
-- (void)viewDidChangeEffectiveAppearance;
 - (void)updateHighlightLayer;
-- (void)layoutIconImgView:(struct CGRect)arg1;
-- (void)layoutSubView;
-- (void)cleanSwipeEffect;
 - (void)downloadFileIfNeeded;
 - (void)layoutFavContentView;
 - (id)resizedDraggingImage;
@@ -75,6 +75,7 @@
 - (void)willBeRecycled;
 - (void)populateWithFavItem:(id)arg1;
 - (void)prepareForReuse;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)setupContainerView;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)dealloc;

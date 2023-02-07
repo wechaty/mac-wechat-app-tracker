@@ -19,6 +19,8 @@
 }
 
 - (void).cxx_destruct;
+- (void)retryUploadAndNoHitCheck;
+- (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)OnCdnUpload:(id)arg1;
 - (void)OnCdnUploadProgress:(id)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;

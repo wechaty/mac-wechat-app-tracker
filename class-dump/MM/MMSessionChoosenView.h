@@ -121,6 +121,7 @@
 - (void)setFirstResponder;
 - (void)closeChoosenViewWithConfirm:(BOOL)arg1;
 - (void)updateSessionChoosenViewWidthType:(unsigned long long)arg1 count:(unsigned long long)arg2;
+- (void)sendToWeWork;
 - (void)updateSessionChoosenView:(id)arg1 insertOrNot:(BOOL)arg2;
 - (void)updateSessionChoosenText:(unsigned long long)arg1;
 - (void)setupPickerType:(unsigned long long)arg1;
@@ -148,8 +149,10 @@
 - (void)showTextMessageView:(id)arg1 emoji:(BOOL)arg2;
 - (void)showTextMessageView:(id)arg1;
 - (void)showImageMessageView:(id)arg1;
+- (void)setupThumbImageView:(id)arg1 thumbImag:(id)arg2;
 - (void)showImageMessageView;
 - (void)showVideoMessageView:(id)arg1;
+- (void)setupShowVideoMessageView:(id)arg1 thumbImage:(id)arg2;
 - (void)showVideoMessageView;
 - (void)showEmojiMessageView:(id)arg1;
 - (void)showEmojiMessageView;

@@ -6,13 +6,13 @@
 
 #import "MMChatBackupBasicLogic.h"
 
-@class MMChatBackupTransferMgr, MMChatLogProtoHandler, NSMutableArray, NSMutableSet, NSObject, NSString;
-@protocol OS_dispatch_queue;
+@class MMChatLogProtoHandler, NSMutableArray, NSMutableSet, NSObject, NSString;
+@protocol MMBackupTransferProtocol, OS_dispatch_queue;
 
 @interface MMChatBackupRecoverLogic : MMChatBackupBasicLogic
 {
     MMChatLogProtoHandler *m_protoHandler;
-    MMChatBackupTransferMgr *m_transferMgr;
+    NSObject<MMBackupTransferProtocol> *m_transferMgr;
     BOOL m_bStopService;
     unsigned long long m_totalSessionCount;
     NSMutableSet *m_sessionProgressSet;

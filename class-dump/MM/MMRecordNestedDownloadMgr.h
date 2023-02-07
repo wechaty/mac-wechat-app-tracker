@@ -28,6 +28,7 @@
 @property(retain, nonatomic) MMRecordNestedDownloadInfoWrapper *m_currDownloadInfo; // @synthesize m_currDownloadInfo=_m_currDownloadInfo;
 @property(retain, nonatomic) MessageData *m_curDownMsgWrap; // @synthesize m_curDownMsgWrap=_m_curDownMsgWrap;
 - (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
+- (void)downloadRecordOK:(id)arg1 ClientMsgId:(id)arg2;
 - (void)OnCdnDownloadFinished:(id)arg1;
 - (void)OnCdnDownloadProgress:(id)arg1;
 - (void)DownLoadOK;

@@ -22,6 +22,7 @@
     BOOL _isPhoneSupportTxtMsg;
     BOOL _bSupportPacketFilter;
     BOOL _isOneClickSucc;
+    BOOL _bRecoverFromBakTxt;
     BOOL _transferOnlyMsg;
     BOOL _supportQuickBackup;
     unsigned short _server_port;
@@ -60,6 +61,7 @@
 @property(nonatomic) BOOL supportQuickBackup; // @synthesize supportQuickBackup=_supportQuickBackup;
 @property(nonatomic) BOOL transferOnlyMsg; // @synthesize transferOnlyMsg=_transferOnlyMsg;
 @property(retain, nonatomic) MMMigrateDataInfo *migrateDataInfo; // @synthesize migrateDataInfo=_migrateDataInfo;
+@property(nonatomic) BOOL bRecoverFromBakTxt; // @synthesize bRecoverFromBakTxt=_bRecoverFromBakTxt;
 @property(nonatomic) BOOL isOneClickSucc; // @synthesize isOneClickSucc=_isOneClickSucc;
 @property(retain, nonatomic) NSData *autoReconnectToken; // @synthesize autoReconnectToken=_autoReconnectToken;
 @property(nonatomic) BOOL bSupportPacketFilter; // @synthesize bSupportPacketFilter=_bSupportPacketFilter;
