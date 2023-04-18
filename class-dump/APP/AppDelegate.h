@@ -24,6 +24,7 @@
 - (void)applicationWillHide:(id)arg1;
 - (void)applicationWillResignActive:(id)arg1;
 - (unsigned long long)applicationShouldTerminate:(id)arg1;
+- (id)applicationDockMenu:(id)arg1;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillBecomeActive:(id)arg1;
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;

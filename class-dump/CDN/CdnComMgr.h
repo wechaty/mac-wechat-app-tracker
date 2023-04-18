@@ -49,8 +49,8 @@
 - (void)StopUploadRecordMedia:(id)arg1;
 - (BOOL)StartUploadRecordMedia:(id)arg1;
 - (void)StopDownloadRecordMedia:(id)arg1 clientId:(id)arg2;
-- (BOOL)StartDownloadRecordMedia:(id)arg1 FromChatLog:(BOOL)arg2;
-- (BOOL)StartDownloadRecordMedia:(id)arg1;
+- (int)StartDownloadRecordMedia:(id)arg1 FromChatLog:(BOOL)arg2;
+- (int)StartDownloadRecordMedia:(id)arg1;
 - (BOOL)CheckAppAttachExist:(id)arg1 IsLargeFile:(BOOL)arg2;
 - (void)CheckCdnInfo;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
@@ -103,6 +103,8 @@
 - (BOOL)StartDownloadMedia:(void *)arg1 message:(id)arg2 type:(int)arg3;
 - (void)StopUploadComMedia:(id)arg1;
 - (BOOL)StartUploadComMedia:(id)arg1;
+- (id)GetPredownloadQuota;
+- (void)SetPredownloadQuota:(id)arg1;
 - (BOOL)StopDownloadComMedia:(id)arg1 CdnDownloadTaskInfo:(id)arg2;
 - (void)InitCdn;
 - (shared_ptr_67bd78cc)callback;

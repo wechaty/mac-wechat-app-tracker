@@ -6,9 +6,11 @@
 
 #import "_TtC6WeChat23SnsFeedWindowController.h"
 
+#import "AccountServiceExt-Protocol.h"
+#import "NSPopoverDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@interface _TtC6WeChat23SnsFeedWindowController (WeChat) <NSWindowDelegate>
+@interface _TtC6WeChat23SnsFeedWindowController (WeChat) <NSPopoverDelegate, NSWindowDelegate, AccountServiceExt>
 - (void)popoverDidClose:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverDidShow:(id)arg1;

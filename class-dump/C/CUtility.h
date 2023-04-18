@@ -108,6 +108,7 @@
 + (BOOL)appleMapsAvailable;
 + (BOOL)isLongitudeValid:(double)arg1;
 + (BOOL)isLatitudeValid:(double)arg1;
++ (id)GroupChatDisplayName:(id)arg1 inGroupChat:(id)arg2;
 + (BOOL)isNeedProcessBrandContact:(id)arg1;
 + (id)specialUserNameList;
 + (id)GenPushContactFromMsgData:(id)arg1;
@@ -127,6 +128,7 @@
 + (unsigned int)GetCurrentQQUin;
 + (id)GetCurrentWeiboUserName;
 + (id)GetCurrentUserName;
++ (BOOL)IsMainLandUser:(id)arg1;
 + (BOOL)IsSelfUserName:(id)arg1;
 + (id)GetPluginDisplayName:(id)arg1;
 + (BOOL)IsQQMailUserName:(id)arg1;
@@ -211,6 +213,7 @@
 + (void)AddGroupMemberNeedVerifyMsg:(id)arg1 ContactList:(id)arg2;
 + (void)AddGroupCreateMsg:(id)arg1 ContactList:(id)arg2;
 + (id)GenSelfContact;
++ (id)setupImageBlur:(id)arg1;
 
 @end
 

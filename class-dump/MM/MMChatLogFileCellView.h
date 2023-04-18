@@ -6,7 +6,7 @@
 
 #import "MMChatLogBaseCellView.h"
 
-@class CAShapeLayer, MMCircularProgressView, MMTextField, NSImageView, NSString, NSTextField, NSView;
+@class CAShapeLayer, MMCircularProgressView, MMTextField, MessageData, NSImageView, NSString, NSTextField, NSView;
 
 @interface MMChatLogFileCellView : MMChatLogBaseCellView
 {
@@ -23,6 +23,7 @@
     CAShapeLayer *_progressLayer;
     NSImageView *_fileMask;
     NSString *_filePath;
+    MessageData *_messageForDownload;
     CAShapeLayer *_bottomLayer;
 }
 
@@ -32,6 +33,7 @@
 @property(nonatomic) BOOL isDownloading; // @synthesize isDownloading=_isDownloading;
 @property(nonatomic) BOOL isDownloadFailed; // @synthesize isDownloadFailed=_isDownloadFailed;
 @property(nonatomic) BOOL isExpired; // @synthesize isExpired=_isExpired;
+@property(retain, nonatomic) MessageData *messageForDownload; // @synthesize messageForDownload=_messageForDownload;
 @property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(nonatomic) BOOL isShouldOpenOnDownloadFinish; // @synthesize isShouldOpenOnDownloadFinish=_isShouldOpenOnDownloadFinish;
 @property(retain, nonatomic) NSImageView *fileMask; // @synthesize fileMask=_fileMask;
@@ -53,6 +55,7 @@
 - (unsigned int)getFileBytes;
 - (id)getFileSize;
 - (id)getTitle;
+- (void)contextMenuCopy;
 - (id)originalFilePath;
 - (BOOL)allowExport;
 - (BOOL)allowAddToFavorites;

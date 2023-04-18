@@ -12,6 +12,8 @@
 
 + (id)makeCurrentTableItemDesc:(id)arg1;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (BOOL)allowChoose;
 - (BOOL)allowMultipleSelect;

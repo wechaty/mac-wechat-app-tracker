@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat13SnsDataCenter : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat13SnsDataCenter : MMService <MMService>
 {
     // Error parsing type: , name: database
     // Error parsing type: , name: localDataManager

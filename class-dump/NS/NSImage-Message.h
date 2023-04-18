@@ -29,7 +29,6 @@
 - (void)middleImageDataWithCompletion:(CDUnknownBlockType)arg1;
 - (id)genMiddleImageData;
 - (id)cutAppReaderImageToFitSize:(struct CGSize)arg1;
-- (id)resizeToMaxWidth:(int)arg1 andMaxHeight:(int)arg2;
 - (id)croppedImage:(struct CGRect)arg1;
 - (struct CGSize)calculateFitSize:(struct CGSize)arg1 maxWidth:(int)arg2 maxHeight:(int)arg3;
 - (id)genThumbnailImageWithOriginSize:(struct CGSize)arg1;
@@ -49,6 +48,7 @@
 - (BOOL)writePNGDataToPasteboard;
 - (BOOL)isHighReolution;
 - (struct CGSize)pixelSize;
+- (id)mirrored;
 - (id)resizeToMaxWidth:(int)arg1 andMaxHeight:(int)arg2;
 - (id)imageTintedWithColor:(id)arg1;
 - (id)imageRotated:(float)arg1;

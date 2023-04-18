@@ -55,6 +55,7 @@
     VoiceGroupChgMsgSeq *_msgSeq;
 }
 
++ (int)videoFormat;
 + (int)cpuCapacity;
 + (unsigned int)GetNetType;
 - (void).cxx_destruct;

@@ -34,6 +34,7 @@
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (BOOL)accessibilityPerformShowMenu;
 - (BOOL)shouldHaveColoredBackground;
 - (void)updateSelectedAppearance;
 - (void)setSelected:(BOOL)arg1;

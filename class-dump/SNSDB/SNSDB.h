@@ -13,6 +13,8 @@
 }
 
 + (void)deleteDB;
+- (void)setLiveInfo:(id)arg1;
+- (id)getLiveInfo:(unsigned long long)arg1;
 - (void)insertLikeUsername:(id)arg1 withObjectId:(id)arg2;
 - (BOOL)getLikeUsernameStatus:(id)arg1 withObjectId:(id)arg2;
 - (BOOL)updateUploadTask:(id)arg1;

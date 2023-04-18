@@ -26,8 +26,8 @@
 @property(copy, nonatomic) CDUnknownBlockType textDidEndEditBlock; // @synthesize textDidEndEditBlock=_textDidEndEditBlock;
 @property(copy, nonatomic) CDUnknownBlockType textDidChangeBlock; // @synthesize textDidChangeBlock=_textDidChangeBlock;
 @property(copy, nonatomic) CDUnknownBlockType didBecomeFirstResponderBlock; // @synthesize didBecomeFirstResponderBlock=_didBecomeFirstResponderBlock;
-@property(retain, nonatomic) MMPlaceholderTextField *placeholderTextField; // @synthesize placeholderTextField=_placeholderTextField;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+@property(retain, nonatomic) MMPlaceholderTextField *placeholderTextField; // @synthesize placeholderTextField=_placeholderTextField;
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)controlTextDidEndEditing:(id)arg1;

@@ -6,24 +6,37 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class GetEmoticonByMD5ListCGI, MMCGIRequester, MMThreadSafeArray, NSData;
 @protocol GetEmotionCustomMD5ListCGIDelegate;
 
 @interface GetEmotionCustomMD5ListCGI : NSObject
 {
-    NSMutableArray *_emojiList;
-    unsigned int _lastIndex;
     BOOL _isGetting;
+    unsigned int _lastIndex;
     id <GetEmotionCustomMD5ListCGIDelegate> _delegate;
+    MMThreadSafeArray *_md5List;
+    NSData *_reqBuff;
+    GetEmoticonByMD5ListCGI *_batchEmojiInfosByMd5ListCgi;
+    MMCGIRequester *_cgiRequester;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMCGIRequester *cgiRequester; // @synthesize cgiRequester=_cgiRequester;
+@property(retain, nonatomic) GetEmoticonByMD5ListCGI *batchEmojiInfosByMd5ListCgi; // @synthesize batchEmojiInfosByMd5ListCgi=_batchEmojiInfosByMd5ListCgi;
+@property(nonatomic) unsigned int lastIndex; // @synthesize lastIndex=_lastIndex;
+@property(retain, nonatomic) NSData *reqBuff; // @synthesize reqBuff=_reqBuff;
+@property(retain, nonatomic) MMThreadSafeArray *md5List; // @synthesize md5List=_md5List;
 @property(nonatomic) __weak id <GetEmotionCustomMD5ListCGIDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL isGetting; // @synthesize isGetting=_isGetting;
+- (void)handleBatchEmojiDownLoadSuccess:(id)arg1;
 - (void)handleBatchEmojiDownLoadFailed;
+- (void)requestAllEmojiInfoList;
 - (void)startGetEmojiList;
+- (void)stopGetEmojiList;
 - (void)dealloc;
+- (void)p_commonInit;
 - (id)init;
+- (id)initWithDelegate:(id)arg1;
 
 @end
 

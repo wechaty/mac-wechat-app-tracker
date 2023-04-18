@@ -6,18 +6,15 @@
 
 #import "MMChatLogSightCellView.h"
 
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class NSString;
 
-@interface MMMsgChatLogSightCellView : MMChatLogSightCellView <IMMRecordDownloadMgrExt>
+@interface MMMsgChatLogSightCellView : MMChatLogSightCellView <IMMNewRecordDownloadServiceExt>
 {
 }
 
-- (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
-- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)layoutSightContentView;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;
 - (void)dealloc;

@@ -37,6 +37,7 @@
 - (void)makeSuccessToastWithText:(id)arg1 duration:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)startAnimation;
 - (void)makeToastActivityWithText:(id)arg1;
+- (id)initWithContentRect:(struct CGRect)arg1;
 - (id)init;
 
 @end

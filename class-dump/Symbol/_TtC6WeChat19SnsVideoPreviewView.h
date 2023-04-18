@@ -6,7 +6,9 @@
 
 #import "MMImageView.h"
 
-@interface _TtC6WeChat19SnsVideoPreviewView : MMImageView
+#import "NSMenuDelegate-Protocol.h"
+
+@interface _TtC6WeChat19SnsVideoPreviewView : MMImageView <NSMenuDelegate>
 {
     // Error parsing type: , name: onClickEvent
     // Error parsing type: , name: onDelete

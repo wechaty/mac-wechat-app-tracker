@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
+
 @class NSString;
 
-@interface MMEmoticonMd5Object : NSObject
+@interface MMEmoticonMd5Object : NSObject <NSCopying>
 {
     unsigned int status;
     unsigned int type;
@@ -21,12 +23,18 @@
     NSString *productId;
     NSString *tpUrlString;
     NSString *authKey;
+    NSString *externUrl;
+    NSString *externMd5;
+    NSString *activityId;
 }
 
 + (unsigned int)StatusValueFailed;
 + (unsigned int)StatusValueComplete;
 + (unsigned int)StatusValueUnComplete;
 + (void)initialize;
++ (void)PBArrayAdd_activityId;
++ (void)PBArrayAdd_externMd5;
++ (void)PBArrayAdd_externUrl;
 + (void)PBArrayAdd_type;
 + (void)PBArrayAdd_authKey;
 + (void)PBArrayAdd_tpUrlString;
@@ -39,6 +47,9 @@
 + (void)PBArrayAdd_status;
 + (void)PBArrayAdd_md5;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *activityId; // @synthesize activityId;
+@property(retain, nonatomic) NSString *externMd5; // @synthesize externMd5;
+@property(retain, nonatomic) NSString *externUrl; // @synthesize externUrl;
 @property(nonatomic) unsigned int type; // @synthesize type;
 @property(retain, nonatomic) NSString *authKey; // @synthesize authKey;
 @property(retain, nonatomic) NSString *tpUrlString; // @synthesize tpUrlString;
@@ -50,6 +61,11 @@
 @property(retain, nonatomic) NSString *cdnUrl; // @synthesize cdnUrl;
 @property(nonatomic) unsigned int status; // @synthesize status;
 @property(retain, nonatomic) NSString *md5; // @synthesize md5;
+- (void)copyDownloadInfoFromEmojiInfo:(id)arg1;
+- (BOOL)isDownloaded;
+- (id)emoticonPath;
+- (id)simpleDescription;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)init;
 - (void)dealloc;

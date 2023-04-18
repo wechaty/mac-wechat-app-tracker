@@ -58,7 +58,7 @@
 - (id)getSharpTagKeyWord:(id)arg1;
 - (void)handleURL:(id)arg1 withExtraInfo:(id)arg2;
 - (void)openURL:(id)arg1 withA8KeyConfig:(id)arg2;
-- (void)openURLWithDefault:(id)arg1;
+- (BOOL)openURLWithDefault:(id)arg1;
 - (BOOL)preHandleUrlStr:(id)arg1 withMessage:(id)arg2;
 - (BOOL)preHandleUrlStr:(id)arg1;
 - (id)filterUrlStr:(id)arg1;

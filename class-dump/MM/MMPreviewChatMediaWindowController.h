@@ -43,7 +43,6 @@
 - (void)_initPreviewList;
 - (void)_initDataLogic;
 - (void)_initSingleDataLogic;
-- (void)_preloadVideoOfMessageData:(id)arg1;
 - (void)dealloc;
 - (id)initWithChatContact:(id)arg1 message:(id)arg2 order:(unsigned long long)arg3 scene:(unsigned long long)arg4 subScene:(unsigned long long)arg5;
 

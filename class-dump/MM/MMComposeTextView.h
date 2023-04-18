@@ -13,7 +13,7 @@
 #import "NSTextViewDelegate-Protocol.h"
 
 @class MMMentionViewController, MMTextSenderInfo, MMTimeChecker, NSMutableArray, NSPopover, NSString;
-@protocol MMComposeRichAttachmentTextViewDelegate, MMComposeTextChangeDelegate, MMComposeTextEmotionProtDelegate, MMComposeTextViewDelegate, MMComposeTextViewReferDelegate;
+@protocol MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, MMComposeTextChangeDelegate, MMComposeTextEmotionProtDelegate, MMComposeTextViewDelegate, MMComposeTextViewReferDelegate;
 
 @interface MMComposeTextView : MMRichAttachmentBaseTextView <NSTextViewDelegate, MMMentionViewControllerDelegate, NSTextStorageDelegate, NSMenuDelegate, NSFileManagerDelegate>
 {
@@ -24,6 +24,7 @@
     id <MMComposeTextViewDelegate> _mmDelegate;
     id <MMComposeTextEmotionProtDelegate> _mmEmotionDelegate;
     id <MMComposeTextChangeDelegate> _textChangeDelegate;
+    id <MMComposeInputViewDelegate> _composeInputViewDelegate;
     id <MMComposeTextViewReferDelegate> _referDelegate;
     CDUnknownBlockType _didClickSendBlock;
     CDUnknownBlockType _didPasteFilesBlock;
@@ -82,11 +83,12 @@
 @property(copy, nonatomic) CDUnknownBlockType didPasteFilesBlock; // @synthesize didPasteFilesBlock=_didPasteFilesBlock;
 @property(copy, nonatomic) CDUnknownBlockType didClickSendBlock; // @synthesize didClickSendBlock=_didClickSendBlock;
 @property(nonatomic) __weak id <MMComposeTextViewReferDelegate> referDelegate; // @synthesize referDelegate=_referDelegate;
+@property(nonatomic) __weak id <MMComposeInputViewDelegate> composeInputViewDelegate; // @synthesize composeInputViewDelegate=_composeInputViewDelegate;
 @property(nonatomic) __weak id <MMComposeTextChangeDelegate> textChangeDelegate; // @synthesize textChangeDelegate=_textChangeDelegate;
 @property(nonatomic) __weak id <MMComposeTextEmotionProtDelegate> mmEmotionDelegate; // @synthesize mmEmotionDelegate=_mmEmotionDelegate;
 @property(nonatomic) __weak id <MMComposeTextViewDelegate> mmDelegate; // @synthesize mmDelegate=_mmDelegate;
 - (void)cleanDragImgFolder;
-- (unsigned char)replaceImageWith:(id)arg1 identifier:(unsigned long long)arg2;
+- (void)replaceImageWith:(id)arg1 identifier:(unsigned long long)arg2;
 - (void)shouldShowEmotionPrompt;
 - (void)showInView:(id)arg1 withRelativeRect:(struct CGRect)arg2 preferredEdge:(unsigned int)arg3;
 - (BOOL)isMentionPopoverShown;
@@ -159,6 +161,7 @@
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (struct CGRect)cellFrameForAttachmentCell:(id)arg1 withWidthConstrain:(double)arg2;
+- (id)getJPEGImageData:(id)arg1;
 - (void)_sendMessage;
 - (void)clearEditingContent;
 - (void)clearContentAndOther;
@@ -173,17 +176,16 @@
 - (void)insertImage:(id)arg1;
 - (void)insertImageData:(id)arg1;
 - (id)_getMentionedUserDisplayName:(id)arg1;
-- (void)insertQuotedMessage:(id)arg1;
 - (void)resetReferMessage;
 - (BOOL)replaceTextInRange:(struct _NSRange)arg1 withReferAttributeText:(id)arg2;
-- (BOOL)doReplaceReferMessage:(id)arg1 inRange:(struct _NSRange)arg2;
 - (void)insertReferAttachmentObj:(id)arg1;
 - (void)insertAtMemberAttachmentObj:(id)arg1;
 - (void)insertReferMessage:(id)arg1;
 - (void)insertEmoticon:(id)arg1;
 - (void)insertAtUserList:(id)arg1;
 - (void)insertRichText:(id)arg1;
-- (void)pasteWithRevokText:(id)arg1 atUsrList:(id)arg2;
+- (void)insertText:(id)arg1 replacementRange:(struct _NSRange)arg2;
+- (void)insertRevokeText:(id)arg1 atUsrList:(id)arg2;
 - (void)setTypingAttributes:(id)arg1;
 - (void)handleAppFontSize;
 - (void)dealloc;

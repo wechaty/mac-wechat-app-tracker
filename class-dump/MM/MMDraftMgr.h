@@ -24,7 +24,7 @@
 - (void)removeDraftForUserName:(id)arg1;
 - (BOOL)hasDraftWithUserName:(id)arg1;
 - (id)draftWithUserName:(id)arg1;
-- (void)setDraft:(id)arg1 withUsername:(id)arg2;
+- (BOOL)setDraft:(id)arg1 withUsername:(id)arg2;
 - (void)onServiceClearData;
 - (id)init;
 

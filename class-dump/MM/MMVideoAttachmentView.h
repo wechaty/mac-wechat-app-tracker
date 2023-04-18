@@ -8,12 +8,12 @@
 
 #import "GroupNoticeDownloadExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
 @class MMButton, MMImageView, NSImage, NSString;
 
-@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, GroupNoticeDownloadExt, NSMenuDelegate>
+@interface MMVideoAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMNewRecordDownloadServiceExt, GroupNoticeDownloadExt, NSMenuDelegate>
 {
     NSImage *_displayImage;
     MMImageView *_thumbnailImageView;
@@ -28,7 +28,7 @@
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)reloadImage;
 - (void)onClickPlay;

@@ -13,7 +13,7 @@
 #import "NSTabViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 
-@class FavoritesItem, FavoritesItemDataField, MMTableView, MMTextView, MMViewerWindow, MessageData, NSMutableDictionary, NSString, NSTableCellView;
+@class FavoritesItem, FavoritesItemDataField, MMTableView, MMTextView, MMViewerWindow, MessageData, NSMutableDictionary, NSScrollView, NSString, NSTableCellView;
 
 @interface MMChatLogDetailViewController : NSViewController <NSTabViewDelegate, NSTableViewDataSource, MMChatLogCellViewDelegate, MMTableViewDelegate, MMChatLogRecordCellViewDelegate, MMViewerWindowDelegate>
 {
@@ -23,6 +23,7 @@
     NSString *_sourceBreadPath;
     MMViewerWindow *_weakViewerWindow;
     MMTableView *_tableView;
+    NSScrollView *_scrollView;
     MMTextView *_titleTextView;
     NSTableCellView *_headerCellView;
     NSTableCellView *_footerCellView;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) NSTableCellView *footerCellView; // @synthesize footerCellView=_footerCellView;
 @property(retain, nonatomic) NSTableCellView *headerCellView; // @synthesize headerCellView=_headerCellView;
 @property(retain, nonatomic) MMTextView *titleTextView; // @synthesize titleTextView=_titleTextView;
+@property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MMTableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) __weak MMViewerWindow *weakViewerWindow; // @synthesize weakViewerWindow=_weakViewerWindow;
 @property(retain, nonatomic) NSString *sourceBreadPath; // @synthesize sourceBreadPath=_sourceBreadPath;

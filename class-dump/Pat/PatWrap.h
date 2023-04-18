@@ -33,7 +33,6 @@
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToPatWrap:(id)arg1;
 @property(readonly, nonatomic, getter=isEmphasize) BOOL emphasize;
-- (id)groupChatDisplayName:(id)arg1 inGroupChat:(id)arg2;
 - (void)getDisplayMsgContent:(id)arg1 withFormattingOptions:(id)arg2 withChatUserName:(id)arg3;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)canRevoke;

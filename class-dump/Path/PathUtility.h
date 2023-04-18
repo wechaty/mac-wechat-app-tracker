@@ -110,6 +110,8 @@
 + (id)GetCurUserDocumentPath;
 + (id)GetUserCachePathWithUserName:(id)arg1;
 + (id)GetUserDocumentPathWithUserName:(id)arg1;
++ (id)convertToRealFilePath:(id)arg1;
++ (void)load;
 + (id)getPredownloadRequestDataPath;
 + (id)getPredownloadQuotaPath:(unsigned long long)arg1;
 + (id)getPredownloadDBPath:(unsigned long long)arg1;

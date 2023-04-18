@@ -7,8 +7,11 @@
 #import "_TtC6WeChat25SnsFeedListViewController.h"
 
 #import "IAccountStorageExt-Protocol.h"
+#import "MMTableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 
-@interface _TtC6WeChat25SnsFeedListViewController (WeChat) <IAccountStorageExt>
+@interface _TtC6WeChat25SnsFeedListViewController (WeChat) <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate, IAccountStorageExt>
 - (void)onUserFocus:(id)arg1;
 - (void)onScrollStop:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;

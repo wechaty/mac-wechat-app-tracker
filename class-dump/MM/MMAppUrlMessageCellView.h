@@ -42,6 +42,7 @@
 - (void)handleThumbnailDownloadFailed;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
+- (void)openUrl;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)getSection1MenuItem;
@@ -59,13 +60,15 @@
 - (void)layoutBottomView;
 - (void)updateMessageLayer;
 - (void)updateHighlightMaskView;
-- (void)setupAccessibility;
+- (void)exposeUrlToMultiTab:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 
 @end
 

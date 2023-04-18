@@ -6,7 +6,7 @@
 
 #import <AppKit/NSView.h>
 
-@class MMCTTextViewSession, MMTimer, NSAttributedString, NSColor, NSFont, NSMutableArray, NSString, NSTextField, NSTrackingArea;
+@class MMCTTextViewSession, MMTimer, NSAttributedString, NSColor, NSFont, NSMutableArray, NSString, NSTrackingArea;
 
 @interface MMReferCTTextView : NSView
 {
@@ -29,7 +29,6 @@
     MMTimer *_autoScrollTimer;
     unsigned long long _scrollDirection;
     unsigned long long _scrollTime;
-    NSTextField *_accessibleTextField;
     struct CGPoint _originOfTail;
     struct _NSRange _selectedRange;
     struct CGPoint _lastMousePosition;
@@ -37,7 +36,6 @@
 
 + (struct CGSize)suggestedSizeWithAttributedString:(id)arg1 widthConstraint:(double)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSTextField *accessibleTextField; // @synthesize accessibleTextField=_accessibleTextField;
 @property(nonatomic) unsigned long long scrollTime; // @synthesize scrollTime=_scrollTime;
 @property(nonatomic) struct CGPoint lastMousePosition; // @synthesize lastMousePosition=_lastMousePosition;
 @property(nonatomic) unsigned long long scrollDirection; // @synthesize scrollDirection=_scrollDirection;

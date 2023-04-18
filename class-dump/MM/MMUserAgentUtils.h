@@ -14,6 +14,7 @@
 + (id)microMessengerVersion;
 + (id)userAgentSuffix;
 + (id)safariVersionFromUserAgent:(id)arg1;
++ (id)XWebViewExtraUserAgent;
 + (id)webViewExtraUserAgent;
 + (void)userAgentFromWebView:(id)arg1 completion:(CDUnknownBlockType)arg2;
 

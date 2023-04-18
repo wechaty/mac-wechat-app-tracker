@@ -6,22 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "IWALaunchProtocol-Protocol.h"
-
-@class NSString;
-
-@interface WALaunchProxy : NSObject <IWALaunchProtocol>
+@interface WALaunchProxy : NSObject
 {
 }
 
 - (BOOL)canLaunchMiniProgramWithContact:(id)arg1;
 - (void)requestContact:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "MMMessageCellView.h"
 
-@class CAGradientLayer, CAShapeLayer, MMImageView, MMReaderWrapView, MMTextField, MMView, NSArray, NSMutableArray, NSTextField, NSView;
+@class CAGradientLayer, CAShapeLayer, MMImageView, MMReaderWrapView, MMTextField, MMView, NSArray, NSMutableArray, NSTextField, NSView, SVGImageView;
 
 @interface MMAppMultipleReaderMessageCellView : MMMessageCellView
 {
@@ -17,6 +17,8 @@
     MMReaderWrapView *_coverContainer;
     MMImageView *_coverThumbnail;
     MMView *_othersContainer;
+    SVGImageView *_coverHintIcon;
+    NSTextField *_coverHintLabel;
     unsigned long long _selectedReaderWrapIndex;
     NSMutableArray *_viewsInOthersContainer;
     CAShapeLayer *_strokeLayer;
@@ -28,7 +30,7 @@
 + (id)otherNewsTitleAttributedStringWithReaderMessage:(id)arg1;
 + (double)heightForOtherNewsTitleString:(id)arg1 withTitleWidth:(double)arg2;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
-+ (double)coverThumbnailHeightWithContentWidth:(double)arg1 withImageWidth:(double)arg2 imageHeight:(double)arg3;
++ (double)coverHeightWithReader:(id)arg1 contentWidth:(double)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSView *readerTitleBackView; // @synthesize readerTitleBackView=_readerTitleBackView;
 @property(retain, nonatomic) CAGradientLayer *readerTitleBackLayer; // @synthesize readerTitleBackLayer=_readerTitleBackLayer;
@@ -36,6 +38,8 @@
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) NSMutableArray *viewsInOthersContainer; // @synthesize viewsInOthersContainer=_viewsInOthersContainer;
 @property(nonatomic) unsigned long long selectedReaderWrapIndex; // @synthesize selectedReaderWrapIndex=_selectedReaderWrapIndex;
+@property(retain, nonatomic) NSTextField *coverHintLabel; // @synthesize coverHintLabel=_coverHintLabel;
+@property(retain, nonatomic) SVGImageView *coverHintIcon; // @synthesize coverHintIcon=_coverHintIcon;
 @property(retain, nonatomic) MMView *othersContainer; // @synthesize othersContainer=_othersContainer;
 @property(retain, nonatomic) MMImageView *coverThumbnail; // @synthesize coverThumbnail=_coverThumbnail;
 @property(retain, nonatomic) MMReaderWrapView *coverContainer; // @synthesize coverContainer=_coverContainer;
@@ -69,12 +73,14 @@
 - (void)layoutCover;
 - (void)layoutTitleLabel;
 - (void)layoutViews;
+- (void)exposeUrlToMultiTab:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
 - (void)updateMessageLayer;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)dealloc;
+- (BOOL)accessibilityPerformShowMenu;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -7,12 +7,13 @@
 #import <objc/NSObject.h>
 
 #import "ICdnComMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "MMAppAttachFileMgrExt-Protocol.h"
 
 @class CdnFavMediaInfo, CdnRecordMediaInfo, CdnUploadTaskInfo, FavoritesItemDataField, MessageData, NSString;
 @protocol RecordUploadTaskDelegate;
 
-@interface RecordUploadTask : NSObject <ICdnComMgrExt, MMAppAttachFileMgrExt>
+@interface RecordUploadTask : NSObject <ICdnComMgrExt, MMAppAttachFileMgrExt, IMMNewRecordDownloadServiceExt>
 {
     BOOL _isThumb;
     BOOL _isMsgThumb;
@@ -41,6 +42,10 @@
 @property(nonatomic) __weak id <RecordUploadTaskDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
 - (void)checkMd5:(id)arg1;
+- (void)onDownloadRecordPart:(id)arg1 key:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4 context:(id)arg5;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)OnCdnUpload:(id)arg1;
 - (void)handleSourceFileDownload;
 - (void)handleThumbFileDownload;

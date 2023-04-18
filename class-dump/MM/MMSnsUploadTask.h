@@ -17,6 +17,7 @@
     BOOL _isUploadFailed;
     BOOL _isDeleted;
     BOOL _isPending;
+    BOOL _disableCompletionToast;
     int type;
     int syncFlag;
     unsigned int tempUserCount;
@@ -114,6 +115,7 @@
 + (void)PBArrayAdd_clientID;
 + (void)PBArrayAdd_serverID;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL disableCompletionToast; // @synthesize disableCompletionToast=_disableCompletionToast;
 @property(copy, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) int sessionActionType; // @synthesize sessionActionType=_sessionActionType;
 @property(nonatomic) unsigned int pendingTime; // @synthesize pendingTime=_pendingTime;

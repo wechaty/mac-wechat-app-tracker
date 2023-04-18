@@ -12,6 +12,7 @@
 @interface MMCTTextView : NSView
 {
     unsigned char _shouldAutoScroll;
+    unsigned char _commandPressed;
     BOOL _selectable;
     BOOL _isForceDrawLine;
     id <MMCTTextViewDelegate> _delegate;
@@ -54,6 +55,7 @@
 @property(nonatomic) BOOL isForceDrawLine; // @synthesize isForceDrawLine=_isForceDrawLine;
 @property(nonatomic) struct _NSRange selectedRange; // @synthesize selectedRange=_selectedRange;
 @property(nonatomic) BOOL selectable; // @synthesize selectable=_selectable;
+@property(nonatomic) unsigned char commandPressed; // @synthesize commandPressed=_commandPressed;
 @property(nonatomic) unsigned char shouldAutoScroll; // @synthesize shouldAutoScroll=_shouldAutoScroll;
 @property(nonatomic) unsigned long long numberOfLines; // @synthesize numberOfLines=_numberOfLines;
 @property(nonatomic) struct CGPoint originOfTail; // @synthesize originOfTail=_originOfTail;

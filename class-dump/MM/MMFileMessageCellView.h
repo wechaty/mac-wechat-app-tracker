@@ -118,7 +118,8 @@
 - (void)updateProgressByValue:(double)arg1;
 - (void)updateSubTitle:(id)arg1 states:(id)arg2 stress:(BOOL)arg3;
 - (void)updateMessageLayer;
-- (void)setupAccessibility;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)_setupStateMachine;

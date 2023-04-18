@@ -17,10 +17,23 @@
     unsigned int exptSeq;
     unsigned int startTimeSec;
     unsigned int endTimeSec;
+    unsigned int exptType;
+    unsigned int subType;
+    unsigned int fromSystem;
+    unsigned int _lastRptTimeSec;
     NSDictionary *exptArgs;
+    NSString *exptCheckSum;
+    unsigned long long bucketSrc;
+    NSString *paramHashVal;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_paramHashVal;
++ (void)PBArrayAdd_bucketSrc;
++ (void)PBArrayAdd_fromSystem;
++ (void)PBArrayAdd_exptCheckSum;
++ (void)PBArrayAdd_subType;
++ (void)PBArrayAdd_exptType;
 + (void)PBArrayAdd_exptArgs;
 + (void)PBArrayAdd_endTimeSec;
 + (void)PBArrayAdd_startTimeSec;
@@ -28,14 +41,23 @@
 + (void)PBArrayAdd_groupId;
 + (void)PBArrayAdd_exptId;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int lastRptTimeSec; // @synthesize lastRptTimeSec=_lastRptTimeSec;
+@property(retain, nonatomic) NSString *paramHashVal; // @synthesize paramHashVal;
+@property(nonatomic) unsigned long long bucketSrc; // @synthesize bucketSrc;
+@property(nonatomic) unsigned int fromSystem; // @synthesize fromSystem;
+@property(retain, nonatomic) NSString *exptCheckSum; // @synthesize exptCheckSum;
+@property(nonatomic) unsigned int subType; // @synthesize subType;
+@property(nonatomic) unsigned int exptType; // @synthesize exptType;
 @property(retain, nonatomic) NSDictionary *exptArgs; // @synthesize exptArgs;
 @property(nonatomic) unsigned int endTimeSec; // @synthesize endTimeSec;
 @property(nonatomic) unsigned int startTimeSec; // @synthesize startTimeSec;
 @property(nonatomic) unsigned int exptSeq; // @synthesize exptSeq;
 @property(nonatomic) unsigned int groupId; // @synthesize groupId;
 @property(nonatomic) unsigned int exptId; // @synthesize exptId;
+- (BOOL)isFromApp;
 - (BOOL)parseJson:(id)arg1;
 - (BOOL)isReady;
+- (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 

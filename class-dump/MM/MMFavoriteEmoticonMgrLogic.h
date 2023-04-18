@@ -12,11 +12,11 @@
 #import "GetEmotionFavMD5ListCGIDelegate-Protocol.h"
 
 @class EmoticonOperateCGI, EmoticonUploadCGI, ExchangeEmoticonPackCgi, GetEmotionFavMD5ListCGI, MMTimer, MessageData, NSMutableArray, NSString;
-@protocol MMEmoticonMgrLogicDelegate, ToastViewDelegate;
+@protocol MMEmoticonFavoriteMgrLogicDelegate, ToastViewDelegate;
 
 @interface MMFavoriteEmoticonMgrLogic : MMBaseEmoticonMgrLogic <GetEmotionFavMD5ListCGIDelegate, EmoticonUploadCGIDelegate, EmoticonOperateCGIDelegate, ExchangeEmoticonPackCgiDelegate>
 {
-    id <MMEmoticonMgrLogicDelegate> _delegate;
+    id <MMEmoticonFavoriteMgrLogicDelegate> _delegate;
     id <ToastViewDelegate> _toastViewDelegate;
     MMTimer *_downloadTimer;
     GetEmotionFavMD5ListCGI *_getEmotionFavMD5ListCGI;
@@ -38,11 +38,13 @@
 @property(retain, nonatomic) GetEmotionFavMD5ListCGI *getEmotionFavMD5ListCGI; // @synthesize getEmotionFavMD5ListCGI=_getEmotionFavMD5ListCGI;
 @property(retain, nonatomic) MMTimer *downloadTimer; // @synthesize downloadTimer=_downloadTimer;
 @property(nonatomic) __weak id <ToastViewDelegate> toastViewDelegate; // @synthesize toastViewDelegate=_toastViewDelegate;
-@property(nonatomic) __weak id <MMEmoticonMgrLogicDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MMEmoticonFavoriteMgrLogicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onExchangeEmoticonPackCgiFailedWithProductId:(id)arg1 ret:(int)arg2;
 - (void)onExchangeEmoticonPackCgiOkWithProductId:(id)arg1;
-- (BOOL)exchangeEmotionPackWithProductId:(id)arg1;
-- (void)addExchangedEmoticon;
+- (BOOL)exchangeEmotionPackWithProductId:(id)arg1 message:(id)arg2;
+- (BOOL)isTouchLimitSize:(id)arg1;
+- (BOOL)isTouchLimitCount;
+- (void)addExchangedEmoticon:(id)arg1;
 - (void)addFavEmoticon:(id)arg1;
 - (void)EmoticonOperateCGIDidFailed:(id)arg1 md5List:(id)arg2;
 - (void)EmoticonOperateCGIDidFinished:(id)arg1 needUploadMD5List:(id)arg2;
@@ -50,26 +52,18 @@
 - (void)emoticonDidFailedUpload:(id)arg1 md5:(id)arg2;
 - (void)emoticonDidFinishedUpload:(id)arg1 md5:(id)arg2;
 - (void)startUploadNextEmoticonTask;
-- (void)onEmoticonDownloadFinish:(id)arg1;
+- (void)onEmoticonMd5ObjectDownloadFail:(id)arg1;
+- (void)onEmoticonMd5ObjectDownloadFinish:(id)arg1;
+- (void)onEmoticonDataDelete:(id)arg1;
+- (void)onEmoticonDataDownloadFail:(id)arg1;
+- (void)onEmoticonDataDownloadFinish:(id)arg1;
 - (void)onGetEmoticonFavMD5ListFinished:(id)arg1;
-- (void)refreshFavEmoticons;
-- (void)loadFavEmoticonDataFromFile;
-- (void)saveFavEmoticonDataListToFile;
-- (BOOL)isEmoticonMD5InDataStorageList:(id)arg1;
-- (int)getEmoticonCustomTypeWithMD5:(id)arg1;
-- (id)getDataStorageList;
-- (unsigned char)removeFavEmoticonLocalCahceWithMD5:(id)arg1;
-- (BOOL)deleteFavEmoticonWithMD5:(id)arg1;
 - (void)onGetEmoticonFavMD5ListFailed;
+- (void)refreshFavEmoticons;
 - (void)addEmoticonToUploadQueueWithMD5:(id)arg1;
-- (void)addEmoticonToServerWithMD5:(id)arg1;
-- (void)addEmoticonToLocalCacheWithMD5:(id)arg1 type:(int)arg2 messageData:(id)arg3;
-- (BOOL)addFavEmoticonWithMD5:(id)arg1 type:(int)arg2 messageData:(id)arg3;
-- (BOOL)isTouchLimitSize:(id)arg1;
-- (BOOL)isTouchLimitCount;
-- (id)getEmotionImgWithMD5:(id)arg1;
-- (id)getEmotionDataWithMD5:(id)arg1;
-- (BOOL)isEmoticonMD5InFavorites:(id)arg1;
+- (void)addFavEmoticonToServer:(id)arg1;
+- (BOOL)addFavEmoticonToLocal:(id)arg1 customEmojiType:(int)arg2 message:(id)arg3;
+- (BOOL)isFavoriteEmoticonsLoaded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -174,6 +174,7 @@
     struct DialReport_t _dialReport;
 }
 
++ (int)videoFormat;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *lastCapture; // @synthesize lastCapture=_lastCapture;

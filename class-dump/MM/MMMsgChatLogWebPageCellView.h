@@ -6,15 +6,15 @@
 
 #import "MMChatLogWebPageCellView.h"
 
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class NSString;
 
-@interface MMMsgChatLogWebPageCellView : MMChatLogWebPageCellView <IMMRecordDownloadMgrExt>
+@interface MMMsgChatLogWebPageCellView : MMChatLogWebPageCellView <IMMNewRecordDownloadServiceExt>
 {
 }
 
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

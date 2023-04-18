@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FinderLiveExtInfo, FinderLiveSdkChannelInfo, NSString;
+@class FinderLiveExtInfo, FinderLivePurchaseInfo, FinderLiveSdkChannelInfo, NSString;
 
 @interface WCFinderLiveInfo : NSObject
 {
@@ -14,15 +14,19 @@
     unsigned int _startTime;
     unsigned int _likeCnt;
     unsigned int _endTime;
+    unsigned int _replayStatus;
     unsigned long long _liveId;
     unsigned long long _liveStatus;
     NSString *_streamUrl;
     FinderLiveExtInfo *_liveExtInfo;
     FinderLiveSdkChannelInfo *_liveSdkChannelInfo;
+    FinderLivePurchaseInfo *_livePurchaseInfo;
 }
 
 + (id)finderLiveInfoFrom:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int replayStatus; // @synthesize replayStatus=_replayStatus;
+@property(retain, nonatomic) FinderLivePurchaseInfo *livePurchaseInfo; // @synthesize livePurchaseInfo=_livePurchaseInfo;
 @property(retain, nonatomic) FinderLiveSdkChannelInfo *liveSdkChannelInfo; // @synthesize liveSdkChannelInfo=_liveSdkChannelInfo;
 @property(retain, nonatomic) FinderLiveExtInfo *liveExtInfo; // @synthesize liveExtInfo=_liveExtInfo;
 @property(nonatomic) unsigned int endTime; // @synthesize endTime=_endTime;
@@ -32,6 +36,7 @@
 @property(nonatomic) unsigned long long liveStatus; // @synthesize liveStatus=_liveStatus;
 @property(nonatomic) unsigned int onlineCnt; // @synthesize onlineCnt=_onlineCnt;
 @property(nonatomic) unsigned long long liveId; // @synthesize liveId=_liveId;
+- (BOOL)canReplay;
 - (BOOL)isLiveClosed;
 - (id)genFinderLiveObject;
 

@@ -231,6 +231,8 @@
 - (BOOL)isTeenApplyMsg;
 - (BOOL)isAppRecordOverLimit;
 - (BOOL)isLargeFileForFavOrRecord;
+- (BOOL)isLiveReplayMsg;
+- (BOOL)isPurchaseLiveMsg;
 - (BOOL)isLiveMsg;
 - (BOOL)isLargeFileForForward;
 - (BOOL)isAppFeedNameCardMsg;
@@ -239,6 +241,8 @@
 - (BOOL)isMusic;
 - (BOOL)isNoteMsg;
 - (BOOL)isMultiReaderMsg;
+- (BOOL)isSingleImageReaderMsg;
+- (BOOL)isSingleVideoReaderMsg;
 - (BOOL)isSingleReaderMsg;
 - (BOOL)isSupportedAppMsg;
 - (BOOL)isAppBrandNativeMsg;

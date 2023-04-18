@@ -7,8 +7,9 @@
 #import <objc/NSObject.h>
 
 #import "AVAssetResourceLoaderDelegate-Protocol.h"
+#import "TPAssetResourceLoaderDelegate-Protocol.h"
 
-@interface _TtC6WeChat28SnsVideoStreamingResProvider : NSObject <AVAssetResourceLoaderDelegate>
+@interface _TtC6WeChat28SnsVideoStreamingResProvider : NSObject <TPAssetResourceLoaderDelegate, AVAssetResourceLoaderDelegate>
 {
     // Error parsing type: , name: mediaURL
     // Error parsing type: , name: mediaItem

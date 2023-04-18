@@ -142,6 +142,7 @@
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;
+- (BOOL)accessibilityPerformShowMenu;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

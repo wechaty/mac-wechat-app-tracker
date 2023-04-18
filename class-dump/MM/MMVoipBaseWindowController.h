@@ -156,7 +156,9 @@
 - (void)onCaptureDeviceChanged:(id)arg1 withType:(int)arg2;
 - (void)formVOIPUserNotification;
 - (void)formVOIPMessageWhenCallFromMyself:(BOOL)arg1;
-- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)updateRenderAndWindowFrameIfNeeded:(float)arg1;
+- (void)recvPixelFrameBuffer:(struct __CVBuffer *)arg1 frameWidth:(unsigned int)arg2 frameHeight:(unsigned int)arg3 degree:(float)arg4;
+- (void)recvImageSourceData:(char *)arg1 frameWidth:(unsigned int)arg2 frameHeight:(unsigned int)arg3 degree:(float)arg4;
 - (void)renderOnPreviewRenderLayerWith:(id)arg1;
 - (void)rotateLayerToFillWindow;
 - (int)getVideoOrientationWithDegrees:(double)arg1;
@@ -212,6 +214,7 @@
 - (void)switchPlaySoundDevice;
 - (void)playEndingSound;
 - (void)resumePlaySound;
+- (BOOL)canResumePlaySound;
 - (void)pausePlaySound;
 - (void)stopPlaySound;
 - (void)playSound:(id)arg1 OfType:(id)arg2 numberOfLoops:(long long)arg3;

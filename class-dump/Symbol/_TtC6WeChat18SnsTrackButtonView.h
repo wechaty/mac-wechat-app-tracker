@@ -37,6 +37,7 @@
 - (void)mouseEntered:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
+- (BOOL)accessibilityPerformShowMenu;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic, retain) NSColor *imageColor; // @synthesize imageColor;

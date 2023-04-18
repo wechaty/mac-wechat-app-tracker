@@ -41,7 +41,7 @@
 @property(copy, nonatomic) NSString *m_nsEmoticonMD5; // @synthesize m_nsEmoticonMD5=_m_nsEmoticonMD5;
 @property(nonatomic) __weak MessageData *m_refMessageData; // @synthesize m_refMessageData;
 - (BOOL)isEmotionExist;
-- (id)filePath;
+- (id)emotionFilePath;
 @property(readonly, copy) NSString *description;
 - (void)UpdateGameInfo:(id)arg1;
 - (id)GetGameStatReportString;

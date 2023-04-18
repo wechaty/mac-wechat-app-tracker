@@ -16,6 +16,7 @@
 
 @interface MMSessionPickerWindow : NSWindowController <AccountServiceExt, WeChatSearchProtocol, NSWindowDelegate, IMessageExt, MMFavoritesMgrExt>
 {
+    BOOL _disableForwardNotice;
     BOOL _isObserverAppearance;
     NSString *_headingText;
     NSWindow *_spawningWindow;
@@ -33,9 +34,11 @@
 @property(retain, nonatomic) MMSessionPickerShareHistoryController *shareHistoryViewController; // @synthesize shareHistoryViewController=_shareHistoryViewController;
 @property(retain, nonatomic) MMSessionChoosenView *choosenViewController; // @synthesize choosenViewController=_choosenViewController;
 @property(retain, nonatomic) MMSessionPickerLeftViewController *listViewController; // @synthesize listViewController=_listViewController;
+@property(nonatomic) BOOL disableForwardNotice; // @synthesize disableForwardNotice=_disableForwardNotice;
 @property(retain, nonatomic) WCContactData *sharedContact; // @synthesize sharedContact=_sharedContact;
 @property(nonatomic) __weak NSWindow *spawningWindow; // @synthesize spawningWindow=_spawningWindow;
 @property(retain, nonatomic) NSString *headingText; // @synthesize headingText=_headingText;
+- (void)clearForwardTmpDir;
 - (void)reportQuitWhenAddMember;
 - (void)clearShareHistoryDataOnClose;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;

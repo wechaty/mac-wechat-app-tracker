@@ -880,6 +880,10 @@ struct HostIPHint {
 
 struct HostIpMap;
 
+struct IBrowsingService {
+    CDUnknownFunctionPointerType *_field1;
+};
+
 struct IMVQQEngine {
     CDUnknownFunctionPointerType *_field1;
 };
@@ -932,6 +936,10 @@ struct IWXConfService {
     CDUnknownFunctionPointerType *_field1;
 };
 
+struct IWeChatBrowserManager {
+    CDUnknownFunctionPointerType *_field1;
+};
+
 struct ImagePlane {
     int _field1;
     int _field2;
@@ -981,16 +989,8 @@ struct LogUploadObserver {
 
 struct LoopHealthMonitor;
 
-struct MMCGIItem {
-    int _field1;
-    int _field2;
-    int _field3;
-    char *_field4;
-    char *_field5;
-    Class _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
+struct MTLResourceID {
+    unsigned long long _field1;
 };
 
 struct MultiTalkMgrImpl;
@@ -2200,6 +2200,13 @@ struct function<bool (const char *, const char *, int (*)(void *, int, const cha
         struct type _field1;
         void *_field2;
     } _field1;
+};
+
+struct function<void (NSString *, NSDictionary *)> {
+    struct __value_func<void (NSString *, NSDictionary *)> {
+        struct type __buf_;
+        void *__f_;
+    } __f_;
 };
 
 struct function<void (const char *, std::vector<sqlitelint::Issue>)> {
@@ -3910,7 +3917,7 @@ struct timeval {
 };
 
 struct type {
-    unsigned char _field1[32];
+    unsigned char __lx[32];
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>>> {
@@ -4481,11 +4488,29 @@ typedef struct {
 } CDStruct_6a59ab51;
 
 typedef struct {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3;
+    unsigned char _field4;
+} CDStruct_a06f635e;
+
+typedef struct {
     unsigned long long _field1;
     unsigned long long _field2;
     unsigned long long _field3;
     unsigned long long _field4;
 } CDStruct_33dcf794;
+
+typedef struct {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+} CDStruct_14f26992;
+
+typedef struct {
+    unsigned long long _field1;
+    unsigned long long _field2;
+} CDStruct_4bcfbbae;
 
 typedef struct {
     unsigned long long _field1;
@@ -4498,6 +4523,11 @@ typedef struct {
     double _field1;
     double _field2;
 } CDStruct_c3b9c2ee;
+
+typedef struct {
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
 
 typedef struct {
     long long _field1;
@@ -4558,6 +4588,11 @@ typedef struct {
     unsigned int volumeFactor;
     _Bool isRunning;
 } CDStruct_a00e0650;
+
+typedef struct {
+    CDStruct_14f26992 _field1;
+    CDStruct_14f26992 _field2;
+} CDStruct_4c83c94d;
 
 typedef struct {
     CDStruct_1b6d18a9 _field1;
@@ -4631,14 +4666,21 @@ typedef struct function<bool (const char *, const char *, int (*)(void *, int, c
         struct type _field1;
         void *_field2;
     } _field1;
-} function_275ccf77;
+} function_ffa07b7f;
+
+typedef struct function<void (NSString *, NSDictionary *)> {
+    struct __value_func<void (NSString *, NSDictionary *)> {
+        struct type __buf_;
+        void *__f_;
+    } __f_;
+} function_db428f58;
 
 typedef struct function<void (const char *, std::vector<sqlitelint::Issue>)> {
     struct __value_func<void (const char *, std::vector<sqlitelint::Issue>)> {
         struct type _field1;
         void *_field2;
     } _field1;
-} function_a46de7e7;
+} function_7f4503e1;
 
 typedef struct list<std::string, std::allocator<std::string>> {
     struct __list_node_base<std::string, void *> {

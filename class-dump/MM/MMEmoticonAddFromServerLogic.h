@@ -7,21 +7,18 @@
 #import "MMEmoticonServerNotifyTask.h"
 
 @class NSArray;
-@protocol MMEmoticonAddFromServerLogicDelegate;
 
 @interface MMEmoticonAddFromServerLogic : MMEmoticonServerNotifyTask
 {
     NSArray *_addMd5Array;
-    id <MMEmoticonAddFromServerLogicDelegate> _m_delegate;
     unsigned long long _type;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(nonatomic) __weak id <MMEmoticonAddFromServerLogicDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
 @property(retain, nonatomic) NSArray *addMd5Array; // @synthesize addMd5Array=_addMd5Array;
 - (BOOL)resumeLogic;
-- (id)initWithDelegate:(id)arg1 md5ObjectArray:(id)arg2 type:(unsigned long long)arg3;
+- (id)initWithMd5ObjectArray:(id)arg1 type:(unsigned long long)arg2;
 
 @end
 

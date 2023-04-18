@@ -173,6 +173,7 @@
 - (void)windowWillExitFullScreen:(id)arg1;
 - (void)windowDidEnterFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;
+- (BOOL)canResumePlaySound;
 - (void)stopPlaySound;
 - (void)playSound;
 - (void)calAvatarViewsLayout;

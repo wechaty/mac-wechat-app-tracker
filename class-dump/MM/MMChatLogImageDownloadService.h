@@ -7,34 +7,28 @@
 #import "MMService.h"
 
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordNestedDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class NSString;
 
-@interface MMChatLogImageDownloadService : MMService <IMMRecordNestedDownloadMgrExt, IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, MMService>
+@interface MMChatLogImageDownloadService : MMService <IMMFavRecordDownloadMgrExt, IMMNewRecordDownloadServiceExt, MMService>
 {
 }
 
-- (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordNestedDataFieldExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;
-- (void)OnRecordNestedDataFieldDownloadRetryFailedImageRecordData:(id)arg1;
-- (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)OnDownloadFavItemRecordPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadFavItemRecordExpired:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadFavItemRecordFail:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
-- (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
-- (void)OnRecordMessageDownloadRetryFailedImageRecordData:(id)arg1;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordPart:(id)arg1 key:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4 context:(id)arg5;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (id)originResourcePath:(id)arg1 dataId:(id)arg2;
 - (void)processImageAndNotifyWithOriginPath:(id)arg1 previewPath:(id)arg2 object:(id)arg3 dataId:(id)arg4;
 - (void)startDownloadByDataField:(id)arg1 withParentMsg:(id)arg2 realDataField:(id)arg3 thumb:(BOOL)arg4 data:(BOOL)arg5;
 - (void)startDownloadByFavoritesItem:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
-- (void)startDownloadByRecordData:(id)arg1 DataId:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
+- (void)startDownloadByRecordData:(id)arg1 dataField:(id)arg2 thumb:(BOOL)arg3 data:(BOOL)arg4;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 

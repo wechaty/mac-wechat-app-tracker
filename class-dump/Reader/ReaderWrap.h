@@ -23,6 +23,8 @@
     NSString *m_nsUserName;
     NSString *m_nsNickName;
     ReaderTopNewWrap *m_TopNewWrap;
+    unsigned int m_picNum;
+    unsigned int m_playLength;
     unsigned int m_uiItemShowType;
     NSColor *m_topColor;
     NSMutableArray *m_arrStyles;
@@ -44,6 +46,8 @@
 @property(nonatomic) unsigned long long m_index; // @synthesize m_index=_m_index;
 @property(retain, nonatomic) NSMutableArray *m_arrLines; // @synthesize m_arrLines;
 @property(retain, nonatomic) NSMutableArray *m_arrStyles; // @synthesize m_arrStyles;
+@property(nonatomic) unsigned int m_playLength; // @synthesize m_playLength;
+@property(nonatomic) unsigned int m_picNum; // @synthesize m_picNum;
 @property(nonatomic) unsigned int m_uiItemShowType; // @synthesize m_uiItemShowType;
 @property(retain, nonatomic) NSColor *m_topColor; // @synthesize m_topColor;
 @property(retain, nonatomic) ReaderTopNewWrap *m_TopNewWrap; // @synthesize m_TopNewWrap;
@@ -59,6 +63,8 @@
 @property(retain, nonatomic) NSString *m_nsShortUrl; // @synthesize m_nsShortUrl;
 @property(retain, nonatomic) NSString *m_nsUrl; // @synthesize m_nsUrl;
 @property(retain, nonatomic) NSString *m_nsTitle; // @synthesize m_nsTitle;
+- (BOOL)isImageReader;
+- (BOOL)isVideoReader;
 - (id)getTitleWithoutLink;
 - (void)dealloc;
 - (id)description;

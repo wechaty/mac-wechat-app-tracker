@@ -15,15 +15,27 @@
     unsigned int hasExptSequence:1;
     unsigned int hasExptContent:1;
     unsigned int hasExptType:1;
+    unsigned int hasExptCheckSum:1;
+    unsigned int hasBucketSrc:1;
+    unsigned int hasExptParamHashVal:1;
     unsigned int exptId;
     unsigned int groupId;
     unsigned int exptSequence;
     unsigned int exptType;
     NSString *exptContent;
+    NSString *exptCheckSum;
+    unsigned long long bucketSrc;
+    NSString *exptParamHashVal;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetExptParamHashVal:) NSString *exptParamHashVal; // @synthesize exptParamHashVal;
+@property(readonly, nonatomic) BOOL hasExptParamHashVal; // @synthesize hasExptParamHashVal;
+@property(nonatomic, setter=SetBucketSrc:) unsigned long long bucketSrc; // @synthesize bucketSrc;
+@property(readonly, nonatomic) BOOL hasBucketSrc; // @synthesize hasBucketSrc;
+@property(retain, nonatomic, setter=SetExptCheckSum:) NSString *exptCheckSum; // @synthesize exptCheckSum;
+@property(readonly, nonatomic) BOOL hasExptCheckSum; // @synthesize hasExptCheckSum;
 @property(nonatomic, setter=SetExptType:) unsigned int exptType; // @synthesize exptType;
 @property(readonly, nonatomic) BOOL hasExptType; // @synthesize hasExptType;
 @property(retain, nonatomic, setter=SetExptContent:) NSString *exptContent; // @synthesize exptContent;

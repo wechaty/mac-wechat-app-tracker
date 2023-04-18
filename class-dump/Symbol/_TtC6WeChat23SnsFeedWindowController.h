@@ -33,7 +33,6 @@
 - (void)showPublishWindow:(id)arg1;
 - (void)showWindow:(id)arg1;
 @property(nonatomic, readonly) BOOL acceptsFirstResponder;
-- (void)onZoomButtonClick;
 - (void)dealloc;
 - (void)windowDidLoad;
 @property(nonatomic, readonly) NSString *windowNibName;

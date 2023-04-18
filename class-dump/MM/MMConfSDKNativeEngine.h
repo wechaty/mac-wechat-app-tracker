@@ -35,6 +35,7 @@
 + (int)joinRoomWithRoomID:(long long)arg1 roomType:(int)arg2 networkType:(int)arg3;
 + (int)updateSessionKey:(id)arg1;
 + (id)generateInitInfo:(id)arg1 sessionKey:(id)arg2 idcInfo:(id)arg3 audioType:(int)arg4 videoRatio:(int)arg5 videoLength:(int)arg6;
++ (int)videoFormat;
 + (int)GetCPUCapacity;
 + (int)initEngine:(id)arg1 sessionKey:(id)arg2 idcInfo:(id)arg3 audioType:(int)arg4 videoRatio:(int)arg5 videoLength:(int)arg6 nCallback:(struct IWXConfCallback *)arg7;
 + (struct IWXConfService *)getConfInst;

@@ -6,26 +6,25 @@
 
 #import "MMChatLogVideoCellView.h"
 
-#import "IMMRecordNestedDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class NSString;
 
-@interface MMRecordChatLogVideoCellView : MMChatLogVideoCellView <IMMRecordNestedDownloadMgrExt>
+@interface MMRecordChatLogVideoCellView : MMChatLogVideoCellView <IMMNewRecordDownloadServiceExt>
 {
 }
 
 - (void)downloadThumb;
 - (void)downloadData;
-- (BOOL)shouldFilterNotify:(id)arg1;
-- (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordNestedDataFieldExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (BOOL)_shouldFilterNotify:(id)arg1;
+- (void)onDownloadRecordPart:(id)arg1 key:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4 context:(id)arg5;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)layoutVideoContentView;
 - (void)openFile;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,7 +11,7 @@
 @interface MMCGI : NSObject
 {
     unsigned int m_sessionId;
-    const struct MMCGIItem *m_item;
+    const void *m_item;
     MMCGIWrap *m_cgiWrap;
     MMCmdWrap *m_cmdWrap;
     NSData *m_requestData;
@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSData *m_requestData; // @synthesize m_requestData;
 @property(retain, nonatomic) MMCmdWrap *m_cmdWrap; // @synthesize m_cmdWrap;
 @property(retain, nonatomic) MMCGIWrap *m_cgiWrap; // @synthesize m_cgiWrap;
-@property(nonatomic) const struct MMCGIItem *m_item; // @synthesize m_item;
+@property(nonatomic) const void *m_item; // @synthesize m_item;
 - (void)responseCGIFailedWithErrType:(unsigned int)arg1 errCode:(unsigned int)arg2;
 - (void)responseCGI:(BOOL)arg1;
 - (id)getDelegate;
@@ -32,7 +32,7 @@
 - (void)registerDelegate:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initWithItem:(const struct MMCGIItem *)arg1 delegate:(id)arg2;
+- (id)initWithItem:(const void *)arg1 delegate:(id)arg2;
 
 @end
 

@@ -81,6 +81,8 @@
 - (void)drawRectWithBubbleMask:(BOOL)arg1;
 - (void)drawRectWithoutBubbleMask;
 - (void)drawImage;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)checkCellView:(id)arg1;
 - (void)prepareForReuse;

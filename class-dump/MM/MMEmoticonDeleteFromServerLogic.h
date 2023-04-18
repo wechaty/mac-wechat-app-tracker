@@ -7,21 +7,18 @@
 #import "MMEmoticonServerNotifyTask.h"
 
 @class NSArray;
-@protocol MMEmoticonDeleteFromServerLogicDelegate;
 
 @interface MMEmoticonDeleteFromServerLogic : MMEmoticonServerNotifyTask
 {
     NSArray *_m_deleteMd5Array;
-    id <MMEmoticonDeleteFromServerLogicDelegate> _m_delegate;
     unsigned long long _type;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(nonatomic) __weak id <MMEmoticonDeleteFromServerLogicDelegate> m_delegate; // @synthesize m_delegate=_m_delegate;
 @property(retain, nonatomic) NSArray *m_deleteMd5Array; // @synthesize m_deleteMd5Array=_m_deleteMd5Array;
 - (BOOL)resumeLogic;
-- (id)initWithDelegate:(id)arg1 md5ObjectArray:(id)arg2 type:(unsigned long long)arg3;
+- (id)initWithMd5ObjectArray:(id)arg1 type:(unsigned long long)arg2;
 
 @end
 

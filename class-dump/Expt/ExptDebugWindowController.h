@@ -13,9 +13,11 @@
     NSTextField *_keyInput;
     NSTextField *_defaultInput;
     NSTextField *_valueInput;
+    NSTextField *_boolValueInput;
 }
 
 - (void).cxx_destruct;
+@property __weak NSTextField *boolValueInput; // @synthesize boolValueInput=_boolValueInput;
 @property __weak NSTextField *valueInput; // @synthesize valueInput=_valueInput;
 @property __weak NSTextField *defaultInput; // @synthesize defaultInput=_defaultInput;
 @property __weak NSTextField *keyInput; // @synthesize keyInput=_keyInput;

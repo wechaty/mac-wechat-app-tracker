@@ -14,7 +14,7 @@
 #import "MMVoipBaseWindowControllerDelegate-Protocol.h"
 #import "MMVoipUserNotificationDelegate-Protocol.h"
 
-@class MMMultiTalkWindowController, MMVoipCallerWindowController, MMVoipReceiverWindowController, MMVoipUserNotificationWindowController, NSLock, NSMutableSet, NSString;
+@class MMVoipCallerWindowController, MMVoipReceiverWindowController, MMVoipUserNotificationWindowController, NSLock, NSMutableSet, NSString;
 
 @interface VoipUIManager : MMService <IMessageExt, MMNetExt, AccountServiceExt, MMVoipUserNotificationDelegate, MMVoipBaseWindowControllerDelegate, MMService, MMConfigMgrExt>
 {
@@ -24,7 +24,6 @@
     MMVoipCallerWindowController *m_VoipCallerWindowController;
     MMVoipReceiverWindowController *m_VoipReceiverWindowController;
     MMVoipUserNotificationWindowController *m_VoipUserNotiWindowController;
-    MMMultiTalkWindowController *m_VoipMultiCallWindowController;
     NSMutableSet *_processingNotifyVoipInviteMsgSet;
     NSLock *_m_lock;
 }
@@ -35,7 +34,6 @@
 @property(retain, nonatomic) NSLock *m_lock; // @synthesize m_lock=_m_lock;
 @property(retain, nonatomic) NSMutableSet *processingNotifyVoipInviteMsgSet; // @synthesize processingNotifyVoipInviteMsgSet=_processingNotifyVoipInviteMsgSet;
 @property(nonatomic) BOOL m_isCaller; // @synthesize m_isCaller;
-@property(retain, nonatomic) MMMultiTalkWindowController *m_VoipMultiCallWindowController; // @synthesize m_VoipMultiCallWindowController;
 @property(retain, nonatomic) MMVoipUserNotificationWindowController *m_VoipUserNotiWindowController; // @synthesize m_VoipUserNotiWindowController;
 @property(retain, nonatomic) MMVoipReceiverWindowController *m_VoipReceiverWindowController; // @synthesize m_VoipReceiverWindowController;
 @property(retain, nonatomic) MMVoipCallerWindowController *m_VoipCallerWindowController; // @synthesize m_VoipCallerWindowController;
@@ -57,7 +55,6 @@
 - (void)handleVoipMsgNotification:(id)arg1 msgData:(id)arg2;
 - (void)VoIPWindowDidClosed:(id)arg1;
 - (void)alertVoipCallerWindow:(id)arg1 contact:(id)arg2 initViewMode:(int)arg3;
-- (void)showMultiTalkWindowController;
 - (void)alertReceiverWindow:(id)arg1 contact:(id)arg2 initViewMode:(int)arg3;
 - (void)insetLocalBusyMessage:(id)arg1 andInitViewMode:(int)arg2;
 - (void)endcall;
@@ -67,10 +64,10 @@
 - (void)forceToCloseAllWindow;
 - (void)orderFrontVoipWindow;
 - (BOOL)openVoipWindowWithContact:(id)arg1 isCaller:(BOOL)arg2 andMsgWrap:(id)arg3 andInitViewMode:(int)arg4;
-- (void)openVideoVoipViewWithContact:(id)arg1 isCaller:(BOOL)arg2 andMsgWrap:(id)arg3 isEarMode:(BOOL)arg4;
-- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)renderOnOppositeLayerWithSourceData:(char *)arg1 frameWidth:(unsigned int)arg2 frameHeight:(unsigned int)arg3 degree:(float)arg4;
+- (void)renderOnOppositeLayerWithPixelBuffer:(struct __CVBuffer *)arg1 frameWidth:(unsigned int)arg2 frameHeight:(unsigned int)arg3 degree:(float)arg4;
+- (id)getCurrentUserInterfaceWindow;
 - (id)getConflictWording;
-- (BOOL)isMultiTalkWorking;
 - (BOOL)isVoipWorking;
 - (void)onServiceWillSleep;
 - (void)onServiceDidWake;

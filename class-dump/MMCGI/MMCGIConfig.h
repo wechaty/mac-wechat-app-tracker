@@ -6,26 +6,31 @@
 
 #import <objc/NSObject.h>
 
+@class NSRecursiveLock;
+
 @interface MMCGIConfig : NSObject
 {
     unsigned long long m_itemCount;
-    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> m_functionIdMap;
-    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> m_cmdIdMap;
+    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> _fixFunctionIdMap;
+    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> _fixCmdIdMap;
+    struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> _dynamicFunctionIdMap;
     int m_customItemCount;
+    NSRecursiveLock *_lock;
 }
 
 + (void)updateH5TransferCGIItem:(int)arg1 andCgiUrl:(id)arg2;
-+ (void)addCGIItem:(const struct MMCGIItem *)arg1;
-+ (const struct MMCGIItem *)findItemWithCmdID:(int)arg1;
-+ (const struct MMCGIItem *)findItemWithFunc:(int)arg1;
++ (const void *)findItemWithCmdID:(int)arg1;
++ (const void *)findItemWithFunc:(int)arg1;
 + (id)sharedInstance;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
 - (void)updateH5TransferCGIItem:(int)arg1 andCgiUrl:(id)arg2;
-- (void)addCGIItemInternal:(const struct MMCGIItem *)arg1;
-- (const struct MMCGIItem *)findItemWithCmdIDInternal:(int)arg1;
-- (const struct MMCGIItem *)findItemWithFuncInternal:(int)arg1;
-- (void)config;
+- (void)addCGIItemInternal:(const void *)arg1;
+- (const void *)findItemWithKey:(int)arg1 inMap:(const void *)arg2;
+- (const void *)findItemWithCmdIDInternal:(int)arg1;
+- (const void *)findItemWithFuncInternal:(int)arg1;
+- (id)init;
 
 @end
 

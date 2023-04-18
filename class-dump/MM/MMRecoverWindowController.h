@@ -20,6 +20,8 @@
     NSPopUpButton *_vCodec2DownloadButton;
     NSPopUpButton *_vCodec2UploadButton;
     NSPopUpButton *_playerCoreButton;
+    NSPopUpButton *_gpuAccelerationButton;
+    NSPopUpButton *_browserCoreButton;
     NSStackView *_dataRepairStackView;
     NSStackView *_dataCleanStackView;
     NSStackView *_dataResetStackView;
@@ -29,6 +31,8 @@
 @property __weak NSStackView *dataResetStackView; // @synthesize dataResetStackView=_dataResetStackView;
 @property __weak NSStackView *dataCleanStackView; // @synthesize dataCleanStackView=_dataCleanStackView;
 @property __weak NSStackView *dataRepairStackView; // @synthesize dataRepairStackView=_dataRepairStackView;
+@property __weak NSPopUpButton *browserCoreButton; // @synthesize browserCoreButton=_browserCoreButton;
+@property __weak NSPopUpButton *gpuAccelerationButton; // @synthesize gpuAccelerationButton=_gpuAccelerationButton;
 @property __weak NSPopUpButton *playerCoreButton; // @synthesize playerCoreButton=_playerCoreButton;
 @property __weak NSPopUpButton *vCodec2UploadButton; // @synthesize vCodec2UploadButton=_vCodec2UploadButton;
 @property __weak NSPopUpButton *vCodec2DownloadButton; // @synthesize vCodec2DownloadButton=_vCodec2DownloadButton;
@@ -54,6 +58,8 @@
 - (void)migrateDataToFile:(id)arg1;
 - (void)showRecentCheckpointTime:(id)arg1;
 - (void)resetDBCheckpointInterval:(id)arg1;
+- (void)onBrowserCoreBtnCliecked:(id)arg1;
+- (void)onGpuAccBtnClicked:(id)arg1;
 - (void)onPlayerCoreBtnClicked:(id)arg1;
 - (void)onVerbosePlayerLogBtnClicked:(id)arg1;
 - (void)onDBDetectButtonClick:(id)arg1;
@@ -62,7 +68,7 @@
 - (void)cleanMsgDataAndRestart:(id)arg1;
 - (void)cleanFavDataAndRestart:(id)arg1;
 - (void)cleanDataAndRestart:(id)arg1;
-- (void)cleanLocalCache:(id)arg1;
+- (void)clearEmoticonAndRestart:(id)arg1;
 - (void)stopLoadingToast;
 - (void)showLoadingToast;
 - (void)windowWillClose:(id)arg1;

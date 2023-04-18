@@ -19,6 +19,9 @@
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;
 - (id)getOperationMenuItem;
+- (BOOL)accessibilityPerformShowMenu;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)setChoosable:(BOOL)arg1;
 - (void)contextMenuShowSourceDebugTool;
 - (void)populateWithMessage:(id)arg1;

@@ -49,7 +49,7 @@
 - (void)setSelectedIndexWithoutCallback:(unsigned long long)arg1;
 - (void)_layoutButtons;
 - (BOOL)updateStoreEmticonIcon:(id)arg1;
-- (int)getEmoticonGroupType;
+- (long long)getEmoticonGroupType;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

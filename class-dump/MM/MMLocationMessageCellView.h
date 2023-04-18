@@ -40,7 +40,6 @@
 - (void)mouseExited:(id)arg1;
 - (struct CGRect)clickableArea;
 - (struct CGRect)bubbleFrame;
-- (void)setupAccessibility;
 - (void)layoutDescriptionLabel;
 - (void)layoutTitleLabel;
 - (void)layoutMapView;
@@ -53,6 +52,8 @@
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 
 @end
 

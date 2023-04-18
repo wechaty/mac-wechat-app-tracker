@@ -8,9 +8,12 @@
 
 @interface MMEmoticonRecoverFromServerLogic : MMEmoticonServerNotifyTask
 {
+    unsigned long long _type;
 }
 
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 - (BOOL)resumeLogic;
+- (id)initWithType:(unsigned long long)arg1;
 
 @end
 

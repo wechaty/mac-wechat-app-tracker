@@ -59,6 +59,7 @@
 - (id)editHyperlinksWithAttributedString:(id)arg1 linkRanges:(id)arg2 shouldFormatEmail:(BOOL)arg3 useSelfLink:(BOOL)arg4;
 - (id)editHyperlinksWithAttributedString:(id)arg1 shouldFormatEmail:(BOOL)arg2 useSelfLink:(BOOL)arg3;
 - (id)editFontSizeWithAttributedString:(id)arg1 sizeAdjustments:(unsigned long long)arg2 extraAttrs:(id)arg3;
+- (BOOL)matchEmoij:(id)arg1;
 - (id)editQQEmojiWithAttributedString:(id)arg1 originalText:(id)arg2 specifiedEmojiSize:(id)arg3 useCoreText:(BOOL)arg4;
 - (id)attributedStringFromString:(id)arg1 withFormattingOptions:(id)arg2;
 - (id)attributedStringFromString:(id)arg1;

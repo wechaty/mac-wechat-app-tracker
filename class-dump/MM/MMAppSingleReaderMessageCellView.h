@@ -6,15 +6,17 @@
 
 #import "MMMessageCellView.h"
 
-@class CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMTextView, ReaderWrap;
+@class CAGradientLayer, CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMTextView, NSView, ReaderWrap;
 
 @interface MMAppSingleReaderMessageCellView : MMMessageCellView
 {
     ReaderWrap *_readerData;
-    MMReaderWrapView *_containerView;
-    MMTextView *_readerTitleLabel;
     MMImageView *_readerThumbnail;
+    MMTextView *_readerTitleLabel;
     MMCTTextView *_readerDescription;
+    CAGradientLayer *_readerTitleBackLayer;
+    NSView *_readerTitleBackView;
+    MMReaderWrapView *_containerView;
     MMDivider *_readerSeperator;
     CAShapeLayer *_strokeLayer;
     CAShapeLayer *_highlightLayer;
@@ -31,10 +33,12 @@
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) MMDivider *readerSeperator; // @synthesize readerSeperator=_readerSeperator;
-@property(retain, nonatomic) MMCTTextView *readerDescription; // @synthesize readerDescription=_readerDescription;
-@property(retain, nonatomic) MMImageView *readerThumbnail; // @synthesize readerThumbnail=_readerThumbnail;
-@property(retain, nonatomic) MMTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
 @property(retain, nonatomic) MMReaderWrapView *containerView; // @synthesize containerView=_containerView;
+@property(retain, nonatomic) NSView *readerTitleBackView; // @synthesize readerTitleBackView=_readerTitleBackView;
+@property(retain, nonatomic) CAGradientLayer *readerTitleBackLayer; // @synthesize readerTitleBackLayer=_readerTitleBackLayer;
+@property(retain, nonatomic) MMCTTextView *readerDescription; // @synthesize readerDescription=_readerDescription;
+@property(retain, nonatomic) MMTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
+@property(retain, nonatomic) MMImageView *readerThumbnail; // @synthesize readerThumbnail=_readerThumbnail;
 @property(retain, nonatomic) ReaderWrap *readerData; // @synthesize readerData=_readerData;
 - (BOOL)isTemplateReaderWrap;
 - (void)setChoosable:(BOOL)arg1;
@@ -51,15 +55,20 @@
 - (void)layoutDescription;
 - (void)layoutThumbnail;
 - (void)layoutReaderTitleLabel;
+- (id)getCoverUrl;
 - (id)getReaderTitleAttr:(id)arg1;
 - (id)getReaderTitleWithReaderData:(id)arg1;
+- (void)openUrl;
 - (void)layoutContainerView;
 - (void)layoutViews;
+- (void)makeReaderBackgroundViewIfNeed;
 - (void)viewDidMoveToSuperview;
 - (void)updateMessageLayer;
 - (void)updateHighlightMaskView;
+- (void)exposeUrlToMultiTab:(id)arg1;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
+- (BOOL)accessibilityPerformPress;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;

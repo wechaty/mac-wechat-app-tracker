@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat12SnsUIManager : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat12SnsUIManager : MMService <MMService>
 {
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: previewWindowWillClose

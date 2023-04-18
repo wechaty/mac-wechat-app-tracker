@@ -7,41 +7,26 @@
 #import "MMService.h"
 
 #import "AccountServiceExt-Protocol.h"
-#import "IExptLogicCallback-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class ExptLogic, NSMutableDictionary, NSString;
+@class NSArray, NSString;
 
-@interface ExptService : MMService <IExptLogicCallback, AccountServiceExt, IMessageExt, MMService>
+@interface ExptService : MMService <AccountServiceExt, IMessageExt, MMService>
 {
-    BOOL _hadLoadedExpt;
-    NSMutableDictionary *_exptItemMap;
-    NSMutableDictionary *_exptKeyMap;
-    ExptLogic *_exptLogic;
+    NSArray *_exptImplementations;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) ExptLogic *exptLogic; // @synthesize exptLogic=_exptLogic;
-@property(nonatomic) BOOL hadLoadedExpt; // @synthesize hadLoadedExpt=_hadLoadedExpt;
-@property(retain, nonatomic) NSMutableDictionary *exptKeyMap; // @synthesize exptKeyMap=_exptKeyMap;
-@property(retain, nonatomic) NSMutableDictionary *exptItemMap; // @synthesize exptItemMap=_exptItemMap;
-- (id)mmExptPath:(id)arg1 userName:(id)arg2;
-- (id)mmExptPath:(id)arg1;
-- (BOOL)checkNeedDelAllExpt:(unsigned int)arg1;
-- (void)onGotSvrExptList:(id)arg1 deleteExptIds:(id)arg2 andExptFlag:(unsigned int)arg3;
-- (void)getLocalExptList:(id)arg1;
-- (void)tryToSaveExpt;
-- (void)tryToLoadExpt;
-- (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
-- (void)FFAddRecvFavZZ:(int)arg1;
+@property(retain) NSArray *exptImplementations; // @synthesize exptImplementations=_exptImplementations;
 - (void)getSvrExpt;
+- (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
+- (void)onUserLogout;
+- (void)FFAddRecvFavZZ:(int)arg1;
+- (void)reloadExptImpl;
 - (void)dealloc;
 - (void)onServiceEnterForeground;
-- (void)onServiceReloadData;
-- (void)onServiceClearData;
 - (void)onServiceInit;
-- (id)getAllExpt;
 - (id)getExpt:(id)arg1 withStringDefault:(id)arg2;
 - (id)getExptItemWith:(id)arg1;
 - (BOOL)getExpt:(id)arg1 withBoolDefault:(BOOL)arg2;

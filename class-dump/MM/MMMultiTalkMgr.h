@@ -6,7 +6,6 @@
 
 #import "MMService.h"
 
-#import "AVScreenDeviceSessionDelegate-Protocol.h"
 #import "AVVideoDataSource-Protocol.h"
 #import "AVVideoDeviceDelegate-Protocol.h"
 #import "AVVideoDeviceSessionDelegate-Protocol.h"
@@ -18,6 +17,7 @@
 #import "MMCGIDelegate-Protocol.h"
 #import "MMMultiTalkWindowDelegate-Protocol.h"
 #import "MMNetExt-Protocol.h"
+#import "MMScreenCaptureSessionDelegate-Protocol.h"
 #import "MMService-Protocol.h"
 #import "MMVoipBaseWindowControllerDelegate-Protocol.h"
 #import "MMVoipUserNotificationDelegate-Protocol.h"
@@ -28,9 +28,9 @@
 #import "WXCAssistHelperDelegate-Protocol.h"
 #import "WXCMultiTalkApiDelegate-Protocol.h"
 
-@class AVVideoDevice, MMCaptureDeviceInfo, MMMultiTalkWindowController, MMScreenInputDevice, MMTimer, MMVoipUserNotificationWindowController, MMWindowInputDevice, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
+@class AVVideoDevice, MMCaptureDeviceInfo, MMMultiTalkWindowController, MMScreenInputDevice, MMStreamInputDevice, MMTimer, MMVoipUserNotificationWindowController, MMWindowInputDevice, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString;
 
-@interface MMMultiTalkMgr : MMService <IMessageExt, MMCGIDelegate, AccountServiceExt, WXCMultiTalkApiDelegate, MultitalkApiDelegate, WXCAssistHelperDelegate, MultiTalkCgiDelegate, AVVideoDeviceSetupSessionDelegate, AVVideoDataSource, AVVideoDeviceDelegate, AVVideoDeviceSessionDelegate, MonoServiceMsgDelegate, MMVoipUserNotificationDelegate, IContactMgrExt, IGroupMgrExt, MMVoipBaseWindowControllerDelegate, MMMultiTalkWindowDelegate, MonoServiceMsgLogicDelegate, MMNetExt, AVScreenDeviceSessionDelegate, MMService>
+@interface MMMultiTalkMgr : MMService <IMessageExt, MMCGIDelegate, AccountServiceExt, WXCMultiTalkApiDelegate, MultitalkApiDelegate, WXCAssistHelperDelegate, MultiTalkCgiDelegate, AVVideoDeviceSetupSessionDelegate, AVVideoDataSource, AVVideoDeviceDelegate, AVVideoDeviceSessionDelegate, MonoServiceMsgDelegate, MMVoipUserNotificationDelegate, IContactMgrExt, IGroupMgrExt, MMVoipBaseWindowControllerDelegate, MMMultiTalkWindowDelegate, MonoServiceMsgLogicDelegate, MMNetExt, MMScreenCaptureSessionDelegate, MMService>
 {
     BOOL _m_videoDeviceRunning;
     BOOL _m_haveBigVideoSubscriber;
@@ -52,6 +52,7 @@
     NSMutableDictionary *_m_videoInfoDic;
     MMScreenInputDevice *_m_screenDevice;
     MMWindowInputDevice *_m_windowDevice;
+    MMStreamInputDevice *_m_streamDevice;
     MMCaptureDeviceInfo *_currentScreenSourceInfo;
     unsigned long long _renderMode;
     NSString *_m_talkingGroupId;
@@ -92,6 +93,7 @@
 @property(retain, nonatomic) NSString *m_talkingGroupId; // @synthesize m_talkingGroupId=_m_talkingGroupId;
 @property(nonatomic) unsigned long long renderMode; // @synthesize renderMode=_renderMode;
 @property(retain, nonatomic) MMCaptureDeviceInfo *currentScreenSourceInfo; // @synthesize currentScreenSourceInfo=_currentScreenSourceInfo;
+@property(retain, nonatomic) MMStreamInputDevice *m_streamDevice; // @synthesize m_streamDevice=_m_streamDevice;
 @property(retain, nonatomic) MMWindowInputDevice *m_windowDevice; // @synthesize m_windowDevice=_m_windowDevice;
 @property(retain, nonatomic) MMScreenInputDevice *m_screenDevice; // @synthesize m_screenDevice=_m_screenDevice;
 @property(nonatomic) BOOL m_haveBigVideoSubscriber; // @synthesize m_haveBigVideoSubscriber=_m_haveBigVideoSubscriber;
@@ -184,7 +186,6 @@
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)FFAddRecvFavZZ:(int)arg1;
 - (int)GetFrmType;
-- (void)captureWindowSnapshot:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (int)VideoDevPutData:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (void)videoDevice:(id)arg1 didFailWithError:(id)arg2;
 - (void)videoDeviceSessionFinished:(id)arg1;
@@ -199,9 +200,15 @@
 - (void)startVideoDevice;
 - (void)setupVideoDevice;
 - (void)clearVideoDevice;
-- (void)onScreenSessionStopComplete;
-- (void)onScreenSessionStartComplete;
-- (void)onScreenSessionInitFailed;
+- (void)onScreenCaptureSessionUpdateRenderDesc:(struct CGSize)arg1;
+- (void)onScreenCaptureSessionSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 width:(unsigned int)arg2 height:(unsigned int)arg3;
+- (void)onScreenCaptureSessionLayer:(id)arg1;
+- (void)onScreenCaptureSessionStop;
+- (void)onScreenCaptureSessionPause;
+- (void)onScreenCaptureSessionStart;
+- (void)onScreenCaptureSessionInitFailed;
+- (BOOL)canUseScreenCaptureKit;
+- (id)getCurrentCaptureSession;
 - (void)stopScreenInputDevice;
 - (void)startScreenInputDevice;
 - (void)clearScreenInputDevice;

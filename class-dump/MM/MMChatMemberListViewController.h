@@ -100,6 +100,7 @@
 - (void)startANewSingleChatWithSelectedUserName:(id)arg1;
 - (void)addGroupMembers:(id)arg1 andExamineString:(id)arg2 andHistoryInfo:(id)arg3;
 - (void)addToGroupChatWithSelectedUserNames:(id)arg1 withHistoryInfo:(id)arg2;
+- (BOOL)canDeleteMemberContact:(id)arg1;
 - (void)menuActionDeleteGroupMember:(id)arg1;
 - (void)menuActionMentionGroupMember:(id)arg1;
 - (void)menuActionAddFriendWithGroupMember:(id)arg1;

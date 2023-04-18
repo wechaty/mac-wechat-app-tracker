@@ -6,35 +6,23 @@
 
 #import <objc/NSObject.h>
 
-#import "PBCoding-Protocol.h"
+@class NSMutableArray, NSRecursiveLock;
 
-@class NSMutableArray, NSRecursiveLock, NSString;
-
-@interface EmoticonMsgInfoQueue : NSObject <PBCoding>
+@interface EmoticonMsgInfoQueue : NSObject
 {
-    NSMutableArray *msgInfoList;
-    NSRecursiveLock *queueLock;
+    NSMutableArray *_msgInfoList;
+    NSRecursiveLock *_queueLock;
 }
 
-+ (void)initialize;
-+ (void)PBArrayAdd_queueLock;
-+ (void)PBArrayAdd_msgInfoList;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSRecursiveLock *queueLock; // @synthesize queueLock;
-@property(retain, nonatomic) NSMutableArray *msgInfoList; // @synthesize msgInfoList;
+@property(retain, nonatomic) NSRecursiveLock *queueLock; // @synthesize queueLock=_queueLock;
+@property(retain, nonatomic) NSMutableArray *msgInfoList; // @synthesize msgInfoList=_msgInfoList;
+- (void)clearQueue;
 - (id)getTopMsgInfo;
 - (void)removeFromQueue:(id)arg1;
 - (void)addToQueue:(id)arg1;
 - (BOOL)containsMsgInfo:(id)arg1;
 - (id)init;
-- (const void *)getValueTagIndexMap;
-- (id)getValueTypeTable;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -124,7 +124,7 @@
 - (id)SendVideoMessage:(id)arg1 toUsrName:(id)arg2 videoInfo:(id)arg3 msgType:(unsigned int)arg4 refMesageData:(id)arg5;
 - (void)asyncCompressVideoInGlobalQueue:(id)arg1 videoDataInfo:(id)arg2 toUsrName:(id)arg3;
 - (void)sendChatSyncAppMsg:(id)arg1;
-- (id)forwardGroupNoticeAppMsg:(id)arg1 toUsr:(id)arg2 errMsg:(id *)arg3;
+- (id)forwardGroupNoticeAppMsg:(id)arg1 toUsr:(id)arg2 errMsg:(id *)arg3 isWeWorkGN:(BOOL)arg4;
 - (id)SendSolitaireAppMsg:(id)arg1;
 - (id)forwardSolitaireAppMsg:(id)arg1 toUsr:(id)arg2 errMsg:(id *)arg3;
 - (id)resendSolitaireAppMsg:(id)arg1 toUsr:(id)arg2 errMsg:(id *)arg3;
@@ -366,8 +366,6 @@
 - (BOOL)normalDownloadWithMsgData:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
 - (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3 bAsync:(BOOL)arg4;
 - (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 bAsync:(BOOL)arg3;
-- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2 mediaType:(unsigned long long)arg3;
-- (void)handleMessageDownload:(id)arg1 source:(unsigned long long)arg2;
 - (BOOL)checkFileNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
 - (BOOL)checkOriginImageNeedDownload:(id)arg1 fromDB:(BOOL)arg2;
 - (BOOL)checkMidImageNeedDownload:(id)arg1;

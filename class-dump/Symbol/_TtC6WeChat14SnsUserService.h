@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat14SnsUserService : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat14SnsUserService : MMService <MMService>
 {
     // Error parsing type: , name: lock
     // Error parsing type: , name: setting

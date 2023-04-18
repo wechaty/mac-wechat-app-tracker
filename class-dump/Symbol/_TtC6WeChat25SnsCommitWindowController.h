@@ -6,9 +6,11 @@
 
 #import <AppKit/NSWindowController.h>
 
+#import "NSWindowDelegate-Protocol.h"
+
 @class NSString;
 
-@interface _TtC6WeChat25SnsCommitWindowController : NSWindowController
+@interface _TtC6WeChat25SnsCommitWindowController : NSWindowController <NSWindowDelegate>
 {
 }
 

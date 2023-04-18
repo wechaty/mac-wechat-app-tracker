@@ -94,6 +94,8 @@
 - (void)layoutTranslationTextView;
 - (void)layoutTranslationTextViewContent;
 - (void)updateMessageLayer;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;

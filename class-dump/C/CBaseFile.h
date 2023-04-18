@@ -16,9 +16,9 @@
     BOOL m_bOpen;
 }
 
++ (BOOL)SetFileToReadWrite:(id)arg1;
 + (BOOL)SetFileToReadOnly:(id)arg1;
 + (BOOL)IsFolder:(id)arg1;
-+ (long long)GetFolderSizeAtPath:(id)arg1;
 + (id)AttributesOfFile:(id)arg1;
 + (id)GetFileReferenceCount:(id)arg1;
 + (id)GetFileINodeNumber:(id)arg1;
@@ -39,10 +39,10 @@
 + (void)ClearFolderOnRemove:(id)arg1;
 + (void)ClearFolder:(id)arg1;
 + (BOOL)RemoveFile:(id)arg1;
-+ (BOOL)LoadSubFolders:(id)arg1 SubFiles:(id)arg2 fromFolderPath:(const char *)arg3;
-+ (id)SubFilesName:(const char *)arg1;
-+ (id)SubFoldersName:(const char *)arg1;
-+ (long long)FolderSizeAtPath:(const char *)arg1;
++ (id)SubFilesName:(id)arg1;
++ (id)SubFoldersName:(id)arg1;
++ (long long)GetFolderSizeWithoutSymbolicLinkAtPath:(id)arg1;
++ (long long)GetFolderSizeAtPath:(id)arg1;
 + (long long)GetFileSize:(id)arg1;
 + (long long)GetFiLeModifyTime:(id)arg1;
 + (BOOL)FileExist:(id)arg1;

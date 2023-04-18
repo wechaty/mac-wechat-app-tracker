@@ -16,7 +16,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "WeChatInstance-Protocol.h"
 
-@class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMComposeTextView, MMDockItem, MMMachPortsMonitor, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
+@class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMDockItem, MMMachPortsMonitor, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
 
 @interface WeChat : NSObject <DebugMessageSourceViewDelegate, NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, MMConfigMgrExt, WeChatInstance>
 {
@@ -37,7 +37,6 @@
     MMChatsViewController *_chatsViewController;
     LeftViewController *_leftViewController;
     MMViewController *_rightViewController;
-    MMComposeTextView *_composeTextView;
     NSMenuItem *_lockMenuItem;
     NSMenu *_wechatMenu;
     unsigned long long _scrollBarShowStatus;
@@ -45,6 +44,7 @@
     unsigned long long _loginType;
     IoMonitor *_ioMonitor;
     VisualizationMonitor *_visualizationMonitor;
+    NSMenu *_dockMenu;
     _TtC6WeChat24SafeModeWindowController *_safeModeWindowController;
     ShareExtConfirmWindowController *_shareExtConfirmWindowController;
     MMServiceCenter *_serviceCenter;
@@ -79,6 +79,7 @@
 @property(retain, nonatomic) MMServiceCenter *serviceCenter; // @synthesize serviceCenter=_serviceCenter;
 @property(retain, nonatomic) ShareExtConfirmWindowController *shareExtConfirmWindowController; // @synthesize shareExtConfirmWindowController=_shareExtConfirmWindowController;
 @property(retain, nonatomic) _TtC6WeChat24SafeModeWindowController *safeModeWindowController; // @synthesize safeModeWindowController=_safeModeWindowController;
+@property(retain, nonatomic) NSMenu *dockMenu; // @synthesize dockMenu=_dockMenu;
 @property(retain, nonatomic) VisualizationMonitor *visualizationMonitor; // @synthesize visualizationMonitor=_visualizationMonitor;
 @property(retain, nonatomic) IoMonitor *ioMonitor; // @synthesize ioMonitor=_ioMonitor;
 @property(nonatomic) unsigned long long loginType; // @synthesize loginType=_loginType;
@@ -97,7 +98,6 @@
 @property(nonatomic) BOOL isLoggedIn; // @synthesize isLoggedIn=_isLoggedIn;
 @property(nonatomic) __weak NSMenu *wechatMenu; // @synthesize wechatMenu=_wechatMenu;
 @property(nonatomic) __weak NSMenuItem *lockMenuItem; // @synthesize lockMenuItem=_lockMenuItem;
-@property(retain, nonatomic) MMComposeTextView *composeTextView; // @synthesize composeTextView=_composeTextView;
 @property(nonatomic) __weak MMViewController *rightViewController; // @synthesize rightViewController=_rightViewController;
 @property(nonatomic) __weak LeftViewController *leftViewController; // @synthesize leftViewController=_leftViewController;
 @property(nonatomic) __weak MMChatsViewController *chatsViewController; // @synthesize chatsViewController=_chatsViewController;
@@ -105,7 +105,6 @@
 - (void)onMMDynamicConfigUpdated;
 - (void)leakMonitor:(id)arg1 decideForOOMAction:(CDUnknownBlockType)arg2;
 - (void)onUserChangedSystemTime:(id)arg1;
-- (void)showAppDebugWindow;
 - (void)orderBackMainWindow;
 - (void)showOrHideMainWindow;
 - (void)orderFrontMainWindow;
@@ -255,7 +254,7 @@
 - (void)_showGroupNoticeDebugWindow:(id)arg1;
 - (void)_showAddFriendDebug:(id)arg1;
 - (void)_showBudingDebug:(id)arg1;
-- (void)_showMpDebug:(id)arg1;
+- (void)_showXWebDebug:(id)arg1;
 - (void)_showCTTextView:(id)arg1;
 - (void)_showGroupBoxDebug:(id)arg1;
 - (void)_showWeUI:(id)arg1;
@@ -277,6 +276,7 @@
 - (void)_openCacheFolder:(id)arg1;
 - (void)_openCurrentDocument:(id)arg1;
 - (void)_openCurrentSandbox:(id)arg1;
+- (void)_hardlinkDebug:(id)arg1;
 - (BOOL)doUpgradeMigrationFromVersion:(unsigned int)arg1 toVersion:(unsigned int)arg2;
 - (id)checkVersionFilePath;
 - (void)saveToDiskWithVersion:(unsigned int)arg1;
@@ -297,12 +297,12 @@
 - (void)showChatsTab:(id)arg1;
 - (unsigned int)currentTab;
 - (void)lock:(id)arg1;
-- (void)shouldMakeComposeTextViewFirstResponder;
 - (void)pasteRevokeReferMessage:(id)arg1 atUserList:(id)arg2;
 - (void)pasteRevokMsgContent:(id)arg1 atUserList:(id)arg2;
 - (void)pasteScreenshotToInputView:(id)arg1;
 - (void)cancelDragOperation;
 - (void)sendDragOperationToInputView:(id)arg1;
+- (id)composeInputViewController;
 - (void)openFavoritesTabToFavoritesWithKeyWord:(id)arg1;
 - (void)startANewGroupChatWithUserNames:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)startANewChatWithContact:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -333,13 +333,6 @@
 - (void)onAuthKeyInfoInvalid:(id)arg1;
 - (void)onAuthUpdateCert;
 - (void)doSomethingWhenAuthFailed;
-- (void)resetInitFlag:(id)arg1;
-- (void)showWeAppCache:(id)arg1;
-- (void)showWeAppDBData:(id)arg1;
-- (void)showWeAppLogDir:(id)arg1;
-- (void)showWeAppLatestWindow:(id)arg1;
-- (void)showWeAppDebugWindow:(id)arg1;
-- (void)showWeAppMenuIfNeeded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -309,6 +309,7 @@
 - (BOOL)isUpgradeOpenIMChatroom;
 - (BOOL)isMatchType:(unsigned int)arg1 conType:(unsigned int)arg2;
 - (BOOL)isTopSession;
+- (id)adminList;
 - (BOOL)isAdmin;
 - (BOOL)isGroupOwner;
 - (BOOL)isGroupMemberContact;

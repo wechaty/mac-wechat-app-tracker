@@ -7,14 +7,13 @@
 #import "MMPreviewWindowController.h"
 
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordNestedDownloadMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMFavoritesMgrExt-Protocol.h"
+#import "MMImagePreviewViewControllerDelegate-Protocol.h"
 
 @class FavoritesItem, FavoritesItemDataField, MMQLPreviewItem, MessageData, NSString;
 
-@interface MMPreviewChatLogImageWindowController : MMPreviewWindowController <MMFavoritesMgrExt, IMessageExt, IMMRecordDownloadMgrExt, IMMRecordNestedDownloadMgrExt, IMMFavRecordDownloadMgrExt>
+@interface MMPreviewChatLogImageWindowController : MMPreviewWindowController <MMFavoritesMgrExt, IMessageExt, IMMFavRecordDownloadMgrExt, MMImagePreviewViewControllerDelegate>
 {
     MMQLPreviewItem *m_currentPreviewingItem;
     MessageData *m_currentPreviewingMessage;
@@ -23,14 +22,8 @@
 }
 
 - (void).cxx_destruct;
-- (void)OnDownloadRecordNestedDataFieldPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordNestedDataFieldExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordNestedDataFieldFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
-- (void)OnDownloadRecordMessagePart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)imagePreviewViewControllerLoadOriginDataExpired:(id)arg1;
+- (void)imagePreviewViewControllerLoadOriginDataFinished:(id)arg1;
 - (void)OnDownloadFavItemRecordPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
 - (void)OnDownloadFavItemRecordExpired:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadFavItemRecordFail:(id)arg1 DataId:(id)arg2;
@@ -50,7 +43,6 @@
 - (void)setupPageController;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
-- (void)_preloadVideoOfPreviewItem:(id)arg1 parentDataField:(id)arg2 parentMessage:(id)arg3 parentFavItem:(id)arg4;
 - (unsigned long long)_indexOfPreviewItemWithDataField:(id)arg1;
 - (id)_handleInvalidImagePath:(id)arg1;
 - (id)_genPreviewItemWithDataField:(id)arg1 parentFavItem:(id)arg2;

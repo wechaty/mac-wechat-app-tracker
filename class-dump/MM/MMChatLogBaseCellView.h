@@ -68,6 +68,7 @@
 - (id)originalFileName;
 - (id)originalFilePath;
 - (void)contextMenuSearch;
+- (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebView;
 - (void)contextMenuExport;
 - (void)contextMenuFavorites;

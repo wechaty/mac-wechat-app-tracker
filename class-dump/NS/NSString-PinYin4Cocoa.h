@@ -19,7 +19,6 @@
 + (id)stringFromUInt32:(unsigned int)arg1;
 + (id)stringFromUInt64:(unsigned long long)arg1;
 + (id)rac_readContentsOfURL:(id)arg1 usedEncoding:(unsigned long long *)arg2 scheduler:(id)arg3;
-+ (id)wa_md5String:(id)arg1;
 + (id)safeStringWithString:(id)arg1;
 + (BOOL)charIsLineBreak:(unsigned short)arg1;
 + (BOOL)charIsNewLine:(unsigned short)arg1;
@@ -152,9 +151,6 @@
 - (id)rac_keyPathComponents;
 @property(readonly, copy, nonatomic) RACSequence *rac_sequence;
 - (id)XMLEncodedString;
-- (id)wa_JSONDictionary;
-- (id)wa_JSONArray;
-- (id)wa_JSONValue;
 - (id)gtm_stringBySanitizingToXMLSpec;
 - (id)gtm_stringBySanitizingAndEscapingForXML;
 - (id)gtm_stringByEncodeByJsonAndUrlEncode;
@@ -174,8 +170,7 @@
 - (BOOL)safeContainsString:(id)arg1;
 - (id)stringByOmitPrefixAndSuffix:(id)arg1;
 - (id)stringByOmitSuffix:(id)arg1;
-- (id)stringByReplacingJavaScriptUnsupportString:(BOOL)arg1;
-- (id)stringByReplacingJavaScriptUnsupportString;
+- (id)stringByReplacingJavaScriptUnsupportedStringWithString:(id)arg1;
 - (id)stringByOmitPrefix:(id)arg1;
 - (id)lastCharacter;
 - (id)firstCharacter;

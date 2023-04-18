@@ -6,7 +6,9 @@
 
 #import <objc/NSObject.h>
 
-@interface _TtC6WeChat19SnsDefaultCGIClient : NSObject
+#import "MMCGIDelegate-Protocol.h"
+
+@interface _TtC6WeChat19SnsDefaultCGIClient : NSObject <MMCGIDelegate>
 {
     // Error parsing type: , name: handler
 }

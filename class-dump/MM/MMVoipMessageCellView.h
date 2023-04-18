@@ -31,6 +31,7 @@
 - (id)getSection2MenuItem;
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;
+- (BOOL)accessibilityPerformPress;
 - (BOOL)allowsVibrancy;
 - (BOOL)alwaysDisableMessageTextViewSelectableProperty;
 - (void)populateWithMessage:(id)arg1;

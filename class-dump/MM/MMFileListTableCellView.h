@@ -132,6 +132,7 @@
 - (id)getSection0MenuItem;
 - (id)contentMenu;
 - (id)menuForEvent:(id)arg1;
+- (BOOL)accessibilityPerformShowMenu;
 - (void)onStopWaitButtonClick:(id)arg1;
 - (void)onRetryButtonClick:(id)arg1;
 - (void)onCancleButtonClick:(id)arg1;

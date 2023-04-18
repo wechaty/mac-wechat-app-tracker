@@ -8,15 +8,17 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSString, NSTextField;
+@class NSImageView, NSString, NSTextField;
 
 @interface WhatsNewWindowController : MMWindowController <NSWindowDelegate>
 {
     NSTextField *_versionLabel;
     NSTextField *_descriptionLabel;
+    NSImageView *_logobkgImageView;
 }
 
 - (void).cxx_destruct;
+@property __weak NSImageView *logobkgImageView; // @synthesize logobkgImageView=_logobkgImageView;
 @property(nonatomic) __weak NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(nonatomic) __weak NSTextField *versionLabel; // @synthesize versionLabel=_versionLabel;
 - (void)windowWillClose:(id)arg1;

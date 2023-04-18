@@ -26,6 +26,9 @@
 + (unsigned long long)getWindowTypeByWindowIdStr:(id)arg1;
 + (unsigned long long)getWindowTypeWithUrlStr:(id)arg1;
 + (void)handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
++ (BOOL)isAddChatroomURL:(id)arg1;
++ (BOOL)isMultiTabEnableUrls:(id)arg1;
++ (id)setConfigWithFinderId:(id)arg1;
 
 @end
 

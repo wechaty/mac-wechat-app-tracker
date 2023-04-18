@@ -16,6 +16,7 @@
     // Error parsing type: , name: $__lazy_storage_$_progressBkgView
     // Error parsing type: , name: $__lazy_storage_$_progressView
     // Error parsing type: , name: $__lazy_storage_$_titleField
+    // Error parsing type: , name: $__lazy_storage_$_replayTitleField
     // Error parsing type: , name: $__lazy_storage_$_subTitleField
     // Error parsing type: , name: $__lazy_storage_$_liveStatus
     // Error parsing type: , name: feedLiveTimer
@@ -35,6 +36,7 @@
     // Error parsing type: , name: videoRetried
     // Error parsing type: , name: progressViewPresentTimer
     // Error parsing type: , name: isLiving
+    // Error parsing type: , name: isReplayFinished
     // Error parsing type: , name: type
     // Error parsing type: , name: imageArray
 }

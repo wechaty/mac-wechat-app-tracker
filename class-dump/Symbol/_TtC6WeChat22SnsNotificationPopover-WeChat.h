@@ -6,7 +6,9 @@
 
 #import "_TtC6WeChat22SnsNotificationPopover.h"
 
-@interface _TtC6WeChat22SnsNotificationPopover (WeChat)
+#import "NSPopoverDelegate-Protocol.h"
+
+@interface _TtC6WeChat22SnsNotificationPopover (WeChat) <NSPopoverDelegate>
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 @end

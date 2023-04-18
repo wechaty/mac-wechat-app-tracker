@@ -143,6 +143,7 @@
 - (struct CGColor *)getColorRef:(id)arg1;
 - (void)showRevokeHistoryEntry;
 - (void)showShareHistoryEntry;
+- (void)genAndSetBlurImage:(id)arg1;
 - (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)showAppFeedMessageView;
 - (void)showAppBrandMessageView;

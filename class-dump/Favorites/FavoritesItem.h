@@ -208,7 +208,6 @@
 - (BOOL)canBeExportedToFile;
 - (void)pasteboard:(id)arg1 item:(id)arg2 provideDataForType:(id)arg3;
 - (void)writeFullRepresentationToPasteboardItem:(id)arg1;
-- (void)writeFullRepresentationToPasteboard:(id)arg1;
 - (id)convertFavTxtItem2FavItemTxtDataField;
 
 // Remaining properties

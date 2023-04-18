@@ -13,11 +13,13 @@
 
 @interface MMWebViewWindowController : MMBaseWebWindowController <BaseWebViewControllerDelegate, MMWebViewDataItemOpenable>
 {
+    unsigned long long _windowType;
     NSTextField *_textField;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
+@property(nonatomic) unsigned long long windowType; // @synthesize windowType=_windowType;
 - (void)showTitleWithValue:(double)arg1;
 - (void)showTitle:(BOOL)arg1;
 - (void)updateTitle:(id)arg1;
@@ -39,6 +41,7 @@
 - (void)initTextField;
 - (void)windowDidLoad;
 - (void)dealloc;
+- (id)initWithWindowNibName:(id)arg1 andType:(unsigned long long)arg2;
 - (id)initWithWindowNibName:(id)arg1;
 
 // Remaining properties

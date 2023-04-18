@@ -6,11 +6,11 @@
 
 #import "MMMessageCellView.h"
 
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class CAShapeLayer, FavoritesItem, MMBorderView, MMCTTextView, MMView, MessageData, NSImageView, NSMutableArray, NSMutableDictionary, NSString, NSTextField;
 
-@interface MMAppNoteMessageCellView : MMMessageCellView <IMMRecordDownloadMgrExt>
+@interface MMAppNoteMessageCellView : MMMessageCellView <IMMNewRecordDownloadServiceExt>
 {
     NSMutableDictionary *m_localDataIDToThumbIndexDict;
     MMView *_containerView;
@@ -18,6 +18,7 @@
     MMCTTextView *_contentTextView;
     MMView *_thumbnailsContainerView;
     NSMutableArray *_subThumbnailImageViewArray;
+    NSMutableArray *_playIconImageViewArray;
     MMBorderView *_dashLine;
     MMBorderView *_solidLine;
     NSTextField *_favIconTextField;
@@ -47,17 +48,18 @@
 @property(retain, nonatomic) NSTextField *favIconTextField; // @synthesize favIconTextField=_favIconTextField;
 @property(retain, nonatomic) MMBorderView *solidLine; // @synthesize solidLine=_solidLine;
 @property(retain, nonatomic) MMBorderView *dashLine; // @synthesize dashLine=_dashLine;
+@property(retain, nonatomic) NSMutableArray *playIconImageViewArray; // @synthesize playIconImageViewArray=_playIconImageViewArray;
 @property(retain, nonatomic) NSMutableArray *subThumbnailImageViewArray; // @synthesize subThumbnailImageViewArray=_subThumbnailImageViewArray;
 @property(retain, nonatomic) MMView *thumbnailsContainerView; // @synthesize thumbnailsContainerView=_thumbnailsContainerView;
 @property(retain, nonatomic) MMCTTextView *contentTextView; // @synthesize contentTextView=_contentTextView;
 @property(retain, nonatomic) MMCTTextView *titleTextView; // @synthesize titleTextView=_titleTextView;
 @property(retain, nonatomic) MMView *containerView; // @synthesize containerView=_containerView;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (BOOL)setImageView:(id)arg1 WithFilePath:(id)arg2;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (id)getSection1MenuItem;
-- (void)contextMenuShowChatLogPath;
+- (void)contextMenuShowResourcePath;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (id)draggablePasteboardTypes;
 - (id)draggingImage;
@@ -66,6 +68,8 @@
 - (void)mouseDown:(id)arg1;
 - (void)updateHighlightMaskView;
 - (struct CGRect)clickableArea;
+- (void)downloadOriginImageWithMessage:(id)arg1 dataField:(id)arg2 index:(unsigned long long)arg3;
+- (void)reloadSubImageView:(id)arg1 withDataField:(id)arg2 index:(int)arg3;
 - (void)layoutSubviewsOnlyImgs;
 - (void)layoutSubviewsImgText:(id)arg1;
 - (void)layoutSubviewsOnlyText:(id)arg1 contentOneLineHeight:(double)arg2 contentNumberOfLine:(unsigned long long)arg3;
@@ -74,7 +78,8 @@
 - (struct CGRect)bubbleFrame;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)updateMessageLayer;
-- (void)setupAccessibility;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;

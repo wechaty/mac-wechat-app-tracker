@@ -6,38 +6,19 @@
 
 #import "MMService.h"
 
-#import "AccountServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMWeAppInitializeWindowController, NSString, WAHost, WAHostDataSourceImpl;
+@class NSString, WALaunchProxy;
 
-@interface OpenWeAppAdapter : MMService <AccountServiceExt, MMService>
+@interface OpenWeAppAdapter : MMService <MMService>
 {
-    BOOL _usePreloadOnLaunch;
-    unsigned int _installRetryCount;
-    WAHost *_host;
-    WAHostDataSourceImpl *_hostDataSourceImpl;
-    MMWeAppInitializeWindowController *_windowController;
+    WALaunchProxy *_launchImpl;
 }
 
-+ (void)saveAppLaunchKey;
-+ (BOOL)shouldUsePreloadOnLaunch;
-+ (void)installMiniProgramIfNeededCompletion:(CDUnknownBlockType)arg1;
-+ (void)installMiniProgramIfNeeded;
 - (void).cxx_destruct;
-@property(nonatomic) unsigned int installRetryCount; // @synthesize installRetryCount=_installRetryCount;
-@property(retain, nonatomic) MMWeAppInitializeWindowController *windowController; // @synthesize windowController=_windowController;
-@property(nonatomic) BOOL usePreloadOnLaunch; // @synthesize usePreloadOnLaunch=_usePreloadOnLaunch;
-@property(retain, nonatomic) WAHostDataSourceImpl *hostDataSourceImpl; // @synthesize hostDataSourceImpl=_hostDataSourceImpl;
-@property(retain, nonatomic) WAHost *host; // @synthesize host=_host;
-- (void)showAllowBackgroundAlert;
-- (BOOL)checkAllowBackground;
+@property(retain, nonatomic) WALaunchProxy *launchImpl; // @synthesize launchImpl=_launchImpl;
 - (void)updateWADataBaseWith:(id)arg1 andType:(unsigned int)arg2;
 - (id)convertWith:(id)arg1;
-- (id)generateConfigDictionary;
-- (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
-- (void)closeWeApp:(id)arg1;
-- (void)closeAllWeApp;
 - (void)openWeAppFromWeappOPWrap:(id)arg1 scene:(unsigned long long)arg2;
 - (void)openWeAppFromJson:(id)arg1 contact:(id)arg2 withScene:(int)arg3;
 - (void)openWeAppWithHandoffItem:(id)arg1 withScene:(int)arg2;
@@ -46,13 +27,8 @@
 - (void)openWeAppWithOfficalBrandDict:(id)arg1;
 - (void)openDebugWeApp:(id)arg1;
 - (void)openWeApp:(id)arg1 withScene:(int)arg2;
-- (void)reportLaunchError:(id)arg1;
 - (void)handleLaunchError:(id)arg1;
 - (void)launchWeAppWithHost:(id)arg1;
-- (void)hideInitializeWindow;
-- (int)getWeAppType:(id)arg1;
-- (void)miniProgramDidTerminate:(id)arg1;
-- (void)miniProgramDidLaunch:(id)arg1;
 - (void)onServiceTerminate;
 - (void)onServiceClearData;
 - (void)onServiceInit;

@@ -6,9 +6,11 @@
 
 #import <AppKit/NSWindowController.h>
 
+#import "NSWindowDelegate-Protocol.h"
+
 @class NSArray, NSButton, NSImageView, NSProgressIndicator, NSStackView, NSString, NSTextField, NSTextView, NSView;
 
-@interface _TtC6WeChat24SnsDebugWindowController : NSWindowController
+@interface _TtC6WeChat24SnsDebugWindowController : NSWindowController <NSWindowDelegate>
 {
     // Error parsing type: , name: textView
     // Error parsing type: , name: downloadTextField

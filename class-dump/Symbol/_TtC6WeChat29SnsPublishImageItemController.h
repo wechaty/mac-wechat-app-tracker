@@ -6,7 +6,9 @@
 
 #import <AppKit/NSCollectionViewItem.h>
 
-@interface _TtC6WeChat29SnsPublishImageItemController : NSCollectionViewItem
+#import "NSMenuDelegate-Protocol.h"
+
+@interface _TtC6WeChat29SnsPublishImageItemController : NSCollectionViewItem <NSMenuDelegate>
 {
     // Error parsing type: , name: image
     // Error parsing type: , name: onDelete

@@ -89,7 +89,7 @@
 - (void)StopAndNotifyUIStop;
 - (void)Stop;
 - (void)RestartTalkAndNotifyUIRestart;
-- (BOOL)Restart;
+- (void)Restart;
 - (void)activeMixWithOtherAudio;
 - (void)StartRecordAndPlayForMuTalk;
 - (void)StartRecordAndPlayForF2F;

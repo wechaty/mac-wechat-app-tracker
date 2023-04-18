@@ -36,7 +36,6 @@
 @property(nonatomic) __weak NSButton *reportButton; // @synthesize reportButton=_reportButton;
 @property(nonatomic) __weak NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 - (BOOL)isCov;
-- (BOOL)validateUploadParam:(id)arg1;
 - (void)didClickUploadButton:(id)arg1;
 - (id)formattedStrFromDate:(id)arg1;
 - (id)dateFromFormattedStr:(id)arg1;

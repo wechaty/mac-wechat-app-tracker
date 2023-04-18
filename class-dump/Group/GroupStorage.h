@@ -94,7 +94,6 @@
 - (void)resetGroupDB;
 - (void)onServiceClearData;
 - (void)onServiceInit;
-- (void)dealloc;
 - (id)init;
 - (BOOL)UIQuitGroup:(id)arg1 deleteAllMsg:(BOOL)arg2;
 - (BOOL)UIQuitGroup:(id)arg1 withConfirm:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;

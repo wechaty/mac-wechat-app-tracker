@@ -6,21 +6,12 @@
 
 #import "CdnBaseMediaInfo.h"
 
-@class NSString;
-
 @interface CdnFavMediaInfo : CdnBaseMediaInfo
 {
     BOOL _m_bStreamMedia;
     BOOL _m_bFromRetry;
-    int _dataType;
-    unsigned int _dataSize;
-    NSString *_dataMd5;
 }
 
-- (void).cxx_destruct;
-@property(nonatomic) unsigned int dataSize; // @synthesize dataSize=_dataSize;
-@property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5=_dataMd5;
-@property(nonatomic) int dataType; // @synthesize dataType=_dataType;
 @property(nonatomic) BOOL m_bFromRetry; // @synthesize m_bFromRetry=_m_bFromRetry;
 @property(nonatomic) BOOL m_bStreamMedia; // @synthesize m_bStreamMedia=_m_bStreamMedia;
 - (id)copyWithZone:(struct _NSZone *)arg1;

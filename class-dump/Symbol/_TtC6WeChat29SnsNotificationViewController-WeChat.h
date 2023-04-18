@@ -6,7 +6,11 @@
 
 #import "_TtC6WeChat29SnsNotificationViewController.h"
 
-@interface _TtC6WeChat29SnsNotificationViewController (WeChat)
+#import "MMTableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+
+@interface _TtC6WeChat29SnsNotificationViewController (WeChat) <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate>
 - (void)tableView:(id)arg1 rowGotMouseDown:(long long)arg2;
 - (void)tableView:(id)arg1 rowGotRightMouseDown:(long long)arg2;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;

@@ -6,10 +6,12 @@
 
 #import <AppKit/NSView.h>
 
+#import "NSAccessibilityButton-Protocol.h"
+
 @class CAShapeLayer, MMPlaceholderContainerView, NSAttributedString, NSButton, NSColor, NSImage, NSString;
 @protocol MMCustomSearchFieldDelegate;
 
-@interface MMCustomSearchField : NSView
+@interface MMCustomSearchField : NSView <NSAccessibilityButton>
 {
     BOOL _isSearching;
     BOOL _isHighlight;
@@ -61,7 +63,15 @@
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)viewDidChangeEffectiveAppearance;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityLabel;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,11 +9,11 @@
 #import "GroupNoticeDownloadExt-Protocol.h"
 #import "IMMFavFileDataMgrExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class NSImage, NSString;
 
-@interface MMTextImageAttachmentCell : MMTextAttachmentCell <IMMFavRecordDownloadMgrExt, IMMRecordDownloadMgrExt, IMMFavFileDataMgrExt, GroupNoticeDownloadExt>
+@interface MMTextImageAttachmentCell : MMTextAttachmentCell <IMMFavRecordDownloadMgrExt, IMMNewRecordDownloadServiceExt, IMMFavFileDataMgrExt, GroupNoticeDownloadExt>
 {
     NSImage *_midImage;
 }
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSImage *midImage; // @synthesize midImage=_midImage;
 - (void)onGroupNoticeDownloadData:(id)arg1 retCode:(int)arg2;
 - (void)onMidImageGenerated:(id)arg1 paraInfo:(id)arg2;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)reloadImage;
 - (void)useMidImageDrawRect:(struct CGRect)arg1 imageRect:(struct CGRect)arg2;

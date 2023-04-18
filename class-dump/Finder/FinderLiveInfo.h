@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class FinderLiveExtInfo, FinderLiveMediaSpec, FinderLiveSdkChannelInfo, NSString;
+@class FinderLiveExtInfo, FinderLiveMediaSpec, FinderLivePurchaseInfo, FinderLiveSdkChannelInfo, NSString;
 
 @interface FinderLiveInfo : PBGeneratedMessage
 {
@@ -20,20 +20,28 @@
     unsigned int hasLiveExtInfo:1;
     unsigned int hasLiveSpec:1;
     unsigned int hasLiveSdkChannelInfo:1;
+    unsigned int hasPurchaseInfo:1;
+    unsigned int hasReplayStatus:1;
     unsigned int onlineCnt;
     unsigned int liveStatus;
     unsigned int startTime;
     unsigned int likeCnt;
     unsigned int endTime;
+    unsigned int replayStatus;
     unsigned long long liveId;
     NSString *streamUrl;
     FinderLiveExtInfo *liveExtInfo;
     FinderLiveMediaSpec *liveSpec;
     FinderLiveSdkChannelInfo *liveSdkChannelInfo;
+    FinderLivePurchaseInfo *purchaseInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetReplayStatus:) unsigned int replayStatus; // @synthesize replayStatus;
+@property(readonly, nonatomic) BOOL hasReplayStatus; // @synthesize hasReplayStatus;
+@property(retain, nonatomic, setter=SetPurchaseInfo:) FinderLivePurchaseInfo *purchaseInfo; // @synthesize purchaseInfo;
+@property(readonly, nonatomic) BOOL hasPurchaseInfo; // @synthesize hasPurchaseInfo;
 @property(retain, nonatomic, setter=SetLiveSdkChannelInfo:) FinderLiveSdkChannelInfo *liveSdkChannelInfo; // @synthesize liveSdkChannelInfo;
 @property(readonly, nonatomic) BOOL hasLiveSdkChannelInfo; // @synthesize hasLiveSdkChannelInfo;
 @property(retain, nonatomic, setter=SetLiveSpec:) FinderLiveMediaSpec *liveSpec; // @synthesize liveSpec;

@@ -6,7 +6,10 @@
 
 #import "_TtC6WeChat20SnsPublishConfigView.h"
 
-@interface _TtC6WeChat26SnsPublishAvatarConfigView : _TtC6WeChat20SnsPublishConfigView
+#import "NSCollectionViewDataSource-Protocol.h"
+#import "NSCollectionViewDelegate-Protocol.h"
+
+@interface _TtC6WeChat26SnsPublishAvatarConfigView : _TtC6WeChat20SnsPublishConfigView <NSCollectionViewDataSource, NSCollectionViewDelegate>
 {
     // Error parsing type: , name: usernames
     // Error parsing type: , name: collectionView

@@ -87,8 +87,6 @@
 - (void)onExpandBtnClick:(id)arg1;
 - (void)endCall;
 - (void)endCallByCancel;
-- (void)closeCameraService;
-- (void)openCameraService;
 - (void)layoutAvatarContainer;
 - (void)setupAvatarContainer;
 - (void)loadContent;

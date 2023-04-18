@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat23SnsResourceCenterBridge : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat23SnsResourceCenterBridge : MMService <MMService>
 {
     // Error parsing type: , name: downloadManager
     // Error parsing type: , name: disposeBag

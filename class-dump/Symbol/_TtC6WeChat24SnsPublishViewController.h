@@ -6,9 +6,11 @@
 
 #import "MMTraitsViewController.h"
 
+#import "NSObject-Protocol.h"
+
 @class _TtC6WeChat26SnsPublishWindowController;
 
-@interface _TtC6WeChat24SnsPublishViewController : MMTraitsViewController
+@interface _TtC6WeChat24SnsPublishViewController : MMTraitsViewController <NSObject>
 {
     // Error parsing type: , name: windowController
     // Error parsing type: , name: editViewController

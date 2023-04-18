@@ -6,7 +6,12 @@
 
 #import "_TtC6WeChat26SnsAlbumListViewController.h"
 
-@interface _TtC6WeChat26SnsAlbumListViewController (WeChat)
+#import "IContactMgrExt-Protocol.h"
+#import "MMTableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+
+@interface _TtC6WeChat26SnsAlbumListViewController (WeChat) <IContactMgrExt, NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate>
 - (void)onUpdateSnsUserInfoWithUserName:(id)arg1;
 - (void)tableView:(id)arg1 rowGotRightMouseUp:(long long)arg2;
 - (void)tableView:(id)arg1 rowGotMouseUp:(long long)arg2;

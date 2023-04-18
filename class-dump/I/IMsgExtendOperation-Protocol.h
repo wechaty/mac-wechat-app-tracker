@@ -43,6 +43,8 @@
 - (BOOL)isGroupNoticeMsg;
 - (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;
+- (BOOL)isLiveReplayMsg;
+- (BOOL)isPurchaseLiveMsg;
 - (BOOL)isLiveMsg;
 - (BOOL)isAppSyncMsg;
 - (BOOL)isAppBrandMsg;
@@ -60,6 +62,8 @@
 - (BOOL)isSolitaireTextAppMsg;
 - (BOOL)isTextAppMsg;
 - (BOOL)isMultiReaderMsg;
+- (BOOL)isSingleImageReaderMsg;
+- (BOOL)isSingleVideoReaderMsg;
 - (BOOL)isSingleReaderMsg;
 - (BOOL)isSupportedAppMsg;
 - (BOOL)isURLAppMsg;
@@ -68,6 +72,7 @@
 - (BOOL)isFileUploadBoxAppMsg;
 - (BOOL)isFileAppMsg;
 - (unsigned int)getPreviewType;
+- (NSString *)emotionFilePath;
 - (BOOL)isEmotionExist;
 - (BOOL)getDownloadThumbStatus:(unsigned int *)arg1;
 - (BOOL)isNeedDownloadThumb;

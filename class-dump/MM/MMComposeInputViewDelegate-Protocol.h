@@ -9,13 +9,12 @@
 @class MessageData, NSEvent, WCContactData;
 
 @protocol MMComposeInputViewDelegate <NSObject>
-- (void)completeSendEmotion;
-- (void)pasteQuotedMessageToInputView:(MessageData *)arg1;
+- (void)insertReferMessage:(MessageData *)arg1;
 - (void)insertMentionContactToInputView:(WCContactData *)arg1;
 - (void)performStartVoipVideoChat;
 - (void)performStartVoipVoiceChat;
 - (void)performMultiSelection:(BOOL)arg1;
 - (void)performKeyDown:(NSEvent *)arg1;
-- (BOOL)makeFirstResponderIfNeeded;
+- (BOOL)makeFirstResponderIfNeeded:(int)arg1;
 @end
 

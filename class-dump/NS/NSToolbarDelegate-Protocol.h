@@ -6,13 +6,15 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSArray, NSNotification, NSString, NSToolbar, NSToolbarItem;
+@class NSArray, NSNotification, NSSet, NSString, NSToolbar, NSToolbarItem;
 
 @protocol NSToolbarDelegate <NSObject>
 
 @optional
 - (void)toolbarDidRemoveItem:(NSNotification *)arg1;
 - (void)toolbarWillAddItem:(NSNotification *)arg1;
+- (BOOL)toolbar:(NSToolbar *)arg1 itemIdentifier:(NSString *)arg2 canBeInsertedAtIndex:(long long)arg3;
+- (NSSet *)toolbarImmovableItemIdentifiers:(NSToolbar *)arg1;
 - (NSArray *)toolbarSelectableItemIdentifiers:(NSToolbar *)arg1;
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)arg1;
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)arg1;

@@ -58,7 +58,6 @@
 - (void)layoutTitleLabel;
 - (void)layoutContainerView;
 - (void)updateHighlightMaskView;
-- (void)setupAccessibility;
 - (void)populateWithMessage:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
@@ -66,6 +65,8 @@
 - (id)defaultThumbnailImg;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

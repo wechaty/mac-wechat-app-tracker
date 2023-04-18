@@ -201,6 +201,7 @@
 - (void)OnAddGroupMember:(id)arg1 withStatus:(unsigned int)arg2 memberList:(id)arg3 contactList:(id)arg4;
 - (void)onModifyContacts:(id)arg1;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
+- (BOOL)checkVisiable:(id)arg1;
 - (void)clearUnReadCount;
 - (void)checkBackToRefer;
 - (void)checkFirstUnreadMessageShown;

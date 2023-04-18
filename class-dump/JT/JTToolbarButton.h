@@ -37,6 +37,7 @@
 @property(nonatomic) BOOL isHover; // @synthesize isHover=_isHover;
 - (void)configAppearanceAndLayout;
 - (void)updateToolTip;
+- (void)setToolTip:(id)arg1;
 - (id)disabledImageOfType:(unsigned long long)arg1;
 - (id)normalImageOfType:(unsigned long long)arg1;
 - (id)pressedImageOfType:(unsigned long long)arg1;

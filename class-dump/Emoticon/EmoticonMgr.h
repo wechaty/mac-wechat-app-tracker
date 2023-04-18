@@ -8,19 +8,17 @@
 
 #import "AccountServiceExt-Protocol.h"
 #import "IMMCacheCleanerExt-Protocol.h"
-#import "MMEmoticonMgrLogicDelegate-Protocol.h"
+#import "IMessageExt-Protocol.h"
+#import "MMEmoticonFavoriteMgrLogicDelegate-Protocol.h"
 #import "MMEmotionCustomMgrLogicDelegate-Protocol.h"
 #import "MMResourceMgrExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString;
+@class MMCustomEmoticonMgrLogic, MMEmoticonDB, MMEmotionGroupInfo, MMFavoriteEmoticonMgrLogic, MMMsgEmoticonMgrLogic, MMThreadSafeArray, NSData, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSString;
 
-@interface EmoticonMgr : MMService <MMEmoticonMgrLogicDelegate, MMResourceMgrExt, AccountServiceExt, MMEmotionCustomMgrLogicDelegate, IMMCacheCleanerExt, MMService>
+@interface EmoticonMgr : MMService <MMEmoticonFavoriteMgrLogicDelegate, MMResourceMgrExt, AccountServiceExt, MMEmotionCustomMgrLogicDelegate, IMMCacheCleanerExt, IMessageExt, MMService>
 {
     unsigned char _isGetting;
-    MMFavoriteEmoticonMgrLogic *_favoriteEmoticonMgrLogic;
-    MMEmotionGroupInfo *_favEmoticonGroup;
-    MMCustomEmoticonMgrLogic *_customEmoticonMgrLogic;
     MMEmoticonDB *_db;
     NSMutableArray *_cachedEmojiGroups;
     NSMutableArray *_cachedStickerGroups;
@@ -33,14 +31,24 @@
     NSData *_currReqBuf;
     NSMutableArray *_emoticonStoreItemServerList;
     unsigned long long _retryCount;
+    MMThreadSafeArray *_serverNotifyTaskList;
+    MMFavoriteEmoticonMgrLogic *_favoriteEmoticonMgrLogic;
+    MMEmotionGroupInfo *_favEmoticonGroup;
+    MMCustomEmoticonMgrLogic *_customEmoticonMgrLogic;
     MMEmotionGroupInfo *_customEmoticonGroup;
+    MMMsgEmoticonMgrLogic *_msgEmoticonMgrLogic;
 }
 
 + (id)MMKVKeyForEmoticonResWithSubType:(unsigned int)arg1;
 + (id)dirPathOfEmoticonResForSubType:(unsigned int)arg1;
 + (id)dirPathAfterUnzipIfNeedUpdateForSubType:(unsigned int)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMMsgEmoticonMgrLogic *msgEmoticonMgrLogic; // @synthesize msgEmoticonMgrLogic=_msgEmoticonMgrLogic;
 @property(retain, nonatomic) MMEmotionGroupInfo *customEmoticonGroup; // @synthesize customEmoticonGroup=_customEmoticonGroup;
+@property(retain, nonatomic) MMCustomEmoticonMgrLogic *customEmoticonMgrLogic; // @synthesize customEmoticonMgrLogic=_customEmoticonMgrLogic;
+@property(retain, nonatomic) MMEmotionGroupInfo *favEmoticonGroup; // @synthesize favEmoticonGroup=_favEmoticonGroup;
+@property(retain, nonatomic) MMFavoriteEmoticonMgrLogic *favoriteEmoticonMgrLogic; // @synthesize favoriteEmoticonMgrLogic=_favoriteEmoticonMgrLogic;
+@property(retain, nonatomic) MMThreadSafeArray *serverNotifyTaskList; // @synthesize serverNotifyTaskList=_serverNotifyTaskList;
 @property(nonatomic) unsigned long long retryCount; // @synthesize retryCount=_retryCount;
 @property(nonatomic) unsigned char isGetting; // @synthesize isGetting=_isGetting;
 @property(retain, nonatomic) NSMutableArray *emoticonStoreItemServerList; // @synthesize emoticonStoreItemServerList=_emoticonStoreItemServerList;
@@ -54,9 +62,8 @@
 @property(retain, nonatomic) NSMutableArray *cachedStickerGroups; // @synthesize cachedStickerGroups=_cachedStickerGroups;
 @property(retain, nonatomic) NSMutableArray *cachedEmojiGroups; // @synthesize cachedEmojiGroups=_cachedEmojiGroups;
 @property(retain, nonatomic) MMEmoticonDB *db; // @synthesize db=_db;
-@property(retain, nonatomic) MMCustomEmoticonMgrLogic *customEmoticonMgrLogic; // @synthesize customEmoticonMgrLogic=_customEmoticonMgrLogic;
-@property(readonly) MMEmotionGroupInfo *favEmoticonGroup; // @synthesize favEmoticonGroup=_favEmoticonGroup;
-@property(retain, nonatomic) MMFavoriteEmoticonMgrLogic *favoriteEmoticonMgrLogic; // @synthesize favoriteEmoticonMgrLogic=_favoriteEmoticonMgrLogic;
+- (void)runNotifyTask;
+- (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;
 - (void)onComputeCacheSize;
 - (void)onCleanCache;
 - (void)resetCachedEmojiGroups;
@@ -88,15 +95,17 @@
 - (BOOL)isStickerTouchLimitCount;
 - (BOOL)isStickerTouchLimitSize:(id)arg1;
 - (void)setStickerToastViewDelegate:(id)arg1;
-- (void)addEmoticonToUploadQueueWithMD5:(id)arg1;
 - (void)addFavEmoticon:(id)arg1;
 - (void)onCustomEmoticonChanged;
 - (void)onFavEmoticonChanged;
 - (void)onFavEmoticonMD5Updated;
-- (id)getDownloadFavEmoticons;
-- (void)deleteEmotionWithMD5:(id)arg1 withType:(unsigned long long)arg2;
+- (void)addEmotionWithMd5Object:(id)arg1;
+- (void)deleteEmotionWithMd5Object:(id)arg1;
+- (void)refreshEmoticonsWithType:(unsigned long long)arg1;
 - (void)refreshEmoticonsIfNeeded;
 - (id)favoritesGroup;
+- (void)cancelDownloadEmoticonWithMessageData:(id)arg1;
+- (void)downloadEmoticonWithMessageData:(id)arg1;
 - (id)getHistoryEncryptKey;
 - (void)downloadEmotionWithEmotionData:(id)arg1;
 - (id)getEmoticonDescWithMD5:(id)arg1;
@@ -110,13 +119,13 @@
 - (void)_addCustomEmoticonGroupToCachedStickerGroupsIfNeeded;
 - (id)_obtainCachedStickerGroups;
 - (id)_obtainCachedEmojiGroups;
-- (id)emoticonGroupsWithType:(int)arg1;
+- (id)emoticonGroupsWithType:(long long)arg1;
 - (BOOL)isEmoticonMD5InFavorites:(id)arg1;
+- (BOOL)isFavoriteEmoticonsLoaded;
 - (BOOL)allowAddToFavorites;
 - (void)configWxAMEnableSetting;
 - (void)loadEmoticonData;
 - (void)onServiceClearData;
-- (void)dealloc;
 - (void)onServiceInit;
 - (id)init;
 

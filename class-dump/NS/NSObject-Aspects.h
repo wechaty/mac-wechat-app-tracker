@@ -94,7 +94,6 @@
 - (id)tp_modelToJSONObject;
 - (BOOL)tp_modelSetWithDictionary:(id)arg1;
 - (BOOL)tp_modelSetWithJSON:(id)arg1;
-- (id)wa_JSONRepresentation;
 - (id)pb_noop;
 - (void)removeAssociatedObjects;
 - (void)detachObjectForKey:(id)arg1;

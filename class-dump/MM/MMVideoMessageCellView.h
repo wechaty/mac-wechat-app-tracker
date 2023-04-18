@@ -102,7 +102,8 @@
 - (void)_layoutThumbView;
 - (void)layoutThumbnailImage;
 - (void)_makeButtonsRightPosition;
-- (void)setupAccessibility;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (id)fetchForwardFromWeWorkMsg;
 - (void)populateWithMessage:(id)arg1;
 - (void)_setupStateMachine;

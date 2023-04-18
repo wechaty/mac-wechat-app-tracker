@@ -14,7 +14,6 @@
 - (void)audioPlayAndCapDeviceRestart:(AUAudioDevice *)arg1;
 - (void)audioDeviceStartedSuccess:(AUAudioDevice *)arg1;
 - (void)audioDeviceStartedFail:(AUAudioDevice *)arg1;
-- (void)audioDeviceRestart:(AUAudioDevice *)arg1;
 - (void)audioDeviceResetCallback:(AUAudioDevice *)arg1;
 - (void)audioDevicePause:(AUAudioDevice *)arg1;
 - (void)audioDeviceForceStop:(AUAudioDevice *)arg1;

@@ -19,7 +19,7 @@
 + (long long)opcodeForAdd;
 + (long long)opcodeForDelete;
 + (id)EmoticonMd5ObjectFromXmlNode:(struct XmlReaderNode_t *)arg1;
-+ (id)getTaskForXmlString:(id)arg1 withDelegate:(id)arg2;
++ (id)getTaskForXmlString:(id)arg1;
 
 @end
 

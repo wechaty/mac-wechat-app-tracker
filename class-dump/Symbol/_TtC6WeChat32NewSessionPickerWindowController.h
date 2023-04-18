@@ -6,9 +6,11 @@
 
 #import <AppKit/NSWindowController.h>
 
+#import "NSWindowDelegate-Protocol.h"
+
 @class NSString;
 
-@interface _TtC6WeChat32NewSessionPickerWindowController : NSWindowController
+@interface _TtC6WeChat32NewSessionPickerWindowController : NSWindowController <NSWindowDelegate>
 {
     // Error parsing type: , name: selectVC
     // Error parsing type: , name: confirmVC

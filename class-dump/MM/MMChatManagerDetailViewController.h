@@ -235,6 +235,7 @@
 - (void)messageCellViewDidStartMultiSelection:(id)arg1;
 - (id)replaceLastShowLocateTipsCellViewWith:(id)arg1;
 - (int)updateChosenStyle:(BOOL)arg1 cellView:(id)arg2;
+- (BOOL)checkVisiable:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;

@@ -6,7 +6,9 @@
 
 #import <AppKit/NSViewController.h>
 
-@interface _TtC6WeChat23SnsContentDetailPopover : NSViewController
+#import "NSPopoverDelegate-Protocol.h"
+
+@interface _TtC6WeChat23SnsContentDetailPopover : NSViewController <NSPopoverDelegate>
 {
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: popover

@@ -8,12 +8,12 @@
 
 #import "IOCRTransMgrExt-Protocol.h"
 #import "JTCaptureViewDelegate-Protocol.h"
-#import "MMOCRScannerExt-Protocol.h"
+#import "MMImageTextRecognizeExt-Protocol.h"
 
 @class JTCaptureMagnifierView, JTCaptureSizeInfoView, JTCaptureView, JTEditViewController, JTToolbarWindowController, MMIgnoreEventView, MMImageOCRTaskResult, MMTimer, NSArray, NSImage, NSImageView, NSMutableArray, NSString;
 @protocol JTCaptureViewControllerDelegate;
 
-@interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate, IOCRTransMgrExt, MMOCRScannerExt>
+@interface JTCaptureViewController : NSViewController <JTCaptureViewDelegate, IOCRTransMgrExt, MMImageTextRecognizeExt>
 {
     BOOL _isDoingQRCode;
     BOOL _needScreenCapture;
@@ -61,8 +61,7 @@
 @property(nonatomic) BOOL isDoingQRCode; // @synthesize isDoingQRCode=_isDoingQRCode;
 @property(nonatomic) __weak id <JTCaptureViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
-- (void)onOCRRecognizeFinish:(id)arg1;
-- (void)onOCRDetectFinish:(id)arg1;
+- (void)onTextRecognizeFinish:(id)arg1;
 - (void)stopTranslateTimer;
 - (void)startTranslateTimer;
 - (void)noticeTransTimeOut;

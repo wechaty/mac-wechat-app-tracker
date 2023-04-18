@@ -35,6 +35,7 @@
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (BOOL)accessibilityPerformShowMenu;
 - (void)prepareForReuse;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)layoutSubViews;

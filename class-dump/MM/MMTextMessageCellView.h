@@ -97,6 +97,7 @@
 - (void)doxxCgi;
 - (void)contextMenuTranslate;
 - (id)textView:(id)arg1 menu:(id)arg2 forEvent:(id)arg3 atIndex:(unsigned long long)arg4;
+- (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebview;
 - (id)contentForSharing;
 - (id)getSection1MenuItem;
@@ -113,7 +114,6 @@
 - (void)viewDidMoveToSuperview;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)shouldDrawBubbleMask;
-- (void)setupAccessibility;
 - (void)populateWithMessage:(id)arg1;
 - (void)updateHighlightMaskView;
 - (void)prepareForReuse;
@@ -121,6 +121,8 @@
 - (void)_frameChanged;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)accessibilityPerformPress;
+- (void)updateAccessibility;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak JTPopoverColorButtonForWechat *selectedButton; // @synthesize selectedButton=_selectedButton;
 @property(retain, nonatomic) NSMutableArray *buttonArray; // @synthesize buttonArray=_buttonArray;
+- (id)availableColorTitleArray;
 - (id)availableColorArray;
 - (id)buttonFrameArray;
 - (void)configAppearanceAndLayout;

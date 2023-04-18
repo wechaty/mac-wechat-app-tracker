@@ -28,7 +28,7 @@
 + (BOOL)readFilePath:(id *)arg1 fileURL:(id *)arg2 FromFileURLData:(id)arg3 fileName:(id)arg4;
 + (id)pastedboardItemWithFilePath:(id)arg1 fileName:(id)arg2;
 + (id)pastedboardItemWithImage:(id)arg1 imageFileUrlStr:(id)arg2;
-+ (id)pastedboardItemWithParaInfo:(id)arg1;
++ (id)pastedboardItemWithParaInfo:(id)arg1 pasteboardScene:(unsigned long long)arg2;
 + (id)pastedboardItemWithAttributedString:(id)arg1;
 + (id)pastedboardItemWithString:(id)arg1;
 + (id)convertAttributedStringFromWebArchivePasteboardItem:(id)arg1 refTextView:(id)arg2;
@@ -36,7 +36,7 @@
 + (id)convertAttributedStringFromImageData:(id)arg1 refTextView:(id)arg2;
 + (id)convertAttributedStringFromHTMLTextData:(id)arg1 refTextView:(id)arg2;
 + (id)convertAttributedStringFromTextData:(id)arg1 refTextView:(id)arg2;
-+ (id)convertPasteboardItemsFromAttributedString:(id)arg1;
++ (id)convertPasteboardItemsFromAttributedString:(id)arg1 pasteboardScene:(unsigned long long)arg2;
 + (id)attachmentObjectsWithParagraphs:(id)arg1;
 + (id)getVoiceFmtOfString:(unsigned int)arg1;
 + (unsigned int)getVoiceFmt:(id)arg1;

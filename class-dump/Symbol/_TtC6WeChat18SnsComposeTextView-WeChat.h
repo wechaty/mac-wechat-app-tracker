@@ -7,8 +7,9 @@
 #import "_TtC6WeChat18SnsComposeTextView.h"
 
 #import "NSTextStorageDelegate-Protocol.h"
+#import "NSTextViewDelegate-Protocol.h"
 
-@interface _TtC6WeChat18SnsComposeTextView (WeChat) <NSTextStorageDelegate>
+@interface _TtC6WeChat18SnsComposeTextView (WeChat) <NSTextStorageDelegate, NSTextViewDelegate>
 - (void)keyDown:(id)arg1;
 - (void)cut:(id)arg1;
 - (void)copy:(id)arg1;

@@ -48,9 +48,6 @@
 - (void)ensureCloseFilePreviewWindow;
 - (void)ensureClosePreviewWindow;
 - (id)windowUniqueIdWithItem:(id)arg1;
-- (void)setupVideoPlayerView;
-- (void)resetVideoStatus;
-- (void)loadVideoWithUrl:(id)arg1;
 - (void)previewWindowControllerDidClose:(id)arg1;
 - (void)previewWindowControllerWillClose:(id)arg1;
 - (void)previewAssets:(id)arg1 atIndex:(long long)arg2;

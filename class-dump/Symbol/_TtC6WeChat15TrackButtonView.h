@@ -51,6 +51,7 @@
 @property(nonatomic) BOOL hideImageWhenMouseExit; // @synthesize hideImageWhenMouseExit;
 @property(nonatomic) struct CGSize bkSize; // @synthesize bkSize;
 @property(nonatomic) double radius; // @synthesize radius;
+- (id)accessibilityRole;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize;
 @property(nonatomic, copy) NSString *imageName;
 @property(nonatomic) BOOL leftAlign; // @synthesize leftAlign;

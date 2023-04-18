@@ -37,12 +37,14 @@
 @property(retain, nonatomic) SPUUpdater *sparkleUpdater; // @synthesize sparkleUpdater=_sparkleUpdater;
 @property(nonatomic) double updateCheckInterval; // @synthesize updateCheckInterval=_updateCheckInterval;
 @property(retain, nonatomic) NSString *customXmlUrl; // @synthesize customXmlUrl=_customXmlUrl;
+- (void)kvReportWithKey:(int)arg1;
 - (void)updater:(id)arg1 scheduledUpdateCheckDidAbortWithError:(id)arg2;
 - (void)updater:(id)arg1 didAbortWithError:(id)arg2;
 - (void)updater:(id)arg1 didCancelInstallUpdateOnQuit:(id)arg2;
 - (void)updaterWillRelaunchApplication:(id)arg1;
 - (void)userDidCancelDownload:(id)arg1;
 - (void)updater:(id)arg1 failedToDownloadUpdate:(id)arg2 error:(id)arg3;
+- (void)updater:(id)arg1 didDownloadUpdate:(id)arg2;
 - (void)updater:(id)arg1 willDownloadUpdate:(id)arg2 withRequest:(id)arg3;
 - (void)updaterDidNotFindUpdate:(id)arg1;
 - (void)updater:(id)arg1 didFindValidUpdate:(id)arg2;

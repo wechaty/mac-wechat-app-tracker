@@ -17,8 +17,8 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <WCSQLiteLintDataSourceDelegate> deleagte; // @synthesize deleagte=_deleagte;
 - (id)getReportDataFromIssue:(void *)arg1;
-- (function_275ccf77)getSQLiteExcutionCallback;
-- (function_a46de7e7)getIssueCallback;
+- (function_ffa07b7f)getSQLiteExcutionCallback;
+- (function_7f4503e1)getIssueCallback;
 - (id)getStackInfo;
 - (void)notifyExcution:(id)arg1 withCost:(double)arg2 onDB:(id)arg3;
 - (BOOL)shouldCheck:(id)arg1 onDatabase:(id)arg2;

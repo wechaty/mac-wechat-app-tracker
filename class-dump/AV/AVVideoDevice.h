@@ -33,14 +33,18 @@
     id <AVVideoDataSource> mRecDevCallBack;
     id <AVVideoDeviceSetupSessionDelegate> m_setupDelegate;
     NSMutableArray *_m_requestLayerBlocks;
-    AVCaptureVideoPreviewLayer *_m_previewLayer;
     NSRecursiveLock *_m_lastCaptureImageLock;
+    unsigned long long _lastScreenPlaneWidth;
+    unsigned long long _lastScreenPlaneHeight;
+    AVCaptureVideoPreviewLayer *_previewLayer;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) AVCaptureVideoPreviewLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
+@property(nonatomic) unsigned long long lastScreenPlaneHeight; // @synthesize lastScreenPlaneHeight=_lastScreenPlaneHeight;
+@property(nonatomic) unsigned long long lastScreenPlaneWidth; // @synthesize lastScreenPlaneWidth=_lastScreenPlaneWidth;
 @property(retain, nonatomic) NSRecursiveLock *m_lastCaptureImageLock; // @synthesize m_lastCaptureImageLock=_m_lastCaptureImageLock;
 @property(nonatomic) BOOL m_hasSetupSession; // @synthesize m_hasSetupSession=_m_hasSetupSession;
-@property(retain, nonatomic) AVCaptureVideoPreviewLayer *m_previewLayer; // @synthesize m_previewLayer=_m_previewLayer;
 @property(retain, nonatomic) NSMutableArray *m_requestLayerBlocks; // @synthesize m_requestLayerBlocks=_m_requestLayerBlocks;
 @property(nonatomic) int workMode; // @synthesize workMode=_workMode;
 @property(nonatomic) int mVideoInterruptEndFlag; // @synthesize mVideoInterruptEndFlag=_mVideoInterruptEndFlag;
@@ -60,7 +64,6 @@
 - (void)requestLayer:(CDUnknownBlockType)arg1;
 - (void)initPreviewLayer:(struct CGRect)arg1;
 - (id)previewLayer:(struct CGRect)arg1;
-- (void)captureOneImage;
 - (BOOL)isCameraFront;
 - (unsigned long long)cameraCount;
 - (void)toggleCamera;
@@ -89,8 +92,8 @@
 - (void)setFlashModeOn;
 - (void)setFrameDuration;
 - (int)getCaptureFps;
-- (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)newVideoSample:(struct opaqueCMSampleBuffer *)arg1;
+- (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

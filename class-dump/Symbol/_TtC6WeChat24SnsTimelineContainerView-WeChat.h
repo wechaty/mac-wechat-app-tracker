@@ -6,10 +6,12 @@
 
 #import "_TtC6WeChat24SnsTimelineContainerView.h"
 
+#import "MMCGIDelegate-Protocol.h"
 #import "NSDraggingSource-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@interface _TtC6WeChat24SnsTimelineContainerView (WeChat) <NSPasteboardItemDataProvider, NSDraggingSource>
+@interface _TtC6WeChat24SnsTimelineContainerView (WeChat) <NSMenuDelegate, NSPasteboardItemDataProvider, NSDraggingSource, MMCGIDelegate>
 - (void)showVideoStreamProgress;
 - (void)mouseDown:(id)arg1;
 - (void)mouseUp:(id)arg1;

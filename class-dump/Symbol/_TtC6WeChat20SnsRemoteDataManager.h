@@ -6,7 +6,9 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6WeChat20SnsRemoteDataManager : _TtCs12_SwiftObject
+#import "IContactMgrExt-Protocol.h"
+
+@interface _TtC6WeChat20SnsRemoteDataManager : _TtCs12_SwiftObject <IContactMgrExt>
 {
     // Error parsing type: , name: sessions
     // Error parsing type: , name: firstPageReadCount

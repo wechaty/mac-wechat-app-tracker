@@ -17,7 +17,6 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)touchesEndedWithEvent:(id)arg1;
 - (void)touchesBeganWithEvent:(id)arg1;
-- (void)scrollWheel:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 

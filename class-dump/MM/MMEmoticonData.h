@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import "NSCoding-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class NSString;
 
-@interface MMEmoticonData : NSObject <NSCoding>
+@interface MMEmoticonData : NSObject <NSCoding, NSCopying>
 {
     int _type;
     int _customEmojiType;
@@ -41,12 +42,15 @@
 @property(retain, nonatomic) NSString *caption; // @synthesize caption=_caption;
 @property(retain, nonatomic) NSString *representationalString; // @synthesize representationalString=_representationalString;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void)copyDownloadInfoFromEmojiInfo:(id)arg1;
+- (id)simpleDescription;
 - (BOOL)hasTpDownloadInfo;
 - (BOOL)canCdnDownload;
 - (BOOL)hasEncryptDownloadInfo;
 - (BOOL)hasWxAMDownloadInfo;
 - (BOOL)isDownloaded;
 - (id)filePath;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

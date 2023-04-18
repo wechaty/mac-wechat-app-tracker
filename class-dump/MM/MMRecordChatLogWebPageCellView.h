@@ -6,18 +6,17 @@
 
 #import "MMChatLogWebPageCellView.h"
 
-#import "IMMRecordNestedDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class NSString;
 
-@interface MMRecordChatLogWebPageCellView : MMChatLogWebPageCellView <IMMRecordNestedDownloadMgrExt>
+@interface MMRecordChatLogWebPageCellView : MMChatLogWebPageCellView <IMMNewRecordDownloadServiceExt>
 {
 }
 
-- (void)OnDownloadRecordNestedDataFieldOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

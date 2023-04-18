@@ -104,7 +104,7 @@
 - (void)_scrollToolbarToPageWithPack:(unsigned long long)arg1;
 - (void)updateStickerGroupWithIndex:(unsigned long long)arg1;
 - (void)setupPageInfo;
-- (int)getEmoticonGroupType;
+- (long long)getEmoticonGroupType;
 - (void)setViewWithHideToolbar;
 - (void)viewChangedEffectiveAppearance;
 - (void)viewDidDisappear;

@@ -45,7 +45,7 @@
 - (BOOL)checkDeviceAuthorized;
 - (void)displaySelfCaptureWhenReceiveInvite;
 - (void)resizePreviewContentLayer;
-- (void)renderOnOppositeRenderLayer:(id)arg1 Degree:(float)arg2;
+- (void)updateRenderAndWindowFrameIfNeeded:(float)arg1;
 - (void)renderOnPreviewRenderLayerWith:(id)arg1;
 - (void)closeWindowAnimated:(BOOL)arg1;
 - (void)showWindowAnimated:(BOOL)arg1;

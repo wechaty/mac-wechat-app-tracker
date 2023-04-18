@@ -13,6 +13,8 @@
 
 @interface WCFinderLiveShareItem : NSObject <NSCoding, NSCopying>
 {
+    int _chargeFlag;
+    int _replayStatus;
     int _finderLiveStatus;
     NSString *_finderLiveID;
     NSString *_finderUsername;
@@ -38,6 +40,8 @@
 @property(copy, nonatomic) NSString *height; // @synthesize height=_height;
 @property(copy, nonatomic) NSString *width; // @synthesize width=_width;
 @property(nonatomic) int finderLiveStatus; // @synthesize finderLiveStatus=_finderLiveStatus;
+@property(nonatomic) int replayStatus; // @synthesize replayStatus=_replayStatus;
+@property(nonatomic) int chargeFlag; // @synthesize chargeFlag=_chargeFlag;
 @property(copy, nonatomic) NSString *bizNickname; // @synthesize bizNickname=_bizNickname;
 @property(copy, nonatomic) NSString *bizUsername; // @synthesize bizUsername=_bizUsername;
 @property(copy, nonatomic) NSString *bizAvatar; // @synthesize bizAvatar=_bizAvatar;
@@ -50,6 +54,8 @@
 @property(copy, nonatomic) NSString *finderObjectID; // @synthesize finderObjectID=_finderObjectID;
 @property(copy, nonatomic) NSString *finderUsername; // @synthesize finderUsername=_finderUsername;
 @property(copy, nonatomic) NSString *finderLiveID; // @synthesize finderLiveID=_finderLiveID;
+- (BOOL)isLiveClosed;
+- (BOOL)canReplay;
 - (id)toXML;
 - (void)fromXML:(struct XmlReaderNode_t *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

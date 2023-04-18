@@ -10,8 +10,6 @@
 - (void)bk_performMap:(CDUnknownBlockType)arg1;
 - (void)bk_performReject:(CDUnknownBlockType)arg1;
 - (void)bk_performSelect:(CDUnknownBlockType)arg1;
-- (void)wa_safeRemoveObject:(id)arg1;
-- (void)wa_safeAddObject:(id)arg1;
 - (void)safeRemoveObject:(id)arg1;
 - (void)safeAddObject:(id)arg1;
 @end

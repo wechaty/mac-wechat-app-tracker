@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat16SnsWindowService : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat16SnsWindowService : MMService <MMService>
 {
 }
 

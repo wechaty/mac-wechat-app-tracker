@@ -12,8 +12,6 @@
 - (void)bk_performMap:(CDUnknownBlockType)arg1;
 - (void)bk_performReject:(CDUnknownBlockType)arg1;
 - (void)bk_performSelect:(CDUnknownBlockType)arg1;
-- (void)wa_safeRemoveObjectForKey:(id)arg1;
-- (void)wa_safeSetObject:(id)arg1 forKey:(id)arg2;
 - (void)safeRemoveObjectForKey:(id)arg1;
 - (void)safeSetObject:(id)arg1 forKey:(id)arg2;
 @end

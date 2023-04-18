@@ -17,6 +17,7 @@
     // Error parsing type: , name: right
     // Error parsing type: , name: refer
     // Error parsing type: , name: publishable
+    // Error parsing type: , name: disableCompletionToast
 }
 
 - (void).cxx_destruct;

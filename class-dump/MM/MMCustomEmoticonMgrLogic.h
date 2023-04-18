@@ -6,33 +6,35 @@
 
 #import "MMBaseEmoticonMgrLogic.h"
 
+#import "GetEmotionCustomMD5ListCGIDelegate-Protocol.h"
+
+@class GetEmotionCustomMD5ListCGI, NSString;
 @protocol MMEmotionCustomMgrLogicDelegate;
 
-@interface MMCustomEmoticonMgrLogic : MMBaseEmoticonMgrLogic
+@interface MMCustomEmoticonMgrLogic : MMBaseEmoticonMgrLogic <GetEmotionCustomMD5ListCGIDelegate>
 {
-    BOOL _isGetting;
-    unsigned int _lastIndex;
     id <MMEmotionCustomMgrLogicDelegate> _delegate;
+    GetEmotionCustomMD5ListCGI *_getCustomMD5ListCGI;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) unsigned int lastIndex; // @synthesize lastIndex=_lastIndex;
-@property(nonatomic) BOOL isGetting; // @synthesize isGetting=_isGetting;
+@property(retain, nonatomic) GetEmotionCustomMD5ListCGI *getCustomMD5ListCGI; // @synthesize getCustomMD5ListCGI=_getCustomMD5ListCGI;
 @property(nonatomic) __weak id <MMEmotionCustomMgrLogicDelegate> delegate; // @synthesize delegate=_delegate;
-- (BOOL)removeEmoticonLocalCahceWithMD5:(id)arg1;
-- (BOOL)deleteEmoticonWithMD5:(id)arg1;
-- (BOOL)isEmoticonMD5InDataStorageList:(id)arg1;
-- (void)onEmoticonDownloadFinish:(id)arg1;
-- (void)onGetEmoticonMD5ListFinished;
-- (void)startGetCustomEmojiList;
-- (void)loadCustomEmoticonDataFromFile;
-- (void)saveCustomEmoticonDataListToFile;
-- (BOOL)isEmoticonMD5InCustomList:(id)arg1;
-- (BOOL)addCustomEmoticonWithMD5:(id)arg1 type:(int)arg2;
+- (void)onEmoticonMd5ObjectDownloadFail:(id)arg1;
+- (void)onEmoticonMd5ObjectDownloadFinish:(id)arg1;
+- (void)onEmoticonDataDelete:(id)arg1;
+- (void)onEmoticonDataDownloadFail:(id)arg1;
+- (void)onEmoticonDataDownloadFinish:(id)arg1;
+- (void)onGetEmoticonCustomMD5ListFinished:(id)arg1;
+- (void)onGetEmoticonCustomMD5ListFailed;
 - (void)refreshCustomEmoticons;
-- (id)getEmotionImgWithMD5:(id)arg1;
-- (id)getEmotionDataWithMD5:(id)arg1;
-- (BOOL)isEmoticonMD5InCustom:(id)arg1;
+- (BOOL)addCustomEmoticon:(id)arg1 customEmojiType:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

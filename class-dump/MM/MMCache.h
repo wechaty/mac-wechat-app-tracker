@@ -34,6 +34,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
+- (unsigned long long)totalCost;
 - (unsigned long long)totalCount;
 - (id)cacheDescription;
 - (void)removeAllObjects;

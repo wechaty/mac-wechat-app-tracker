@@ -13,6 +13,7 @@
 
 @interface MMAVCaptureDeviceService : MMService <MMService>
 {
+    NSArray *_excludeWindowIDs;
     NSArray *_videoDevices;
     NSArray *_audioInputInfos;
     NSArray *_audioOutputInfos;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) NSArray *audioOutputInfos; // @synthesize audioOutputInfos=_audioOutputInfos;
 @property(retain, nonatomic) NSArray *audioInputInfos; // @synthesize audioInputInfos=_audioInputInfos;
 @property(retain, nonatomic) NSArray *videoDevices; // @synthesize videoDevices=_videoDevices;
+@property(retain, nonatomic) NSArray *excludeWindowIDs; // @synthesize excludeWindowIDs=_excludeWindowIDs;
 - (void)stopDetectAudioOutput;
 - (void)startDetectAudioOutput;
 - (void)stopDetectAudioInput;
@@ -66,11 +68,13 @@
 - (BOOL)isaudioOutputDeviceSpeaker:(unsigned int)arg1;
 - (BOOL)isaudioOutputDeviceLine:(unsigned int)arg1;
 - (BOOL)isaudioOutputDeviceWireless:(unsigned int)arg1;
+- (BOOL)isBuildInOrBluetoothDevice:(unsigned int)arg1;
 - (BOOL)isVirtualDevice:(unsigned int)arg1;
 - (BOOL)isAggregateDevice:(unsigned int)arg1;
 - (id)getAudioDeviceList:(unsigned int)arg1;
 - (id)getSysDefaultAudioDevice:(int)arg1;
 - (unsigned int)getSysDefaultAudioDeviceID:(int)arg1;
+- (BOOL)isOtherBusinessUsingDevices;
 - (BOOL)isDeviceAvailable:(id)arg1;
 - (BOOL)isCurrentDevice:(id)arg1;
 - (void)updateCurrentSelectedDevice:(id)arg1 withType:(int)arg2;

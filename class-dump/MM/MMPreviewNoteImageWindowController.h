@@ -27,7 +27,6 @@
 - (void)setupPageController;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
-- (void)_preloadVideoOfPreviewItem:(id)arg1 withParaInfo:(id)arg2;
 - (unsigned long long)_indexOfCurrentPreviewItem;
 - (id)_genPreviewItemWithFavParaInfo:(id)arg1;
 - (id)_genPreviewItemWithMsgParaInfo:(id)arg1;

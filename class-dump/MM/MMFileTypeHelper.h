@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)p_isGIFFormat:(id)arg1;
++ (BOOL)isGIFFormat:(id)arg1;
 + (BOOL)p_isHEIFFormat:(id)arg1;
 + (BOOL)p_isHEICFormat:(id)arg1;
 + (BOOL)p_isBMPFormat:(id)arg1;

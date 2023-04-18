@@ -8,13 +8,13 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSString, WAContact, WAMiniProgramLaunchExtInfo;
+@class NSString, WAMiniProgramLaunchExtInfo;
 
 @interface WAMiniProgramLaunchParam : NSObject <NSSecureCoding>
 {
     unsigned int _openScene;
     unsigned int _version;
-    WAContact *_contact;
+    id _completion;
     NSString *_userName;
     NSString *_appId;
     NSString *_pagePath;
@@ -44,7 +44,7 @@
 @property(copy, nonatomic) NSString *pagePath; // @synthesize pagePath=_pagePath;
 @property(copy, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
-@property(retain, nonatomic) WAContact *contact; // @synthesize contact=_contact;
+@property(retain, nonatomic) id completion; // @synthesize completion=_completion;
 @property(nonatomic) unsigned int openScene; // @synthesize openScene=_openScene;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

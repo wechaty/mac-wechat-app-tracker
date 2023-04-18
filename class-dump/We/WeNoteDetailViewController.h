@@ -8,7 +8,7 @@
 
 #import "CAAnimationDelegate-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
-#import "IMMRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "MMFavoritesMgrExt-Protocol.h"
 #import "MMRichAttachmentTextViewDelegate-Protocol.h"
 #import "MMRichTextViewToolBarDelegate-Protocol.h"
@@ -21,7 +21,7 @@
 
 @class FavoritesItem, MMNoteEditorTagBar, MMRichAttachmentClipView, MMRichAttachmentTextStorage, MMRichAttachmentTextView, MMTextAttachmentCell, MMTimer, MMToastView, MMTokenField, MessageData, NSMutableArray, NSScrollView, NSString, WeNoteAudioMgr, WeNoteParagraphInfo, WeNoteWindowController;
 
-@interface WeNoteDetailViewController : NSViewController <MMRichAttachmentTextViewDelegate, NSTextViewDelegate, MMVoiceAttachmentViewDelegate, NSTokenFieldDelegate, MMTokenFieldDelegate, IMMRecordDownloadMgrExt, IMMFavRecordDownloadMgrExt, MMFavoritesMgrExt, CAAnimationDelegate, WeNoteArticleToolBarDelegate, MMRichTextViewToolBarDelegate, MMRichTextViewToolbarDataSource>
+@interface WeNoteDetailViewController : NSViewController <MMRichAttachmentTextViewDelegate, NSTextViewDelegate, MMVoiceAttachmentViewDelegate, NSTokenFieldDelegate, MMTokenFieldDelegate, IMMFavRecordDownloadMgrExt, MMFavoritesMgrExt, CAAnimationDelegate, IMMNewRecordDownloadServiceExt, WeNoteArticleToolBarDelegate, MMRichTextViewToolBarDelegate, MMRichTextViewToolbarDataSource>
 {
     MMTextAttachmentCell *highlightedCell;
     BOOL _editing;
@@ -32,7 +32,6 @@
     BOOL _justDeletedBackward;
     BOOL _isReported;
     int _noteState;
-    int _plainTextMaxLength;
     int _attachmentMaxNum;
     int _saveStatus;
     unsigned int _originalVersion;
@@ -59,9 +58,11 @@
     MMTimer *_textDidChangeTimeOutTimer;
     NSString *_dragImgPath;
     double _openNoteTimeInterval;
+    NSString *_htmlFilePath;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *htmlFilePath; // @synthesize htmlFilePath=_htmlFilePath;
 @property(nonatomic) BOOL isReported; // @synthesize isReported=_isReported;
 @property(nonatomic) double openNoteTimeInterval; // @synthesize openNoteTimeInterval=_openNoteTimeInterval;
 @property(nonatomic) BOOL justDeletedBackward; // @synthesize justDeletedBackward=_justDeletedBackward;
@@ -81,7 +82,6 @@
 @property(retain, nonatomic) NSString *htmlDataID; // @synthesize htmlDataID=_htmlDataID;
 @property(nonatomic) unsigned long long totalAttachmentSizeLimit; // @synthesize totalAttachmentSizeLimit=_totalAttachmentSizeLimit;
 @property(nonatomic) int attachmentMaxNum; // @synthesize attachmentMaxNum=_attachmentMaxNum;
-@property(nonatomic) int plainTextMaxLength; // @synthesize plainTextMaxLength=_plainTextMaxLength;
 @property(retain, nonatomic) MMTimer *backupTimer; // @synthesize backupTimer=_backupTimer;
 @property(retain, nonatomic) MMToastView *toastView; // @synthesize toastView=_toastView;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
@@ -108,9 +108,9 @@
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)onDownloadMsgRecordHtmlFile;
 - (void)onDownloadFavHtmlFile;
-- (void)OnDownloadRecordMessageFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadRecordMessageOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)tokenFieldDoShow:(BOOL)arg1 diffHeight:(double)arg2;
 - (long long)tagDeleteCount:(id)arg1;

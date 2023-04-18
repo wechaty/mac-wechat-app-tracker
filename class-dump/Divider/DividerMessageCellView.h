@@ -26,6 +26,7 @@
 - (void)populateWithMessage:(id)arg1;
 - (void)handleNewTextSize;
 - (void)prepareForReuse;
+- (BOOL)accessibilityPerformPress;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

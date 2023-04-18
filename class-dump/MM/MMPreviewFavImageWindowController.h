@@ -29,7 +29,6 @@
 - (void)setupPageController;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
-- (void)_preloadVideoOfPreviewItem:(id)arg1;
 - (unsigned long long)_indexOfPreviewItemWithFavItem:(id)arg1;
 - (void)_updatePreviewItem:(id)arg1;
 - (void)_removePreviewItemWithLocalDataID:(unsigned int)arg1;

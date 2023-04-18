@@ -52,6 +52,8 @@
 - (struct CGRect)bubbleFrame;
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;

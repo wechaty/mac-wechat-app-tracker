@@ -7,8 +7,11 @@
 #import "MMTraitsViewController.h"
 
 #import "MMCustomSearchFieldDelegate-Protocol.h"
+#import "MMTableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 
-@interface _TtC6WeChat36NewSessionPickerSelectViewController : MMTraitsViewController <MMCustomSearchFieldDelegate>
+@interface _TtC6WeChat36NewSessionPickerSelectViewController : MMTraitsViewController <MMCustomSearchFieldDelegate, MMTableViewDelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
     // Error parsing type: , name: scrollView
     // Error parsing type: , name: tableView

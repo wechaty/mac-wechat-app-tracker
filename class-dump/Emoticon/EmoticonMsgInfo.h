@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 
 @class NSString;
 
-@interface EmoticonMsgInfo : NSObject <PBCoding>
+@interface EmoticonMsgInfo : NSObject <PBCoding, NSCopying>
 {
     BOOL _disableExtern;
     unsigned int msgStatus;
@@ -37,6 +38,7 @@
     NSString *externMd5;
 }
 
++ (id)genEmoticonMsgInfoFromMsgData:(id)arg1;
 + (void)initialize;
 + (void)PBArrayAdd_externMd5;
 + (void)PBArrayAdd_externUrl;
@@ -81,13 +83,17 @@
 @property(copy, nonatomic) NSString *fromUsrName; // @synthesize fromUsrName;
 @property(copy, nonatomic) NSString *m_nsMD5; // @synthesize m_nsMD5;
 @property(copy, nonatomic) NSString *m_nsServerID; // @synthesize m_nsServerID;
+- (void)copyDownloadInfoFromEmojiInfo:(id)arg1;
 - (BOOL)hasTpDownloadInfo;
 - (BOOL)canCdnDownload;
 - (BOOL)hasEncryptDownloadInfo;
 - (BOOL)hasWxAMDownloadInfo;
+- (BOOL)isDownloaded;
 - (id)emoticonPath;
 - (id)clientMsgId;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)parseForBaseDownloadInfoFromMessageData:(id)arg1;
+- (id)simpleDescription;
 @property(readonly, copy) NSString *description;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

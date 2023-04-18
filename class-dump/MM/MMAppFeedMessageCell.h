@@ -28,6 +28,7 @@
     CAShapeLayer *_highlightLayer;
     NSImageView *_zhiboIConView;
     NSTextField *_zhiboStatusField;
+    NSTextField *_replayStatusField;
     MMTimer *_liveStatusTimer;
     NSImageView *_textMaskView;
 }
@@ -39,6 +40,7 @@
 @property(nonatomic) BOOL isVertical; // @synthesize isVertical=_isVertical;
 @property(retain, nonatomic) NSImageView *textMaskView; // @synthesize textMaskView=_textMaskView;
 @property(retain, nonatomic) MMTimer *liveStatusTimer; // @synthesize liveStatusTimer=_liveStatusTimer;
+@property(retain, nonatomic) NSTextField *replayStatusField; // @synthesize replayStatusField=_replayStatusField;
 @property(retain, nonatomic) NSTextField *zhiboStatusField; // @synthesize zhiboStatusField=_zhiboStatusField;
 @property(retain, nonatomic) NSImageView *zhiboIConView; // @synthesize zhiboIConView=_zhiboIConView;
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
@@ -64,7 +66,9 @@
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
 - (void)setupImageBlur;
+- (void)updateDB:(id)arg1;
 - (void)checkLiveStauts;
+- (void)layoutOriginCover;
 - (void)layoutCover;
 - (void)getAuthIconView;
 - (void)loadData;
@@ -87,11 +91,14 @@
 - (BOOL)allowChoose;
 - (void)updateHighlightMaskView;
 - (void)updateMessageLayer;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
-- (void)setupAccessibility;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (struct CGRect)clickableArea;
+- (void)updateClosedTextField;
+- (void)updateStatusTitleLocation;
 - (void)layoutSubViews;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)initView;

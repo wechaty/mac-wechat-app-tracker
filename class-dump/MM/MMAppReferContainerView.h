@@ -29,6 +29,7 @@
 - (void)updateMessageLayer;
 - (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (void)viewDidChangeEffectiveAppearance;
+- (BOOL)isAccessibilityElement;
 - (id)initWithCornerRadius:(double)arg1 normalColor:(id)arg2 highlightColor:(id)arg3 frameRect:(struct CGRect)arg4;
 
 @end

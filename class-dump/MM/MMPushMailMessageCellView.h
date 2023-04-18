@@ -52,6 +52,7 @@
 - (void)viewDidChangeEffectiveAppearance;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
+- (BOOL)accessibilityPerformPress;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

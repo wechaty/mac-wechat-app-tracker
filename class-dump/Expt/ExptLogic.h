@@ -16,7 +16,6 @@
     unsigned int _interval;
 }
 
-+ (id)exptPath:(id)arg1;
 @property(nonatomic) unsigned int interval; // @synthesize interval=_interval;
 @property(nonatomic) unsigned int lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
 - (BOOL)saveTimeToFile:(unsigned int)arg1 fileName:(id)arg2;
@@ -25,10 +24,10 @@
 - (void)noteGetExptIntervalSec:(unsigned int)arg1;
 - (unsigned int)getLastGetExptTime;
 - (void)noteGetExptTime:(unsigned int)arg1;
-- (void)onReceNewXmlMsg:(id)arg1 type:(id)arg2 messageData:(id)arg3;
+- (BOOL)handleNewXmlContent:(id)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
-- (void)getSvrExpt;
-- (void)checkToGetSvrExpt:(BOOL)arg1;
+- (void)getSvrExpt:(unsigned int)arg1;
+- (void)checkToGetSvrExpt:(unsigned int)arg1;
 - (void)dealloc;
 - (id)init;
 

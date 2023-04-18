@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "WABaseRequest.h"
+#import <objc/NSObject.h>
 
 @class NSData, NSString;
 
-@interface WAForwardRequest : WABaseRequest
+@interface WAForwardRequest : NSObject
 {
     BOOL _shouldUseDynamicPage;
     unsigned int _shareScene;
@@ -24,6 +24,7 @@
     NSString *_appName;
     NSString *_displayName;
     NSString *_username;
+    NSString *_appId;
     NSString *_pagePath;
     NSString *_iconUrl;
     NSString *_extraData;
@@ -31,7 +32,6 @@
     NSString *_cacheKey;
 }
 
-+ (BOOL)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *cacheKey; // @synthesize cacheKey=_cacheKey;
 @property(nonatomic) BOOL shouldUseDynamicPage; // @synthesize shouldUseDynamicPage=_shouldUseDynamicPage;
@@ -44,6 +44,7 @@
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(nonatomic) unsigned int type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *pagePath; // @synthesize pagePath=_pagePath;
+@property(retain, nonatomic) NSString *appId; // @synthesize appId=_appId;
 @property(retain, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *appName; // @synthesize appName=_appName;
@@ -52,12 +53,7 @@
 @property(retain, nonatomic) NSString *appMediaUrl; // @synthesize appMediaUrl=_appMediaUrl;
 @property(retain, nonatomic) NSString *desc; // @synthesize desc=_desc;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)messageDataFromRequest;
-
-// Remaining properties
-@property(retain, nonatomic) NSString *appId; // @dynamic appId;
 
 @end
 

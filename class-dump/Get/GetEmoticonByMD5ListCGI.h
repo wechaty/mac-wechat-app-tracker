@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class MMCGIRequester, NSMutableArray;
 
 @interface GetEmoticonByMD5ListCGI : NSObject
 {
@@ -14,9 +14,11 @@
     CDUnknownBlockType _onFinishBlock;
     NSMutableArray *_waitForRequestMd5List;
     NSMutableArray *_emojiInfoList;
+    MMCGIRequester *_cgiRequester;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMCGIRequester *cgiRequester; // @synthesize cgiRequester=_cgiRequester;
 @property(retain, nonatomic) NSMutableArray *emojiInfoList; // @synthesize emojiInfoList=_emojiInfoList;
 @property(retain, nonatomic) NSMutableArray *waitForRequestMd5List; // @synthesize waitForRequestMd5List=_waitForRequestMd5List;
 @property(nonatomic) unsigned int maxCountPerRequest; // @synthesize maxCountPerRequest=_maxCountPerRequest;
@@ -25,6 +27,7 @@
 - (void)handleBatchEmojiDownLoadFailed;
 - (void)continueRequestEmojiMD5List;
 - (void)startRequestWithMd5List:(id)arg1;
+- (void)cancelRequest;
 - (id)init;
 
 @end

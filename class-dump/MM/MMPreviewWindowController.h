@@ -8,7 +8,7 @@
 
 #import "IOCRTransMgrExt-Protocol.h"
 #import "MMBasePreviewViewControllerDelegate-Protocol.h"
-#import "MMOCRScannerExt-Protocol.h"
+#import "MMImageTextRecognizeExt-Protocol.h"
 #import "MMPageControllerDelegate-Protocol.h"
 #import "MMPreviewWindowDelegate-Protocol.h"
 #import "MMPreviewWindowOCRPluginDelegate-Protocol.h"
@@ -21,7 +21,7 @@
 @class MMBasePreviewViewController, MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPageController, MMPreviewEventView, MMPreviewToggleRestoreButton, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSMutableArray, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat28PreviewTransitionTrackButton;
 @protocol MMPreviewWindowControllerDelegate;
 
-@interface MMPreviewWindowController : MMWindowController <NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMOCRScannerExt, MMPreviewWindowPluginDelegate, MMBasePreviewViewControllerDelegate, MMPreviewWindowOCRPluginDelegate, NSWindowDelegate, MMPageControllerDelegate>
+@interface MMPreviewWindowController : MMWindowController <NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMImageTextRecognizeExt, MMPreviewWindowPluginDelegate, MMBasePreviewViewControllerDelegate, MMPreviewWindowOCRPluginDelegate, NSWindowDelegate, MMPageControllerDelegate>
 {
     BOOL _isUpdatingItemList;
     BOOL _isFullScreen;
@@ -86,12 +86,12 @@
     NSTrackingArea *_rightTrackingArea;
     NSMutableArray *_windowPlugins;
     NSView *_invalidMaskView;
-    long long _sessionId;
+    unsigned long long _sessionId;
     struct CGRect _windowFrame;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) long long sessionId; // @synthesize sessionId=_sessionId;
+@property(nonatomic) unsigned long long sessionId; // @synthesize sessionId=_sessionId;
 @property(retain, nonatomic) NSView *invalidMaskView; // @synthesize invalidMaskView=_invalidMaskView;
 @property(retain, nonatomic) NSMutableArray *windowPlugins; // @synthesize windowPlugins=_windowPlugins;
 @property(nonatomic) BOOL bDidResized; // @synthesize bDidResized=_bDidResized;
@@ -163,8 +163,7 @@
 - (void)removeWindowPlugin:(id)arg1;
 - (void)addWindowPlugin:(id)arg1;
 - (void)onTranslateFinish:(id)arg1 ret:(unsigned int)arg2;
-- (void)onOCRRecognizeFinish:(id)arg1;
-- (void)onOCRDetectFinish:(id)arg1;
+- (void)onTextRecognizeFinish:(id)arg1;
 - (void)reportOcr:(unsigned long long)arg1;
 - (void)hideRecognizeText;
 - (void)showRecognizeText;
@@ -176,8 +175,6 @@
 - (void)doAnimationForImageRotateAfterResizeWindow;
 - (void)doAnimationForImageRotateAndWindowFrame:(BOOL)arg1;
 - (void)rotateFromMouseEvent:(BOOL)arg1;
-- (void)_pageControllerWillStartTransition;
-- (struct CGRect)pageController:(id)arg1 frameForObject:(id)arg2;
 - (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
 - (void)pageControllerDidEndLiveTransition:(id)arg1 isForward:(BOOL)arg2;
 - (void)pageControllerWillStartLiveTransition:(id)arg1 isForward:(BOOL)arg2;
@@ -355,7 +352,6 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setupPageController;
 - (BOOL)isUpdatingPageController:(id)arg1;
-- (void)preloadVideoOfInfo:(id)arg1;
 - (void)onPreviewInvalid:(id)arg1;
 - (void)setupFullScreenToolBar;
 - (void)updateButtonsAnimator;

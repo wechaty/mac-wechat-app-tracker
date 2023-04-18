@@ -94,11 +94,12 @@
 - (void)onRecordMsgUploadCDNModMsgByBitSet:(id)arg1 MsgWrap:(id)arg2 BitSet:(unsigned int)arg3;
 - (void)onCurrentFileUploadFinish:(unsigned int)arg1 andLocalDataID:(id)arg2;
 - (void)onCurrentFileUploadProgress:(unsigned int)arg1 andTotalLength:(unsigned int)arg2 andLocalDataID:(id)arg3;
+- (void)updateProgress:(int)arg1;
 - (void)notifyVideoMsgUploadProgress:(id)arg1 msgData:(id)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
-- (void)onVideoMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyImgMsgUploadProgress:(id)arg1 msgData:(id)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
-- (void)onImgMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)notifyAppMsgUploadProgress:(id)arg1 msgData:(id)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
+- (void)onVideoMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)onImgMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onAppMsgUploadFinish:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)onUserLogout;

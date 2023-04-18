@@ -8,7 +8,7 @@
 
 #import "NSSecureCoding-Protocol.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
 @interface WAMiniProgramLaunchExtInfo : NSObject <NSSecureCoding>
 {
@@ -23,14 +23,14 @@
     unsigned long long _operateScene;
     NSString *_chatName;
     NSString *_shareKey;
-    NSString *_debugContent;
+    NSDictionary *_debugConfig;
     NSString *_adUxInfo;
 }
 
 + (BOOL)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *adUxInfo; // @synthesize adUxInfo=_adUxInfo;
-@property(retain, nonatomic) NSString *debugContent; // @synthesize debugContent=_debugContent;
+@property(retain, nonatomic) NSDictionary *debugConfig; // @synthesize debugConfig=_debugConfig;
 @property(copy, nonatomic) NSString *shareKey; // @synthesize shareKey=_shareKey;
 @property(copy, nonatomic) NSString *chatName; // @synthesize chatName=_chatName;
 @property(nonatomic) unsigned int originScene; // @synthesize originScene=_originScene;

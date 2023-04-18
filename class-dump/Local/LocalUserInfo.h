@@ -49,6 +49,7 @@
     NSString *patSuffix;
     NSString *salt;
     unsigned long long extStatus2;
+    NSString *_regCountry;
 }
 
 + (void)initialize;
@@ -88,6 +89,7 @@
 + (void)PBArrayAdd_m_nsCountry;
 + (void)PBArrayAdd_m_uiSex;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *regCountry; // @synthesize regCountry=_regCountry;
 @property(nonatomic) unsigned long long extStatus2; // @synthesize extStatus2;
 @property(retain, nonatomic) NSString *salt; // @synthesize salt;
 @property(nonatomic) unsigned int m_nsPluginInstallStatus; // @synthesize m_nsPluginInstallStatus;

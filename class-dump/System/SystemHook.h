@@ -12,6 +12,9 @@
 
 + (BOOL)mm_doAKshouldProcessURL:(id)arg1;
 + (void)setup;
++ (void)setupNoPopupMenuWindow;
++ (id)_noPopupMenuClassName;
++ (id)_noPopupMenuWindowClasses;
 
 @end
 

@@ -13,7 +13,6 @@
 @optional
 - (int)GetFrmType;
 - (void)DidCapturedImage:(NSImage *)arg1;
-- (void)captureWindowSnapshot:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 - (void)captureVideoSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (int)VideoDevPutData:(int)arg1 frmData:(char *)arg2 imageWidth:(unsigned int)arg3 imageHeight:(unsigned int)arg4;
 @end

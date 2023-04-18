@@ -45,6 +45,7 @@
 - (void)addBubbleMaskToView;
 - (void)updateTextFrame:(BOOL)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (BOOL)accessibilityPerformPress;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

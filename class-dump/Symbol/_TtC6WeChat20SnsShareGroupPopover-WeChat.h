@@ -6,7 +6,11 @@
 
 #import "_TtC6WeChat20SnsShareGroupPopover.h"
 
-@interface _TtC6WeChat20SnsShareGroupPopover (WeChat)
+#import "MMTableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+
+@interface _TtC6WeChat20SnsShareGroupPopover (WeChat) <NSTableViewDelegate, NSTableViewDataSource, MMTableViewDelegate>
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (void)tableView:(id)arg1 rowGotMouseDown:(long long)arg2;
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;

@@ -11,7 +11,6 @@
 @protocol EmoticonMgrExt <NSObject>
 
 @optional
-- (void)didUpdateEmoticonMD5List;
 - (void)customEmoticonsChanged;
 - (void)favoriteEmoticonsChanged;
 - (void)installedStickerPacksChanged:(NSString *)arg1;

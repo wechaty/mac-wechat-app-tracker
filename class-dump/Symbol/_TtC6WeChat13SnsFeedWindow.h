@@ -11,6 +11,7 @@
 }
 
 - (id)initWithContentRect:(struct CGRect)arg1 styleMask:(unsigned long long)arg2 backing:(unsigned long long)arg3 defer:(BOOL)arg4;
+- (void)toggleFullScreen:(id)arg1;
 - (void)awakeFromNib;
 
 @end

@@ -39,12 +39,15 @@
 - (void)contextMenuAddEmotion;
 - (id)getSection1MenuItem;
 - (id)contextMenuMenuExtendSection;
+- (void)contextMenuShowResourcePath;
 - (struct CGRect)clickableArea;
 - (void)updateStickerWithImage:(id)arg1 andImageData:(id)arg2;
 - (void)emoticonDownloadFailed:(id)arg1;
 - (void)emoticonDownloadFinished:(id)arg1;
 - (void)restartPlaying;
 - (void)callForDelegate;
+- (BOOL)accessibilityPerformPress;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)dealloc;

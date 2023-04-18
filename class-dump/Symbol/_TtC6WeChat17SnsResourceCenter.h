@@ -6,7 +6,9 @@
 
 #import "MMService.h"
 
-@interface _TtC6WeChat17SnsResourceCenter : MMService
+#import "MMService-Protocol.h"
+
+@interface _TtC6WeChat17SnsResourceCenter : MMService <MMService>
 {
     // Error parsing type: , name: downloadManager
     // Error parsing type: , name: backgroundImageManager

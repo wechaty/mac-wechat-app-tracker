@@ -34,12 +34,12 @@
 + (BOOL)isYosemiteOrLater;
 + (BOOL)is10_12OrLater;
 + (BOOL)isElCapitanOrLater;
-+ (BOOL)isSupportMiniProgram;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *architecture; // @synthesize architecture=_architecture;
 @property(nonatomic) int isTranslated; // @synthesize isTranslated=_isTranslated;
 @property(nonatomic) struct __SCDynamicStore *store; // @synthesize store=_store;
 - (id)GetBuildProductVersion;
+- (double)doubleShortSystemVersion;
 - (id)GetShortSystemVersion;
 - (id)GetSystemVersion;
 - (id)GetSystemName;

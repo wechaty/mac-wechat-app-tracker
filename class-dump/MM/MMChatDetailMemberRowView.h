@@ -22,7 +22,6 @@
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 @property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 - (id)currentBgColor;
-- (id)groupChatDisplayName:(id)arg1 inGroupChat:(id)arg2;
 - (void)setupWithContact:(id)arg1 inGroupChat:(id)arg2;
 - (void)prepareForReuse;
 - (void)initSubView;

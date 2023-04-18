@@ -13,11 +13,8 @@
 
 @interface WAAppMgr : MMService <IMessageExt, MMService>
 {
-    unsigned int _lastUpdate;
 }
 
-@property(nonatomic) unsigned int lastUpdate; // @synthesize lastUpdate=_lastUpdate;
-- (void)openAppDebugWindow;
 - (void)killAppWithMessageData:(id)arg1;
 - (void)forceOpenAppWithMessageData:(id)arg1;
 - (void)onGetNewXmlMsg:(id)arg1 type:(id)arg2 msgData:(id)arg3;

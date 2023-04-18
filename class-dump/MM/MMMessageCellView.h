@@ -10,6 +10,7 @@
 #import "IContactMgrExt-Protocol.h"
 #import "IGroupMgrExt-Protocol.h"
 #import "MMAutoDownloadProtocol-Protocol.h"
+#import "NSAccessibilityButton-Protocol.h"
 #import "NSDraggingSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSSharingServiceDelegate-Protocol.h"
@@ -18,7 +19,7 @@
 @class MMButton, MMImageView, MMMessageCellAvatarView, MMMessageTableItem, MMOutlineButton, MMView, NSButton, NSImage, NSMenu, NSProgressIndicator, NSString, NSTextField, NSTrackingArea;
 @protocol MMMessageCellViewDelegate;
 
-@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol>
+@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol, NSAccessibilityButton>
 {
     NSImage *_savedDraggingImage;
     NSTrackingArea *_mainTrackingArea;
@@ -191,7 +192,10 @@
 @property(readonly, nonatomic) double topPadding;
 - (double)_avatarPosX;
 - (void)updateAvatarImage;
-- (void)updateAccessibilityContent:(id)arg1;
+- (BOOL)accessibilityPerformShowMenu;
+- (BOOL)accessibilityPerformPress;
+- (void)updateAccessibility;
+- (id)accessibilityContent;
 - (void)populateWithMessage:(id)arg1;
 - (id)formattedDefaultAttr:(id)arg1 font:(id)arg2;
 - (id)hightLightedText:(id)arg1 font:(id)arg2;
@@ -239,6 +243,7 @@
 - (void)contextMenuTranslate;
 - (BOOL)shouleSkipQuote;
 - (void)contextMenuQuote;
+- (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebview;
 - (void)contextMenuOpenWith:(id)arg1;
 - (void)contextMenuOpenFoler;
