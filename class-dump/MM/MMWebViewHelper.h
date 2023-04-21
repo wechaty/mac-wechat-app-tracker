@@ -25,6 +25,7 @@
 + (void)playAsMuted:(id)arg1 windowId:(id)arg2;
 + (unsigned long long)getWindowTypeByWindowIdStr:(id)arg1;
 + (unsigned long long)getWindowTypeWithUrlStr:(id)arg1;
++ (void)_handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
 + (void)handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
 + (BOOL)isAddChatroomURL:(id)arg1;
 + (BOOL)isMultiTabEnableUrls:(id)arg1;

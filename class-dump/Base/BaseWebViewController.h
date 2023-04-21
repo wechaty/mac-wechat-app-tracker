@@ -169,7 +169,7 @@
 - (void)onPageStateChangeAction:(id)arg1;
 - (void)onTranslateH5Finish:(BOOL)arg1;
 - (void)openBlankInWebView;
-- (void)openInExternalBrowser:(id)arg1;
+- (void)_defaultOpenURL:(id)arg1;
 - (void)openInExternalBrowser;
 - (void)copyUrl;
 - (void)addToFavorites;

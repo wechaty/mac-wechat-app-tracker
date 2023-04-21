@@ -37,6 +37,7 @@
 + (BOOL)containsLocalPathString:(id)arg1;
 + (BOOL)containsString:(id)arg1 withRegex:(id)arg2;
 + (BOOL)containsHTTPString:(id)arg1;
++ (BOOL)isSafeUrlStr:(id)arg1;
 + (id)defaultHandler;
 - (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType didOpenUrlBlock; // @synthesize didOpenUrlBlock=_didOpenUrlBlock;
@@ -58,6 +59,7 @@
 - (id)getSharpTagKeyWord:(id)arg1;
 - (void)handleURL:(id)arg1 withExtraInfo:(id)arg2;
 - (void)openURL:(id)arg1 withA8KeyConfig:(id)arg2;
+- (BOOL)_defaultOpenURL:(id)arg1;
 - (BOOL)openURLWithDefault:(id)arg1;
 - (BOOL)preHandleUrlStr:(id)arg1 withMessage:(id)arg2;
 - (BOOL)preHandleUrlStr:(id)arg1;
