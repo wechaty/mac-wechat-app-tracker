@@ -23,6 +23,8 @@
 @property(retain, nonatomic) MMTextView *contentTextView; // @synthesize contentTextView=_contentTextView;
 - (void)reportFingerWebSearch:(unsigned int)arg1 keyWordLen:(unsigned long long)arg2;
 - (void)openWebView:(id)arg1 forceWebview:(BOOL)arg2;
+- (void)openDefaultBrowser:(id)arg1;
+- (void)openInnerBrowser:(id)arg1;
 - (id)getSelectTextLink;
 - (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebView;
