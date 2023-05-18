@@ -8,7 +8,7 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MMAvatarImageView, MMFriendRequestData, MMSidebarLabelTextField, MMTextField, NSBox, NSString;
+@class MMAvatarImageView, MMBadgeOverlayView, MMFriendRequestData, MMSidebarLabelTextField, MMTextField, NSBox, NSString;
 @protocol MMFriendRequestRowViewDelegate;
 
 @interface MMFriendRequestRowView : MMContactListBaseRowView <NSMenuDelegate>
@@ -16,6 +16,7 @@
     id <MMFriendRequestRowViewDelegate> _delegate;
     MMFriendRequestData *_friendRequest;
     MMAvatarImageView *_avatarView;
+    MMBadgeOverlayView *_badgeView;
     MMSidebarLabelTextField *_nameField;
     MMSidebarLabelTextField *_addedStatus;
     MMTextField *_reqeustContentLabel;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) MMTextField *reqeustContentLabel; // @synthesize reqeustContentLabel=_reqeustContentLabel;
 @property(retain, nonatomic) MMSidebarLabelTextField *addedStatus; // @synthesize addedStatus=_addedStatus;
 @property(retain, nonatomic) MMSidebarLabelTextField *nameField; // @synthesize nameField=_nameField;
+@property(retain, nonatomic) MMBadgeOverlayView *badgeView; // @synthesize badgeView=_badgeView;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) MMFriendRequestData *friendRequest; // @synthesize friendRequest=_friendRequest;
 @property(nonatomic) __weak id <MMFriendRequestRowViewDelegate> delegate; // @synthesize delegate=_delegate;

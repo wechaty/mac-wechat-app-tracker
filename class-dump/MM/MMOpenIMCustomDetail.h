@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
+
 @class NSDictionary, NSString;
 
-@interface MMOpenIMCustomDetail : NSObject
+@interface MMOpenIMCustomDetail : NSObject <NSCopying>
 {
     int _descType;
     int _action;

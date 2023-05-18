@@ -10,7 +10,6 @@
 #import "IMessageExt-Protocol.h"
 #import "IMessageServiceVideoReTransferExt-Protocol.h"
 #import "IWeTypeSticker2WeChatExt-Protocol.h"
-#import "LVLiveServiceExt-Protocol.h"
 #import "MMComposeInputViewDelegate-Protocol.h"
 #import "MMComposeRichAttachmentTextViewDelegate-Protocol.h"
 #import "MMComposeTextChangeDelegate-Protocol.h"
@@ -24,10 +23,10 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextViewDelegate-Protocol.h"
 
-@class FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMNoGroupMumberTipView, MMSolitaireWindowController, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
+@class FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMNoGroupMumberTipView, MMSolitaireWindowController, MMWeTypeGuideView, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
 @protocol MMChatDetailSplitViewPositionInterface><MMChatMemberListViewDelegate><MMAnimateVoipTipsDelegate, MMComposeTextViewDelegate, MMMutipleSelectionDelegate;
 
-@interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, LVLiveServiceExt, MMMultiSelectViewDelegate, NSMenuDelegate, IWeTypeSticker2WeChatExt>
+@interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, MMMultiSelectViewDelegate, NSMenuDelegate, IWeTypeSticker2WeChatExt>
 {
     BOOL isNoNetwork;
     id <MMComposeTextViewDelegate> _composeTextViewDelegate;
@@ -45,6 +44,8 @@
     SVGButton *_chatManagerButton;
     SVGButton *_openBrandMenuButton;
     SVGButton *_multiTalkButton;
+    MMWeTypeGuideView *_wetypeGuideView;
+    NSView *_wetypeGuideContainerView;
     MMComposeInputScrollView *_scrollView;
     NSClipView *_clipView;
     MMComposeTextView *_composeTextView;
@@ -80,6 +81,8 @@
 @property(retain, nonatomic) MMComposeTextView *composeTextView; // @synthesize composeTextView=_composeTextView;
 @property(retain, nonatomic) NSClipView *clipView; // @synthesize clipView=_clipView;
 @property(retain, nonatomic) MMComposeInputScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(retain, nonatomic) NSView *wetypeGuideContainerView; // @synthesize wetypeGuideContainerView=_wetypeGuideContainerView;
+@property(retain, nonatomic) MMWeTypeGuideView *wetypeGuideView; // @synthesize wetypeGuideView=_wetypeGuideView;
 @property(nonatomic) __weak SVGButton *multiTalkButton; // @synthesize multiTalkButton=_multiTalkButton;
 @property(nonatomic) __weak SVGButton *openBrandMenuButton; // @synthesize openBrandMenuButton=_openBrandMenuButton;
 @property(nonatomic) __weak SVGButton *chatManagerButton; // @synthesize chatManagerButton=_chatManagerButton;
@@ -105,6 +108,9 @@
 - (void)windowDidColsed:(id)arg1;
 - (void)textView:(id)arg1 doubleClickedOnCell:(id)arg2 inRect:(struct CGRect)arg3 atIndex:(unsigned long long)arg4;
 - (id)textView:(id)arg1 attachmentViewWithAttachment:(id)arg2;
+- (void)closeWeTypeGuideView;
+- (void)showWeTypeGuideView;
+- (void)showWeTypeGuideViewIfNeed;
 - (void)analysisSolitaireWithContent:(id)arg1;
 - (BOOL)sendTextWithAnalysisSolitaire:(id)arg1 withMentionInfo:(id)arg2 withSenderInfo:(id)arg3;
 - (void)SaveMutipleSelect;

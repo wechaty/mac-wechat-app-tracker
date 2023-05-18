@@ -18,7 +18,7 @@
 #import "NSSharingServiceDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MMBasePreviewViewController, MMButton, MMCustomDisableButton, MMDragEventView, MMMediumDivider, MMPageController, MMPreviewEventView, MMPreviewToggleRestoreButton, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSMutableArray, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat28PreviewTransitionTrackButton;
+@class MMBasePreviewViewController, MMButton, MMCustomDisableButton, MMDragEventView, MMFlatButton, MMMediumDivider, MMPageController, MMPreviewEventView, MMPreviewToggleRestoreButton, MMPreviewWindow, MMTimer, MMView, NSArray, NSButton, NSImageView, NSMutableArray, NSString, NSTextField, NSTrackingArea, NSView, _TtC6WeChat28PreviewTransitionTrackButton;
 @protocol MMPreviewWindowControllerDelegate;
 
 @interface MMPreviewWindowController : MMWindowController <NSSharingServiceDelegate, MMPreviewWindowDelegate, NSMenuDelegate, MMQRCodeScannerExt, IOCRTransMgrExt, MMImageTextRecognizeExt, MMPreviewWindowPluginDelegate, MMBasePreviewViewControllerDelegate, MMPreviewWindowOCRPluginDelegate, NSWindowDelegate, MMPageControllerDelegate>
@@ -72,6 +72,8 @@
     MMCustomDisableButton *_rotateButton;
     MMCustomDisableButton *_editButton;
     MMButton *_menuButton;
+    MMFlatButton *_downloadOriginButton;
+    MMButton *_downloadCancelBtn;
     MMTimer *_resizeTimer;
     NSView *_previewContainerView;
     NSView *_rightPluginContainer;
@@ -112,6 +114,8 @@
 @property(retain, nonatomic) NSView *previewContainerView; // @synthesize previewContainerView=_previewContainerView;
 @property(nonatomic) BOOL isClosing; // @synthesize isClosing=_isClosing;
 @property(retain, nonatomic) MMTimer *resizeTimer; // @synthesize resizeTimer=_resizeTimer;
+@property(retain, nonatomic) MMButton *downloadCancelBtn; // @synthesize downloadCancelBtn=_downloadCancelBtn;
+@property(retain, nonatomic) MMFlatButton *downloadOriginButton; // @synthesize downloadOriginButton=_downloadOriginButton;
 @property(retain, nonatomic) MMButton *menuButton; // @synthesize menuButton=_menuButton;
 @property(retain, nonatomic) MMCustomDisableButton *editButton; // @synthesize editButton=_editButton;
 @property(retain, nonatomic) MMCustomDisableButton *rotateButton; // @synthesize rotateButton=_rotateButton;
@@ -191,6 +195,8 @@
 - (void)updateToolbarButtonWithPrevEnabled:(BOOL)arg1 isNextEnabled:(BOOL)arg2;
 - (void)updateToolbarButtonWithLoading:(BOOL)arg1;
 - (void)updateContentViewPrevNextButton;
+- (void)showDownloadOriginFailHint;
+- (void)updateDownloadOriginProgress:(unsigned int)arg1;
 - (void)updateToolbarControls;
 - (void)resetToolbarControls;
 - (struct CGRect)toolbarFrame;
@@ -259,6 +265,8 @@
 - (void)clickButtonMenuActionOpenWith;
 - (void)clickButtonMenuActionLocateMessage;
 - (id)makeButtonContextMenu;
+- (void)cancelDownloadOrigin:(id)arg1;
+- (void)downloadOrigin:(id)arg1;
 - (void)menuMore:(id)arg1;
 - (void)edit:(id)arg1;
 - (void)rotate:(id)arg1;
@@ -359,6 +367,11 @@
 - (void)resetImageOperateBtnSetting:(BOOL)arg1;
 - (void)resetPrevNextBtn:(BOOL)arg1;
 - (void)_layoutToolbarToolBtns;
+- (void)_showDownloadCancelBtn:(BOOL)arg1;
+- (void)_showDownloadOriginBtn:(id)arg1 needsLayout:(BOOL)arg2;
+- (void)_layoutDownloadOriginBtn;
+- (void)_resetDownloadOriginBtn;
+- (void)_setupDownloadOriginBtn;
 - (void)_layoutToolbarControlBtns;
 - (void)setupToolBarContainer;
 - (void)_layoutFailedImageView:(BOOL)arg1;

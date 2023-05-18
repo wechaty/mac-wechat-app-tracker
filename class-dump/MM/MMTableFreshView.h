@@ -6,15 +6,15 @@
 
 #import <AppKit/NSView.h>
 
-@class NSProgressIndicator;
+@class MMProgressIndicator;
 
 @interface MMTableFreshView : NSView
 {
-    NSProgressIndicator *_refreshSpinner;
+    MMProgressIndicator *_refreshSpinner;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSProgressIndicator *refreshSpinner; // @synthesize refreshSpinner=_refreshSpinner;
+@property(retain, nonatomic) MMProgressIndicator *refreshSpinner; // @synthesize refreshSpinner=_refreshSpinner;
 - (void)stop;
 - (void)start;
 - (void)initSpinner;

@@ -16,8 +16,9 @@
 - (void)onImageDidCancelPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
 - (void)onImageDidFailedPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
 - (void)onImageDidStartPredownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
+- (void)onImageDidCancelUploadWithMessage:(MessageData *)arg1;
 - (void)onImageDidUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
-- (void)onImageDidFinishUploadedWithMessage:(MessageData *)arg1;
+- (void)onImageDidFinishUploadedWithMessage:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)onImageDidDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onImageDidCancelDownloadWithMessage:(MessageData *)arg1 type:(int)arg2;
 - (void)onImageDidFailedDownloadWithMessage:(MessageData *)arg1 type:(int)arg2;

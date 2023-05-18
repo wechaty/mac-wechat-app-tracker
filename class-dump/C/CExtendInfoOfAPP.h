@@ -89,7 +89,8 @@
     unsigned int m_uiTempAccessAgreenTime;
     GroupNoticeItem *groupNoticeItem;
     FileMsgPreDownloadInfo *filePreDownloadInfo;
-    BOOL bAppMsgCompleteFlag;
+    NSString *publisherId;
+    NSString *publisherReqId;
     BOOL m_isReaderForbidForward;
     unsigned int m_uiTemplateShowType;
     unsigned int _m_uiWeAppState;
@@ -105,10 +106,14 @@
     NSString *_m_nsGuardianTicket;
     NSString *_m_nsTempAccessBizKey;
     GroupNoticeItem *_groupNoticeItem;
+    NSString *_publisherId;
+    NSString *_publisherReqId;
 }
 
 + (void)CreateExtendInfoWithType:(unsigned int)arg1 retExtendInfo:(id *)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *publisherReqId; // @synthesize publisherReqId=_publisherReqId;
+@property(retain, nonatomic) NSString *publisherId; // @synthesize publisherId=_publisherId;
 @property(retain, nonatomic) GroupNoticeItem *groupNoticeItem; // @synthesize groupNoticeItem=_groupNoticeItem;
 @property(nonatomic) unsigned int m_uiTempAccessAgreenTime; // @synthesize m_uiTempAccessAgreenTime=_m_uiTempAccessAgreenTime;
 @property(nonatomic) unsigned int m_uiTempAccessBizType; // @synthesize m_uiTempAccessBizType=_m_uiTempAccessBizType;
@@ -125,7 +130,6 @@
 @property(nonatomic) unsigned int m_uiContinueUploadCount; // @synthesize m_uiContinueUploadCount;
 @property(nonatomic) long long m_overwriteNewMsgId; // @synthesize m_overwriteNewMsgId;
 @property(retain, nonatomic) NSString *m_nsMsgFileUploadToken; // @synthesize m_nsMsgFileUploadToken;
-@property(nonatomic) BOOL bAppMsgCompleteFlag; // @synthesize bAppMsgCompleteFlag;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem;
@@ -233,6 +237,7 @@
 - (BOOL)isLargeFileForFavOrRecord;
 - (BOOL)isLiveReplayMsg;
 - (BOOL)isPurchaseLiveMsg;
+- (BOOL)isFinderLiveMsg;
 - (BOOL)isLiveMsg;
 - (BOOL)isLargeFileForForward;
 - (BOOL)isAppFeedNameCardMsg;

@@ -13,21 +13,21 @@
 @interface MMProfileOpenIMCellView : NSTableCellView <NSTextFieldDelegate>
 {
     CDUnknownBlockType _didDescButtonClick;
+    double _maxKeyLableLength;
     MMTextField *_keyLabel;
     NSMutableArray *_valueViews;
-    double _maxKeyLableLength;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) double maxKeyLableLength; // @synthesize maxKeyLableLength=_maxKeyLableLength;
 @property(retain, nonatomic) NSMutableArray *valueViews; // @synthesize valueViews=_valueViews;
 @property(retain, nonatomic) MMTextField *keyLabel; // @synthesize keyLabel=_keyLabel;
+@property(nonatomic) double maxKeyLableLength; // @synthesize maxKeyLableLength=_maxKeyLableLength;
 @property(copy, nonatomic) CDUnknownBlockType didDescButtonClick; // @synthesize didDescButtonClick=_didDescButtonClick;
 - (void)onDescButtonClick:(id)arg1;
 - (id)createIconView:(id)arg1 withContact:(id)arg2;
 - (id)createLabel:(id)arg1 withContact:(id)arg2;
-- (void)updateUI:(id)arg1 withContact:(id)arg2;
-- (void)updateFont:(double)arg1;
+- (void)updateUI:(id)arg1 keyHeight:(double)arg2 withContact:(id)arg3;
+- (void)updateFont:(double)arg1 keyHeight:(double)arg2;
 - (void)initUI;
 - (id)initWithFrame:(struct CGRect)arg1 withMaxLength:(double)arg2;
 

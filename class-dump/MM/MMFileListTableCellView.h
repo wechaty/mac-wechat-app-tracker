@@ -101,7 +101,7 @@
 - (void)onExpiredButtonClick:(id)arg1;
 - (void)updateAppMsgState:(id)arg1 andState:(unsigned int)arg2;
 - (void)onFileDidCancelUploadWithMessage:(id)arg1;
-- (void)onFileDidFinishUploadWithMessage:(id)arg1;
+- (void)onFileDidFinishUploadWithMessage:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onFileUploaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)onFileDidCancelDownloadWithMessage:(id)arg1;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;
@@ -140,7 +140,7 @@
 - (void)onExpiredButtonClick:(id)arg1;
 - (void)updateAppMsgState:(id)arg1 andState:(unsigned int)arg2;
 - (void)onFileDidCancelUploadWithMessage:(id)arg1;
-- (void)onFileDidFinishUploadWithMessage:(id)arg1;
+- (void)onFileDidFinishUploadWithMessage:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onFileUploaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)onFileDidCancelDownloadWithMessage:(id)arg1;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;

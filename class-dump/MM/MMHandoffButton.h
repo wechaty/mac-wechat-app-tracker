@@ -7,28 +7,63 @@
 #import "MMView.h"
 
 #import "CAAnimationDelegate-Protocol.h"
+#import "SDWebImageManagerDelegate-Protocol.h"
 
-@class NSImageView, NSString;
+@class MMHandOffCurrentCardViewController, MMHandoffItem, MMTimer, NSImageView, NSString, NSTrackingArea, NSView, SVGImageView;
 
-@interface MMHandoffButton : MMView <CAAnimationDelegate>
+@interface MMHandoffButton : MMView <CAAnimationDelegate, SDWebImageManagerDelegate>
 {
+    BOOL _isAnimating;
+    BOOL _delaySetupImage;
     int _status;
     CDUnknownBlockType _mouseDownInsideBlock;
     NSImageView *_imgView;
+    NSView *_avatarView;
+    SVGImageView *_avatarImageView;
+    SVGImageView *_iconImageView;
+    MMHandoffItem *_currentViewItem;
+    MMHandOffCurrentCardViewController *_handOffCardViewController;
+    NSTrackingArea *_trackingArea;
+    MMTimer *_hideAvatarTimer;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMTimer *hideAvatarTimer; // @synthesize hideAvatarTimer=_hideAvatarTimer;
+@property(nonatomic) BOOL delaySetupImage; // @synthesize delaySetupImage=_delaySetupImage;
+@property(nonatomic) BOOL isAnimating; // @synthesize isAnimating=_isAnimating;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
+@property(retain, nonatomic) MMHandOffCurrentCardViewController *handOffCardViewController; // @synthesize handOffCardViewController=_handOffCardViewController;
+@property(retain, nonatomic) MMHandoffItem *currentViewItem; // @synthesize currentViewItem=_currentViewItem;
+@property(retain, nonatomic) SVGImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
+@property(retain, nonatomic) SVGImageView *avatarImageView; // @synthesize avatarImageView=_avatarImageView;
+@property(retain, nonatomic) NSView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSImageView *imgView; // @synthesize imgView=_imgView;
 @property(copy, nonatomic) CDUnknownBlockType mouseDownInsideBlock; // @synthesize mouseDownInsideBlock=_mouseDownInsideBlock;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void)stopHideAvatarTimer;
+- (void)startHideAvatarTimer;
+- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)setupTrackingArea;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
-- (void)stopAnimation;
+- (void)updateItemWhenAvatarFadeInAnimationEnd;
+- (void)onDownloadImageSucceed;
+- (void)onClearCurrentViewItemData;
+- (void)onCurrentViewItemEnd;
+- (void)showCurrentViewPopover;
+- (void)setupAvatarImage;
+- (void)onCurrentViewItemChange:(id)arg1;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
-- (void)startAnimation;
+- (void)startFadeOutCombineAnimation;
+- (void)startFadeInCombineAnimation;
+- (void)setupImage:(id)arg1;
 - (void)setupView;
 - (void)setup;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 

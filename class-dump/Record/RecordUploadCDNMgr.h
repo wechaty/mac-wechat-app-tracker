@@ -16,16 +16,19 @@
 @interface RecordUploadCDNMgr : MMService <RecordUploadTaskDelegate, MMAppAttachFileMgrExt, ICdnComMgrExt, MMService>
 {
     RecordUploadTask *m_curUploadTask;
-    NSMutableArray *m_arrRecordData;
     NSMutableArray *m_arrCDNUploadInfo;
     NSRecursiveLock *m_oLockForDictDownloadTask;
+    NSRecursiveLock *m_oLockForNoUpload;
     NSMutableArray *m_bigFileTasks;
-    BOOL m_isWaitingDownload;
     UploadMsgWrap *m_curMsgWrap;
     NSMutableArray *m_arrMsgWrap;
+    UploadMsgWrap *m_curNoUploadMsgWrap;
+    NSMutableArray *m_arrNoUploadMsgWrap;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *m_arrNoUploadMsgWrap; // @synthesize m_arrNoUploadMsgWrap;
+@property(retain, nonatomic) UploadMsgWrap *m_curNoUploadMsgWrap; // @synthesize m_curNoUploadMsgWrap;
 @property(retain, nonatomic) NSMutableArray *m_arrMsgWrap; // @synthesize m_arrMsgWrap;
 @property(retain, nonatomic) UploadMsgWrap *m_curMsgWrap; // @synthesize m_curMsgWrap;
 - (void)onBatchCheckBigFileUploadResult:(BOOL)arg1 respList:(id)arg2 wrapMsg:(id)arg3 errMsg:(id)arg4;
@@ -38,12 +41,16 @@
 - (void)batchTransCDNItemForFav;
 - (void)genUploadTaskForDataList:(id)arg1 isFromRecord:(BOOL)arg2 andDepth:(unsigned int)arg3;
 - (void)batchTransCDNItemForMsg:(BOOL)arg1;
-- (void)HandleSendMsgResp:(id)arg1;
 - (void)HandleBatchTransCDNResp:(id)arg1;
 - (void)TryNextMsgWrap;
+- (void)HandleSendMsgOK:(id)arg1 msgWrap:(id)arg2;
 - (void)SendMsgOK:(id)arg1;
+- (void)HandleSendMsgFail:(id)arg1;
 - (void)SendMsgFail;
 - (BOOL)SendCurAppMsg;
+- (void)SendAppMsg:(id)arg1 scene:(unsigned int)arg2;
+- (void)RemoveFromNoUploadQueue:(id)arg1;
+- (BOOL)AlreadyInNoUploadQueue:(id)arg1;
 - (void)RemoveMsgWrap:(id)arg1;
 - (void)UploadRecordData;
 - (void)HandleFinishRecordUpload;
@@ -53,10 +60,10 @@
 - (void)StopUploadRecordMsg:(id)arg1;
 - (void)StartUploadRecordMsg:(id)arg1 scene:(unsigned int)arg2;
 - (BOOL)IsRecordMsgUploading:(id)arg1;
-- (void)dealloc;
+- (id)FindUploadingRecordMsg:(id)arg1;
+- (BOOL)IsRecordMsgJustSending:(id)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

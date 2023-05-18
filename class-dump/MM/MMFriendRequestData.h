@@ -24,9 +24,11 @@
     NSString *encryptuserName;
     NSString *ticket;
     NSString *appId;
+    NSMutableArray *verifyMessages;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_verifyMessages;
 + (void)PBArrayAdd_appId;
 + (void)PBArrayAdd_opCode;
 + (void)PBArrayAdd_scene;
@@ -40,6 +42,7 @@
 + (void)PBArrayAdd_nickName;
 + (void)PBArrayAdd_userName;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *verifyMessages; // @synthesize verifyMessages;
 @property(retain, nonatomic) NSString *appId; // @synthesize appId;
 @property(nonatomic) unsigned int opCode; // @synthesize opCode;
 @property(nonatomic) unsigned int scene; // @synthesize scene;
@@ -52,8 +55,9 @@
 @property(retain, nonatomic) NSMutableArray *requestContents; // @synthesize requestContents;
 @property(retain, nonatomic) NSString *nickName; // @synthesize nickName;
 @property(retain, nonatomic) NSString *userName; // @synthesize userName;
-- (BOOL)shouldShowAcceptButton;
-- (id)initWithDictionary:(id)arg1;
+- (BOOL)isVerifyMsgFromSelf;
+- (BOOL)genVerifyMessagesFromContentsIfNeeded;
+- (id)initWithMessageData:(id)arg1;
 - (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

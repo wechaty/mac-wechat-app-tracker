@@ -12,6 +12,7 @@
 
 @interface WAMiniProgramLaunchParam : NSObject <NSSecureCoding>
 {
+    BOOL _isStared;
     unsigned int _openScene;
     unsigned int _version;
     id _completion;
@@ -31,6 +32,7 @@
 
 + (BOOL)supportsSecureCoding;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isStared; // @synthesize isStared=_isStared;
 @property(retain, nonatomic) NSString *iconUrl; // @synthesize iconUrl=_iconUrl;
 @property(retain, nonatomic) NSString *nickName; // @synthesize nickName=_nickName;
 @property(retain, nonatomic) WAMiniProgramLaunchExtInfo *extInfo; // @synthesize extInfo=_extInfo;

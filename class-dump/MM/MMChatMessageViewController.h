@@ -14,7 +14,6 @@
 #import "IMessageCacheMgrImageExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "IMessageServiceFileReTransferExt-Protocol.h"
-#import "LVLiveServiceExt-Protocol.h"
 #import "MMMessageCellViewDelegate-Protocol.h"
 #import "MMMutipleSelectionDelegate-Protocol.h"
 #import "MMNetExt-Protocol.h"
@@ -29,10 +28,10 @@
 #import "SendPatExt-Protocol.h"
 #import "VoipMessageCellViewDelegate-Protocol.h"
 
-@class LVLiveBannerView, MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupMigrationView, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageReferMgr, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
+@class MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupMigrationView, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageReferMgr, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
-@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, LVLiveServiceExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource>
+@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource>
 {
     BOOL _isSettingChatContact;
     BOOL _isScrollToUnReadCount;
@@ -73,7 +72,6 @@
     unsigned long long _unreadCountWhenSetContact;
     MMVoIPInviteView *_voipInviteView;
     MMChatMessageBannerView *_networkBannerView;
-    LVLiveBannerView *_liveBannerView;
     MMGroupNoticeBannerView *_groupNoticeBannerView;
     MMGroupTopMsgBannerView *_topMsgBannerView;
     MMGroupMigrationView *_groupMigrationView;
@@ -110,7 +108,6 @@
 @property(retain, nonatomic) MMGroupMigrationView *groupMigrationView; // @synthesize groupMigrationView=_groupMigrationView;
 @property(retain, nonatomic) MMGroupTopMsgBannerView *topMsgBannerView; // @synthesize topMsgBannerView=_topMsgBannerView;
 @property(retain, nonatomic) MMGroupNoticeBannerView *groupNoticeBannerView; // @synthesize groupNoticeBannerView=_groupNoticeBannerView;
-@property(retain, nonatomic) LVLiveBannerView *liveBannerView; // @synthesize liveBannerView=_liveBannerView;
 @property(retain, nonatomic) MMChatMessageBannerView *networkBannerView; // @synthesize networkBannerView=_networkBannerView;
 @property(retain, nonatomic) MMVoIPInviteView *voipInviteView; // @synthesize voipInviteView=_voipInviteView;
 @property(nonatomic) unsigned long long unreadCountWhenSetContact; // @synthesize unreadCountWhenSetContact=_unreadCountWhenSetContact;
@@ -177,7 +174,6 @@
 - (long long)getVisibleUnreadMessageCount;
 - (void)updateChatContactIfNeeded:(id)arg1;
 - (void)showChatDetailPanel:(id)arg1;
-- (void)onLiveCountChanged:(id)arg1;
 - (void)onRevokePatEnd:(BOOL)arg1 forUser:(id)arg2 n64MsgId:(long long)arg3 clientMsgId:(id)arg4;
 - (void)onFileReTransferOfChat:(id)arg1 forMessage:(long long)arg2;
 - (void)showBanner;
@@ -267,11 +263,6 @@
 - (void)adjustVisableHeightForResize;
 - (void)layoutForResize;
 - (id)getMessageTableView;
-- (void)checkLiveBannerView;
-- (void)hideLiveBannerView;
-- (void)showLiveBannerView;
-- (void)updateLiveBannerView;
-- (void)setupLiveBannerView;
 - (void)setupBackToReferButton;
 - (void)setupUnreadTipsButton;
 - (void)layoutMultiTalkContentIfNeeded;

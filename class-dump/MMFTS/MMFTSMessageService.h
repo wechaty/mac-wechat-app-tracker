@@ -61,6 +61,9 @@
 - (void)onServiceInit;
 - (void)dealloc;
 - (id)init;
+- (id)doAdditionalDBSearch:(id)arg1;
+- (id)searchCLMType:(id)arg1;
+- (id)queryWithModel:(id)arg1;
 - (void)checkFTSDocData;
 - (void)doLoadDocRelateData;
 - (void)loadFTSDocData;

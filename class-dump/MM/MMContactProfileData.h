@@ -6,12 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class ContactProfileBody, ContactProfileFooter, ContactProfileHeader;
+@class ContactProfileBody, ContactProfileHeader;
 
 @interface MMContactProfileData : NSObject
 {
     ContactProfileHeader *_headerData;
-    ContactProfileFooter *_footerData;
     ContactProfileBody *_bodyData;
     double _maxContentWidth;
 }
@@ -19,7 +18,6 @@
 - (void).cxx_destruct;
 @property(nonatomic) double maxContentWidth; // @synthesize maxContentWidth=_maxContentWidth;
 @property(retain, nonatomic) ContactProfileBody *bodyData; // @synthesize bodyData=_bodyData;
-@property(retain, nonatomic) ContactProfileFooter *footerData; // @synthesize footerData=_footerData;
 @property(retain, nonatomic) ContactProfileHeader *headerData; // @synthesize headerData=_headerData;
 
 @end

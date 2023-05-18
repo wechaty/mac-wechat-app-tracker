@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
 @class NSString;
 
-@interface SubscriptBrandInfo : NSObject <PBCoding, WCTColumnCoding>
+@interface SubscriptBrandInfo : NSObject <PBCoding, WCTColumnCoding, NSCopying>
 {
     unsigned int m_brandListCount;
     unsigned int m_brandListVersion;
@@ -27,6 +28,7 @@
 @property(nonatomic) unsigned int m_brandListVersion; // @synthesize m_brandListVersion;
 @property(nonatomic) unsigned int m_brandListCount; // @synthesize m_brandListCount;
 - (id)archivedWCTValue;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 

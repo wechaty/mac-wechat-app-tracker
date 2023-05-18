@@ -27,9 +27,12 @@
 + (unsigned long long)getWindowTypeWithUrlStr:(id)arg1;
 + (void)_handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
 + (void)handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
++ (BOOL)isSupportedURL:(id)arg1;
 + (BOOL)isAddChatroomURL:(id)arg1;
++ (BOOL)isWeixin110URL:(id)arg1;
 + (BOOL)isMultiTabEnableUrls:(id)arg1;
 + (id)setConfigWithFinderId:(id)arg1;
++ (id)dict2String:(id)arg1;
 
 @end
 

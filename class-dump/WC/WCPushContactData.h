@@ -41,6 +41,7 @@
 @property(nonatomic) unsigned int uiPushTime; // @synthesize uiPushTime;
 @property(nonatomic) BOOL bReaded; // @synthesize bReaded;
 @property(copy, nonatomic) NSString *nsSource; // @synthesize nsSource;
+- (void)copyFieldFromWCContact:(id)arg1;
 - (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

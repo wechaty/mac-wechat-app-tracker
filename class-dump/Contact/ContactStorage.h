@@ -7,12 +7,13 @@
 #import "MMService.h"
 
 #import "IAccountStorageExt-Protocol.h"
+#import "IContactModifyLocalExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class ContactCheckInitLogic, GetContactLogic, NSMutableDictionary, NSRecursiveLock, NSString, WCContactDB;
 
-@interface ContactStorage : MMService <IMessageExt, IAccountStorageExt, MMService>
+@interface ContactStorage : MMService <IMessageExt, IAccountStorageExt, IContactModifyLocalExt, MMService>
 {
     WCContactDB *m_contactDB;
     unsigned int m_uLoadedType;
@@ -33,6 +34,7 @@
 - (void)UpdateContactIfNeeded:(id)arg1;
 - (void)loadCache;
 - (id)getContactCache:(id)arg1;
+- (id)GetFriendContactsByType:(unsigned int)arg1;
 - (id)GetAllFriendContacts;
 - (BOOL)ModifyContactFilterHeTypeWithUserName:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)ModifyContactSNSBlackListTypeWithUserName:(id)arg1 bOn:(BOOL)arg2;
@@ -44,7 +46,8 @@
 - (BOOL)ModifyIsFav:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyIsTop:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
 - (BOOL)ModifyIsFriend:(BOOL)arg1 withUserName:(id)arg2 updateStatus:(unsigned long long)arg3;
-- (BOOL)ModifyRemarkDescWithUserName:(id)arg1 remarkDesc:(id)arg2;
+- (BOOL)ModifyPhoneListWithUserName:(id)arg1 arrPhoneList:(id)arg2 needSync:(BOOL)arg3;
+- (BOOL)ModifyRemarkDescWithUserName:(id)arg1 remarkDesc:(id)arg2 needSync:(BOOL)arg3;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2 syncToServer:(BOOL)arg3;
 - (BOOL)ModifyRemarkWithUserName:(id)arg1 remark:(id)arg2;
 - (BOOL)deleteContact:(id)arg1;
@@ -88,7 +91,8 @@
 - (BOOL)addOpLog_MofifyFilterHeChatContact:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)addOpLog_ModifySNSBlackListChatContact:(id)arg1 bOn:(BOOL)arg2;
 - (BOOL)addOpLog_ModifySocialBlackListChatContact:(id)arg1 bOn:(BOOL)arg2;
-- (BOOL)addOpLog_ModifyChatContactDesc:(id)arg1 withDesc:(id)arg2;
+- (BOOL)addOpLog_ModifyChatContactPhone:(id)arg1 withPhone:(id)arg2 NeedSync:(BOOL)arg3;
+- (BOOL)addOpLog_ModifyChatContactDesc:(id)arg1 withDesc:(id)arg2 needSync:(BOOL)arg3;
 - (BOOL)addOpLog_DeleteChatContact:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpLog_ModifyContact:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpLog_ModifyContact:(id)arg1 addScene:(unsigned int)arg2 sync:(BOOL)arg3;
@@ -122,6 +126,20 @@
 - (void)setContactCache:(id)arg1;
 - (unsigned long long)contactCacheCount;
 - (id)allKeysOfContactCache;
+- (BOOL)ModifyCardUrlInLocal:(id)arg1 cardUrl:(id)arg2;
+- (BOOL)ModifyCardItemInLocal:(id)arg1 arrCardItem:(id)arg2;
+- (BOOL)updateContactCacheAndNotify:(id)arg1;
+- (BOOL)isUsernameAvailable:(id)arg1;
+- (BOOL)ModifyRemarkDescInLocal:(id)arg1 remarkDesc:(id)arg2;
+- (BOOL)ModifyPhoneListInLocal:(id)arg1 arrPhoneList:(id)arg2;
+- (BOOL)ModifyRemarkInLocal:(id)arg1 remark:(id)arg2;
+- (BOOL)UpdateFlagInLocal:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
+- (BOOL)profileModifyDesc:(id)arg1 remarkDesc:(id)arg2 needSync:(BOOL)arg3;
+- (BOOL)profileModifyPhoneList:(id)arg1 arrPhoneList:(id)arg2 needSync:(BOOL)arg3;
+- (BOOL)profileDeleteContact:(id)arg1;
+- (BOOL)profileModifyIsBlack:(BOOL)arg1 withUserName:(id)arg2;
+- (BOOL)ProfileModifyIsFav:(BOOL)arg1 withUserName:(id)arg2;
+- (BOOL)ProfileModifyRemark:(id)arg1 remark:(id)arg2 needSync:(BOOL)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

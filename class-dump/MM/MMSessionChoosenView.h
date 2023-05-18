@@ -144,7 +144,6 @@
 - (void)showRevokeHistoryEntry;
 - (void)showShareHistoryEntry;
 - (void)genAndSetBlurImage:(id)arg1;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)showAppFeedMessageView;
 - (void)showAppBrandMessageView;
 - (void)showTextMessageView:(id)arg1 emoji:(BOOL)arg2;

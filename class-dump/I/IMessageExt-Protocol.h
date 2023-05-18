@@ -26,8 +26,7 @@
 - (void)onGetStatusNotifyCommand:(NSDictionary *)arg1;
 - (void)onGetNewXmlMsg:(NSString *)arg1 type:(NSString *)arg2 msgData:(MessageData *)arg3;
 - (void)onOperateMsgList:(NSArray *)arg1 opTime:(unsigned int)arg2;
-- (void)onGetSessionListFromStatusNotify:(NSArray *)arg1;
-- (void)onGetSessionListFromSyncCGI:(NSArray *)arg1;
+- (void)onGetSessionListFromStatusNotify:(NSArray *)arg1 source:(int)arg2;
 - (void)onUnreadSession:(NSString *)arg1;
 - (void)onQuitSession:(NSString *)arg1;
 - (void)onEnterSession:(NSString *)arg1;

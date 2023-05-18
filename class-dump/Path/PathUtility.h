@@ -36,10 +36,6 @@
 + (id)GetChatSyncFileBasePathWithMessage:(id)arg1;
 + (id)GetChatSyncDBPath;
 + (id)GetChatSyncBasePath;
-+ (id)GetPathOfLiveSetting;
-+ (id)GetLiveDBPath;
-+ (id)localUsrLibrary;
-+ (id)localUsrDirPath;
 + (id)joinedBySourcePathFromXML:(id)arg1;
 + (id)trimmingSourcePathToXML:(id)arg1;
 + (id)GetSessionSortCacheDataFilePath;

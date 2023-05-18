@@ -16,6 +16,8 @@
 
 + (void)deleteContactDB;
 - (void).cxx_destruct;
+- (id)getAndUpdateContact:(id)arg1 propertyDict:(id)arg2;
+- (id)getAndUpdateContactFlag:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
 - (BOOL)deleteContactsFromContactDB:(id)arg1;
 - (BOOL)deleteContactFromContactDB:(id)arg1;
 - (BOOL)addOrModifyContactsKeepLocalField:(id)arg1;

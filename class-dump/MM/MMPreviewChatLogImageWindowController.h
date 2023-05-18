@@ -7,13 +7,14 @@
 #import "MMPreviewWindowController.h"
 
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMFavoritesMgrExt-Protocol.h"
 #import "MMImagePreviewViewControllerDelegate-Protocol.h"
 
 @class FavoritesItem, FavoritesItemDataField, MMQLPreviewItem, MessageData, NSString;
 
-@interface MMPreviewChatLogImageWindowController : MMPreviewWindowController <MMFavoritesMgrExt, IMessageExt, IMMFavRecordDownloadMgrExt, MMImagePreviewViewControllerDelegate>
+@interface MMPreviewChatLogImageWindowController : MMPreviewWindowController <MMFavoritesMgrExt, IMessageExt, IMMFavRecordDownloadMgrExt, MMImagePreviewViewControllerDelegate, IMMNewRecordDownloadServiceExt>
 {
     MMQLPreviewItem *m_currentPreviewingItem;
     MessageData *m_currentPreviewingMessage;
@@ -24,14 +25,10 @@
 - (void).cxx_destruct;
 - (void)imagePreviewViewControllerLoadOriginDataExpired:(id)arg1;
 - (void)imagePreviewViewControllerLoadOriginDataFinished:(id)arg1;
-- (void)OnDownloadFavItemRecordPart:(id)arg1 DataId:(id)arg2 PartLen:(unsigned int)arg3 TotalLen:(unsigned int)arg4;
-- (void)OnDownloadFavItemRecordExpired:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadFavItemRecordFail:(id)arg1 DataId:(id)arg2;
-- (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
-- (id)getDataField:(id)arg1;
-- (id)getLocalIdDetails:(id)arg1 andDataField:(id)arg2;
-- (BOOL)isSameLocalId:(id)arg1;
-- (BOOL)isSameLocalIdDetails:(id)arg1 andDataField:(id)arg2;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordPart:(id)arg1 key:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4 context:(id)arg5;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)favoritesMgrDidRemoveItem:(id)arg1;
 - (void)OnHistoryRecordRevoked:(id)arg1 historyId:(unsigned long long)arg2;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;

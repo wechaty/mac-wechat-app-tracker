@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
+
 @class NSMutableDictionary, NSRecursiveLock;
 
-@interface ChatRoomData : NSObject
+@interface ChatRoomData : NSObject <NSCopying>
 {
     NSMutableDictionary *m_dicData;
     unsigned int m_maxMemberCount;
@@ -22,6 +24,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int chatRoomType; // @synthesize chatRoomType=_chatRoomType;
 @property(nonatomic) BOOL isSimplify; // @synthesize isSimplify;
+@property(retain, nonatomic) NSMutableDictionary *dicData; // @synthesize dicData=m_dicData;
 @property(nonatomic) unsigned int chatRoomVersion; // @synthesize chatRoomVersion=m_chatRoomVersion;
 @property(nonatomic) unsigned int maxMemberCount; // @synthesize maxMemberCount=m_maxMemberCount;
 - (void)updateDicData:(struct XmlReaderNode_t *)arg1;
@@ -41,6 +44,7 @@
 - (void)mergeOldDetail:(id)arg1;
 - (void)mergeOpenIMData:(id)arg1;
 - (void)merge:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithNewOpenIMChatRoomData:(id)arg1;
 - (id)initWithNewChatRoomData:(id)arg1;
 - (id)initWithChatRoomData:(id)arg1;

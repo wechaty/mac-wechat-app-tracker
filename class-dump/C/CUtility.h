@@ -104,6 +104,7 @@
 + (unsigned int)BuildNumber;
 + (BOOL)isBuildFromReleaseBranch;
 + (unsigned int)GetVersion;
++ (void)openLocationUrlWithDefault:(id)arg1;
 + (id)mapsURLWithLatitude:(double)arg1 longitude:(double)arg2 provider:(unsigned long long)arg3;
 + (BOOL)appleMapsAvailable;
 + (BOOL)isLongitudeValid:(double)arg1;
@@ -128,7 +129,7 @@
 + (unsigned int)GetCurrentQQUin;
 + (id)GetCurrentWeiboUserName;
 + (id)GetCurrentUserName;
-+ (BOOL)IsMainLandUser:(id)arg1;
++ (BOOL)isMainLandUser;
 + (BOOL)IsSelfUserName:(id)arg1;
 + (id)GetPluginDisplayName:(id)arg1;
 + (BOOL)IsQQMailUserName:(id)arg1;

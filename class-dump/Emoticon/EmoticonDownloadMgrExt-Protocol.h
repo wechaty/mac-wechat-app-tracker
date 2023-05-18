@@ -12,6 +12,7 @@
 
 @optional
 - (void)storeEmoticonIconDownloadFinished:(MMEmotionGroupInfo *)arg1;
+- (void)emoticonDownloadCancelled:(EmoticonMsgInfo *)arg1;
 - (void)emoticonDownloadFailed:(EmoticonMsgInfo *)arg1;
 - (void)emoticonDownloadFinished:(EmoticonMsgInfo *)arg1;
 @end

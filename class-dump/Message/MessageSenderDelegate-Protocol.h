@@ -14,6 +14,7 @@
 - (void)onUploadFinished:(unsigned long long)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 
 @optional
+- (BOOL)IsMsgSending:(MessageData *)arg1;
 - (void)notifyUploadProgress:(NSString *)arg1 msgData:(MessageData *)arg2 uploadedBytes:(int)arg3 totalBytes:(int)arg4;
 @end
 

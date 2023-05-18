@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import "MMRevokeMsgServiceExt-Protocol.h"
 #import "MessageSenderDelegate-Protocol.h"
 
 @class FIFOQueue, NSMutableDictionary, NSRecursiveLock, NSString;
 
-@interface MessageHandler : NSObject <MessageSenderDelegate>
+@interface MessageHandler : NSObject <MMRevokeMsgServiceExt, MessageSenderDelegate>
 {
     FIFOQueue *m_msgSendQueue;
     unsigned long long m_taskId;
@@ -21,13 +22,19 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL uploadMediaOnly; // @synthesize uploadMediaOnly=m_uploadMediaOnly;
+- (void)messageWillBeRevoked:(id)arg1 revokeContext:(id)arg2;
+- (void)onCheckExistFinished:(unsigned long long)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
+- (void)onUploadFinished:(unsigned long long)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
+- (id)findProcessingMessageSender:(id)arg1;
+- (id)findWaitingMessageSender:(id)arg1;
+- (id)findMessageSender:(id)arg1;
 - (BOOL)IsMsgSending:(id)arg1;
 - (BOOL)isInSendingQueue:(id)arg1;
-- (void)checkQueueWithoutSending;
 - (void)checkQueue;
 - (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

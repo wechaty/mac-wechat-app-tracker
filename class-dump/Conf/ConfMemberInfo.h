@@ -12,16 +12,20 @@
 {
     unsigned int hasMemberid:1;
     unsigned int hasOpenid:1;
+    unsigned int hasUsername:1;
     unsigned int hasStatus:1;
     unsigned int memberid;
     unsigned int status;
     NSString *openid;
+    NSString *username;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic, setter=SetStatus:) unsigned int status; // @synthesize status;
 @property(readonly, nonatomic) BOOL hasStatus; // @synthesize hasStatus;
+@property(retain, nonatomic, setter=SetUsername:) NSString *username; // @synthesize username;
+@property(readonly, nonatomic) BOOL hasUsername; // @synthesize hasUsername;
 @property(retain, nonatomic, setter=SetOpenid:) NSString *openid; // @synthesize openid;
 @property(readonly, nonatomic) BOOL hasOpenid; // @synthesize hasOpenid;
 @property(nonatomic, setter=SetMemberid:) unsigned int memberid; // @synthesize memberid;

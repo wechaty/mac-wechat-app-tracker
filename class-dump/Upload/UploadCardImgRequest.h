@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseRequest, NSString, SKBuiltinBuffer_t;
+@class BaseRequest, NSMutableArray, NSString, SKBuiltinBuffer_t;
 
 @interface UploadCardImgRequest : PBGeneratedMessage
 {
@@ -18,16 +18,22 @@
     unsigned int hasData:1;
     SKBuiltinBuffer_t *data_;
     unsigned int hasContactUserName:1;
+    unsigned int hasCardImgCount:1;
     unsigned int totalLen;
     unsigned int startPos;
     unsigned int dataLen;
+    unsigned int cardImgCount;
     BaseRequest *baseRequest;
     NSString *clientId;
     NSString *contactUserName;
+    NSMutableArray *mutableCardImgListList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *mutableCardImgListList; // @synthesize mutableCardImgListList;
+@property(nonatomic, setter=SetCardImgCount:) unsigned int cardImgCount; // @synthesize cardImgCount;
+@property(readonly, nonatomic) BOOL hasCardImgCount; // @synthesize hasCardImgCount;
 @property(retain, nonatomic, setter=SetContactUserName:) NSString *contactUserName; // @synthesize contactUserName;
 @property(readonly, nonatomic) BOOL hasContactUserName; // @synthesize hasContactUserName;
 @property(retain, nonatomic, setter=SetData:) SKBuiltinBuffer_t *data; // @synthesize data=data_;
@@ -42,10 +48,14 @@
 @property(readonly, nonatomic) BOOL hasClientId; // @synthesize hasClientId;
 @property(retain, nonatomic, setter=SetBaseRequest:) BaseRequest *baseRequest; // @synthesize baseRequest;
 @property(readonly, nonatomic) BOOL hasBaseRequest; // @synthesize hasBaseRequest;
+- (void)addCardImgList:(id)arg1;
+- (void)addCardImgListFromArray:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *cardImgList; // @dynamic cardImgList;
+- (id)cardImgListList;
 - (id)init;
 
 @end

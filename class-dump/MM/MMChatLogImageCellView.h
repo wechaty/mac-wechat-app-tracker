@@ -30,6 +30,7 @@
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
 - (BOOL)isAutoDownload;
 - (void)downloadThumb;
+- (void)downloadOrigin;
 - (void)downloadData;
 - (id)draggingImage;
 - (id)originalFilePath;

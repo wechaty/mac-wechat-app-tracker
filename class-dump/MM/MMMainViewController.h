@@ -124,7 +124,7 @@
 - (void)setupExtensionsControllers;
 - (void)updateMaxExtensionShown;
 - (id)tabButtonAtIndex:(int)arg1;
-- (void)updateDetailViewWithController:(id)arg1 inLeftViewController:(id)arg2;
+- (void)updateDetailViewWithController:(id)arg1 inTabIndex:(int)arg2;
 - (void)setDetailViewWithController:(id)arg1;
 - (void)showGroupBox;
 - (void)showFav;

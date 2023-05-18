@@ -21,6 +21,7 @@
 @property(nonatomic) unsigned int startPos; // @synthesize startPos=_startPos;
 @property(nonatomic) BOOL isFirstPack; // @synthesize isFirstPack=_isFirstPack;
 - (void)onFailed;
+- (void)onFinished;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)dealloc;
 - (void)startSending;

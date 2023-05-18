@@ -11,6 +11,6 @@
 @protocol IMessageServiceAppExt <NSObject>
 
 @optional
-- (void)onSendAppMsgFinished:(NSString *)arg1 msgData:(MessageData *)arg2;
+- (void)onSendAppMsgFinished:(NSString *)arg1 msgData:(MessageData *)arg2 isSuccess:(BOOL)arg3;
 @end
 

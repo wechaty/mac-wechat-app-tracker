@@ -11,22 +11,27 @@
 @interface MMContactProfileMgr : NSObject
 {
     double _maxContentWidth;
-    NSMutableArray *_heights;
+    NSMutableArray *_keyHeights;
+    NSMutableArray *_valueHeights;
+    NSMutableArray *_cellHeights;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableArray *heights; // @synthesize heights=_heights;
+@property(retain, nonatomic) NSMutableArray *cellHeights; // @synthesize cellHeights=_cellHeights;
+@property(retain, nonatomic) NSMutableArray *valueHeights; // @synthesize valueHeights=_valueHeights;
+@property(retain, nonatomic) NSMutableArray *keyHeights; // @synthesize keyHeights=_keyHeights;
 @property(nonatomic) double maxContentWidth; // @synthesize maxContentWidth=_maxContentWidth;
-- (double)calHeightSingleLineWithAdjustFont;
-- (id)baseTextAttributesWithSize:(double)arg1 withColor:(id)arg2;
-- (id)formatSubTileText:(id)arg1 withColor:(id)arg2;
-- (id)formatSubTileText:(id)arg1;
-- (id)formatNickNameText:(id)arg1;
+- (struct CGSize)calNormalTextSize;
+- (id)formatAttributedText:(id)arg1 pStyle:(id)arg2 fontSize:(id)arg3 withColor:(id)arg4;
+- (id)formatKeyValueText:(id)arg1 fontSize:(id)arg2 lineHeight:(double)arg3 withColor:(id)arg4 lineBreakMode:(unsigned long long)arg5;
+- (id)formatRemarkTileText:(id)arg1 fontSize:(id)arg2 withColor:(id)arg3;
+- (struct CGSize)calAttributeStrSize:(id)arg1 valueMaxWidth:(double)arg2;
 - (double)calAttributeStrLength:(id)arg1;
-- (double)calMaxKeyLableLength:(id)arg1;
+- (double)calMaxKeyLableLength:(id)arg1 contact:(id)arg2;
+- (double)numberOfOpenIMCustomItem:(id)arg1;
+- (id)getMoreInfos:(id)arg1;
 - (id)getKeyValues:(id)arg1 type:(int)arg2 groupName:(id)arg3;
 - (id)createBodyData:(id)arg1 type:(int)arg2 groupName:(id)arg3;
-- (id)createFooterData:(id)arg1 type:(int)arg2;
 - (id)createHeaderData:(id)arg1 type:(int)arg2 withInfo:(id)arg3;
 - (id)convertFromWCContactData:(id)arg1 type:(int)arg2 info:(id)arg3;
 

@@ -12,7 +12,7 @@
 
 @optional
 - (void)getComparer:(id *)arg1 forSelector:(int)arg2;
-- (void)askSessionByUserName:(NSString *)arg1 isHandled:(char *)arg2;
+- (void)askSessionByUserName:(NSString *)arg1 scene:(unsigned long long)arg2 isHandled:(char *)arg3;
 - (void)onSessionScrollRowToVisible:(MMSessionInfo *)arg1;
 - (void)onSessionReordered;
 - (void)onSessionSynced;

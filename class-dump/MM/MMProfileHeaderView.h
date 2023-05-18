@@ -7,42 +7,64 @@
 #import <AppKit/NSView.h>
 
 #import "IContactMgrExt-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 
-@class ContactProfileHeader, MMAvatarImageView, MMCTTextView, MMMediumDivider, MMTextField, NSImageView, WCContactData;
+@class ContactProfileHeader, MMAvatarImageView, MMMediumDivider, MMProfileRemarkView, NSArray, NSString, NSTableView, RFOverlayScrollView, SVGImageView, WCContactData;
 
-@interface MMProfileHeaderView : NSView <IContactMgrExt>
+@interface MMProfileHeaderView : NSView <IContactMgrExt, NSTableViewDelegate, NSTableViewDataSource>
 {
     MMMediumDivider *_lineView;
     CDUnknownBlockType _didAvatarViewClick;
     ContactProfileHeader *_data;
     WCContactData *_contact;
-    MMCTTextView *_nickNameText;
-    MMTextField *_wechatIdText;
-    NSImageView *_genderImgView;
+    MMProfileRemarkView *_remarkNameView;
+    SVGImageView *_genderImgView;
+    SVGImageView *_starImgView;
     MMAvatarImageView *_avatarView;
+    NSArray *_modelDatas;
+    NSArray *_modelHeights;
+    NSArray *_modelInfoColors;
+    RFOverlayScrollView *_scrollView;
+    NSTableView *_tableView;
     double _maxContentWidth;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) double maxContentWidth; // @synthesize maxContentWidth=_maxContentWidth;
+@property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(retain, nonatomic) NSArray *modelInfoColors; // @synthesize modelInfoColors=_modelInfoColors;
+@property(retain, nonatomic) NSArray *modelHeights; // @synthesize modelHeights=_modelHeights;
+@property(retain, nonatomic) NSArray *modelDatas; // @synthesize modelDatas=_modelDatas;
 @property(retain, nonatomic) MMAvatarImageView *avatarView; // @synthesize avatarView=_avatarView;
-@property(retain, nonatomic) NSImageView *genderImgView; // @synthesize genderImgView=_genderImgView;
-@property(retain, nonatomic) MMTextField *wechatIdText; // @synthesize wechatIdText=_wechatIdText;
-@property(retain, nonatomic) MMCTTextView *nickNameText; // @synthesize nickNameText=_nickNameText;
+@property(retain, nonatomic) SVGImageView *starImgView; // @synthesize starImgView=_starImgView;
+@property(retain, nonatomic) SVGImageView *genderImgView; // @synthesize genderImgView=_genderImgView;
+@property(retain, nonatomic) MMProfileRemarkView *remarkNameView; // @synthesize remarkNameView=_remarkNameView;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) ContactProfileHeader *data; // @synthesize data=_data;
 @property(copy, nonatomic) CDUnknownBlockType didAvatarViewClick; // @synthesize didAvatarViewClick=_didAvatarViewClick;
 @property(retain, nonatomic) MMMediumDivider *lineView; // @synthesize lineView=_lineView;
+- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
+- (long long)numberOfRowsInTableView:(id)arg1;
 - (struct CGPoint)getLastLinePoint:(id)arg1;
-- (double)getTextHeight:(id)arg1 withConstraint:(double)arg2 isAdjust:(BOOL)arg3;
-- (void)convertNickNameFontSize;
+- (double)getRemarkAndIconHeight:(id)arg1 showGender:(BOOL)arg2 showStar:(BOOL)arg3 withConstraint:(double)arg4;
+- (double)getTextHeight:(id)arg1 withConstraint:(double)arg2;
+- (void)convertRemarkNameFontSize;
 - (struct CGRect)convertAvartViewToView:(id)arg1;
-- (void)updateUI:(id)arg1 contact:(id)arg2 withWidth:(double)arg3;
-- (void)refreshUI:(id)arg1 contact:(id)arg2;
+- (void)updateUI:(id)arg1 contact:(id)arg2 withWidth:(double)arg3 modelDatas:(id)arg4 heights:(id)arg5 headInfoColors:(id)arg6;
+- (void)refreshUI:(id)arg1 contact:(id)arg2 withWidth:(double)arg3 modelDatas:(id)arg4 heights:(id)arg5 headInfoColors:(id)arg6;
 - (void)refreshAvatarImage:(id)arg1;
 - (void)updateSubViewConstraints;
 - (void)initUI;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

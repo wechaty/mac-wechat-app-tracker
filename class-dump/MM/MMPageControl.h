@@ -6,12 +6,16 @@
 
 #import "MMView.h"
 
-@class NSMutableArray;
+@class NSColor, NSMutableArray;
 
 @interface MMPageControl : MMView
 {
     unsigned long long _count;
     unsigned long long _selectedIndex;
+    double _cellWidth;
+    double _marginWidth;
+    NSColor *_selectedColor;
+    NSColor *_ordinaryColor;
     CDUnknownBlockType _didClickAtIndexBlock;
     NSMutableArray *_pageControlUnits;
 }
@@ -19,9 +23,14 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *pageControlUnits; // @synthesize pageControlUnits=_pageControlUnits;
 @property(copy, nonatomic) CDUnknownBlockType didClickAtIndexBlock; // @synthesize didClickAtIndexBlock=_didClickAtIndexBlock;
+@property(retain, nonatomic) NSColor *ordinaryColor; // @synthesize ordinaryColor=_ordinaryColor;
+@property(retain, nonatomic) NSColor *selectedColor; // @synthesize selectedColor=_selectedColor;
+@property(nonatomic) double marginWidth; // @synthesize marginWidth=_marginWidth;
+@property(nonatomic) double cellWidth; // @synthesize cellWidth=_cellWidth;
 @property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) unsigned long long count; // @synthesize count=_count;
 - (void)mouseDragged:(id)arg1;
+- (void)setupUnits;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

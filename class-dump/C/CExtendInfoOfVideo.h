@@ -76,9 +76,10 @@
 - (BOOL)isFinishUploadOrDownload;
 - (BOOL)isVideoExist;
 - (BOOL)cleanupMediaRes;
-- (BOOL)compressVideo:(id)arg1 to:(id)arg2 processNotify:(CDUnknownBlockType)arg3;
+- (void)cancelUploadVideo;
+- (int)compressVideo:(id)arg1 to:(id)arg2 processNotify:(CDUnknownBlockType)arg3;
 - (BOOL)saveVideoThumb:(id)arg1 toUser:(id)arg2;
-- (BOOL)saveVideoResource:(id)arg1 toUser:(id)arg2;
+- (BOOL)saveVideoResource:(id)arg1 toUser:(id)arg2 beginCompressBlock:(CDUnknownBlockType)arg3;
 - (BOOL)saveMsgThumbImg;
 - (BOOL)isCanUseCdnDownload;
 - (void)encodeMsgFieldToXML:(id)arg1;

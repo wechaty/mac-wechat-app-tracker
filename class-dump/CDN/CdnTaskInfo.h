@@ -14,6 +14,8 @@
     BOOL _m_bUpload;
     BOOL _m_bThumb;
     BOOL _m_bCheckMd5;
+    BOOL _isSendingMsg;
+    BOOL _isSendingOverWriteMsg;
     unsigned int _m_uiThumbSize;
     unsigned int _m_uiFinishedLen;
     unsigned int _m_uiTotalLen;
@@ -35,6 +37,8 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isSendingOverWriteMsg; // @synthesize isSendingOverWriteMsg=_isSendingOverWriteMsg;
+@property(nonatomic) BOOL isSendingMsg; // @synthesize isSendingMsg=_isSendingMsg;
 @property(nonatomic) unsigned long long m_emDownloadMode; // @synthesize m_emDownloadMode=_m_emDownloadMode;
 @property(nonatomic) unsigned long long m_ui64TaskCreateTime; // @synthesize m_ui64TaskCreateTime=_m_ui64TaskCreateTime;
 @property(retain, nonatomic) MMSnsMediaItem *m_oMediaItem; // @synthesize m_oMediaItem=_m_oMediaItem;

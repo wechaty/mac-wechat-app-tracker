@@ -7,8 +7,6 @@
 #import <Foundation/NSValue.h>
 
 @interface NSValue (RACDescription)
-+ (id)valueWithUIEdgeInsets:(struct NSEdgeInsets)arg1;
 - (id)rac_description;
-- (struct NSEdgeInsets)UIEdgeInsetsValue;
 @end
 

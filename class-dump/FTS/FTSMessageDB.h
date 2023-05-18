@@ -65,6 +65,7 @@
 - (BOOL)createNewChatContextForChat:(id)arg1;
 - (id)getChatContextById:(unsigned int)arg1;
 - (unsigned long long)getLastMesLocalID:(id)arg1;
+- (id)queryWithCLMFTSModel:(id)arg1 hasMore:(char *)arg2;
 - (id)selectMsgsWithChatName:(id)arg1 limit:(unsigned int)arg2;
 - (void)cancelQuery;
 - (void)reportDocInfoTotalCostTime:(unsigned long long)arg1;

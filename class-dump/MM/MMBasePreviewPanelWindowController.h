@@ -47,11 +47,9 @@
     NSButton *_mmCloseButton;
     NSButton *_mmFullScreenButton;
     QLPreviewView *_filePreviewView;
-    MMDragEventView *_dragView;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMDragEventView *dragView; // @synthesize dragView=_dragView;
 @property(retain, nonatomic) QLPreviewView *filePreviewView; // @synthesize filePreviewView=_filePreviewView;
 @property(nonatomic) BOOL isKeyDownNavigation; // @synthesize isKeyDownNavigation=_isKeyDownNavigation;
 @property(nonatomic) BOOL isFullScreen; // @synthesize isFullScreen=_isFullScreen;
@@ -135,7 +133,6 @@
 - (void)setupPageController;
 - (void)close;
 - (void)show;
-- (void)setupDragView;
 - (void)setupPreviewView:(unsigned long long)arg1;
 - (void)setupTitle;
 - (void)setupOpenWithButton;

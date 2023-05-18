@@ -6,22 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSString;
+@class NSArray, NSMutableArray, NSString;
 
 @interface ContactProfileBody : NSObject
 {
     NSString *_signatureStr;
-    NSArray *_keyValues;
+    NSMutableArray *_keyValues;
+    NSMutableArray *_moreInfos;
     NSArray *_openIMList;
     double _maxKeyLabelLength;
-    NSArray *_heights;
+    NSMutableArray *_keyHeights;
+    NSMutableArray *_valueHeights;
+    NSMutableArray *_cellHeights;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *heights; // @synthesize heights=_heights;
+@property(retain, nonatomic) NSMutableArray *cellHeights; // @synthesize cellHeights=_cellHeights;
+@property(retain, nonatomic) NSMutableArray *valueHeights; // @synthesize valueHeights=_valueHeights;
+@property(retain, nonatomic) NSMutableArray *keyHeights; // @synthesize keyHeights=_keyHeights;
 @property(nonatomic) double maxKeyLabelLength; // @synthesize maxKeyLabelLength=_maxKeyLabelLength;
 @property(retain, nonatomic) NSArray *openIMList; // @synthesize openIMList=_openIMList;
-@property(retain, nonatomic) NSArray *keyValues; // @synthesize keyValues=_keyValues;
+@property(retain, nonatomic) NSMutableArray *moreInfos; // @synthesize moreInfos=_moreInfos;
+@property(retain, nonatomic) NSMutableArray *keyValues; // @synthesize keyValues=_keyValues;
 @property(copy, nonatomic) NSString *signatureStr; // @synthesize signatureStr=_signatureStr;
 
 @end

@@ -11,13 +11,11 @@
 @protocol IMessageServiceFileExt <NSObject>
 
 @optional
-- (void)onFileDidCancelSilentDownloadWithMessage:(MessageData *)arg1;
-- (void)onFileDidFinishSilentDownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidCancelPredownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidFailPredownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidStartPredownloadWithMessage:(MessageData *)arg1;
 - (void)onFileDidCancelUploadWithMessage:(MessageData *)arg1;
-- (void)onFileDidFinishUploadWithMessage:(MessageData *)arg1;
+- (void)onFileDidFinishUploadWithMessage:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)onFileUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onFileDidCancelDownloadWithRecordMessage:(MessageData *)arg1;
 - (void)onFileDidExpireDownloadWithRecordMessage:(MessageData *)arg1;

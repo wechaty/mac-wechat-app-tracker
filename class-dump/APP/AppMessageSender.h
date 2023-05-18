@@ -28,6 +28,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_senderQueue; // @synthesize m_senderQueue=_m_senderQueue;
+@property(retain, nonatomic) CdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
 @property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 - (void)onStartUploadRet:(id)arg1 success:(BOOL)arg2;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
@@ -40,18 +41,22 @@
 - (void)uploadFailByCDN:(int)arg1;
 - (void)uploadFailOnStart;
 - (void)uploadFailByUploadMsg;
+- (void)handleUploadAppAttachResponse:(id)arg1 bRet:(BOOL)arg2;
+- (void)handleSendAppMsgResponse:(id)arg1 bRet:(BOOL)arg2;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (BOOL)createSendAppMsgWithFileExists:(BOOL)arg1;
-- (BOOL)createSendAppMsg;
+- (BOOL)createSendAppEmojiMsg;
 - (BOOL)createAppAttachUpload;
 - (BOOL)createCheckMd5Upload;
-- (BOOL)createUploadAndSendAppMsg;
+- (BOOL)createUploadAndSendAppEmojiMsg;
 - (void)handleBigFileMsgUploadWithHitCheck:(BOOL)arg1;
+- (BOOL)handleNormalAppMsgUploadWithHitCheck:(BOOL)arg1;
 - (void)handleAppMsgUploadWithHitCheck:(BOOL)arg1;
 - (void)handleAppMsgUploadWithoutHitCheck;
 - (void)handleAppMsgNotUpload;
 - (void)handleAppEmojiMsg;
 - (void)handleFileMsg;
+- (void)setupTaskInfo;
 - (void)startSending;
 - (void)dealloc;
 - (id)init;

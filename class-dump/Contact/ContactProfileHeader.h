@@ -6,19 +6,27 @@
 
 #import <objc/NSObject.h>
 
-@class NSAttributedString;
+@class ContactProfileHeaderValue, NSAttributedString;
 
 @interface ContactProfileHeader : NSObject
 {
+    BOOL _isStarFriend;
     unsigned int _gender;
-    NSAttributedString *_nickName;
-    NSAttributedString *_wechatId;
+    NSAttributedString *_remarkName;
+    ContactProfileHeaderValue *_groupChatNickName;
+    ContactProfileHeaderValue *_nickName;
+    ContactProfileHeaderValue *_wechatId;
+    ContactProfileHeaderValue *_region;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isStarFriend; // @synthesize isStarFriend=_isStarFriend;
 @property(nonatomic) unsigned int gender; // @synthesize gender=_gender;
-@property(copy, nonatomic) NSAttributedString *wechatId; // @synthesize wechatId=_wechatId;
-@property(copy, nonatomic) NSAttributedString *nickName; // @synthesize nickName=_nickName;
+@property(retain, nonatomic) ContactProfileHeaderValue *region; // @synthesize region=_region;
+@property(retain, nonatomic) ContactProfileHeaderValue *wechatId; // @synthesize wechatId=_wechatId;
+@property(retain, nonatomic) ContactProfileHeaderValue *nickName; // @synthesize nickName=_nickName;
+@property(retain, nonatomic) ContactProfileHeaderValue *groupChatNickName; // @synthesize groupChatNickName=_groupChatNickName;
+@property(copy, nonatomic) NSAttributedString *remarkName; // @synthesize remarkName=_remarkName;
 
 @end
 

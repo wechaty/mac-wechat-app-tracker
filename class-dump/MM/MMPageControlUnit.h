@@ -6,9 +6,13 @@
 
 #import "MMView.h"
 
+@class NSColor;
+
 @interface MMPageControlUnit : MMView
 {
     BOOL _selected;
+    NSColor *_selectedColor;
+    NSColor *_ordinaryColor;
     CDUnknownBlockType _mouseUpEventBlock;
     unsigned long long _index;
 }
@@ -17,6 +21,8 @@
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(copy, nonatomic) CDUnknownBlockType mouseUpEventBlock; // @synthesize mouseUpEventBlock=_mouseUpEventBlock;
+@property(retain, nonatomic) NSColor *ordinaryColor; // @synthesize ordinaryColor=_ordinaryColor;
+@property(retain, nonatomic) NSColor *selectedColor; // @synthesize selectedColor=_selectedColor;
 - (void)mouseUp:(id)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;

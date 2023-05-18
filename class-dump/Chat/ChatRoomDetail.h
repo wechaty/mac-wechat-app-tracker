@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
 @class NSString;
 
-@interface ChatRoomDetail : NSObject <PBCoding, WCTColumnCoding>
+@interface ChatRoomDetail : NSObject <PBCoding, WCTColumnCoding, NSCopying>
 {
     unsigned int m_uiChatRoomInfoVersion;
     unsigned int m_uiChatRoomInfoSvrVersion;
@@ -46,6 +47,7 @@
 - (id)archivedWCTValue;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

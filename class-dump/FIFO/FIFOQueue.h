@@ -15,6 +15,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)findInQueue:(id)arg1;
 - (void)removeObject:(id)arg1;
 - (BOOL)isInQueue:(id)arg1;
 - (BOOL)isEmpty;

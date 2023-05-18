@@ -11,9 +11,9 @@
 @protocol MMChatLogImageDownloadServiceExt <NSObject>
 
 @optional
-- (void)onChatLogImageDownloadProgress:(id)arg1 dataId:(NSString *)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4;
-- (void)onChatLogImageDownloadExpired:(id)arg1 dataId:(NSString *)arg2;
-- (void)onChatLogImageDownloadFailed:(id)arg1 dataId:(NSString *)arg2;
-- (void)onChatLogImageDownloadOK:(id)arg1 dataId:(NSString *)arg2 isThumb:(BOOL)arg3;
+- (void)onChatLogImageDownloadProgress:(NSString *)arg1 partLen:(unsigned int)arg2 totalLen:(unsigned int)arg3;
+- (void)onChatLogImageDownloadExpired:(NSString *)arg1;
+- (void)onChatLogImageDownloadFailed:(NSString *)arg1;
+- (void)onChatLogImageDownloadOK:(NSString *)arg1;
 @end
 

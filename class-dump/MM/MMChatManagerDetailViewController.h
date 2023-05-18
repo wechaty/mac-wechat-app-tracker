@@ -265,6 +265,7 @@
 - (void)hideNoRecordsView;
 - (void)showGlobalNoRecordsView;
 - (void)showNoRecordsView;
+- (void)setupGlobalResultTip;
 - (void)setupBackView;
 - (void)setupTabButtons;
 - (void)setupMultipleSelectView;

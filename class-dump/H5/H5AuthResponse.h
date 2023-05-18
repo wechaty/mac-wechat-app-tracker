@@ -15,7 +15,9 @@
     unsigned int hasExpiredTime:1;
     unsigned int hasPubkeytoken:1;
     unsigned int hasCgiinfolist:1;
+    unsigned int hasEnableDynamicRouting:1;
     unsigned int expiredTime;
+    unsigned int enableDynamicRouting;
     BaseResponse *baseresponse;
     NSString *h5Authtoken;
     NSString *pubkeytoken;
@@ -24,6 +26,8 @@
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetEnableDynamicRouting:) unsigned int enableDynamicRouting; // @synthesize enableDynamicRouting;
+@property(readonly, nonatomic) BOOL hasEnableDynamicRouting; // @synthesize hasEnableDynamicRouting;
 @property(retain, nonatomic, setter=SetCgiinfolist:) TransferCgiInfoList *cgiinfolist; // @synthesize cgiinfolist;
 @property(readonly, nonatomic) BOOL hasCgiinfolist; // @synthesize hasCgiinfolist;
 @property(retain, nonatomic, setter=SetPubkeytoken:) NSString *pubkeytoken; // @synthesize pubkeytoken;

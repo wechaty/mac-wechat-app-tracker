@@ -19,6 +19,7 @@
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) CdnTaskInfo *curTaskInfo; // @synthesize curTaskInfo=_curTaskInfo;
 - (void)retryUploadAndNoHitCheck;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)OnCdnUpload:(id)arg1;
@@ -29,7 +30,8 @@
 - (void)startSending;
 - (void)uploadSuccessByCDN:(id)arg1;
 - (void)uploadFailByCDN:(int)arg1;
-- (void)startUploadVideo;
+- (void)onSendOK;
+- (void)onSendFail;
 - (void)startUploadVideoByCDNWithHitCheck:(BOOL)arg1;
 - (void)dealloc;
 - (id)init;

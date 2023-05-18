@@ -15,13 +15,9 @@
 }
 
 + (double)cellHeightWithFavItemDataField:(id)arg1 parentMessage:(id)arg2 parentFavItem:(id)arg3 parentDataField:(id)arg4 constrainedToWidth:(double)arg5;
-- (void)downloadThumb;
-- (void)downloadData;
-- (BOOL)shouldFilterNotify:(id)arg1;
-- (void)onChatLogImageDownloadProgress:(id)arg1 dataId:(id)arg2 partLen:(unsigned int)arg3 totalLen:(unsigned int)arg4;
-- (void)onChatLogImageDownloadExpired:(id)arg1 dataId:(id)arg2;
-- (void)onChatLogImageDownloadFailed:(id)arg1 dataId:(id)arg2;
-- (void)onChatLogImageDownloadOK:(id)arg1 dataId:(id)arg2 isThumb:(BOOL)arg3;
+- (void)onChatLogImageDownloadExpired:(id)arg1;
+- (void)onChatLogImageDownloadFailed:(id)arg1;
+- (void)onChatLogImageDownloadOK:(id)arg1;
 - (void)openImagePreview;
 - (BOOL)allowExport;
 - (BOOL)allowAddToFavorites;

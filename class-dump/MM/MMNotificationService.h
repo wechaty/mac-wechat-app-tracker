@@ -24,9 +24,11 @@
 - (BOOL)userNotificationCenter:(id)arg1 shouldPresentNotification:(id)arg2;
 - (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;
 - (void)deleteNotificationByID:(id)arg1;
+- (void)deleteNotificationByChatName:(id)arg1;
 - (id)getNotificationContentWithMsgData:(id)arg1;
 - (id)getNotificationTitleWithContact:(id)arg1;
 - (BOOL)playNewMsgNotificationVoice;
+- (void)onDelAllMsg:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)onNewMsgNotification:(id)arg1 msgData:(id)arg2;
 - (void)removeAllDeliveredNotifications;

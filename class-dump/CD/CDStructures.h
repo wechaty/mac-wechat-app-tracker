@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 #pragma mark Function Pointers and Blocks
 
@@ -19,18 +19,6 @@ struct AURenderCallbackStruct {
     void *inputProcRefCon;
 };
 
-struct AVCodec;
-
-struct AVCodecContext;
-
-struct AVFormatContext;
-
-struct AVFrame;
-
-struct AVPacket;
-
-struct AdspAIModelFilesManagerApple;
-
 struct AndroidReport_t {
     unsigned int _field1;
     unsigned int _field2;
@@ -42,54 +30,6 @@ struct AndroidReport_t {
     unsigned int _field8;
 };
 
-struct Audio3aConfig {
-    int _field1;
-    int _field2;
-    int _field3;
-    void *_field4;
-};
-
-struct Audio3aProcessingFactory {
-    CDUnknownFunctionPointerType processor_creater;
-    CDUnknownFunctionPointerType processor_destroyer;
-    CDUnknownFunctionPointerType strategy_creater;
-    CDUnknownFunctionPointerType strategy_destroyer;
-    _Bool from_custom_;
-};
-
-struct Audio3aStrategyFactors {
-    _Bool _field1;
-    _Bool _field2;
-    _Bool _field3;
-    _Bool _field4;
-    int _field5;
-    int _field6;
-};
-
-struct Audio3aStrategyInterface {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct Audio3aStrategyResult {
-    struct Audio3aConfig _field1;
-    _Bool _field2;
-};
-
-struct Audio3aSyncProcessor;
-
-struct AudioAbnormalDetectWrapper;
-
-struct AudioBGMManager {
-    CDUnknownFunctionPointerType *_field1;
-    struct weak_ptr<txliteav::audio::AudioBGMNotifyCallback> _field2;
-    struct shared_ptr<txliteav::audio::AudioBGMManager> _field3;
-    struct TXCSafeMap<long long, txliteav::audio::AudioBGMPlayer> _field4;
-    _Bool _field5;
-    int _field6;
-};
-
-struct AudioBGMNotifyCallback;
-
 struct AudioBuffer {
     unsigned int mNumberChannels;
     unsigned int mDataByteSize;
@@ -99,18 +39,6 @@ struct AudioBuffer {
 struct AudioBufferList {
     unsigned int mNumberBuffers;
     struct AudioBuffer mBuffers[1];
-};
-
-struct AudioCaptureGuardCallback {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct AudioCaptureGuardCallbackImpl;
-
-struct AudioDataSender;
-
-struct AudioDecodeCallback {
-    CDUnknownFunctionPointerType *_field1;
 };
 
 struct AudioDecoder {
@@ -126,86 +54,6 @@ struct AudioDecoder {
     void *_field10;
 };
 
-struct AudioDeviceCapCallback;
-
-struct AudioDeviceCaptureGuard;
-
-struct AudioDevicePlayCallback;
-
-struct AudioDeviceStatistics;
-
-struct AudioEngine {
-    CDUnknownFunctionPointerType *_field1;
-    struct TXCMutex _field2;
-    struct shared_ptr<txliteav::audio::AudioEngine> _field3;
-    struct shared_ptr<txliteav::audio::RemoteAudioStream> _field4;
-    struct TXCMutex _field5;
-    struct shared_ptr<txliteav::audio::LocalAudioStream> _field6;
-    struct shared_ptr<txliteav::audio::AudioFileWriteStream> _field7;
-    struct unique_ptr<txliteav::audio::QualityManager, std::__1::default_delete<txliteav::audio::QualityManager>> _field8;
-    struct shared_ptr<txliteav::audio::AudioSystemLoopbackTracks> _field9;
-    _Bool _field10;
-    _Bool _field11;
-    _Bool _field12;
-    int _field13;
-    _Bool _field14;
-    _Bool _field15;
-    struct shared_ptr<txliteav::audio::DataMixer> _field16;
-    struct shared_ptr<txliteav::audio::Audio3aSyncProcessor> _field17;
-};
-
-struct AudioFileWriteStream;
-
-struct AudioFrame {
-    CDUnknownFunctionPointerType *_vptr$AudioFrame;
-    int sample_rate;
-    int channels;
-    int bits;
-    int frame_size_ms;
-    int frame_size_byte;
-    _Bool frame_size_desc_byte;
-    int samples_per_channel;
-    _Bool has_trae_header;
-    unsigned int timestamp_ms;
-    unsigned int timestamp_sample;
-    unsigned short seq_number;
-    int packet_type;
-    int codec_format;
-    int frame_type;
-    int stream_format;
-    unsigned short energy;
-    char *buffer;
-    int data_size;
-    int capacity;
-    _Bool is_buffer_malloc_by_self;
-};
-
-struct AudioFrameRingBuffer;
-
-struct AudioHardwareSystemNotificationsCallback {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct AudioMixedAllDataCallbackAdapter;
-
-struct AudioObjectPropertyAddress {
-    unsigned int mSelector;
-    unsigned int mScope;
-    unsigned int mElement;
-};
-
-struct AudioPreProcessorInterface {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct AudioQosPara {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-};
-
 struct AudioStreamBasicDescription {
     double mSampleRate;
     unsigned int mFormatID;
@@ -216,18 +64,6 @@ struct AudioStreamBasicDescription {
     unsigned int mChannelsPerFrame;
     unsigned int mBitsPerChannel;
     unsigned int mReserved;
-};
-
-struct AudioSubStreamApple;
-
-struct AudioSystemLoopbackTracks;
-
-struct AudioUnitCaptureDataCallback {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct AudioUnitPlayDataCallback {
-    CDUnknownFunctionPointerType *_field1;
 };
 
 struct AutoBuffer {
@@ -371,30 +207,6 @@ struct C2CUploadRequest {
     struct vector<mars::cdn::CheckHitFileInfo, std::allocator<mars::cdn::CheckHitFileInfo>> _field45;
 };
 
-struct CATransform3D {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-    double _field5;
-    double _field6;
-    double _field7;
-    double _field8;
-    double _field9;
-    double _field10;
-    double _field11;
-    double _field12;
-    double _field13;
-    double _field14;
-    double _field15;
-    double _field16;
-};
-
-struct CFF264DecoderListenerAdpt {
-    CDUnknownFunctionPointerType *_vptr$ITXCVideoDecoder;
-    CDUnknownBlockType m_DecodeHandler;
-};
-
 struct CGAffineTransform {
     double a;
     double b;
@@ -419,17 +231,10 @@ struct CGSize {
     double height;
 };
 
-struct CHCustomDecoderListenerAdpt {
-    CDUnknownFunctionPointerType *_vptr$ITXLiteAVVideoDecoderCallback;
-    CDUnknownBlockType m_DecodeHandler;
-};
-
 struct CLLocationCoordinate2D {
     double latitude;
     double longitude;
 };
-
-struct CSoftwareVideoEncoderListenerAdpt;
 
 struct CTLineLayoutParams {
     double _field1;
@@ -443,259 +248,6 @@ struct CTLineLayoutParams {
     double _field9;
     double _field10;
     struct __CFArray *_field11;
-};
-
-struct CTXFlvContainer;
-
-struct CTXFlvParser {
-    CDUnknownFunctionPointerType *_field1;
-    char *_field2;
-    int _field3;
-    _Bool _field4;
-    int _field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _field11;
-    int _field12;
-    struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _field13;
-    int _field14;
-    struct __sFILE *_field15;
-};
-
-struct CTXFlvStreamRecvThread {
-    CDUnknownFunctionPointerType *_field1;
-    struct TXCMutex _field2;
-    _Bool _field3;
-    _Bool _field4;
-    struct TXCThread *_field5;
-    CDUnknownFunctionPointerType *_field6;
-    CDUnknownFunctionPointerType *_field7;
-    struct CTXFlvContainer *_field8;
-    basic_string_23d93216 _field9;
-    _Bool _field10;
-    char *_field11;
-    unsigned int _field12;
-    unsigned int _field13;
-    unsigned int _field14;
-    unsigned int _field15;
-    unsigned long long _field16;
-    _Bool _field17;
-    int _field18;
-    _Bool _field19;
-    long long _field20;
-    long long _field21;
-    struct TXCMutex _field22;
-    void *_field23;
-    struct stDownloadCB _field24;
-    unsigned long long _field25;
-    struct shared_ptr<txliteav::TXCVideoJitterBuffer> _field26;
-    struct weak_ptr<txliteav::SinkManager::ISink> _field27;
-    struct TXCStatusModule _field28;
-};
-
-struct CTXLiveStrategy {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    _Bool _field3;
-    unsigned long long _field4;
-};
-
-struct CTXQuicRealTimeStrategy {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    _Bool _field3;
-    unsigned long long _field4;
-    int _field5;
-    double _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    _Bool _field11;
-    double _field12;
-    int _field13;
-    int _field14;
-    double _field15;
-    struct list<QuicInfoListItem, std::__1::allocator<QuicInfoListItem>> _field16;
-    struct list<QuicInfoListItem, std::__1::allocator<QuicInfoListItem>> _field17;
-    int _field18;
-    int _field19;
-    double _field20;
-};
-
-struct CTXRtmpChunkHelper {
-    CDUnknownFunctionPointerType *_field1;
-    basic_string_23d93216 _field2;
-    basic_string_23d93216 _field3;
-    basic_string_23d93216 _field4;
-    struct _RTMPSendMetadata _field5;
-    int _field6;
-    int _field7;
-    char *_field8;
-    char *_field9;
-    long long _field10;
-    int _field11;
-    int _field12;
-    int _field13;
-    map_e3bbbb33 _field14;
-    unsigned long long _field15;
-};
-
-struct CTXRtmpCoreWrapper;
-
-struct CTXRtmpProxy;
-
-struct CTXRtmpRecvMsgThread {
-    CDUnknownFunctionPointerType *_field1;
-    struct ITXRtmpProxyNotify *_field2;
-    struct weak_ptr<CTXRtmpCoreWrapper> _field3;
-    struct TXCThread *_field4;
-    unsigned int _field5;
-    struct mutex _field6;
-};
-
-struct CTXRtmpRecvThread {
-    CDUnknownFunctionPointerType *_field1;
-    struct weak_ptr<CTXRtmpRecvThread> _field2;
-    int _field3;
-    basic_string_23d93216 _field4;
-    basic_string_23d93216 _field5;
-    basic_string_23d93216 _field6;
-    _Bool _field7;
-    struct RTMP *_field8;
-    struct TXCAudioParser _field9;
-    struct CTXFlvParser _field10;
-    struct _RtmpRecvStats _field11;
-    struct stDownloadCB _field12;
-    void *_field13;
-    _Bool _field14;
-    _Bool _field15;
-    _Bool _field16;
-    _Bool _field17;
-    unsigned long long _field18;
-    struct shared_ptr<txliteav::TXCVideoJitterBuffer> _field19;
-    struct weak_ptr<txliteav::SinkManager::ISink> _field20;
-    unsigned long long _field21;
-    unsigned long long _field22;
-    struct TXCStatusModule _field23;
-    struct weak_ptr<txliteav::SinkManager::ISink> _field24;
-};
-
-struct CTXRtmpSendConfig {
-    basic_string_23d93216 _field1;
-    basic_string_23d93216 _field2;
-    int _field3;
-    _Bool _field4;
-    _Bool _field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    int _field13;
-    int _field14;
-    int _field15;
-    _Bool _field16;
-    _Bool _field17;
-    _Bool _field18;
-    _Bool _field19;
-    _Bool _field20;
-    _Bool _field21;
-    int _field22;
-    _Bool _field23;
-    _Bool _field24;
-    _Bool _field25;
-    int _field26;
-    unsigned long long _field27;
-    unsigned long long _field28;
-    basic_string_23d93216 _field29;
-    long long _field30;
-    long long _field31;
-    long long _field32;
-    double _field33;
-    long long _field34;
-    long long _field35;
-    double _field36;
-    double _field37;
-    long long _field38;
-    long long _field39;
-    double _field40;
-    long long _field41;
-};
-
-struct CTXRtmpSendQueue {
-    CDUnknownFunctionPointerType *_field1;
-    struct list<_RTMPSendQueueItem *, std::__1::allocator<_RTMPSendQueueItem *>> _field2;
-    struct list<_RTMPSendQueueItem *, std::__1::allocator<_RTMPSendQueueItem *>> _field3;
-    int _field4;
-    int _field5;
-    struct TXCMutex _field6;
-    struct TXCMutex _field7;
-    void *_field8;
-};
-
-struct CTXRtmpSendStrategy {
-    CDUnknownFunctionPointerType *_field1;
-    struct CTXLiveStrategy _field2;
-    struct CTXTcpRealTimeStrategy _field3;
-    struct CTXQuicRealTimeStrategy _field4;
-    struct TXIRTMPSendStrategy *_field5;
-    int _field6;
-};
-
-struct CTXRtmpSendThread {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    struct _SendNetWorkStats _field3;
-    void *_field4;
-    CDUnknownFunctionPointerType _field5;
-    struct CTXRtmpSendStrategy _field6;
-    struct CTXRtmpChunkHelper _field7;
-    struct CTXRtmpSendConfig _field8;
-    struct shared_ptr<CTXRtmpCoreWrapper> _field9;
-    struct CTXRtmpSendQueue _field10;
-    _Bool _field11;
-    struct TXCMutex _field12;
-    struct vector<PendingVideoFrame *, std::__1::allocator<PendingVideoFrame *>> _field13;
-    unsigned long long _field14;
-    struct shared_ptr<CTXRtmpSendThread::SinkAdapt> _field15;
-    int _field16;
-};
-
-struct CTXTcpRealTimeStrategy {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    _Bool _field3;
-    unsigned long long _field4;
-    int _field5;
-    double _field6;
-    struct list<nWriteInfoListItem, std::__1::allocator<nWriteInfoListItem>> _field7;
-    int _field8;
-    double _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    long long _field13;
-    long long _field14;
-    _Bool _field15;
-    _Bool _field16;
-};
-
-struct CVSMPTETime {
-    short _field1;
-    short _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    short _field6;
-    short _field7;
-    short _field8;
-    short _field9;
 };
 
 struct CdnCallback;
@@ -748,29 +300,6 @@ struct ContactInitSeqs {
     unsigned int currentChatRoomContactSeq;
 };
 
-struct DataBasicDescription {
-    CDUnknownFunctionPointerType *_vptr$DataBasicDescription;
-    int sample_rate;
-    int channels;
-    int bits;
-};
-
-struct DataCallbackFormat {
-    int _field1;
-    int _field2;
-    int _field3;
-};
-
-struct DataMixer;
-
-struct DeviceErrorApple {
-    CDUnknownFunctionPointerType *_field1;
-    long long _field2;
-    int _field3;
-    basic_string_23d93216 _field4;
-    basic_string_23d93216 _field5;
-};
-
 struct DialReport_t {
     unsigned long long llUin;
     unsigned long long llRoomKey;
@@ -812,66 +341,11 @@ struct ExtReport_t {
     int _field10;
 };
 
-struct FFH264Decoder {
-    CDUnknownFunctionPointerType *_vptr$FFH264Decoder;
-    struct TXCMutex m_lock;
-    int m_bIsInit;
-    int m_nActiveDecWidth;
-    int m_nActiveDecHeight;
-    int m_nDecImgNum;
-    struct tagDecInfoParam m_decInfo;
-    struct ITXCVideoDecoder *m_pDecodeNotify;
-    int m_codecId;
-    struct AVFrame *m_pFrame;
-    struct AVCodec *m_pCodec;
-    struct AVPacket *m_pPacket;
-    struct AVCodecContext *m_pInputCodecCtx;
-    struct AVFormatContext *m_pInputFmtCtx;
-    char *m_pYUV420Cache;
-    int m_nYUV420CacheLen;
-    int m_cacheFrameCount;
-    _Bool m_bAbortOnMinorError;
-    struct vector<int, std::__1::allocator<int>> m_vTaskCost;
-    unsigned long long m_uLastCostTime;
-    unsigned int m_uDecodeCost;
-};
-
 struct FileID;
 
 struct FullReportUploadObserver {
     CDUnknownFunctionPointerType *_field1;
     id _field2;
-};
-
-struct GPUTextureOptions {
-    unsigned int minFilter;
-    unsigned int magFilter;
-    unsigned int wrapS;
-    unsigned int wrapT;
-    unsigned int internalFormat;
-    unsigned int format;
-    unsigned int type;
-};
-
-struct Hardware {
-    CDUnknownFunctionPointerType *_field1;
-    unsigned int _field2;
-    basic_string_23d93216 _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-};
-
-struct HardwareCallbackImpl;
-
-struct HardwareManager;
-
-struct HardwareManagerEventCallback {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct HardwareSystemNotificationsLifeLongCallback {
-    CDUnknownFunctionPointerType *_field1;
 };
 
 struct HostIPHint {
@@ -891,8 +365,6 @@ struct IMVQQEngine {
 struct IMultiTalkMgr {
     struct MultiTalkMgrImpl *_field1;
 };
-
-struct ISink;
 
 struct ITPAudioRouteManagerCallback {
     CDUnknownFunctionPointerType *_field1;
@@ -915,14 +387,6 @@ struct ITPRendererInterruptCallback {
 struct ITPSubtitleParser {
     CDUnknownFunctionPointerType *_field1;
 };
-
-struct ITXCVideoDecoder;
-
-struct ITXLiteAVVideoDecoder {
-    CDUnknownFunctionPointerType *_field1;
-};
-
-struct ITXRtmpProxyNotify;
 
 struct ITransportChannel {
     CDUnknownFunctionPointerType *_field1;
@@ -979,15 +443,11 @@ struct KSStackCursor {
     void *_field6[100];
 };
 
-struct LocalAudioStream;
-
 struct LogUploadObserver {
     CDUnknownFunctionPointerType *_field1;
     id _field2;
     int _field3;
 };
-
-struct LoopHealthMonitor;
 
 struct MTLResourceID {
     unsigned long long _field1;
@@ -1166,8 +626,6 @@ struct PBClassInfo {
 
 struct ParaOCRResult;
 
-struct PendingVideoFrame;
-
 struct ProxyInfo {
     int type;
     basic_string_8e19b51d host;
@@ -1185,8 +643,6 @@ struct QBar {
 
 struct QBarDecode;
 
-struct QualityManager;
-
 struct QuicForceHost;
 
 struct QuicHostMap;
@@ -1196,8 +652,6 @@ struct QuicTaskParams {
     struct vector<mars::cdn::QuicForceHost, std::allocator<mars::cdn::QuicForceHost>> force_quic_host;
     struct HostIPHint host_map_hint;
 };
-
-struct RTMP;
 
 struct RelayTcpReport {
     unsigned long long _field1;
@@ -1244,52 +698,10 @@ struct RelayTcpReport {
     char _field42[46];
 };
 
-struct RemoteAudioStream;
-
-struct RtmpProxyParam {
-    unsigned int sdkAppId;
-    unsigned long long account;
-    basic_string_23d93216 openId;
-    unsigned int roomId;
-    basic_string_23d93216 sigKey;
-    unsigned int clientIP;
-    unsigned int clientPort;
-    basic_string_23d93216 svrAddr;
-    _Bool isTXSvr;
-    basic_string_23d93216 bizbuf;
-};
-
-struct SilkResampler {
-    CDUnknownFunctionPointerType *_field1;
-    struct _SKP_Silk_resampler_state_struct _field2;
-    _Bool _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    int _field7;
-    struct unique_ptr<txliteav::audio::SilkResampler, std::__1::default_delete<txliteav::audio::SilkResampler>> _field8;
-    struct unique_ptr<txliteav::audio::SilkResampler, std::__1::default_delete<txliteav::audio::SilkResampler>> _field9;
-    struct unique_ptr<txliteav::AudioFrame, std::__1::default_delete<txliteav::AudioFrame>> _field10;
-    struct unique_ptr<txliteav::AudioFrame, std::__1::default_delete<txliteav::AudioFrame>> _field11;
-    struct unique_ptr<txliteav::AudioFrame, std::__1::default_delete<txliteav::AudioFrame>> _field12;
-    struct unique_ptr<txliteav::AudioFrame, std::__1::default_delete<txliteav::AudioFrame>> _field13;
-    struct AudioFrame _field14;
-    float _field15;
-    int _field16;
-    double _field17;
-    struct _ChannelRelation _field18;
-};
-
-struct SinkAdapt;
-
 struct StackInfo {
     unsigned long long **_field1;
     int *_field2;
 };
-
-struct StatusBucket;
-
-struct SystemSoundRecorderMAC;
 
 struct TPACodecPropertyRange {
     int _field1;
@@ -1475,267 +887,6 @@ struct TPVCodecPropertyRange {
     int _field6;
 };
 
-struct TRTCAudioEffectCallback;
-
-struct TRTCAudioServerConfig {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    unsigned int _field11;
-    unsigned long long _field12;
-    unsigned int _field13;
-    unsigned int _field14;
-    unsigned int _field15;
-    unsigned int _field16;
-    unsigned int _field17;
-    unsigned int _field18;
-};
-
-struct TRTCEngineAdapter;
-
-struct TRTCMixUserInternal;
-
-struct TRTCNetwork;
-
-struct TRTCRemoteAudioEventCallback;
-
-struct TRTCRemoteAudioStreamDataCallback;
-
-struct TRTCTranscodingConfigInternal {
-    int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
-    basic_string_23d93216 _field10;
-    unsigned int _field11;
-    unsigned int _field12;
-    unsigned int _field13;
-    basic_string_23d93216 _field14;
-    basic_string_23d93216 _field15;
-    basic_string_23d93216 _field16;
-    struct vector<txliteav::TRTCMixUserInternal, std::__1::allocator<txliteav::TRTCMixUserInternal>> _field17;
-};
-
-struct TRTCVideoServerConfig {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-};
-
-struct TXBuffer;
-
-struct TXCAudioCaptureDataCallback;
-
-struct TXCAudioEncodeTRAEDataCallback;
-
-struct TXCAudioEventCallback;
-
-struct TXCAudioFileWriteCallback;
-
-struct TXCAudioParser {
-    char *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    _Bool _field5;
-    int _field6;
-};
-
-struct TXCAudioPlayoutDataCallback;
-
-struct TXCEncodedAudioDataCallback;
-
-struct TXCEventRecorderAdapt;
-
-struct TXCMutex {
-    _Bool _recursive;
-    struct recursive_mutex *_recursive_mutex;
-    struct mutex *_mutex;
-};
-
-struct TXCQoSCore {
-    _Bool _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    int _field11;
-    _Bool _field12;
-    _Bool _field13;
-    unsigned long long _field14;
-    int _field15;
-    int _field16;
-    int _field17;
-    int _field18;
-    int _field19;
-    int _field20;
-    int _field21;
-    int _field22;
-    int _field23;
-    int _field24;
-    _Bool _field25;
-    int _field26;
-    int _field27;
-    int _field28;
-    _Bool _field29;
-    _Bool _field30;
-    int _field31;
-    int _field32;
-    unsigned long long _field33;
-    unsigned long long _field34;
-    unsigned long long _field35;
-    unsigned long long _field36;
-    unsigned long long _field37;
-    int _field38;
-    struct stRealTimeItem _field39;
-};
-
-struct TXCSafeMap<long long, txliteav::audio::AudioBGMPlayer> {
-    struct map<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>>> _field1;
-    struct mutex _field2;
-};
-
-struct TXCStatusModule {
-    CDUnknownFunctionPointerType *_vptr$TXCStatusModule;
-    basic_string_23d93216 _id;
-};
-
-struct TXCThread;
-
-struct TXCVideoDecoderAdapter;
-
-struct TXCVideoJitterBuffer;
-
-struct TXCVolumeLevelS16 {
-    CDUnknownFunctionPointerType *_vptr$TXCVolumeLevelS16;
-    unsigned int sample_rate_;
-    unsigned int channels_;
-    unsigned int internal_abs_max_value_for_level_;
-    unsigned short abs_max_value_for_level_;
-    unsigned long long processed_samples_for_level;
-    unsigned long long processed_samples_threshold_for_level_;
-    unsigned short last_max_pcm_sample_energy_;
-    unsigned short max_pcm_sample_energy_;
-    unsigned long long processed_samples_for_energy_;
-    unsigned long long processed_samples_threshold_for_energy_;
-};
-
-struct TXCopyOnWriteBuffer {
-    struct shared_ptr<txliteav::TXBuffer> buffer_;
-};
-
-struct TXIRTMPSendStrategy;
-
-struct TXIVideoEncoderSoftware;
-
-struct TXSMatrix3x3 {
-    struct TXSVector3 one;
-    struct TXSVector3 two;
-    struct TXSVector3 three;
-};
-
-struct TXSMatrix4x4 {
-    struct TXSVector4 one;
-    struct TXSVector4 two;
-    struct TXSVector4 three;
-    struct TXSVector4 four;
-};
-
-struct TXSMsgItem {
-    unsigned int _field1;
-    unsigned int _field2;
-    basic_string_23d93216 _field3;
-    unsigned long long _field4;
-    unsigned long long _field5;
-    basic_string_23d93216 _field6;
-    _Bool _field7;
-    _Bool _field8;
-    basic_string_23d93216 _field9;
-    unsigned int _field10;
-};
-
-struct TXSVector3 {
-    float one;
-    float two;
-    float three;
-};
-
-struct TXSVector4 {
-    float one;
-    float two;
-    float three;
-    float four;
-};
-
-struct TXSVideoEncoderParam {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    _Bool _field10;
-    _Bool _field11;
-    _Bool _field12;
-    _Bool _field13;
-    _Bool _field14;
-    _Bool _field15;
-    _Bool _field16;
-    unsigned int _field17;
-    _Bool _field18;
-    CDUnknownFunctionPointerType _field19;
-    int _field20;
-    unsigned long long _field21;
-    _Bool _field22;
-    unsigned int _field23;
-    unsigned int _field24;
-    _Bool _field25;
-    int _field26;
-};
-
-struct TXSVideoFrame {
-    CDUnknownFunctionPointerType *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    struct TXCopyOnWriteBuffer _field5;
-    int _field6;
-    unsigned int _field7;
-    long long _field8;
-    long long _field9;
-    unsigned int _field10;
-    unsigned int _field11;
-    unsigned int _field12;
-    long long _field13;
-    unsigned long long _field14;
-    unsigned char _field15;
-};
-
-struct TXVideoConfig {
-    unsigned int _field1;
-    _Bool _field2;
-};
-
 struct TaskCallback;
 
 struct VOIPChannelAdapter {
@@ -1748,20 +899,6 @@ struct VOIPNetNotifier {
 
 struct VOIPSpeedTestChannelAdapter {
     CDUnknownFunctionPointerType *_field1;
-};
-
-struct VideoQosPara {
-    int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    int _field7;
-    unsigned int _field8;
-    unsigned int _field9;
-    int _field10;
-    unsigned int _field11;
 };
 
 struct WCTColumnBinding;
@@ -1840,92 +977,9 @@ struct XmlReaderNode_t {
     int _field9;
 };
 
-struct _AudioDeviceInfo {
-    int _field1;
-    basic_string_23d93216 _field2;
-    basic_string_23d93216 _field3;
-    int _field4;
-};
-
-struct _ChannelRelation {
-    unsigned int _field1;
-    unsigned int _field2;
-    _Bool _field3;
-    unsigned int _field4;
-};
-
 struct _NSRange {
     unsigned long long location;
     unsigned long long length;
-};
-
-struct _RTMPSendMetadata {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    char *_field5;
-    unsigned int _field6;
-    char *_field7;
-};
-
-struct _RtmpRecvStats {
-    long long _field1;
-    long long _field2;
-    long long _field3;
-    long long _field4;
-    long long _field5;
-    unsigned long long _field6;
-    unsigned long long _field7;
-    unsigned long long _field8;
-    unsigned long long _field9;
-    unsigned long long _field10;
-    basic_string_23d93216 _field11;
-};
-
-struct _SKP_Silk_resampler_state_struct {
-    int _field1;
-    int _field2;
-    int _field3[6];
-    int _field4[16];
-    int _field5[2];
-    CDUnknownFunctionPointerType _field6;
-    CDUnknownFunctionPointerType _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    int _field11;
-    short *_field12;
-    int _field13[2];
-    int _field14[2];
-    CDUnknownFunctionPointerType _field15;
-    CDUnknownFunctionPointerType _field16;
-    int _field17;
-    int _field18;
-    int _field19;
-    int _field20;
-    int _field21;
-};
-
-struct _SendNetWorkStats {
-    long long _field1;
-    long long _field2;
-    long long _field3;
-    long long _field4;
-    long long _field5;
-    long long _field6;
-    long long _field7;
-    long long _field8;
-    int _field9;
-    unsigned long long _field10;
-    unsigned long long _field11;
-    unsigned long long _field12;
-    basic_string_23d93216 _field13;
-    long long _field14;
-    long long _field15;
-    long long _field16;
-    basic_string_23d93216 _field17;
-    basic_string_23d93216 _field18;
 };
 
 struct _SpeedTestInfo {
@@ -1944,70 +998,12 @@ struct _SpeedTestInfo {
     unsigned int rcvPkts;
 };
 
-struct _TRTCEncodeConfigParam {
-    unsigned int _field1;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
-    unsigned int _field6;
-    _Bool _field7;
-    _Bool _field8;
+struct _VoipCgiRtt {
+    unsigned int mCgiRttInterval[6];
+    unsigned int mCgiRtt[6];
 };
 
 struct __CFString;
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> *__next_;
-};
-
-struct __list_node_base<QuicInfoListItem, void *> {
-    struct __list_node_base<QuicInfoListItem, void *> *_field1;
-    struct __list_node_base<QuicInfoListItem, void *> *_field2;
-};
-
-struct __list_node_base<StreamRecvMulitData, void *> {
-    struct __list_node_base<StreamRecvMulitData, void *> *__prev_;
-    struct __list_node_base<StreamRecvMulitData, void *> *__next_;
-};
-
-struct __list_node_base<_RTMPSendQueueItem *, void *> {
-    struct __list_node_base<_RTMPSendQueueItem *, void *> *_field1;
-    struct __list_node_base<_RTMPSendQueueItem *, void *> *_field2;
-};
-
-struct __list_node_base<nWriteInfoListItem, void *> {
-    struct __list_node_base<nWriteInfoListItem, void *> *_field1;
-    struct __list_node_base<nWriteInfoListItem, void *> *_field2;
-};
-
-struct __rep {
-    union {
-        struct __long {
-            unsigned long long __cap_;
-            unsigned long long __size_;
-            char *__data_;
-        } __l;
-        struct __short {
-            union {
-                unsigned char __size_;
-                char __lx;
-            } ;
-            char __data_[23];
-        } __s;
-        struct __raw {
-            unsigned long long __words[3];
-        } __r;
-    } ;
-};
 
 struct __sFILE {
     char *_field1;
@@ -2050,10 +1046,6 @@ struct __siginfo {
     union sigval _field8;
     long long _field9;
     unsigned long long _field10[7];
-};
-
-struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
-    struct __tree_node_base<void *> *__left_;
 };
 
 struct __tree_end_node<std::__tree_node_base<void *>*> {
@@ -2144,15 +1136,27 @@ struct _xmlNs {
     struct _xmlDoc *_field6;
 };
 
-struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
-        struct __rep __value_;
-    } __r_;
-};
-
 struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep __value_;
+        struct __rep {
+            union {
+                struct __long {
+                    unsigned long long __cap_;
+                    unsigned long long __size_;
+                    char *__data_;
+                } __l;
+                struct __short {
+                    union {
+                        unsigned char __size_;
+                        char __lx;
+                    } ;
+                    char __data_[23];
+                } __s;
+                struct __raw {
+                    unsigned long long __words[3];
+                } __r;
+            } ;
+        } __value_;
     } __r_;
 };
 
@@ -2178,23 +1182,6 @@ struct dl_info {
     void *_field4;
 };
 
-struct encoder_state {
-    long long realFPS;
-    unsigned int encodeFrameCount;
-    long long encodeGop;
-    unsigned long long lastDTS;
-    long long gopIndex;
-    long long gopFrameIndex;
-    long long frameIndex;
-    long long realBitrate;
-    double lastIFrameTickMS;
-    double lastFPSTickMS;
-    unsigned long long encodeBytesForThisGOP;
-    unsigned int encodeFrameCountForFPS;
-    long long frameCountBetweenGop;
-    long long sessionBitrate;
-};
-
 struct function<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
     struct __value_func<bool (const char *, const char *, int (*)(void *, int, const char **, const char **), void *, char **)> {
         struct type _field1;
@@ -2218,34 +1205,6 @@ struct function<void (const char *, std::vector<sqlitelint::Issue>)> {
 
 struct in_addr {
     unsigned int _field1;
-};
-
-struct list<QuicInfoListItem, std::__1::allocator<QuicInfoListItem>> {
-    struct __list_node_base<QuicInfoListItem, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<QuicInfoListItem, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-};
-
-struct list<StreamRecvMulitData, std::__1::allocator<StreamRecvMulitData>> {
-    struct __list_node_base<StreamRecvMulitData, void *> __end_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<StreamRecvMulitData, void *>>> {
-        unsigned long long __value_;
-    } __size_alloc_;
-};
-
-struct list<_RTMPSendQueueItem *, std::__1::allocator<_RTMPSendQueueItem *>> {
-    struct __list_node_base<_RTMPSendQueueItem *, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<_RTMPSendQueueItem *, void *>>> {
-        unsigned long long _field1;
-    } _field2;
-};
-
-struct list<nWriteInfoListItem, std::__1::allocator<nWriteInfoListItem>> {
-    struct __list_node_base<nWriteInfoListItem, void *> _field1;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<nWriteInfoListItem, void *>>> {
-        unsigned long long _field1;
-    } _field2;
 };
 
 struct list<std::string, std::allocator<std::string>> {
@@ -2366,18 +1325,6 @@ struct map<TPPlayerInitConfig::KeyType, std::shared_ptr<void>, std::less<TPPlaye
     } __tree_;
 };
 
-struct map<const std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<const std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct __tree<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
     struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
         void *_field1;
@@ -2385,30 +1332,6 @@ struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int,
             struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
-struct map<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>>> {
-    struct __tree<std::__1::__value_type<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::shared_ptr<txliteav::audio::AudioBGMPlayer>>, std::__1::less<long long>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
-struct map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<std::__1::basic_string<char>>, true>> {
             unsigned long long _field1;
         } _field3;
     } _field1;
@@ -2439,7 +1362,7 @@ struct map<unsigned long, unsigned long, std::less<unsigned long>, std::allocato
 };
 
 struct mutex {
-    struct _opaque_pthread_mutex_t __m_;
+    struct _opaque_pthread_mutex_t _field1;
 };
 
 struct objc_method_description {
@@ -2465,38 +1388,6 @@ struct set<ITPAudioRouteManagerCallback *, std::less<ITPAudioRouteManagerCallbac
     } __tree_;
 };
 
-struct set<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> {
-    struct __tree<std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::basic_string<char>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::basic_string<char>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __value_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<std::__1::basic_string<char>>> {
-            unsigned long long __value_;
-        } __pair3_;
-    } __tree_;
-};
-
-struct shared_ptr<CSoftwareVideoEncoderListenerAdpt> {
-    struct CSoftwareVideoEncoderListenerAdpt *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<CTXRtmpCoreWrapper> {
-    struct CTXRtmpCoreWrapper *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<CTXRtmpProxy> {
-    struct CTXRtmpProxy *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<CTXRtmpSendThread::SinkAdapt> {
-    struct SinkAdapt *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<CdnCallback> {
     struct CdnCallback *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2504,16 +1395,6 @@ struct shared_ptr<CdnCallback> {
 
 struct shared_ptr<ITPPlayerRichMediaProcessor> {
     struct ITPPlayerRichMediaProcessor *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<TXCEventRecorderAdapt> {
-    struct TXCEventRecorderAdapt *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<TXIVideoEncoderSoftware> {
-    struct TXIVideoEncoderSoftware *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -2525,136 +1406,6 @@ struct shared_ptr<WCTColumnBinding> {
 struct shared_ptr<mars::cdn::TaskCallback> {
     struct TaskCallback *__ptr_;
     struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::AudioDataSender> {
-    struct AudioDataSender *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::AudioMixedAllDataCallbackAdapter> {
-    struct AudioMixedAllDataCallbackAdapter *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TRTCAudioEffectCallback> {
-    struct TRTCAudioEffectCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TRTCEngineAdapter> {
-    struct TRTCEngineAdapter *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TRTCNetwork> {
-    struct TRTCNetwork *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TRTCRemoteAudioEventCallback> {
-    struct TRTCRemoteAudioEventCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TRTCRemoteAudioStreamDataCallback> {
-    struct TRTCRemoteAudioStreamDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXBuffer> {
-    struct TXBuffer *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCAudioCaptureDataCallback> {
-    struct TXCAudioCaptureDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCAudioEncodeTRAEDataCallback> {
-    struct TXCAudioEncodeTRAEDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCAudioEventCallback> {
-    struct TXCAudioEventCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCAudioFileWriteCallback> {
-    struct TXCAudioFileWriteCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCAudioPlayoutDataCallback> {
-    struct TXCAudioPlayoutDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCEncodedAudioDataCallback> {
-    struct TXCEncodedAudioDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCVideoDecoderAdapter> {
-    struct TXCVideoDecoderAdapter *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::TXCVideoJitterBuffer> {
-    struct TXCVideoJitterBuffer *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::Audio3aSyncProcessor> {
-    struct Audio3aSyncProcessor *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::audio::AudioBGMManager> {
-    struct AudioBGMManager *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::AudioEngine> {
-    struct AudioEngine *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::AudioFileWriteStream> {
-    struct AudioFileWriteStream *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::AudioSubStreamApple> {
-    struct AudioSubStreamApple *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::audio::AudioSystemLoopbackTracks> {
-    struct AudioSystemLoopbackTracks *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::DataCallbackFormat> {
-    struct DataCallbackFormat *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<txliteav::audio::DataMixer> {
-    struct DataMixer *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::LocalAudioStream> {
-    struct LocalAudioStream *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<txliteav::audio::RemoteAudioStream> {
-    struct RemoteAudioStream *_field1;
-    struct __shared_weak_count *_field2;
 };
 
 struct sockaddr {
@@ -2669,34 +1420,6 @@ struct sockaddr_in {
     unsigned short _field3;
     struct in_addr _field4;
     char _field5[8];
-};
-
-struct stDownloadCB {
-    CDUnknownFunctionPointerType _field1;
-    CDUnknownFunctionPointerType _field2;
-    CDUnknownFunctionPointerType _field3;
-    CDUnknownFunctionPointerType _field4;
-    CDUnknownFunctionPointerType _field5;
-    CDUnknownFunctionPointerType _field6;
-    CDUnknownFunctionPointerType _field7;
-};
-
-struct stRealTimeItem {
-    int _field1;
-    _Bool _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    int _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    int _field13;
-    int _field14;
-    int _field15;
 };
 
 struct tagAVQualityReportInfo {
@@ -2799,32 +1522,32 @@ struct tagAVQualityReportInfo {
     unsigned short _field97;
     unsigned short _field98;
     unsigned short _field99;
-    unsigned char _field100;
-    unsigned char _field101;
-    unsigned char _field102;
-    unsigned char _field103;
+    unsigned short _field100;
+    unsigned int _field101;
+    unsigned int _field102;
+    unsigned short _field103;
     unsigned char _field104;
-    unsigned int _field105;
-    unsigned int _field106;
+    unsigned char _field105;
+    unsigned char _field106;
     unsigned char _field107;
     unsigned char _field108;
-    unsigned char _field109;
-    int _field110;
-    int _field111;
-    int _field112;
-    unsigned int _field113;
-    unsigned short _field114;
-    unsigned short _field115;
-    unsigned short _field116;
-    unsigned char _field117;
-    unsigned char _field118;
-    unsigned int _field119;
+    unsigned int _field109;
+    unsigned int _field110;
+    unsigned char _field111;
+    unsigned char _field112;
+    unsigned char _field113;
+    unsigned char _field114;
+    unsigned char _field115;
+    unsigned char _field116;
+    int _field117;
+    int _field118;
+    int _field119;
     unsigned int _field120;
-    unsigned int _field121;
-    unsigned int _field122;
-    unsigned int _field123;
-    unsigned int _field124;
-    unsigned int _field125;
+    unsigned short _field121;
+    unsigned short _field122;
+    unsigned short _field123;
+    unsigned char _field124;
+    unsigned char _field125;
     unsigned int _field126;
     unsigned int _field127;
     unsigned int _field128;
@@ -2849,39 +1572,39 @@ struct tagAVQualityReportInfo {
     unsigned int _field147;
     unsigned int _field148;
     unsigned int _field149;
-    int _field150;
-    int _field151;
-    int _field152;
-    int _field153;
-    int _field154;
+    unsigned int _field150;
+    unsigned int _field151;
+    unsigned int _field152;
+    unsigned int _field153;
+    unsigned int _field154;
     unsigned int _field155;
     unsigned int _field156;
-    unsigned int _field157;
-    unsigned int _field158;
-    unsigned char _field159;
-    unsigned char _field160;
-    unsigned short _field161;
-    unsigned short _field162;
-    unsigned short _field163;
-    unsigned short _field164;
-    unsigned short _field165;
-    unsigned short _field166;
-    unsigned short _field167;
+    int _field157;
+    int _field158;
+    int _field159;
+    int _field160;
+    int _field161;
+    unsigned int _field162;
+    unsigned int _field163;
+    unsigned int _field164;
+    unsigned int _field165;
+    unsigned char _field166;
+    unsigned char _field167;
     unsigned short _field168;
     unsigned short _field169;
     unsigned short _field170;
-    unsigned char _field171;
-    unsigned char _field172;
-    unsigned char _field173;
-    unsigned char _field174;
-    unsigned char _field175;
+    unsigned short _field171;
+    unsigned short _field172;
+    unsigned short _field173;
+    unsigned short _field174;
+    unsigned short _field175;
     unsigned short _field176;
     unsigned short _field177;
-    unsigned short _field178;
-    unsigned short _field179;
-    unsigned short _field180;
-    unsigned short _field181;
-    unsigned short _field182;
+    unsigned char _field178;
+    unsigned char _field179;
+    unsigned char _field180;
+    unsigned char _field181;
+    unsigned char _field182;
     unsigned short _field183;
     unsigned short _field184;
     unsigned short _field185;
@@ -2915,13 +1638,13 @@ struct tagAVQualityReportInfo {
     unsigned short _field213;
     unsigned short _field214;
     unsigned short _field215;
-    unsigned int _field216;
-    unsigned int _field217;
-    unsigned int _field218;
-    unsigned int _field219;
-    unsigned int _field220;
-    unsigned int _field221;
-    unsigned int _field222;
+    unsigned short _field216;
+    unsigned short _field217;
+    unsigned short _field218;
+    unsigned short _field219;
+    unsigned short _field220;
+    unsigned short _field221;
+    unsigned short _field222;
     unsigned int _field223;
     unsigned int _field224;
     unsigned int _field225;
@@ -2935,23 +1658,23 @@ struct tagAVQualityReportInfo {
     unsigned int _field233;
     unsigned int _field234;
     unsigned int _field235;
-    unsigned char _field236;
-    unsigned char _field237;
-    unsigned char _field238;
-    unsigned char _field239;
-    unsigned char _field240;
-    int _field241;
+    unsigned int _field236;
+    unsigned int _field237;
+    unsigned int _field238;
+    unsigned int _field239;
+    unsigned int _field240;
+    unsigned int _field241;
     unsigned int _field242;
-    unsigned int _field243;
-    unsigned int _field244;
-    int _field245;
-    unsigned short _field246;
-    unsigned short _field247;
-    unsigned short _field248;
-    unsigned short _field249;
-    unsigned short _field250;
-    unsigned short _field251;
-    unsigned short _field252;
+    unsigned char _field243;
+    unsigned char _field244;
+    unsigned char _field245;
+    unsigned char _field246;
+    unsigned char _field247;
+    int _field248;
+    unsigned int _field249;
+    unsigned int _field250;
+    unsigned int _field251;
+    int _field252;
     unsigned short _field253;
     unsigned short _field254;
     unsigned short _field255;
@@ -2961,24 +1684,24 @@ struct tagAVQualityReportInfo {
     unsigned short _field259;
     unsigned short _field260;
     unsigned short _field261;
-    unsigned int _field262;
-    unsigned int _field263;
-    unsigned int _field264;
+    unsigned short _field262;
+    unsigned short _field263;
+    unsigned short _field264;
     unsigned short _field265;
     unsigned short _field266;
     unsigned short _field267;
     unsigned short _field268;
-    unsigned short _field269;
-    unsigned short _field270;
-    unsigned short _field271;
+    unsigned int _field269;
+    unsigned int _field270;
+    unsigned int _field271;
     unsigned short _field272;
-    unsigned int _field273;
-    unsigned int _field274;
-    unsigned int _field275;
-    unsigned int _field276;
-    unsigned int _field277;
-    unsigned int _field278;
-    unsigned int _field279;
+    unsigned short _field273;
+    unsigned short _field274;
+    unsigned short _field275;
+    unsigned short _field276;
+    unsigned short _field277;
+    unsigned short _field278;
+    unsigned short _field279;
     unsigned int _field280;
     unsigned int _field281;
     unsigned int _field282;
@@ -3005,44 +1728,44 @@ struct tagAVQualityReportInfo {
     unsigned int _field303;
     unsigned int _field304;
     unsigned int _field305;
-    int _field306;
-    int _field307;
+    unsigned int _field306;
+    unsigned int _field307;
     unsigned int _field308;
     unsigned int _field309;
-    int _field310;
-    int _field311;
-    int _field312;
+    unsigned int _field310;
+    unsigned int _field311;
+    unsigned int _field312;
     int _field313;
     int _field314;
-    int _field315;
-    int _field316;
+    unsigned int _field315;
+    unsigned int _field316;
     int _field317;
     int _field318;
     int _field319;
     int _field320;
     int _field321;
-    unsigned short _field322;
-    unsigned short _field323;
-    unsigned short _field324;
-    unsigned short _field325;
-    unsigned short _field326;
-    unsigned short _field327;
-    unsigned short _field328;
+    int _field322;
+    int _field323;
+    int _field324;
+    int _field325;
+    int _field326;
+    int _field327;
+    int _field328;
     unsigned short _field329;
-    unsigned char _field330;
-    unsigned char _field331;
-    unsigned char _field332;
-    unsigned char _field333;
-    unsigned char _field334;
-    unsigned char _field335;
-    int _field336;
-    unsigned int _field337;
-    unsigned int _field338;
-    unsigned int _field339;
-    unsigned int _field340;
-    unsigned int _field341;
-    unsigned int _field342;
-    unsigned int _field343;
+    unsigned short _field330;
+    unsigned short _field331;
+    unsigned short _field332;
+    unsigned short _field333;
+    unsigned short _field334;
+    unsigned short _field335;
+    unsigned short _field336;
+    unsigned char _field337;
+    unsigned char _field338;
+    unsigned char _field339;
+    unsigned char _field340;
+    unsigned char _field341;
+    unsigned char _field342;
+    int _field343;
     unsigned int _field344;
     unsigned int _field345;
     unsigned int _field346;
@@ -3050,23 +1773,23 @@ struct tagAVQualityReportInfo {
     unsigned int _field348;
     unsigned int _field349;
     unsigned int _field350;
-    int _field351;
-    int _field352;
-    int _field353;
-    int _field354;
-    int _field355;
-    int _field356;
-    int _field357;
+    unsigned int _field351;
+    unsigned int _field352;
+    unsigned int _field353;
+    unsigned int _field354;
+    unsigned int _field355;
+    unsigned int _field356;
+    unsigned int _field357;
     int _field358;
     int _field359;
     int _field360;
-    unsigned int _field361;
-    unsigned int _field362;
-    unsigned int _field363;
-    unsigned int _field364;
-    unsigned int _field365;
-    unsigned int _field366;
-    unsigned int _field367;
+    int _field361;
+    int _field362;
+    int _field363;
+    int _field364;
+    int _field365;
+    int _field366;
+    int _field367;
     unsigned int _field368;
     unsigned int _field369;
     unsigned int _field370;
@@ -3118,75 +1841,75 @@ struct tagAVQualityReportInfo {
     unsigned int _field416;
     unsigned int _field417;
     unsigned int _field418;
-    unsigned short _field419;
-    unsigned short _field420;
+    unsigned int _field419;
+    unsigned int _field420;
     unsigned int _field421;
     unsigned int _field422;
     unsigned int _field423;
     unsigned int _field424;
     unsigned int _field425;
-    unsigned int _field426;
-    unsigned int _field427;
+    unsigned short _field426;
+    unsigned short _field427;
     unsigned int _field428;
-    long long _field429;
-    unsigned short _field430;
+    unsigned int _field429;
+    unsigned int _field430;
     unsigned int _field431;
-    int _field432;
-    int _field433;
-    int _field434;
-    int _field435;
-    unsigned int _field436;
-    unsigned int _field437;
+    unsigned int _field432;
+    unsigned int _field433;
+    unsigned int _field434;
+    unsigned int _field435;
+    long long _field436;
+    unsigned short _field437;
     unsigned int _field438;
-    unsigned int _field439;
-    unsigned int _field440;
-    unsigned int _field441;
-    unsigned int _field442;
+    int _field439;
+    int _field440;
+    int _field441;
+    int _field442;
     unsigned int _field443;
     unsigned int _field444;
-    int _field445;
-    int _field446;
-    unsigned short _field447;
-    unsigned short _field448;
-    unsigned short _field449;
+    unsigned int _field445;
+    unsigned int _field446;
+    unsigned int _field447;
+    unsigned int _field448;
+    unsigned int _field449;
     unsigned int _field450;
     unsigned int _field451;
-    unsigned int _field452;
-    unsigned int _field453;
-    int _field454;
-    int _field455;
-    unsigned int _field456;
+    int _field452;
+    int _field453;
+    unsigned short _field454;
+    unsigned short _field455;
+    unsigned short _field456;
     unsigned int _field457;
     unsigned int _field458;
-    char _field459[256];
+    unsigned int _field459;
     unsigned int _field460;
-    unsigned int _field461;
-    unsigned int _field462;
+    int _field461;
+    int _field462;
     unsigned int _field463;
     unsigned int _field464;
     unsigned int _field465;
-    unsigned int _field466;
+    char _field466[256];
     unsigned int _field467;
     unsigned int _field468;
     unsigned int _field469;
     unsigned int _field470;
     unsigned int _field471;
     unsigned int _field472;
-    unsigned short _field473;
+    unsigned int _field473;
     unsigned int _field474;
     unsigned int _field475;
     unsigned int _field476;
     unsigned int _field477;
     unsigned int _field478;
     unsigned int _field479;
-    struct tagVCodec2HWEngineReport _field480;
+    unsigned short _field480;
     unsigned int _field481;
     unsigned int _field482;
     unsigned int _field483;
     unsigned int _field484;
     unsigned int _field485;
     unsigned int _field486;
-    unsigned int _field487;
+    struct tagVCodec2HWEngineReport _field487;
     unsigned int _field488;
     unsigned int _field489;
     unsigned int _field490;
@@ -3288,13 +2011,13 @@ struct tagAVQualityReportInfo {
     unsigned int _field586;
     unsigned int _field587;
     unsigned int _field588;
-    unsigned short _field589;
-    unsigned short _field590;
-    unsigned short _field591;
-    unsigned short _field592;
-    unsigned short _field593;
-    unsigned short _field594;
-    unsigned short _field595;
+    unsigned int _field589;
+    unsigned int _field590;
+    unsigned int _field591;
+    unsigned int _field592;
+    unsigned int _field593;
+    unsigned int _field594;
+    unsigned int _field595;
     unsigned short _field596;
     unsigned short _field597;
     unsigned short _field598;
@@ -3304,13 +2027,13 @@ struct tagAVQualityReportInfo {
     unsigned short _field602;
     unsigned short _field603;
     unsigned short _field604;
-    unsigned int _field605;
-    unsigned int _field606;
-    unsigned int _field607;
-    unsigned int _field608;
-    unsigned int _field609;
-    unsigned int _field610;
-    unsigned int _field611;
+    unsigned short _field605;
+    unsigned short _field606;
+    unsigned short _field607;
+    unsigned short _field608;
+    unsigned short _field609;
+    unsigned short _field610;
+    unsigned short _field611;
     unsigned int _field612;
     unsigned int _field613;
     unsigned int _field614;
@@ -3335,39 +2058,39 @@ struct tagAVQualityReportInfo {
     unsigned int _field633;
     unsigned int _field634;
     unsigned int _field635;
-    unsigned short _field636;
-    unsigned short _field637;
-    unsigned short _field638;
-    unsigned short _field639;
-    unsigned short _field640;
-    unsigned short _field641;
-    unsigned short _field642;
+    unsigned int _field636;
+    unsigned int _field637;
+    unsigned int _field638;
+    unsigned int _field639;
+    unsigned int _field640;
+    unsigned int _field641;
+    unsigned int _field642;
     unsigned short _field643;
     unsigned short _field644;
     unsigned short _field645;
     unsigned short _field646;
-    unsigned int _field647;
-    unsigned short _field648[256];
-    unsigned short _field649[256];
-    unsigned int _field650;
-    unsigned int _field651;
-    unsigned int _field652;
-    unsigned int _field653;
+    unsigned short _field647;
+    unsigned short _field648;
+    unsigned short _field649;
+    unsigned short _field650;
+    unsigned short _field651;
+    unsigned short _field652;
+    unsigned short _field653;
     unsigned int _field654;
-    unsigned int _field655;
-    int _field656;
-    int _field657;
-    int _field658;
-    int _field659;
-    int _field660;
-    int _field661;
+    unsigned short _field655[256];
+    unsigned short _field656[256];
+    unsigned int _field657;
+    unsigned int _field658;
+    unsigned int _field659;
+    unsigned int _field660;
+    unsigned int _field661;
     unsigned int _field662;
-    unsigned int _field663;
-    unsigned int _field664;
-    unsigned int _field665;
-    unsigned int _field666;
-    unsigned int _field667;
-    unsigned int _field668;
+    int _field663;
+    int _field664;
+    int _field665;
+    int _field666;
+    int _field667;
+    int _field668;
     unsigned int _field669;
     unsigned int _field670;
     unsigned int _field671;
@@ -3399,14 +2122,14 @@ struct tagAVQualityReportInfo {
     unsigned int _field697;
     unsigned int _field698;
     unsigned int _field699;
-    char _field700[256];
+    unsigned int _field700;
     unsigned int _field701;
     unsigned int _field702;
     unsigned int _field703;
     unsigned int _field704;
     unsigned int _field705;
     unsigned int _field706;
-    unsigned int _field707;
+    char _field707[256];
     unsigned int _field708;
     unsigned int _field709;
     unsigned int _field710;
@@ -3481,24 +2204,24 @@ struct tagAVQualityReportInfo {
     unsigned int _field779;
     unsigned int _field780;
     unsigned int _field781;
-    int _field782;
+    unsigned int _field782;
     unsigned int _field783;
     unsigned int _field784;
     unsigned int _field785;
-    int _field786;
-    int _field787;
-    int _field788;
-    int _field789;
-    int _field790;
-    unsigned int _field791;
+    unsigned int _field786;
+    unsigned int _field787;
+    unsigned int _field788;
+    unsigned int _field789;
+    unsigned int _field790;
+    int _field791;
     unsigned int _field792;
     unsigned int _field793;
     unsigned int _field794;
-    unsigned int _field795;
-    unsigned int _field796;
-    unsigned int _field797;
-    unsigned int _field798;
-    unsigned int _field799;
+    int _field795;
+    int _field796;
+    int _field797;
+    int _field798;
+    int _field799;
     unsigned int _field800;
     unsigned int _field801;
     unsigned int _field802;
@@ -3524,41 +2247,34 @@ struct tagAVQualityReportInfo {
     unsigned int _field822;
     unsigned int _field823;
     unsigned int _field824;
-    int _field825;
-    int _field826;
-    int _field827;
+    unsigned int _field825;
+    unsigned int _field826;
+    unsigned int _field827;
     unsigned int _field828;
     unsigned int _field829;
     unsigned int _field830;
     unsigned int _field831;
     unsigned int _field832;
     unsigned int _field833;
-    unsigned int _field834;
-    unsigned int _field835;
-    unsigned int _field836;
+    int _field834;
+    int _field835;
+    int _field836;
     unsigned int _field837;
     unsigned int _field838;
-    int _field839;
-    char _field840[256];
-};
-
-struct tagDecInfoParam {
-    char *pYBuf;
-    char *pUBuf;
-    char *pVBuf;
-    int nYStride;
-    int nUStride;
-    int nVStride;
-    int nWidth;
-    int nHeight;
-    int nDataFormat;
-    long long nPts;
-    int nRotation;
-};
-
-struct tagH264CodecDoneData {
-    long long _field1;
-    long long _field2;
+    unsigned int _field839;
+    unsigned int _field840;
+    unsigned int _field841;
+    unsigned int _field842;
+    unsigned int _field843;
+    unsigned int _field844;
+    unsigned int _field845;
+    unsigned int _field846;
+    unsigned int _field847;
+    int _field848;
+    char _field849[256];
+    char _field850[256];
+    int _field851;
+    int _field852;
 };
 
 struct tagMultiRecvReport {
@@ -3753,10 +2469,12 @@ struct tagMultiSendReport {
     unsigned int _field66;
     unsigned int _field67;
     unsigned int _field68;
-    struct tagVideoArqSendReport _field69;
+    unsigned int _field69;
     unsigned int _field70;
-    unsigned int _field71;
+    struct tagVideoArqSendReport _field71;
     unsigned int _field72;
+    unsigned int _field73;
+    unsigned int _field74;
 };
 
 struct tagScreenRecvReport {
@@ -3779,17 +2497,6 @@ struct tagScreenSendReport {
     unsigned int _field8;
     unsigned int _field9;
     unsigned int _field10;
-};
-
-struct tagTXSNALPacket {
-    int _field1;
-    basic_string_23d93216 _field2;
-    unsigned long long _field3;
-    unsigned long long _field4;
-    unsigned long long _field5;
-    unsigned long long _field6;
-    unsigned long long _field7;
-    unsigned long long _field8;
 };
 
 struct tagVCodec2EngineReport {
@@ -3845,6 +2552,7 @@ struct tagVCodec2HWEngineReport {
     unsigned int _field20;
     unsigned int _field21;
     unsigned int _field22;
+    unsigned int _field23;
 };
 
 struct tagVHWEngineReport {
@@ -3883,32 +2591,13 @@ struct tagVideoArqSendReport {
     unsigned int _field12;
 };
 
-struct tag_audio_data {
-    char *_field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    unsigned int _field6;
-    unsigned int _field7;
-    int _field8;
-    int _field9;
-};
-
-struct tag_decode_data {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    char *_field5;
-    int _field6;
-    int _field7;
-    int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    unsigned long long _field11;
-    struct tagH264CodecDoneData _field12;
-    int _field13;
+struct tagVoipCallInfo {
+    NSString *callerName;
+    NSString *calleeName;
+    int roomType;
+    int roomId;
+    long long roomkey;
+    long long timeStamp;
 };
 
 struct timeval {
@@ -3918,39 +2607,6 @@ struct timeval {
 
 struct type {
     unsigned char __lx[32];
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>> {
-                unsigned long long __value_;
-            } __data_;
-        } __value_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*>> {
-                unsigned long long __value_;
-            } __data_;
-        } __value_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> **__value_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*>> {
-                unsigned long long __value_;
-            } __data_;
-        } __value_;
-    } __ptr_;
 };
 
 struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> {
@@ -4019,90 +2675,6 @@ struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<
     } __ptr_;
 };
 
-struct unique_ptr<txliteav::AudioFrame, std::__1::default_delete<txliteav::AudioFrame>> {
-    struct __compressed_pair<txliteav::AudioFrame *, std::__1::default_delete<txliteav::AudioFrame>> {
-        struct AudioFrame *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AdspAIModelFilesManagerApple, std::__1::default_delete<txliteav::audio::AdspAIModelFilesManagerApple>> {
-    struct __compressed_pair<txliteav::audio::AdspAIModelFilesManagerApple *, std::__1::default_delete<txliteav::audio::AdspAIModelFilesManagerApple>> {
-        struct AdspAIModelFilesManagerApple *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AudioAbnormalDetectWrapper, std::__1::default_delete<txliteav::audio::AudioAbnormalDetectWrapper>> {
-    struct __compressed_pair<txliteav::audio::AudioAbnormalDetectWrapper *, std::__1::default_delete<txliteav::audio::AudioAbnormalDetectWrapper>> {
-        struct AudioAbnormalDetectWrapper *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AudioCaptureGuardCallbackImpl, std::__1::default_delete<txliteav::audio::AudioCaptureGuardCallbackImpl>> {
-    struct __compressed_pair<txliteav::audio::AudioCaptureGuardCallbackImpl *, std::__1::default_delete<txliteav::audio::AudioCaptureGuardCallbackImpl>> {
-        struct AudioCaptureGuardCallbackImpl *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AudioDeviceCaptureGuard, std::__1::default_delete<txliteav::audio::AudioDeviceCaptureGuard>> {
-    struct __compressed_pair<txliteav::audio::AudioDeviceCaptureGuard *, std::__1::default_delete<txliteav::audio::AudioDeviceCaptureGuard>> {
-        struct AudioDeviceCaptureGuard *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AudioDeviceStatistics, std::__1::default_delete<txliteav::audio::AudioDeviceStatistics>> {
-    struct __compressed_pair<txliteav::audio::AudioDeviceStatistics *, std::__1::default_delete<txliteav::audio::AudioDeviceStatistics>> {
-        struct AudioDeviceStatistics *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::AudioFrameRingBuffer, std::__1::default_delete<txliteav::audio::AudioFrameRingBuffer>> {
-    struct __compressed_pair<txliteav::audio::AudioFrameRingBuffer *, std::__1::default_delete<txliteav::audio::AudioFrameRingBuffer>> {
-        struct AudioFrameRingBuffer *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::HardwareCallbackImpl, std::__1::default_delete<txliteav::audio::HardwareCallbackImpl>> {
-    struct __compressed_pair<txliteav::audio::HardwareCallbackImpl *, std::__1::default_delete<txliteav::audio::HardwareCallbackImpl>> {
-        struct HardwareCallbackImpl *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::HardwareManager, std::__1::default_delete<txliteav::audio::HardwareManager>> {
-    struct __compressed_pair<txliteav::audio::HardwareManager *, std::__1::default_delete<txliteav::audio::HardwareManager>> {
-        struct HardwareManager *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::LoopHealthMonitor, std::__1::default_delete<txliteav::audio::LoopHealthMonitor>> {
-    struct __compressed_pair<txliteav::audio::LoopHealthMonitor *, std::__1::default_delete<txliteav::audio::LoopHealthMonitor>> {
-        struct LoopHealthMonitor *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::QualityManager, std::__1::default_delete<txliteav::audio::QualityManager>> {
-    struct __compressed_pair<txliteav::audio::QualityManager *, std::__1::default_delete<txliteav::audio::QualityManager>> {
-        struct QualityManager *_field1;
-    } _field1;
-};
-
-struct unique_ptr<txliteav::audio::SilkResampler, std::__1::default_delete<txliteav::audio::SilkResampler>> {
-    struct __compressed_pair<txliteav::audio::SilkResampler *, std::__1::default_delete<txliteav::audio::SilkResampler>> {
-        struct SilkResampler *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::audio::SystemSoundRecorderMAC, std::__1::default_delete<txliteav::audio::SystemSoundRecorderMAC>> {
-    struct __compressed_pair<txliteav::audio::SystemSoundRecorderMAC *, std::__1::default_delete<txliteav::audio::SystemSoundRecorderMAC>> {
-        struct SystemSoundRecorderMAC *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<txliteav::basic::StatusBucket, std::__1::default_delete<txliteav::basic::StatusBucket>> {
-    struct __compressed_pair<txliteav::basic::StatusBucket *, std::__1::default_delete<txliteav::basic::StatusBucket>> {
-        struct StatusBucket *_field1;
-    } _field1;
-};
-
 struct unordered_map<int, const MMCGIItem *, std::hash<int>, std::equal_to<int>, std::allocator<std::pair<const int, const MMCGIItem *>>> {
     struct __hash_table<std::__hash_value_type<int, const MMCGIItem *>, std::__unordered_map_hasher<int, std::__hash_value_type<int, const MMCGIItem *>, std::hash<int>, std::equal_to<int>, true>, std::__unordered_map_equal<int, std::__hash_value_type<int, const MMCGIItem *>, std::equal_to<int>, std::hash<int>, true>, std::allocator<std::__hash_value_type<int, const MMCGIItem *>>> {
         struct unique_ptr<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*[], std::__bucket_list_deallocator<std::allocator<std::__hash_node_base<std::__hash_node<std::__hash_value_type<int, const MMCGIItem *>, void *>*>*>>> __bucket_list_;
@@ -4132,51 +2704,6 @@ struct unordered_map<long long, const WCDBBackupMediaStr2IDObject *, std::hash<l
             unsigned long long __value_;
         } __p2_;
         struct __compressed_pair<float, std::__unordered_map_equal<long long, std::__hash_value_type<long long, const WCDBBackupMediaStr2IDObject *>, std::equal_to<long long>, std::hash<long long>, true>> {
-            float __value_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<std::__1::basic_string<char>, AudioVolumeListener *, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, AudioVolumeListener *>>> {
-    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, void *>*> __value_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, std::__1::hash<std::__1::basic_string<char>>, true>> {
-            unsigned long long __value_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, AudioVolumeListener *>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
-            float __value_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<std::__1::basic_string<char>, __weak id<TXLivePlayListener>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, __weak id<TXLivePlayListener>>>> {
-    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, void *>*> __value_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, std::__1::hash<std::__1::basic_string<char>>, true>> {
-            unsigned long long __value_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, __weak id<TXLivePlayListener>>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
-            float __value_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<std::__1::basic_string<char>, int, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, int>>> {
-    struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, int>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, int>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, int>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<std::__1::basic_string<char>, int>, void *>*> __value_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, int>, std::__1::hash<std::__1::basic_string<char>>, true>> {
-            unsigned long long __value_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, int>, std::__1::equal_to<std::__1::basic_string<char>>, true>> {
             float __value_;
         } __p3_;
     } __table_;
@@ -4252,14 +2779,6 @@ struct unordered_map<unsigned long, std::set<unsigned int>, std::hash<unsigned l
 
 struct uregex;
 
-struct vector<PendingVideoFrame *, std::__1::allocator<PendingVideoFrame *>> {
-    struct PendingVideoFrame **_field1;
-    struct PendingVideoFrame **_field2;
-    struct __compressed_pair<PendingVideoFrame **, std::__1::allocator<PendingVideoFrame *>> {
-        struct PendingVideoFrame **_field1;
-    } _field3;
-};
-
 struct vector<QBAR_INFO, std::allocator<QBAR_INFO>> {
     struct QBAR_INFO *_field1;
     struct QBAR_INFO *_field2;
@@ -4298,22 +2817,6 @@ struct vector<TPPlayerRichMediaFeature, std::allocator<TPPlayerRichMediaFeature>
     struct __compressed_pair<TPPlayerRichMediaFeature *, std::allocator<TPPlayerRichMediaFeature>> {
         struct TPPlayerRichMediaFeature *_field1;
     } _field3;
-};
-
-struct vector<TrtcStreamType, std::__1::allocator<TrtcStreamType>> {
-    int *__begin_;
-    int *__end_;
-    struct __compressed_pair<TrtcStreamType *, std::__1::allocator<TrtcStreamType>> {
-        int *__value_;
-    } __end_cap_;
-};
-
-struct vector<int, std::__1::allocator<int>> {
-    int *__begin_;
-    int *__end_;
-    struct __compressed_pair<int *, std::__1::allocator<int>> {
-        int *__value_;
-    } __end_cap_;
 };
 
 struct vector<int, std::allocator<int>> {
@@ -4388,14 +2891,6 @@ struct vector<ocrlite::ParaOCRResult, std::allocator<ocrlite::ParaOCRResult>> {
     } _field3;
 };
 
-struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
-    basic_string_23d93216 *_field1;
-    basic_string_23d93216 *_field2;
-    struct __compressed_pair<std::__1::basic_string<char>*, std::__1::allocator<std::__1::basic_string<char>>> {
-        basic_string_23d93216 *_field1;
-    } _field3;
-};
-
 struct vector<std::string, std::allocator<std::string>> {
     void *_field1;
     void *_field2;
@@ -4420,58 +2915,12 @@ struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
     } _field3;
 };
 
-struct vector<txliteav::TRTCMixUserInternal, std::__1::allocator<txliteav::TRTCMixUserInternal>> {
-    struct TRTCMixUserInternal *_field1;
-    struct TRTCMixUserInternal *_field2;
-    struct __compressed_pair<txliteav::TRTCMixUserInternal *, std::__1::allocator<txliteav::TRTCMixUserInternal>> {
-        struct TRTCMixUserInternal *_field1;
-    } _field3;
-};
-
-struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
-    struct _AudioDeviceInfo *_field1;
-    struct _AudioDeviceInfo *_field2;
-    struct __compressed_pair<txliteav::_AudioDeviceInfo *, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
-        struct _AudioDeviceInfo *_field1;
-    } _field3;
-};
-
 struct vector<unsigned long, std::allocator<unsigned long>> {
     unsigned long long *__begin_;
     unsigned long long *__end_;
     struct __compressed_pair<unsigned long *, std::allocator<unsigned long>> {
         unsigned long long *__value_;
     } __end_cap_;
-};
-
-struct weak_ptr<CTXRtmpCoreWrapper> {
-    struct CTXRtmpCoreWrapper *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct weak_ptr<CTXRtmpRecvThread> {
-    struct CTXRtmpRecvThread *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct weak_ptr<txliteav::SinkManager::ISink> {
-    struct ISink *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct weak_ptr<txliteav::audio::AudioBGMNotifyCallback> {
-    struct AudioBGMNotifyCallback *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct weak_ptr<txliteav::audio::AudioDeviceCapCallback> {
-    struct AudioDeviceCapCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct weak_ptr<txliteav::audio::AudioDevicePlayCallback> {
-    struct AudioDevicePlayCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
 };
 
 #pragma mark Typedef'd Structures
@@ -4568,18 +3017,6 @@ typedef struct {
 typedef struct CDStruct_183601bc;
 
 typedef struct {
-    unsigned int _field1;
-    int _field2;
-    long long _field3;
-    unsigned long long _field4;
-    double _field5;
-    long long _field6;
-    struct CVSMPTETime _field7;
-    unsigned long long _field8;
-    unsigned long long _field9;
-} CDStruct_e50ab651;
-
-typedef struct {
     struct ComponentInstanceRecord *ioUnit;
     struct AudioStreamBasicDescription inputDataFormat;
     struct AudioStreamBasicDescription outputDataFormat;
@@ -4634,15 +3071,27 @@ typedef struct {
 } CDStruct_4ebc2506;
 
 // Template types
-typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
-        struct __rep __value_;
-    } __r_;
-} basic_string_23d93216;
-
 typedef struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
     struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep __value_;
+        struct __rep {
+            union {
+                struct __long {
+                    unsigned long long __cap_;
+                    unsigned long long __size_;
+                    char *__data_;
+                } __l;
+                struct __short {
+                    union {
+                        unsigned char __size_;
+                        char __lx;
+                    } ;
+                    char __data_[23];
+                } __s;
+                struct __raw {
+                    unsigned long long __words[3];
+                } __r;
+            } ;
+        } __value_;
     } __r_;
 } basic_string_8e19b51d;
 
@@ -4704,18 +3153,6 @@ typedef struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::
     } _field1;
 } map_64ffd165;
 
-typedef struct map<const std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<const std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct __tree<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const std::__1::basic_string<char>, std::__1::__value_type<const std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<const std::__1::basic_string<char>>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-} map_e3bbbb33;
-
 typedef struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
     struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
         void *_field1;
@@ -4728,88 +3165,10 @@ typedef struct map<int, std::string, std::less<int>, std::allocator<std::pair<co
     } _field1;
 } map_3f958a91;
 
-typedef struct map<std::__1::basic_string<char>, std::__1::basic_string<char>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, std::__1::basic_string<char>>, std::__1::less<std::__1::basic_string<char>>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-} map_5554a4ce;
-
 typedef struct shared_ptr<CdnCallback> {
     struct CdnCallback *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_67bd78cc;
-
-typedef struct shared_ptr<txliteav::AudioDataSender> {
-    struct AudioDataSender *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_87dc2e82;
-
-typedef struct shared_ptr<txliteav::TRTCAudioEffectCallback> {
-    struct TRTCAudioEffectCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_0b9e5e55;
-
-typedef struct shared_ptr<txliteav::TRTCNetwork> {
-    struct TRTCNetwork *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_84c2d62d;
-
-typedef struct shared_ptr<txliteav::TRTCRemoteAudioEventCallback> {
-    struct TRTCRemoteAudioEventCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_aa693e7b;
-
-typedef struct shared_ptr<txliteav::TRTCRemoteAudioStreamDataCallback> {
-    struct TRTCRemoteAudioStreamDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_419537b7;
-
-typedef struct shared_ptr<txliteav::TXCAudioCaptureDataCallback> {
-    struct TXCAudioCaptureDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_cfb4f353;
-
-typedef struct shared_ptr<txliteav::TXCAudioEncodeTRAEDataCallback> {
-    struct TXCAudioEncodeTRAEDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_3396f5aa;
-
-typedef struct shared_ptr<txliteav::TXCAudioEventCallback> {
-    struct TXCAudioEventCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_b0e20bcb;
-
-typedef struct shared_ptr<txliteav::TXCAudioFileWriteCallback> {
-    struct TXCAudioFileWriteCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_234b9748;
-
-typedef struct shared_ptr<txliteav::TXCAudioPlayoutDataCallback> {
-    struct TXCAudioPlayoutDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_c81f36a2;
-
-typedef struct shared_ptr<txliteav::TXCEncodedAudioDataCallback> {
-    struct TXCEncodedAudioDataCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_0ac66a56;
-
-typedef struct shared_ptr<txliteav::TXCVideoDecoderAdapter> {
-    struct TXCVideoDecoderAdapter *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_1923bb91;
-
-typedef struct unique_ptr<txliteav::basic::StatusBucket, std::__1::default_delete<txliteav::basic::StatusBucket>> {
-    struct __compressed_pair<txliteav::basic::StatusBucket *, std::__1::default_delete<txliteav::basic::StatusBucket>> {
-        struct StatusBucket *_field1;
-    } _field1;
-} unique_ptr_1a6916a3;
 
 typedef struct vector<QBAR_INFO, std::allocator<QBAR_INFO>> {
     struct QBAR_INFO *_field1;
@@ -4890,24 +3249,6 @@ typedef struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
         void *_field1;
     } _field3;
 } vector_9a474c4d;
-
-typedef struct vector<txliteav::_AudioDeviceInfo, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
-    struct _AudioDeviceInfo *_field1;
-    struct _AudioDeviceInfo *_field2;
-    struct __compressed_pair<txliteav::_AudioDeviceInfo *, std::__1::allocator<txliteav::_AudioDeviceInfo>> {
-        struct _AudioDeviceInfo *_field1;
-    } _field3;
-} vector_ea1dd089;
-
-typedef struct weak_ptr<txliteav::audio::AudioDeviceCapCallback> {
-    struct AudioDeviceCapCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} weak_ptr_e74f6937;
-
-typedef struct weak_ptr<txliteav::audio::AudioDevicePlayCallback> {
-    struct AudioDevicePlayCallback *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} weak_ptr_4cb24943;
 
 #pragma mark Named Unions
 

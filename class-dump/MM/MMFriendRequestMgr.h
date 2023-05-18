@@ -21,15 +21,18 @@
     NSRecursiveLock *_sumLock;
 }
 
++ (BOOL)checkIsUnidirectionalFriend:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSRecursiveLock *sumLock; // @synthesize sumLock=_sumLock;
 @property(retain, nonatomic) OpenIMContactVerifyMgr *openimVerifyMgr; // @synthesize openimVerifyMgr=_openimVerifyMgr;
 @property(retain, nonatomic) ContactVerifyLogic *contactVerifyLogic; // @synthesize contactVerifyLogic=_contactVerifyLogic;
 @property(retain, nonatomic) MMFriendRequestDataCollection *friendRequestDataCollection; // @synthesize friendRequestDataCollection=_friendRequestDataCollection;
 - (void)onUserLogout;
-- (void)askSessionByUserName:(id)arg1 isHandled:(char *)arg2;
+- (void)askSessionByUserName:(id)arg1 scene:(unsigned long long)arg2 isHandled:(char *)arg3;
+- (void)handleSendVerifyMessageOK:(id)arg1 opCode:(int)arg2 verifyContact:(id)arg3;
 - (void)handleContactVerifyMsg:(id)arg1;
 - (void)sendVerifyUserRequestWithUserName:(id)arg1 opCode:(int)arg2 verifyMsg:(id)arg3 ticket:(id)arg4 verifyContactWrap:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)replyFriendRequestWithFriendRequestData:(id)arg1 verifyContactWrap:(id)arg2 verifyMsg:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)deleteFriendRequestWithFriendRequestUserName:(id)arg1;
 - (void)deleteFriendRequestWithFriendRequestData:(id)arg1;
 - (void)acceptFriendRequestWithFriendRequestData:(id)arg1 andVerifyContactWrap:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -41,7 +44,8 @@
 - (void)addNewFriendWithContact:(id)arg1 verifyContactWrap:(id)arg2;
 - (void)showFriendVerifyWindowWithContact:(id)arg1 verifyContactWrap:(id)arg2 confirmCompletion:(CDUnknownBlockType)arg3;
 - (unsigned long long)calculateUnreadRequestSum;
-- (void)clearUnreadFriendRequestCount;
+- (void)clearUnreadFriendRequestCount:(id)arg1;
+- (void)clearAllUnreadFriendRequestCount;
 - (id)friendRequests;
 - (void)filterFriendRequestData:(id)arg1;
 - (void)saveFriendRequestData;

@@ -6,9 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MessageData;
+@class MessageData, NSMutableDictionary;
 
 @protocol MMRevokeMsgServiceExt <NSObject>
+
+@optional
+- (void)messageWillBeRevoked:(MessageData *)arg1 revokeContext:(NSMutableDictionary *)arg2;
+- (void)messageCellViewRevoking:(MessageData *)arg1;
 - (void)messageCellViewReloadLayout:(MessageData *)arg1;
 @end
 

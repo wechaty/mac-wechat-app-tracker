@@ -10,11 +10,13 @@
 
 @interface UploadMsgWrap : NSObject
 {
+    BOOL _isSendingMsg;
     unsigned int _scene;
     MessageData *_msgData;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isSendingMsg; // @synthesize isSendingMsg=_isSendingMsg;
 @property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=_msgData;
 - (id)description;

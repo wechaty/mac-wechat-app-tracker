@@ -10,6 +10,7 @@
 #import "IContactMgrExt-Protocol.h"
 #import "IGroupMgrExt-Protocol.h"
 #import "MMAutoDownloadProtocol-Protocol.h"
+#import "MMRevokeMsgServiceExt-Protocol.h"
 #import "NSAccessibilityButton-Protocol.h"
 #import "NSDraggingSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
@@ -19,7 +20,7 @@
 @class MMButton, MMImageView, MMMessageCellAvatarView, MMMessageTableItem, MMOutlineButton, MMView, NSButton, NSImage, NSMenu, NSProgressIndicator, NSString, NSTextField, NSTrackingArea;
 @protocol MMMessageCellViewDelegate;
 
-@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol, NSAccessibilityButton>
+@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, MMRevokeMsgServiceExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol, NSAccessibilityButton>
 {
     NSImage *_savedDraggingImage;
     NSTrackingArea *_mainTrackingArea;
@@ -35,18 +36,17 @@
     int _accessoryType;
     NSProgressIndicator *_waitingProgressIndicatorAccessory;
     NSButton *_errorIndicatorAccessory;
+    NSTextField *_waitingProgressLabel;
     id <MMMessageCellViewDelegate> _delegate;
     MMMessageCellAvatarView *_avatarImgView;
     MMView *_contentView;
     NSTextField *_groupChatNickNameLabel;
     NSTextField *_msgCreatetimeLabel;
-    MMOutlineButton *_locateMsgLabel;
     MMButton *_checkbox;
     unsigned long long _currentMode;
     double _hasTopPadding;
     MMMessageTableItem *_messageTableItem;
-    NSButton *_contextMenuButton;
-    NSButton *_saveToFavoritesButton;
+    MMOutlineButton *_locateMsgLabel;
     NSString *_realChatUserName;
     NSString *_senderAvatarUrl;
     MMImageView *_patHand;
@@ -54,8 +54,8 @@
     struct CGPoint _mouseDownLocation;
 }
 
-+ (BOOL)writeText:(id)arg1 toPasteboard:(id)arg2 orItem:(id)arg3 forType:(id)arg4;
 + (double)getLocatMsgLableWidth;
++ (BOOL)writeText:(id)arg1 toPasteboard:(id)arg2 orItem:(id)arg3 forType:(id)arg4;
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 + (Class)cellViewSubclassForSearchChatMessage:(id)arg1;
 + (Class)cellViewSubclassForMessage:(id)arg1;
@@ -69,8 +69,7 @@
 @property(retain, nonatomic) NSString *senderAvatarUrl; // @synthesize senderAvatarUrl=_senderAvatarUrl;
 @property(retain, nonatomic) NSString *realChatUserName; // @synthesize realChatUserName=_realChatUserName;
 @property(nonatomic) struct CGPoint mouseDownLocation; // @synthesize mouseDownLocation=_mouseDownLocation;
-@property(retain, nonatomic) NSButton *saveToFavoritesButton; // @synthesize saveToFavoritesButton=_saveToFavoritesButton;
-@property(retain, nonatomic) NSButton *contextMenuButton; // @synthesize contextMenuButton=_contextMenuButton;
+@property(retain, nonatomic) MMOutlineButton *locateMsgLabel; // @synthesize locateMsgLabel=_locateMsgLabel;
 @property(readonly, nonatomic) BOOL isBeingDragged; // @synthesize isBeingDragged=_isBeingDragged;
 @property(nonatomic) BOOL hasShownRecall; // @synthesize hasShownRecall=_hasShownRecall;
 @property(nonatomic) BOOL isSearchMode; // @synthesize isSearchMode=_isSearchMode;
@@ -84,14 +83,21 @@
 @property(retain, nonatomic) MMButton *checkbox; // @synthesize checkbox=_checkbox;
 @property(nonatomic) int accessoryType; // @synthesize accessoryType=_accessoryType;
 @property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
-@property(retain, nonatomic) MMOutlineButton *locateMsgLabel; // @synthesize locateMsgLabel=_locateMsgLabel;
 @property(retain, nonatomic) NSTextField *msgCreatetimeLabel; // @synthesize msgCreatetimeLabel=_msgCreatetimeLabel;
 @property(retain, nonatomic) NSTextField *groupChatNickNameLabel; // @synthesize groupChatNickNameLabel=_groupChatNickNameLabel;
 @property(retain, nonatomic) MMView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MMMessageCellAvatarView *avatarImgView; // @synthesize avatarImgView=_avatarImgView;
 @property(nonatomic) __weak id <MMMessageCellViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSTextField *waitingProgressLabel; // @synthesize waitingProgressLabel=_waitingProgressLabel;
 @property(retain, nonatomic) NSButton *errorIndicatorAccessory; // @synthesize errorIndicatorAccessory=_errorIndicatorAccessory;
 @property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicatorAccessory; // @synthesize waitingProgressIndicatorAccessory=_waitingProgressIndicatorAccessory;
+- (void)scrollWheel:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)setupLocateMsgLabel;
+- (void)createLocateMsgLabel;
+- (void)setupCreateTimeLabel;
+- (void)createCreateTimeLabel;
 - (void)processAutoDownload;
 - (BOOL)isAutoDownload;
 - (void)setLocationAnimation;
@@ -119,15 +125,21 @@
 - (void)OnModifyGroupMemberContact:(id)arg1;
 - (void)onModifyContacts:(id)arg1;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
+- (void)messageCellViewRevoking:(id)arg1;
 - (void)contextMenuButtonAction:(id)arg1;
 - (struct CGRect)rectForSaveToFavoritesButton;
 - (struct CGRect)rectForContextMenuButton;
+- (struct CGRect)rectForProgressLabel;
 - (struct CGRect)rectForAccessory:(int)arg1;
 - (void)continueSendMessage;
 - (void)resendMessage;
 - (void)setErrorIndicatorAccessoryToolTip:(id)arg1;
 - (BOOL)isSendFromSelf;
 - (void)confirmResendMessage;
+- (void)layoutErrorAccessories;
+- (void)layoutDefaultAccessories;
+- (void)layoutRevokingAccessories;
+- (void)layoutWaitingAccessories;
 - (void)layoutAccessories;
 - (void)mentionGroupChatMember:(id)arg1;
 - (void)addGroupChatMember:(id)arg1;
@@ -170,8 +182,6 @@
 - (BOOL)eventIsInsideClickableArea:(id)arg1;
 - (struct CGRect)undraggableArea;
 - (struct CGRect)clickableArea;
-- (void)setupLocateMsgLabel;
-- (void)setupMsgCreatetimeLabel;
 - (id)_formattedGroupNickName:(id)arg1;
 - (id)makeDescLabelAttrString:(id)arg1;
 - (id)getDisplayAndMatchKeyWordNameAttr:(id)arg1 displayName:(id)arg2;
@@ -184,11 +194,6 @@
 - (double)arcWithAngle:(double)arg1;
 - (void)handPatAnimationForTimeOffset:(double)arg1;
 - (void)setupPatHandImageView;
-- (void)_updateContextMenuButtonVisibilityFromMousePosition;
-- (void)scrollWheel:(id)arg1;
-- (void)mouseMoved:(id)arg1;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
 @property(readonly, nonatomic) double topPadding;
 - (double)_avatarPosX;
 - (void)updateAvatarImage;

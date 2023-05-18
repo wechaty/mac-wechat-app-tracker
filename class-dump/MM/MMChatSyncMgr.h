@@ -26,7 +26,6 @@
     BOOL isSerialQueueSuspended;
     NSRecursiveLock *m_oLockForSerialQueue;
     BOOL isNeedCloseSync;
-    BOOL m_bDidSyncSessionOrder;
     unsigned int m_ulChatSyncStarttime;
     unsigned int m_uChatSyncTimeCost;
     BOOL m_bDidGetNewXml;
@@ -69,8 +68,6 @@
 - (void)checkDownloadQueue;
 - (void)onBakChatMsgDownloadFinishWithMsgData:(id)arg1 msgGap:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)onChatSyncMsgSendFail:(id)arg1;
-- (void)onGetSessionListFromStatusNotify:(id)arg1;
-- (void)onGetSessionListFromSyncCGI:(id)arg1;
 - (void)onRecvChatSyncMsg:(id)arg1;
 - (void)FFAddRecvFavZZ:(int)arg1;
 - (void)onServiceDidWake;

@@ -6,18 +6,27 @@
 
 #import <AppKit/NSView.h>
 
-@class NSTextField;
+@class CAShapeLayer, NSFont, NSTextField;
 
 @interface MMAppFeedLiveView : NSView
 {
+    double _iconSize;
+    NSFont *_font;
     NSTextField *_textFiled;
+    CAShapeLayer *_shapeLayer;
+    struct CGSize _viewSize;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) struct CGSize viewSize; // @synthesize viewSize=_viewSize;
+@property(retain, nonatomic) CAShapeLayer *shapeLayer; // @synthesize shapeLayer=_shapeLayer;
 @property(retain, nonatomic) NSTextField *textFiled; // @synthesize textFiled=_textFiled;
+@property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
+@property(nonatomic) double iconSize; // @synthesize iconSize=_iconSize;
+- (struct CGPath *)badgeViewPath:(struct CGRect)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubView;
-- (id)init;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

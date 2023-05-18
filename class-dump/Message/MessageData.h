@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, Passthrough, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, TmpNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -75,10 +75,13 @@
     NSString *m_nsSrcNickName;
     NSString *m_nsAtUserList;
     MessageData *_fromMsgData;
+    NSString *_m_nsFileName;
     NSString *_m_nsImgFileName;
     NSString *_m_nsMidImgMD5;
     NSString *_m_nsBigFileErrMsg;
     SecondMsgNode *_secondMsgNode;
+    TmpNode *_tmpNode;
+    Passthrough *_passthroughNode;
     AlNode *_alnode;
     NSString *_m_historyTitleNew;
     ShareMsgNode *_shareMsgNode;
@@ -170,6 +173,8 @@
 @property(retain, nonatomic) ShareMsgNode *shareMsgNode; // @synthesize shareMsgNode=_shareMsgNode;
 @property(retain, nonatomic) NSString *m_historyTitleNew; // @synthesize m_historyTitleNew=_m_historyTitleNew;
 @property(retain, nonatomic) AlNode *alnode; // @synthesize alnode=_alnode;
+@property(retain, nonatomic) Passthrough *passthroughNode; // @synthesize passthroughNode=_passthroughNode;
+@property(retain, nonatomic) TmpNode *tmpNode; // @synthesize tmpNode=_tmpNode;
 @property(retain, nonatomic) SecondMsgNode *secondMsgNode; // @synthesize secondMsgNode=_secondMsgNode;
 @property(nonatomic) unsigned int m_uiResendMessageCount; // @synthesize m_uiResendMessageCount=_m_uiResendMessageCount;
 @property(nonatomic) int m_nCdnServerRetCode; // @synthesize m_nCdnServerRetCode=_m_nCdnServerRetCode;
@@ -180,6 +185,7 @@
 @property(retain, nonatomic) NSString *m_nsBigFileErrMsg; // @synthesize m_nsBigFileErrMsg=_m_nsBigFileErrMsg;
 @property(retain, nonatomic) NSString *m_nsMidImgMD5; // @synthesize m_nsMidImgMD5=_m_nsMidImgMD5;
 @property(retain, nonatomic) NSString *m_nsImgFileName; // @synthesize m_nsImgFileName=_m_nsImgFileName;
+@property(retain, nonatomic) NSString *m_nsFileName; // @synthesize m_nsFileName=_m_nsFileName;
 @property(nonatomic) __weak MessageData *fromMsgData; // @synthesize fromMsgData=_fromMsgData;
 @property(nonatomic) BOOL m_bHasOriginalMessage; // @synthesize m_bHasOriginalMessage;
 @property(nonatomic) BOOL m_shouldReloadOriginal; // @synthesize m_shouldReloadOriginal;
@@ -267,6 +273,7 @@
 - (BOOL)isTencentNewsMessage;
 - (BOOL)isChatRoomMessage;
 - (BOOL)isShareCardMsg;
+- (BOOL)isLocationMsg;
 - (BOOL)isSendBySendMsg;
 - (BOOL)isQQMsg;
 - (BOOL)isAppMsg;
@@ -345,7 +352,7 @@
 - (id)groupChatSenderDisplayName;
 - (id)referMsgSenderDisplayName;
 - (id)savingImageFileNameWithLocalID;
-- (id)savingImageFileName;
+- (id)savingImageFileNameWithCreateTime;
 - (id)savingImageFilePathWithMid:(char *)arg1;
 - (id)savingImageFilePath;
 - (id)originalImageFilePath;
@@ -354,10 +361,12 @@
 - (id)thumbnailImageFilePath;
 - (unsigned long long)messageUploadFileStatus;
 - (unsigned long long)messageDownloadFileStatus;
+- (id)generateFileDownloadPathWithFileName:(id)arg1;
 - (id)generateFileDownloadPath;
 - (int)fileMessageType;
 - (id)fileNameForExportWithFormat:(id)arg1;
 - (id)thumbnailImage;
+- (id)middleImage;
 - (id)originalImage;
 - (struct CGSize)originalImageSize;
 - (id)exportVideoFileNameWithLocalID;
@@ -381,7 +390,6 @@
 // Remaining properties
 @property(retain, nonatomic) NSMutableArray *arrCCList; // @dynamic arrCCList;
 @property(retain, nonatomic) NSMutableArray *arrToList; // @dynamic arrToList;
-@property(nonatomic) BOOL bAppMsgCompleteFlag; // @dynamic bAppMsgCompleteFlag;
 @property(nonatomic) BOOL bHasAttachment; // @dynamic bHasAttachment;
 @property(readonly, copy) NSString *debugDescription;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @dynamic finderLiveShareItem;
@@ -547,6 +555,8 @@
 @property(retain, nonatomic) NSString *nsSenderAddress; // @dynamic nsSenderAddress;
 @property(retain, nonatomic) NSString *nsSubject; // @dynamic nsSubject;
 @property(retain, nonatomic) NSString *nsWapLink; // @dynamic nsWapLink;
+@property(retain, nonatomic) NSString *publisherId;
+@property(retain, nonatomic) NSString *publisherReqId;
 @property(retain, nonatomic) NSString *referMessageSenderDisplayName;
 @property(retain, nonatomic) NSString *referMessageSenderUsrname;
 @property(retain, nonatomic) MessageData *referingMessageWrap;

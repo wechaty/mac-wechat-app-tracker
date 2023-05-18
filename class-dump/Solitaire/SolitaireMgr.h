@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSMutableDictionary *dicSessionHandlers; // @synthesize dicSessionHandlers=_dicSessionHandlers;
 - (void)updateSolitaireSvrIdWithMessage:(id)arg1;
 - (BOOL)onAnalysisSolitaireInfoObj:(id)arg1 MsgWrap:(id)arg2;
-- (void)onSendAppMsgFinished:(id)arg1 msgData:(id)arg2;
+- (void)onSendAppMsgFinished:(id)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (void)onActiveUsrNameChange:(id)arg1 curUsrName:(id)arg2;
 - (id)getXmlInfoWithSolitaireObj:(id)arg1;

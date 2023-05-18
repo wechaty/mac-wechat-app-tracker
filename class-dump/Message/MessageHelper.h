@@ -10,11 +10,15 @@
 {
 }
 
++ (id)imageMessageFileNameWithExt:(id)arg1;
 + (id)fileMessageExt:(id)arg1;
 + (void)locateMessageInChatMessageList:(id)arg1;
 + (void)reportChatManagerAction:(unsigned int)arg1 isGlobal:(BOOL)arg2 isGroupChat:(BOOL)arg3;
 + (void)reportFileUploadLog:(id)arg1 action:(unsigned int)arg2;
 + (void)reportFileLog:(id)arg1 action:(unsigned int)arg2;
++ (void)doReportWithAction:(unsigned long long)arg1 msgData:(id)arg2 resId:(id)arg3;
++ (void)SendOpReportWithMsgData:(id)arg1 resId:(id)arg2;
++ (void)ForwardOpReportWithMsgData:(id)arg1 resId:(id)arg2;
 
 @end
 

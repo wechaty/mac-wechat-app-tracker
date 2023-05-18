@@ -77,6 +77,7 @@
     unsigned int hasSourceExtInfo:1;
     unsigned int hasChatRoomBusinessType:1;
     unsigned int hasFriendUserName:1;
+    unsigned int hasContactExtraInfoBuf:1;
     int sex;
     unsigned int bitMask;
     unsigned int bitVal;
@@ -145,10 +146,13 @@
     NSString *sourceExtInfo;
     unsigned long long chatRoomBusinessType;
     NSString *friendUserName;
+    SKBuiltinBuffer_t *contactExtraInfoBuf;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetContactExtraInfoBuf:) SKBuiltinBuffer_t *contactExtraInfoBuf; // @synthesize contactExtraInfoBuf;
+@property(readonly, nonatomic) BOOL hasContactExtraInfoBuf; // @synthesize hasContactExtraInfoBuf;
 @property(retain, nonatomic, setter=SetFriendUserName:) NSString *friendUserName; // @synthesize friendUserName;
 @property(readonly, nonatomic) BOOL hasFriendUserName; // @synthesize hasFriendUserName;
 @property(nonatomic, setter=SetChatRoomBusinessType:) unsigned long long chatRoomBusinessType; // @synthesize chatRoomBusinessType;

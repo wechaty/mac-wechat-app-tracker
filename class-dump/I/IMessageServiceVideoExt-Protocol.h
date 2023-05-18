@@ -15,7 +15,7 @@
 - (void)onVideoDidFailPredownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidStartPredownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidCancelUploadWithMessage:(MessageData *)arg1;
-- (void)onVideoDidFinishUploadWithMessage:(MessageData *)arg1;
+- (void)onVideoDidFinishUploadWithMessage:(MessageData *)arg1 isSuccess:(BOOL)arg2;
 - (void)onVideoUploaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 - (void)onVideoDidCancelDownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidFailDownloadWithMessage:(MessageData *)arg1;

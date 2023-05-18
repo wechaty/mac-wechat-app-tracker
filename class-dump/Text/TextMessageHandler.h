@@ -13,7 +13,9 @@
     id <TextMessageHandlerDelegate> m_delegate;
 }
 
-@property(nonatomic) id <TextMessageHandlerDelegate> delegate; // @synthesize delegate=m_delegate;
+- (void).cxx_destruct;
+@property(nonatomic) __weak id <TextMessageHandlerDelegate> delegate; // @synthesize delegate=m_delegate;
+- (void)messageWillBeRevoked:(id)arg1 revokeContext:(id)arg2;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
 

@@ -52,6 +52,7 @@
 - (id)getSenderFileListWithLastMsg:(id)arg1 sender:(id)arg2 sortType:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)getRecentFileListWithLastMsg:(id)arg1 limitCnt:(unsigned int)arg2 hasMore:(char *)arg3;
 - (id)getAllFileListWithLastMsg:(id)arg1 sortType:(unsigned long long)arg2 limitCnt:(unsigned int)arg3 hasMore:(char *)arg4;
+- (id)searchFTSFileMessageWithKeyword:(id)arg1 inChatName:(id)arg2;
 - (id)searchFTSFileMessageWithKeyword:(id)arg1;
 - (id)getFTSFileMessageForChats:(id)arg1;
 - (id)getFileMessageForChat:(id)arg1;

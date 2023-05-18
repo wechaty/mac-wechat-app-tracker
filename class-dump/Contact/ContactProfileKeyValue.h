@@ -6,15 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSAttributedString, NSString;
+@class MMOpenIMCustomItem, NSAttributedString, NSString;
 
 @interface ContactProfileKeyValue : NSObject
 {
     BOOL _isEditable;
     BOOL _bShowMore;
+    unsigned long long _type;
     NSAttributedString *_key;
     NSAttributedString *_value;
     NSString *_placeHodlerStr;
+    MMOpenIMCustomItem *_openIMItem;
     NSString *_tag;
 }
 
@@ -22,9 +24,11 @@
 @property(nonatomic) BOOL bShowMore; // @synthesize bShowMore=_bShowMore;
 @property(copy, nonatomic) NSString *tag; // @synthesize tag=_tag;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
+@property(retain, nonatomic) MMOpenIMCustomItem *openIMItem; // @synthesize openIMItem=_openIMItem;
 @property(copy, nonatomic) NSString *placeHodlerStr; // @synthesize placeHodlerStr=_placeHodlerStr;
 @property(copy, nonatomic) NSAttributedString *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSAttributedString *key; // @synthesize key=_key;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 
 @end
 

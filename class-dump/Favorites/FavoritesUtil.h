@@ -14,6 +14,7 @@
 + (void)copySourceDataPathFromPreview:(id)arg1 withDataList:(id)arg2 parentDataField:(id)arg3;
 + (void)copySourceDataPath:(id)arg1 withDataList:(id)arg2 withOriginMsgData:(id)arg3;
 + (id)findRecordDataInList:(id)arg1 withLocalDataId:(id)arg2;
++ (id)findRecordDataInList:(id)arg1 withDataTaskId:(id)arg2;
 + (id)getNoteDescByFavItem:(id)arg1;
 + (id)getGroupDispName:(id)arg1 NeedSelf:(BOOL)arg2;
 + (id)getRecordForwardTitleByFavItem:(id)arg1;
@@ -40,7 +41,7 @@
 + (void)clearSenderUserName:(id)arg1;
 + (id)getRecordInfo:(id)arg1;
 + (id)forwardFavoriteItemDataField2MsgData:(id)arg1 toUser:(id)arg2;
-+ (id)forwardFavoriteItem2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)forwardFavoriteItem2MsgData:(id)arg1 toUser:(id)arg2 sourceInfo:(id)arg3;
 + (id)genDefaultFavDataForSendFailedMsgWrap:(id)arg1;
 + (id)convertMsgList2MsgData:(id)arg1;
 + (id)convertMsgData2FavItem:(id)arg1;

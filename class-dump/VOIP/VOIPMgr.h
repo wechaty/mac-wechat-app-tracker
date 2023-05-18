@@ -82,6 +82,10 @@
     unsigned long long mHWYUVLength;
     struct __CVBuffer *mPixelBufferDS;
     int local_conn_set_seq;
+    struct _VoipCgiRtt mVoipCgiRtt;
+    struct tagVoipCallInfo mCallinInfo;
+    struct tagVoipCallInfo mCalloutInfo;
+    int mSimuCallStatus;
     VOIPKernelLog *mKernelLog;
     BOOL StatReportStatus;
     BOOL mSendInviteStatus;
@@ -89,6 +93,7 @@
     _Bool bForceKeyFrame;
     _Bool mIsPC2PC;
     _Bool mIsRemotePad;
+    BOOL isNewSimulCallee;
     BOOL _mIsVideoInited;
     BOOL _m_usingFrontCameraLastFrame;
     unsigned int mVoIPType;
@@ -139,6 +144,7 @@
     int mVTDecStatus;
     int mManualRotateOrien;
     int mRemoteOrien;
+    int mNewSimuCallRole;
     int _remoteCaptureStatus;
     unsigned int _m_cameraChangeToOrientationLastCount;
     VOIPDialData *mDialData;
@@ -168,6 +174,10 @@
     struct __CVBuffer *decodedFrameBuffer;
     double _remoteCaptureStatusLastSyncTimestamp;
     NSRecursiveLock *_mAudioPlayLock;
+    unsigned long long _mSendAckTime;
+    unsigned long long _mSendAnswerTime;
+    unsigned long long _mSendVoipHeartBeatTime;
+    unsigned long long _mSendRedirectTime;
     NSImage *_lastCapture;
     struct timeval dialStartTime;
     struct timeval mStartTalkTime;
@@ -181,10 +191,16 @@
 @property(nonatomic) unsigned int m_cameraChangeToOrientationLastCount; // @synthesize m_cameraChangeToOrientationLastCount=_m_cameraChangeToOrientationLastCount;
 @property(nonatomic) BOOL m_usingFrontCameraLastFrame; // @synthesize m_usingFrontCameraLastFrame=_m_usingFrontCameraLastFrame;
 @property(nonatomic) BOOL mIsVideoInited; // @synthesize mIsVideoInited=_mIsVideoInited;
+@property(nonatomic) unsigned long long mSendRedirectTime; // @synthesize mSendRedirectTime=_mSendRedirectTime;
+@property(nonatomic) unsigned long long mSendVoipHeartBeatTime; // @synthesize mSendVoipHeartBeatTime=_mSendVoipHeartBeatTime;
+@property(nonatomic) unsigned long long mSendAnswerTime; // @synthesize mSendAnswerTime=_mSendAnswerTime;
+@property(nonatomic) unsigned long long mSendAckTime; // @synthesize mSendAckTime=_mSendAckTime;
 @property(nonatomic) struct DialReport_t dialReport; // @synthesize dialReport=_dialReport;
 @property(retain, nonatomic) NSRecursiveLock *mAudioPlayLock; // @synthesize mAudioPlayLock=_mAudioPlayLock;
 @property(nonatomic) int remoteCaptureStatus; // @synthesize remoteCaptureStatus=_remoteCaptureStatus;
 @property(nonatomic) double remoteCaptureStatusLastSyncTimestamp; // @synthesize remoteCaptureStatusLastSyncTimestamp=_remoteCaptureStatusLastSyncTimestamp;
+@property(nonatomic) int mNewSimuCallRole; // @synthesize mNewSimuCallRole;
+@property(nonatomic) BOOL isNewSimulCallee; // @synthesize isNewSimulCallee;
 @property struct __CVBuffer *decodedFrameBuffer; // @synthesize decodedFrameBuffer;
 @property _Bool mIsRemotePad; // @synthesize mIsRemotePad;
 @property _Bool mIsPC2PC; // @synthesize mIsPC2PC;
@@ -282,6 +298,10 @@
 - (int)SendSpeedTestResult:(void *)arg1 ResultCount:(int)arg2 TotalCount:(int)arg3 TestID:(unsigned long long)arg4;
 - (void)StopNetDetect;
 - (void)StartNetDetect;
+- (BOOL)isNewSimuCallEnabled;
+- (BOOL)isSendAckOrAnswerEnabled;
+- (void)onNewSimuCallAutoAccept:(int)arg1 andContact:(id)arg2 withRoomId:(int)arg3 andKey:(long long)arg4;
+- (int)doSimuCallJudge:(id)arg1 isCallin:(BOOL)arg2 inviteType:(int)arg3 roomId:(int)arg4 roomKey:(long long)arg5 timeStamp:(long long)arg6;
 - (BOOL)getIsTalked;
 - (unsigned int)getRoomType;
 - (int)getRoomId;
@@ -296,6 +316,8 @@
 - (void)SetRemoteVideoEnable:(BOOL)arg1;
 - (void)SetLocalVideoEnable:(BOOL)arg1;
 - (void)UpdateLocalOrientation:(int)arg1;
+- (void)SetVoipCgiRtt:(int)arg1;
+- (void)SetVoipCgiRttInterval;
 - (int)getNetSpeed;
 - (void)Hangup;
 - (void)Ignore:(id)arg1 withRoomId:(int)arg2 andKey:(long long)arg3;
@@ -408,7 +430,8 @@
 - (void)SendHeartbeatRequest;
 - (void)SendShutdownRequest;
 - (void)SendAnswerRequestBy:(id)arg1 AnswerType:(unsigned int)arg2 forceToVoice:(BOOL)arg3;
-- (void)SendCancelInviteRequest;
+- (void)SendSimuCancelInviteRequestWithCancelType:(unsigned int)arg1 roomKey:(unsigned long long)arg2 inviteType:(unsigned int)arg3 cancelType:(unsigned int)arg4;
+- (void)SendCancelInviteRequestWithCancelType:(unsigned int)arg1;
 - (void)SendInviteRequestBy:(id)arg1 InviteType:(unsigned int)arg2 CallType:(unsigned int)arg3;
 - (void)SetReportData:(id *)arg1 channelReport:(id *)arg2 engineReport:(id *)arg3 engineExtReport:(id *)arg4;
 - (void)MakeFakeReport:(id *)arg1;

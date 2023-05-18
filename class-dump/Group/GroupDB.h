@@ -14,6 +14,7 @@
     WCTTable *m_groupTable;
     WCTTable *m_memberTable;
     WCTTable *m_topMsgTable;
+    WCTTable *m_groupUserRelationTable;
 }
 
 + (void)deleteGroupDB;
@@ -32,6 +33,8 @@
 - (BOOL)insertGroupTopMsgArr:(id)arg1 groupName:(id)arg2 currentTopMsgList:(id)arg3 finalTopMsgList:(id)arg4;
 - (BOOL)insertDefaultGroupTopMsg:(id)arg1;
 - (BOOL)insertGroupTopMsg:(id)arg1;
+- (id)getAndUpdateGroupMember:(id)arg1 propertyDict:(id)arg2;
+- (id)getAndUpdateGroupMemberFlag:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
 - (BOOL)addOrModifyGroupMembersKeepLocalField:(id)arg1 onlyInsertNew:(BOOL)arg2 retArray:(id)arg3;
 - (BOOL)addOrModifyGroupMembersKeepLocalField:(id)arg1;
 - (BOOL)addOrModifyGroupMemberKeepLocalField:(id)arg1;
@@ -50,6 +53,8 @@
 - (BOOL)modifyGroupRemarkInDB:(id)arg1 remarkName:(id)arg2;
 - (BOOL)modifyGroupNickInDB:(id)arg1 nickName:(id)arg2;
 - (BOOL)addOrModifyGroupContacts:(id)arg1;
+- (void)getNeedUpdateNameAndDatas:(id)arg1 dbMembersNameList:(id)arg2 modMembersNameList:(id)arg3 allDatas:(id)arg4 allUsernames:(id)arg5;
+- (BOOL)addOrModifyGroupContactToDB:(id)arg1 nsOldMembersNameList:(id)arg2;
 - (BOOL)addOrModifyGroupContactToDB:(id)arg1;
 - (id)getGroupContactsInDBWithListType:(unsigned int)arg1;
 - (id)getGroupContactsWithUserNames:(id)arg1;
@@ -60,6 +65,13 @@
 - (void)close;
 - (void)closeDBBeforeInit;
 - (id)init;
+- (id)getRelationDatasByUserNameListFromDB:(id)arg1;
+- (id)getRelationDatasByUserNameFromDB:(id)arg1;
+- (BOOL)addOrModifyUserGroupRelationsToDB:(id)arg1;
+- (BOOL)batchUpdateUserGroupRelationsInDB:(id)arg1 dbMembersNameList:(id)arg2 modMembersNameList:(id)arg3;
+- (BOOL)bildUGRTableToDB:(id)arg1;
+- (BOOL)batchInsertUGRDatas:(id)arg1;
+- (BOOL)cleanupUGRTable;
 
 @end
 

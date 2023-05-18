@@ -15,7 +15,9 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <EmoticonMessageHandlerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)messageWillBeRevoked:(id)arg1 revokeContext:(id)arg2;
 - (void)onSendFinished:(id)arg1 taskId:(unsigned long long)arg2 msgData:(id)arg3 isSuccess:(BOOL)arg4;
+- (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2;
 
 @end

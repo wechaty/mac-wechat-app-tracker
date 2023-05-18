@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
 @class ChatRoomData, ChatRoomDetail, EncryptSecretInfo, MMOpenIMInfo, NSArray, NSData, NSDictionary, NSLock, NSString, SubscriptBrandInfo, WCContactDataPackedInfo;
 
-@interface WCContactData : NSObject <WCTTableCoding, WCTColumnCoding>
+@interface WCContactData : NSObject <WCTTableCoding, WCTColumnCoding, NSCopying>
 {
     NSLock *m_lockForChatRoomData;
     BOOL m_isShowRedDot;
@@ -83,7 +84,8 @@
     NSString *m_nsChatRoomAdminList;
     NSString *m_patSuffix;
     NSString *richChatRoomDesc;
-    NSArray *_m_arrPhoneItem;
+    NSArray *m_arrCardItem;
+    NSArray *m_arrPhoneItem;
     EncryptSecretInfo *_m_encryptSecretInfo;
     NSData *_m_dtUsrImg;
     NSString *_m_nsDisplayNamePY;
@@ -96,6 +98,8 @@
 + (BOOL)IsReservedGroupTopic:(id)arg1;
 + (id)getMicroBlogUsrDisplayName:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_arrPhoneItem;
++ (void)PBArrayAdd_m_arrCardItem;
 + (void)PBArrayAdd_richChatRoomDesc;
 + (void)PBArrayAdd_m_uiChatRoomType;
 + (void)PBArrayAdd_m_patSuffix;
@@ -206,7 +210,8 @@
 @property(copy, nonatomic) NSString *m_nsDisplayNamePY; // @synthesize m_nsDisplayNamePY=_m_nsDisplayNamePY;
 @property(retain, nonatomic) NSData *m_dtUsrImg; // @synthesize m_dtUsrImg=_m_dtUsrImg;
 @property(retain, nonatomic) EncryptSecretInfo *m_encryptSecretInfo; // @synthesize m_encryptSecretInfo=_m_encryptSecretInfo;
-@property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem=_m_arrPhoneItem;
+@property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem;
+@property(retain, nonatomic) NSArray *m_arrCardItem; // @synthesize m_arrCardItem;
 @property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;
 @property(nonatomic) unsigned int m_uiChatRoomType; // @synthesize m_uiChatRoomType;
 @property(retain, nonatomic) NSString *m_patSuffix; // @synthesize m_patSuffix;
@@ -348,6 +353,7 @@
 - (BOOL)isSelf;
 - (id)description;
 @property(readonly, nonatomic) NSArray *m_nsTagListArray;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

@@ -47,7 +47,6 @@
 - (void)onSessionDeletedWithUserName:(id)arg1 inSessions:(unsigned long long)arg2 atIndex:(long long)arg3;
 - (void)onSessionTotalUnreadCountChanged;
 - (void)onSessionUpdated:(id)arg1;
-- (void)onSessionSynced;
 - (void)switchTopSessionListIfNeedWithType:(unsigned long long)arg1;
 - (void)switchTopSessionListIfNeedWithUserName:(id)arg1;
 - (void)hideToast;

@@ -14,21 +14,21 @@
     NSString *_sourceId;
     NSString *_sourceName;
     NSDictionary *_extInfo;
-    struct CGSize _thumbnailSize;
-    struct CGSize _iconSize;
+    NSImage *_thumbnail;
+    NSImage *_appIcon;
 }
 
++ (BOOL)inValidLevel:(int)arg1;
++ (id)windowInfoArrayWithThumbSize:(struct CGSize)arg1;
 - (void).cxx_destruct;
-@property(nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
-@property(nonatomic) struct CGSize thumbnailSize; // @synthesize thumbnailSize=_thumbnailSize;
+@property(retain, nonatomic) NSImage *appIcon; // @synthesize appIcon=_appIcon;
+@property(retain, nonatomic) NSImage *thumbnail; // @synthesize thumbnail=_thumbnail;
 @property(retain, nonatomic) NSDictionary *extInfo; // @synthesize extInfo=_extInfo;
 @property(copy, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
 @property(copy, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(nonatomic) long long type; // @synthesize type=_type;
-@property(readonly, nonatomic) NSImage *fittedThumbnail;
-@property(readonly, nonatomic) NSImage *icon;
-@property(readonly, nonatomic) NSImage *thumbnail;
-- (id)init;
+- (void)generateScreenThumbnailWithScreen:(id)arg1 size:(struct CGSize)arg2;
+- (void)generateWindowThumbnailWithSize:(struct CGSize)arg1;
 
 @end
 

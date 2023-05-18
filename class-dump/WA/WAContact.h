@@ -13,6 +13,7 @@
 @interface WAContact : NSObject <NSSecureCoding>
 {
     BOOL _m_isExtInfoValid;
+    BOOL _isStared;
     unsigned int _m_uiType;
     unsigned int _m_uiWxAppOpt;
     unsigned int _m_uiDebugModeType;
@@ -35,6 +36,7 @@
 + (BOOL)isWeAppUserName:(id)arg1;
 + (BOOL)supportsSecureCoding;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isStared; // @synthesize isStared=_isStared;
 @property(nonatomic) BOOL m_isExtInfoValid; // @synthesize m_isExtInfoValid=_m_isExtInfoValid;
 @property(retain, nonatomic) NSDictionary *externalInfoJSONCache; // @synthesize externalInfoJSONCache=_externalInfoJSONCache;
 @property(copy, nonatomic) NSString *m_nsImgStatus; // @synthesize m_nsImgStatus=_m_nsImgStatus;

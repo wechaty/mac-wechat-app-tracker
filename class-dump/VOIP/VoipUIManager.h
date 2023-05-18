@@ -18,8 +18,8 @@
 
 @interface VoipUIManager : MMService <IMessageExt, MMNetExt, AccountServiceExt, MMVoipUserNotificationDelegate, MMVoipBaseWindowControllerDelegate, MMService, MMConfigMgrExt>
 {
-    BOOL m_isCaller;
     BOOL _isLockScreen;
+    int m_VoipCallRole;
     int _viewInitMode;
     MMVoipCallerWindowController *m_VoipCallerWindowController;
     MMVoipReceiverWindowController *m_VoipReceiverWindowController;
@@ -33,7 +33,7 @@
 @property(nonatomic) BOOL isLockScreen; // @synthesize isLockScreen=_isLockScreen;
 @property(retain, nonatomic) NSLock *m_lock; // @synthesize m_lock=_m_lock;
 @property(retain, nonatomic) NSMutableSet *processingNotifyVoipInviteMsgSet; // @synthesize processingNotifyVoipInviteMsgSet=_processingNotifyVoipInviteMsgSet;
-@property(nonatomic) BOOL m_isCaller; // @synthesize m_isCaller;
+@property(nonatomic) int m_VoipCallRole; // @synthesize m_VoipCallRole;
 @property(retain, nonatomic) MMVoipUserNotificationWindowController *m_VoipUserNotiWindowController; // @synthesize m_VoipUserNotiWindowController;
 @property(retain, nonatomic) MMVoipReceiverWindowController *m_VoipReceiverWindowController; // @synthesize m_VoipReceiverWindowController;
 @property(retain, nonatomic) MMVoipCallerWindowController *m_VoipCallerWindowController; // @synthesize m_VoipCallerWindowController;

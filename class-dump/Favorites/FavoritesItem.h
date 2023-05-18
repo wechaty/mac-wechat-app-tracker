@@ -33,6 +33,7 @@
     int _countMd5Status;
     int _retryTimes;
     unsigned int _m_uiFromScene;
+    unsigned int _m_favcreateTime;
     unsigned int _m_preMsgIndex;
     NSString *_deviceid;
     NSDate *_updateDateTime;
@@ -124,6 +125,7 @@
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
 @property(retain, nonatomic) FavWeAppItem *weAppItem; // @synthesize weAppItem=_weAppItem;
 @property(nonatomic) unsigned int m_preMsgIndex; // @synthesize m_preMsgIndex=_m_preMsgIndex;
+@property(nonatomic) unsigned int m_favcreateTime; // @synthesize m_favcreateTime=_m_favcreateTime;
 @property(retain, nonatomic) NSString *m_nsFavUsername; // @synthesize m_nsFavUsername=_m_nsFavUsername;
 @property(nonatomic) unsigned int m_uiFromScene; // @synthesize m_uiFromScene=_m_uiFromScene;
 @property(nonatomic) double cellHeight; // @synthesize cellHeight=_cellHeight;
@@ -179,7 +181,6 @@
 - (BOOL)hasCDNData;
 - (unsigned int)itemServerSize;
 - (BOOL)needBatchGet;
-- (id)findRecordDataInList:(id)arg1 WithLocalDataId:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (void)addData:(id)arg1 Index:(int)arg2;
 - (BOOL)dataHasBeenCopyedToTarget:(id)arg1;

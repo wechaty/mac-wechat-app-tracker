@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
 @class NSArray, NSString;
 
-@interface MMOpenIMInfo : NSObject <PBCoding, WCTColumnCoding>
+@interface MMOpenIMInfo : NSObject <PBCoding, WCTColumnCoding, NSCopying>
 {
     BOOL _isNeedUpdate;
     unsigned int customInfoVisible;
@@ -45,6 +46,7 @@
 - (id)analyseCustomDetail:(id)arg1;
 - (id)createCustomItems;
 - (BOOL)isValid;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)archivedWCTValue;
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;

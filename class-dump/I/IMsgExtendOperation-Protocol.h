@@ -43,6 +43,7 @@
 - (BOOL)isGroupNoticeMsg;
 - (BOOL)isBindGuardianMsg;
 - (BOOL)isTeenApplyMsg;
+- (BOOL)isFinderLiveMsg;
 - (BOOL)isLiveReplayMsg;
 - (BOOL)isPurchaseLiveMsg;
 - (BOOL)isLiveMsg;
@@ -77,8 +78,9 @@
 - (BOOL)getDownloadThumbStatus:(unsigned int *)arg1;
 - (BOOL)isNeedDownloadThumb;
 - (NSString *)getThumbPath;
+- (void)cancelUploadVideo;
 - (BOOL)saveVideoThumb:(SendVideoInfo *)arg1 toUser:(NSString *)arg2;
-- (BOOL)saveVideoResource:(SendVideoInfo *)arg1 toUser:(NSString *)arg2;
+- (BOOL)saveVideoResource:(SendVideoInfo *)arg1 toUser:(NSString *)arg2 beginCompressBlock:(void (^)(void))arg3;
 - (BOOL)isVideoExist;
 - (BOOL)isThumbImgExist;
 - (BOOL)isMidImgExist;

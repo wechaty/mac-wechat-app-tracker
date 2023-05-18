@@ -8,14 +8,13 @@
 
 #import "IMessageServiceFileExt-Protocol.h"
 
-@class MMCircularProgressView, MMDivider, MMImageView, MMOutlineButton, NSImageView, NSMutableDictionary, NSString, NSTextField, NSView, TKStateMachine;
+@class MMCircularProgressView, MMDivider, MMImageView, NSImageView, NSMutableDictionary, NSString, NSTextField, NSView, TKStateMachine;
 
 @interface MMChatMediaCellView : MMChatBaseCellView <IMessageServiceFileExt>
 {
     int _fileMessageType;
     NSTextField *_nickNameLabel;
     NSTextField *_timeLabel;
-    MMOutlineButton *_locateLabel;
     MMDivider *_divider;
     MMImageView *_thumbImageView;
     NSTextField *_titleLabel;
@@ -45,7 +44,6 @@
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) MMImageView *thumbImageView; // @synthesize thumbImageView=_thumbImageView;
 @property(retain, nonatomic) MMDivider *divider; // @synthesize divider=_divider;
-@property(retain, nonatomic) MMOutlineButton *locateLabel; // @synthesize locateLabel=_locateLabel;
 @property(retain, nonatomic) NSTextField *timeLabel; // @synthesize timeLabel=_timeLabel;
 @property(retain, nonatomic) NSTextField *nickNameLabel; // @synthesize nickNameLabel=_nickNameLabel;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
@@ -60,9 +58,6 @@
 - (void)updateCurrentFileMessageType;
 - (unsigned int)getFileDownloadStatus;
 - (BOOL)isFileCanOpenWithQPL;
-- (void)scrollWheel:(id)arg1;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)downloadMedia;
 - (void)contextMenuForward;
@@ -85,7 +80,6 @@
 - (id)genSenderInfoNickNameAttributedString;
 - (void)layoutDownloadStatusLabel;
 - (void)layoutDivider;
-- (void)layoutLocateLabel;
 - (void)layoutSenderInfo;
 - (void)layoutSourceLabel;
 - (void)layoutDescLabel;

@@ -42,9 +42,9 @@
 - (void)appMsgUploadComplete:(id)arg1;
 - (void)appMsgUploadPause:(id)arg1;
 - (void)handleSendAppMsgResponse:(id)arg1 session:(unsigned int)arg2 ret:(BOOL)arg3;
-- (void)calcMd5ForMessage:(id)arg1;
-- (void)appMsgUploadStartInternal:(id)arg1;
-- (void)appMsgUploadStart:(id)arg1;
+- (BOOL)calcMd5ForMessage:(id)arg1;
+- (BOOL)appMsgUploadStartInternal:(id)arg1;
+- (BOOL)appMsgUploadStart:(id)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 

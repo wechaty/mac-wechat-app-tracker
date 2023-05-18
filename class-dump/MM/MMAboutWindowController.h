@@ -26,7 +26,7 @@
 @property __weak NSImageView *weChatTitle; // @synthesize weChatTitle=_weChatTitle;
 @property(nonatomic) __weak NSView *bgContainer; // @synthesize bgContainer=_bgContainer;
 @property(retain, nonatomic) NSTextView *copyrightLabel; // @synthesize copyrightLabel=_copyrightLabel;
-@property(nonatomic) __weak MMTextField *versionLabel; // @synthesize versionLabel=_versionLabel;
+@property(retain, nonatomic) MMTextField *versionLabel; // @synthesize versionLabel=_versionLabel;
 - (void)showMoreInfo;
 - (void)flagsChanged:(id)arg1;
 - (void)copyVersionString;

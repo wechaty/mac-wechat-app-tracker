@@ -66,6 +66,8 @@
 - (void)onModMsg:(id)arg1 msgData:(id)arg2;
 - (void)onChatSyncMsgs:(id)arg1 msgList:(id)arg2;
 - (void)onAddMsgListForSession:(id)arg1;
+- (void)onGetSessionListFromStatusNotify:(id)arg1 source:(int)arg2;
+- (void)processOnSyncSessionList:(id)arg1 source:(int)arg2;
 - (void)processSpecialSessionInfo:(id)arg1;
 - (void)processBrandSessionHolderInfo:(id)arg1;
 - (void)processRecoverSessionArray:(id)arg1;
@@ -99,7 +101,6 @@
 - (void)untopSessionByUserName:(id)arg1;
 - (void)topSessionByUserName:(id)arg1 updateStatus:(unsigned long long)arg2;
 - (void)topSessionByUserName:(id)arg1;
-- (void)handleChatList:(id)arg1 source:(int)arg2;
 - (void)createNewSessionWithUserName:(id)arg1;
 - (unsigned int)getTotalUnreadCount;
 - (void)processMarkSessionAsRead:(id)arg1;
@@ -193,7 +194,7 @@
 - (BOOL)isSessionMsgDataNeeded:(id)arg1;
 - (BOOL)p_handleSessionReorderTaskWhenModifySession:(id)arg1;
 - (BOOL)p_handleSessionReorderTaskWhenEnterSession:(id)arg1 shouldClearUnread:(BOOL)arg2;
-- (void)doSyncSessionList:(id)arg1 source:(int)arg2;
+- (void)doSyncSessionList;
 - (void)doSyncExecuteTask:(id)arg1;
 - (void)doSyncWhenMigrateEnd:(id)arg1;
 - (void)executeTask;
@@ -205,6 +206,7 @@
 @property(retain, nonatomic) MMTimer *myTimer; // @dynamic myTimer;
 @property(retain, nonatomic) NSMutableArray *syncTaskArray; // @dynamic syncTaskArray;
 @property(retain, nonatomic) NSMutableArray *taskArray; // @dynamic taskArray;
+- (void)buildUserGroupRelationIfNeed:(id)arg1 allGroupNameSet:(id)arg2;
 - (void)storageDeleteBrandSessionInfo:(id)arg1;
 - (void)storageSaveBrandSessionInfos:(id)arg1;
 - (void)storageDeleteSessionInfo:(id)arg1;
@@ -222,7 +224,7 @@
 - (void)hideSessionOfUser:(id)arg1 clearToTime:(unsigned int)arg2;
 - (void)hideSessionOfUser:(id)arg1;
 - (void)deleteMessage:(id)arg1;
-- (BOOL)isSessionHandled:(id)arg1;
+- (BOOL)isSessionHandled:(id)arg1 scene:(unsigned long long)arg2;
 - (id)filterValidSyncGroupChat:(id)arg1;
 - (BOOL)isValidSyncSession:(id)arg1;
 - (id)genSessionInfo:(id)arg1 withEnterTime:(unsigned int)arg2;

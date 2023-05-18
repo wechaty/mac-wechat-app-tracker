@@ -10,7 +10,7 @@
 #import "IOpenIMOplogServiceExt-Protocol.h"
 #import "MMService-Protocol.h"
 
-@class GetContactLogic, GroupDB, MMCache, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSString, RevokeAddMemberLogic;
+@class GetContactLogic, GroupDB, MMCache, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSRecursiveLock, NSString, RevokeAddMemberLogic;
 
 @interface GroupStorage : MMService <IOpLogServiceExt, IOpenIMOplogServiceExt, MMService>
 {
@@ -22,8 +22,11 @@
     MMCache *m_groupMembersCache;
     MMCache *m_groupTopMsgsCache;
     BOOL m_hasClearData;
+    BOOL _bUGRBuildSuccess;
     NSRecursiveLock *_m_groupLock;
     NSMutableDictionary *_dicShouldDeleteAllMsgAfterQuit;
+    NSMutableArray *_m_UGRUpdateTaskQueue;
+    NSOperationQueue *_m_UGRBuildTaskQueue;
     NSMutableArray *_getMemberDetailTasks;
     NSMutableArray *_getChatRoomInfoTasks;
     NSMutableArray *_arrGetGroupContactsDetail;
@@ -39,6 +42,9 @@
 @property(retain, nonatomic) NSMutableArray *arrGetGroupContactsDetail; // @synthesize arrGetGroupContactsDetail=_arrGetGroupContactsDetail;
 @property(retain, nonatomic) NSMutableArray *getChatRoomInfoTasks; // @synthesize getChatRoomInfoTasks=_getChatRoomInfoTasks;
 @property(retain, nonatomic) NSMutableArray *getMemberDetailTasks; // @synthesize getMemberDetailTasks=_getMemberDetailTasks;
+@property(retain, nonatomic) NSOperationQueue *m_UGRBuildTaskQueue; // @synthesize m_UGRBuildTaskQueue=_m_UGRBuildTaskQueue;
+@property(nonatomic) BOOL bUGRBuildSuccess; // @synthesize bUGRBuildSuccess=_bUGRBuildSuccess;
+@property(retain, nonatomic) NSMutableArray *m_UGRUpdateTaskQueue; // @synthesize m_UGRUpdateTaskQueue=_m_UGRUpdateTaskQueue;
 @property(retain, nonatomic) NSMutableDictionary *dicShouldDeleteAllMsgAfterQuit; // @synthesize dicShouldDeleteAllMsgAfterQuit=_dicShouldDeleteAllMsgAfterQuit;
 @property(retain, nonatomic) NSRecursiveLock *m_groupLock; // @synthesize m_groupLock=_m_groupLock;
 - (void)sendRequest;
@@ -134,8 +140,19 @@
 - (void)OnModGroupMemberContacts_Thread:(id)arg1;
 - (void)OnModGroupContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 - (void)OnModGroupContacts_Thread:(id)arg1;
+- (void)executeUpdateUGRDB:(id)arg1;
+- (void)checkUpdateUGRQueue;
+- (void)addUpdateUGRDataTask:(id)arg1 dbGroupMemberList:(id)arg2 modGroupMemberList:(id)arg3;
+- (id)getAllCommonGroups:(id)arg1;
+- (id)getUGRResult:(id)arg1;
+- (BOOL)isUGRBuildSuccessed;
+- (BOOL)insertBuildGURSuccesstag;
+- (void)executeBuildUGRTask:(id)arg1;
+- (void)buildUGRTable:(id)arg1;
+- (BOOL)UpdateGroupMember:(id)arg1 propertyDict:(id)arg2;
+- (BOOL)UpdateGroupMemberFlag:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
 - (void)realQuitGroupHandle:(BOOL)arg1 errMsg:(id)arg2 groupName:(id)arg3;
-- (void)onQuitGroupImOplogRet:(BOOL)arg1 errMsg:(id)arg2 groupName:(id)arg3;
+- (void)onOpenImOplogRet:(int)arg1 errMsg:(id)arg2 openImlog:(id)arg3;
 - (void)onOpLogRet:(int)arg1 errMsg:(id)arg2 oplog:(id)arg3;
 - (BOOL)quitOpenIMGroupChatRoom:(id)arg1 sync:(BOOL)arg2;
 - (BOOL)addOpenIMChatRoomToContactBook:(id)arg1 inContactBook:(BOOL)arg2 sync:(BOOL)arg3;

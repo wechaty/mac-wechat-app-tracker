@@ -16,15 +16,19 @@
     unsigned int hasNetType:1;
     unsigned int hasOwnerGroupid:1;
     unsigned int hasToken:1;
+    unsigned int hasInviteId:1;
     unsigned int roomType;
     unsigned int netType;
     NSMutableArray *mutableCalleeListList;
     NSString *ownerGroupid;
     NSString *token;
+    unsigned long long inviteId;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetInviteId:) unsigned long long inviteId; // @synthesize inviteId;
+@property(readonly, nonatomic) BOOL hasInviteId; // @synthesize hasInviteId;
 @property(retain, nonatomic, setter=SetToken:) NSString *token; // @synthesize token;
 @property(readonly, nonatomic) BOOL hasToken; // @synthesize hasToken;
 @property(retain, nonatomic, setter=SetOwnerGroupid:) NSString *ownerGroupid; // @synthesize ownerGroupid;

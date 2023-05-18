@@ -18,9 +18,8 @@
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <RecordMessageHandlerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)messageWillBeRevoked:(id)arg1 revokeContext:(id)arg2;
 - (void)onUploadCDNRecordMsgModMsgByBitSet:(id)arg1 MsgWrap:(id)arg2 BitSet:(unsigned int)arg3;
-- (void)justSendAppMsg:(id)arg1 scene:(unsigned int)arg2;
-- (void)cancelUpload:(id)arg1;
 - (BOOL)IsMsgSending:(id)arg1;
 - (void)stopMsgUpload:(id)arg1;
 - (void)addMsgToSendQueue:(id)arg1 msgData:(id)arg2 scene:(unsigned int)arg3;

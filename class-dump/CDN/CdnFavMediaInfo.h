@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "CdnBaseMediaInfo.h"
+#import "MMCDNRecordDownloadTask.h"
 
-@interface CdnFavMediaInfo : CdnBaseMediaInfo
+@interface CdnFavMediaInfo : MMCDNRecordDownloadTask
 {
     BOOL _m_bStreamMedia;
     BOOL _m_bFromRetry;
@@ -14,6 +14,9 @@
 
 @property(nonatomic) BOOL m_bFromRetry; // @synthesize m_bFromRetry=_m_bFromRetry;
 @property(nonatomic) BOOL m_bStreamMedia; // @synthesize m_bStreamMedia=_m_bStreamMedia;
+- (void)OnCdnDownloadFinished:(id)arg1;
+- (void)cancel;
+- (void)resume;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

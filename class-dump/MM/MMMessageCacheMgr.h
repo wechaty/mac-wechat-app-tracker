@@ -46,8 +46,9 @@
 - (BOOL)isOriginImgAvailable:(id)arg1;
 - (void)thumbImageWithReaderMessage:(id)arg1 thumbUrl:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)thumbImageWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)originalImageWithMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)imageWithMessage:(id)arg1 imageType:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)thumbImageWithMessage:(id)arg1;
+- (id)middleImageWithMessage:(id)arg1;
 - (id)originalImageWithMessage:(id)arg1;
 - (void)removeCachedImageWithFilePath:(id)arg1 isThumbnail:(BOOL)arg2;
 - (id)cachedBubbleImageWithMessage:(id)arg1;

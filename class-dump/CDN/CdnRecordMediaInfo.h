@@ -39,7 +39,6 @@
 @property(nonatomic) unsigned int m_uiScene; // @synthesize m_uiScene=_m_uiScene;
 @property(retain, nonatomic) NSString *m_nsUsername; // @synthesize m_nsUsername=_m_nsUsername;
 @property(retain, nonatomic) NSString *m_nsThumbPath; // @synthesize m_nsThumbPath=_m_nsThumbPath;
-- (id)generateTaskInfo;
 - (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
 - (void)OnCdnDownloadFinished:(id)arg1;
 - (void)_startDownload;

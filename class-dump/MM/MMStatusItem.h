@@ -29,7 +29,6 @@
 @property(retain, nonatomic) NSStatusItem *statusItem; // @synthesize statusItem=_statusItem;
 @property(nonatomic) BOOL hidden; // @synthesize hidden=_hidden;
 - (void)friendRequestMgr:(id)arg1 didChangeFriendRequestUnreadCount:(unsigned long long)arg2;
-- (void)onSessionSynced;
 - (void)onSessionTotalUnreadCountChanged;
 - (void)clearUnreadCount;
 - (void)didClickStatusIcon:(id)arg1;

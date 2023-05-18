@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MessageData, NSString;
+@class MessageData, MessageTransferReportItem, NSString;
 @protocol MessageSenderDelegate;
 
 @interface MessageSender : NSObject
@@ -18,9 +18,11 @@
     BOOL m_didRetryForEmptyAeskey;
     BOOL m_uploadMediaOnly;
     id <MessageSenderDelegate> m_delegate;
+    MessageTransferReportItem *_reportItem;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MessageTransferReportItem *reportItem; // @synthesize reportItem=_reportItem;
 @property(nonatomic) __weak id <MessageSenderDelegate> delegate; // @synthesize delegate=m_delegate;
 @property(nonatomic) BOOL uploadMediaOnly; // @synthesize uploadMediaOnly=m_uploadMediaOnly;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=m_msgData;
@@ -29,9 +31,11 @@
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)retryUploadAndNoHitCheck;
 - (void)checkMd5:(id)arg1;
+- (BOOL)checkContinueSend:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (void)startSending;
-- (void)onCheckTpMediaMd5Fail;
+- (id)init;
+- (void)onCheckTpMediaMd5Finish:(BOOL)arg1;
 - (void)onCheckTpMediaMd5Success:(id)arg1 aesKey:(id)arg2;
 - (void)checkTpMediaMd5:(id)arg1;
 

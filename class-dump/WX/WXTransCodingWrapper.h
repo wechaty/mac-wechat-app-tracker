@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "AccountServiceExt-Protocol.h"
+
 @class NSMutableSet, NSRecursiveLock, NSString;
 
-@interface WXTransCodingWrapper : NSObject
+@interface WXTransCodingWrapper : NSObject <AccountServiceExt>
 {
     BOOL _transcodingInProgress;
     NSMutableSet *_inQueueVideos;
@@ -31,6 +33,8 @@
 @property BOOL transcodingInProgress; // @synthesize transcodingInProgress=_transcodingInProgress;
 - (BOOL)isMediaBeingTranscoded:(id)arg1;
 - (BOOL)isMediaInTranscodingQueue:(id)arg1;
+- (void)cancelTask:(id)arg1;
+- (void)cancelAllTask;
 - (int)getImageN:(id)arg1 dstJPEG:(id)arg2 r:(int)arg3 n:(int)arg4;
 - (int)calcNewMD5:(id)arg1 pMD5:(char *)arg2;
 - (int)moovSwap:(id)arg1 out_:(id)arg2 pMD5:(char *)arg3;
@@ -38,7 +42,15 @@
 - (int)transcode:(id)arg1 dstMP4:(id)arg2 inPara:(struct WxVideoTransPara *)arg3 format:(unsigned long long)arg4 notifyProcessBegin:(CDUnknownBlockType)arg5;
 - (int)transcode:(id)arg1 dstMP4:(id)arg2 inPara:(struct WxVideoTransPara *)arg3 format:(unsigned long long)arg4;
 - (int)modiVideoPara:(struct WxVideoTransPara *)arg1 inPara:(struct WxVideoTransPara *)arg2 maxWH:(int)arg3 maxKbps:(int)arg4 maxFps:(int)arg5;
+- (void)onUserLogout;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

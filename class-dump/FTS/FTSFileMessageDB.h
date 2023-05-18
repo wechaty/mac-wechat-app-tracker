@@ -30,6 +30,8 @@
 - (id)getRecentFileListWithLastMsg:(id)arg1 limitCnt:(unsigned int)arg2;
 - (id)getAllFileListWithLastMsg:(id)arg1 sortType:(unsigned long long)arg2 limitCnt:(unsigned int)arg3;
 - (id)queryWithKeyword:(id)arg1;
+- (id)queryWithKeyword:(id)arg1 inChatName:(id)arg2;
+- (id)getNormalizeKeyword:(id)arg1;
 - (const void *)orderOfAscUpdateTimeAndCreateTimeAndMsgLocalId;
 - (const void *)orderOfDescUpdateTimeAndCreateTimeAndMsgLocalId;
 - (const void *)orderOfAscFileSizeAndCreateTimeAndMsgLocalId;

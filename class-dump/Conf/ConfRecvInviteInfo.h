@@ -11,31 +11,39 @@
 @interface ConfRecvInviteInfo : PBGeneratedMessage
 {
     unsigned int hasRoomid:1;
-    unsigned int hasCallerOpenid:1;
     unsigned int hasRoomType:1;
+    unsigned int hasMemberid:1;
+    unsigned int hasCallerOpenid:1;
+    unsigned int hasCallerUsername:1;
     unsigned int roomType;
+    unsigned int memberid;
     unsigned long long roomid;
     NSString *callerOpenid;
-    NSMutableArray *mutableCalleeOpenidsList;
+    NSString *callerUsername;
+    NSMutableArray *mutableUsernameListList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
-@property(nonatomic, setter=SetRoomType:) unsigned int roomType; // @synthesize roomType;
-@property(readonly, nonatomic) BOOL hasRoomType; // @synthesize hasRoomType;
-@property(retain, nonatomic) NSMutableArray *mutableCalleeOpenidsList; // @synthesize mutableCalleeOpenidsList;
+@property(retain, nonatomic) NSMutableArray *mutableUsernameListList; // @synthesize mutableUsernameListList;
+@property(retain, nonatomic, setter=SetCallerUsername:) NSString *callerUsername; // @synthesize callerUsername;
+@property(readonly, nonatomic) BOOL hasCallerUsername; // @synthesize hasCallerUsername;
 @property(retain, nonatomic, setter=SetCallerOpenid:) NSString *callerOpenid; // @synthesize callerOpenid;
 @property(readonly, nonatomic) BOOL hasCallerOpenid; // @synthesize hasCallerOpenid;
+@property(nonatomic, setter=SetMemberid:) unsigned int memberid; // @synthesize memberid;
+@property(readonly, nonatomic) BOOL hasMemberid; // @synthesize hasMemberid;
+@property(nonatomic, setter=SetRoomType:) unsigned int roomType; // @synthesize roomType;
+@property(readonly, nonatomic) BOOL hasRoomType; // @synthesize hasRoomType;
 @property(nonatomic, setter=SetRoomid:) unsigned long long roomid; // @synthesize roomid;
 @property(readonly, nonatomic) BOOL hasRoomid; // @synthesize hasRoomid;
-- (void)addCalleeOpenidsFromArray:(id)arg1;
-- (void)addCalleeOpenids:(id)arg1;
+- (void)addUsernameListFromArray:(id)arg1;
+- (void)addUsernameList:(id)arg1;
 - (id)mergeFromCodedInputStream:(id)arg1;
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
-@property(retain, nonatomic) NSMutableArray *calleeOpenids; // @dynamic calleeOpenids;
-- (id)calleeOpenidsList;
+@property(retain, nonatomic) NSMutableArray *usernameList; // @dynamic usernameList;
+- (id)usernameListList;
 - (id)init;
 
 @end

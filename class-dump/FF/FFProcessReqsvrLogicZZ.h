@@ -15,9 +15,13 @@
     id <MMMutiplySelectAnimationDelegate> _mutiplySelectAnimationDelegate;
 }
 
++ (BOOL)checkOverImageSizelimitWithMsg:(id)arg1 retPath:(id *)arg2;
++ (BOOL)checkOverImageSizelimitWithPath:(id)arg1;
++ (BOOL)checkOverImageSizelimitWithSize:(unsigned long long)arg1;
 + (unsigned int)getInputLimitGIFFileSize;
 + (unsigned int)getInputLimitVideoDuration;
 + (unsigned int)getInputLimitVideoSize;
++ (unsigned int)getDownloadLimitImageSize;
 + (unsigned int)getInputLimitImageSize;
 + (unsigned int)getInputLimitFileSize;
 + (BOOL)supportMergeForward:(id)arg1;
@@ -30,6 +34,7 @@
 + (id)filterUnCanForwardMessage:(id)arg1;
 + (id)filterUnuploadMessage:(id)arg1;
 + (id)filterUndownloadMessage:(id)arg1;
++ (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3 isSeparate:(BOOL)arg4 isToWeWork:(BOOL)arg5 mesLocalId:(unsigned int)arg6 sourceInfo:(id)arg7;
 + (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3 isSeparate:(BOOL)arg4 isToWeWork:(BOOL)arg5 mesLocalId:(unsigned int)arg6;
 + (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3;
 + (id)getFileWithURLType:(id)arg1;
@@ -46,20 +51,16 @@
 - (void)ForwardMessage:(id)arg1 toContacts:(id)arg2;
 - (void)SendWithMultipleSelectMsgList:(id)arg1 toContacts:(id)arg2 leavedMessage:(id)arg3;
 - (void)filterMessagesForMultipleSelection:(id)arg1 needMerge:(BOOL)arg2 toWeWork:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)sendImageMessageWithImageData:(id)arg1 imageInfo:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4;
-- (void)sendImageMessageWithImageData:(id)arg1 imageInfo:(id)arg2 leavedMessage:(id)arg3;
+- (void)sendImageMessageWithImageData:(id)arg1 imageInfo:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4 sourceInfo:(id)arg5;
 - (void)sendImageMessageWithImageData:(id)arg1 imageInfo:(id)arg2;
 - (void)sendImageMessageWithImage:(id)arg1;
-- (void)sendImageMessageWithFileUrl:(id)arg1 leavedMessage:(id)arg2 isToWeWork:(BOOL)arg3;
-- (void)sendImageMessageWithFileUrl:(id)arg1 leavedMessage:(id)arg2;
+- (void)sendImageMessageWithFileUrl:(id)arg1 leavedMessage:(id)arg2 isToWeWork:(BOOL)arg3 sourceInfo:(id)arg4;
 - (BOOL)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2 withSenderInfo:(id)arg3;
 - (BOOL)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2;
-- (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3 leavedMessage:(id)arg4 isToWeWork:(BOOL)arg5;
-- (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3 leavedMessage:(id)arg4;
+- (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3 leavedMessage:(id)arg4 isToWeWork:(BOOL)arg5 sourceInfo:(id)arg6;
 - (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3;
-- (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4;
+- (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4 sourceInfo:(id)arg5;
 - (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3;
-- (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2;
 - (void)sendMultiFilesWithURLs:(id)arg1 names:(id)arg2;
 
 @end

@@ -94,6 +94,7 @@
 - (id)windowInfoAtPostion:(struct CGPoint)arg1;
 - (void)mouseLocationDidUpdate:(struct CGPoint)arg1 needShowMagnifier:(BOOL)arg2;
 - (void)selectionDidChange;
+- (void)doQRCode:(id)arg1 complete:(CDUnknownBlockType)arg2;
 - (void)didConfirmSelection;
 - (BOOL)needSelectRect;
 - (void)setupMagnifierViewWithScreenImage:(id)arg1;

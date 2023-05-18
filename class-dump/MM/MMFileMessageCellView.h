@@ -98,7 +98,7 @@
 - (void)ReTransferFile;
 - (void)OnBatchExportStartDownloadingWithMessage:(id)arg1;
 - (void)onFileDidCancelUploadWithMessage:(id)arg1;
-- (void)onFileDidFinishUploadWithMessage:(id)arg1;
+- (void)onFileDidFinishUploadWithMessage:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onFileUploaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)onFileDidCancelDownloadWithMessage:(id)arg1;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;
@@ -120,6 +120,7 @@
 - (void)updateMessageLayer;
 - (BOOL)accessibilityPerformPress;
 - (id)accessibilityContent;
+- (void)layoutWaitingAccessories;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;
 - (void)_setupStateMachine;

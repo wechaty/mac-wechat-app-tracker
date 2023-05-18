@@ -12,6 +12,7 @@
 {
     BOOL _isForceWebView;
     BOOL _isH5JumpUrl;
+    BOOL _fromXweb;
     NSString *_urlString;
     MessageData *_message;
     ReaderWrap *_readerWrap;
@@ -27,6 +28,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL fromXweb; // @synthesize fromXweb=_fromXweb;
 @property(nonatomic) BOOL isH5JumpUrl; // @synthesize isH5JumpUrl=_isH5JumpUrl;
 @property(retain, nonatomic) WebTemplateItem *templateItem; // @synthesize templateItem=_templateItem;
 @property(nonatomic) unsigned long long colorScheme; // @synthesize colorScheme=_colorScheme;

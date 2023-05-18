@@ -9,25 +9,31 @@
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class CdnTaskInfo, NSString;
+@class CdnTaskInfo, NSData, NSString;
 
 @interface ImgMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate>
 {
     CdnTaskInfo *m_oCurTaskInfo;
     NSString *m_nsMsgMd5;
     unsigned int m_uMsgCrc32;
+    BOOL _needUpdateMid;
+    NSData *_originImgData;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSData *originImgData; // @synthesize originImgData=_originImgData;
+@property(nonatomic) BOOL needUpdateMid; // @synthesize needUpdateMid=_needUpdateMid;
+@property(retain, nonatomic) CdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)retryUploadAndNoHitCheck;
 - (void)OnCdnUpload:(id)arg1;
 - (void)OnCdnUploadProgress:(id)arg1;
+- (void)onSendOK;
+- (void)onSendFail;
 - (BOOL)sendUploadImgRequest:(id)arg1 fileExists:(BOOL)arg2;
 - (void)uploadSuccessByCDN:(id)arg1;
 - (void)uploadFailByCDN:(int)arg1;
-- (void)startUploadImg;
 - (void)startUploadImgByCDNWithHitCheck:(BOOL)arg1;
 - (void)startSending;
 - (void)dealloc;

@@ -22,6 +22,7 @@
 - (void)syncNewUnreadMessage;
 - (void)deleteMessageWithLocalMessageId:(unsigned int)arg1;
 - (void)setDataItemIgnoreWithFeedId:(id)arg1;
+- (id)getFeedItem:(id)arg1;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;

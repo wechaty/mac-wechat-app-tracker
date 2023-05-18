@@ -12,7 +12,7 @@
 #import "MMService-Protocol.h"
 #import "SDWebImageManagerDelegate-Protocol.h"
 
-@class MMThreadSafeDictionary, NSMutableArray, NSRecursiveLock, NSString;
+@class MMHandoffItem, MMThreadSafeDictionary, NSMutableArray, NSRecursiveLock, NSString;
 
 @interface MMHandoffService : MMService <IMessageExt, MMCGIDelegate, IExptServiceExt, SDWebImageManagerDelegate, MMService>
 {
@@ -31,7 +31,7 @@
     NSMutableArray *_myItemList;
     NSString *_networkStatus;
     MMThreadSafeDictionary *_openedItemDic;
-    NSString *_preNotifyHandoff;
+    MMHandoffItem *_preNotifyHandoff;
     double _contentHeight;
     NSRecursiveLock *_lock;
 }
@@ -40,7 +40,7 @@
 @property(nonatomic) unsigned int lastTimeGetAllListForAfterWakeup; // @synthesize lastTimeGetAllListForAfterWakeup=_lastTimeGetAllListForAfterWakeup;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
 @property(nonatomic) double contentHeight; // @synthesize contentHeight=_contentHeight;
-@property(copy, nonatomic) NSString *preNotifyHandoff; // @synthesize preNotifyHandoff=_preNotifyHandoff;
+@property(retain, nonatomic) MMHandoffItem *preNotifyHandoff; // @synthesize preNotifyHandoff=_preNotifyHandoff;
 @property(nonatomic) BOOL isWaitingGetAll; // @synthesize isWaitingGetAll=_isWaitingGetAll;
 @property(retain, nonatomic) MMThreadSafeDictionary *openedItemDic; // @synthesize openedItemDic=_openedItemDic;
 @property(nonatomic) int currentHandoffWindowCount; // @synthesize currentHandoffWindowCount=_currentHandoffWindowCount;
@@ -55,6 +55,7 @@
 @property(nonatomic) BOOL bNeedRefreshFromMaster; // @synthesize bNeedRefreshFromMaster=_bNeedRefreshFromMaster;
 @property(nonatomic) long long seqNO2; // @synthesize seqNO2=_seqNO2;
 @property(nonatomic) long long seqNO; // @synthesize seqNO=_seqNO;
+- (void)openHandoffItem:(id)arg1 opFrom:(int)arg2;
 - (void)doAnimationWithIconImage:(id)arg1;
 - (void)onExptItemListChange;
 - (BOOL)canAddOrDeleteHandoff;

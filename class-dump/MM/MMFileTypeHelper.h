@@ -57,6 +57,9 @@
 - (unsigned long long)fileTypeWithFileExtension:(id)arg1;
 - (id)fileExtensionWithFileType:(unsigned long long)arg1;
 - (BOOL)isAudioFileWithFileExtension:(id)arg1;
+- (BOOL)isM4vFileWithFileExtension:(id)arg1;
+- (BOOL)isMp4FileWithFileExtension:(id)arg1;
+- (BOOL)isMovFileWithFileExtension:(id)arg1;
 - (BOOL)isVideoFileWithFileExtension:(id)arg1;
 - (BOOL)isImageFileWithFileExtension:(id)arg1;
 - (id)init;

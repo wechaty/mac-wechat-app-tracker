@@ -134,6 +134,7 @@
 - (void)updateCDNServerIP;
 - (void)reportLoginDevice;
 - (void)startFavSync;
+- (void)startSyncSessions;
 - (void)startSyncAndHeatbeat;
 - (void)updateBackupRecoverMenuItem;
 - (void)updateMainUI:(BOOL)arg1;
@@ -183,6 +184,7 @@
 - (void)registerExtensions;
 - (void)dealloc;
 - (id)init;
+- (void)activeGlobalKeyEvent;
 - (void)queryHardLinkData;
 - (void)resetHardLinkData;
 - (void)hiddenQRCodeOverlayerWindow;
@@ -248,6 +250,7 @@
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerRunloopException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_h5transferDebug:(id)arg1;
 - (void)_newRecordDownloadDebug:(id)arg1;
 - (void)_showOCRDebug:(id)arg1;
 - (void)_showFinderDebug:(id)arg1;
@@ -262,7 +265,6 @@
 - (void)_showAudioToolBox:(id)arg1;
 - (void)_showRecommendHome:(id)arg1;
 - (void)_showWebTemplateToolWindow:(id)arg1;
-- (void)_showLiveRoom:(id)arg1;
 - (void)_showConfigContent:(id)arg1;
 - (void)_showNewXExprData:(id)arg1;
 - (void)_showMiscOptions:(id)arg1;
@@ -320,7 +322,6 @@
 - (id)currentSelectedUserName;
 - (void)hideChatMemberListWithAnimated:(BOOL)arg1;
 - (void)stopVoicePlayWhenSelectionChange;
-- (void)orderFrontLiveWindow;
 - (void)orderFrontVoipWindow;
 - (void)backupRecoverChatlog:(id)arg1;
 - (void)orderFrontBackupWindow;

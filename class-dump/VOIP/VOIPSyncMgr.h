@@ -23,9 +23,11 @@
     NSMutableArray *mOplogList;
     NSRecursiveLock *mOplogLock;
     MMTimer *m_syncTimer;
+    unsigned long long mSendVoipSyncTime;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned long long mSendVoipSyncTime; // @synthesize mSendVoipSyncTime;
 @property(retain, nonatomic) MMTimer *m_syncTimer; // @synthesize m_syncTimer;
 @property(retain, nonatomic) NSRecursiveLock *mOplogLock; // @synthesize mOplogLock;
 @property(retain, nonatomic) NSMutableArray *mOplogList; // @synthesize mOplogList;

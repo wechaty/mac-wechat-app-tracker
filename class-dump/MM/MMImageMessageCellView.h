@@ -72,7 +72,7 @@
 - (void)resendMessage;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
-- (void)layoutAccessories;
+- (void)layoutErrorAccessories;
 - (BOOL)shouldResizeToIdealSizeWithDisplayImageSize:(struct CGSize)arg1 inDrawRect:(struct CGRect)arg2;
 - (void)updateImageFrame;
 - (void)updateGeometry;

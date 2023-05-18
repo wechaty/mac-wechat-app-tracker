@@ -15,9 +15,13 @@
 }
 
 - (void).cxx_destruct;
+- (void)updateOrderForKey:(id)arg1 index:(unsigned long long)arg2;
+- (void)sortOrderUsingComparator:(CDUnknownBlockType)arg1;
 - (void)setObjectAsLastObject:(id)arg1 forKey:(id)arg2;
 - (id)descriptionWithLocale:(id)arg1 indent:(unsigned long long)arg2;
+- (id)allKeysInOrder;
 - (id)lastKey;
+- (id)objectAtIndex:(unsigned long long)arg1;
 - (id)keyAtIndex:(unsigned long long)arg1;
 - (void)insertObject:(id)arg1 forKey:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)reverseKeyEnumerator;
@@ -30,6 +34,7 @@
 - (unsigned long long)count;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copy;
 - (void)dealloc;
 - (void)setupWithCapacity:(unsigned long long)arg1;

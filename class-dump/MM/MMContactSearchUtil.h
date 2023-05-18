@@ -14,6 +14,8 @@
 + (id)searchGroupMember:(id)arg1 inGroup:(id)arg2 withKeyWord:(id)arg3;
 + (id)searchGroupContact:(id)arg1 withKeyWord:(id)arg2;
 + (id)searchContact:(id)arg1 withKeyWord:(id)arg2;
++ (id)matchFieldValue:(int)arg1 inContact:(id)arg2 inGroup:(id)arg3;
++ (id)prefixStringFormatMatchType:(int)arg1;
 + (id)getComplexSearchRootDir;
 + (BOOL)isSearchableUsername:(id)arg1;
 + (int)rangeInString:(id)arg1 withKeyword:(id)arg2;

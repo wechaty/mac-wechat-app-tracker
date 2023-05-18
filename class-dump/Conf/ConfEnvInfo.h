@@ -29,6 +29,7 @@
     unsigned int hasImMode:1;
     unsigned int hasBrokenMode:1;
     unsigned int hasOneUpload:1;
+    unsigned int hasCloudProxy:1;
     unsigned int hasCpuCore:1;
     unsigned int hasCpuFreq:1;
     unsigned int hasCpuFlag:1;
@@ -60,6 +61,7 @@
     unsigned int imMode;
     unsigned int brokenMode;
     unsigned int oneUpload;
+    unsigned int cloudProxy;
     unsigned int cpuCore;
     unsigned int cpuFreq;
     unsigned int cpuFlag;
@@ -132,6 +134,8 @@
 @property(readonly, nonatomic) BOOL hasCpuFreq; // @synthesize hasCpuFreq;
 @property(nonatomic, setter=SetCpuCore:) unsigned int cpuCore; // @synthesize cpuCore;
 @property(readonly, nonatomic) BOOL hasCpuCore; // @synthesize hasCpuCore;
+@property(nonatomic, setter=SetCloudProxy:) unsigned int cloudProxy; // @synthesize cloudProxy;
+@property(readonly, nonatomic) BOOL hasCloudProxy; // @synthesize hasCloudProxy;
 @property(nonatomic, setter=SetOneUpload:) unsigned int oneUpload; // @synthesize oneUpload;
 @property(readonly, nonatomic) BOOL hasOneUpload; // @synthesize hasOneUpload;
 @property(nonatomic, setter=SetBrokenMode:) unsigned int brokenMode; // @synthesize brokenMode;

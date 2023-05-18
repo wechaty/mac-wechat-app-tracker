@@ -31,6 +31,8 @@
 + (struct Config)GetWxConfig;
 + (unsigned long long)getFileMaxSizeWithType:(int)arg1;
 + (id)GetCdnRootPath;
++ (id)GetPredownloadQuota;
++ (void)SetPredownloadQuota:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned int vcodec1Limit; // @synthesize vcodec1Limit=_vcodec1Limit;
@@ -83,8 +85,10 @@
 - (BOOL)RequestVideoDataByClientMediaID:(id)arg1 offset:(unsigned long long)arg2 length:(unsigned long long)arg3;
 - (BOOL)StartSNSDownloadWithTaskInfoWrap:(id)arg1;
 - (void)StopDownloadFavMedia:(id)arg1;
-- (BOOL)StrartDownloadFavMedia:(id)arg1 FromChatLog:(BOOL)arg2;
-- (BOOL)StrartDownloadFavMedia:(id)arg1;
+- (int)StrartDownloadFavMedia:(id)arg1 FromChatLog:(BOOL)arg2;
+- (int)StrartDownloadFavMedia:(id)arg1;
+- (BOOL)StrartDownloadCardImg:(id)arg1;
+- (BOOL)StartUploadCardImg:(id)arg1;
 - (void)StopDownloadGroupNoticeMedia:(id)arg1;
 - (int)StrartDownloadGroupNoticeData:(id)arg1;
 - (void)StopUploadGroupNoticeMedia:(id)arg1;
@@ -103,8 +107,6 @@
 - (BOOL)StartDownloadMedia:(void *)arg1 message:(id)arg2 type:(int)arg3;
 - (void)StopUploadComMedia:(id)arg1;
 - (BOOL)StartUploadComMedia:(id)arg1;
-- (id)GetPredownloadQuota;
-- (void)SetPredownloadQuota:(id)arg1;
 - (BOOL)StopDownloadComMedia:(id)arg1 CdnDownloadTaskInfo:(id)arg2;
 - (void)InitCdn;
 - (shared_ptr_67bd78cc)callback;

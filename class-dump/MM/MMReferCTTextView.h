@@ -35,6 +35,7 @@
 }
 
 + (struct CGSize)suggestedSizeWithAttributedString:(id)arg1 widthConstraint:(double)arg2;
++ (struct CGSize)suggestedSizeWithAttributedString:(id)arg1 widthConstraint:(double)arg2 lineSizes:(id *)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long scrollTime; // @synthesize scrollTime=_scrollTime;
 @property(nonatomic) struct CGPoint lastMousePosition; // @synthesize lastMousePosition=_lastMousePosition;

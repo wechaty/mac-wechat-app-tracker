@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MMThreadSafeArray, NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class MMThreadSafeArray, NSArray, NSMutableArray, NSMutableDictionary, NSString, WCContactData;
 
 @interface MMContactListLogic : NSObject
 {
@@ -15,11 +15,13 @@
     NSMutableArray *_displayedRows;
     NSArray *_allHeadings;
     BOOL _showsCountRow;
-    int _groupingMode;
     NSArray *_possibleContacts;
     NSString *_searchString;
+    unsigned long long _groupingMode;
     unsigned long long _groupingThreshold;
     MMThreadSafeArray *_mainContactList;
+    WCContactData *_groupContact;
+    NSString *_groupSearchString;
     NSMutableArray *_displayedAllRows;
     NSMutableDictionary *_dicOpenIMContacts;
     NSMutableArray *_openIMContactClassifyList;
@@ -30,12 +32,15 @@
 @property(retain, nonatomic) NSMutableArray *openIMContactClassifyList; // @synthesize openIMContactClassifyList=_openIMContactClassifyList;
 @property(retain, nonatomic) NSMutableDictionary *dicOpenIMContacts; // @synthesize dicOpenIMContacts=_dicOpenIMContacts;
 @property(retain, nonatomic) NSMutableArray *displayedAllRows; // @synthesize displayedAllRows=_displayedAllRows;
+@property(retain, nonatomic) NSString *groupSearchString; // @synthesize groupSearchString=_groupSearchString;
+@property(retain, nonatomic) WCContactData *groupContact; // @synthesize groupContact=_groupContact;
 @property(retain, nonatomic) MMThreadSafeArray *mainContactList; // @synthesize mainContactList=_mainContactList;
 @property(nonatomic) BOOL showsCountRow; // @synthesize showsCountRow=_showsCountRow;
 @property(nonatomic) unsigned long long groupingThreshold; // @synthesize groupingThreshold=_groupingThreshold;
-@property(nonatomic) int groupingMode; // @synthesize groupingMode=_groupingMode;
+@property(nonatomic) unsigned long long groupingMode; // @synthesize groupingMode=_groupingMode;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(retain, nonatomic) NSArray *possibleContacts; // @synthesize possibleContacts=_possibleContacts;
+- (void)_doSearchScopeInPossibleContacts;
 - (void)setOpenIMPossibleContacts:(id)arg1;
 - (void)filterOpenImContactViewContacts:(id)arg1;
 - (id)getFamilyNamePinYinShort:(id)arg1;

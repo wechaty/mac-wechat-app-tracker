@@ -67,7 +67,7 @@
 - (void)mouseDragged:(id)arg1;
 - (void)retry:(id)arg1;
 - (void)onVideoUploaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
-- (void)onVideoDidFinishUploadWithMessage:(id)arg1;
+- (void)onVideoDidFinishUploadWithMessage:(id)arg1 isSuccess:(BOOL)arg2;
 - (void)onVideoDidFailDownloadWithMessage:(id)arg1;
 - (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;

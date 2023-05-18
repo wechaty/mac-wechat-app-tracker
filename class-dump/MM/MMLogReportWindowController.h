@@ -18,7 +18,6 @@
     MMLogUploader *_uploader;
     NSProgressIndicator *_progressBar;
     unsigned long long _type;
-    NSTextField *_extraTextField;
     MMDatePickerInputView *_datePickerInputView;
     NSDate *_today;
     NSDateFormatter *_dateFormatter;
@@ -28,7 +27,6 @@
 @property(retain, nonatomic) NSDateFormatter *dateFormatter; // @synthesize dateFormatter=_dateFormatter;
 @property(retain, nonatomic) NSDate *today; // @synthesize today=_today;
 @property(nonatomic) __weak MMDatePickerInputView *datePickerInputView; // @synthesize datePickerInputView=_datePickerInputView;
-@property(nonatomic) __weak NSTextField *extraTextField; // @synthesize extraTextField=_extraTextField;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) BOOL didFinishedUpload; // @synthesize didFinishedUpload=_didFinishedUpload;
 @property(nonatomic) __weak NSProgressIndicator *progressBar; // @synthesize progressBar=_progressBar;

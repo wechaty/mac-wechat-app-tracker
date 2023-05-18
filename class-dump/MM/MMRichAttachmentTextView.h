@@ -119,6 +119,7 @@
 - (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (void)handleTextDidChangeNotification:(id)arg1;
+- (void)didChangeText;
 - (void)commitInit;
 - (id)initWithFrame:(struct CGRect)arg1 customTextStorage:(id)arg2;
 - (id)getNextParagraphsWithOrderBullet;

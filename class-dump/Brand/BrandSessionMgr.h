@@ -69,7 +69,7 @@
 - (void)onAddMsgListForSession:(id)arg1;
 - (void)onDeleteContacts:(id)arg1;
 - (void)onModifyContacts:(id)arg1;
-- (void)askSessionByUserName:(id)arg1 isHandled:(char *)arg2;
+- (void)askSessionByUserName:(id)arg1 scene:(unsigned long long)arg2 isHandled:(char *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

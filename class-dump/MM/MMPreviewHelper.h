@@ -10,12 +10,16 @@
 {
 }
 
++ (BOOL)shouldDownloadChatlogOriginImage:(id)arg1 dataFilePath:(id)arg2;
++ (BOOL)shouldDownloadMessageOriginImage:(id)arg1;
++ (id)getSizeStringWithSize:(unsigned long long)arg1;
 + (BOOL)isTouchPreviewThumbLimit:(struct CGSize)arg1;
 + (id)genPreviewThumbWithItem:(id)arg1 originData:(id)arg2;
 + (BOOL)isProportionalThumbSize:(struct CGSize)arg1 originalSize:(struct CGSize)arg2;
 + (BOOL)isPreviewLongImage:(struct CGSize)arg1;
 + (id)formatVideoTime:(double)arg1;
 + (struct CGSize)getVideoSizeOfVideoPath:(id)arg1;
++ (struct CGSize)getImageSizeOfImagePath:(id)arg1;
 + (struct CGSize)getVideoSizeOfPreviewItem:(id)arg1;
 + (BOOL)isChatImageDownloadFinished:(id)arg1;
 + (id)previewCloseAnimationImage:(id)arg1;

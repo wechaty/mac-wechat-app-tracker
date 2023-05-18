@@ -9,51 +9,61 @@
 #import "NSPopoverDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class ContactProfileKeyValue, MMButton, MMMediumDivider, MMTextField, NSPopover, NSString, NSTextField, NSView, SVGButton, WCContactData, _TtC6WeChat17SnsAlbumThumbView;
+@class CAGradientLayer, ContactProfileKeyValue, MMProfileKeyView, MMProfilePhoneTableView, MMProfileValueView, NSString, NSTrackingArea, NSView, SVGImageView, WCContactData, _TtC6WeChat17SnsAlbumThumbView;
 
 @interface MMProfileCellView : NSTableCellView <NSTextFieldDelegate, NSPopoverDelegate>
 {
-    BOOL _selected;
+    BOOL _hasHover;
+    MMProfilePhoneTableView *_phoneTableView;
     CDUnknownBlockType _didRemarkValueChange;
-    MMTextField *_keyLabel;
-    NSTextField *_valueLabel;
     double _maxKeyLableLength;
+    MMProfileKeyView *_keyView;
+    MMProfileValueView *_valueView;
     WCContactData *_myContact;
-    MMButton *_editBtn;
     ContactProfileKeyValue *_data;
-    SVGButton *_showMoreBtn;
-    NSPopover *_detailPopover;
-    MMMediumDivider *_divider;
-    MMMediumDivider *_bottomDivider;
-    NSView *_backgroundView;
     _TtC6WeChat17SnsAlbumThumbView *_thumbView;
+    NSView *_backgroundView;
+    SVGImageView *_hoverImgView;
+    CAGradientLayer *_readerTitleBackLayer;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) _TtC6WeChat17SnsAlbumThumbView *thumbView; // @synthesize thumbView=_thumbView;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
+@property(retain, nonatomic) CAGradientLayer *readerTitleBackLayer; // @synthesize readerTitleBackLayer=_readerTitleBackLayer;
+@property(retain, nonatomic) SVGImageView *hoverImgView; // @synthesize hoverImgView=_hoverImgView;
 @property(retain, nonatomic) NSView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(retain, nonatomic) MMMediumDivider *bottomDivider; // @synthesize bottomDivider=_bottomDivider;
-@property(retain, nonatomic) MMMediumDivider *divider; // @synthesize divider=_divider;
-@property(retain, nonatomic) NSPopover *detailPopover; // @synthesize detailPopover=_detailPopover;
-@property(retain, nonatomic) SVGButton *showMoreBtn; // @synthesize showMoreBtn=_showMoreBtn;
+@property(retain, nonatomic) _TtC6WeChat17SnsAlbumThumbView *thumbView; // @synthesize thumbView=_thumbView;
 @property(retain, nonatomic) ContactProfileKeyValue *data; // @synthesize data=_data;
-@property(retain, nonatomic) MMButton *editBtn; // @synthesize editBtn=_editBtn;
 @property(retain, nonatomic) WCContactData *myContact; // @synthesize myContact=_myContact;
+@property(retain, nonatomic) MMProfileValueView *valueView; // @synthesize valueView=_valueView;
+@property(retain, nonatomic) MMProfileKeyView *keyView; // @synthesize keyView=_keyView;
 @property(nonatomic) double maxKeyLableLength; // @synthesize maxKeyLableLength=_maxKeyLableLength;
-@property(retain, nonatomic) NSTextField *valueLabel; // @synthesize valueLabel=_valueLabel;
-@property(retain, nonatomic) MMTextField *keyLabel; // @synthesize keyLabel=_keyLabel;
 @property(copy, nonatomic) CDUnknownBlockType didRemarkValueChange; // @synthesize didRemarkValueChange=_didRemarkValueChange;
-@property(nonatomic) BOOL selected; // @synthesize selected=_selected;
-- (void)onDetailButtonClick;
+@property(nonatomic) BOOL hasHover; // @synthesize hasHover=_hasHover;
+@property(retain, nonatomic) MMProfilePhoneTableView *phoneTableView; // @synthesize phoneTableView=_phoneTableView;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDown:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)setupTrackingArea;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)controlTextDidChange:(id)arg1;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (void)controlTextDidBeginEditing:(id)arg1;
+- (id)fetchPopoverAttachmentView;
 - (void)remarkValueDidChange;
 - (id)getRemarkValue;
 - (BOOL)isRemarkLabelVisiable;
-- (void)updateUI:(id)arg1 withContact:(id)arg2;
+- (void)updateUI:(id)arg1 keyHeight:(double)arg2 valueHeight:(double)arg3 withContact:(id)arg4;
+- (void)updateHoverUI;
+- (void)updateValueViewUI:(double)arg1;
+- (void)updateKeyViewUI:(double)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)initUI;
 - (void)prepareForReuse;
+- (void)dealloc;
+- (void)resizeSubviewsWithOldSize:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 withMaxLength:(double)arg2;
 
 // Remaining properties

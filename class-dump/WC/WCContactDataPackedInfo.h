@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
-@class NSString, SubscriptBrandInfo;
+@class NSArray, NSString, SubscriptBrandInfo;
 
-@interface WCContactDataPackedInfo : NSObject <PBCoding, WCTColumnCoding>
+@interface WCContactDataPackedInfo : NSObject <PBCoding, WCTColumnCoding, NSCopying>
 {
     BOOL m_isShowRedDot;
     unsigned int m_uiChatState;
@@ -56,11 +57,15 @@
     unsigned long long m_uiChatRoomDescTime;
     NSString *m_nsChatRoomDescModer;
     unsigned long long m_hasClosedDescTime;
+    NSArray *m_arrCardItem;
+    NSArray *m_arrPhoneItem;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_arrPhoneItem;
++ (void)PBArrayAdd_m_arrCardItem;
 + (void)PBArrayAdd_m_hasClosedDescTime;
 + (void)PBArrayAdd_m_nsChatRoomDescModer;
 + (void)PBArrayAdd_m_uiChatRoomDescTime;
@@ -105,6 +110,8 @@
 + (void)PBArrayAdd_m_uiExtKey;
 + (void)PBArrayAdd_m_uiChatState;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem;
+@property(retain, nonatomic) NSArray *m_arrCardItem; // @synthesize m_arrCardItem;
 @property(nonatomic) unsigned long long m_hasClosedDescTime; // @synthesize m_hasClosedDescTime;
 @property(retain, nonatomic) NSString *m_nsChatRoomDescModer; // @synthesize m_nsChatRoomDescModer;
 @property(nonatomic) unsigned long long m_uiChatRoomDescTime; // @synthesize m_uiChatRoomDescTime;
