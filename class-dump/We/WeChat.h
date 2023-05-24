@@ -316,7 +316,7 @@
 - (void)goToPreviousChat:(id)arg1;
 - (void)goToNextChat:(id)arg1;
 - (void)goToNextUnreadChat:(id)arg1;
-- (void)closeSearchViewIfNeeded;
+- (BOOL)closeSearchViewIfNeeded;
 - (id)currentChatListViewController;
 - (long long)chatLastSelectedRow;
 - (id)currentSelectedUserName;
