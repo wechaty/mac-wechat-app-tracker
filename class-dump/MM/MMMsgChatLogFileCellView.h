@@ -19,6 +19,8 @@
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)contextMenuEdit;
+- (BOOL)allowEdit;
 - (void)openFile;
 - (void)layoutFileContentView;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;

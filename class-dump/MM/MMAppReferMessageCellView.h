@@ -112,8 +112,7 @@
 - (void)contextMenuHideTranslation;
 - (void)contextMenuTranslate;
 - (id)textView:(id)arg1 menu:(id)arg2 forEvent:(id)arg3 atIndex:(unsigned long long)arg4;
-- (void)contextMenuOpenWithDefaultBrowser;
-- (void)contextMenuOpenInWebview;
+- (id)getURLString;
 - (id)contentForSharing;
 - (id)getSection1MenuItem;
 - (id)getSection0MenuItem;

@@ -68,12 +68,18 @@
 - (id)originalFileName;
 - (id)originalFilePath;
 - (void)contextMenuSearch;
+- (id)buildExtraData;
+- (void)openBrowser:(id)arg1 webviewSelected:(unsigned int)arg2;
+- (void)openDefaultBrowser:(id)arg1;
+- (void)openInnerBrowser:(id)arg1 forceWebView:(BOOL)arg2;
 - (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebView;
 - (void)contextMenuExport;
 - (void)contextMenuFavorites;
 - (void)contextMenuForward;
 - (void)contextMenuCopy;
+- (void)contextMenuShowAttrInfo;
+- (void)contextMenuEdit;
 - (BOOL)allowSearch;
 - (BOOL)allowExport;
 - (BOOL)allowAddToFavorites;
@@ -81,6 +87,7 @@
 - (BOOL)allowOpenInWebView;
 - (BOOL)allowCopy;
 - (BOOL)allowsContextMenuPlugIns;
+- (BOOL)allowEdit;
 - (id)contextMenu;
 - (struct CGRect)clickableArea;
 - (id)menuForEvent:(id)arg1;

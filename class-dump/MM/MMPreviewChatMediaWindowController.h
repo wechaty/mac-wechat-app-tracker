@@ -40,6 +40,7 @@
 - (void)setupPageController;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
+- (void)showTextToastWithHead:(BOOL)arg1;
 - (void)preLoadImageToCache;
 - (void)_updatePreviewList;
 - (void)_initPreviewList;

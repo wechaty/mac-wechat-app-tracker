@@ -16,10 +16,11 @@
 #import "MessageBatchExportMgrExt-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
+#import "kMMAllowReferInterface-Protocol.h"
 
 @class FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMBoxSelectionView, MMButton, MMChatCollectionViewController, MMChatFTSSearchLogic, MMChatManagerDataSource, MMMessageCellView, MMMessageScrollView, MMMessageTableItem, MMMouseEventView, MMMultiSelectView, MMOutlineButton, MMTableView, MMTextField, MMTimer, MMView, NSImageView, NSMutableArray, NSMutableDictionary, NSProgressIndicator, NSString, NSTextField, NSView, SVGButton, WCContactData;
 
-@interface MMChatManagerDetailViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, MMCollectionDelegate, MessageBatchExportMgrExt, MMMultiSelectViewDelegate, MMBoxSelectionViewDelegate>
+@interface MMChatManagerDetailViewController : MMTraitsViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, MMCollectionDelegate, MessageBatchExportMgrExt, MMMultiSelectViewDelegate, MMBoxSelectionViewDelegate, kMMAllowReferInterface>
 {
     BOOL _multiSelectionMode;
     unsigned char _isGlobalSearch;
@@ -272,6 +273,7 @@
 - (void)setupCollectionView;
 - (void)setupSearchResultTableView;
 - (void)setupTableView;
+- (id)currentContactData;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
 - (void)viewChangedEffectiveAppearance;

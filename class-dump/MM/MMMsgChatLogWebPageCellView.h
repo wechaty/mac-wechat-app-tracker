@@ -15,6 +15,7 @@
 }
 
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (id)getURLString;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;

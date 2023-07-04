@@ -30,6 +30,7 @@
 + (id)getUrlWithoutFragment:(id)arg1;
 + (BOOL)isA8KeyCGI:(int)arg1;
 + (int)getA8keyCgiCmdIDByUrl:(id)arg1;
++ (int)getA8keyCgiCmdIDByUrl:(id)arg1 reason:(unsigned int)arg2;
 + (BOOL)containsPhoneLinkString:(id)arg1;
 + (BOOL)containEmailString:(id)arg1;
 + (BOOL)containsMoaString:(id)arg1;
@@ -59,6 +60,7 @@
 - (id)getSharpTagKeyWord:(id)arg1;
 - (void)handleURL:(id)arg1 withExtraInfo:(id)arg2;
 - (void)openURL:(id)arg1 withA8KeyConfig:(id)arg2;
+- (void)getA8keyAndOpenURL:(id)arg1 withA8KeyConfig:(id)arg2;
 - (BOOL)_defaultOpenURL:(id)arg1;
 - (BOOL)openURLWithDefault:(id)arg1;
 - (BOOL)preHandleUrlStr:(id)arg1 withMessage:(id)arg2;

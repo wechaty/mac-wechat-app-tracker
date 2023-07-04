@@ -12,15 +12,19 @@
 
 @interface MMFavImageCacheService : MMService <MMService>
 {
-    MMCache *m_innerCache;
+    MMCache *_thumbSquareCache;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMCache *thumbSquareCache; // @synthesize thumbSquareCache=_thumbSquareCache;
+- (void)syncCreateImageForFavThumbRequest:(id)arg1 filePath:(id)arg2;
 - (void)asyncCreateImageForFavThumbRequest:(id)arg1 sourceImage:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)getFavCacheThumbImagePath:(id)arg1;
 - (id)cacheKeyWithFavThumbRequest:(id)arg1;
 - (void)removeCachedImageWithFavThumbRequest:(id)arg1;
 - (BOOL)hasCachedImageForFavThumbRequest:(id)arg1;
 - (id)retrieveImageForFavThumbRequest:(id)arg1;
+- (void)onServiceInit;
 - (id)init;
 
 // Remaining properties

@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, Passthrough, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, TmpNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMFileAttrInfo, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, Passthrough, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, TmpNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -48,6 +48,7 @@
     BOOL m_bIsMultiForwardMessage;
     BOOL m_shouldReloadOriginal;
     BOOL m_bHasOriginalMessage;
+    BOOL _canExportMidImage;
     unsigned int IntRes1;
     unsigned int IntRes2;
     unsigned int m_uiFileUploadStatus;
@@ -85,6 +86,7 @@
     AlNode *_alnode;
     NSString *_m_historyTitleNew;
     ShareMsgNode *_shareMsgNode;
+    MMFileAttrInfo *_fileAttrInfo;
     MessageData *_referHostMsg;
 }
 
@@ -160,6 +162,7 @@
 + (void)GetPathOfAppDir:(id)arg1 retStrPath:(id *)arg2;
 + (void)RegisterClsMethod_AppMsgPath;
 + (id)videoBlankThumbWithOriginVideoSize:(struct CGSize)arg1;
++ (id)convertWeAppFavItem2MsgWrap:(id)arg1 toUser:(id)arg2;
 + (id)convertWebVideoItem2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)checkSourcePathFileFromMsg:(id)arg1 withDataList:(id)arg2;
 + (id)convertNoteItem2MsgData:(id)arg1 toUser:(id)arg2;
@@ -169,6 +172,8 @@
 + (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
+@property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo=_fileAttrInfo;
+@property(nonatomic) BOOL canExportMidImage; // @synthesize canExportMidImage=_canExportMidImage;
 @property(nonatomic) unsigned int m_uiShareCardMessageStatus; // @synthesize m_uiShareCardMessageStatus=_m_uiShareCardMessageStatus;
 @property(retain, nonatomic) ShareMsgNode *shareMsgNode; // @synthesize shareMsgNode=_shareMsgNode;
 @property(retain, nonatomic) NSString *m_historyTitleNew; // @synthesize m_historyTitleNew=_m_historyTitleNew;
@@ -319,6 +324,7 @@
 - (void)setPasterDataProvider:(id)arg1;
 - (void)writeToPasteboardItem:(id)arg1;
 @property(nonatomic) unsigned long long readerWrapIndex;
+- (id)getFileAttrInfo;
 - (id)getMsgFilePredownloadInfo;
 - (void)UpdateContent:(id)arg1;
 - (BOOL)allowFavorite;
@@ -336,6 +342,7 @@
 - (long long)compareMessageAscending:(id)arg1;
 - (BOOL)canSaveToLocalPath;
 - (BOOL)canExport;
+- (BOOL)canBatchExport;
 - (BOOL)canSaveToFavorites;
 - (BOOL)canForward;
 - (BOOL)needContinueUpload;
@@ -352,7 +359,7 @@
 - (id)groupChatSenderDisplayName;
 - (id)referMsgSenderDisplayName;
 - (id)savingImageFileNameWithLocalID;
-- (id)savingImageFileNameWithCreateTime;
+- (id)savingImageFileName;
 - (id)savingImageFilePathWithMid:(char *)arg1;
 - (id)savingImageFilePath;
 - (id)originalImageFilePath;

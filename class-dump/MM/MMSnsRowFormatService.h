@@ -26,7 +26,7 @@
 - (void)openFeedLive:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
 - (void)openFinderFeed:(id)arg1 withTid:(id)arg2 reqTime:(unsigned int)arg3;
 - (void)openUrlWithUserComment:(id)arg1 withSnsDataItem:(id)arg2 withUrl:(id)arg3;
-- (void)openUrlWithDataItem:(id)arg1 withUrl:(id)arg2;
+- (void)openUrlWithDataItem:(id)arg1 withUrl:(id)arg2 webviewSelected:(unsigned int)arg3;
 - (void)openUrlWithDataItem:(id)arg1;
 - (void)hideContactProfile;
 - (void)showContactProfile:(id)arg1 aView:(id)arg2 positionRect:(struct CGRect)arg3;
@@ -46,6 +46,7 @@
 - (id)formatterNotificationFeedTextContent:(id)arg1;
 - (BOOL)isContainEmoji:(id)arg1;
 - (void)getAvatarImageWithUsername:(id)arg1 callBlackBlock:(CDUnknownBlockType)arg2;
+- (BOOL)shouldOverrideExternalLink;
 - (id)getSignature:(id)arg1;
 - (id)getSelfNickNameString;
 - (id)getSelfUserNameString;

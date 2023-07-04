@@ -140,6 +140,7 @@
 - (void)OnModGroupMemberContacts_Thread:(id)arg1;
 - (void)OnModGroupContacts_Thread:(id)arg1 updateBrief:(BOOL)arg2;
 - (void)OnModGroupContacts_Thread:(id)arg1;
+- (void)buildFaildReport:(unsigned long long)arg1 dataCount:(unsigned long long)arg2;
 - (void)executeUpdateUGRDB:(id)arg1;
 - (void)checkUpdateUGRQueue;
 - (void)addUpdateUGRDataTask:(id)arg1 dbGroupMemberList:(id)arg2 modGroupMemberList:(id)arg3;
@@ -151,6 +152,7 @@
 - (void)buildUGRTable:(id)arg1;
 - (BOOL)UpdateGroupMember:(id)arg1 propertyDict:(id)arg2;
 - (BOOL)UpdateGroupMemberFlag:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
+- (void)handleModifyGroupChatOplogRet:(int)arg1 groupName:(id)arg2;
 - (void)realQuitGroupHandle:(BOOL)arg1 errMsg:(id)arg2 groupName:(id)arg3;
 - (void)onOpenImOplogRet:(int)arg1 errMsg:(id)arg2 openImlog:(id)arg3;
 - (void)onOpLogRet:(int)arg1 errMsg:(id)arg2 oplog:(id)arg3;

@@ -51,7 +51,6 @@
 - (BOOL)isLargeFileForForward:(id)arg1;
 - (BOOL)isLargeFileForFavOrRecord:(id)arg1;
 - (unsigned long long)getMulitSelectMaxCount;
-- (unsigned long long)getShareChatRoomMemberMaxCount;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)destroy;

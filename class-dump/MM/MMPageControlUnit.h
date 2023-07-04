@@ -6,7 +6,7 @@
 
 #import "MMView.h"
 
-@class NSColor;
+@class NSColor, SVGImageView;
 
 @interface MMPageControlUnit : MMView
 {
@@ -15,9 +15,11 @@
     NSColor *_ordinaryColor;
     CDUnknownBlockType _mouseUpEventBlock;
     unsigned long long _index;
+    SVGImageView *_dotImg;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) SVGImageView *dotImg; // @synthesize dotImg=_dotImg;
 @property(nonatomic) BOOL selected; // @synthesize selected=_selected;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(copy, nonatomic) CDUnknownBlockType mouseUpEventBlock; // @synthesize mouseUpEventBlock=_mouseUpEventBlock;

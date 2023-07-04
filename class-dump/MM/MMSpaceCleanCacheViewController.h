@@ -6,14 +6,16 @@
 
 #import "MMViewController.h"
 
-@class MMView, NSButton, NSMutableDictionary, NSTextField;
+#import "NSTextViewDelegate-Protocol.h"
 
-@interface MMSpaceCleanCacheViewController : MMViewController
+@class MMTextView, MMView, NSButton, NSMutableDictionary, NSString, NSTextField;
+
+@interface MMSpaceCleanCacheViewController : MMViewController <NSTextViewDelegate>
 {
     BOOL _needReloadData;
     NSTextField *_wechatSpaceLabel;
     NSTextField *_totalSizeLabel;
-    NSTextField *_totalSizeDescLabel;
+    MMTextView *_totalSizeDescLabel;
     MMView *_rateBarContainerView;
     MMView *_rateBarView;
     MMView *_wechatRateBarView;
@@ -53,7 +55,7 @@
 @property(retain, nonatomic) MMView *wechatRateBarView; // @synthesize wechatRateBarView=_wechatRateBarView;
 @property(retain, nonatomic) MMView *rateBarView; // @synthesize rateBarView=_rateBarView;
 @property(nonatomic) __weak MMView *rateBarContainerView; // @synthesize rateBarContainerView=_rateBarContainerView;
-@property(nonatomic) __weak NSTextField *totalSizeDescLabel; // @synthesize totalSizeDescLabel=_totalSizeDescLabel;
+@property(nonatomic) __weak MMTextView *totalSizeDescLabel; // @synthesize totalSizeDescLabel=_totalSizeDescLabel;
 @property(nonatomic) __weak NSTextField *totalSizeLabel; // @synthesize totalSizeLabel=_totalSizeLabel;
 @property(nonatomic) __weak NSTextField *wechatSpaceLabel; // @synthesize wechatSpaceLabel=_wechatSpaceLabel;
 @property(nonatomic) BOOL needReloadData; // @synthesize needReloadData=_needReloadData;
@@ -68,6 +70,11 @@
 - (void)computeAllSpaceSizes;
 - (void)forceRecomputeSpaceSizes;
 - (void)updateTotalSizeLabel;
+- (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)layoutAltTotalSizeDescLabel;
+- (void)layoutBaseTotalSizeDescLabel;
+- (id)linkTextAttribute;
+- (id)baseTextAttribute;
 - (void)drawRateBar;
 - (void)updateSpaceRates;
 - (void)setupRateBarContainerView;
@@ -76,6 +83,12 @@
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

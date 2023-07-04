@@ -52,7 +52,6 @@
     unsigned long long _previewSubScene;
     NSView *_failedBgView;
     NSView *_failedImageViewContainer;
-    NSImageView *_failedContrastView;
     NSImageView *_failedImageView;
     NSTextField *_errMsgLabel;
     NSView *_toolBarBgContainer;
@@ -135,7 +134,6 @@
 @property(retain, nonatomic) NSView *toolBarBgContainer; // @synthesize toolBarBgContainer=_toolBarBgContainer;
 @property(retain, nonatomic) NSTextField *errMsgLabel; // @synthesize errMsgLabel=_errMsgLabel;
 @property(retain, nonatomic) NSImageView *failedImageView; // @synthesize failedImageView=_failedImageView;
-@property(retain, nonatomic) NSImageView *failedContrastView; // @synthesize failedContrastView=_failedContrastView;
 @property(retain, nonatomic) NSView *failedImageViewContainer; // @synthesize failedImageViewContainer=_failedImageViewContainer;
 @property(retain, nonatomic) NSView *failedBgView; // @synthesize failedBgView=_failedBgView;
 @property(nonatomic) BOOL isShowWindowResize; // @synthesize isShowWindowResize=_isShowWindowResize;

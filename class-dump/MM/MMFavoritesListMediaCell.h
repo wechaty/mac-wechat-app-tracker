@@ -48,6 +48,10 @@
 - (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)getTextTitleExtrAttrs:(id)arg1;
+- (void)layoutWeAppStyleTitleTextView;
+- (void)layoutThumbnailImage;
+- (void)layoutWeAppStyle;
 - (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)layoutLinkStyleDescriptionTextView:(id)arg1;
 - (id)favItemDescriptionString;

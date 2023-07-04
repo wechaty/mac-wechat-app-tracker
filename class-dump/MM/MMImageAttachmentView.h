@@ -7,14 +7,14 @@
 #import "MMAttachmentReusableView.h"
 
 #import "GroupNoticeDownloadExt-Protocol.h"
-#import "IMMFavFileDataMgrExt-Protocol.h"
 #import "IMMFavRecordDownloadMgrExt-Protocol.h"
 #import "IMMNewRecordDownloadServiceExt-Protocol.h"
+#import "MMFavImageCacheServiceExt-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
 @class MMImageView, NSImage, NSString;
 
-@interface MMImageAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMNewRecordDownloadServiceExt, IMMFavFileDataMgrExt, GroupNoticeDownloadExt, NSMenuDelegate>
+@interface MMImageAttachmentView : MMAttachmentReusableView <IMMFavRecordDownloadMgrExt, IMMNewRecordDownloadServiceExt, GroupNoticeDownloadExt, MMFavImageCacheServiceExt, NSMenuDelegate>
 {
     NSImage *_displayImage;
     MMImageView *_imageView;
@@ -27,9 +27,9 @@
 - (id)menuForEvent:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
-- (void)onMidImageGenerated:(id)arg1 paraInfo:(id)arg2;
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (void)onFavImageCacheLoaded:(id)arg1 image:(id)arg2;
 - (void)reloadImage;
 - (void)setAttachmentCell:(id)arg1;
 - (void)setupSubView;

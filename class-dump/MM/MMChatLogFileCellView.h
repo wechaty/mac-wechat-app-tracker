@@ -6,9 +6,11 @@
 
 #import "MMChatLogBaseCellView.h"
 
+#import "IMMFileAttrInfoExt-Protocol.h"
+
 @class CAShapeLayer, MMCircularProgressView, MMTextField, MessageData, NSImageView, NSString, NSTextField, NSView;
 
-@interface MMChatLogFileCellView : MMChatLogBaseCellView
+@interface MMChatLogFileCellView : MMChatLogBaseCellView <IMMFileAttrInfoExt>
 {
     BOOL _isShouldOpenOnDownloadFinish;
     BOOL _isExpired;
@@ -17,6 +19,7 @@
     NSImageView *_thumbnailImageView;
     MMTextField *_fileDescriptionTextView;
     MMTextField *_fileSizeTextView;
+    MMTextField *_fileAttrInfoLabel;
     NSTextField *_detailTextField;
     MMCircularProgressView *_progressView;
     NSView *_progressContainerView;
@@ -41,6 +44,7 @@
 @property(retain, nonatomic) NSView *progressContainerView; // @synthesize progressContainerView=_progressContainerView;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) NSTextField *detailTextField; // @synthesize detailTextField=_detailTextField;
+@property(retain, nonatomic) MMTextField *fileAttrInfoLabel; // @synthesize fileAttrInfoLabel=_fileAttrInfoLabel;
 @property(retain, nonatomic) MMTextField *fileSizeTextView; // @synthesize fileSizeTextView=_fileSizeTextView;
 @property(retain, nonatomic) MMTextField *fileDescriptionTextView; // @synthesize fileDescriptionTextView=_fileDescriptionTextView;
 @property(retain, nonatomic) NSImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
@@ -48,6 +52,7 @@
 - (void)downloadData;
 - (void)openFile;
 - (void)layoutFileContentView;
+- (void)layoutFileAttrInfoIfNeeded;
 - (void)layoutFileSizeTextView;
 - (void)layoutFileDescriptionTextView;
 - (void)layoutThumbnailImage;
@@ -56,15 +61,25 @@
 - (id)getFileSize;
 - (id)getTitle;
 - (void)contextMenuCopy;
+- (void)contextMenuShowAttrInfo;
 - (id)originalFilePath;
 - (BOOL)allowExport;
 - (BOOL)allowAddToFavorites;
 - (BOOL)allowForward;
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
+- (void)onChatlogFileAttrInfoUpdated:(id)arg1;
+- (void)checkChatlogFileAttrInfo;
+- (void)dealloc;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -25,6 +25,7 @@
 @property(nonatomic) unsigned long long scene; // @synthesize scene=_scene;
 @property(nonatomic) unsigned int lastMesLocalID; // @synthesize lastMesLocalID=_lastMesLocalID;
 @property(retain, nonatomic) NSString *nsChatName; // @synthesize nsChatName=_nsChatName;
+- (id)description;
 
 @end
 

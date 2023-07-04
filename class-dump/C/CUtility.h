@@ -62,7 +62,9 @@
 + (void)updateDiffServerTime:(int)arg1;
 + (id)getAppNameOfPreview;
 + (BOOL)isGIFFile:(id)arg1;
++ (void)selectFile:(id)arg1 rootPath:(id)arg2 writable:(BOOL)arg3;
 + (void)selectFile:(id)arg1 rootPath:(id)arg2;
++ (id)getAppPathCanOpenFile:(id)arg1;
 + (id)getAppNameCanOpenFile:(id)arg1;
 + (BOOL)isValidWeChatID:(id)arg1;
 + (BOOL)isNumber:(id)arg1;
@@ -88,6 +90,7 @@
 + (void)doNotBackupNsIDPath;
 + (id)GetUUID;
 + (id)GetRandomUUID;
++ (id)GetStringDeviceId;
 + (id)GetHashDeviceId;
 + (id)GetDeviceId;
 + (id)GetDeviceType;
@@ -158,6 +161,7 @@
 + (BOOL)IsWeiXinMsgContact:(id)arg1;
 + (id)PreHandleUserName:(id)arg1;
 + (unsigned int)GetChatNameType:(id)arg1;
++ (void)kernelRemoveContacts;
 + (void)kernelRemoveAccountRelateService;
 + (void)kernelLazyRegisterExtensionLister;
 + (void)kernelRegisterClsMethod;

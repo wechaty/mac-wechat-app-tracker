@@ -76,6 +76,7 @@
 + (id)getContactAutoUpdateDataOldPath;
 + (id)getContactAutoCheckDataPath;
 + (id)getContactAutoUpdateDataPath;
++ (id)getReadWriteTempFilePath:(id)arg1;
 + (id)getHardLinkTempFilePath:(id)arg1;
 + (id)getHardLinkTempFilePathWithDefault;
 + (id)getHardLinkDBPath;
@@ -144,7 +145,7 @@
 + (id)getUniqueMsgAudioPath:(id)arg1;
 + (id)getMsgAudioPath:(id)arg1;
 + (id)getMsgAudioDir:(id)arg1;
-+ (id)getExportImageExtWithDataFmt:(id)arg1;
++ (BOOL)isImageDataFmtFromPhone:(id)arg1;
 + (id)getMsgTmpHDImgPath:(id)arg1 localId:(unsigned int)arg2;
 + (id)getMsgTmpImgThumbPathWithMessage:(id)arg1;
 + (id)getMsgTmpImgPath:(id)arg1 localId:(unsigned int)arg2;
@@ -207,6 +208,7 @@
 + (id)webPageItemImageHttpDownloadFileName:(id)arg1;
 + (id)webPageItemImageHttpDownloadPath:(id)arg1;
 + (id)favoritesDisplayOptimizedThumbnailsCachePath;
++ (id)favoritesOldDataPathWithFavItemData:(id)arg1;
 + (id)favoritesDataPathWithFavItemData:(id)arg1;
 + (id)favoritesDataFolder;
 + (id)favoritesTpDownloadedThumbnailPathWithFavItemData:(id)arg1;

@@ -11,7 +11,7 @@
 #import "ExchangeEmoticonPackCgiDelegate-Protocol.h"
 #import "GetEmotionFavMD5ListCGIDelegate-Protocol.h"
 
-@class EmoticonOperateCGI, EmoticonUploadCGI, ExchangeEmoticonPackCgi, GetEmotionFavMD5ListCGI, MMTimer, MessageData, NSMutableArray, NSString;
+@class EmoticonOperateCGI, EmoticonUploadCGI, ExchangeEmoticonPackCgi, GetEmotionFavMD5ListCGI, MMThreadSafeArray, MMTimer, MessageData, NSString;
 @protocol MMEmoticonFavoriteMgrLogicDelegate, ToastViewDelegate;
 
 @interface MMFavoriteEmoticonMgrLogic : MMBaseEmoticonMgrLogic <GetEmotionFavMD5ListCGIDelegate, EmoticonUploadCGIDelegate, EmoticonOperateCGIDelegate, ExchangeEmoticonPackCgiDelegate>
@@ -20,9 +20,9 @@
     id <ToastViewDelegate> _toastViewDelegate;
     MMTimer *_downloadTimer;
     GetEmotionFavMD5ListCGI *_getEmotionFavMD5ListCGI;
-    NSMutableArray *_uploadQueue;
+    MMThreadSafeArray *_uploadQueue;
     EmoticonUploadCGI *_emoticonUploadCGI;
-    NSMutableArray *_operateQueue;
+    MMThreadSafeArray *_operateQueue;
     EmoticonOperateCGI *_emoticonOperateCGI;
     MessageData *_emoticonMessage;
     ExchangeEmoticonPackCgi *_exchangeEmoticonPackCgi;
@@ -32,9 +32,9 @@
 @property(retain, nonatomic) ExchangeEmoticonPackCgi *exchangeEmoticonPackCgi; // @synthesize exchangeEmoticonPackCgi=_exchangeEmoticonPackCgi;
 @property(retain, nonatomic) MessageData *emoticonMessage; // @synthesize emoticonMessage=_emoticonMessage;
 @property(retain, nonatomic) EmoticonOperateCGI *emoticonOperateCGI; // @synthesize emoticonOperateCGI=_emoticonOperateCGI;
-@property(retain, nonatomic) NSMutableArray *operateQueue; // @synthesize operateQueue=_operateQueue;
+@property(retain, nonatomic) MMThreadSafeArray *operateQueue; // @synthesize operateQueue=_operateQueue;
 @property(retain, nonatomic) EmoticonUploadCGI *emoticonUploadCGI; // @synthesize emoticonUploadCGI=_emoticonUploadCGI;
-@property(retain, nonatomic) NSMutableArray *uploadQueue; // @synthesize uploadQueue=_uploadQueue;
+@property(retain, nonatomic) MMThreadSafeArray *uploadQueue; // @synthesize uploadQueue=_uploadQueue;
 @property(retain, nonatomic) GetEmotionFavMD5ListCGI *getEmotionFavMD5ListCGI; // @synthesize getEmotionFavMD5ListCGI=_getEmotionFavMD5ListCGI;
 @property(retain, nonatomic) MMTimer *downloadTimer; // @synthesize downloadTimer=_downloadTimer;
 @property(nonatomic) __weak id <ToastViewDelegate> toastViewDelegate; // @synthesize toastViewDelegate=_toastViewDelegate;
@@ -47,7 +47,7 @@
 - (void)addExchangedEmoticon:(id)arg1;
 - (void)addFavEmoticon:(id)arg1;
 - (void)EmoticonOperateCGIDidFailed:(id)arg1 md5List:(id)arg2;
-- (void)EmoticonOperateCGIDidFinished:(id)arg1 needUploadMD5List:(id)arg2;
+- (void)EmoticonOperateCGIDidFinished:(id)arg1 needUploadMD5List:(id)arg2 md5List:(id)arg3;
 - (void)startOperateNextTask;
 - (void)emoticonDidFailedUpload:(id)arg1 md5:(id)arg2;
 - (void)emoticonDidFinishedUpload:(id)arg1 md5:(id)arg2;

@@ -14,14 +14,12 @@
 {
 }
 
-+ (id)sharedInstance;
 - (void)onUserLogout;
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)showWindow:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidLoad;
 - (void)loadWindow;
-- (void)destroy;
 - (void)dealloc;
 - (id)init;
 

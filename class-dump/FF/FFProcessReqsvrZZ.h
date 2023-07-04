@@ -59,6 +59,7 @@
     MMThreadSafeDictionary *_videoSilentDownloadAndUploadTasks;
     MMThreadSafeDictionary *_fileSilentDownloadAndUploadTasks;
     NSMutableDictionary *_fileDownloadedCallbacks;
+    NSRecursiveLock *_fileDownloadedCallbackLock;
     NSRecursiveLock *_cdnTaskLock;
     NSURLSession *_downloadMgr;
     MMThreadSafeDictionary *_downloadingReportItemSet;
@@ -78,6 +79,7 @@
 @property(retain, nonatomic) MMThreadSafeDictionary *downloadingReportItemSet; // @synthesize downloadingReportItemSet=_downloadingReportItemSet;
 @property(retain, nonatomic) NSURLSession *downloadMgr; // @synthesize downloadMgr=_downloadMgr;
 @property(retain, nonatomic) NSRecursiveLock *cdnTaskLock; // @synthesize cdnTaskLock=_cdnTaskLock;
+@property(retain, nonatomic) NSRecursiveLock *fileDownloadedCallbackLock; // @synthesize fileDownloadedCallbackLock=_fileDownloadedCallbackLock;
 @property(retain, nonatomic) NSMutableDictionary *fileDownloadedCallbacks; // @synthesize fileDownloadedCallbacks=_fileDownloadedCallbacks;
 @property(retain, nonatomic) MMThreadSafeDictionary *fileSilentDownloadAndUploadTasks; // @synthesize fileSilentDownloadAndUploadTasks=_fileSilentDownloadAndUploadTasks;
 @property(retain, nonatomic) MMThreadSafeDictionary *videoSilentDownloadAndUploadTasks; // @synthesize videoSilentDownloadAndUploadTasks=_videoSilentDownloadAndUploadTasks;
@@ -182,7 +184,6 @@
 - (void)processSysMsg:(id)arg1;
 - (void)processVoipInviteMsg:(id)arg1;
 - (void)processYoMsg:(id)arg1;
-- (void)processNewXMLMsg:(id)arg1 sessionMsgList:(id)arg2;
 - (void)onRevokeRoomHistory:(id)arg1;
 - (void)OnSyncBatchHistoryMsgs:(id)arg1 chatName:(id)arg2 historyId:(unsigned long long)arg3;
 - (void)addNewMsgToDBAndNotify:(id)arg1 sessionMsgList:(id)arg2 nsChatName:(id)arg3 msgDB:(id)arg4;
@@ -260,6 +261,7 @@
 - (void)CheckDownloadStatus:(id)arg1;
 - (void)CheckUploadStatus:(id)arg1;
 - (void)CheckReferMessageAsRevoked:(id)arg1 chatName:(id)arg2;
+- (void)CheckMessageFileAttrInfo:(id)arg1;
 - (id)ExistingSvrIdList:(id)arg1 chatName:(id)arg2;
 - (BOOL)IsSvrIdExists:(unsigned long long)arg1 chatName:(id)arg2;
 - (BOOL)IsLocalIdExists:(unsigned int)arg1 chatName:(id)arg2;
@@ -363,7 +365,10 @@
 - (void)_startDownloadFileWithMessage:(id)arg1 destinationPath:(id)arg2 signature:(id)arg3 fakeAeskey:(id)arg4 fakeSignature:(id)arg5 priorityInfo:(id)arg6 downloadType:(unsigned long long)arg7;
 - (void)downloadFileWithMessage:(id)arg1 chatName:(id)arg2 priorityInfo:(id)arg3 downloadType:(unsigned long long)arg4;
 - (void)downloadFileWithMessage:(id)arg1 chatName:(id)arg2;
-- (void)addFileDownloadedCallback:(CDUnknownBlockType)arg1 withMessage:(id)arg2;
+- (void)removeFileDownloadCallbacks:(id)arg1;
+- (void)addFileDownloadedCallback:(CDUnknownBlockType)arg1 failedCallback:(CDUnknownBlockType)arg2 withMessage:(id)arg3;
+- (id)fileDownloadFailedCallbackKey:(id)arg1;
+- (id)fileDownloadedCallbackKey:(id)arg1;
 - (void)onFileDownloadCancel:(id)arg1 downloadType:(unsigned long long)arg2;
 - (void)onFileDownloadFailed:(id)arg1 downloadType:(unsigned long long)arg2;
 - (void)onFileDownloadFinished:(id)arg1 downloadType:(unsigned long long)arg2;

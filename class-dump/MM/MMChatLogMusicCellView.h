@@ -15,6 +15,7 @@
 }
 
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (id)getURLString;
 - (void)layoutAppMsgMusicCellView;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentMessage:(id)arg2;

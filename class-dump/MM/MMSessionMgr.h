@@ -68,6 +68,7 @@
 - (void)onAddMsgListForSession:(id)arg1;
 - (void)onGetSessionListFromStatusNotify:(id)arg1 source:(int)arg2;
 - (void)processOnSyncSessionList:(id)arg1 source:(int)arg2;
+- (BOOL)shouldHandleSyncedSessionList:(int)arg1;
 - (void)processSpecialSessionInfo:(id)arg1;
 - (void)processBrandSessionHolderInfo:(id)arg1;
 - (void)processRecoverSessionArray:(id)arg1;
@@ -225,7 +226,7 @@
 - (void)hideSessionOfUser:(id)arg1;
 - (void)deleteMessage:(id)arg1;
 - (BOOL)isSessionHandled:(id)arg1 scene:(unsigned long long)arg2;
-- (id)filterValidSyncGroupChat:(id)arg1;
+- (id)filterValidSyncedSession:(id)arg1;
 - (BOOL)isValidSyncSession:(id)arg1;
 - (id)genSessionInfo:(id)arg1 withEnterTime:(unsigned int)arg2;
 - (id)genSessionInfo:(id)arg1 withAddMsg:(id)arg2;

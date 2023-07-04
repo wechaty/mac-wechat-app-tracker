@@ -15,6 +15,8 @@
 }
 
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
+- (id)getURLString;
+- (id)buildExtraData;
 - (void)layoutSubViews;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;

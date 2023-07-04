@@ -6,6 +6,7 @@
 
 #import "MMMessageCellView.h"
 
+#import "IMMFileAttrInfoExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "IMessageServiceFileExt-Protocol.h"
 #import "MMAppMgrDownloadMsgExt-Protocol.h"
@@ -13,7 +14,7 @@
 
 @class CAShapeLayer, MMCTTextView, MMLoadingIndicatorView, MMTextField, MMTimer, NSImageView, NSString, NSView, SVGImageView, TKStateMachine;
 
-@interface MMFileMessageCellView : MMMessageCellView <IMessageServiceFileExt, MessageBatchExportMgrExt, IMessageExt, MMAppMgrDownloadMsgExt>
+@interface MMFileMessageCellView : MMMessageCellView <IMessageServiceFileExt, MessageBatchExportMgrExt, IMessageExt, MMAppMgrDownloadMsgExt, IMMFileAttrInfoExt>
 {
     BOOL _isStartDownloadManully;
     BOOL _needAHighLight;
@@ -73,6 +74,7 @@
 - (void)contextMenuDownload;
 - (void)contextMenuForward;
 - (void)contextMenuExport;
+- (void)contextMenuEdit;
 - (void)contextMenuOpen;
 - (id)getSection2MenuItem;
 - (id)getSection1MenuItem;
@@ -91,6 +93,8 @@
 - (void)stopWait;
 - (void)pause;
 - (void)export:(id)arg1;
+- (void)realManualDownload:(id)arg1;
+- (void)realNonManualDownload:(id)arg1;
 - (void)startDownload;
 - (void)startAutoDownload;
 - (void)startManualDownload;
@@ -120,6 +124,8 @@
 - (void)updateMessageLayer;
 - (BOOL)accessibilityPerformPress;
 - (id)accessibilityContent;
+- (void)layoutFileAttrInfoIfNeeded;
+- (void)onMessageFileAttrInfoUpdated:(id)arg1;
 - (void)layoutWaitingAccessories;
 - (void)populateWithMessage:(id)arg1;
 - (void)prepareForReuse;

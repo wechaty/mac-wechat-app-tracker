@@ -159,6 +159,7 @@
 - (void)setMultipleControlViewHidden:(BOOL)arg1;
 - (void)exportFileItems:(id)arg1;
 - (void)openItem:(id)arg1;
+- (void)openURL:(id)arg1 webviewSelected:(unsigned int)arg2;
 - (void)_downloadSelectedFiles;
 - (void)_shareItems:(id)arg1;
 - (void)_actuallyDeleteItems:(id)arg1;
@@ -179,9 +180,10 @@
 - (void)draggingSession:(id)arg1 endedAtPoint:(struct CGPoint)arg2 operation:(unsigned long long)arg3;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (void)cellDragged:(id)arg1 dragEvent:(id)arg2 originalPosition:(struct CGPoint)arg3;
+- (void)_contextMenuShowItemInFinder:(id)arg1;
 - (void)_contextMenuMultipleSelect:(id)arg1;
 - (void)_contextMenuShowSourceDebugTool;
-- (void)_contextMenuShowInFinder:(id)arg1;
+- (void)_contextMenuShowNoteInFinder:(id)arg1;
 - (void)_contextMenuShowXML:(id)arg1;
 - (void)_contextMenuEditTag:(id)arg1;
 - (void)_contextMenuDelete:(id)arg1;
@@ -189,9 +191,12 @@
 - (void)_contextMenuMuteToPlay:(id)arg1;
 - (void)_contextMenuExport:(id)arg1;
 - (void)_contextMenuShare:(id)arg1;
+- (void)_contextMenuShowInFinder:(id)arg1;
 - (void)cellViewNeedsHeightRecalculated:(id)arg1;
 - (void)closedContextMenuFromCell:(id)arg1;
 - (void)openedContextMenuFromCell:(id)arg1;
+- (void)contextMenuOpenWithDefaultBrowser:(id)arg1;
+- (void)contextMenuOpenInWebview:(id)arg1;
 - (id)contextMenuForCell:(id)arg1 forEvent:(id)arg2;
 - (void)keyDown:(id)arg1;
 - (void)windowDidColsed:(id)arg1;

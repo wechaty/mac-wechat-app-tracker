@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CdnTaskInfo, NSArray, NSString;
+@class NSArray, NSString;
 
 @interface SNSCdnDownloadInfoWrap : NSObject
 {
@@ -23,14 +23,12 @@
     NSArray *_arryIP;
     NSString *_referUrl;
     unsigned long long _xorEncryKey;
-    CdnTaskInfo *_taskInfo;
     unsigned long long _m_ui64TaskCreateTime;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) int h264RecompressCloseFlag; // @synthesize h264RecompressCloseFlag=_h264RecompressCloseFlag;
 @property(nonatomic) unsigned long long m_ui64TaskCreateTime; // @synthesize m_ui64TaskCreateTime=_m_ui64TaskCreateTime;
-@property(retain, nonatomic) CdnTaskInfo *taskInfo; // @synthesize taskInfo=_taskInfo;
 @property(nonatomic) unsigned long long xorEncryKey; // @synthesize xorEncryKey=_xorEncryKey;
 @property(nonatomic) BOOL bUseXorEncrypt; // @synthesize bUseXorEncrypt=_bUseXorEncrypt;
 @property(nonatomic) unsigned int predownloadPercent; // @synthesize predownloadPercent=_predownloadPercent;

@@ -9,27 +9,30 @@
 #import "AccountServiceExt-Protocol.h"
 #import "MMPopTableViewDelegate-Protocol.h"
 
-@class MMImageView, MMOutlineButton, MMProgressView, MMView, NSArray, NSDictionary, NSString;
+@class MMImageView, MMOutlineButton, MMPopTableView, MMProgressView, MMThreadSafeDictionary, MMView, NSDictionary, NSString;
 
 @interface MMBatchExportWindow : NSWindowController <AccountServiceExt, MMPopTableViewDelegate>
 {
     MMImageView *_multiFileIcon;
     MMProgressView *_progressView;
     MMOutlineButton *_batchExportProgressLabel;
+    MMPopTableView *_exportFailedFilePopView;
     MMView *_whiteColorbgView;
-    NSArray *_failedMsgList;
+    MMThreadSafeDictionary *_failedMsgList;
     NSDictionary *_reasons;
     struct CGPoint _initialOriginPoint;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *reasons; // @synthesize reasons=_reasons;
-@property(retain, nonatomic) NSArray *failedMsgList; // @synthesize failedMsgList=_failedMsgList;
+@property(retain, nonatomic) MMThreadSafeDictionary *failedMsgList; // @synthesize failedMsgList=_failedMsgList;
 @property(retain, nonatomic) MMView *whiteColorbgView; // @synthesize whiteColorbgView=_whiteColorbgView;
+@property(retain, nonatomic) MMPopTableView *exportFailedFilePopView; // @synthesize exportFailedFilePopView=_exportFailedFilePopView;
 @property __weak MMOutlineButton *batchExportProgressLabel; // @synthesize batchExportProgressLabel=_batchExportProgressLabel;
 @property __weak MMProgressView *progressView; // @synthesize progressView=_progressView;
 @property __weak MMImageView *multiFileIcon; // @synthesize multiFileIcon=_multiFileIcon;
 @property(nonatomic) struct CGPoint initialOriginPoint; // @synthesize initialOriginPoint=_initialOriginPoint;
+- (void)onPopTableCellViewClicked:(id)arg1;
 - (void)doClear;
 - (void)onUserLogout;
 - (void)showBatchExportResultWithTotalCount:(unsigned long long)arg1 failedMsgList:(id)arg2 reasons:(id)arg3;

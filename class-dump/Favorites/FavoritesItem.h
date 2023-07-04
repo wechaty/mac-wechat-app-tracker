@@ -173,6 +173,7 @@
 - (BOOL)isNoteFinishDownload;
 - (BOOL)checkHtmlFileCDNInfo;
 - (BOOL)checkFavoritesItemAvailable;
+- (BOOL)canShowInFinder;
 - (BOOL)isCanForward;
 - (BOOL)checkIfHaveWeWorkCdnUr:(id)arg1;
 - (BOOL)isHaveWeWorkCdnUrl;

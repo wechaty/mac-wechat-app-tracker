@@ -10,7 +10,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, NSArray, NSString, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem;
+@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, MMFileAttrInfo, NSArray, NSString, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem;
 
 @interface FavoritesItemDataField : NSObject <NSPasteboardItemDataProvider, NSCoding, NSCopying>
 {
@@ -81,6 +81,7 @@
     WCFinderShareItem *_finderShareItem;
     WCFinderLiveShareItem *_finderLiveShareItem;
     WCFinderMessageShareNameCard *_finderMessageShareNameCard;
+    MMFileAttrInfo *_fileAttrInfo;
 }
 
 + (id)GetPathByMd5:(id)arg1 isThumb:(BOOL)arg2 DataFmt:(id)arg3;
@@ -104,6 +105,7 @@
 + (id)translateFileItem:(id)arg1;
 + (id)translateVoiceItem:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo=_fileAttrInfo;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem=_finderLiveShareItem;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
@@ -194,6 +196,8 @@
 - (BOOL)isWeWorkCdnUrl;
 - (BOOL)IsDataFileDownloaded;
 - (unsigned long long)getCreateTime;
+- (id)GetExportDataFileName;
+- (id)GetDataFileName;
 - (id)GetDataFilePath;
 - (id)GetDataClientMediaID;
 - (id)GetSenderUsername;
@@ -202,6 +206,7 @@
 - (id)GetMidClientMediaID;
 - (id)GetThumbClientMediaID;
 - (id)GetPreviewThumbFilePath;
+- (BOOL)hasCDNInfo;
 - (void)clearCDNInfo;
 - (id)GetMiddleDataFilePath;
 - (id)GetThumbFilePath;

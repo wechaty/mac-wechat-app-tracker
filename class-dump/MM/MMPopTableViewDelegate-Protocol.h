@@ -6,9 +6,10 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSView;
+@class NSString, NSView;
 
 @protocol MMPopTableViewDelegate <NSObject>
+- (void)onPopTableCellViewClicked:(NSString *)arg1;
 - (void)showInView:(NSView *)arg1 withRelativeRect:(struct CGRect)arg2 preferredEdge:(unsigned int)arg3;
 - (BOOL)isPopTableViewPopoverShown;
 - (void)hidePopTableViewPopover;

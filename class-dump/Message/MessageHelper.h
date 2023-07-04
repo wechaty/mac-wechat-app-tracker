@@ -10,6 +10,7 @@
 {
 }
 
++ (id)getFileAttrInfoWithPath:(id)arg1;
 + (id)imageMessageFileNameWithExt:(id)arg1;
 + (id)fileMessageExt:(id)arg1;
 + (void)locateMessageInChatMessageList:(id)arg1;

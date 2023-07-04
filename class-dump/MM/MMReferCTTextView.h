@@ -7,12 +7,14 @@
 #import <AppKit/NSView.h>
 
 @class MMCTTextViewSession, MMTimer, NSAttributedString, NSColor, NSFont, NSMutableArray, NSString, NSTrackingArea;
+@protocol MMReferCTTextViewDelegate;
 
 @interface MMReferCTTextView : NSView
 {
     unsigned char _shouldAutoScroll;
     BOOL _selectable;
     BOOL _isForceDrawLine;
+    id <MMReferCTTextViewDelegate> _delegate;
     NSFont *_font;
     NSColor *_textColor;
     NSColor *_backgroundColor;
@@ -23,7 +25,7 @@
     NSAttributedString *_attributedString;
     long long _lineVerticalLayout;
     NSMutableArray *_linkRanges;
-    NSMutableArray *_linkStrings;
+    NSMutableArray *_linkValues;
     MMCTTextViewSession *_session;
     NSTrackingArea *_trackingArea;
     MMTimer *_autoScrollTimer;
@@ -43,7 +45,7 @@
 @property(retain, nonatomic) MMTimer *autoScrollTimer; // @synthesize autoScrollTimer=_autoScrollTimer;
 @property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) MMCTTextViewSession *session; // @synthesize session=_session;
-@property(retain, nonatomic) NSMutableArray *linkStrings; // @synthesize linkStrings=_linkStrings;
+@property(retain, nonatomic) NSMutableArray *linkValues; // @synthesize linkValues=_linkValues;
 @property(retain, nonatomic) NSMutableArray *linkRanges; // @synthesize linkRanges=_linkRanges;
 @property(nonatomic) long long lineVerticalLayout; // @synthesize lineVerticalLayout=_lineVerticalLayout;
 @property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
@@ -59,6 +61,7 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) NSColor *textColor; // @synthesize textColor=_textColor;
 @property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
+@property(nonatomic) __weak id <MMReferCTTextViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)updateSelectRangeWith:(struct CGPoint)arg1;
 - (void)stopScrollTimer;
 - (unsigned char)isShowAll;

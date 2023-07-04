@@ -25,7 +25,10 @@
 + (void)playAsMuted:(id)arg1 windowId:(id)arg2;
 + (unsigned long long)getWindowTypeByWindowIdStr:(id)arg1;
 + (unsigned long long)getWindowTypeWithUrlStr:(id)arg1;
++ (BOOL)_handleWebviewForWebType:(id)arg1 config:(id)arg2;
 + (void)_handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
++ (BOOL)_handleDisableOpenUrl:(id)arg1 windowId:(id)arg2;
++ (BOOL)_handleLimitModeUrl:(id)arg1 windowId:(id)arg2;
 + (void)handleWebViewDataItem:(id)arg1 windowId:(id)arg2;
 + (BOOL)isSupportedURL:(id)arg1;
 + (BOOL)isAddChatroomURL:(id)arg1;

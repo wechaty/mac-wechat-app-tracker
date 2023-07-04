@@ -21,11 +21,11 @@
     BOOL DBScanned;
 }
 
++ (void)appendRepairlogToMMLog;
++ (void)clearLogFileIfNeeded;
++ (void)logRepairHistory:(id)arg1;
 + (BOOL)isRepairSupported:(unsigned int)arg1;
 - (void).cxx_destruct;
-- (void)appendRepairlogToMMLog;
-- (void)clearLogFileIfNeeded;
-- (void)logRepairHistory:(id)arg1;
 - (void)checkAndRepair;
 - (_Bool)needToRepair;
 - (id)getNeedRepairDBPath;

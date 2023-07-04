@@ -9,7 +9,7 @@
 #import "PBCoding-Protocol.h"
 #import "WCTColumnCoding-Protocol.h"
 
-@class MMTranslateResult, NSString;
+@class MMFileAttrInfo, MMTranslateResult, NSString;
 
 @interface MessageDataPackedInfo : NSObject <PBCoding, WCTColumnCoding>
 {
@@ -31,11 +31,13 @@
     NSString *m_nsVideoPath;
     NSString *m_nsVideoThumbPath;
     NSString *dataMd5;
+    MMFileAttrInfo *fileAttrInfo;
 }
 
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_fileAttrInfo;
 + (void)PBArrayAdd_msgFrom;
 + (void)PBArrayAdd_dataMd5;
 + (void)PBArrayAdd_m_uiOriginalImgWidth;
@@ -55,6 +57,7 @@
 + (void)PBArrayAdd_toUsrName;
 + (void)PBArrayAdd_fromUsrName;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo;
 @property(nonatomic) unsigned int msgFrom; // @synthesize msgFrom;
 @property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5;
 @property(nonatomic) unsigned int m_uiOriginalImgWidth; // @synthesize m_uiOriginalImgWidth;

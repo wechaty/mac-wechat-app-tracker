@@ -9,20 +9,22 @@
 #import "AccountServiceExt-Protocol.h"
 #import "MMSearchContactCellDelegate-Protocol.h"
 #import "MMSearchFunctionCellDelegate-Protocol.h"
+#import "MMSearchRecentItemChangedExt-Protocol.h"
 #import "MMSearchTableCellViewDelegate-Protocol.h"
 #import "MMSearchTableSectionAllViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 #import "OpenIMResourceMgrExt-Protocol.h"
 
-@class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchViewNoResult, MMTimer, NSArray, NSMutableDictionary, NSString, NSView, NSVisualEffectView, RBLPopover;
+@class MMBaseSearchLogic, MMCustomSearchField, MMNoMenuTableView, MMSearchTrackView, MMSearchViewNoResult, MMTimer, NSArray, NSMutableDictionary, NSString, NSTextField, NSView, NSVisualEffectView, RBLPopover, RFOverlayScrollView;
 
-@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, AccountServiceExt, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate, MMSearchTableCellViewDelegate>
+@interface MMSearchViewController : MMViewController <NSTableViewDataSource, NSTableViewDelegate, AccountServiceExt, MMSearchTableSectionAllViewDelegate, OpenIMResourceMgrExt, MMSearchContactCellDelegate, MMSearchFunctionCellDelegate, MMSearchTableCellViewDelegate, MMSearchRecentItemChangedExt>
 {
     BOOL _isShownFirstTimeBySearch;
     BOOL _isSearchFieldTextDidEndEditing;
     BOOL _choseResult;
     BOOL _isFirstSelectRow;
+    BOOL _needShowFloatFooterView;
     unsigned long long _style;
     MMCustomSearchField *_searchField;
     unsigned long long _searchScene;
@@ -36,6 +38,7 @@
     MMBaseSearchLogic *_searchLogic;
     MMNoMenuTableView *_tableView;
     MMSearchViewNoResult *_noResultView;
+    RFOverlayScrollView *_scrollView;
     id _mouseEvent;
     unsigned long long _subRanking;
     CDUnknownBlockType _mouseDidClickOutsideBlock;
@@ -53,9 +56,16 @@
     double _popoverWidth;
     unsigned long long _lastSelectTime;
     NSMutableDictionary *_keyWordShowResultCountDic;
+    MMSearchTrackView *_floatFooterView;
+    NSTextField *_floatTitleField;
+    struct _NSRange _visibleRectRange;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) struct _NSRange visibleRectRange; // @synthesize visibleRectRange=_visibleRectRange;
+@property(nonatomic) BOOL needShowFloatFooterView; // @synthesize needShowFloatFooterView=_needShowFloatFooterView;
+@property(retain, nonatomic) NSTextField *floatTitleField; // @synthesize floatTitleField=_floatTitleField;
+@property(retain, nonatomic) MMSearchTrackView *floatFooterView; // @synthesize floatFooterView=_floatFooterView;
 @property(retain, nonatomic) NSMutableDictionary *keyWordShowResultCountDic; // @synthesize keyWordShowResultCountDic=_keyWordShowResultCountDic;
 @property(nonatomic) BOOL isFirstSelectRow; // @synthesize isFirstSelectRow=_isFirstSelectRow;
 @property(nonatomic) unsigned long long lastSelectTime; // @synthesize lastSelectTime=_lastSelectTime;
@@ -77,6 +87,7 @@
 @property(copy, nonatomic) CDUnknownBlockType mouseDidClickOutsideBlock; // @synthesize mouseDidClickOutsideBlock=_mouseDidClickOutsideBlock;
 @property(nonatomic) unsigned long long subRanking; // @synthesize subRanking=_subRanking;
 @property(retain, nonatomic) id mouseEvent; // @synthesize mouseEvent=_mouseEvent;
+@property(nonatomic) __weak RFOverlayScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) __weak MMSearchViewNoResult *noResultView; // @synthesize noResultView=_noResultView;
 @property(nonatomic) __weak MMNoMenuTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MMBaseSearchLogic *searchLogic; // @synthesize searchLogic=_searchLogic;
@@ -90,6 +101,14 @@
 @property(nonatomic) unsigned long long searchScene; // @synthesize searchScene=_searchScene;
 @property(nonatomic) __weak MMCustomSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;
+- (void)onSearchRecentItemFolded;
+- (void)onSearchRecentItemShowAll;
+- (void)onSearchRecentItemDelete:(id)arg1;
+- (void)onSearchRecentItemDeleteAll;
+- (unsigned long long)findRecentHeaderIndex;
+- (void)delayReportQueryHistoryRecentLog;
+- (void)onScrollViewBoundsDidChanged:(id)arg1;
+- (void)createFloatFooterView;
 - (void)onUserLogout;
 - (void)cellView:(id)arg1 onMouseBeforeSetSeleted:(id)arg2;
 - (BOOL)canMouseEnterSetSelected:(id)arg1;
@@ -106,10 +125,10 @@
 - (void)searchFunctionCellView:(id)arg1;
 - (void)chooseItem:(id)arg1;
 - (void)singleClickOnTableView:(id)arg1;
-- (void)tableViewSelectionDidChange:(id)arg1;
 - (void)setTableViewNotSelected;
 - (void)updateSelectedRowDisplay:(BOOL)arg1;
 - (void)_updateTableviewSelectionDisplay;
+- (void)tableViewSelectionDidChange:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
@@ -123,6 +142,8 @@
 - (BOOL)isPopoverWindow;
 - (void)setSelectRow:(unsigned long long)arg1;
 - (void)selectAndScrollToRow:(long long)arg1 allUpdate:(BOOL)arg2;
+- (BOOL)selectLeftItem;
+- (BOOL)selectRightItem;
 - (void)selectPreviousItem;
 - (void)selectNextItem;
 - (void)selectFirstItem;
@@ -133,6 +154,8 @@
 - (BOOL)shouldShowSearchFriendCell:(id)arg1;
 - (id)handleMouseDown:(id)arg1;
 - (void)showPopoverWindow;
+- (double)calPopoverHeight;
+- (double)estimateContentHeight;
 - (void)setKeyWordShowResultCount;
 - (id)getShowSearchResults:(id)arg1;
 - (void)_doShowWithResults:(id)arg1;

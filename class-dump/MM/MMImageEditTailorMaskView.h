@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSColor *maskColor; // @synthesize maskColor=_maskColor;
 @property(nonatomic) struct CGRect showRect; // @synthesize showRect=_showRect;
 - (struct CGRect)pixelSelectedRectInWindow;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -19,6 +19,8 @@
 - (void)onContentMenuMuteCopy;
 - (void)onContentMenuMutePlay;
 - (void)onContentMenuAddFav;
+- (void)contextMenuOpenInWebview;
+- (void)contextMenuOpenWithDefaultBrowser;
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)rightMouseDown:(id)arg1;

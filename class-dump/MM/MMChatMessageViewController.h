@@ -27,11 +27,12 @@
 #import "OpenIMResourceMgrExt-Protocol.h"
 #import "SendPatExt-Protocol.h"
 #import "VoipMessageCellViewDelegate-Protocol.h"
+#import "kMMAllowReferInterface-Protocol.h"
 
 @class MMChatInfoView, MMChatMessageBannerView, MMChatMessageDataSource, MMChatRoomReportController, MMGroupMigrationView, MMGroupNoticeBannerView, MMGroupTopMsgBannerView, MMMessageCellView, MMMessageReferMgr, MMMessageScrollView, MMMessageTableItem, MMMessageUnreadTipsButton, MMTableView, MMTimer, MMVoIPInviteView, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSTimer, NSView, WCContactData;
 @protocol MMChatMemberListViewDelegate, MMComposeInputViewDelegate;
 
-@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource>
+@interface MMChatMessageViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMMessageCellViewDelegate, MMViewerWindowDelegate, IContactMgrExt, IGroupMgrExt, MMNetExt, VoipMessageCellViewDelegate, MMMutipleSelectionDelegate, IChatSyncMgrExt, IMessageServiceFileReTransferExt, OpenIMResourceMgrExt, MultiTalkMgrExt, IMessageExt, SendPatExt, IMessageCacheMgrImageExt, IChatLogMigrateToMacExt, ICdnComMgrExt, NSCollectionViewDelegate, NSCollectionViewDataSource, kMMAllowReferInterface>
 {
     BOOL _isSettingChatContact;
     BOOL _isScrollToUnReadCount;
@@ -198,6 +199,7 @@
 - (void)onModifyContacts:(id)arg1;
 - (void)OpenIMResourceWordingIds:(id)arg1 didFinish:(id)arg2;
 - (BOOL)checkVisiable:(id)arg1;
+- (id)currentContactData;
 - (void)clearUnReadCount;
 - (void)checkBackToRefer;
 - (void)checkFirstUnreadMessageShown;
@@ -260,6 +262,7 @@
 - (void)updateMessageDataSource:(id)arg1;
 - (void)updateTipsBar;
 - (void)markAllMessagesAsRead:(id)arg1;
+- (BOOL)scrollPointYOffset:(double)arg1;
 - (void)adjustVisableHeightForResize;
 - (void)layoutForResize;
 - (id)getMessageTableView;

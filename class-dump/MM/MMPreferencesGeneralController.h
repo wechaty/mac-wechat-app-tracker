@@ -9,13 +9,23 @@
 #import "AccountServiceExt-Protocol.h"
 #import "IBetaMgrExt-Protocol.h"
 #import "MASPreferencesViewController-Protocol.h"
+#import "MMLimitedModeServiceExt-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class MMAvatarImageView, MMBadgeOverlayView, MMButton, MMView, NSBox, NSButton, NSImage, NSLayoutConstraint, NSPopUpButton, NSProgressIndicator, NSSlider, NSStepper, NSString, NSTextField;
+@class MMAvatarImageView, MMBadgeOverlayView, MMButton, MMView, NSBox, NSButton, NSImage, NSPopUpButton, NSProgressIndicator, NSScrollView, NSSlider, NSStackView, NSStepper, NSString, NSTextField, NSView, SVGButton;
 
-@interface MMPreferencesGeneralController : NSViewController <MASPreferencesViewController, IBetaMgrExt, AccountServiceExt, NSTextFieldDelegate>
+@interface MMPreferencesGeneralController : NSViewController <MASPreferencesViewController, IBetaMgrExt, AccountServiceExt, NSTextFieldDelegate, MMLimitedModeServiceExt>
 {
     BOOL _isObserverAppearance;
+    NSScrollView *_scrollView;
+    NSStackView *_stackView;
+    NSView *_accountContainerView;
+    NSView *_autoLoginContainerView;
+    NSView *_appearanceContainerView;
+    NSView *_otherContainerView;
+    NSView *_spaceContainerView;
+    NSView *_feedbackContainerView;
+    NSView *_betaContainerView;
     NSTextField *_accountInformationLabel;
     NSButton *_logOutButton;
     MMAvatarImageView *_avatarImageView;
@@ -32,6 +42,9 @@
     NSButton *_saveChatLog;
     NSTextField *_voiceToTextLabel;
     NSButton *_voiceToText;
+    NSTextField *_browserTextField;
+    NSButton *_browserButton;
+    SVGButton *_browserHelpButton;
     NSTextField *_textSizeLabel;
     NSSlider *_textSize;
     NSTextField *_textSizeExampleGlyphSmall;
@@ -48,10 +61,6 @@
     NSButton *_aboutBetaBtn;
     NSButton *_aboutVersionBtn;
     MMBadgeOverlayView *_invitationBadgeView;
-    NSLayoutConstraint *_recordToAppearanceSeparatorConstraint;
-    NSLayoutConstraint *_recordToAutoLoginSeparatorConstraint;
-    NSLayoutConstraint *_feedbackToBottomConstraint;
-    NSLayoutConstraint *_appearanceToAutoLoginSeparatorConstraint;
     unsigned long long _showElement;
     NSTextField *_autoDownloadText;
     MMButton *_autoDownloadBtn;
@@ -60,12 +69,20 @@
     NSStepper *_autoDownloadThreshStepper;
     NSString *_autoDownloadThresh;
     MMView *_autoDownloadContainer;
+    NSTextField *_searchRecentText;
+    NSButton *_searchRecentButton;
+    NSTextField *_openFileDesc;
+    MMButton *_openFileBtn;
     id _monitorMouseEvent;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isObserverAppearance; // @synthesize isObserverAppearance=_isObserverAppearance;
 @property(retain, nonatomic) id monitorMouseEvent; // @synthesize monitorMouseEvent=_monitorMouseEvent;
+@property(retain, nonatomic) MMButton *openFileBtn; // @synthesize openFileBtn=_openFileBtn;
+@property(retain, nonatomic) NSTextField *openFileDesc; // @synthesize openFileDesc=_openFileDesc;
+@property(retain, nonatomic) NSButton *searchRecentButton; // @synthesize searchRecentButton=_searchRecentButton;
+@property(retain, nonatomic) NSTextField *searchRecentText; // @synthesize searchRecentText=_searchRecentText;
 @property(retain, nonatomic) MMView *autoDownloadContainer; // @synthesize autoDownloadContainer=_autoDownloadContainer;
 @property(retain, nonatomic) NSString *autoDownloadThresh; // @synthesize autoDownloadThresh=_autoDownloadThresh;
 @property(retain, nonatomic) NSStepper *autoDownloadThreshStepper; // @synthesize autoDownloadThreshStepper=_autoDownloadThreshStepper;
@@ -74,10 +91,6 @@
 @property(retain, nonatomic) MMButton *autoDownloadBtn; // @synthesize autoDownloadBtn=_autoDownloadBtn;
 @property(retain, nonatomic) NSTextField *autoDownloadText; // @synthesize autoDownloadText=_autoDownloadText;
 @property(nonatomic) unsigned long long showElement; // @synthesize showElement=_showElement;
-@property(nonatomic) __weak NSLayoutConstraint *appearanceToAutoLoginSeparatorConstraint; // @synthesize appearanceToAutoLoginSeparatorConstraint=_appearanceToAutoLoginSeparatorConstraint;
-@property(nonatomic) __weak NSLayoutConstraint *feedbackToBottomConstraint; // @synthesize feedbackToBottomConstraint=_feedbackToBottomConstraint;
-@property(nonatomic) __weak NSLayoutConstraint *recordToAutoLoginSeparatorConstraint; // @synthesize recordToAutoLoginSeparatorConstraint=_recordToAutoLoginSeparatorConstraint;
-@property(nonatomic) __weak NSLayoutConstraint *recordToAppearanceSeparatorConstraint; // @synthesize recordToAppearanceSeparatorConstraint=_recordToAppearanceSeparatorConstraint;
 @property(retain, nonatomic) MMBadgeOverlayView *invitationBadgeView; // @synthesize invitationBadgeView=_invitationBadgeView;
 @property __weak NSButton *aboutVersionBtn; // @synthesize aboutVersionBtn=_aboutVersionBtn;
 @property __weak NSButton *aboutBetaBtn; // @synthesize aboutBetaBtn=_aboutBetaBtn;
@@ -94,6 +107,9 @@
 @property(nonatomic) __weak NSTextField *textSizeExampleGlyphSmall; // @synthesize textSizeExampleGlyphSmall=_textSizeExampleGlyphSmall;
 @property(nonatomic) __weak NSSlider *textSize; // @synthesize textSize=_textSize;
 @property(nonatomic) __weak NSTextField *textSizeLabel; // @synthesize textSizeLabel=_textSizeLabel;
+@property(nonatomic) __weak SVGButton *browserHelpButton; // @synthesize browserHelpButton=_browserHelpButton;
+@property(nonatomic) __weak NSButton *browserButton; // @synthesize browserButton=_browserButton;
+@property(nonatomic) __weak NSTextField *browserTextField; // @synthesize browserTextField=_browserTextField;
 @property(nonatomic) __weak NSButton *voiceToText; // @synthesize voiceToText=_voiceToText;
 @property(nonatomic) __weak NSTextField *voiceToTextLabel; // @synthesize voiceToTextLabel=_voiceToTextLabel;
 @property(nonatomic) __weak NSButton *saveChatLog; // @synthesize saveChatLog=_saveChatLog;
@@ -110,6 +126,15 @@
 @property __weak MMAvatarImageView *avatarImageView; // @synthesize avatarImageView=_avatarImageView;
 @property(nonatomic) __weak NSButton *logOutButton; // @synthesize logOutButton=_logOutButton;
 @property __weak NSTextField *accountInformationLabel; // @synthesize accountInformationLabel=_accountInformationLabel;
+@property(retain, nonatomic) NSView *betaContainerView; // @synthesize betaContainerView=_betaContainerView;
+@property(retain, nonatomic) NSView *feedbackContainerView; // @synthesize feedbackContainerView=_feedbackContainerView;
+@property(retain, nonatomic) NSView *spaceContainerView; // @synthesize spaceContainerView=_spaceContainerView;
+@property(retain, nonatomic) NSView *otherContainerView; // @synthesize otherContainerView=_otherContainerView;
+@property(retain, nonatomic) NSView *appearanceContainerView; // @synthesize appearanceContainerView=_appearanceContainerView;
+@property(retain, nonatomic) NSView *autoLoginContainerView; // @synthesize autoLoginContainerView=_autoLoginContainerView;
+@property(retain, nonatomic) NSView *accountContainerView; // @synthesize accountContainerView=_accountContainerView;
+@property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
+@property(nonatomic) __weak NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(readonly, nonatomic) BOOL hasResizableHeight;
 @property(readonly, nonatomic) BOOL hasResizableWidth;
 - (void)onClearUnreadBetaPackage;
@@ -121,13 +146,18 @@
 - (void)onDownloadBetaBtnClick:(id)arg1;
 - (void)onCheckInvitationDetailBtn:(id)arg1;
 - (void)showBetaBtnsIfNeeded;
+- (void)scrollToPoint:(struct CGPoint)arg1;
 - (void)showInvitationBadgeIfNeeded;
 - (void)layoutBeta;
 - (void)initBeta;
+- (void)onLimitedModeSwitchChange:(BOOL)arg1;
 - (void)onAutoLoginSwitchChanged:(BOOL)arg1;
 - (void)onUserLogout;
+- (void)onStackViewFrameChange:(id)arg1;
 - (void)closeAutoLogin;
 - (void)showCloseAutoLoginConfirm:(id)arg1;
+- (void)onClickBrowserHelpButton:(id)arg1;
+- (void)onClickBrowserButton:(id)arg1;
 - (void)computeTotalSpaceSize;
 - (void)spaceChangedHandler;
 - (void)feedbackClicked;
@@ -139,14 +169,22 @@
 - (void)viewWillAppear;
 - (void)dealloc;
 - (void)onClickVoiceToTextButton:(id)arg1;
+- (void)updateDefaultBrowserState;
 - (void)loadVoiceToTextConfig;
 - (void)handlePopButton:(id)arg1;
 - (void)initAppearance;
 - (BOOL)shouldShowAutoLoginUI;
 - (void)initAutoLoginUI;
+- (void)_updateOpenFileButtonStatus;
+- (void)setupOpenFileButton;
+- (void)setupOpenFileLabel;
+- (void)setupOpenFileControls;
+- (void)initAccountUI;
+- (void)initButtonsInfo;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
+- (void)setupSearchRecentContainer;
 - (void)setupAutoDownloadStepper;
 - (void)setupAutoDownloadThresh;
 - (void)setupAutoDownloadButton;
@@ -155,7 +193,9 @@
 - (void)setupMouseEventMonitor;
 - (void)didChangedEffectiveAppearance;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)onClickSaveSearchRecentButton:(id)arg1;
 - (void)onClickSaveChatLogButton:(id)arg1;
+- (void)initStackView;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

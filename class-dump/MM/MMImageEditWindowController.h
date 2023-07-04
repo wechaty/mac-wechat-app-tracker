@@ -16,7 +16,6 @@
 @interface MMImageEditWindowController : MMWindowController <MMImageEditViewControllerDelegate, IMessageExt, MMImageEditToolbarViewDelegate, MMImageEditPalletWindowControllerDelegate>
 {
     BOOL _isClosing;
-    NSString *_editImgCompressPath;
     MMImageEditViewController *_imageEditViewController;
     NSVisualEffectView *_vibrantView;
     NSView *_containerView;
@@ -41,7 +40,6 @@
 @property(nonatomic) __weak NSView *containerView; // @synthesize containerView=_containerView;
 @property __weak NSVisualEffectView *vibrantView; // @synthesize vibrantView=_vibrantView;
 @property(retain, nonatomic) MMImageEditViewController *imageEditViewController; // @synthesize imageEditViewController=_imageEditViewController;
-@property(retain, nonatomic) NSString *editImgCompressPath; // @synthesize editImgCompressPath=_editImgCompressPath;
 - (void)onUndoRedoCheckNotification:(id)arg1;
 - (void)beginCreateItem:(id)arg1;
 - (void)focusItemDidChange:(id)arg1;

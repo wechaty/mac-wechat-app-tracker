@@ -22,6 +22,11 @@
 @property(retain, nonatomic) MMTextField *webPageLinkUrlDescriptionTextView; // @synthesize webPageLinkUrlDescriptionTextView=_webPageLinkUrlDescriptionTextView;
 @property(retain, nonatomic) MMTextField *webPageDescriptionTextView; // @synthesize webPageDescriptionTextView=_webPageDescriptionTextView;
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (void)contextMenuOpenWithDefaultBrowser;
+- (void)contextMenuOpenInWebView;
+- (struct CGRect)clickableArea;
+- (BOOL)allowOpenInWebView;
+- (id)getURLString;
 - (void)layoutThumbnail;
 - (void)layoutWebPageInfo;
 - (void)viewDidChangeEffectiveAppearance;

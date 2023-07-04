@@ -15,7 +15,6 @@
     NSTextField *_helpInfo;
     NSButton *_diskDetectButton;
     NSButton *_DBDetectButton;
-    NSButton *_forceDefaultBrowserButton;
     NSButton *_verbosePlayerLog;
     NSPopUpButton *_vCodec2DownloadButton;
     NSPopUpButton *_vCodec2UploadButton;
@@ -35,11 +34,9 @@
 @property __weak NSPopUpButton *vCodec2UploadButton; // @synthesize vCodec2UploadButton=_vCodec2UploadButton;
 @property __weak NSPopUpButton *vCodec2DownloadButton; // @synthesize vCodec2DownloadButton=_vCodec2DownloadButton;
 @property __weak NSButton *verbosePlayerLog; // @synthesize verbosePlayerLog=_verbosePlayerLog;
-@property __weak NSButton *forceDefaultBrowserButton; // @synthesize forceDefaultBrowserButton=_forceDefaultBrowserButton;
 @property __weak NSButton *DBDetectButton; // @synthesize DBDetectButton=_DBDetectButton;
 @property __weak NSButton *diskDetectButton; // @synthesize diskDetectButton=_diskDetectButton;
 @property(retain, nonatomic) NSTextField *helpInfo; // @synthesize helpInfo=_helpInfo;
-- (void)forceDefaultBrowser:(id)arg1;
 - (void)openMiniProgramLogDir:(id)arg1;
 - (void)openMiniProgramDataDir:(id)arg1;
 - (void)openLagLogDir:(id)arg1;
@@ -51,7 +48,6 @@
 - (void)refreshGroupSession:(id)arg1;
 - (void)clearNeverReminder:(id)arg1;
 - (void)recoverSessionListFromLocal:(id)arg1;
-- (void)repairSessionList:(id)arg1;
 - (void)repairContactList:(id)arg1;
 - (void)migrateDataToFile:(id)arg1;
 - (void)showRecentCheckpointTime:(id)arg1;

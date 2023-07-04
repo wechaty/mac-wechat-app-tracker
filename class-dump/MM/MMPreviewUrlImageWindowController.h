@@ -6,34 +6,44 @@
 
 #import "MMPreviewWindowController.h"
 
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "SDWebImageManagerDelegate-Protocol.h"
 
-@class MMQLPreviewItem, NSProgressIndicator, NSString;
+@class NSMutableArray, NSProgressIndicator, NSString;
 
-@interface MMPreviewUrlImageWindowController : MMPreviewWindowController <SDWebImageManagerDelegate>
+@interface MMPreviewUrlImageWindowController : MMPreviewWindowController <SDWebImageManagerDelegate, IMMNewRecordDownloadServiceExt>
 {
-    MMQLPreviewItem *_m_currentPreviewImageItem;
     NSProgressIndicator *_progressIndicator;
+    unsigned long long _currentIndex;
+    NSMutableArray *_downloadTasks;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *downloadTasks; // @synthesize downloadTasks=_downloadTasks;
+@property(nonatomic) unsigned long long currentIndex; // @synthesize currentIndex=_currentIndex;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
-@property(retain, nonatomic) MMQLPreviewItem *m_currentPreviewImageItem; // @synthesize m_currentPreviewImageItem=_m_currentPreviewImageItem;
-- (void)webImageManager:(id)arg1 didFailWithError:(id)arg2;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
-- (void)setupCurrentPreviewItemWithImage:(id)arg1;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
+- (void)pageController:(id)arg1 prepareViewController:(id)arg2 withObject:(id)arg3;
+- (void)close;
+- (void)onDownloadFailed;
+- (void)onDownloadSucceed;
+- (id)genUniformImage:(id)arg1;
 - (id)genPreviewItemWithUrl:(id)arg1;
 - (void)stopLoading;
 - (void)startLoading;
-- (void)previewImage;
-- (void)showUrlImage;
+- (void)preloadPrevNextImage;
+- (void)downloadUrlImage:(id)arg1;
+- (void)prepareImage:(id)arg1;
+- (id)getCurrentPreviewItem;
 - (void)setupPageController;
 - (void)openWith;
 - (void)showPreviewItem:(id)arg1 targetFrame:(struct CGRect)arg2;
 - (void)show;
-- (id)getCurrentPreviewItem;
+- (void)dealloc;
 - (void)windowDidLoad;
-- (id)initWithUrls:(id)arg1;
+- (id)initWithUrls:(id)arg1 currentIndex:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

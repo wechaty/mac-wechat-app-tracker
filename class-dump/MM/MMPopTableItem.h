@@ -13,9 +13,11 @@
     NSImage *_icon;
     NSString *_title;
     NSString *_subtitle;
+    NSString *_uniqueId;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *uniqueId; // @synthesize uniqueId=_uniqueId;
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSImage *icon; // @synthesize icon=_icon;

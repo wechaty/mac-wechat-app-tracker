@@ -24,7 +24,8 @@
 - (id)imageResizeToShowWithMessage:(id)arg1 image:(id)arg2 savePath:(id)arg3;
 - (id)imageResizeToShowWithMessage:(id)arg1 data:(id)arg2 savePath:(id)arg3;
 - (BOOL)needPreCompressImageForPreview:(id)arg1 savePath:(id)arg2 imageSize:(struct CGSize)arg3;
-- (BOOL)needPreCompressEditImage:(id)arg1 savePath:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)needPreCompressEditImage:(id)arg1 rotateDegree:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (double)maxPixelSize;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 

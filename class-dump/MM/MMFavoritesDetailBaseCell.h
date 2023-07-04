@@ -60,7 +60,6 @@
 - (id)menuForEvent:(id)arg1;
 - (BOOL)canOpenContextMenu;
 - (BOOL)allowCopy;
-- (void)clearAttributedStringCacheForItem;
 - (void)handlefavoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
 - (void)downloadFavSightIfNeed:(id)arg1;

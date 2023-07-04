@@ -6,13 +6,15 @@
 
 #import "MMMessageCellView.h"
 
-@class CAGradientLayer, CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMTextView, NSView, ReaderWrap;
+#import "MMReferCTTextViewDelegate-Protocol.h"
 
-@interface MMAppSingleReaderMessageCellView : MMMessageCellView
+@class CAGradientLayer, CAShapeLayer, MMCTTextView, MMDivider, MMImageView, MMReaderWrapView, MMReferCTTextView, NSString, NSView, ReaderWrap;
+
+@interface MMAppSingleReaderMessageCellView : MMMessageCellView <MMReferCTTextViewDelegate>
 {
     ReaderWrap *_readerData;
     MMImageView *_readerThumbnail;
-    MMTextView *_readerTitleLabel;
+    MMReferCTTextView *_readerTitleLabel;
     MMCTTextView *_readerDescription;
     CAGradientLayer *_readerTitleBackLayer;
     NSView *_readerTitleBackView;
@@ -37,14 +39,16 @@
 @property(retain, nonatomic) NSView *readerTitleBackView; // @synthesize readerTitleBackView=_readerTitleBackView;
 @property(retain, nonatomic) CAGradientLayer *readerTitleBackLayer; // @synthesize readerTitleBackLayer=_readerTitleBackLayer;
 @property(retain, nonatomic) MMCTTextView *readerDescription; // @synthesize readerDescription=_readerDescription;
-@property(retain, nonatomic) MMTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
+@property(retain, nonatomic) MMReferCTTextView *readerTitleLabel; // @synthesize readerTitleLabel=_readerTitleLabel;
 @property(retain, nonatomic) MMImageView *readerThumbnail; // @synthesize readerThumbnail=_readerThumbnail;
 @property(retain, nonatomic) ReaderWrap *readerData; // @synthesize readerData=_readerData;
+- (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
 - (BOOL)isTemplateReaderWrap;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (void)contextMenuForward;
 - (id)getSection1MenuItem;
+- (id)getSection0MenuItem;
 - (BOOL)allowRecall;
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
@@ -58,7 +62,9 @@
 - (id)getCoverUrl;
 - (id)getReaderTitleAttr:(id)arg1;
 - (id)getReaderTitleWithReaderData:(id)arg1;
-- (void)openUrl;
+- (void)contextMenuOpenWithDefaultBrowser;
+- (void)contextMenuOpenInWebview;
+- (void)openUrl:(id)arg1 forceWebview:(BOOL)arg2;
 - (void)layoutContainerView;
 - (void)layoutViews;
 - (void)makeReaderBackgroundViewIfNeed;
@@ -76,6 +82,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)hasUrl;
 - (BOOL)hasThumbnail;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -33,10 +33,13 @@
 - (void)forwardToWeWork:(id)arg1 isNeedMerge:(BOOL)arg2;
 - (void)showSessionPickerWithSendMsgList:(id)arg1 isNeedMerge:(BOOL)arg2;
 - (void)forwardMutipleSelect:(BOOL)arg1 withMsgList:(id)arg2 toWeWork:(BOOL)arg3;
+- (void)contextMenuEdit:(id)arg1;
 - (void)contextMenuLocation:(id)arg1;
 - (void)contextMenuStopWaitDownload:(id)arg1;
 - (void)contextMenuCancleDownload:(id)arg1;
-- (void)contextMenuDownload:(id)arg1;
+- (void)realManualDownload:(id)arg1;
+- (void)realNonManualDownload:(id)arg1;
+- (void)contextMenuDownload:(id)arg1 isManual:(BOOL)arg2;
 - (void)contextMenuCloseMultiSelect;
 - (void)contextMenuShowMultiSelect;
 - (void)contextMenuOpenWithDefault:(id)arg1;
@@ -55,7 +58,7 @@
 - (void)onMultiSelectViewClick:(long long)arg1;
 - (void)onFileItemStopWaitDownload:(id)arg1;
 - (void)onFileItemCancleDownload:(id)arg1;
-- (void)onFileItemDownload:(id)arg1;
+- (void)onFileItemDownload:(id)arg1 isManual:(BOOL)arg2;
 - (void)onFileItemCellSelected:(id)arg1;
 - (int)getCurrentScene;
 - (BOOL)isMsgDataAvailable:(id)arg1;

@@ -6,11 +6,12 @@
 
 #import <AppKit/NSTableCellView.h>
 
-@class MMView, NSString, NSTextField;
+@class MMView, NSString, NSTextField, NSTrackingArea, NSView, SVGButton;
 
 @interface MMSearchTableSectionHeaderView : NSTableCellView
 {
     BOOL _isExpanded;
+    BOOL _subSelected;
     NSString *_descriptionString;
     NSString *_title;
     unsigned long long _resultType;
@@ -20,22 +21,40 @@
     MMView *_divider;
     NSTextField *_titleField;
     NSTextField *_descriptionField;
+    SVGButton *_showMoreMenu;
+    NSView *_maskView;
+    NSTrackingArea *_trackingArea;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
+@property(retain, nonatomic) NSView *maskView; // @synthesize maskView=_maskView;
+@property(retain, nonatomic) SVGButton *showMoreMenu; // @synthesize showMoreMenu=_showMoreMenu;
 @property(retain, nonatomic) NSTextField *descriptionField; // @synthesize descriptionField=_descriptionField;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) MMView *divider; // @synthesize divider=_divider;
 @property(retain, nonatomic) MMView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(nonatomic) BOOL subSelected; // @synthesize subSelected=_subSelected;
 @property(nonatomic) BOOL isExpanded; // @synthesize isExpanded=_isExpanded;
 @property(nonatomic) unsigned long long itemCount; // @synthesize itemCount=_itemCount;
 @property(nonatomic) unsigned long long maxPreviewRowCount; // @synthesize maxPreviewRowCount=_maxPreviewRowCount;
 @property(nonatomic) unsigned long long resultType; // @synthesize resultType=_resultType;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (id)contentMenu;
+- (void)onSettingButtonClick;
+- (void)onClearAllButtonClick;
+- (void)onShowMoreButtonClick;
+- (void)showDetail;
 - (void)updateDescriptionField;
 @property(retain, nonatomic) NSString *descriptionString; // @synthesize descriptionString=_descriptionString;
+- (void)updateTrackingAreas;
+- (void)setFrame:(struct CGRect)arg1;
 - (void)awakeFromNib;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)prepareForReuse;
+- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 
 @end

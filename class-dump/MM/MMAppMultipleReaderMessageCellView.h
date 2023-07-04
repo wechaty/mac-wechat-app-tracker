@@ -52,6 +52,10 @@
 - (void)contextMenuFavorites;
 - (void)contextMenuForward;
 - (id)getSection1MenuItem;
+- (id)getSection0MenuItem;
+- (void)openInnerBrowser:(id)arg1 readerWrap:(id)arg2 forceWebview:(BOOL)arg3;
+- (void)contextMenuOpenWithDefaultBrowser;
+- (void)contextMenuOpenInWebview;
 - (BOOL)allowRecall;
 - (struct CGRect)clickableArea;
 - (void)writeSelectedReaderWrapIntoPasteboardItem:(id)arg1;

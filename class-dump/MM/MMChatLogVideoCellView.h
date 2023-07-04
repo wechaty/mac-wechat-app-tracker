@@ -65,6 +65,8 @@
 - (struct CGRect)clickableArea;
 - (void)prepareForReuse;
 - (void)viewDidChangeEffectiveAppearance;
+- (id)getURLString;
+- (id)buildExtraData;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

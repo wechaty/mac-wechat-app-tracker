@@ -10,11 +10,12 @@
 #import "IMessageServiceAppExt-Protocol.h"
 #import "MMService-Protocol.h"
 #import "SolitaireAnalysiserDelegate-Protocol.h"
+#import "WCDBRepairExt-Protocol.h"
 
 @class NSMutableDictionary, NSObject, NSRecursiveLock, NSString, SolitaireAnalysiser;
 @protocol OS_dispatch_queue;
 
-@interface SolitaireMgr : MMService <IMessageExt, SolitaireAnalysiserDelegate, IMessageServiceAppExt, MMService>
+@interface SolitaireMgr : MMService <WCDBRepairExt, IMessageExt, SolitaireAnalysiserDelegate, IMessageServiceAppExt, MMService>
 {
     NSMutableDictionary *_dicSessionHandlers;
     SolitaireAnalysiser *_analysiser;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *writeQueue; // @synthesize writeQueue=_writeQueue;
 @property(retain, nonatomic) SolitaireAnalysiser *analysiser; // @synthesize analysiser=_analysiser;
 @property(retain, nonatomic) NSMutableDictionary *dicSessionHandlers; // @synthesize dicSessionHandlers=_dicSessionHandlers;
+- (void)onRemoveMessageDB:(int)arg1;
 - (void)updateSolitaireSvrIdWithMessage:(id)arg1;
 - (BOOL)onAnalysisSolitaireInfoObj:(id)arg1 MsgWrap:(id)arg2;
 - (void)onSendAppMsgFinished:(id)arg1 msgData:(id)arg2 isSuccess:(BOOL)arg3;

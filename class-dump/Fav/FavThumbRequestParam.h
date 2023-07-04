@@ -10,6 +10,7 @@
 
 @interface FavThumbRequestParam : NSObject
 {
+    unsigned int _thumbnailPixelThreshold;
     unsigned int _favID;
     unsigned long long _thumbnailStyle;
     FavoritesItemDataField *_dataField;
@@ -20,10 +21,11 @@
 @property(nonatomic) unsigned int favID; // @synthesize favID=_favID;
 @property(retain, nonatomic) NSString *imageHttpUrl; // @synthesize imageHttpUrl=_imageHttpUrl;
 @property(retain, nonatomic) FavoritesItemDataField *dataField; // @synthesize dataField=_dataField;
+@property(nonatomic) unsigned int thumbnailPixelThreshold; // @synthesize thumbnailPixelThreshold=_thumbnailPixelThreshold;
 @property(nonatomic) unsigned long long thumbnailStyle; // @synthesize thumbnailStyle=_thumbnailStyle;
 - (BOOL)isFavThumbRequestContainThumbImage;
-- (id)initWithFavItemDataField:(id)arg1 andThumbnailStyle:(unsigned long long)arg2;
-- (id)initWithFavItem:(id)arg1 andThumbnailStyle:(unsigned long long)arg2;
+- (id)initWithFavItemDataField:(id)arg1;
+- (id)initWithFavItem:(id)arg1;
 
 @end
 

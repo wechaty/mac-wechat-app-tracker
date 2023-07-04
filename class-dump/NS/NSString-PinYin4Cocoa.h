@@ -24,6 +24,7 @@
 + (BOOL)charIsNewLine:(unsigned short)arg1;
 + (id)getStringFromUrl:(id)arg1 needle:(id)arg2;
 + (id)generatePrivacyFilePath:(id)arg1;
++ (id)generateString64:(id)arg1;
 + (id)generatePrivacyString:(id)arg1;
 + (id)safeStringWithUTF8String:(const char *)arg1;
 + (id)stringWithUInt64:(unsigned long long)arg1;

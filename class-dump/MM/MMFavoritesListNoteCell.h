@@ -27,6 +27,7 @@
     NSMutableArray *_descArray;
 }
 
++ (id)GetSenderNameInfo:(id)arg1;
 + (id)getDisplayTextDatas:(id)arg1;
 + (id)getDisplayImgDatas:(id)arg1;
 + (id)getFavTextCellText:(id)arg1;

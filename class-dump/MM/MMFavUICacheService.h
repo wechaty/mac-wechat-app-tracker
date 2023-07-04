@@ -6,12 +6,11 @@
 
 #import "MMService.h"
 
-#import "IMMCacheCleanerExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class MMCache, NSDictionary, NSMutableDictionary, NSString;
 
-@interface MMFavUICacheService : MMService <IMMCacheCleanerExt, MMService>
+@interface MMFavUICacheService : MMService <MMService>
 {
     MMCache *_formattedDescCache;
     MMCache *_formattedHeightCache;
@@ -27,8 +26,6 @@
 @property(retain, nonatomic) MMCache *formattedHeightCache; // @synthesize formattedHeightCache=_formattedHeightCache;
 @property(retain, nonatomic) MMCache *formattedDescCache; // @synthesize formattedDescCache=_formattedDescCache;
 - (id)path:(id)arg1;
-- (void)onComputeCacheSize;
-- (void)onCleanCache;
 - (void)setSenderDateString:(id)arg1 withItem:(id)arg2;
 - (id)senderDateStringForItem:(id)arg1;
 - (void)setDescriptionString:(id)arg1 withItem:(id)arg2;
@@ -41,6 +38,7 @@
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (void)dealloc;
+- (void)removeNewCacheFolder;
 - (void)removeOldCacheFolder;
 - (id)init;
 

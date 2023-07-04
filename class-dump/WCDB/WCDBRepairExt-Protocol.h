@@ -9,6 +9,7 @@
 @protocol WCDBRepairExt <NSObject>
 
 @optional
+- (void)onRemoveMessageDB:(int)arg1;
 - (void)onClearDBCompleted;
 - (void)onRepairTimeout;
 - (void)onRepairFinish;

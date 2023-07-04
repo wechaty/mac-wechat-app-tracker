@@ -108,6 +108,8 @@
 - (void)StopUploadComMedia:(id)arg1;
 - (BOOL)StartUploadComMedia:(id)arg1;
 - (BOOL)StopDownloadComMedia:(id)arg1 CdnDownloadTaskInfo:(id)arg2;
+- (int)StopUpload:(id)arg1;
+- (int)StartUpload:(void *)arg1;
 - (void)InitCdn;
 - (shared_ptr_67bd78cc)callback;
 - (BOOL)IsCdnAvaible;

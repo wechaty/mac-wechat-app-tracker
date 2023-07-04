@@ -13,14 +13,18 @@
     MMImageView *_icon;
     MMTextField *_title;
     MMTextField *_subtitle;
+    CDUnknownBlockType _mouseDownEventHandler;
 }
 
 - (void).cxx_destruct;
+@property(copy, nonatomic) CDUnknownBlockType mouseDownEventHandler; // @synthesize mouseDownEventHandler=_mouseDownEventHandler;
 @property(retain, nonatomic) MMTextField *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) MMTextField *title; // @synthesize title=_title;
 @property(retain, nonatomic) MMImageView *icon; // @synthesize icon=_icon;
 - (void)setIcon:(id)arg1 title:(id)arg2 subtitle:(id)arg3;
 - (void)prepareForReuse;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDown:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

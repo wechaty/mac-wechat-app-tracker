@@ -8,11 +8,11 @@
 
 #import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
-@class MMTextField, NSImageView, NSString;
+@class MMImageView, MMTextField, NSString;
 
 @interface MMChatLogWeAppCellView : MMChatLogBaseCellView <IMMNewRecordDownloadServiceExt>
 {
-    NSImageView *_iconImageView;
+    MMImageView *_iconImageView;
     MMTextField *_titleTextField;
     MMTextField *_descTextField;
 }
@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MMTextField *descTextField; // @synthesize descTextField=_descTextField;
 @property(retain, nonatomic) MMTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
-@property(retain, nonatomic) NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
+@property(retain, nonatomic) MMImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 - (void)_checkAndLayoutThumbnail:(id)arg1;
 - (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
@@ -36,6 +36,7 @@
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
 - (void)viewDidChangeEffectiveAppearance;
+- (void)fetchThumbnailFromWeAppItem;
 - (void)layoutThumbnail;
 - (void)layoutSubViews:(id)arg1;
 - (void)dealloc;

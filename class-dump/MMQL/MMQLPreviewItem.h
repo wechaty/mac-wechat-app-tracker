@@ -36,6 +36,7 @@
     id _parentData;
     NSImage *_urlImage;
     NSURL *_webUrl;
+    NSString *_webImagePath;
     NSImage *_tempImage;
     NSString *_tempImagePath;
     struct CGSize _originalImageSize;
@@ -44,6 +45,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *tempImagePath; // @synthesize tempImagePath=_tempImagePath;
 @property(retain, nonatomic) NSImage *tempImage; // @synthesize tempImage=_tempImage;
+@property(retain, nonatomic) NSString *webImagePath; // @synthesize webImagePath=_webImagePath;
 @property(retain, nonatomic) NSURL *webUrl; // @synthesize webUrl=_webUrl;
 @property(retain, nonatomic) NSImage *urlImage; // @synthesize urlImage=_urlImage;
 @property(retain, nonatomic) id parentData; // @synthesize parentData=_parentData;

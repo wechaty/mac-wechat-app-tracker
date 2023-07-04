@@ -12,6 +12,8 @@
 {
     unsigned int _appType;
     unsigned int _pkgType;
+    unsigned int _version;
+    unsigned int _disableForward;
     NSString *_userName;
     NSString *_iconUrl;
     NSString *_pagePath;
@@ -20,6 +22,8 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int disableForward; // @synthesize disableForward=_disableForward;
+@property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(nonatomic) unsigned int pkgType; // @synthesize pkgType=_pkgType;
 @property(nonatomic) unsigned int appType; // @synthesize appType=_appType;
 @property(copy, nonatomic) NSString *appId; // @synthesize appId=_appId;

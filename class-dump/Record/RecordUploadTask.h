@@ -10,7 +10,7 @@
 #import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "MMAppAttachFileMgrExt-Protocol.h"
 
-@class CdnFavMediaInfo, CdnRecordMediaInfo, CdnUploadTaskInfo, FavoritesItemDataField, MessageData, NSString;
+@class CdnFavMediaInfo, CdnRecordMediaInfo, CdnUploadTaskInfo, FavoritesItemDataField, MessageData, NSString, RecordUploadCheckInfo;
 @protocol RecordUploadTaskDelegate;
 
 @interface RecordUploadTask : NSObject <ICdnComMgrExt, MMAppAttachFileMgrExt, IMMNewRecordDownloadServiceExt>
@@ -19,6 +19,7 @@
     BOOL _isMsgThumb;
     BOOL _isToWeCom;
     BOOL _isFromFav;
+    BOOL _isFromMergeForward;
     BOOL _m_hasDownload;
     id <RecordUploadTaskDelegate> _delegate;
     CdnRecordMediaInfo *_cdnInfo;
@@ -26,15 +27,18 @@
     MessageData *_recordMsg;
     FavoritesItemDataField *_recordData;
     CdnUploadTaskInfo *_uploadResult;
+    RecordUploadCheckInfo *_uploadCheckInfo;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL m_hasDownload; // @synthesize m_hasDownload=_m_hasDownload;
+@property(retain, nonatomic) RecordUploadCheckInfo *uploadCheckInfo; // @synthesize uploadCheckInfo=_uploadCheckInfo;
 @property(retain, nonatomic) CdnUploadTaskInfo *uploadResult; // @synthesize uploadResult=_uploadResult;
 @property(retain, nonatomic) FavoritesItemDataField *recordData; // @synthesize recordData=_recordData;
 @property(retain, nonatomic) MessageData *recordMsg; // @synthesize recordMsg=_recordMsg;
 @property(retain, nonatomic) CdnFavMediaInfo *favCdnInfo; // @synthesize favCdnInfo=_favCdnInfo;
 @property(retain, nonatomic) CdnRecordMediaInfo *cdnInfo; // @synthesize cdnInfo=_cdnInfo;
+@property(nonatomic) BOOL isFromMergeForward; // @synthesize isFromMergeForward=_isFromMergeForward;
 @property(nonatomic) BOOL isFromFav; // @synthesize isFromFav=_isFromFav;
 @property(nonatomic) BOOL isToWeCom; // @synthesize isToWeCom=_isToWeCom;
 @property(nonatomic) BOOL isMsgThumb; // @synthesize isMsgThumb=_isMsgThumb;

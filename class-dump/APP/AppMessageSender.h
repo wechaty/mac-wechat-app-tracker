@@ -10,13 +10,13 @@
 #import "MMAppMsgUploadMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class CdnTaskInfo, NSObject, NSString;
+@class MessageCdnTaskInfo, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface AppMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate, MMAppMsgUploadMgrExt>
 {
     unsigned int _scene;
-    CdnTaskInfo *m_oCurTaskInfo;
+    MessageCdnTaskInfo *m_oCurTaskInfo;
     NSString *m_nsFileAeskey;
     NSString *m_nsFileMsgSignature;
     NSString *m_nsFakeFileAeskey;
@@ -28,7 +28,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_senderQueue; // @synthesize m_senderQueue=_m_senderQueue;
-@property(retain, nonatomic) CdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
+@property(retain, nonatomic) MessageCdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
 @property(nonatomic) unsigned int scene; // @synthesize scene=_scene;
 - (void)onStartUploadRet:(id)arg1 success:(BOOL)arg2;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;

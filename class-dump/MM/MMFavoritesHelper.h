@@ -12,6 +12,7 @@
 
 + (id)sortTagList:(id)arg1 topTag:(id)arg2;
 + (id)genFavCellTimeStringByUInt:(unsigned int)arg1;
++ (BOOL)isWeApp:(id)arg1;
 + (BOOL)isImageMedia:(id)arg1;
 + (BOOL)isLinkMeida:(id)arg1;
 + (BOOL)isNormalMeida:(id)arg1;

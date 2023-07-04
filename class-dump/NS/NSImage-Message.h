@@ -15,6 +15,7 @@
 + (id)imageWithWebpData:(id)arg1;
 + (id)changeGrayImage:(id)arg1;
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2;
++ (long long)representationMaxPixel;
 + (BOOL)isGIFFile:(id)arg1;
 + (id)getDecodedImageWithData:(id)arg1;
 + (id)getDecodedImageWithFile:(id)arg1;

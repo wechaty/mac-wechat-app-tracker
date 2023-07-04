@@ -7,13 +7,14 @@
 #import "MMService.h"
 
 #import "IMessageServiceFileExt-Protocol.h"
-#import "MMCDNDownloadMgrExt-Protocol.h"
+#import "IMessageServiceImageExt-Protocol.h"
+#import "IMessageServiceVideoExt-Protocol.h"
 #import "MMService-Protocol.h"
 
 @class MessageData, NSMutableArray, NSMutableDictionary, NSObject, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface MessageBatchExportMgr : MMService <MMCDNDownloadMgrExt, IMessageServiceFileExt, MMService>
+@interface MessageBatchExportMgr : MMService <IMessageServiceImageExt, IMessageServiceVideoExt, IMessageServiceFileExt, MMService>
 {
     NSString *m_nsExportTaskId;
     NSString *m_nsDestExportPath;
@@ -42,11 +43,18 @@
 }
 
 - (void).cxx_destruct;
-- (void)startCdnDownloadFail:(id)arg1;
+- (void)onImageDidCancelDownloadWithMessage:(id)arg1 type:(int)arg2;
+- (void)onImageDidFailedDownloadWithMessage:(id)arg1 type:(int)arg2;
+- (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2 isPredownload:(BOOL)arg3;
+- (void)onVideoDidCancelDownloadWithMessage:(id)arg1;
+- (void)onVideoDidFailDownloadWithMessage:(id)arg1;
+- (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
+- (void)onFileDidCancelDownloadWithMessage:(id)arg1;
+- (void)onFileDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onFileDidFailDownloadWithMessage:(id)arg1;
-- (void)cdnDownloadMgrDidCanceledDownloadWithCdnTask:(id)arg1;
-- (void)cdnDownloadMgrDidFailedDownloadWithCdnTask:(id)arg1;
-- (void)cdnDownloadMgrDidFinishedDownloadWithCdnTask:(id)arg1;
+- (void)startCdnDownloadCancel:(id)arg1;
+- (void)startCdnDownloadSuccess:(id)arg1;
+- (void)startCdnDownloadFail:(id)arg1;
 - (void)doClear;
 - (void)exportFinishedWithMessage:(id)arg1 isSuccess:(BOOL)arg2 errMsg:(id)arg3;
 - (id)pathWithoutDuplicates:(id)arg1;

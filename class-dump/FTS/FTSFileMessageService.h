@@ -6,13 +6,16 @@
 
 #import "MMService.h"
 
+#import "CLMDataSourceServiceExt-Protocol.h"
+#import "IChatLogMigrateToMacExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "MMService-Protocol.h"
+#import "WCDBRepairExt-Protocol.h"
 
 @class FTSFileMessageDB, NSMutableArray, NSMutableDictionary, NSObject, NSOperationQueue, NSRecursiveLock, NSString;
 @protocol OS_dispatch_queue;
 
-@interface FTSFileMessageService : MMService <MMService, IMessageExt>
+@interface FTSFileMessageService : MMService <MMService, IMessageExt, WCDBRepairExt, IChatLogMigrateToMacExt, CLMDataSourceServiceExt>
 {
     unsigned int _initialFetchCount;
     unsigned int _maxOperationCount;
@@ -47,6 +50,12 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *m_ftsTaskInitialQueue; // @synthesize m_ftsTaskInitialQueue=_m_ftsTaskInitialQueue;
 @property(retain, nonatomic) NSRecursiveLock *m_oLock; // @synthesize m_oLock=_m_oLock;
 @property(retain, nonatomic) FTSFileMessageDB *m_ftsdb; // @synthesize m_ftsdb=_m_ftsdb;
+- (void)onCLMContactDidChanged:(id)arg1;
+- (BOOL)shouldCreateFileIndexOnMigrateFinish;
+- (void)onChatLogImportFinish;
+- (BOOL)shouldCreateFileIndexOnMigrateGroupFinish;
+- (void)onImportOneGroupMsg:(id)arg1 msgSet:(id)arg2;
+- (void)onRemoveMessageDB:(int)arg1;
 - (id)getTypeFileListWithLastMsg:(id)arg1 groupType:(int)arg2 sortType:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)getChatFileListWithLastMsg:(id)arg1 chatName:(id)arg2 sortType:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
 - (id)getSenderFileListWithLastMsg:(id)arg1 sender:(id)arg2 sortType:(unsigned long long)arg3 limitCnt:(unsigned int)arg4 hasMore:(char *)arg5;
@@ -96,6 +105,7 @@
 - (void)deleteIndexForChat:(id)arg1 msgData:(id)arg2;
 - (void)updateIndexForMsgList:(id)arg1 opTime:(unsigned int)arg2;
 - (void)createIndexForChat:(id)arg1 msgData:(id)arg2;
+- (void)createIndexImmediatelyForChat:(id)arg1;
 - (void)createIndexImmediately;
 - (void)checkSessions;
 - (void)createIndexInitially;

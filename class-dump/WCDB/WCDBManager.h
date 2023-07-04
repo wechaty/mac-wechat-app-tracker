@@ -20,6 +20,7 @@
     NSRecursiveLock *_dbLock;
 }
 
++ (unsigned long long)walsizeThreshForManualCheckpoint:(unsigned int)arg1;
 + (int)p_cpMode:(id)arg1 forScene:(int)arg2;
 + (id)p_cpkey:(id)arg1 forScene:(int)arg2;
 - (void).cxx_destruct;
@@ -29,6 +30,7 @@
 @property(nonatomic) int cpScene; // @synthesize cpScene=_cpScene;
 @property(retain, nonatomic) NSRecursiveLock *dbLock; // @synthesize dbLock=_dbLock;
 @property(retain, nonatomic) NSMutableDictionary *dbInfoDic; // @synthesize dbInfoDic=_dbInfoDic;
+- (void)manualCheckpointForTagList:(id)arg1;
 - (void)p_handleCheckPoint:(id)arg1 onScene:(int)arg2;
 - (BOOL)p_shouldCheckPoint:(id)arg1 onScene:(int)arg2;
 - (void)doCheckpoint;

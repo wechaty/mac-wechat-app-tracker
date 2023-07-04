@@ -42,10 +42,12 @@
 - (void)handleThumbnailDownloadFailed;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
+- (id)getURLString;
 - (void)openUrl;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (id)getSection1MenuItem;
+- (id)getSection0MenuItem;
 - (void)writeIntoPasteboard:(id)arg1 orItem:(id)arg2 provideDataForType:(id)arg3;
 - (id)draggingImage;
 - (BOOL)draggingEnabled;

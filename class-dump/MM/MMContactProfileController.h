@@ -9,6 +9,7 @@
 #import "AccountServiceExt-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
 #import "IContactRelatedGroupDataExt-Protocol.h"
+#import "IGroupMgrExt-Protocol.h"
 #import "IOpLogServiceExt-Protocol.h"
 #import "IOpenIMOplogServiceExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
@@ -25,7 +26,7 @@
 @class MMCTTextView, MMContactProfileData, MMContactProfileMgr, MMContactRelatedGroupLogic, MMContactsBatchModifyLogic, MMContactsTagEditLogic, MMProfileBlackContactTipView, MMProfileFooterView, MMProfileHeaderView, MMProfileMoreSettingButton, MMTableView, MessageData, NSMutableArray, NSScrollView, NSString, NSWindow, RBLPopover, RBLPopoverBackgroundView, WCContactData;
 @protocol MMContactProfileControllerDelegate;
 
-@interface MMContactProfileController : MMViewController <OpenIMResourceMgrExt, MMViewerWindowDelegate, NSTextFieldDelegate, AccountServiceExt, NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMCGIDelegate, IContactMgrExt, MMContactsMgrExt, IOpLogServiceExt, IOpenIMOplogServiceExt, MMContactsBatchModifyLogicDelegate, MMContactMoreSettingExt, IContactRelatedGroupDataExt>
+@interface MMContactProfileController : MMViewController <OpenIMResourceMgrExt, MMViewerWindowDelegate, NSTextFieldDelegate, AccountServiceExt, NSTableViewDataSource, NSTableViewDelegate, MMTableViewDelegate, MMCGIDelegate, IContactMgrExt, IGroupMgrExt, MMContactsMgrExt, IOpLogServiceExt, IOpenIMOplogServiceExt, MMContactsBatchModifyLogicDelegate, MMContactMoreSettingExt, IContactRelatedGroupDataExt>
 {
     int _contactInfoSource;
     int _type;
@@ -86,6 +87,7 @@
 @property(nonatomic) int contactInfoSource; // @synthesize contactInfoSource=_contactInfoSource;
 @property(retain, nonatomic) WCContactData *contactData; // @synthesize contactData=_contactData;
 @property(nonatomic) __weak id <MMContactProfileControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (BOOL)canShareSelfNameCard;
 - (void)onOpenImOplogRet:(int)arg1 errMsg:(id)arg2 openImlog:(id)arg3;
 - (void)alertFailed:(id)arg1;
 - (void)onOpLogRet:(int)arg1 errMsg:(id)arg2 oplog:(id)arg3;
@@ -104,6 +106,7 @@
 - (void)onContactsBatchModifyNeedQRCode:(unsigned int)arg1 dataBuffer:(id)arg2 type:(unsigned int)arg3 scene:(long long)arg4;
 - (void)onContactsPrivacyFinishSetting:(id)arg1 scene:(int)arg2 withContact:(id)arg3;
 - (void)onCRGDataUpdated:(id)arg1;
+- (void)OnModifyGroupMemberContact:(id)arg1;
 - (void)onModifyContacts:(id)arg1;
 - (void)onModifyUserImageWithUrl:(id)arg1 userName:(id)arg2;
 - (void)handleGetOpenIMContactResponse:(id)arg1;

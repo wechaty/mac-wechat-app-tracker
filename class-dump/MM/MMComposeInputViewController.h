@@ -9,7 +9,6 @@
 #import "IContactMgrExt-Protocol.h"
 #import "IMessageExt-Protocol.h"
 #import "IMessageServiceVideoReTransferExt-Protocol.h"
-#import "IWeTypeSticker2WeChatExt-Protocol.h"
 #import "MMComposeInputViewDelegate-Protocol.h"
 #import "MMComposeRichAttachmentTextViewDelegate-Protocol.h"
 #import "MMComposeTextChangeDelegate-Protocol.h"
@@ -26,7 +25,7 @@
 @class FFProcessReqsvrLogicZZ, MMBatchExportWindow, MMBrandMenuPlugin, MMComposeInputScrollView, MMComposeTextStorage, MMComposeTextView, MMEmotionPromptWindowController, MMIgnoreEventView, MMMultiSelectView, MMNoGroupMumberTipView, MMSolitaireWindowController, MMWeTypeGuideView, MessageData, NSClipView, NSMenu, NSMutableDictionary, NSString, NSView, SVGButton, WCContactData;
 @protocol MMChatDetailSplitViewPositionInterface><MMChatMemberListViewDelegate><MMAnimateVoipTipsDelegate, MMComposeTextViewDelegate, MMMutipleSelectionDelegate;
 
-@interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, MMMultiSelectViewDelegate, NSMenuDelegate, IWeTypeSticker2WeChatExt>
+@interface MMComposeInputViewController : NSViewController <MMNetExt, IContactMgrExt, MMComposeInputViewDelegate, MMComposeRichAttachmentTextViewDelegate, NSTextViewDelegate, MessageBatchExportMgrExt, MMViewerWindowDelegate, IMessageServiceVideoReTransferExt, MMComposeTextEmotionProtDelegate, MMComposeTextViewReferDelegate, IMessageExt, MMReferTextAttachmentViewDelegate, MMComposeTextChangeDelegate, MMMultiSelectViewDelegate, NSMenuDelegate>
 {
     BOOL isNoNetwork;
     id <MMComposeTextViewDelegate> _composeTextViewDelegate;

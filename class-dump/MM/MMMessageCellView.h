@@ -60,7 +60,6 @@
 + (Class)cellViewSubclassForSearchChatMessage:(id)arg1;
 + (Class)cellViewSubclassForMessage:(id)arg1;
 + (id)cellViewWithSearchChatMessage:(id)arg1;
-+ (id)cellViewWithMessage:(id)arg1;
 + (id)cellIdentifierWithSearchChatMessage:(id)arg1;
 + (id)cellIdentifierWithMessage:(id)arg1;
 - (void).cxx_destruct;
@@ -91,6 +90,9 @@
 @property(retain, nonatomic) NSTextField *waitingProgressLabel; // @synthesize waitingProgressLabel=_waitingProgressLabel;
 @property(retain, nonatomic) NSButton *errorIndicatorAccessory; // @synthesize errorIndicatorAccessory=_errorIndicatorAccessory;
 @property(retain, nonatomic) NSProgressIndicator *waitingProgressIndicatorAccessory; // @synthesize waitingProgressIndicatorAccessory=_waitingProgressIndicatorAccessory;
+- (void)openDefaultBrowser:(id)arg1;
+- (void)openInnerBrowser:(id)arg1 forceWebview:(BOOL)arg2;
+- (id)getURLString;
 - (void)scrollWheel:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
@@ -252,6 +254,7 @@
 - (void)contextMenuOpenInWebview;
 - (void)contextMenuOpenWith:(id)arg1;
 - (void)contextMenuOpenFoler;
+- (void)contextMenuEdit;
 - (void)contextMenuOpen;
 - (void)contextMenuWipeOutText;
 - (void)contextMenuTranscribe;

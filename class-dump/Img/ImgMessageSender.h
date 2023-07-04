@@ -9,11 +9,11 @@
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class CdnTaskInfo, NSData, NSString;
+@class MessageCdnTaskInfo, NSData, NSString;
 
 @interface ImgMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate>
 {
-    CdnTaskInfo *m_oCurTaskInfo;
+    MessageCdnTaskInfo *m_oCurTaskInfo;
     NSString *m_nsMsgMd5;
     unsigned int m_uMsgCrc32;
     BOOL _needUpdateMid;
@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSData *originImgData; // @synthesize originImgData=_originImgData;
 @property(nonatomic) BOOL needUpdateMid; // @synthesize needUpdateMid=_needUpdateMid;
-@property(retain, nonatomic) CdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
+@property(retain, nonatomic) MessageCdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)retryUploadAndNoHitCheck;

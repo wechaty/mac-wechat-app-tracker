@@ -8,7 +8,7 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class MessageData, NSString, NSTextView;
+@class MMRichAttachmentTextView, MessageData, NSString;
 @protocol DebugMessageSourceViewDelegate;
 
 @interface DebugMessageSourceView : NSWindowController <NSWindowDelegate>
@@ -16,11 +16,11 @@
     id <DebugMessageSourceViewDelegate> _delegate;
     MessageData *_messageData;
     NSString *_contentText;
-    NSTextView *_sourceView;
+    MMRichAttachmentTextView *_sourceView;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSTextView *sourceView; // @synthesize sourceView=_sourceView;
+@property(retain, nonatomic) MMRichAttachmentTextView *sourceView; // @synthesize sourceView=_sourceView;
 @property(copy, nonatomic) NSString *contentText; // @synthesize contentText=_contentText;
 @property(nonatomic) __weak MessageData *messageData; // @synthesize messageData=_messageData;
 @property(nonatomic) __weak id <DebugMessageSourceViewDelegate> delegate; // @synthesize delegate=_delegate;

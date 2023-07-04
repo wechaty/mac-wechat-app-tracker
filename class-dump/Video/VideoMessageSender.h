@@ -9,17 +9,17 @@
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class CdnTaskInfo, NSString;
+@class MessageCdnTaskInfo, NSString;
 
 @interface VideoMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate>
 {
-    CdnTaskInfo *_curTaskInfo;
+    MessageCdnTaskInfo *_curTaskInfo;
     NSString *m_nsMsgMd5;
     unsigned int m_uMsgCrc32;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) CdnTaskInfo *curTaskInfo; // @synthesize curTaskInfo=_curTaskInfo;
+@property(retain, nonatomic) MessageCdnTaskInfo *curTaskInfo; // @synthesize curTaskInfo=_curTaskInfo;
 - (void)retryUploadAndNoHitCheck;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
 - (void)OnCdnUpload:(id)arg1;

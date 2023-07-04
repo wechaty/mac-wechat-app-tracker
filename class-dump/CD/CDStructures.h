@@ -378,6 +378,8 @@ struct ITPPlayerConnectionMgr {
     CDUnknownFunctionPointerType *_field1;
 };
 
+struct ITPPlayerRichMediaAsyncRequester;
+
 struct ITPPlayerRichMediaProcessor;
 
 struct ITPRendererInterruptCallback {
@@ -724,10 +726,85 @@ struct TPAssetProxyLoaderCallback {
 
 struct TPAudioRouteDescription;
 
+struct TPBaseMediaParams {
+    basic_string_8e19b51d _field1;
+    long long _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+    int _field6;
+    int _field7;
+    long long _field8;
+    float _field9;
+    int _field10;
+    int _field11;
+    int _field12;
+    int _field13;
+    int _field14;
+    int _field15;
+};
+
+struct TPConfigParams {
+    long long _field1;
+    long long _field2;
+    long long _field3;
+    long long _field4;
+    long long _field5;
+    long long _field6;
+    int _field7;
+    float _field8;
+    int _field9;
+};
+
 struct TPDetailInfo {
     int _field1;
     long long _field2;
     long long _field3;
+};
+
+struct TPDrmParams {
+    int _field1;
+    int _field2;
+    int _field3;
+    long long _field4;
+    long long _field5;
+    int _field6;
+    int _field7;
+    basic_string_8e19b51d _field8;
+    long long _field9;
+    long long _field10;
+    long long _field11;
+    long long _field12;
+    long long _field13;
+    long long _field14;
+    long long _field15;
+    long long _field16;
+    long long _field17;
+    long long _field18;
+    long long _field19;
+    long long _field20;
+    long long _field21;
+    long long _field22;
+    long long _field23;
+    long long _field24;
+    long long _field25;
+    long long _field26;
+};
+
+struct TPDynamicStatisticParams {
+    long long _field1;
+    long long _field2;
+    int _field3;
+    int _field4;
+    long long _field5;
+    long long _field6;
+    long long _field7;
+    long long _field8;
+    long long _field9;
+    long long _field10;
+    int _field11;
+    int _field12;
+    int _field13;
 };
 
 struct TPFrame {
@@ -767,6 +844,7 @@ struct TPFrame {
     struct TPFrameReleasePlanarDataCB _field34;
     struct TPFrameInternal *_field35;
     int _field36;
+    long long _field37;
 };
 
 struct TPFrameInternal;
@@ -783,6 +861,30 @@ struct TPFrameReleasePlanarDataCB {
 
 struct TPFrameSideData;
 
+struct TPGeneralPlayFlowParams {
+    struct TPConfigParams _field1;
+    struct TPBaseMediaParams _field2;
+    struct TPGeneralTrackingParams _field3;
+    struct TPDrmParams _field4;
+};
+
+struct TPGeneralTrackingParams {
+    long long _field1;
+    long long _field2;
+    long long _field3;
+    long long _field4;
+    long long _field5;
+    long long _field6;
+    long long _field7;
+    long long _field8;
+    long long _field9;
+    long long _field10;
+    long long _field11;
+    long long _field12;
+    long long _field13;
+    long long _field14;
+};
+
 struct TPJitterBufferConfigParams {
     unsigned long long _field1;
     unsigned long long _field2;
@@ -796,7 +898,7 @@ struct TPMediaTrackInfo;
 
 struct TPPlayerConnectionNode {
     CDUnknownFunctionPointerType *_field1;
-    struct map<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps, std::less<TPPlayerConnectionNode::Action>, std::allocator<std::pair<const TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> _field2;
+    struct map<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps, std::less<tp_connection::TPPlayerConnectionNode::Action>, std::allocator<std::pair<const tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>>> _field2;
 };
 
 struct TPPlayerInitConfig {
@@ -806,7 +908,14 @@ struct TPPlayerInitConfig {
     struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<long long>>>> m_longMap;
     struct map<TPPlayerInitConfig::KeyType, bool, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, bool>>> m_boolMap;
     struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> m_floatMap;
+    struct map<TPPlayerInitConfig::KeyType, std::string, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::string>>> m_stringMap;
     struct map<TPPlayerInitConfig::KeyType, std::shared_ptr<void>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::shared_ptr<void>>>> m_objectMap;
+};
+
+struct TPPlayerRichMediaAsyncRequesterCallbackWrapper {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    id _field3;
 };
 
 struct TPPlayerRichMediaExtraRequestInfo {
@@ -823,9 +932,25 @@ struct TPPlayerRichMediaProcessorCallbackWrapper {
     id _field5;
 };
 
+struct TPPlayerRichMediaTimeRange {
+    long long _field1;
+    long long _field2;
+};
+
 struct TPRational {
     int _field1;
     int _field2;
+};
+
+struct TPRendererParamBlock {
+    int _field1;
+    long long _field2;
+    void *_field3;
+};
+
+struct TPRtcRemoteSdpInfo {
+    _Bool _field1;
+    basic_string_8e19b51d _field2;
 };
 
 struct TPSubtitleParserCallbackWrapper {
@@ -846,6 +971,8 @@ struct TPThumbPlayerDemuxerCallbackWrapper {
     id _field2;
     id _field3;
 };
+
+struct TPThumbPlayerEventRecordCallbackWrapper;
 
 struct TPThumbPlayerMessageCallbackWrapper {
     CDUnknownFunctionPointerType *_field1;
@@ -1229,18 +1356,6 @@ struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::allocato
     } _field1;
 };
 
-struct map<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps, std::less<TPPlayerConnectionNode::Action>, std::allocator<std::pair<const TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> {
-    struct __tree<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::__map_value_compare<TPPlayerConnectionNode::Action, std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::less<TPPlayerConnectionNode::Action>, true>, std::allocator<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>>> {
-        void *_field1;
-        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, void *>>> {
-            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerConnectionNode::Action, std::__value_type<TPPlayerConnectionNode::Action, TPPlayerConnectionNode::ConfigMaps>, std::less<TPPlayerConnectionNode::Action>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct map<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> {
     struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, TPPlayerInitConfig::ConfigVal<float>>>> {
         void *__begin_node_;
@@ -1325,6 +1440,30 @@ struct map<TPPlayerInitConfig::KeyType, std::shared_ptr<void>, std::less<TPPlaye
     } __tree_;
 };
 
+struct map<TPPlayerInitConfig::KeyType, std::string, std::less<TPPlayerInitConfig::KeyType>, std::allocator<std::pair<const TPPlayerInitConfig::KeyType, std::string>>> {
+    struct __tree<std::__value_type<TPPlayerInitConfig::KeyType, std::string>, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::string>, std::less<TPPlayerInitConfig::KeyType>, true>, std::allocator<std::__value_type<TPPlayerInitConfig::KeyType, std::string>>> {
+        void *__begin_node_;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<TPPlayerInitConfig::KeyType, std::string>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> __value_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<TPPlayerInitConfig::KeyType, std::__value_type<TPPlayerInitConfig::KeyType, std::string>, std::less<TPPlayerInitConfig::KeyType>, true>> {
+            unsigned long long __value_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct map<char *, char *, std::less<char *>, std::allocator<std::pair<char *const, char *>>> {
+    struct __tree<std::__value_type<char *, char *>, std::__map_value_compare<char *, std::__value_type<char *, char *>, std::less<char *>, true>, std::allocator<std::__value_type<char *, char *>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<char *, char *>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<char *, std::__value_type<char *, char *>, std::less<char *>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
 struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
     struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
         void *_field1;
@@ -1332,6 +1471,18 @@ struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int,
             struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
         } _field2;
         struct __compressed_pair<unsigned long, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps, std::less<tp_connection::TPPlayerConnectionNode::Action>, std::allocator<std::pair<const tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>>> {
+    struct __tree<std::__value_type<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>, std::__map_value_compare<tp_connection::TPPlayerConnectionNode::Action, std::__value_type<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>, std::less<tp_connection::TPPlayerConnectionNode::Action>, true>, std::allocator<std::__value_type<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<tp_connection::TPPlayerConnectionNode::Action, std::__value_type<tp_connection::TPPlayerConnectionNode::Action, tp_connection::TPPlayerConnectionNode::ConfigMaps>, std::less<tp_connection::TPPlayerConnectionNode::Action>, true>> {
             unsigned long long _field1;
         } _field3;
     } _field1;
@@ -1393,8 +1544,18 @@ struct shared_ptr<CdnCallback> {
     struct __shared_weak_count *__cntrl_;
 };
 
+struct shared_ptr<ITPPlayerRichMediaAsyncRequester> {
+    struct ITPPlayerRichMediaAsyncRequester *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
 struct shared_ptr<ITPPlayerRichMediaProcessor> {
     struct ITPPlayerRichMediaProcessor *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<TPThumbPlayerEventRecordCallbackWrapper> {
+    struct TPThumbPlayerEventRecordCallbackWrapper *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -2795,14 +2956,6 @@ struct vector<TPAVProgramInfo, std::allocator<TPAVProgramInfo>> {
     } _field3;
 };
 
-struct vector<TPDRM::DrmSchemeType, std::allocator<TPDRM::DrmSchemeType>> {
-    int *_field1;
-    int *_field2;
-    struct __compressed_pair<TPDRM::DrmSchemeType *, std::allocator<TPDRM::DrmSchemeType>> {
-        int *_field1;
-    } _field3;
-};
-
 struct vector<TPMediaTrackInfo, std::allocator<TPMediaTrackInfo>> {
     struct TPMediaTrackInfo *_field1;
     struct TPMediaTrackInfo *_field2;
@@ -2819,11 +2972,35 @@ struct vector<TPPlayerRichMediaFeature, std::allocator<TPPlayerRichMediaFeature>
     } _field3;
 };
 
+struct vector<TPPlayerRichMediaTimeRange, std::allocator<TPPlayerRichMediaTimeRange>> {
+    struct TPPlayerRichMediaTimeRange *_field1;
+    struct TPPlayerRichMediaTimeRange *_field2;
+    struct __compressed_pair<TPPlayerRichMediaTimeRange *, std::allocator<TPPlayerRichMediaTimeRange>> {
+        struct TPPlayerRichMediaTimeRange *_field1;
+    } _field3;
+};
+
+struct vector<float, std::allocator<float>> {
+    float *__begin_;
+    float *__end_;
+    struct __compressed_pair<float *, std::allocator<float>> {
+        float *__value_;
+    } __end_cap_;
+};
+
 struct vector<int, std::allocator<int>> {
     int *_field1;
     int *_field2;
     struct __compressed_pair<int *, std::allocator<int>> {
         int *_field1;
+    } _field3;
+};
+
+struct vector<long long, std::allocator<long long>> {
+    long long *_field1;
+    long long *_field2;
+    struct __compressed_pair<long long *, std::allocator<long long>> {
+        long long *_field1;
     } _field3;
 };
 
@@ -2912,6 +3089,14 @@ struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
     void *_field2;
     struct __compressed_pair<std::vector<float>*, std::allocator<std::vector<float>>> {
         void *_field1;
+    } _field3;
+};
+
+struct vector<tpdrm::DrmSchemeType, std::allocator<tpdrm::DrmSchemeType>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<tpdrm::DrmSchemeType *, std::allocator<tpdrm::DrmSchemeType>> {
+        int *_field1;
     } _field3;
 };
 
@@ -3153,6 +3338,18 @@ typedef struct map<TPCodecID, TPVCodecMaxCapability, std::less<TPCodecID>, std::
     } _field1;
 } map_64ffd165;
 
+typedef struct map<char *, char *, std::less<char *>, std::allocator<std::pair<char *const, char *>>> {
+    struct __tree<std::__value_type<char *, char *>, std::__map_value_compare<char *, std::__value_type<char *, char *>, std::less<char *>, true>, std::allocator<std::__value_type<char *, char *>>> {
+        void *_field1;
+        struct __compressed_pair<std::__tree_end_node<std::__tree_node_base<void *>*>, std::allocator<std::__tree_node<std::__value_type<char *, char *>, void *>>> {
+            struct __tree_end_node<std::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__map_value_compare<char *, std::__value_type<char *, char *>, std::less<char *>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} map_38b9e7e1;
+
 typedef struct map<int, std::string, std::less<int>, std::allocator<std::pair<const int, std::string>>> {
     struct __tree<std::__value_type<int, std::string>, std::__map_value_compare<int, std::__value_type<int, std::string>, std::less<int>, true>, std::allocator<std::__value_type<int, std::string>>> {
         void *_field1;
@@ -3170,6 +3367,11 @@ typedef struct shared_ptr<CdnCallback> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_67bd78cc;
 
+typedef struct shared_ptr<TPThumbPlayerEventRecordCallbackWrapper> {
+    struct TPThumbPlayerEventRecordCallbackWrapper *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_61da5af9;
+
 typedef struct vector<QBAR_INFO, std::allocator<QBAR_INFO>> {
     struct QBAR_INFO *_field1;
     struct QBAR_INFO *_field2;
@@ -3185,14 +3387,6 @@ typedef struct vector<TPAVProgramInfo, std::allocator<TPAVProgramInfo>> {
         struct TPAVProgramInfo *_field1;
     } _field3;
 } vector_5a53d670;
-
-typedef struct vector<TPDRM::DrmSchemeType, std::allocator<TPDRM::DrmSchemeType>> {
-    int *_field1;
-    int *_field2;
-    struct __compressed_pair<TPDRM::DrmSchemeType *, std::allocator<TPDRM::DrmSchemeType>> {
-        int *_field1;
-    } _field3;
-} vector_7f91b74d;
 
 typedef struct vector<TPMediaTrackInfo, std::allocator<TPMediaTrackInfo>> {
     struct TPMediaTrackInfo *_field1;
@@ -3210,6 +3404,14 @@ typedef struct vector<TPPlayerRichMediaFeature, std::allocator<TPPlayerRichMedia
     } _field3;
 } vector_f4e3e6bf;
 
+typedef struct vector<TPPlayerRichMediaTimeRange, std::allocator<TPPlayerRichMediaTimeRange>> {
+    struct TPPlayerRichMediaTimeRange *_field1;
+    struct TPPlayerRichMediaTimeRange *_field2;
+    struct __compressed_pair<TPPlayerRichMediaTimeRange *, std::allocator<TPPlayerRichMediaTimeRange>> {
+        struct TPPlayerRichMediaTimeRange *_field1;
+    } _field3;
+} vector_d4921383;
+
 typedef struct vector<int, std::allocator<int>> {
     int *_field1;
     int *_field2;
@@ -3217,6 +3419,14 @@ typedef struct vector<int, std::allocator<int>> {
         int *_field1;
     } _field3;
 } vector_1d76f7fb;
+
+typedef struct vector<long long, std::allocator<long long>> {
+    long long *_field1;
+    long long *_field2;
+    struct __compressed_pair<long long *, std::allocator<long long>> {
+        long long *_field1;
+    } _field3;
+} vector_0a9fba32;
 
 typedef struct vector<objc_method_description, std::allocator<objc_method_description>> {
     struct objc_method_description *_field1;
@@ -3249,6 +3459,14 @@ typedef struct vector<std::vector<float>, std::allocator<std::vector<float>>> {
         void *_field1;
     } _field3;
 } vector_9a474c4d;
+
+typedef struct vector<tpdrm::DrmSchemeType, std::allocator<tpdrm::DrmSchemeType>> {
+    int *_field1;
+    int *_field2;
+    struct __compressed_pair<tpdrm::DrmSchemeType *, std::allocator<tpdrm::DrmSchemeType>> {
+        int *_field1;
+    } _field3;
+} vector_e6ac3340;
 
 #pragma mark Named Unions
 

@@ -16,6 +16,7 @@
     BOOL m_bOpen;
 }
 
++ (BOOL)IsWritableFile:(id)arg1;
 + (BOOL)SetFileToReadWrite:(id)arg1;
 + (BOOL)SetFileToReadOnly:(id)arg1;
 + (BOOL)IsFolder:(id)arg1;
@@ -32,12 +33,12 @@
 + (BOOL)WriteDataToPath:(id)arg1 Offset:(unsigned int)arg2 Data:(id)arg3;
 + (id)LoadDataFromPathEx:(id)arg1 Offset:(unsigned int)arg2 MaxLen:(unsigned int)arg3;
 + (id)LoadDataFromPath:(id)arg1 Offset:(unsigned int)arg2 Len:(unsigned int)arg3;
-+ (BOOL)CreateHardLinkOrCopyFromPath:(id)arg1 toPath:(id)arg2;
 + (BOOL)CreateHardLink:(id)arg1 LinkName:(id)arg2;
 + (BOOL)CreateSymbolLink:(id)arg1 LinkName:(id)arg2;
 + (void)SyncClearPath:(id)arg1;
 + (void)ClearFolderOnRemove:(id)arg1;
 + (void)ClearFolder:(id)arg1;
++ (BOOL)RemoveFile:(id)arg1 bDeleteFolder:(BOOL)arg2;
 + (BOOL)RemoveFile:(id)arg1;
 + (id)SubFilesName:(id)arg1;
 + (id)SubFoldersName:(id)arg1;

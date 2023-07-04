@@ -59,6 +59,7 @@
 - (unsigned int)getFileDownloadStatus;
 - (BOOL)isFileCanOpenWithQPL;
 - (void)mouseDown:(id)arg1;
+- (void)realManualDownload:(id)arg1;
 - (void)downloadMedia;
 - (void)contextMenuForward;
 - (void)contextMenuExport;

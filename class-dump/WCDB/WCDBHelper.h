@@ -24,7 +24,7 @@
 + (void)reportDBOpType:(unsigned int)arg1 dbTag:(unsigned int)arg2;
 + (void)reportTableCount:(unsigned int)arg1 dbIdentifier:(id)arg2 dbTag:(unsigned int)arg3;
 + (void)reportCheckpoint:(unsigned int)arg1 identifier:(id)arg2 opTime:(unsigned int)arg3 scene:(int)arg4 mode:(int)arg5;
-+ (id)buildFileInfoItems;
++ (id)buildFileInfoItemsForTagList:(id)arg1;
 + (id)genDBFileInfo;
 + (id)genMesssageDBFileSizeInfo;
 + (void)logDBFileInfoWithReport:(BOOL)arg1;

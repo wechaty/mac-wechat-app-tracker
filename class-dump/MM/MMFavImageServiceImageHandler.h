@@ -6,11 +6,11 @@
 
 #import "MMFavImageServiceBaseHandler.h"
 
-#import "MMCDNDownloadMgrExt-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class MMThreadSafeArray, MMThreadSafeDictionary, NSString;
 
-@interface MMFavImageServiceImageHandler : MMFavImageServiceBaseHandler <MMCDNDownloadMgrExt>
+@interface MMFavImageServiceImageHandler : MMFavImageServiceBaseHandler <IMMNewRecordDownloadServiceExt>
 {
     MMThreadSafeArray *m_downloadingTaskArray;
     MMThreadSafeDictionary *m_taskToFavThumbRequestDict;
@@ -18,8 +18,8 @@
 }
 
 - (void).cxx_destruct;
-- (void)onCdnDownloadFinish:(id)arg1 taskID:(id)arg2;
-- (void)cdnDownloadMgrDidFinishedDownloadWithFavCdnTask:(id)arg1;
+- (void)onCdnDownloadFinishWithTaskID:(id)arg1;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)processFavThumbRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;

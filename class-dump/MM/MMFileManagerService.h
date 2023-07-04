@@ -19,6 +19,7 @@
 - (void)immediatelyCreateIndex;
 - (void)initiallyCreateIndex;
 - (BOOL)isFileFTSIndexReady;
+- (BOOL)isChatlogManagerWindowShown;
 - (BOOL)isFileManagerWindowShown;
 - (void)updateOpenWindowDate;
 - (unsigned int)getOpenWindowDate;

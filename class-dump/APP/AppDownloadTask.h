@@ -9,7 +9,7 @@
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
 
-@class CdnTaskInfo, FavoritesItemDataField, MessageData, NSString;
+@class FavoritesItemDataField, MessageCdnTaskInfo, MessageData, NSString;
 @protocol AppDownloadTaskDelegate;
 
 @interface AppDownloadTask : NSObject <ICdnComMgrExt, MMCGIDelegate>
@@ -17,7 +17,7 @@
     MessageData *m_msgData;
     unsigned long long m_taskId;
     NSString *m_nsChatName;
-    CdnTaskInfo *_curTaskInfo;
+    MessageCdnTaskInfo *_curTaskInfo;
     id <AppDownloadTaskDelegate> m_delegate;
     unsigned int m_uiStartPos;
     unsigned int m_uTotalLen;

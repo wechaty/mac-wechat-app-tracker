@@ -14,12 +14,17 @@
     NSMutableArray *_values;
     NSMutableArray *_originString;
     NSMutableArray *_matchedRanges;
+    NSMutableArray *_linkStyles;
 }
 
 + (struct _NSRange)rangeOfSharpTagString:(id)arg1 withRange:(struct _NSRange)arg2;
 + (struct _NSRange)rangeOfUrlInString:(id)arg1 withRange:(struct _NSRange)arg2;
 + (id)parseLinkInfoFromString:(id)arg1;
++ (void)formattedLinkAttributed:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3;
++ (id)formattedMsgContent:(id)arg1 andAttrString:(id)arg2;
++ (id)parseAndFormatAttributedString:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *linkStyles; // @synthesize linkStyles=_linkStyles;
 @property(retain, nonatomic) NSMutableArray *matchedRanges; // @synthesize matchedRanges=_matchedRanges;
 @property(retain, nonatomic) NSMutableArray *originString; // @synthesize originString=_originString;
 @property(retain, nonatomic) NSMutableArray *values; // @synthesize values=_values;

@@ -29,7 +29,6 @@
 - (void)stopEdit;
 - (void)startEdit;
 - (BOOL)startImageEditWith:(id)arg1 startInfo:(id)arg2 completeType:(unsigned long long)arg3;
-- (void)prepareForEdit:(id)arg1 savePath:(id)arg2;
 - (void)onServiceClearData;
 - (void)onServiceInit;
 - (id)init;

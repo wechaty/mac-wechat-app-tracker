@@ -7,6 +7,7 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (WeChatUrl)
++ (id)safeImageContentURLWithString:(id)arg1;
 + (id)safeURLWithString:(id)arg1;
 + (id)safeUrlWithString:(id)arg1;
 - (BOOL)isHostPathHasPrefixWithConfigKey:(id)arg1 defaultValue:(id)arg2;
