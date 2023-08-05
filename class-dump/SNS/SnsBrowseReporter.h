@@ -45,8 +45,11 @@
 - (void)pauseStatisticalCostTime;
 - (void)startStatisticalCostTime;
 - (void)report;
+- (void)initWithSessionId:(id)arg1 type:(unsigned int)arg2;
+- (void)initByAlbum;
 - (void)initByRefresh;
 - (void)initByCreate:(id)arg1;
+- (void)initByCreate;
 - (id)init;
 
 @end

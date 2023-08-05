@@ -18,6 +18,7 @@
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 @property(readonly, getter=isDisposed) BOOL disposed;
+- (void)disposeBy:(id)arg1;
 
 @end
 

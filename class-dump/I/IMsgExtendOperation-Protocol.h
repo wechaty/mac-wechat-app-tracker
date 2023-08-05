@@ -52,6 +52,8 @@
 - (BOOL)isAppRecordOverLimit;
 - (BOOL)isLargeFileForForward;
 - (BOOL)isLargeFileForFavOrRecord;
+- (BOOL)isListListenMsg;
+- (BOOL)isSingleListenMsg;
 - (BOOL)isMusic;
 - (BOOL)isNoteMsg;
 - (BOOL)isCustomEmojiMsg;
@@ -81,6 +83,9 @@
 - (void)cancelUploadVideo;
 - (BOOL)saveVideoThumb:(SendVideoInfo *)arg1 toUser:(NSString *)arg2;
 - (BOOL)saveVideoResource:(SendVideoInfo *)arg1 toUser:(NSString *)arg2 beginCompressBlock:(void (^)(void))arg3;
+- (void)removeRawVideoHead:(SendVideoInfo *)arg1;
+- (BOOL)hasRawVideo;
+- (BOOL)isRawVideoExist;
 - (BOOL)isVideoExist;
 - (BOOL)isThumbImgExist;
 - (BOOL)isMidImgExist;

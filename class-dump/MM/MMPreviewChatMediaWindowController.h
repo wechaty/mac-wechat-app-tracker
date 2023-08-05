@@ -8,24 +8,35 @@
 
 #import "IMessageExt-Protocol.h"
 #import "IMessageServiceImageExt-Protocol.h"
+#import "IMessageServiceVideoExt-Protocol.h"
 #import "MMPreviewChatMediaDataLogicDelegate-Protocol.h"
+#import "MMRawVideoHintViewDelegate-Protocol.h"
 
-@class MMPreviewChatMediaDataLogic, MessageData, NSString, WCContactData;
+@class MMPreviewChatMediaDataLogic, MMRawVideoHintView, MessageData, NSString, WCContactData;
 
-@interface MMPreviewChatMediaWindowController : MMPreviewWindowController <MMPreviewChatMediaDataLogicDelegate, IMessageExt, IMessageServiceImageExt>
+@interface MMPreviewChatMediaWindowController : MMPreviewWindowController <MMPreviewChatMediaDataLogicDelegate, IMessageExt, IMessageServiceImageExt, IMessageServiceVideoExt, MMRawVideoHintViewDelegate>
 {
     MessageData *m_currentPreviewingMessage;
     WCContactData *m_chatContact;
     MMPreviewChatMediaDataLogic *m_dataLogic;
     unsigned long long m_order;
+    MMRawVideoHintView *_rawVideoHintView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMRawVideoHintView *rawVideoHintView; // @synthesize rawVideoHintView=_rawVideoHintView;
+- (void)rawVideoPlayFailedWithMsgData:(id)arg1;
+- (void)onRawVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
+- (void)onRawVideoDidFailDownloadWithMessage:(id)arg1;
+- (void)onRawVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
+- (void)cancelDownloadVideoAction;
+- (void)readyToDownloadVideoAction;
 - (void)onImageDidFailedDownloadWithMessage:(id)arg1 type:(int)arg2;
 - (void)onImageDidFinishedDownloadWithMessage:(id)arg1 type:(int)arg2 isPredownload:(BOOL)arg3;
 - (void)onImageDidCancelDownloadWithMessage:(id)arg1 type:(int)arg2;
 - (void)onImageDidDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)pageController:(id)arg1 didTransitionToObject:(id)arg2;
+- (void)initRawVideoHintViewIfNeed;
 - (void)pageController:(id)arg1 prepareViewController:(id)arg2 withObject:(id)arg3;
 - (void)onDelAllMsg:(id)arg1;
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;

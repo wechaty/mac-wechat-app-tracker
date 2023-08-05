@@ -48,12 +48,13 @@
     NSString *linkUrl;
     MMSnsAppInfo *appInfo;
     long long uiType;
-    NSArray *selectedResults;
     NSString *shareOriginUrl;
     NSString *shareOpenUrl;
     NSString *jsAppId;
     MMSnsFinderShareToMomentsItem *finderShareToMomentsItem;
     MMSnsFinderLiveShareItem *finderLiveShareItem;
+    NSArray *whiteDynamicTagList;
+    NSArray *blackDynamicTagList;
     SnsObject *_snsObj;
     long long _BGImgSetType;
     NSString *_twitterOAuthToken;
@@ -81,9 +82,12 @@
     MMSnsLiteAppInfo *_liteappInfo;
     NSString *_pendingTaskId;
     NSString *_sessionID;
+    NSArray *_selectedResults;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_blackDynamicTagList;
++ (void)PBArrayAdd_whiteDynamicTagList;
 + (void)PBArrayAdd_disableSaveDraft;
 + (void)PBArrayAdd_finderLiveShareItem;
 + (void)PBArrayAdd_finderShareToMomentsItem;
@@ -92,7 +96,6 @@
 + (void)PBArrayAdd_jsAppId;
 + (void)PBArrayAdd_shareOpenUrl;
 + (void)PBArrayAdd_shareOriginUrl;
-+ (void)PBArrayAdd_selectedResults;
 + (void)PBArrayAdd_uiType;
 + (void)PBArrayAdd_appInfo;
 + (void)PBArrayAdd_linkUrl;
@@ -115,6 +118,7 @@
 + (void)PBArrayAdd_clientID;
 + (void)PBArrayAdd_serverID;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *selectedResults; // @synthesize selectedResults=_selectedResults;
 @property(nonatomic) BOOL disableCompletionToast; // @synthesize disableCompletionToast=_disableCompletionToast;
 @property(copy, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) int sessionActionType; // @synthesize sessionActionType=_sessionActionType;
@@ -154,6 +158,8 @@
 @property(nonatomic) int contentDescScene; // @synthesize contentDescScene=_contentDescScene;
 @property(nonatomic) int contentDescShowType; // @synthesize contentDescShowType=_contentDescShowType;
 @property(retain, nonatomic) SnsObject *snsObj; // @synthesize snsObj=_snsObj;
+@property(retain, nonatomic) NSArray *blackDynamicTagList; // @synthesize blackDynamicTagList;
+@property(retain, nonatomic) NSArray *whiteDynamicTagList; // @synthesize whiteDynamicTagList;
 @property(nonatomic) BOOL disableSaveDraft; // @synthesize disableSaveDraft;
 @property(retain, nonatomic) MMSnsFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem;
 @property(retain, nonatomic) MMSnsFinderShareToMomentsItem *finderShareToMomentsItem; // @synthesize finderShareToMomentsItem;
@@ -162,7 +168,6 @@
 @property(retain, nonatomic) NSString *jsAppId; // @synthesize jsAppId;
 @property(retain, nonatomic) NSString *shareOpenUrl; // @synthesize shareOpenUrl;
 @property(retain, nonatomic) NSString *shareOriginUrl; // @synthesize shareOriginUrl;
-@property(retain, nonatomic) NSArray *selectedResults; // @synthesize selectedResults;
 @property(nonatomic) long long uiType; // @synthesize uiType;
 @property(retain, nonatomic) MMSnsAppInfo *appInfo; // @synthesize appInfo;
 @property(retain, nonatomic) NSString *linkUrl; // @synthesize linkUrl;

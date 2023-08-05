@@ -14,17 +14,31 @@
     unsigned int hasAppid:1;
     unsigned int hasIsUpdatablemsg:1;
     unsigned int isUpdatablemsg_:1;
-    unsigned int hasTemplateId:1;
+    unsigned int hasActivityInfo:1;
+    unsigned int hasIsTodomsg:1;
+    unsigned int isTodomsg_:1;
+    unsigned int hasTodoActivityId:1;
+    unsigned int hasIsSecretmsg:1;
+    unsigned int isSecretmsg_:1;
+    unsigned int hasSourceType:1;
+    unsigned int sourceType;
     BaseRequest *baseRequest;
     NSString *appid;
     NSMutableArray *mutableShareNameList;
-    NSString *templateId;
+    NSString *activityInfo;
+    NSString *todoActivityId;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic, setter=SetTemplateId:) NSString *templateId; // @synthesize templateId;
-@property(readonly, nonatomic) BOOL hasTemplateId; // @synthesize hasTemplateId;
+@property(nonatomic, setter=SetSourceType:) unsigned int sourceType; // @synthesize sourceType;
+@property(readonly, nonatomic) BOOL hasSourceType; // @synthesize hasSourceType;
+@property(readonly, nonatomic) BOOL hasIsSecretmsg; // @synthesize hasIsSecretmsg;
+@property(retain, nonatomic, setter=SetTodoActivityId:) NSString *todoActivityId; // @synthesize todoActivityId;
+@property(readonly, nonatomic) BOOL hasTodoActivityId; // @synthesize hasTodoActivityId;
+@property(readonly, nonatomic) BOOL hasIsTodomsg; // @synthesize hasIsTodomsg;
+@property(retain, nonatomic, setter=SetActivityInfo:) NSString *activityInfo; // @synthesize activityInfo;
+@property(readonly, nonatomic) BOOL hasActivityInfo; // @synthesize hasActivityInfo;
 @property(readonly, nonatomic) BOOL hasIsUpdatablemsg; // @synthesize hasIsUpdatablemsg;
 @property(retain, nonatomic) NSMutableArray *mutableShareNameList; // @synthesize mutableShareNameList;
 @property(retain, nonatomic, setter=SetAppid:) NSString *appid; // @synthesize appid;
@@ -37,6 +51,8 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(nonatomic, setter=SetIsSecretmsg:) BOOL isSecretmsg; // @synthesize isSecretmsg=isSecretmsg_;
+@property(nonatomic, setter=SetIsTodomsg:) BOOL isTodomsg; // @synthesize isTodomsg=isTodomsg_;
 @property(nonatomic, setter=SetIsUpdatablemsg:) BOOL isUpdatablemsg; // @synthesize isUpdatablemsg=isUpdatablemsg_;
 @property(retain, nonatomic) NSMutableArray *shareName; // @dynamic shareName;
 - (id)shareNameList;

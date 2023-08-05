@@ -13,7 +13,7 @@
 #import "MMService-Protocol.h"
 #import "SyncExt-Protocol.h"
 
-@class MMSessionSortLogic, MMSessionStorage, MMSessionsWrapper, MMThreadSafeDictionary, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString;
+@class MMSessionSortLogic, MMSessionStorage, MMSessionsWrapper, MMTimer, NSArray, NSMutableArray, NSObject, NSRecursiveLock, NSString, OrderedDictionary;
 @protocol OS_dispatch_queue;
 
 @interface MMSessionMgr : MMService <IGroupMgrExt, SyncExt, IMessageExt, IContactMgrExt, IChatSyncMgrExt, MMService>
@@ -29,11 +29,13 @@
     MMTimer *_updateTimer;
     NSObject<OS_dispatch_queue> *_updateQueue;
     NSObject<OS_dispatch_queue> *_workQueue;
-    MMThreadSafeDictionary *_needEnterSessionSet;
+    OrderedDictionary *_unhandledSessionList;
+    NSRecursiveLock *_lock;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MMThreadSafeDictionary *needEnterSessionSet; // @synthesize needEnterSessionSet=_needEnterSessionSet;
+@property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
+@property(retain, nonatomic) OrderedDictionary *unhandledSessionList; // @synthesize unhandledSessionList=_unhandledSessionList;
 @property BOOL bSessionLoaded; // @synthesize bSessionLoaded=_bSessionLoaded;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *updateQueue; // @synthesize updateQueue=_updateQueue;
@@ -73,6 +75,7 @@
 - (void)processBrandSessionHolderInfo:(id)arg1;
 - (void)processRecoverSessionArray:(id)arg1;
 - (void)processOnUnreadCountChange:(id)arg1 isMarkUnread:(BOOL)arg2;
+- (void)processUnhandledSessionTasks:(id)arg1;
 - (void)processOnModifyContacts:(id)arg1;
 - (void)processOnEnterSession:(id)arg1 isFromLocal:(BOOL)arg2;
 - (void)processOnMsgDeleted:(id)arg1;

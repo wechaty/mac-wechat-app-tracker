@@ -106,11 +106,13 @@
 - (void)onFavItem:(unsigned int)arg1 syncStatusChange:(int)arg2;
 - (void)favoritesMgrDidAddItems:(id)arg1 ErrCode:(int)arg2;
 - (void)favoritesMgrDidUpdatedItemsWithLocalIDArray:(id)arg1;
+- (void)onDownloadMsgRecordHtmlFileFail;
 - (void)onDownloadMsgRecordHtmlFile;
 - (void)onDownloadFavHtmlFile;
 - (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)OnDownloadFavItemRecordFail:(id)arg1 DataId:(id)arg2;
 - (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (void)tokenFieldDoShow:(BOOL)arg1 diffHeight:(double)arg2;
 - (long long)tagDeleteCount:(id)arg1;

@@ -53,7 +53,6 @@
     MMTimer *_showResultTimer;
     NSArray *_allResults;
     unsigned long long _totalTableRowHeight;
-    double _popoverWidth;
     unsigned long long _lastSelectTime;
     NSMutableDictionary *_keyWordShowResultCountDic;
     MMSearchTrackView *_floatFooterView;
@@ -69,7 +68,6 @@
 @property(retain, nonatomic) NSMutableDictionary *keyWordShowResultCountDic; // @synthesize keyWordShowResultCountDic=_keyWordShowResultCountDic;
 @property(nonatomic) BOOL isFirstSelectRow; // @synthesize isFirstSelectRow=_isFirstSelectRow;
 @property(nonatomic) unsigned long long lastSelectTime; // @synthesize lastSelectTime=_lastSelectTime;
-@property(nonatomic) double popoverWidth; // @synthesize popoverWidth=_popoverWidth;
 @property(nonatomic) unsigned long long totalTableRowHeight; // @synthesize totalTableRowHeight=_totalTableRowHeight;
 @property(retain, nonatomic) NSArray *allResults; // @synthesize allResults=_allResults;
 @property(nonatomic) BOOL choseResult; // @synthesize choseResult=_choseResult;
@@ -154,6 +152,7 @@
 - (BOOL)shouldShowSearchFriendCell:(id)arg1;
 - (id)handleMouseDown:(id)arg1;
 - (void)showPopoverWindow;
+- (double)calPopoverWidth;
 - (double)calPopoverHeight;
 - (double)estimateContentHeight;
 - (void)setKeyWordShowResultCount;

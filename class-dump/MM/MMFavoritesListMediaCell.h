@@ -50,9 +50,8 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)getTextTitleExtrAttrs:(id)arg1;
 - (void)layoutWeAppStyleTitleTextView;
-- (void)layoutThumbnailImage;
+- (void)layoutWeAppThumbnailImage;
 - (void)layoutWeAppStyle;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)layoutLinkStyleDescriptionTextView:(id)arg1;
 - (id)favItemDescriptionString;
 - (id)getTitleText;
@@ -75,6 +74,7 @@
 - (unsigned int)getFileBytes;
 - (id)formatTime:(long long)arg1;
 - (id)getTitle;
+- (id)getCurrentTingItem;
 - (void)layoutNormalProgressView;
 - (id)getDescAttrs;
 - (void)layoutNormalDescriptionTextView;

@@ -70,7 +70,7 @@
 - (BOOL)draggingEnabled;
 - (void)cancelOrRetryCompression:(id)arg1;
 - (void)export:(id)arg1;
-- (void)retry:(id)arg1;
+- (void)retryDownload:(id)arg1;
 - (void)OnBatchExportStartDownloadingWithMessage:(id)arg1;
 - (void)showErrorWording:(id)arg1;
 - (void)hideCompressProgressView;
@@ -92,7 +92,6 @@
 - (void)onDownloadButtonClicked;
 - (void)startAutoDownloadVideo;
 - (void)startDownloadVideo;
-- (void)inferCompressStatus;
 - (void)_tellDelegateToResize;
 - (void)resendMessage;
 - (void)_fireStateEvent:(id)arg1;

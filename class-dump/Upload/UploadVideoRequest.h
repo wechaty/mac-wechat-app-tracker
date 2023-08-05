@@ -49,6 +49,11 @@
     unsigned int hasVideoNewMd5:1;
     unsigned int hasCrc32:1;
     unsigned int hasMsgForwardType:1;
+    unsigned int hasRawVideoMd5:1;
+    unsigned int hasRawVideoFileId:1;
+    unsigned int hasRawVideoAeskey:1;
+    unsigned int hasRawVideoLength:1;
+    unsigned int hasHitRawMd5:1;
     unsigned int thumbTotalLen;
     unsigned int thumbStartPos;
     unsigned int videoTotalLen;
@@ -67,6 +72,8 @@
     unsigned int hitMd5;
     unsigned int crc32;
     unsigned int msgForwardType;
+    unsigned int rawVideoLength;
+    unsigned int hitRawMd5;
     BaseRequest *baseRequest;
     NSString *clientMsgId;
     NSString *fromUserName;
@@ -88,10 +95,23 @@
     NSString *streamVideoAdUxInfo;
     NSString *statExtStr;
     NSString *videoNewMd5;
+    NSString *rawVideoMd5;
+    NSString *rawVideoFileId;
+    NSString *rawVideoAeskey;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetHitRawMd5:) unsigned int hitRawMd5; // @synthesize hitRawMd5;
+@property(readonly, nonatomic) BOOL hasHitRawMd5; // @synthesize hasHitRawMd5;
+@property(nonatomic, setter=SetRawVideoLength:) unsigned int rawVideoLength; // @synthesize rawVideoLength;
+@property(readonly, nonatomic) BOOL hasRawVideoLength; // @synthesize hasRawVideoLength;
+@property(retain, nonatomic, setter=SetRawVideoAeskey:) NSString *rawVideoAeskey; // @synthesize rawVideoAeskey;
+@property(readonly, nonatomic) BOOL hasRawVideoAeskey; // @synthesize hasRawVideoAeskey;
+@property(retain, nonatomic, setter=SetRawVideoFileId:) NSString *rawVideoFileId; // @synthesize rawVideoFileId;
+@property(readonly, nonatomic) BOOL hasRawVideoFileId; // @synthesize hasRawVideoFileId;
+@property(retain, nonatomic, setter=SetRawVideoMd5:) NSString *rawVideoMd5; // @synthesize rawVideoMd5;
+@property(readonly, nonatomic) BOOL hasRawVideoMd5; // @synthesize hasRawVideoMd5;
 @property(nonatomic, setter=SetMsgForwardType:) unsigned int msgForwardType; // @synthesize msgForwardType;
 @property(readonly, nonatomic) BOOL hasMsgForwardType; // @synthesize hasMsgForwardType;
 @property(nonatomic, setter=SetCrc32:) unsigned int crc32; // @synthesize crc32;

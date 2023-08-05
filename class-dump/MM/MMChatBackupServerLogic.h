@@ -10,7 +10,7 @@
 #import "MMCGIDelegate-Protocol.h"
 #import "MMChatBackupBasicLogicDelegate-Protocol.h"
 
-@class MMChatBackupBackupLogic, MMChatBackupBasicLogic, MMChatBackupRecoverLogic, MMChatLogMigrateToMobileLogic, MMChatLogMigrateToPCLogic, MMChatLogProtoHandler, MMChatLogSyncImportMessageLogic, MMLocalAreaCommunicationServer, MMTimer, NSDate, NSString;
+@class MMChatBackupBasicLogic, MMChatLogProtoHandler, MMChatLogSyncImportMessageLogic, MMLocalAreaCommunicationServer, MMTimer, NSDate, NSString;
 @protocol MMChatBackupServerLogicDelegate, OS_dispatch_queue;
 
 @interface MMChatBackupServerLogic : NSObject <LocalAreaCommunicationServerDelegate, MMChatBackupBasicLogicDelegate, MMCGIDelegate>
@@ -27,10 +27,6 @@
     MMTimer *m_weakTransferClientTimer;
     MMTimer *m_weakTransferSpeedTimer;
     BOOL m_bDone;
-    MMChatBackupBackupLogic *backupLogic;
-    MMChatBackupRecoverLogic *recoverLogic;
-    MMChatLogMigrateToPCLogic *syncLogic;
-    MMChatLogMigrateToMobileLogic *migrationToPhoneLogic;
     NSString *phoneType;
     unsigned long long m_transferLength;
     NSDate *m_startTransferDate;

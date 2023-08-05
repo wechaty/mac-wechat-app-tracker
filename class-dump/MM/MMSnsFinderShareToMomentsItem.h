@@ -76,7 +76,6 @@
 - (const void *)getValueTagIndexMap;
 - (id)getValueTypeTable;
 - (BOOL)isValid;
-- (id)path:(id)arg1;
 - (id)dataUrl;
 
 // Remaining properties

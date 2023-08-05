@@ -17,8 +17,15 @@
 + (void)reportChatManagerAction:(unsigned int)arg1 isGlobal:(BOOL)arg2 isGroupChat:(BOOL)arg3;
 + (void)reportFileUploadLog:(id)arg1 action:(unsigned int)arg2;
 + (void)reportFileLog:(id)arg1 action:(unsigned int)arg2;
-+ (void)doReportWithAction:(unsigned long long)arg1 msgData:(id)arg2 resId:(id)arg3;
++ (void)sendRawVideoTypeReport:(id)arg1;
++ (void)rawVideoPlayFailedReport:(id)arg1;
++ (void)RawVideoRemoveHeadFailedReport:(id)arg1;
++ (void)doReportWithAction:(unsigned long long)arg1 actionSubType:(unsigned long long)arg2 msgData:(id)arg3 resId:(id)arg4;
++ (void)ReceiveOpReportWithMsgData:(id)arg1 actionSubType:(unsigned long long)arg2 resId:(id)arg3;
++ (void)ReceiveOpReportWithMsgData:(id)arg1 resId:(id)arg2;
++ (void)SendOpReportWithMsgData:(id)arg1 actionSubType:(unsigned long long)arg2 resId:(id)arg3;
 + (void)SendOpReportWithMsgData:(id)arg1 resId:(id)arg2;
++ (void)ForwardOpReportWithMsgData:(id)arg1 actionSubType:(unsigned long long)arg2 resId:(id)arg3;
 + (void)ForwardOpReportWithMsgData:(id)arg1 resId:(id)arg2;
 
 @end

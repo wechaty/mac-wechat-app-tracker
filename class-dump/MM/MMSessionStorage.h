@@ -25,7 +25,7 @@
 - (void)deleteBrandSessionInfo:(id)arg1;
 - (void)saveBrandSessionInfos:(id)arg1;
 - (id)getAllBrandSessionInfo;
-- (void)deleteSessionInfo:(id)arg1;
+- (BOOL)deleteSessionInfo:(id)arg1;
 - (void)saveSessionInfos:(id)arg1;
 - (id)getAllSessionInfo;
 - (void)close;

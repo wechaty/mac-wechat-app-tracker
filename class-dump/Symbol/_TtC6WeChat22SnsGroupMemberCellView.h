@@ -4,25 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTableRowView.h>
+#import "_TtC6WeChat17SnsMemberCellView.h"
 
-@interface _TtC6WeChat22SnsGroupMemberCellView : NSTableRowView
+@interface _TtC6WeChat22SnsGroupMemberCellView : _TtC6WeChat17SnsMemberCellView
 {
-    // Error parsing type: , name: trackingArea
-    // Error parsing type: , name: bkgLayer
+    // Error parsing type: , name: imageViewSize
     // Error parsing type: , name: userName
-    // Error parsing type: , name: mouseEntering
     // Error parsing type: , name: avatarImageView
     // Error parsing type: , name: $__lazy_storage_$_titleField
 }
 
 - (void).cxx_destruct;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
-- (void)viewDidChangeEffectiveAppearance;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
-- (void)setFrameSize:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)prepareForReuse;
 

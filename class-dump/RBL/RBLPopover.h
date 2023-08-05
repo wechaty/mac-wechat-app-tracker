@@ -53,6 +53,7 @@
 - (void)removeEventMonitors;
 - (void)performClose:(id)arg1;
 - (void)close;
+- (struct CGRect)checkInvalidContentViewFrame:(struct CGRect)arg1 popoverEdge:(unsigned int)arg2;
 - (void)showRelativeToRect:(struct CGRect)arg1 ofView:(id)arg2 preferredEdge:(unsigned int)arg3;
 @property(readonly, nonatomic, getter=isShown) BOOL shown;
 - (void)dealloc;

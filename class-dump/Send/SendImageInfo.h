@@ -8,7 +8,7 @@
 
 #import "NSCopying-Protocol.h"
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface SendImageInfo : SendInfo <NSCopying>
 {
@@ -18,9 +18,11 @@
     unsigned int _m_uiOriginalWidth;
     unsigned int _m_uiOriginalHeight;
     NSURL *_m_nuImageSourceURL;
+    NSString *_imgSourceUrl;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *imgSourceUrl; // @synthesize imgSourceUrl=_imgSourceUrl;
 @property(retain, nonatomic) NSURL *m_nuImageSourceURL; // @synthesize m_nuImageSourceURL=_m_nuImageSourceURL;
 @property(nonatomic) unsigned int m_uiOriginalHeight; // @synthesize m_uiOriginalHeight=_m_uiOriginalHeight;
 @property(nonatomic) unsigned int m_uiOriginalWidth; // @synthesize m_uiOriginalWidth=_m_uiOriginalWidth;

@@ -18,6 +18,7 @@
 + (id)intToConvertBinaryString:(int)arg1;
 + (id)stringFromUInt32:(unsigned int)arg1;
 + (id)stringFromUInt64:(unsigned long long)arg1;
++ (id)getHexStrWithUiType:(unsigned int)arg1;
 + (id)rac_readContentsOfURL:(id)arg1 usedEncoding:(unsigned long long *)arg2 scheduler:(id)arg3;
 + (id)safeStringWithString:(id)arg1;
 + (BOOL)charIsLineBreak:(unsigned short)arg1;
@@ -29,6 +30,7 @@
 + (id)safeStringWithUTF8String:(const char *)arg1;
 + (id)stringWithUInt64:(unsigned long long)arg1;
 + (double)baselineWithFont:(id)arg1 height:(double)arg2;
++ (id)prettyPrintXML:(id)arg1;
 + (id)getTextFrom:(struct XmlReaderNode_t *)arg1 atNodeName:(id)arg2;
 - (BOOL)matchesPatternRegexPattern:(id)arg1;
 - (BOOL)matchesPatternRegexPattern:(id)arg1 caseInsensitive:(BOOL)arg2 treatAsOneLine:(BOOL)arg3;

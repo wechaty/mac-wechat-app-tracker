@@ -68,7 +68,7 @@
 - (void)onCleanCache;
 - (void)resetCachedEmojiGroups;
 - (void)resetCachedStickerGroups;
-- (void)manualCleanEmoticonCache;
+- (BOOL)clearAndResetEmoticonData;
 - (void)autoCleanEmoticonCache;
 - (void)beforeUserLogout;
 - (void)updateEmoticonFromServer;
@@ -77,6 +77,7 @@
 - (BOOL)resetEmoticonDB;
 - (BOOL)hasDBFlag;
 - (void)insertDBFlag;
+- (BOOL)p_checkEmotionEncryptKeyFromPath:(id)arg1;
 - (void)checkEmotionEncryptKeyFromFileWithCompletion:(CDUnknownBlockType)arg1;
 - (void)emojiBase64tools;
 - (void)unZipResWithPath:(id)arg1 forSubType:(unsigned int)arg2;

@@ -19,6 +19,7 @@
 + (void)addBubbleMaskToLayer:(id)arg1 isOrientationRight:(BOOL)arg2;
 + (void)addBubbleMaskToView:(id)arg1 isOrientationRight:(BOOL)arg2 pathType:(int)arg3;
 + (void)addBubbleMaskToView:(id)arg1 isOrientationRight:(BOOL)arg2;
++ (struct CGPath *)newBubblePathForRect:(struct CGRect)arg1 cornerRadius:(double)arg2 isOrientationRight:(BOOL)arg3 pathType:(int)arg4;
 + (struct CGPath *)newBubblePathForRect:(struct CGRect)arg1 isOrientationRight:(BOOL)arg2 pathType:(int)arg3;
 + (struct CGPath *)newBubblePathForRect:(struct CGRect)arg1 isOrientationRight:(BOOL)arg2;
 

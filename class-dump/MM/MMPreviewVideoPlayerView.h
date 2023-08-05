@@ -9,12 +9,16 @@
 #import "IMMNewRecordDownloadServiceExt-Protocol.h"
 #import "IMessageServiceVideoExt-Protocol.h"
 #import "MMFavoriteFileServiceExt-Protocol.h"
+#import "MMPreviewVideoPlayerDelegate-Protocol.h"
 
 @class MMButton, MMCircularProgressView, MMImageView, MMPreviewVideoPlayerControl, MMQLPreviewItem, NSString, TKStateMachine;
+@protocol MMPreviewVideoPlayerViewDelegate;
 
-@interface MMPreviewVideoPlayerView : NSView <IMessageServiceVideoExt, MMFavoriteFileServiceExt, IMMNewRecordDownloadServiceExt>
+@interface MMPreviewVideoPlayerView : NSView <IMessageServiceVideoExt, MMFavoriteFileServiceExt, IMMNewRecordDownloadServiceExt, MMPreviewVideoPlayerDelegate>
 {
     BOOL _shouldPlayVideo;
+    BOOL _isPlayRawVide;
+    id <MMPreviewVideoPlayerViewDelegate> _delegate;
     CDUnknownBlockType _finishDownloadBlock;
     TKStateMachine *_stateMachine;
     MMQLPreviewItem *_previewItem;
@@ -23,9 +27,12 @@
     MMImageView *_progressBgView;
     MMCircularProgressView *_progressView;
     MMPreviewVideoPlayerControl *_playerControl;
+    MMPreviewVideoPlayerControl *_fakePlayerControl;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isPlayRawVide; // @synthesize isPlayRawVide=_isPlayRawVide;
+@property(retain, nonatomic) MMPreviewVideoPlayerControl *fakePlayerControl; // @synthesize fakePlayerControl=_fakePlayerControl;
 @property(retain, nonatomic) MMPreviewVideoPlayerControl *playerControl; // @synthesize playerControl=_playerControl;
 @property(retain, nonatomic) MMCircularProgressView *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) MMImageView *progressBgView; // @synthesize progressBgView=_progressBgView;
@@ -35,6 +42,7 @@
 @property(retain, nonatomic) TKStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(copy, nonatomic) CDUnknownBlockType finishDownloadBlock; // @synthesize finishDownloadBlock=_finishDownloadBlock;
 @property(nonatomic) BOOL shouldPlayVideo; // @synthesize shouldPlayVideo=_shouldPlayVideo;
+@property(nonatomic) __weak id <MMPreviewVideoPlayerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onDownloadPartLen:(unsigned int)arg1 TotalLen:(unsigned int)arg2;
 - (BOOL)_checkRecordExtContext:(id)arg1;
 - (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
@@ -44,9 +52,17 @@
 - (void)favoriteFileService:(id)arg1 didFailDownloadWithFavItemData:(id)arg2 type:(int)arg3 taskID:(id)arg4;
 - (void)favoriteFileService:(id)arg1 didFinishDownloadWithFavItemData:(id)arg2 type:(int)arg3 filePath:(id)arg4 taskID:(id)arg5;
 - (void)favoriteFileService:(id)arg1 downloaded:(int)arg2 of:(int)arg3 WithFavItemData:(id)arg4 type:(int)arg5;
+- (void)reportRawVideoPlayFailed;
+- (void)performActionWhenRawVideoDownloadedButPlayFailed;
+- (void)replaceOriginalVideoWhenRawVideoDownloadedAndReadyPlay;
+- (void)playCompressedVideoWhenPlayRawVideoFailed;
+- (void)videoPlayerStautsChanged:(int)arg1 videoPlayer:(id)arg2;
 - (void)onVideoDidCancelDownloadWithMessage:(id)arg1;
 - (void)onVideoDidFailDownloadWithMessage:(id)arg1;
+- (void)syncPlayerControlProgress;
+- (void)performWhenRawVideoDownloadedWithMsg:(id)arg1;
 - (void)onVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
+- (void)onRawVideoDidFinishDownloadWithMessage:(id)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(id)arg3;
 - (void)startDownloadRecordVideo;
 - (void)startDownloadFavVideo;
@@ -75,6 +91,7 @@
 - (void)_layoutActionButton;
 - (void)_layoutThumbnailImageView;
 - (id)defaultVideoThumbnail;
+- (void)showThumbnailImageViewAgain;
 - (void)dismissThumbnailImageView;
 - (void)_setupSubViews;
 - (void)mouseDragged:(id)arg1;

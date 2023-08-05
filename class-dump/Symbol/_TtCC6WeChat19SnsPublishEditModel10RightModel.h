@@ -9,8 +9,9 @@
 @interface _TtCC6WeChat19SnsPublishEditModel10RightModel : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: right
-    // Error parsing type: , name: list
-    // Error parsing type: , name: listDesc
+    // Error parsing type: , name: dynamicTagList
+    // Error parsing type: , name: dynamicUserList
+    // Error parsing type: , name: descString
 }
 
 @end

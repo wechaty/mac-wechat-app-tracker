@@ -29,6 +29,8 @@
 @property(nonatomic) BOOL shouldFold; // @synthesize shouldFold=_shouldFold;
 @property(retain, nonatomic) NSMutableArray *patMessageViews; // @synthesize patMessageViews=_patMessageViews;
 - (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
+- (BOOL)accessibilityPerformPress;
+- (void)showAllMsg;
 - (double)getShowInWidth;
 - (void)clearAllSubviews;
 - (void)populateWithMessage:(id)arg1;

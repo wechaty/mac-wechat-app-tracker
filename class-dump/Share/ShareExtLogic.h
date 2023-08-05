@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "AccountServiceExt-Protocol.h"
+
 @class NSMutableArray, NSString, NSUserDefaults, NSWindow;
 
-@interface ShareExtLogic : NSObject
+@interface ShareExtLogic : NSObject <AccountServiceExt>
 {
     NSWindow *m_mainWindow;
     NSUserDefaults *m_shareDefaults;
@@ -22,7 +24,10 @@
     NSMutableArray *m_invalidFileSizes;
 }
 
++ (void)clearShareExtFolder;
++ (id)shareExtFolderName;
 - (void).cxx_destruct;
+- (void)onUserLogout;
 - (id)urlMsgDataForFav:(id)arg1 urlTitle:(id)arg2 imgData:(id)arg3;
 - (BOOL)favFileToWeChat:(id)arg1;
 - (void)favUrlToWeChat;
@@ -39,7 +44,14 @@
 - (unsigned long long)getShareEntry;
 - (unsigned long long)getShareType;
 - (void)reloadData;
+- (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

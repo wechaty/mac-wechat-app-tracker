@@ -21,5 +21,9 @@
 - (void)onVideoDidFailDownloadWithMessage:(MessageData *)arg1;
 - (void)onVideoDidFinishDownloadWithMessage:(MessageData *)arg1 isPredownload:(BOOL)arg2;
 - (void)onVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
+- (void)onRawVideoDidCancelDownloadWithMessage:(MessageData *)arg1;
+- (void)onRawVideoDidFailDownloadWithMessage:(MessageData *)arg1;
+- (void)onRawVideoDidFinishDownloadWithMessage:(MessageData *)arg1 isPredownload:(BOOL)arg2;
+- (void)onRawVideoDownloaded:(int)arg1 of:(int)arg2 withMessage:(MessageData *)arg3;
 @end
 

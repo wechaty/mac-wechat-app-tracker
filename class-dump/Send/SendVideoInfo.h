@@ -12,6 +12,7 @@
 {
     BOOL _front_camera;
     BOOL _m_bForward;
+    BOOL _sendRaw;
     unsigned int _video_time;
     unsigned int _video_size;
     unsigned int _m_uiVideoSource;
@@ -20,6 +21,7 @@
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL sendRaw; // @synthesize sendRaw=_sendRaw;
 @property(nonatomic) BOOL m_bForward; // @synthesize m_bForward=_m_bForward;
 @property(nonatomic) unsigned int m_uiVideoSource; // @synthesize m_uiVideoSource=_m_uiVideoSource;
 @property(nonatomic) BOOL front_camera; // @synthesize front_camera=_front_camera;

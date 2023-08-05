@@ -78,6 +78,7 @@
 - (void)contextMenuFavorites;
 - (void)contextMenuForward;
 - (void)contextMenuCopy;
+- (void)contextMenuShowSourceDebugTool;
 - (void)contextMenuShowAttrInfo;
 - (void)contextMenuEdit;
 - (BOOL)allowSearch;

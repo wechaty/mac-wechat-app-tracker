@@ -87,6 +87,8 @@
 - (void)cursorUpdate:(id)arg1;
 - (void)updateTrackingAreas;
 - (struct CGSize)suggestedSizeWithWidthConstraint:(double)arg1;
+- (void)updateAccessibility;
+- (struct CGRect)accessibilityLinkFrame:(struct _NSRange)arg1;
 - (id)attributes;
 - (void)cleanup;
 - (void)setFrame:(struct CGRect)arg1;

@@ -10,7 +10,11 @@
 {
     // Error parsing type: , name: disposeBag
     // Error parsing type: , name: $__lazy_storage_$_bkgImageView
+    // Error parsing type: , name: maskLayer
+    // Error parsing type: , name: hasCornerRadius
     // Error parsing type: , name: $__lazy_storage_$_coverImageView
+    // Error parsing type: , name: $__lazy_storage_$_coverMaskView
+    // Error parsing type: , name: $__lazy_storage_$_musicCoverView
     // Error parsing type: , name: $__lazy_storage_$_playerView
     // Error parsing type: , name: $__lazy_storage_$_iconFlagView
     // Error parsing type: , name: $__lazy_storage_$_progressBkgView
@@ -21,6 +25,7 @@
     // Error parsing type: , name: $__lazy_storage_$_liveStatus
     // Error parsing type: , name: feedLiveTimer
     // Error parsing type: , name: selectedIndex
+    // Error parsing type: , name: isTingAudioPlaying
     // Error parsing type: , name: trackingArea
     // Error parsing type: , name: timer
     // Error parsing type: , name: locationPoint

@@ -45,7 +45,8 @@
 - (unsigned int)getRecordTotalSize:(id)arg1;
 - (BOOL)isAppRecordOverLimit:(id)arg1;
 - (unsigned long long)getTotalSizeOfMergeMsgList:(id)arg1;
-- (BOOL)isOverLimitMergeMsgList:(id)arg1 limit:(unsigned long long)arg2;
+- (BOOL)isOverLimitMergeMsgList:(id)arg1 limit:(unsigned long long)arg2 isToFav:(BOOL)arg3;
+- (BOOL)isOverFavLimit:(id)arg1;
 - (BOOL)isOverLimitMergeMsgList:(id)arg1;
 - (BOOL)isLargeFileWithDataList:(id)arg1;
 - (BOOL)isLargeFileForForward:(id)arg1;

@@ -17,6 +17,7 @@
     unsigned int hasRemindWording:1;
     unsigned int hasUpdatePeroid:1;
     unsigned int hasState:1;
+    unsigned int hasExpiredSubscribeWording:1;
     int updatePeroid;
     int state;
     NSString *content;
@@ -24,10 +25,13 @@
     NSString *toastContent;
     NSString *toastButtonWording;
     NSString *remindWording;
+    NSString *expiredSubscribeWording;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetExpiredSubscribeWording:) NSString *expiredSubscribeWording; // @synthesize expiredSubscribeWording;
+@property(readonly, nonatomic) BOOL hasExpiredSubscribeWording; // @synthesize hasExpiredSubscribeWording;
 @property(nonatomic, setter=SetState:) int state; // @synthesize state;
 @property(readonly, nonatomic) BOOL hasState; // @synthesize hasState;
 @property(nonatomic, setter=SetUpdatePeroid:) int updatePeroid; // @synthesize updatePeroid;

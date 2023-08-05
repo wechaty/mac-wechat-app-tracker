@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import "EmoticonDownloaderDelegate-Protocol.h"
+#import "MMHotAreaQueueDelegate-Protocol.h"
 
-@class EmoticonDataDownloader, EmoticonMd5ObjDownloader, MMCache, NSMutableArray, NSRecursiveLock, NSString;
+@class MMCache, MMHotAreaQueue, NSMutableArray, NSRecursiveLock, NSString;
 
-@interface MMBaseEmoticonMgrLogic : NSObject <EmoticonDownloaderDelegate>
+@interface MMBaseEmoticonMgrLogic : NSObject <MMHotAreaQueueDelegate>
 {
     BOOL _isGettingEmoticonList;
     NSRecursiveLock *_lock;
@@ -19,21 +19,13 @@
     MMCache *_imageCache;
     MMCache *_dataCache;
     NSString *_dataPath;
-    NSMutableArray *_downloadQueueForEmoticonData;
-    NSRecursiveLock *_downloadQueueForEmoticonDataLock;
-    EmoticonDataDownloader *_emoticonDataDownloader;
-    NSMutableArray *_downloadQueueForMd5Object;
-    NSRecursiveLock *_downloadQueueForMd5ObjectLock;
-    EmoticonMd5ObjDownloader *_md5ObjectDownloader;
+    MMHotAreaQueue *_downloadQueueForEmoticonData;
+    MMHotAreaQueue *_downloadQueueForMd5Object;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) EmoticonMd5ObjDownloader *md5ObjectDownloader; // @synthesize md5ObjectDownloader=_md5ObjectDownloader;
-@property(retain, nonatomic) NSRecursiveLock *downloadQueueForMd5ObjectLock; // @synthesize downloadQueueForMd5ObjectLock=_downloadQueueForMd5ObjectLock;
-@property(retain, nonatomic) NSMutableArray *downloadQueueForMd5Object; // @synthesize downloadQueueForMd5Object=_downloadQueueForMd5Object;
-@property(retain, nonatomic) EmoticonDataDownloader *emoticonDataDownloader; // @synthesize emoticonDataDownloader=_emoticonDataDownloader;
-@property(retain, nonatomic) NSRecursiveLock *downloadQueueForEmoticonDataLock; // @synthesize downloadQueueForEmoticonDataLock=_downloadQueueForEmoticonDataLock;
-@property(retain, nonatomic) NSMutableArray *downloadQueueForEmoticonData; // @synthesize downloadQueueForEmoticonData=_downloadQueueForEmoticonData;
+@property(retain, nonatomic) MMHotAreaQueue *downloadQueueForMd5Object; // @synthesize downloadQueueForMd5Object=_downloadQueueForMd5Object;
+@property(retain, nonatomic) MMHotAreaQueue *downloadQueueForEmoticonData; // @synthesize downloadQueueForEmoticonData=_downloadQueueForEmoticonData;
 @property(retain, nonatomic) NSString *dataPath; // @synthesize dataPath=_dataPath;
 @property(retain, nonatomic) MMCache *dataCache; // @synthesize dataCache=_dataCache;
 @property(retain, nonatomic) MMCache *imageCache; // @synthesize imageCache=_imageCache;
@@ -44,9 +36,7 @@
 - (void)onEmoticonMd5ObjectDownloadFail:(id)arg1;
 - (void)onEmoticonMd5ObjectDownloadFinish:(id)arg1;
 - (void)handleDownloadFinishedWithEmoticonMd5Object:(id)arg1 isSucc:(BOOL)arg2;
-- (void)removeEmoticonMd5ObjectFromDownloadQueue:(id)arg1;
-- (void)startDownloadNextEmotionMd5ObjectTask;
-- (BOOL)addToMd5ObjectDownloadQueue:(id)arg1;
+- (void)addToMd5ObjectDownloadQueue:(id)arg1;
 - (void)downloadEmotionWithMd5Object:(id)arg1;
 - (id)getEmotionThumbWithPackageID:(id)arg1;
 - (id)getEmotionThumbWithMD5:(id)arg1;
@@ -62,16 +52,14 @@
 - (void)removeEmoticonFromDataList:(id)arg1;
 - (BOOL)deleteEmoticonWithMD5:(id)arg1;
 - (void)onEmoticonDataDelete:(id)arg1;
-- (void)emoticonDidFailedDownload:(id)arg1;
-- (void)emoticonDidFinishedDownload:(id)arg1;
+- (void)hotAreaQueue:(id)arg1 onItemsEliminatedFromHotArea:(id)arg2;
+- (void)hotAreaQueue:(id)arg1 onItemsAddToHotArea:(id)arg2;
 - (void)onEmoticonDataDownloadFail:(id)arg1;
 - (void)onEmoticonDataDownloadFinish:(id)arg1;
 - (void)handleDownloadFinishedWithEmoticonData:(id)arg1 isSucc:(BOOL)arg2;
-- (void)removeEmoticonDataFromDownloadQueue:(id)arg1;
-- (void)startDownloadNextEmotionTask;
 - (void)downloadEmotionWithEmoticonDataList:(id)arg1;
 - (void)downloadEmotionWithEmotionData:(id)arg1;
-- (BOOL)addToDownloadQueue:(id)arg1;
+- (void)addToDownloadQueue:(id)arg1;
 - (void)loadEmoticonDataFromFile;
 - (void)saveEmoticonDataListToFile;
 - (void)dealloc;

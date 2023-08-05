@@ -9,7 +9,7 @@
 #import "NSCoding-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class FavLocationItem, FavProductItem, FavTVItem, FavURLItem, FavWeAppItem, NSArray, NSDate, NSMutableArray, NSString, WCFinderMessageShareNameCard, WCFinderShareItem;
+@class FavLocationItem, FavProductItem, FavTVItem, FavURLItem, FavWeAppItem, MMMusicShareItem, NSArray, NSDate, NSMutableArray, NSString, WCFinderMessageShareNameCard, WCFinderShareItem;
 
 @interface FavoritesItem : NSObject <NSPasteboardItemDataProvider, NSCoding>
 {
@@ -64,6 +64,7 @@
     FavWeAppItem *_weAppItem;
     WCFinderShareItem *_finderShareItem;
     WCFinderMessageShareNameCard *_finderMessageShareNameCard;
+    MMMusicShareItem *_musicShareItem;
 }
 
 + (void)parseStreamVideoNode:(struct XmlReaderNode_t *)arg1 dataField:(id)arg2;
@@ -93,6 +94,9 @@
 + (id)checkImageTypeWithItem:(id)arg1;
 + (id)favoritesItemsFromPasteboard:(id)arg1;
 + (id)createItemFromPasteboardItem:(id)arg1;
++ (id)itemWithSnsFeed:(id)arg1;
++ (id)itemWithTingListMessageData:(id)arg1;
++ (id)itemWithTingAudioMessageData:(id)arg1;
 + (id)itemWithGroupNoticeMessageData:(id)arg1;
 + (id)itemWithFinderNameCardMessageData:(id)arg1;
 + (id)itemWithFeedMessageData:(id)arg1;
@@ -109,6 +113,9 @@
 + (id)itemWithFileMessageData:(id)arg1;
 + (id)itemWithVoiceMessageData:(id)arg1;
 + (id)itemWithLocationMessageData:(id)arg1;
++ (id)itemWithSnsTingListItem:(id)arg1;
++ (id)itemWithSnsTingAudioItem:(id)arg1;
++ (id)convertMusicSNS2FavItem:(id)arg1 singer:(id)arg2 webUrl:(id)arg3 lowUrl:(id)arg4 dataUrl:(id)arg5 fromUser:(id)arg6 eventId:(id)arg7 mediaId:(id)arg8 appId:(id)arg9 thumbUrl:(id)arg10 srcCreateTime:(unsigned int)arg11 songLyric:(id)arg12 songAlbumUrl:(id)arg13 musicShareItem:(id)arg14;
 + (id)convertMusicSNS2FavItem:(id)arg1 singer:(id)arg2 webUrl:(id)arg3 lowUrl:(id)arg4 dataUrl:(id)arg5 fromUser:(id)arg6 eventId:(id)arg7 mediaId:(id)arg8 appId:(id)arg9 thumbUrl:(id)arg10 srcCreateTime:(unsigned int)arg11 songLyric:(id)arg12 songAlbumUrl:(id)arg13;
 + (id)itemWithSnsMusic:(id)arg1;
 + (id)itemWithSnsText:(id)arg1;
@@ -121,6 +128,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isChatRoom; // @synthesize isChatRoom=_isChatRoom;
 @property(nonatomic) BOOL isFromFavToChat; // @synthesize isFromFavToChat=_isFromFavToChat;
+@property(retain, nonatomic) MMMusicShareItem *musicShareItem; // @synthesize musicShareItem=_musicShareItem;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
 @property(retain, nonatomic) FavWeAppItem *weAppItem; // @synthesize weAppItem=_weAppItem;
@@ -170,6 +178,8 @@
 @property(retain, nonatomic) NSString *deviceid; // @synthesize deviceid=_deviceid;
 @property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(nonatomic) unsigned int favId; // @synthesize favId=_favId;
+- (id)favoritesTpThumbnailPath;
+- (id)thumbHttpUrl;
 - (BOOL)isNoteFinishDownload;
 - (BOOL)checkHtmlFileCDNInfo;
 - (BOOL)checkFavoritesItemAvailable;

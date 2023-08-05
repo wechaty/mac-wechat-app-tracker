@@ -27,6 +27,7 @@
 - (void)onCurrentDeviceLockStateChanged:(BOOL)arg1;
 - (void)appendDebugInfo:(id)arg1;
 - (void)resetBackupMode;
+- (id)getWindow;
 - (void)tryCloseMigrateWindow;
 - (void)closeBackupWindow;
 - (void)showBackupWindow;

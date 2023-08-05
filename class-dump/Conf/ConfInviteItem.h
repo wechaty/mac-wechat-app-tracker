@@ -11,15 +11,23 @@
 @interface ConfInviteItem : PBGeneratedMessage
 {
     unsigned int hasOpenid:1;
+    unsigned int hasUsername:1;
     unsigned int hasInviteData:1;
+    unsigned int hasErrcode:1;
+    unsigned int errcode;
     NSString *openid;
+    NSString *username;
     NSData *inviteData;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(nonatomic, setter=SetErrcode:) unsigned int errcode; // @synthesize errcode;
+@property(readonly, nonatomic) BOOL hasErrcode; // @synthesize hasErrcode;
 @property(retain, nonatomic, setter=SetInviteData:) NSData *inviteData; // @synthesize inviteData;
 @property(readonly, nonatomic) BOOL hasInviteData; // @synthesize hasInviteData;
+@property(retain, nonatomic, setter=SetUsername:) NSString *username; // @synthesize username;
+@property(readonly, nonatomic) BOOL hasUsername; // @synthesize hasUsername;
 @property(retain, nonatomic, setter=SetOpenid:) NSString *openid; // @synthesize openid;
 @property(readonly, nonatomic) BOOL hasOpenid; // @synthesize hasOpenid;
 - (id)mergeFromCodedInputStream:(id)arg1;

@@ -11,7 +11,7 @@
 #import "IMessageServiceImageExt-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class CAShapeLayer, NSImage, NSImageView, NSString;
+@class CAShapeLayer, MMRoundedRectangleView, NSImage, NSImageView, NSString, NSTextField, SVGImageView;
 
 @interface MMImageMessageCellView : MMMessageCellView <IMessageCacheMgrImageExt, NSPasteboardItemDataProvider, CALayerDelegate, IMessageServiceImageExt>
 {
@@ -26,6 +26,10 @@
     CAShapeLayer *_highlightLayer;
     CAShapeLayer *_strokeLayer;
     NSString *_cdnKey;
+    MMRoundedRectangleView *_readMoreView;
+    NSTextField *_readMoreTipsTextField;
+    SVGImageView *_readMoreTipsIconView;
+    SVGImageView *_readMoreJumpIconView;
 }
 
 + (struct CGSize)displaySizeForMessage:(id)arg1 constrainedToWidth:(double)arg2;
@@ -34,6 +38,10 @@
 + (double)cellHeightWithMessage:(id)arg1 constrainedToWidth:(double)arg2;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isStartDownloadManually; // @synthesize isStartDownloadManually=_isStartDownloadManually;
+@property(retain, nonatomic) SVGImageView *readMoreJumpIconView; // @synthesize readMoreJumpIconView=_readMoreJumpIconView;
+@property(retain, nonatomic) SVGImageView *readMoreTipsIconView; // @synthesize readMoreTipsIconView=_readMoreTipsIconView;
+@property(retain, nonatomic) NSTextField *readMoreTipsTextField; // @synthesize readMoreTipsTextField=_readMoreTipsTextField;
+@property(retain, nonatomic) MMRoundedRectangleView *readMoreView; // @synthesize readMoreView=_readMoreView;
 @property(retain, nonatomic) NSString *cdnKey; // @synthesize cdnKey=_cdnKey;
 @property(retain, nonatomic) CAShapeLayer *strokeLayer; // @synthesize strokeLayer=_strokeLayer;
 @property(retain, nonatomic) CAShapeLayer *highlightLayer; // @synthesize highlightLayer=_highlightLayer;
@@ -41,6 +49,7 @@
 @property(retain, nonatomic) NSString *displayedImagePath; // @synthesize displayedImagePath=_displayedImagePath;
 @property(retain, nonatomic) NSImage *displayedImage; // @synthesize displayedImage=_displayedImage;
 @property(nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
+- (void)openReadMoreArticle;
 - (void)processAutoDownload;
 - (BOOL)isAutoDownload;
 - (void)mouseUp:(id)arg1;

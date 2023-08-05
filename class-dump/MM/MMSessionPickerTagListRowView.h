@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTableRowView.h>
+#import "SPSelectionBaseRowView.h"
 
 @class MMDivider, NSTextField, NSTrackingArea, SVGButton;
 
-@interface MMSessionPickerTagListRowView : NSTableRowView
+@interface MMSessionPickerTagListRowView : SPSelectionBaseRowView
 {
     BOOL _highlighted;
     NSTrackingArea *_trackingArea;
     long long trackingTag;
-    BOOL _rollover;
     BOOL _isSingleChoice;
     BOOL _preSelected;
     BOOL _disabled;
@@ -28,10 +27,10 @@
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak MMDivider *divider; // @synthesize divider=_divider;
-@property(nonatomic) __weak NSTextField *tagContentField; // @synthesize tagContentField=_tagContentField;
-@property(nonatomic) __weak NSTextField *tagTitleField; // @synthesize tagTitleField=_tagTitleField;
-@property(nonatomic) __weak SVGButton *checkbox; // @synthesize checkbox=_checkbox;
+@property(retain, nonatomic) MMDivider *divider; // @synthesize divider=_divider;
+@property(retain, nonatomic) NSTextField *tagContentField; // @synthesize tagContentField=_tagContentField;
+@property(retain, nonatomic) NSTextField *tagTitleField; // @synthesize tagTitleField=_tagTitleField;
+@property(retain, nonatomic) SVGButton *checkbox; // @synthesize checkbox=_checkbox;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) BOOL keyboardFocused; // @synthesize keyboardFocused=_keyboardFocused;
 @property(nonatomic) BOOL disabled; // @synthesize disabled=_disabled;
@@ -39,18 +38,17 @@
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(nonatomic) BOOL isSingleChoice; // @synthesize isSingleChoice=_isSingleChoice;
-@property(nonatomic) BOOL rollover; // @synthesize rollover=_rollover;
 @property(nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 - (void)setupWithSessionPickerRow:(id)arg1 keyword:(id)arg2;
 - (void)_callDelegate;
 - (void)checkboxChecked:(id)arg1;
-- (void)_updateRollover;
 @property(nonatomic) BOOL chosen;
 - (id)currentBgColor;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)viewDidMoveToSuperview;
 - (void)prepareForReuse;
 - (void)_commonInit;
+- (void)initViews;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
 - (void)awakeFromNib;

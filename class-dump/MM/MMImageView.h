@@ -13,6 +13,7 @@
     NSImage *_aspectFillImage;
     BOOL _forceWindowDraggable;
     BOOL _drawWithAspectFill;
+    BOOL _redrawWhenAppearanceChanged;
     BOOL _draggable;
     long long _vibrancyMode;
     CDUnknownBlockType _rightMouseUpEventBlock;
@@ -31,6 +32,7 @@
 @property(copy, nonatomic) CDUnknownBlockType magnifyWithEventBlockIsHandled; // @synthesize magnifyWithEventBlockIsHandled=_magnifyWithEventBlockIsHandled;
 @property(copy, nonatomic) CDUnknownBlockType rightMouseUpEventBlock; // @synthesize rightMouseUpEventBlock=_rightMouseUpEventBlock;
 @property(nonatomic) BOOL draggable; // @synthesize draggable=_draggable;
+@property(nonatomic) BOOL redrawWhenAppearanceChanged; // @synthesize redrawWhenAppearanceChanged=_redrawWhenAppearanceChanged;
 @property(nonatomic) BOOL drawWithAspectFill; // @synthesize drawWithAspectFill=_drawWithAspectFill;
 @property(nonatomic) BOOL forceWindowDraggable; // @synthesize forceWindowDraggable=_forceWindowDraggable;
 @property(nonatomic) long long vibrancyMode; // @synthesize vibrancyMode=_vibrancyMode;
@@ -52,6 +54,7 @@
 - (void)setImage:(id)arg1;
 - (BOOL)allowsVibrancy;
 - (BOOL)mouseDownCanMoveWindow;
+- (BOOL)isMojaveOrLater;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
 

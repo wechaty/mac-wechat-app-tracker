@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class NSString, WxaAppGetShareInfoResponse_WxaAppShareInfo_UpdatableMsgInfo;
+@class NSString, WxaAppGetShareInfoResponse_WxaAppShareInfo_ToDoMsgInfo, WxaAppGetShareInfoResponse_WxaAppShareInfo_UpdatableMsgInfo;
 
 @interface WxaAppGetShareInfoResponse_WxaAppShareInfo : PBGeneratedMessage
 {
@@ -15,13 +15,23 @@
     unsigned int hasUpdateablemsgInfo:1;
     unsigned int hasIsUpdatablemsg:1;
     unsigned int isUpdatablemsg_:1;
+    unsigned int hasIsTodomsg:1;
+    unsigned int isTodomsg_:1;
+    unsigned int hasTodoMsgInfo:1;
+    unsigned int hasIsSecretmsg:1;
+    unsigned int isSecretmsg_:1;
     NSString *shareName;
     NSString *shareKey;
     WxaAppGetShareInfoResponse_WxaAppShareInfo_UpdatableMsgInfo *updateablemsgInfo;
+    WxaAppGetShareInfoResponse_WxaAppShareInfo_ToDoMsgInfo *todoMsgInfo;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL hasIsSecretmsg; // @synthesize hasIsSecretmsg;
+@property(retain, nonatomic, setter=SetTodoMsgInfo:) WxaAppGetShareInfoResponse_WxaAppShareInfo_ToDoMsgInfo *todoMsgInfo; // @synthesize todoMsgInfo;
+@property(readonly, nonatomic) BOOL hasTodoMsgInfo; // @synthesize hasTodoMsgInfo;
+@property(readonly, nonatomic) BOOL hasIsTodomsg; // @synthesize hasIsTodomsg;
 @property(readonly, nonatomic) BOOL hasIsUpdatablemsg; // @synthesize hasIsUpdatablemsg;
 @property(retain, nonatomic, setter=SetUpdateablemsgInfo:) WxaAppGetShareInfoResponse_WxaAppShareInfo_UpdatableMsgInfo *updateablemsgInfo; // @synthesize updateablemsgInfo;
 @property(readonly, nonatomic) BOOL hasUpdateablemsgInfo; // @synthesize hasUpdateablemsgInfo;
@@ -33,6 +43,8 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(nonatomic, setter=SetIsSecretmsg:) BOOL isSecretmsg; // @synthesize isSecretmsg=isSecretmsg_;
+@property(nonatomic, setter=SetIsTodomsg:) BOOL isTodomsg; // @synthesize isTodomsg=isTodomsg_;
 @property(nonatomic, setter=SetIsUpdatablemsg:) BOOL isUpdatablemsg; // @synthesize isUpdatablemsg=isUpdatablemsg_;
 - (id)init;
 

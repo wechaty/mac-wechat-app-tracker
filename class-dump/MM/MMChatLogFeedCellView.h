@@ -6,18 +6,20 @@
 
 #import "MMChatLogBaseCellView.h"
 
-#import "SDWebImageManagerDelegate-Protocol.h"
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
 
 @class MMImageView, MMTextField, NSString;
 
-@interface MMChatLogFeedCellView : MMChatLogBaseCellView <SDWebImageManagerDelegate>
+@interface MMChatLogFeedCellView : MMChatLogBaseCellView <IMMNewRecordDownloadServiceExt>
 {
     MMImageView *_iconImageView;
     MMTextField *_titleTextField;
+    NSString *_thumbImagePath;
 }
 
 + (double)cellHeightWithFavItemDataField:(id)arg1 parentMessage:(id)arg2 parentFavItem:(id)arg3 parentDataField:(id)arg4 constrainedToWidth:(double)arg5;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *thumbImagePath; // @synthesize thumbImagePath=_thumbImagePath;
 @property(retain, nonatomic) MMTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(retain, nonatomic) MMImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
@@ -29,10 +31,12 @@
 - (BOOL)allowForward;
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)layoutSubViews:(id)arg1;
-- (void)webImageManager:(id)arg1 didFinishWithImage:(id)arg2;
 - (void)layoutCover:(id)arg1;
+- (void)dealloc;
+- (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

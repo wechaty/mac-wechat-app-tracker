@@ -6,7 +6,7 @@
 
 #import "PBGeneratedMessage.h"
 
-@class BaseRequest, CanvasInfo, NSMutableArray, NSString, SKBuiltinBuffer_t, SnsPostCtocUploadInfo, SnsPostOperationFields, SnsRedEnvelops, SnsWeAppInfo, TwitterInfo;
+@class BaseRequest, CanvasInfo, NSMutableArray, NSString, OpenSDKInfo, SKBuiltinBuffer_t, SnsExtStatData, SnsPostCtocUploadInfo, SnsPostOperationFields, SnsWeAppInfo, TwitterInfo;
 
 @interface SnsPostRequest : PBGeneratedMessage
 {
@@ -25,7 +25,6 @@
     unsigned int hasGroupUserCount:1;
     unsigned int hasCtocUploadInfo:1;
     unsigned int hasSnsPostOperationFields:1;
-    unsigned int hasSnsRedEnvelops:1;
     unsigned int hasPoiInfo:1;
     unsigned int hasFromScene:1;
     unsigned int hasCanvasInfo:1;
@@ -33,6 +32,15 @@
     unsigned int hasWeAppInfo:1;
     unsigned int hasClientCheckData:1;
     unsigned int hasExtSpamInfo:1;
+    unsigned int hasOpenSdkinfo:1;
+    unsigned int hasWithChatroomListCount:1;
+    unsigned int hasWithTaUserListCount:1;
+    unsigned int hasReportData:1;
+    unsigned int hasExtStatData:1;
+    unsigned int hasBlackContactTagIdListCount:1;
+    int blackContactTagIdListMemoizedSerializedSize;
+    unsigned int hasGroupContactTagIdListCount:1;
+    int groupContactTagIdListMemoizedSerializedSize;
     unsigned int withUserListCount;
     unsigned int privacy;
     unsigned int syncFlag;
@@ -42,6 +50,10 @@
     unsigned int blackListCount;
     unsigned int groupUserCount;
     unsigned int mediaInfoCount;
+    unsigned int withChatroomListCount;
+    unsigned int withTaUserListCount;
+    unsigned int blackContactTagIdListCount;
+    unsigned int groupContactTagIdListCount;
     BaseRequest *baseRequest;
     SKBuiltinBuffer_t *objectDesc;
     NSMutableArray *mutableWithUserListList;
@@ -53,7 +65,6 @@
     NSMutableArray *mutableGroupUserList;
     SnsPostCtocUploadInfo *ctocUploadInfo;
     SnsPostOperationFields *snsPostOperationFields;
-    SnsRedEnvelops *snsRedEnvelops;
     SKBuiltinBuffer_t *poiInfo;
     NSString *fromScene;
     CanvasInfo *canvasInfo;
@@ -61,10 +72,35 @@
     SnsWeAppInfo *weAppInfo;
     SKBuiltinBuffer_t *clientCheckData;
     SKBuiltinBuffer_t *extSpamInfo;
+    OpenSDKInfo *openSdkinfo;
+    NSMutableArray *mutableWithChatroomListList;
+    NSMutableArray *mutableWithTaUserListList;
+    NSString *reportData;
+    SnsExtStatData *extStatData;
+    NSMutableArray *mutableBlackContactTagIdListList;
+    NSMutableArray *mutableGroupContactTagIdListList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *mutableGroupContactTagIdListList; // @synthesize mutableGroupContactTagIdListList;
+@property(nonatomic, setter=SetGroupContactTagIdListCount:) unsigned int groupContactTagIdListCount; // @synthesize groupContactTagIdListCount;
+@property(readonly, nonatomic) BOOL hasGroupContactTagIdListCount; // @synthesize hasGroupContactTagIdListCount;
+@property(retain, nonatomic) NSMutableArray *mutableBlackContactTagIdListList; // @synthesize mutableBlackContactTagIdListList;
+@property(nonatomic, setter=SetBlackContactTagIdListCount:) unsigned int blackContactTagIdListCount; // @synthesize blackContactTagIdListCount;
+@property(readonly, nonatomic) BOOL hasBlackContactTagIdListCount; // @synthesize hasBlackContactTagIdListCount;
+@property(retain, nonatomic, setter=SetExtStatData:) SnsExtStatData *extStatData; // @synthesize extStatData;
+@property(readonly, nonatomic) BOOL hasExtStatData; // @synthesize hasExtStatData;
+@property(retain, nonatomic, setter=SetReportData:) NSString *reportData; // @synthesize reportData;
+@property(readonly, nonatomic) BOOL hasReportData; // @synthesize hasReportData;
+@property(retain, nonatomic) NSMutableArray *mutableWithTaUserListList; // @synthesize mutableWithTaUserListList;
+@property(nonatomic, setter=SetWithTaUserListCount:) unsigned int withTaUserListCount; // @synthesize withTaUserListCount;
+@property(readonly, nonatomic) BOOL hasWithTaUserListCount; // @synthesize hasWithTaUserListCount;
+@property(retain, nonatomic) NSMutableArray *mutableWithChatroomListList; // @synthesize mutableWithChatroomListList;
+@property(nonatomic, setter=SetWithChatroomListCount:) unsigned int withChatroomListCount; // @synthesize withChatroomListCount;
+@property(readonly, nonatomic) BOOL hasWithChatroomListCount; // @synthesize hasWithChatroomListCount;
+@property(retain, nonatomic, setter=SetOpenSdkinfo:) OpenSDKInfo *openSdkinfo; // @synthesize openSdkinfo;
+@property(readonly, nonatomic) BOOL hasOpenSdkinfo; // @synthesize hasOpenSdkinfo;
 @property(retain, nonatomic, setter=SetExtSpamInfo:) SKBuiltinBuffer_t *extSpamInfo; // @synthesize extSpamInfo;
 @property(readonly, nonatomic) BOOL hasExtSpamInfo; // @synthesize hasExtSpamInfo;
 @property(retain, nonatomic, setter=SetClientCheckData:) SKBuiltinBuffer_t *clientCheckData; // @synthesize clientCheckData;
@@ -80,8 +116,6 @@
 @property(readonly, nonatomic) BOOL hasFromScene; // @synthesize hasFromScene;
 @property(retain, nonatomic, setter=SetPoiInfo:) SKBuiltinBuffer_t *poiInfo; // @synthesize poiInfo;
 @property(readonly, nonatomic) BOOL hasPoiInfo; // @synthesize hasPoiInfo;
-@property(retain, nonatomic, setter=SetSnsRedEnvelops:) SnsRedEnvelops *snsRedEnvelops; // @synthesize snsRedEnvelops;
-@property(readonly, nonatomic) BOOL hasSnsRedEnvelops; // @synthesize hasSnsRedEnvelops;
 @property(retain, nonatomic, setter=SetSnsPostOperationFields:) SnsPostOperationFields *snsPostOperationFields; // @synthesize snsPostOperationFields;
 @property(readonly, nonatomic) BOOL hasSnsPostOperationFields; // @synthesize hasSnsPostOperationFields;
 @property(retain, nonatomic, setter=SetCtocUploadInfo:) SnsPostCtocUploadInfo *ctocUploadInfo; // @synthesize ctocUploadInfo;
@@ -116,6 +150,14 @@
 @property(readonly, nonatomic) BOOL hasObjectDesc; // @synthesize hasObjectDesc;
 @property(retain, nonatomic, setter=SetBaseRequest:) BaseRequest *baseRequest; // @synthesize baseRequest;
 @property(readonly, nonatomic) BOOL hasBaseRequest; // @synthesize hasBaseRequest;
+- (void)addGroupContactTagIdListFromArray:(id)arg1;
+- (void)addGroupContactTagIdList:(unsigned int)arg1;
+- (void)addBlackContactTagIdListFromArray:(id)arg1;
+- (void)addBlackContactTagIdList:(unsigned int)arg1;
+- (void)addWithTaUserList:(id)arg1;
+- (void)addWithTaUserListFromArray:(id)arg1;
+- (void)addWithChatroomList:(id)arg1;
+- (void)addWithChatroomListFromArray:(id)arg1;
 - (void)addMediaInfo:(id)arg1;
 - (void)addMediaInfoFromArray:(id)arg1;
 - (void)addGroupUser:(id)arg1;
@@ -130,6 +172,14 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *groupContactTagIdList; // @dynamic groupContactTagIdList;
+- (id)groupContactTagIdListList;
+@property(retain, nonatomic) NSMutableArray *blackContactTagIdList; // @dynamic blackContactTagIdList;
+- (id)blackContactTagIdListList;
+@property(retain, nonatomic) NSMutableArray *withTaUserList; // @dynamic withTaUserList;
+- (id)withTaUserListList;
+@property(retain, nonatomic) NSMutableArray *withChatroomList; // @dynamic withChatroomList;
+- (id)withChatroomListList;
 @property(retain, nonatomic) NSMutableArray *mediaInfo; // @dynamic mediaInfo;
 - (id)mediaInfoList;
 @property(retain, nonatomic) NSMutableArray *groupUser; // @dynamic groupUser;

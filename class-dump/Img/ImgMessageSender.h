@@ -26,7 +26,7 @@
 @property(retain, nonatomic) MessageCdnTaskInfo *oCurTaskInfo; // @synthesize oCurTaskInfo=m_oCurTaskInfo;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
-- (void)retryUploadAndNoHitCheck;
+- (void)retryUploadAndNoHitCheck:(id)arg1;
 - (void)OnCdnUpload:(id)arg1;
 - (void)OnCdnUploadProgress:(id)arg1;
 - (void)onSendOK;

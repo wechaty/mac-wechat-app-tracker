@@ -10,7 +10,7 @@
 #import "NSCopying-Protocol.h"
 #import "NSPasteboardItemDataProvider-Protocol.h"
 
-@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, MMFileAttrInfo, NSArray, NSString, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem;
+@class FavLocationItem, FavProductItem, FavStreamVideoItem, FavTVItem, FavURLItem, FavWeAppItem, FavoritesDataItemSource, MMFileAttrInfo, MMMusicShareItem, MMTingListenCategoryItem, MMTingListenItem, NSArray, NSString, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem;
 
 @interface FavoritesItemDataField : NSObject <NSPasteboardItemDataProvider, NSCoding, NSCopying>
 {
@@ -77,16 +77,21 @@
     double _imageHeight;
     NSString *_statExtStr;
     NSString *_authKey;
-    NSString *_tpThumbUrl;
+    NSString *_thumbHttpUrl;
     WCFinderShareItem *_finderShareItem;
     WCFinderLiveShareItem *_finderLiveShareItem;
     WCFinderMessageShareNameCard *_finderMessageShareNameCard;
     MMFileAttrInfo *_fileAttrInfo;
+    MMTingListenItem *_tingListenItem;
+    MMTingListenCategoryItem *_tingCategoryItem;
+    MMMusicShareItem *_musicShareItem;
 }
 
 + (id)GetPathByMd5:(id)arg1 isThumb:(BOOL)arg2 DataFmt:(id)arg3;
 + (id)dataTypeStringWithType:(unsigned int)arg1;
 + (id)getContactHeadImage:(id)arg1;
++ (id)translateTingList2FavData:(id)arg1;
++ (id)translateTingAudio2FavData:(id)arg1;
 + (id)translateUrlItem:(id)arg1;
 + (id)translateTextItem:(id)arg1;
 + (id)getFavDataItemSourceByMsg:(id)arg1 AndReader:(id)arg2;
@@ -96,20 +101,25 @@
 + (id)translateFeedNameCardMsg2FavData:(id)arg1;
 + (id)translateFinderLiveItem:(id)arg1;
 + (id)translateFinderItem:(id)arg1;
++ (id)translateMVItem:(id)arg1;
 + (id)translateMusicItem:(id)arg1;
 + (id)translateProductItem:(id)arg1;
 + (id)translateImageItem:(id)arg1;
++ (id)translateVideoItem:(id)arg1 canUseRaw:(BOOL)arg2;
 + (id)translateVideoItem:(id)arg1;
 + (id)translateLocationItem:(id)arg1;
 + (id)translateFileUploadItem:(id)arg1;
 + (id)translateFileItem:(id)arg1;
 + (id)translateVoiceItem:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMMusicShareItem *musicShareItem; // @synthesize musicShareItem=_musicShareItem;
+@property(retain, nonatomic) MMTingListenCategoryItem *tingCategoryItem; // @synthesize tingCategoryItem=_tingCategoryItem;
+@property(retain, nonatomic) MMTingListenItem *tingListenItem; // @synthesize tingListenItem=_tingListenItem;
 @property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo=_fileAttrInfo;
 @property(retain, nonatomic) WCFinderMessageShareNameCard *finderMessageShareNameCard; // @synthesize finderMessageShareNameCard=_finderMessageShareNameCard;
 @property(retain, nonatomic) WCFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem=_finderLiveShareItem;
 @property(retain, nonatomic) WCFinderShareItem *finderShareItem; // @synthesize finderShareItem=_finderShareItem;
-@property(retain, nonatomic) NSString *tpThumbUrl; // @synthesize tpThumbUrl=_tpThumbUrl;
+@property(retain, nonatomic) NSString *thumbHttpUrl; // @synthesize thumbHttpUrl=_thumbHttpUrl;
 @property(copy, nonatomic) NSString *authKey; // @synthesize authKey=_authKey;
 @property(nonatomic) BOOL useMidImage; // @synthesize useMidImage=_useMidImage;
 @property(retain, nonatomic) NSString *statExtStr; // @synthesize statExtStr=_statExtStr;

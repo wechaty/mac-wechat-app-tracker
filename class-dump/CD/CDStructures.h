@@ -162,46 +162,172 @@ struct C2CDownloadRequest {
 struct C2CUploadRequest {
     _Bool _field1;
     struct shared_ptr<mars::cdn::TaskCallback> _field2;
-    basic_string_8e19b51d _field3;
-    basic_string_8e19b51d _field4;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field3;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field4;
     int _field5;
     int _field6;
     int _field7;
-    basic_string_8e19b51d _field8;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field8;
     void *_field9;
-    basic_string_8e19b51d _field10;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field10;
     int _field11;
     int _field12;
-    basic_string_8e19b51d _field13;
-    basic_string_8e19b51d _field14;
-    basic_string_8e19b51d _field15;
-    basic_string_8e19b51d _field16;
-    basic_string_8e19b51d _field17;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field13;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field14;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field15;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field16;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field17;
     int _field18;
     int _field19;
     unsigned int _field20;
-    basic_string_8e19b51d _field21;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field21;
     int _field22;
-    basic_string_8e19b51d _field23;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field23;
     _Bool _field24;
     _Bool _field25;
-    basic_string_8e19b51d _field26;
-    basic_string_8e19b51d _field27;
-    basic_string_8e19b51d _field28;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field26;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field27;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field28;
     int _field29;
     _Bool _field30;
-    basic_string_8e19b51d _field31;
-    basic_string_8e19b51d _field32;
-    basic_string_8e19b51d _field33;
-    basic_string_8e19b51d _field34;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field31;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field32;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field33;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field34;
     _Bool _field35;
     _Bool _field36;
     _Bool _field37;
     _Bool _field38;
-    basic_string_8e19b51d _field39;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field39;
     _Bool _field40;
-    basic_string_8e19b51d _field41;
-    basic_string_8e19b51d _field42;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field41;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field42;
     int _field43;
     struct vector<mars::cdn::FileID, std::allocator<mars::cdn::FileID>> _field44;
     struct vector<mars::cdn::CheckHitFileInfo, std::allocator<mars::cdn::CheckHitFileInfo>> _field45;
@@ -281,7 +407,13 @@ struct Config {
     int _field1;
     int _field2;
     int _field3;
-    basic_string_8e19b51d _field4;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field4;
     struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> _field5;
     struct unordered_map<std::string, std::string, std::hash<std::string>, std::equal_to<std::string>, std::allocator<std::pair<const std::string, std::string>>> _field6;
 };
@@ -353,6 +485,14 @@ struct HostIPHint {
 };
 
 struct HostIpMap;
+
+struct IAppShimManager {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct IAppletManagerV2 {
+    CDUnknownFunctionPointerType *_field1;
+};
 
 struct IBrowsingService {
     CDUnknownFunctionPointerType *_field1;
@@ -727,7 +867,31 @@ struct TPAssetProxyLoaderCallback {
 struct TPAudioRouteDescription;
 
 struct TPBaseMediaParams {
-    basic_string_8e19b51d _field1;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                union {
+                    struct __long {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :63;
+                        } _field1;
+                        unsigned long long _field2;
+                        char *_field3;
+                    } _field1;
+                    struct __short {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :7;
+                        } _field1;
+                        char _field2[0];
+                        char _field3[23];
+                    } _field2;
+                    struct __raw _field3;
+                } _field1;
+            } _field1;
+        } _field1;
+    } _field1;
     long long _field2;
     int _field3;
     int _field4;
@@ -770,7 +934,31 @@ struct TPDrmParams {
     long long _field5;
     int _field6;
     int _field7;
-    basic_string_8e19b51d _field8;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                union {
+                    struct __long {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :63;
+                        } _field1;
+                        unsigned long long _field2;
+                        char *_field3;
+                    } _field1;
+                    struct __short {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :7;
+                        } _field1;
+                        char _field2[0];
+                        char _field3[23];
+                    } _field2;
+                    struct __raw _field3;
+                } _field1;
+            } _field1;
+        } _field1;
+    } _field8;
     long long _field9;
     long long _field10;
     long long _field11;
@@ -950,7 +1138,31 @@ struct TPRendererParamBlock {
 
 struct TPRtcRemoteSdpInfo {
     _Bool _field1;
-    basic_string_8e19b51d _field2;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                union {
+                    struct __long {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :63;
+                        } _field1;
+                        unsigned long long _field2;
+                        char *_field3;
+                    } _field1;
+                    struct __short {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :7;
+                        } _field1;
+                        char _field2[0];
+                        char _field3[23];
+                    } _field2;
+                    struct __raw _field3;
+                } _field1;
+            } _field1;
+        } _field1;
+    } _field2;
 };
 
 struct TPSubtitleParserCallbackWrapper {
@@ -1031,7 +1243,13 @@ struct VOIPSpeedTestChannelAdapter {
 struct WCTColumnBinding;
 
 struct WCTExpr {
-    basic_string_8e19b51d _field1;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                CDUnion_1f51631d _field1;
+            } _field1;
+        } _field1;
+    } _field1;
     Class _field2;
     struct shared_ptr<WCTColumnBinding> _field3;
     Class _field4;
@@ -1078,6 +1296,10 @@ struct WxMediaInfoPara {
     int _field7;
     int _field8;
     int _field9;
+    unsigned int _field10;
+    unsigned int _field11;
+    unsigned int _field12;
+    unsigned int _field13;
 };
 
 struct WxVideoTransPara {
@@ -1088,6 +1310,10 @@ struct WxVideoTransPara {
     int _field5;
     int _field6;
     int _field7;
+    unsigned int _field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    unsigned int _field11;
 };
 
 struct XmlReaderAttr_t;
@@ -1131,6 +1357,10 @@ struct _VoipCgiRtt {
 };
 
 struct __CFString;
+
+struct __raw {
+    unsigned long long __words[3];
+};
 
 struct __sFILE {
     char *_field1;
@@ -1261,30 +1491,6 @@ struct _xmlNs {
     char *_field4;
     void *_field5;
     struct _xmlDoc *_field6;
-};
-
-struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
-    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep {
-            union {
-                struct __long {
-                    unsigned long long __cap_;
-                    unsigned long long __size_;
-                    char *__data_;
-                } __l;
-                struct __short {
-                    union {
-                        unsigned char __size_;
-                        char __lx;
-                    } ;
-                    char __data_[23];
-                } __s;
-                struct __raw {
-                    unsigned long long __words[3];
-                } __r;
-            } ;
-        } __value_;
-    } __r_;
 };
 
 struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
@@ -1740,20 +1946,20 @@ struct tagAVQualityReportInfo {
     unsigned int _field154;
     unsigned int _field155;
     unsigned int _field156;
-    int _field157;
-    int _field158;
-    int _field159;
+    unsigned int _field157;
+    unsigned int _field158;
+    unsigned int _field159;
     int _field160;
     int _field161;
-    unsigned int _field162;
-    unsigned int _field163;
-    unsigned int _field164;
+    int _field162;
+    int _field163;
+    int _field164;
     unsigned int _field165;
-    unsigned char _field166;
-    unsigned char _field167;
-    unsigned short _field168;
-    unsigned short _field169;
-    unsigned short _field170;
+    unsigned int _field166;
+    unsigned int _field167;
+    unsigned int _field168;
+    unsigned char _field169;
+    unsigned char _field170;
     unsigned short _field171;
     unsigned short _field172;
     unsigned short _field173;
@@ -1761,14 +1967,14 @@ struct tagAVQualityReportInfo {
     unsigned short _field175;
     unsigned short _field176;
     unsigned short _field177;
-    unsigned char _field178;
-    unsigned char _field179;
-    unsigned char _field180;
+    unsigned short _field178;
+    unsigned short _field179;
+    unsigned short _field180;
     unsigned char _field181;
     unsigned char _field182;
-    unsigned short _field183;
-    unsigned short _field184;
-    unsigned short _field185;
+    unsigned char _field183;
+    unsigned char _field184;
+    unsigned char _field185;
     unsigned short _field186;
     unsigned short _field187;
     unsigned short _field188;
@@ -1806,9 +2012,9 @@ struct tagAVQualityReportInfo {
     unsigned short _field220;
     unsigned short _field221;
     unsigned short _field222;
-    unsigned int _field223;
-    unsigned int _field224;
-    unsigned int _field225;
+    unsigned short _field223;
+    unsigned short _field224;
+    unsigned short _field225;
     unsigned int _field226;
     unsigned int _field227;
     unsigned int _field228;
@@ -1826,21 +2032,21 @@ struct tagAVQualityReportInfo {
     unsigned int _field240;
     unsigned int _field241;
     unsigned int _field242;
-    unsigned char _field243;
-    unsigned char _field244;
-    unsigned char _field245;
+    unsigned int _field243;
+    unsigned int _field244;
+    unsigned int _field245;
     unsigned char _field246;
     unsigned char _field247;
-    int _field248;
-    unsigned int _field249;
-    unsigned int _field250;
-    unsigned int _field251;
-    int _field252;
-    unsigned short _field253;
-    unsigned short _field254;
-    unsigned short _field255;
+    unsigned char _field248;
+    unsigned char _field249;
+    unsigned char _field250;
+    int _field251;
+    unsigned int _field252;
+    unsigned int _field253;
+    unsigned int _field254;
+    int _field255;
     unsigned short _field256;
-    unsigned short _field257;
+    unsigned int _field257;
     unsigned short _field258;
     unsigned short _field259;
     unsigned short _field260;
@@ -1852,20 +2058,20 @@ struct tagAVQualityReportInfo {
     unsigned short _field266;
     unsigned short _field267;
     unsigned short _field268;
-    unsigned int _field269;
-    unsigned int _field270;
-    unsigned int _field271;
-    unsigned short _field272;
-    unsigned short _field273;
-    unsigned short _field274;
+    unsigned short _field269;
+    unsigned short _field270;
+    unsigned short _field271;
+    unsigned int _field272;
+    unsigned int _field273;
+    unsigned int _field274;
     unsigned short _field275;
     unsigned short _field276;
     unsigned short _field277;
     unsigned short _field278;
     unsigned short _field279;
-    unsigned int _field280;
-    unsigned int _field281;
-    unsigned int _field282;
+    unsigned short _field280;
+    unsigned short _field281;
+    unsigned short _field282;
     unsigned int _field283;
     unsigned int _field284;
     unsigned int _field285;
@@ -1896,13 +2102,13 @@ struct tagAVQualityReportInfo {
     unsigned int _field310;
     unsigned int _field311;
     unsigned int _field312;
-    int _field313;
-    int _field314;
+    unsigned int _field313;
+    unsigned int _field314;
     unsigned int _field315;
-    unsigned int _field316;
+    int _field316;
     int _field317;
-    int _field318;
-    int _field319;
+    unsigned int _field318;
+    unsigned int _field319;
     int _field320;
     int _field321;
     int _field322;
@@ -1912,24 +2118,24 @@ struct tagAVQualityReportInfo {
     int _field326;
     int _field327;
     int _field328;
-    unsigned short _field329;
-    unsigned short _field330;
-    unsigned short _field331;
+    int _field329;
+    int _field330;
+    int _field331;
     unsigned short _field332;
     unsigned short _field333;
     unsigned short _field334;
     unsigned short _field335;
     unsigned short _field336;
-    unsigned char _field337;
-    unsigned char _field338;
-    unsigned char _field339;
+    unsigned short _field337;
+    unsigned short _field338;
+    unsigned short _field339;
     unsigned char _field340;
     unsigned char _field341;
     unsigned char _field342;
-    int _field343;
-    unsigned int _field344;
-    unsigned int _field345;
-    unsigned int _field346;
+    unsigned char _field343;
+    unsigned char _field344;
+    unsigned char _field345;
+    int _field346;
     unsigned int _field347;
     unsigned int _field348;
     unsigned int _field349;
@@ -1941,9 +2147,9 @@ struct tagAVQualityReportInfo {
     unsigned int _field355;
     unsigned int _field356;
     unsigned int _field357;
-    int _field358;
-    int _field359;
-    int _field360;
+    unsigned int _field358;
+    unsigned int _field359;
+    unsigned int _field360;
     int _field361;
     int _field362;
     int _field363;
@@ -1951,9 +2157,9 @@ struct tagAVQualityReportInfo {
     int _field365;
     int _field366;
     int _field367;
-    unsigned int _field368;
-    unsigned int _field369;
-    unsigned int _field370;
+    int _field368;
+    int _field369;
+    int _field370;
     unsigned int _field371;
     unsigned int _field372;
     unsigned int _field373;
@@ -2009,50 +2215,50 @@ struct tagAVQualityReportInfo {
     unsigned int _field423;
     unsigned int _field424;
     unsigned int _field425;
-    unsigned short _field426;
-    unsigned short _field427;
+    unsigned int _field426;
+    unsigned int _field427;
     unsigned int _field428;
-    unsigned int _field429;
-    unsigned int _field430;
+    unsigned short _field429;
+    unsigned short _field430;
     unsigned int _field431;
     unsigned int _field432;
     unsigned int _field433;
     unsigned int _field434;
     unsigned int _field435;
-    long long _field436;
-    unsigned short _field437;
+    unsigned int _field436;
+    unsigned int _field437;
     unsigned int _field438;
-    int _field439;
-    int _field440;
-    int _field441;
+    long long _field439;
+    unsigned short _field440;
+    unsigned int _field441;
     int _field442;
-    unsigned int _field443;
-    unsigned int _field444;
-    unsigned int _field445;
+    int _field443;
+    int _field444;
+    int _field445;
     unsigned int _field446;
     unsigned int _field447;
     unsigned int _field448;
     unsigned int _field449;
     unsigned int _field450;
     unsigned int _field451;
-    int _field452;
-    int _field453;
-    unsigned short _field454;
-    unsigned short _field455;
-    unsigned short _field456;
-    unsigned int _field457;
-    unsigned int _field458;
-    unsigned int _field459;
+    unsigned int _field452;
+    unsigned int _field453;
+    unsigned int _field454;
+    int _field455;
+    int _field456;
+    unsigned short _field457;
+    unsigned short _field458;
+    unsigned short _field459;
     unsigned int _field460;
-    int _field461;
-    int _field462;
+    unsigned int _field461;
+    unsigned int _field462;
     unsigned int _field463;
-    unsigned int _field464;
-    unsigned int _field465;
-    char _field466[256];
+    int _field464;
+    int _field465;
+    unsigned int _field466;
     unsigned int _field467;
     unsigned int _field468;
-    unsigned int _field469;
+    char _field469[256];
     unsigned int _field470;
     unsigned int _field471;
     unsigned int _field472;
@@ -2063,17 +2269,17 @@ struct tagAVQualityReportInfo {
     unsigned int _field477;
     unsigned int _field478;
     unsigned int _field479;
-    unsigned short _field480;
+    unsigned int _field480;
     unsigned int _field481;
     unsigned int _field482;
-    unsigned int _field483;
+    unsigned short _field483;
     unsigned int _field484;
     unsigned int _field485;
     unsigned int _field486;
-    struct tagVCodec2HWEngineReport _field487;
+    unsigned int _field487;
     unsigned int _field488;
     unsigned int _field489;
-    unsigned int _field490;
+    struct tagVCodec2HWEngineReport _field490;
     unsigned int _field491;
     unsigned int _field492;
     unsigned int _field493;
@@ -2179,9 +2385,9 @@ struct tagAVQualityReportInfo {
     unsigned int _field593;
     unsigned int _field594;
     unsigned int _field595;
-    unsigned short _field596;
-    unsigned short _field597;
-    unsigned short _field598;
+    unsigned int _field596;
+    unsigned int _field597;
+    unsigned int _field598;
     unsigned short _field599;
     unsigned short _field600;
     unsigned short _field601;
@@ -2195,9 +2401,9 @@ struct tagAVQualityReportInfo {
     unsigned short _field609;
     unsigned short _field610;
     unsigned short _field611;
-    unsigned int _field612;
-    unsigned int _field613;
-    unsigned int _field614;
+    unsigned short _field612;
+    unsigned short _field613;
+    unsigned short _field614;
     unsigned int _field615;
     unsigned int _field616;
     unsigned int _field617;
@@ -2226,9 +2432,9 @@ struct tagAVQualityReportInfo {
     unsigned int _field640;
     unsigned int _field641;
     unsigned int _field642;
-    unsigned short _field643;
-    unsigned short _field644;
-    unsigned short _field645;
+    unsigned int _field643;
+    unsigned int _field644;
+    unsigned int _field645;
     unsigned short _field646;
     unsigned short _field647;
     unsigned short _field648;
@@ -2237,24 +2443,24 @@ struct tagAVQualityReportInfo {
     unsigned short _field651;
     unsigned short _field652;
     unsigned short _field653;
-    unsigned int _field654;
-    unsigned short _field655[256];
-    unsigned short _field656[256];
+    unsigned short _field654;
+    unsigned short _field655;
+    unsigned short _field656;
     unsigned int _field657;
-    unsigned int _field658;
-    unsigned int _field659;
+    unsigned short _field658[256];
+    unsigned short _field659[256];
     unsigned int _field660;
     unsigned int _field661;
     unsigned int _field662;
-    int _field663;
-    int _field664;
-    int _field665;
+    unsigned int _field663;
+    unsigned int _field664;
+    unsigned int _field665;
     int _field666;
     int _field667;
     int _field668;
-    unsigned int _field669;
-    unsigned int _field670;
-    unsigned int _field671;
+    int _field669;
+    int _field670;
+    int _field671;
     unsigned int _field672;
     unsigned int _field673;
     unsigned int _field674;
@@ -2290,10 +2496,10 @@ struct tagAVQualityReportInfo {
     unsigned int _field704;
     unsigned int _field705;
     unsigned int _field706;
-    char _field707[256];
+    unsigned int _field707;
     unsigned int _field708;
     unsigned int _field709;
-    unsigned int _field710;
+    char _field710[256];
     unsigned int _field711;
     unsigned int _field712;
     unsigned int _field713;
@@ -2374,19 +2580,19 @@ struct tagAVQualityReportInfo {
     unsigned int _field788;
     unsigned int _field789;
     unsigned int _field790;
-    int _field791;
+    unsigned int _field791;
     unsigned int _field792;
     unsigned int _field793;
     unsigned int _field794;
     int _field795;
-    int _field796;
-    int _field797;
-    int _field798;
+    unsigned int _field796;
+    unsigned int _field797;
+    unsigned int _field798;
     int _field799;
-    unsigned int _field800;
-    unsigned int _field801;
-    unsigned int _field802;
-    unsigned int _field803;
+    int _field800;
+    int _field801;
+    int _field802;
+    int _field803;
     unsigned int _field804;
     unsigned int _field805;
     unsigned int _field806;
@@ -2417,13 +2623,13 @@ struct tagAVQualityReportInfo {
     unsigned int _field831;
     unsigned int _field832;
     unsigned int _field833;
-    int _field834;
-    int _field835;
-    int _field836;
+    unsigned int _field834;
+    unsigned int _field835;
+    unsigned int _field836;
     unsigned int _field837;
-    unsigned int _field838;
-    unsigned int _field839;
-    unsigned int _field840;
+    int _field838;
+    int _field839;
+    int _field840;
     unsigned int _field841;
     unsigned int _field842;
     unsigned int _field843;
@@ -2431,11 +2637,29 @@ struct tagAVQualityReportInfo {
     unsigned int _field845;
     unsigned int _field846;
     unsigned int _field847;
-    int _field848;
-    char _field849[256];
-    char _field850[256];
-    int _field851;
+    unsigned int _field848;
+    unsigned int _field849;
+    unsigned int _field850;
+    unsigned int _field851;
     int _field852;
+    char _field853[256];
+    char _field854[256];
+    int _field855;
+    int _field856;
+    unsigned int _field857;
+    unsigned int _field858;
+    unsigned int _field859;
+    unsigned int _field860;
+    unsigned int _field861;
+    unsigned int _field862;
+    unsigned int _field863;
+    unsigned int _field864;
+    unsigned int _field865;
+    unsigned int _field866;
+    unsigned int _field867;
+    unsigned int _field868;
+    unsigned int _field869;
+    unsigned int _field870;
 };
 
 struct tagMultiRecvReport {
@@ -3108,6 +3332,84 @@ struct vector<unsigned long, std::allocator<unsigned long>> {
     } __end_cap_;
 };
 
+#if 0
+// Names with conflicting types:
+typedef struct ?<std::basic_string<char>::__rep, std::allocator<char>> {
+    struct __rep {
+        CDUnion_1f51631d ;
+    } __value_;
+} __compressed_pair_df710ac0;
+
+typedef struct ?<std::basic_string<char>::__rep, std::allocator<char>> {
+    struct __rep {
+        CDUnion_1f51631d _field1;
+    } _field1;
+} __compressed_pair_4018484a;
+
+typedef struct ?<std::basic_string<char>::__rep, std::allocator<char>> {
+    struct __rep {
+        union {
+            struct __long {
+                struct {
+                    unsigned int :1;
+                    unsigned int :63;
+                } _field1;
+                unsigned long long _field2;
+                char *_field3;
+            } _field1;
+            struct __short {
+                struct {
+                    unsigned int :1;
+                    unsigned int :7;
+                } _field1;
+                char _field2[0];
+                char _field3[23];
+            } _field2;
+            struct __raw _field3;
+        } _field1;
+    } _field1;
+} __compressed_pair_0c7feaf8;
+
+typedef struct ?<char, std::char_traits<char>, std::allocator<char>> {
+    __compressed_pair_df710ac0 __r_;
+} basic_string_8e19b51d;
+
+typedef struct ?<char, std::char_traits<char>, std::allocator<char>> {
+    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+        struct __rep {
+            CDUnion_1f51631d _field1;
+        } _field1;
+    } _field1;
+} basic_string_859e0bb9;
+
+typedef struct ?<char, std::char_traits<char>, std::allocator<char>> {
+    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+        struct __rep {
+            union {
+                struct __long {
+                    struct {
+                        unsigned int :1;
+                        unsigned int :63;
+                    } _field1;
+                    unsigned long long _field2;
+                    char *_field3;
+                } _field1;
+                struct __short {
+                    struct {
+                        unsigned int :1;
+                        unsigned int :7;
+                    } _field1;
+                    char _field2[0];
+                    char _field3[23];
+                } _field2;
+                struct __raw _field3;
+            } _field1;
+        } _field1;
+    } _field1;
+} basic_string_919f0581;
+
+#endif
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -3242,7 +3544,31 @@ typedef struct {
     int _field2;
     unsigned long long _field3;
     unsigned long long _field4;
-    basic_string_8e19b51d _field5;
+    struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
+        struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
+            struct __rep {
+                union {
+                    struct __long {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :63;
+                        } _field1;
+                        unsigned long long _field2;
+                        char *_field3;
+                    } _field1;
+                    struct __short {
+                        struct {
+                            unsigned int :1;
+                            unsigned int :7;
+                        } _field1;
+                        char _field2[0];
+                        char _field3[23];
+                    } _field2;
+                    struct __raw _field3;
+                } _field1;
+            } _field1;
+        } _field1;
+    } _field5;
     float _field6;
     float _field7;
     unsigned int _field8;
@@ -3253,33 +3579,9 @@ typedef struct {
     float _field13;
     float _field14;
     float _field15;
-} CDStruct_4ebc2506;
+} CDStruct_2260d8d6;
 
 // Template types
-typedef struct basic_string<char, std::char_traits<char>, std::allocator<char>> {
-    struct __compressed_pair<std::basic_string<char>::__rep, std::allocator<char>> {
-        struct __rep {
-            union {
-                struct __long {
-                    unsigned long long __cap_;
-                    unsigned long long __size_;
-                    char *__data_;
-                } __l;
-                struct __short {
-                    union {
-                        unsigned char __size_;
-                        char __lx;
-                    } ;
-                    char __data_[23];
-                } __s;
-                struct __raw {
-                    unsigned long long __words[3];
-                } __r;
-            } ;
-        } __value_;
-    } __r_;
-} basic_string_8e19b51d;
-
 typedef struct deque<TPAudioRouteDescription, std::allocator<TPAudioRouteDescription>> {
     struct __split_buffer<TPAudioRouteDescription *, std::allocator<TPAudioRouteDescription *>> {
         struct TPAudioRouteDescription **__first_;
@@ -3474,4 +3776,22 @@ union sigval {
     int _field1;
     void *_field2;
 };
+
+#pragma mark Typedef'd Unions
+
+typedef union {
+    struct __long {
+        unsigned long long __cap_;
+        unsigned long long __size_;
+        char *__data_;
+    } __l;
+    struct __short {
+        union {
+            unsigned char __size_;
+            char __lx;
+        } ;
+        char __data_[23];
+    } __s;
+    struct __raw __r;
+} CDUnion_1f51631d;
 

@@ -106,6 +106,7 @@
 - (void)_setupHostLabel;
 - (void)_setupProgressView;
 - (void)_setupToolbarContainer;
+- (void)_setupSimpleToolbar;
 - (void)handleWeixinJumpScheme:(id)arg1;
 - (void)updateMenuItems;
 - (BOOL)allowForward;

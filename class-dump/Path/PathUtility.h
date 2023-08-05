@@ -212,6 +212,7 @@
 + (id)favoritesDataPathWithFavItemData:(id)arg1;
 + (id)favoritesDataFolder;
 + (id)favoritesTpDownloadedThumbnailPathWithFavItemData:(id)arg1;
++ (id)favoritesTpDownloadedThumbnailPath:(id)arg1 localID:(id)arg2;
 + (id)favoritesTpDownloadedThumbnailFolder;
 + (id)favoritesCDNDownloadedThumbnailPathWithFavItemData:(id)arg1;
 + (id)favoritesCDNDownloadedThumbnailFolder;

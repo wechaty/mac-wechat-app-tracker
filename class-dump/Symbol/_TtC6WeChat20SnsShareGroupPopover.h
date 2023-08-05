@@ -4,38 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MMTraitsViewController.h"
+#import "_TtC6WeChat15SnsGroupPopover.h"
 
-#import "NSPopoverDelegate-Protocol.h"
-
-@class MMTableView, NSString, RFOverlayScrollView;
-
-@interface _TtC6WeChat20SnsShareGroupPopover : MMTraitsViewController <NSPopoverDelegate>
+@interface _TtC6WeChat20SnsShareGroupPopover : _TtC6WeChat15SnsGroupPopover
 {
-    // Error parsing type: , name: index
-    // Error parsing type: , name: disposeBag
-    // Error parsing type: , name: $__lazy_storage_$_titleField
-    // Error parsing type: , name: sepatateLine
-    // Error parsing type: , name: tableView
-    // Error parsing type: , name: scrollView
-    // Error parsing type: , name: popover
-    // Error parsing type: , name: indicator
-    // Error parsing type: , name: userNames
-    // Error parsing type: , name: positionView
 }
 
-- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)popoverDidClose:(id)arg1;
-- (void)popoverWillShow:(id)arg1;
-- (void)popoverWillClose:(id)arg1;
-- (void)viewChangedEffectiveAppearance;
-- (void)viewDidLoad;
-@property(nonatomic, readonly) NSString *nibName;
-- (void)dealloc;
-@property(nonatomic) __weak RFOverlayScrollView *scrollView; // @synthesize scrollView;
-@property(nonatomic) __weak MMTableView *tableView; // @synthesize tableView;
 
 @end
 

@@ -14,14 +14,22 @@
     unsigned int hasOpenid:1;
     unsigned int hasUsername:1;
     unsigned int hasStatus:1;
+    unsigned int hasCallerUsername:1;
+    unsigned int hasCallerOpenid:1;
     unsigned int memberid;
     unsigned int status;
     NSString *openid;
     NSString *username;
+    NSString *callerUsername;
+    NSString *callerOpenid;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic, setter=SetCallerOpenid:) NSString *callerOpenid; // @synthesize callerOpenid;
+@property(readonly, nonatomic) BOOL hasCallerOpenid; // @synthesize hasCallerOpenid;
+@property(retain, nonatomic, setter=SetCallerUsername:) NSString *callerUsername; // @synthesize callerUsername;
+@property(readonly, nonatomic) BOOL hasCallerUsername; // @synthesize hasCallerUsername;
 @property(nonatomic, setter=SetStatus:) unsigned int status; // @synthesize status;
 @property(readonly, nonatomic) BOOL hasStatus; // @synthesize hasStatus;
 @property(retain, nonatomic, setter=SetUsername:) NSString *username; // @synthesize username;

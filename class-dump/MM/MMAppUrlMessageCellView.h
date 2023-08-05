@@ -39,7 +39,9 @@
 @property(retain, nonatomic) NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
-- (void)handleThumbnailDownloadFailed;
+- (void)downloadThumbnailByHttp;
+- (void)downloadThumbnailByCDN;
+- (void)startDownloadThumbnailIfNeeded;
 - (void)setChoosable:(BOOL)arg1;
 - (BOOL)allowChoose;
 - (id)getURLString;

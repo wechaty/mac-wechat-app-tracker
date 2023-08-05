@@ -11,6 +11,8 @@
 @interface _TtC6WeChat29SnsPublishRightViewController : MMTraitsViewController
 {
     // Error parsing type: , name: windowController
+    // Error parsing type: , name: delegate
+    // Error parsing type: , name: viewModel
     // Error parsing type: , name: titleTextField
     // Error parsing type: , name: confirmButton
     // Error parsing type: , name: cancelButton
@@ -18,7 +20,7 @@
     // Error parsing type: , name: rightSelectView
     // Error parsing type: , name: stackView
     // Error parsing type: , name: currentRight
-    // Error parsing type: , name: currentList
+    // Error parsing type: , name: listCacheMap
 }
 
 - (void).cxx_destruct;

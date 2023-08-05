@@ -29,6 +29,7 @@
     unsigned int m_uiChatRoomFlags;
     unsigned int m_uiChatRoomInfoVersion;
     unsigned int m_uiChatRoomInfoSvrVersion;
+    unsigned int m_uiDeleteFlag;
     NSString *m_nsMobileIdentify;
     NSString *m_nsQQNickName;
     NSString *m_nsQQRemark;
@@ -64,6 +65,7 @@
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_uiDeleteFlag;
 + (void)PBArrayAdd_m_arrPhoneItem;
 + (void)PBArrayAdd_m_arrCardItem;
 + (void)PBArrayAdd_m_hasClosedDescTime;
@@ -110,6 +112,7 @@
 + (void)PBArrayAdd_m_uiExtKey;
 + (void)PBArrayAdd_m_uiChatState;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int m_uiDeleteFlag; // @synthesize m_uiDeleteFlag;
 @property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem;
 @property(retain, nonatomic) NSArray *m_arrCardItem; // @synthesize m_arrCardItem;
 @property(nonatomic) unsigned long long m_hasClosedDescTime; // @synthesize m_hasClosedDescTime;

@@ -16,14 +16,18 @@
     MMThreadSafeDictionary *m_taskToFavThumbRequestDict;
     MMThreadSafeDictionary *m_taskToCompletionBlockDict;
     NSURLSession *m_httpDownloadMgr;
+    BOOL _useURLSession;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL useURLSession; // @synthesize useURLSession=_useURLSession;
 - (void)setupDownloadMgr;
 - (void)proxySettingsDidChange:(id)arg1;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
-- (void)onCDNDownloadFinishWithTaskID:(id)arg1;
-- (void)useCDNToProcessFavThumbRequest:(id)arg1 downloadPath:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)onDownloadFailedWithTaskID:(id)arg1;
+- (void)onDownloadFinishWithTaskID:(id)arg1;
+- (void)useURLSessionProcessFavThumbRequest:(id)arg1 downloadPath:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)useHttpToProcessFavThumbRequest:(id)arg1 downloadPath:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)processFavThumbRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;

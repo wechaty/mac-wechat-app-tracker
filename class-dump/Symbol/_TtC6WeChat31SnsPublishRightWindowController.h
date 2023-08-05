@@ -17,6 +17,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
 - (void)windowDidLoad;
+- (void)dealloc;
 @property(nonatomic, readonly) NSString *windowNibName;
 @property(nonatomic, retain) _TtC6WeChat29SnsPublishRightViewController *rightViewController; // @synthesize rightViewController;
 

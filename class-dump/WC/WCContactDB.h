@@ -20,7 +20,7 @@
 - (id)getAndUpdateContactFlag:(id)arg1 flag:(unsigned int)arg2 isOpen:(BOOL)arg3;
 - (BOOL)deleteContactsFromContactDB:(id)arg1;
 - (BOOL)deleteContactFromContactDB:(id)arg1;
-- (BOOL)addOrModifyContactsKeepLocalField:(id)arg1;
+- (BOOL)addOrModifyContactsKeepLocalField:(id)arg1 removeStrangerList:(id)arg2;
 - (BOOL)addOrModifyContactKeepLocalField:(id)arg1;
 - (BOOL)addOrModifyContactsToContactDB:(id)arg1;
 - (BOOL)addOrModifyContactToContactDB:(id)arg1;

@@ -13,6 +13,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)openSettingStorageSchemaURL;
 - (void)delayCheckDiskFreeSpace;
 - (void)stopMonitor;
 - (void)startMonitor;

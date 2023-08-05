@@ -6,15 +6,10 @@
 
 #import "MMChatLogWebPageCellView.h"
 
-#import "IMMFavRecordDownloadMgrExt-Protocol.h"
-
-@class NSString;
-
-@interface MMFavChatLogWebPageCellView : MMChatLogWebPageCellView <IMMFavRecordDownloadMgrExt>
+@interface MMFavChatLogWebPageCellView : MMChatLogWebPageCellView
 {
 }
 
-- (void)OnDownloadFavItemRecordOK:(id)arg1 DataId:(id)arg2 bThumb:(BOOL)arg3;
 - (id)getURLString;
 - (id)buildExtraData;
 - (void)layoutSubViews;
@@ -22,12 +17,6 @@
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

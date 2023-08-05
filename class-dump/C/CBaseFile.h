@@ -16,6 +16,7 @@
     BOOL m_bOpen;
 }
 
++ (BOOL)isExecutableFile:(id)arg1;
 + (BOOL)IsWritableFile:(id)arg1;
 + (BOOL)SetFileToReadWrite:(id)arg1;
 + (BOOL)SetFileToReadOnly:(id)arg1;

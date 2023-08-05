@@ -7,7 +7,6 @@
 #import <objc/NSObject.h>
 
 #import "AccountServiceExt-Protocol.h"
-#import "DebugMessageSourceViewDelegate-Protocol.h"
 #import "IContactMgrExt-Protocol.h"
 #import "MMConfigMgrExt-Protocol.h"
 #import "MMLeaksMonitorDelegate-Protocol.h"
@@ -18,7 +17,7 @@
 
 @class FocusMonitor, IoMonitor, LeftViewController, LogoutCGI, MMChatsViewController, MMDockItem, MMMachPortsMonitor, MMMainWindowController, MMServiceCenter, MMStatusItem, MMTimer, MMViewController, NSAlert, NSImageView, NSMenu, NSMenuItem, NSString, ShareExtConfirmWindowController, VisualizationMonitor, _TtC6WeChat11DiskMonitor, _TtC6WeChat24SafeModeWindowController;
 
-@interface WeChat : NSObject <DebugMessageSourceViewDelegate, NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, MMConfigMgrExt, WeChatInstance>
+@interface WeChat : NSObject <NSMenuDelegate, AccountServiceExt, MMNetServiceDelegate, MMNetServiceExt, IContactMgrExt, MMLeaksMonitorDelegate, MMConfigMgrExt, WeChatInstance>
 {
     BOOL _isLoggedIn;
     BOOL _isLocked;
@@ -184,7 +183,6 @@
 - (void)registerExtensions;
 - (void)dealloc;
 - (id)init;
-- (void)activeGlobalKeyEvent;
 - (void)queryHardLinkData;
 - (void)resetHardLinkData;
 - (void)hiddenQRCodeOverlayerWindow;
@@ -229,8 +227,8 @@
 - (BOOL)isMainWindowVisible;
 - (id)currentMainWindow;
 - (void)showAudioToolBox:(id)arg1;
-- (void)debugMessageSourceViewDidClose:(id)arg1;
 - (void)viewSourceForText:(id)arg1;
+- (void)viewSourceForDataField:(id)arg1 withCellClass:(id)arg2;
 - (void)viewSourceForMessage:(id)arg1;
 - (BOOL)shouldShowMsgDBIdentifier;
 - (BOOL)shouldShowViewSourceTool;
@@ -250,6 +248,7 @@
 - (void)_triggerSwiftException:(id)arg1;
 - (void)_triggerRunloopException:(id)arg1;
 - (void)_triggerException:(id)arg1;
+- (void)_switchRDM:(id)arg1;
 - (void)_h5transferDebug:(id)arg1;
 - (void)_newRecordDownloadDebug:(id)arg1;
 - (void)_showOCRDebug:(id)arg1;
@@ -272,6 +271,7 @@
 - (void)_showChatLogDebug:(id)arg1;
 - (void)_showNetDebugWindow:(id)arg1;
 - (void)_showFavoritesDebug:(id)arg1;
+- (void)_showLogReportDebugWindow:(id)arg1;
 - (void)_showIDKeyWindow:(id)arg1;
 - (void)_showBenchmarkTool:(id)arg1;
 - (void)_showReleaseNotesBlog:(id)arg1;

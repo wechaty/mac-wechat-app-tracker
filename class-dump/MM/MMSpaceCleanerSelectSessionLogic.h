@@ -59,6 +59,7 @@
 - (unsigned long long)countForDisplayedItemType:(unsigned int)arg1;
 - (void)resortAllItemList;
 - (void)reloadVideoWithSessionList:(id)arg1;
+- (void)parseRawVideoPath:(id)arg1 sessionInfo:(id)arg2 videoItemList:(id)arg3;
 - (void)reloadFileWithSessionList:(id)arg1;
 - (void)reloadSessionAndImageWithSessionList:(id)arg1;
 - (void)reloadAllItemList;

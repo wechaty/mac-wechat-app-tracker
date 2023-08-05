@@ -14,7 +14,11 @@
 {
 }
 
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)downloadImageFromHttp;
+- (void)downloadImageFromCDN;
 - (id)getURLString;
 - (void)layoutAppMsgMusicCellView;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;

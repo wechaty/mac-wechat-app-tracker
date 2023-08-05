@@ -71,6 +71,7 @@
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
 @property(retain, nonatomic) NSURL *itemUrl; // @synthesize itemUrl=_itemUrl;
 @property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
+- (BOOL)canReadMore;
 - (BOOL)canSaveToFavorite;
 - (BOOL)canForward;
 - (id)itemMessagePreviewThumbImage;

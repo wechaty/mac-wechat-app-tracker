@@ -11,7 +11,6 @@
 #import "IGroupMgrExt-Protocol.h"
 #import "MMAutoDownloadProtocol-Protocol.h"
 #import "MMRevokeMsgServiceExt-Protocol.h"
-#import "NSAccessibilityButton-Protocol.h"
 #import "NSDraggingSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSSharingServiceDelegate-Protocol.h"
@@ -20,7 +19,7 @@
 @class MMButton, MMImageView, MMMessageCellAvatarView, MMMessageTableItem, MMOutlineButton, MMView, NSButton, NSImage, NSMenu, NSProgressIndicator, NSString, NSTextField, NSTrackingArea;
 @protocol MMMessageCellViewDelegate;
 
-@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, MMRevokeMsgServiceExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol, NSAccessibilityButton>
+@interface MMMessageCellView : NSTableCellView <NSDraggingSource, IGroupMgrExt, NSSharingServicePickerDelegate, NSSharingServiceDelegate, IContactMgrExt, MMRevokeMsgServiceExt, NSMenuDelegate, CAAnimationDelegate, MMAutoDownloadProtocol>
 {
     NSImage *_savedDraggingImage;
     NSTrackingArea *_mainTrackingArea;

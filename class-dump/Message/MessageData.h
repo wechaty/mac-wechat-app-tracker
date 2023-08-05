@@ -13,7 +13,7 @@
 #import "WCTColumnCoding-Protocol.h"
 #import "WCTTableCoding-Protocol.h"
 
-@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMFileAttrInfo, MMLiveAppMsgInnerItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, Passthrough, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, TmpNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AlNode, AppProductItem, DownloadVideoReportData, FavoritesItem, GroupNoticeItem, MMFileAttrInfo, MMLiveAppMsgInnerItem, MMMusicShareItem, MMTingListenCategoryItem, MMTingListenItem, MMTranslateResult, MessageDataPackedInfo, NSArray, NSData, NSMutableArray, NSString, OpenSDKAppBrandItem, Passthrough, PatMessageWrap, SecondMsgNode, SendImageInfo, ShareMsgNode, TmpNode, UploadVideoReportData, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 @protocol IMsgExtendOperation;
 
 @interface MessageData : NSObject <NSPasteboardItemDataProvider, IAppMsgPathMgr, IMsgExtendOperation, NSCopying, WCTTableCoding, WCTColumnCoding>
@@ -77,6 +77,10 @@
     NSString *m_nsAtUserList;
     MessageData *_fromMsgData;
     NSString *_m_nsFileName;
+    unsigned long long _m_uiRawFileLength;
+    NSString *_m_nsRawFileMd5;
+    NSString *_m_nsRawDataUrl;
+    NSString *_m_nsRawAeskey;
     NSString *_m_nsImgFileName;
     NSString *_m_nsMidImgMD5;
     NSString *_m_nsBigFileErrMsg;
@@ -162,6 +166,10 @@
 + (void)GetPathOfAppDir:(id)arg1 retStrPath:(id *)arg2;
 + (void)RegisterClsMethod_AppMsgPath;
 + (id)videoBlankThumbWithOriginVideoSize:(struct CGSize)arg1;
++ (id)convertTingList2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertTingAudio2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertMusicVideo2MsgData:(id)arg1 toUser:(id)arg2;
++ (id)convertMusic2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)convertWeAppFavItem2MsgWrap:(id)arg1 toUser:(id)arg2;
 + (id)convertWebVideoItem2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)checkSourcePathFileFromMsg:(id)arg1 withDataList:(id)arg2;
@@ -170,6 +178,7 @@
 + (id)convertRecordDataField2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)convertFeed2MsgData:(id)arg1 toUser:(id)arg2;
 + (id)convertReaderMsgDataWrap:(id)arg1 withOriginMsgWrap:(id)arg2 toUser:(id)arg3;
++ (BOOL)judgeCompressNeedAndGetVidoSize:(id)arg1 inParas:(struct WxVideoTransPara *)arg2;
 - (void).cxx_destruct;
 @property(nonatomic) __weak MessageData *referHostMsg; // @synthesize referHostMsg=_referHostMsg;
 @property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo=_fileAttrInfo;
@@ -190,6 +199,10 @@
 @property(retain, nonatomic) NSString *m_nsBigFileErrMsg; // @synthesize m_nsBigFileErrMsg=_m_nsBigFileErrMsg;
 @property(retain, nonatomic) NSString *m_nsMidImgMD5; // @synthesize m_nsMidImgMD5=_m_nsMidImgMD5;
 @property(retain, nonatomic) NSString *m_nsImgFileName; // @synthesize m_nsImgFileName=_m_nsImgFileName;
+@property(retain, nonatomic) NSString *m_nsRawAeskey; // @synthesize m_nsRawAeskey=_m_nsRawAeskey;
+@property(retain, nonatomic) NSString *m_nsRawDataUrl; // @synthesize m_nsRawDataUrl=_m_nsRawDataUrl;
+@property(retain, nonatomic) NSString *m_nsRawFileMd5; // @synthesize m_nsRawFileMd5=_m_nsRawFileMd5;
+@property(nonatomic) unsigned long long m_uiRawFileLength; // @synthesize m_uiRawFileLength=_m_uiRawFileLength;
 @property(retain, nonatomic) NSString *m_nsFileName; // @synthesize m_nsFileName=_m_nsFileName;
 @property(nonatomic) __weak MessageData *fromMsgData; // @synthesize fromMsgData=_fromMsgData;
 @property(nonatomic) BOOL m_bHasOriginalMessage; // @synthesize m_bHasOriginalMessage;
@@ -260,6 +273,7 @@
 - (BOOL)isCanUseCdnUpload;
 - (id)getMsgMidImageClientMsgID;
 - (id)getMsgThumbnailClientMsgID;
+- (id)getMsgRawVideoClientMsgID;
 - (id)getMsgClientMsgID;
 - (id)getRealMessageContent;
 - (id)getSubMsgContent;
@@ -308,6 +322,8 @@
 - (void)shortParseMsgFieldFromXML;
 - (id)fileSender;
 - (id)fileContent;
+- (id)listListenMsgContent;
+- (id)singleListenMsgContent;
 - (id)finderUserName;
 - (id)finderDesc;
 - (id)content;
@@ -326,6 +342,7 @@
 @property(nonatomic) unsigned long long readerWrapIndex;
 - (id)getFileAttrInfo;
 - (id)getMsgFilePredownloadInfo;
+- (id)thumbHttpUrl;
 - (void)UpdateContent:(id)arg1;
 - (BOOL)allowFavorite;
 - (BOOL)allowMergeForwardToWework;
@@ -378,9 +395,13 @@
 - (struct CGSize)originalImageSize;
 - (id)exportVideoFileNameWithLocalID;
 - (id)exportVideoFileName;
+- (BOOL)rawVideoOrVideoDownloaded;
 - (BOOL)videoFileDownloaded;
 - (struct CGSize)sightVideoViewSize;
 - (id)videoThumbFilePath;
+- (id)priorGetVideoPathElseRawVideoPath;
+- (id)priorGetRawVideoPathElseVideoPath;
+- (id)rawVideoFilePath;
 - (id)videoFilePath;
 - (struct CGSize)videoViewSize;
 - (id)getVoipMessageRealTextContent;
@@ -405,6 +426,7 @@
 @property(retain, nonatomic) GroupNoticeItem *groupNoticeItem;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) SendImageInfo *imageInfo; // @dynamic imageInfo;
+@property(retain) NSString *imgSourceUrl; // @dynamic imgSourceUrl;
 @property(retain, nonatomic) MMLiveAppMsgInnerItem *liveAppMsgInnerItem; // @dynamic liveAppMsgInnerItem;
 @property(retain, nonatomic) NSArray *m_arrCustomWrap; // @dynamic m_arrCustomWrap;
 @property(retain, nonatomic) NSArray *m_arrMembers; // @dynamic m_arrMembers;
@@ -470,13 +492,12 @@
 @property(retain) NSString *m_nsMsgThumbAesKey; // @dynamic m_nsMsgThumbAesKey;
 @property(retain, nonatomic) NSString *m_nsMsgThumbMd5; // @dynamic m_nsMsgThumbMd5;
 @property(retain) NSString *m_nsMsgThumbUrl; // @dynamic m_nsMsgThumbUrl;
-@property(retain, nonatomic) NSString *m_nsRawAeskey;
-@property(retain, nonatomic) NSString *m_nsRawDataUrl;
-@property(retain, nonatomic) NSString *m_nsRawFileMd5;
 @property(retain, nonatomic) NSString *m_nsRemindAttachId; // @dynamic m_nsRemindAttachId;
 @property(retain, nonatomic) NSString *m_nsShareOpenUrl; // @dynamic m_nsShareOpenUrl;
 @property(retain, nonatomic) NSString *m_nsShareOriginUrl; // @dynamic m_nsShareOriginUrl;
 @property(retain, nonatomic) NSString *m_nsSolitaireXml; // @dynamic m_nsSolitaireXml;
+@property(copy, nonatomic) NSString *m_nsSongAlbumUrl;
+@property(copy, nonatomic) NSString *m_nsSongLyric;
 @property(retain, nonatomic) NSString *m_nsSourceDisplayname; // @dynamic m_nsSourceDisplayname;
 @property(retain, nonatomic) NSString *m_nsSourceUsername; // @dynamic m_nsSourceUsername;
 @property(retain, nonatomic) NSString *m_nsSpecifiedChatName; // @dynamic m_nsSpecifiedChatName;
@@ -525,7 +546,6 @@
 @property(nonatomic) unsigned int m_uiOriginFormat; // @dynamic m_uiOriginFormat;
 @property(nonatomic) unsigned int m_uiOriginMsgSvrId; // @dynamic m_uiOriginMsgSvrId;
 @property(nonatomic) unsigned int m_uiPercent; // @dynamic m_uiPercent;
-@property(nonatomic) unsigned long long m_uiRawFileLength;
 @property(nonatomic) unsigned int m_uiRemindAttachTotalLen; // @dynamic m_uiRemindAttachTotalLen;
 @property(nonatomic) unsigned int m_uiRemindFormat; // @dynamic m_uiRemindFormat;
 @property(nonatomic) unsigned int m_uiRemindId; // @dynamic m_uiRemindId;
@@ -553,6 +573,7 @@
 @property(nonatomic) unsigned int m_uiWeAppVersion;
 @property(retain, nonatomic) UploadVideoReportData *m_uploadVideoReportData; // @dynamic m_uploadVideoReportData;
 @property(nonatomic) unsigned int m_wordingType; // @dynamic m_wordingType;
+@property(retain, nonatomic) MMMusicShareItem *musicShareItem;
 @property(retain, nonatomic) NSString *nsAccount; // @dynamic nsAccount;
 @property(retain, nonatomic) NSString *nsArgs; // @dynamic nsArgs;
 @property(retain, nonatomic) NSString *nsDate; // @dynamic nsDate;
@@ -568,6 +589,8 @@
 @property(retain, nonatomic) NSString *referMessageSenderUsrname;
 @property(retain, nonatomic) MessageData *referingMessageWrap;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) MMTingListenCategoryItem *tingListenCategoryItem;
+@property(retain, nonatomic) MMTingListenItem *tingListenItem;
 @property(nonatomic) unsigned long long uiUin; // @dynamic uiUin;
 
 @end

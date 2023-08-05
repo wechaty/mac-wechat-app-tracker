@@ -10,7 +10,7 @@
 #import "IMsgExtendOperation-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class AppProductItem, FavoritesItem, FileMsgPreDownloadInfo, GroupNoticeItem, MMLiveAppMsgInnerItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
+@class AppProductItem, FavoritesItem, FileMsgPreDownloadInfo, GroupNoticeItem, MMLiveAppMsgInnerItem, MMMusicShareItem, MMTingListenCategoryItem, MMTingListenItem, MessageData, NSArray, NSString, OpenSDKAppBrandItem, PatMessageWrap, WAAppMsgItem, WCFinderLiveShareItem, WCFinderMessageShareNameCard, WCFinderShareItem, WCPayInfoItem;
 
 @interface CExtendInfoOfAPP : NSObject <IMessageDataExt, IMsgExtendOperation, NSCopying>
 {
@@ -91,6 +91,11 @@
     FileMsgPreDownloadInfo *filePreDownloadInfo;
     NSString *publisherId;
     NSString *publisherReqId;
+    MMMusicShareItem *musicShareItem;
+    MMTingListenItem *tingListenItem;
+    MMTingListenCategoryItem *tingListenCategoryItem;
+    NSString *m_nsSongAlbumUrl;
+    NSString *m_nsSongLyric;
     BOOL m_isReaderForbidForward;
     unsigned int m_uiTemplateShowType;
     unsigned int _m_uiWeAppState;
@@ -123,6 +128,11 @@
 @property(nonatomic) unsigned int m_uiWeAppState; // @synthesize m_uiWeAppState=_m_uiWeAppState;
 @property(retain, nonatomic) NSString *referMessageSenderDisplayName; // @synthesize referMessageSenderDisplayName=_referMessageSenderDisplayName;
 @property(retain, nonatomic) NSString *referMessageSenderUsrname; // @synthesize referMessageSenderUsrname=_referMessageSenderUsrname;
+@property(copy, nonatomic) NSString *m_nsSongAlbumUrl; // @synthesize m_nsSongAlbumUrl;
+@property(copy, nonatomic) NSString *m_nsSongLyric; // @synthesize m_nsSongLyric;
+@property(retain, nonatomic) MMMusicShareItem *musicShareItem; // @synthesize musicShareItem;
+@property(retain, nonatomic) MMTingListenCategoryItem *tingListenCategoryItem; // @synthesize tingListenCategoryItem;
+@property(retain, nonatomic) MMTingListenItem *tingListenItem; // @synthesize tingListenItem;
 @property(retain, nonatomic) FileMsgPreDownloadInfo *filePreDownloadInfo; // @synthesize filePreDownloadInfo;
 @property(nonatomic) unsigned int m_uiTemplateShowType; // @synthesize m_uiTemplateShowType;
 @property(nonatomic) BOOL m_isReaderForbidForward; // @synthesize m_isReaderForbidForward;
@@ -243,6 +253,8 @@
 - (BOOL)isAppFeedNameCardMsg;
 - (BOOL)isAppFeedMsg;
 - (BOOL)isAppPatMsg;
+- (BOOL)isListListenMsg;
+- (BOOL)isSingleListenMsg;
 - (BOOL)isMusic;
 - (BOOL)isNoteMsg;
 - (BOOL)isMultiReaderMsg;

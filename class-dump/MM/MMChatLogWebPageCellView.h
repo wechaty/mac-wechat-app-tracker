@@ -6,9 +6,11 @@
 
 #import "MMChatLogBaseCellView.h"
 
+#import "IMMNewRecordDownloadServiceExt-Protocol.h"
+
 @class MMImageView, MMTextField, NSString;
 
-@interface MMChatLogWebPageCellView : MMChatLogBaseCellView
+@interface MMChatLogWebPageCellView : MMChatLogBaseCellView <IMMNewRecordDownloadServiceExt>
 {
     MMImageView *_thumbnailImageView;
     MMTextField *_webPageDescriptionTextView;
@@ -22,6 +24,11 @@
 @property(retain, nonatomic) MMTextField *webPageLinkUrlDescriptionTextView; // @synthesize webPageLinkUrlDescriptionTextView=_webPageLinkUrlDescriptionTextView;
 @property(retain, nonatomic) MMTextField *webPageDescriptionTextView; // @synthesize webPageDescriptionTextView=_webPageDescriptionTextView;
 @property(retain, nonatomic) MMImageView *thumbnailImageView; // @synthesize thumbnailImageView=_thumbnailImageView;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)downloadImageFromHttp;
+- (void)downloadImageFromCDN;
 - (void)contextMenuOpenWithDefaultBrowser;
 - (void)contextMenuOpenInWebView;
 - (struct CGRect)clickableArea;
@@ -31,6 +38,12 @@
 - (void)layoutWebPageInfo;
 - (void)viewDidChangeEffectiveAppearance;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

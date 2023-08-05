@@ -14,7 +14,6 @@
 
 @property(nonatomic) BOOL m_bFromRetry; // @synthesize m_bFromRetry=_m_bFromRetry;
 @property(nonatomic) BOOL m_bStreamMedia; // @synthesize m_bStreamMedia=_m_bStreamMedia;
-- (void)OnCdnDownloadFinished:(id)arg1;
 - (void)cancel;
 - (void)resume;
 - (id)copyWithZone:(struct _NSZone *)arg1;

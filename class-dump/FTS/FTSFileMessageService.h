@@ -95,6 +95,7 @@
 - (void)onDelMsg:(id)arg1 msgData:(id)arg2 isRevoke:(BOOL)arg3;
 - (void)onAddMsg:(id)arg1 msgData:(id)arg2;
 - (void)onOperateMsgList:(id)arg1 opTime:(unsigned int)arg2;
+- (BOOL)isIndexAlreadyFinished:(id)arg1 lastLocalID:(unsigned int)arg2;
 - (void)doUpdateIndex:(id)arg1;
 - (void)doClearIndex:(id)arg1;
 - (void)doDeleteIndex:(id)arg1;

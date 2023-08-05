@@ -30,6 +30,7 @@
 - (void)onClickRevokeAddMemberLink;
 - (struct CGRect)originScreenRectForAnimationForWindow:(id)arg1;
 - (void)copyActionInTextView:(id)arg1;
+- (BOOL)onClickLink:(id)arg1;
 - (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)textView:(id)arg1 menu:(id)arg2 forEvent:(id)arg3 atIndex:(unsigned long long)arg4;
 - (BOOL)allowStickyAndUnStickly;

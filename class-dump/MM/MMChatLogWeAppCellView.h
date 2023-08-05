@@ -22,10 +22,6 @@
 @property(retain, nonatomic) MMTextField *descTextField; // @synthesize descTextField=_descTextField;
 @property(retain, nonatomic) MMTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(retain, nonatomic) MMImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
-- (void)_checkAndLayoutThumbnail:(id)arg1;
-- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
-- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
-- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2 parentFavItem:(id)arg3;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
 - (void)populateWithFavItemDataField:(id)arg1 parentFavItem:(id)arg2;
@@ -35,11 +31,16 @@
 - (BOOL)allowForward;
 - (BOOL)allowCopy;
 - (struct CGRect)clickableArea;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)downloadImageFromHttp;
+- (void)downloadImageFromCDN;
 - (void)viewDidChangeEffectiveAppearance;
-- (void)fetchThumbnailFromWeAppItem;
 - (void)layoutThumbnail;
 - (void)layoutSubViews:(id)arg1;
 - (void)dealloc;
+- (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

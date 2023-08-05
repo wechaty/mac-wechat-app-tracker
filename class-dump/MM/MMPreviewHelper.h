@@ -10,6 +10,8 @@
 {
 }
 
++ (void)recordPlayFailedVideoWithMsgData:(id)arg1;
++ (BOOL)isRawVideoCanPlayWithMsgData:(id)arg1;
 + (BOOL)shouldDownloadChatlogOriginImage:(id)arg1 dataFilePath:(id)arg2;
 + (BOOL)shouldDownloadMessageOriginImage:(id)arg1;
 + (id)getSizeStringWithSize:(unsigned long long)arg1;

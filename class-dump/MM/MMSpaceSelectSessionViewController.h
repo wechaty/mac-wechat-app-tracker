@@ -60,8 +60,8 @@
 - (unsigned int)reportClearTypeFrom:(unsigned int)arg1;
 - (id)formatHeaderCellContent:(id)arg1;
 - (void)asyncLocateVideoMsgWithItem:(id)arg1;
-- (void)onUnSelectSessionRowView:(id)arg1 dirPath:(id)arg2 spaceSize:(long long)arg3;
-- (void)onSelectSessionRowView:(id)arg1 dirPath:(id)arg2 spaceSize:(long long)arg3;
+- (void)onUnSelectSessionRowView:(id)arg1 dirPathList:(id)arg2 spaceSize:(long long)arg3;
+- (void)onSelectSessionRowView:(id)arg1 dirPathList:(id)arg2 spaceSize:(long long)arg3;
 - (void)showToastViewCleanComplete;
 - (void)showToastViewCleaning;
 - (void)enableClearBtn;

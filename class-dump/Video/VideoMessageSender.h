@@ -8,31 +8,53 @@
 
 #import "ICdnComMgrExt-Protocol.h"
 #import "MMCGIDelegate-Protocol.h"
+#import "VideoUploadTaskDelegate-Protocol.h"
 
-@class MessageCdnTaskInfo, NSString;
+@class NSMutableDictionary, NSString, SendVideoInfo;
 
-@interface VideoMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate>
+@interface VideoMessageSender : MessageSender <ICdnComMgrExt, MMCGIDelegate, VideoUploadTaskDelegate>
 {
-    MessageCdnTaskInfo *_curTaskInfo;
     NSString *m_nsMsgMd5;
+    NSString *m_nsMsgRawMd5;
     unsigned int m_uMsgCrc32;
+    BOOL _needGenThumb;
+    BOOL _needCompress;
+    unsigned int _compressPercent;
+    unsigned int _uploadPercent;
+    NSMutableDictionary *_videoUploadTaskDict;
+    SendVideoInfo *_videoInfo;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MessageCdnTaskInfo *curTaskInfo; // @synthesize curTaskInfo=_curTaskInfo;
-- (void)retryUploadAndNoHitCheck;
+@property(nonatomic) unsigned int uploadPercent; // @synthesize uploadPercent=_uploadPercent;
+@property(nonatomic) unsigned int compressPercent; // @synthesize compressPercent=_compressPercent;
+@property(nonatomic) BOOL needCompress; // @synthesize needCompress=_needCompress;
+@property(nonatomic) BOOL needGenThumb; // @synthesize needGenThumb=_needGenThumb;
+@property(retain, nonatomic) SendVideoInfo *videoInfo; // @synthesize videoInfo=_videoInfo;
+@property(retain, nonatomic) NSMutableDictionary *videoUploadTaskDict; // @synthesize videoUploadTaskDict=_videoUploadTaskDict;
+- (void)retryUploadAndNoHitCheck:(id)arg1;
+- (void)checkSendMsgAndReport;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
+- (BOOL)isRawVideoUploadTask:(id)arg1;
+- (BOOL)isCompressVideoUploadTask:(id)arg1;
+- (BOOL)isCurTaskInfo:(id)arg1;
 - (void)OnCdnUpload:(id)arg1;
 - (void)OnCdnUploadProgress:(id)arg1;
 - (void)OnResponseCGI:(BOOL)arg1 sessionId:(unsigned int)arg2 cgiWrap:(id)arg3;
 - (void)setThumbImgSize;
-- (BOOL)sendUploadVideoRequestWithFileExists:(BOOL)arg1 videoNewMd5:(id)arg2;
+- (BOOL)sendUploadVideoRequestWithFileExists:(BOOL)arg1 rawHitMd5:(BOOL)arg2 useRaw:(BOOL)arg3 videoNewMd5:(id)arg4;
+- (void)retrySending:(id)arg1 retryAll:(BOOL)arg2;
 - (void)startSending;
 - (void)uploadSuccessByCDN:(id)arg1;
 - (void)uploadFailByCDN:(int)arg1;
 - (void)onSendOK;
 - (void)onSendFail;
-- (void)startUploadVideoByCDNWithHitCheck:(BOOL)arg1;
+- (void)onCompressFinished:(id)arg1 isSuccess:(BOOL)arg2;
+- (void)onUpdateCompressPresent:(id)arg1 compressPrecent:(unsigned int)arg2;
+- (void)onUploadFailByCDN:(id)arg1 nRetCode:(int)arg2;
+- (void)onStartUpload:(id)arg1 md5:(id)arg2 rawMd5:(id)arg3 crc32:(unsigned int)arg4;
+- (id)rawVideoTask;
+- (id)compressVideoTask;
 - (void)dealloc;
 - (id)init;
 

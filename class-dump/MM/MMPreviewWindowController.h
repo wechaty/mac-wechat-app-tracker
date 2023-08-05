@@ -227,6 +227,7 @@
 - (void)sendPreviewItemToWeWork:(id)arg1;
 - (void)sendPreviewItem:(id)arg1 toContactsWithUserNames:(id)arg2 leavedMessage:(id)arg3;
 - (void)sendAndForWardPreviewItemToWeWork:(id)arg1;
+- (void)_menuActionReadMore;
 - (void)_menuActionForward;
 - (void)_menuActionCopy;
 - (void)_menuActionOpenWith;
@@ -358,6 +359,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setupPageController;
 - (BOOL)isUpdatingPageController:(id)arg1;
+- (id)getMenuButton;
+- (id)getToolBarContainer;
 - (void)onPreviewInvalid:(id)arg1;
 - (void)setupFullScreenToolBar;
 - (void)updateButtonsAnimator;

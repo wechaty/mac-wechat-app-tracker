@@ -10,6 +10,7 @@
 {
 }
 
++ (id)stringsFromSKStrings:(id)arg1;
 + (long long)localMediaTypeToServerType:(long long)arg1;
 + (long long)localMediaSubTypeToServerType:(long long)arg1 localSubType:(long long)arg2;
 

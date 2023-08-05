@@ -22,6 +22,7 @@
     NSData *m_dtImg;
     SendImageInfo *m_oImageInfo;
     unsigned int m_uiPercent;
+    NSString *imgSourceUrl;
     NSString *m_nsAesKey;
     NSString *m_nsMsgThumbUrl;
     NSString *m_nsMsgThumbAesKey;
@@ -53,6 +54,7 @@
 @property(copy, nonatomic) NSString *m_nsMsgThumbUrl; // @synthesize m_nsMsgThumbUrl;
 @property(copy, nonatomic) NSString *m_nsMsgThumbAesKey; // @synthesize m_nsMsgThumbAesKey;
 @property(copy, nonatomic) NSString *m_nsImgMidUrl; // @synthesize m_nsImgMidUrl;
+@property(copy, nonatomic) NSString *imgSourceUrl; // @synthesize imgSourceUrl;
 @property(copy, nonatomic) NSString *m_nsImgHDUrl; // @synthesize m_nsImgHDUrl;
 @property(copy, nonatomic) NSString *m_nsCommentUrl; // @synthesize m_nsCommentUrl;
 @property(copy, nonatomic) NSString *m_nsAesKey; // @synthesize m_nsAesKey;

@@ -16,6 +16,9 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) FavoritesItem *item; // @synthesize item=_item;
 - (id)getFavoritesItem;
+- (id)initForTingListWithSnsDataItem:(id)arg1;
+- (id)initForTingAudioWithSnsDataItem:(id)arg1;
+- (id)initForFeedWithSnsDataItem:(id)arg1;
 - (id)initForMusicWithSnsDataItem:(id)arg1;
 - (id)initForTextWithSnsDataItem:(id)arg1;
 - (id)initForUrlWithSnsDataItem:(id)arg1;

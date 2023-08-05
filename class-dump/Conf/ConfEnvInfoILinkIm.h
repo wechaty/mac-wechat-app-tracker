@@ -23,6 +23,10 @@
     unsigned int hasImMode:1;
     unsigned int hasBrokenMode:1;
     unsigned int hasOneUpload:1;
+    unsigned int hasSubCall:1;
+    unsigned int subCall_:1;
+    unsigned int hasCallEndNew:1;
+    unsigned int callEndNew_:1;
     unsigned int hasCpuCore:1;
     unsigned int hasCpuFreq:1;
     unsigned int hasCpuFlag:1;
@@ -116,6 +120,8 @@
 @property(readonly, nonatomic) BOOL hasCpuFreq; // @synthesize hasCpuFreq;
 @property(nonatomic, setter=SetCpuCore:) unsigned int cpuCore; // @synthesize cpuCore;
 @property(readonly, nonatomic) BOOL hasCpuCore; // @synthesize hasCpuCore;
+@property(readonly, nonatomic) BOOL hasCallEndNew; // @synthesize hasCallEndNew;
+@property(readonly, nonatomic) BOOL hasSubCall; // @synthesize hasSubCall;
 @property(nonatomic, setter=SetOneUpload:) unsigned int oneUpload; // @synthesize oneUpload;
 @property(readonly, nonatomic) BOOL hasOneUpload; // @synthesize hasOneUpload;
 @property(nonatomic, setter=SetBrokenMode:) unsigned int brokenMode; // @synthesize brokenMode;
@@ -146,6 +152,8 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(nonatomic, setter=SetCallEndNew:) BOOL callEndNew; // @synthesize callEndNew=callEndNew_;
+@property(nonatomic, setter=SetSubCall:) BOOL subCall; // @synthesize subCall=subCall_;
 - (id)init;
 
 @end

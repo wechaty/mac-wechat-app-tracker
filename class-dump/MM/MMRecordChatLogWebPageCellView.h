@@ -6,25 +6,13 @@
 
 #import "MMChatLogWebPageCellView.h"
 
-#import "IMMNewRecordDownloadServiceExt-Protocol.h"
-
-@class NSString;
-
-@interface MMRecordChatLogWebPageCellView : MMChatLogWebPageCellView <IMMNewRecordDownloadServiceExt>
+@interface MMRecordChatLogWebPageCellView : MMChatLogWebPageCellView
 {
 }
 
-- (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (id)getURLString;
 - (id)buildExtraData;
 - (void)populateWithFavItemDataField:(id)arg1 parentDataField:(id)arg2;
-- (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

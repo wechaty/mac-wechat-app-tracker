@@ -105,7 +105,10 @@
 + (void)ParseVersion:(unsigned int)arg1 Major:(unsigned int *)arg2 Minor:(unsigned int *)arg3 Minorex:(unsigned int *)arg4 Beta:(unsigned int *)arg5;
 + (void)ParseVersion:(unsigned int)arg1 Major:(unsigned int *)arg2 Minor:(unsigned int *)arg3 Minorex:(unsigned int *)arg4;
 + (unsigned int)BuildNumber;
++ (BOOL)isBuildPublicReleaseVersion;
 + (BOOL)isBuildFromReleaseBranch;
++ (id)getDebugBundleVersion;
++ (id)getBundleVersion;
 + (unsigned int)GetVersion;
 + (void)openLocationUrlWithDefault:(id)arg1;
 + (id)mapsURLWithLatitude:(double)arg1 longitude:(double)arg2 provider:(unsigned long long)arg3;

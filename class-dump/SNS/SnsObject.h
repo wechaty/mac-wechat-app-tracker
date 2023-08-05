@@ -36,6 +36,10 @@
     unsigned int hasSnsRedEnvelops:1;
     unsigned int hasPreDownloadInfo:1;
     unsigned int hasWeAppInfo:1;
+    unsigned int hasBlackContactTagIdListCount:1;
+    int blackContactTagIdListMemoizedSerializedSize;
+    unsigned int hasGroupContactTagIdListCount:1;
+    int groupContactTagIdListMemoizedSerializedSize;
     unsigned int createTime;
     unsigned int likeFlag;
     unsigned int likeCount;
@@ -51,6 +55,8 @@
     unsigned int blackListCount;
     unsigned int deleteFlag;
     unsigned int groupUserCount;
+    unsigned int blackContactTagIdListCount;
+    unsigned int groupContactTagIdListCount;
     NSString *username;
     NSString *nickname;
     SKBuiltinBuffer_t *objectDesc;
@@ -66,10 +72,18 @@
     SnsRedEnvelops *snsRedEnvelops;
     PreDownloadInfo *preDownloadInfo;
     SnsWeAppInfo *weAppInfo;
+    NSMutableArray *mutableBlackContactTagIdListList;
+    NSMutableArray *mutableGroupContactTagIdListList;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *mutableGroupContactTagIdListList; // @synthesize mutableGroupContactTagIdListList;
+@property(nonatomic, setter=SetGroupContactTagIdListCount:) unsigned int groupContactTagIdListCount; // @synthesize groupContactTagIdListCount;
+@property(readonly, nonatomic) BOOL hasGroupContactTagIdListCount; // @synthesize hasGroupContactTagIdListCount;
+@property(retain, nonatomic) NSMutableArray *mutableBlackContactTagIdListList; // @synthesize mutableBlackContactTagIdListList;
+@property(nonatomic, setter=SetBlackContactTagIdListCount:) unsigned int blackContactTagIdListCount; // @synthesize blackContactTagIdListCount;
+@property(readonly, nonatomic) BOOL hasBlackContactTagIdListCount; // @synthesize hasBlackContactTagIdListCount;
 @property(retain, nonatomic, setter=SetWeAppInfo:) SnsWeAppInfo *weAppInfo; // @synthesize weAppInfo;
 @property(readonly, nonatomic) BOOL hasWeAppInfo; // @synthesize hasWeAppInfo;
 @property(retain, nonatomic, setter=SetPreDownloadInfo:) PreDownloadInfo *preDownloadInfo; // @synthesize preDownloadInfo;
@@ -126,6 +140,10 @@
 @property(readonly, nonatomic) BOOL hasUsername; // @synthesize hasUsername;
 @property(nonatomic, setter=SetId:) unsigned long long id; // @synthesize id=id_;
 @property(readonly, nonatomic) BOOL hasId; // @synthesize hasId;
+- (void)addGroupContactTagIdListFromArray:(id)arg1;
+- (void)addGroupContactTagIdList:(unsigned int)arg1;
+- (void)addBlackContactTagIdListFromArray:(id)arg1;
+- (void)addBlackContactTagIdList:(unsigned int)arg1;
 - (void)addGroupUser:(id)arg1;
 - (void)addGroupUserFromArray:(id)arg1;
 - (void)addBlackList:(id)arg1;
@@ -142,6 +160,10 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(retain, nonatomic) NSMutableArray *groupContactTagIdList; // @dynamic groupContactTagIdList;
+- (id)groupContactTagIdListList;
+@property(retain, nonatomic) NSMutableArray *blackContactTagIdList; // @dynamic blackContactTagIdList;
+- (id)blackContactTagIdListList;
 @property(retain, nonatomic) NSMutableArray *groupUser; // @dynamic groupUser;
 - (id)groupUserList;
 @property(retain, nonatomic) NSMutableArray *blackList; // @dynamic blackList;

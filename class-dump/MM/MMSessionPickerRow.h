@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "NSCopying-Protocol.h"
+
 @class MMSearchResultItem, NSString, WCContactData;
 
-@interface MMSessionPickerRow : NSObject
+@interface MMSessionPickerRow : NSObject <NSCopying>
 {
     BOOL _chosen;
     BOOL _preSelected;
@@ -18,6 +20,7 @@
     NSString *_tagTitle;
     NSString *_tagId;
     NSString *_tagsContent;
+    unsigned long long _tagContactsCount;
     WCContactData *_contact;
     MMSearchResultItem *_searchResultItem;
 }
@@ -34,11 +37,13 @@
 @property(nonatomic) BOOL preSelected; // @synthesize preSelected=_preSelected;
 @property(nonatomic) BOOL chosen; // @synthesize chosen=_chosen;
 @property(retain, nonatomic) WCContactData *contact; // @synthesize contact=_contact;
+@property(nonatomic) unsigned long long tagContactsCount; // @synthesize tagContactsCount=_tagContactsCount;
 @property(retain, nonatomic) NSString *tagsContent; // @synthesize tagsContent=_tagsContent;
 @property(retain, nonatomic) NSString *tagId; // @synthesize tagId=_tagId;
 @property(retain, nonatomic) NSString *tagTitle; // @synthesize tagTitle=_tagTitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

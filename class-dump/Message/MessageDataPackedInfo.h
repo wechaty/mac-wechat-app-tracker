@@ -22,6 +22,10 @@
     unsigned int m_uiOriginalImgHeight;
     unsigned int m_uiOriginalImgWidth;
     unsigned int msgFrom;
+    unsigned int m_uiRawVideoHeight;
+    unsigned int m_uiRawVideoWidth;
+    unsigned int m_uiUploadStatus;
+    unsigned int m_uiVideoCompressStatus;
     NSString *fromUsrName;
     NSString *toUsrName;
     NSString *msgRealChatUsr;
@@ -37,6 +41,10 @@
 + (int)columnTypeForWCDB;
 + (id)unarchiveWithWCTValue:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_uiVideoCompressStatus;
++ (void)PBArrayAdd_m_uiUploadStatus;
++ (void)PBArrayAdd_m_uiRawVideoWidth;
++ (void)PBArrayAdd_m_uiRawVideoHeight;
 + (void)PBArrayAdd_fileAttrInfo;
 + (void)PBArrayAdd_msgFrom;
 + (void)PBArrayAdd_dataMd5;
@@ -57,6 +65,10 @@
 + (void)PBArrayAdd_toUsrName;
 + (void)PBArrayAdd_fromUsrName;
 - (void).cxx_destruct;
+@property(nonatomic) unsigned int m_uiVideoCompressStatus; // @synthesize m_uiVideoCompressStatus;
+@property(nonatomic) unsigned int m_uiUploadStatus; // @synthesize m_uiUploadStatus;
+@property(nonatomic) unsigned int m_uiRawVideoWidth; // @synthesize m_uiRawVideoWidth;
+@property(nonatomic) unsigned int m_uiRawVideoHeight; // @synthesize m_uiRawVideoHeight;
 @property(retain, nonatomic) MMFileAttrInfo *fileAttrInfo; // @synthesize fileAttrInfo;
 @property(nonatomic) unsigned int msgFrom; // @synthesize msgFrom;
 @property(retain, nonatomic) NSString *dataMd5; // @synthesize dataMd5;

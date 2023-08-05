@@ -34,8 +34,7 @@
 + (id)filterUnCanForwardMessage:(id)arg1;
 + (id)filterUnuploadMessage:(id)arg1;
 + (id)filterUndownloadMessage:(id)arg1;
-+ (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3 isSeparate:(BOOL)arg4 isToWeWork:(BOOL)arg5 mesLocalId:(unsigned int)arg6 sourceInfo:(id)arg7;
-+ (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3 isSeparate:(BOOL)arg4 isToWeWork:(BOOL)arg5 mesLocalId:(unsigned int)arg6;
++ (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3 isSeparate:(BOOL)arg4 isToWeWork:(BOOL)arg5 mesLocalId:(unsigned int)arg6 sourceInfo:(id)arg7 sendRaw:(BOOL)arg8;
 + (void)sendVideoMessageWithFileUrl:(id)arg1 toUserName:(id)arg2 leavedMessage:(id)arg3;
 + (id)getFileWithURLType:(id)arg1;
 - (void).cxx_destruct;
@@ -59,9 +58,9 @@
 - (BOOL)FFProcessTReqWithStrZZ:(id)arg1 mentionedUsers:(id)arg2;
 - (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3 leavedMessage:(id)arg4 isToWeWork:(BOOL)arg5 sourceInfo:(id)arg6;
 - (void)sendFileWithFilePath:(id)arg1 fileName:(id)arg2 fileSize:(long long)arg3;
-- (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4 sourceInfo:(id)arg5;
+- (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3 isToWeWork:(BOOL)arg4 sourceInfo:(id)arg5 sendRaw:(BOOL)arg6;
 - (void)sendAllKindsFileWithURL:(id)arg1 fileName:(id)arg2 leavedMessage:(id)arg3;
-- (void)sendMultiFilesWithURLs:(id)arg1 names:(id)arg2;
+- (void)sendMultiFilesWithURLs:(id)arg1 names:(id)arg2 sendRaw:(BOOL)arg3;
 
 @end
 

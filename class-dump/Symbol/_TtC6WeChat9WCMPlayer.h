@@ -25,9 +25,11 @@
 }
 
 - (void).cxx_destruct;
+- (long long)currentPositionMs;
 - (id)getInfoObject_oc;
 - (void)popupVideoInfo;
 - (id)captureWithPreciseSeek:(BOOL)arg1;
+- (void)seekWithTimeInMs:(long long)arg1 accurate:(BOOL)arg2;
 - (void)seekWithPercentage:(double)arg1;
 - (BOOL)isNotPlaying;
 - (void)pause;
@@ -42,6 +44,7 @@
 @property(nonatomic) BOOL muted; // @synthesize muted;
 @property(nonatomic) float volumeValue; // @synthesize volumeValue;
 @property(nonatomic) __weak _TtC6WeChat13WCMPlayerView *playerView; // @synthesize playerView;
+@property(nonatomic) long long status; // @synthesize status;
 
 @end
 

@@ -43,7 +43,6 @@
     MMChatDetailEventView *_eventView;
     WCContactData *_localAddContactData;
     WCContactData *_localDeleteContactData;
-    WCContactData *_delayContact;
     NSView *_contentView;
     MMTableView *_tableView;
     MMMediumDivider *_divider;
@@ -71,7 +70,6 @@
 @property(retain, nonatomic) MMMediumDivider *divider; // @synthesize divider=_divider;
 @property(nonatomic) __weak MMTableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) __weak NSView *contentView; // @synthesize contentView=_contentView;
-@property(retain, nonatomic) WCContactData *delayContact; // @synthesize delayContact=_delayContact;
 @property(retain, nonatomic) WCContactData *localDeleteContactData; // @synthesize localDeleteContactData=_localDeleteContactData;
 @property(retain, nonatomic) WCContactData *localAddContactData; // @synthesize localAddContactData=_localAddContactData;
 @property(nonatomic) BOOL isFolding; // @synthesize isFolding=_isFolding;
@@ -166,7 +164,6 @@
 - (void)updateGroupMemberDetailIfNeed:(id)arg1;
 - (void)updateGroupNoticeIfNeed:(id)arg1;
 - (void)updateGroupMemberList:(id)arg1;
-- (void)delayReloadTableViewSelector;
 - (void)delayReloadTableView;
 - (void)reloadTableView;
 - (BOOL)isPointInsideChatMemberListView:(struct CGPoint)arg1;

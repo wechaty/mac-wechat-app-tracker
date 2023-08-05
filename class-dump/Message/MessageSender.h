@@ -15,21 +15,22 @@
     unsigned long long m_taskId;
     MessageData *m_msgData;
     unsigned int m_cgiSessionId;
-    BOOL m_didRetryForEmptyAeskey;
     BOOL m_uploadMediaOnly;
     id <MessageSenderDelegate> m_delegate;
+    BOOL _m_didRetryForEmptyAeskey;
     MessageTransferReportItem *_reportItem;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MessageTransferReportItem *reportItem; // @synthesize reportItem=_reportItem;
+@property BOOL m_didRetryForEmptyAeskey; // @synthesize m_didRetryForEmptyAeskey=_m_didRetryForEmptyAeskey;
 @property(nonatomic) __weak id <MessageSenderDelegate> delegate; // @synthesize delegate=m_delegate;
 @property(nonatomic) BOOL uploadMediaOnly; // @synthesize uploadMediaOnly=m_uploadMediaOnly;
 @property(retain, nonatomic) MessageData *msgData; // @synthesize msgData=m_msgData;
 @property(nonatomic) unsigned long long taskId; // @synthesize taskId=m_taskId;
 @property(retain, nonatomic) NSString *chatName; // @synthesize chatName=m_nsChatName;
 - (void)onUploadOrHitCheckSuccess:(id)arg1 nsAesKey:(id)arg2;
-- (void)retryUploadAndNoHitCheck;
+- (void)retryUploadAndNoHitCheck:(id)arg1;
 - (void)checkMd5:(id)arg1;
 - (BOOL)checkContinueSend:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

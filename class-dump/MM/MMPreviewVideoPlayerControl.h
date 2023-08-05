@@ -9,9 +9,11 @@
 #import "NSTouchBarDelegate-Protocol.h"
 
 @class NSString, _TtC6WeChat13WCMPlayerView, _TtC6WeChat9WCMPlayer;
+@protocol MMPreviewVideoPlayerDelegate;
 
 @interface MMPreviewVideoPlayerControl : NSObject <NSTouchBarDelegate>
 {
+    id <MMPreviewVideoPlayerDelegate> _delegate;
     _TtC6WeChat13WCMPlayerView *_playerView;
     _TtC6WeChat9WCMPlayer *_player;
     NSString *_currentPath;
@@ -21,8 +23,11 @@
 @property(retain, nonatomic) NSString *currentPath; // @synthesize currentPath=_currentPath;
 @property(retain, nonatomic) _TtC6WeChat9WCMPlayer *player; // @synthesize player=_player;
 @property(retain, nonatomic) _TtC6WeChat13WCMPlayerView *playerView; // @synthesize playerView=_playerView;
+@property(nonatomic) __weak id <MMPreviewVideoPlayerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)popupVideoInfo;
 - (id)makeSurePlayerView;
+- (id)getPlayer;
+- (id)getPlayerView;
 - (BOOL)isVisiable:(id)arg1;
 - (void)remove;
 - (void)onSpacePressed;
@@ -32,6 +37,7 @@
 - (void)play;
 - (void)hide:(BOOL)arg1;
 - (void)load:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)initPlayView;
 - (void)destroy;
 - (void)dealloc;

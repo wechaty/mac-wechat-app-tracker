@@ -38,6 +38,7 @@
 @property(copy, nonatomic) CDUnknownBlockType didTranscribeCompletedBlock; // @synthesize didTranscribeCompletedBlock=_didTranscribeCompletedBlock;
 @property(retain, nonatomic) NSString *voiceID; // @synthesize voiceID=_voiceID;
 @property(retain, nonatomic) MessageData *messageData; // @synthesize messageData=_messageData;
+@property BOOL m_isStop; // @synthesize m_isStop;
 - (id)voiceAttrWithMessage:(id)arg1;
 - (unsigned int)voiceFileLengthWithFile:(id)arg1;
 - (id)voiceFilePathWithMessage:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "PBCoding-Protocol.h"
 
-@class MMSnsAppMsgShareInfo, MMSnsFinderLiveShareItem, MMSnsFinderShareToMomentsItem, MMSnsMegaVideoShareItem, NSMutableArray, NSString;
+@class MMMusicShareItem, MMSnsAppMsgShareInfo, MMSnsFinderLiveShareItem, MMSnsFinderShareToMomentsItem, MMSnsMegaVideoShareItem, MMTingListenCategoryItem, MMTingListenItem, NSMutableArray, NSString;
 
 @interface MMSnsContentItem : NSObject <PBCoding>
 {
@@ -27,11 +27,17 @@
     MMSnsFinderShareToMomentsItem *finderShareToMomentsItem;
     MMSnsMegaVideoShareItem *finderLongVideoShareItem;
     MMSnsFinderLiveShareItem *finderLiveShareItem;
+    MMTingListenItem *tingListenItem;
+    MMTingListenCategoryItem *tingCategoryItem;
+    MMMusicShareItem *musicShareItem;
     NSString *_titlePattern;
     NSString *_descPattern;
 }
 
 + (void)initialize;
++ (void)PBArrayAdd_musicShareItem;
++ (void)PBArrayAdd_tingCategoryItem;
++ (void)PBArrayAdd_tingListenItem;
 + (void)PBArrayAdd_finderLiveShareItem;
 + (void)PBArrayAdd_finderLongVideoShareItem;
 + (void)PBArrayAdd_finderShareToMomentsItem;
@@ -50,6 +56,9 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *descPattern; // @synthesize descPattern=_descPattern;
 @property(retain, nonatomic) NSString *titlePattern; // @synthesize titlePattern=_titlePattern;
+@property(retain, nonatomic) MMMusicShareItem *musicShareItem; // @synthesize musicShareItem;
+@property(retain, nonatomic) MMTingListenCategoryItem *tingCategoryItem; // @synthesize tingCategoryItem;
+@property(retain, nonatomic) MMTingListenItem *tingListenItem; // @synthesize tingListenItem;
 @property(retain, nonatomic) MMSnsFinderLiveShareItem *finderLiveShareItem; // @synthesize finderLiveShareItem;
 @property(retain, nonatomic) MMSnsMegaVideoShareItem *finderLongVideoShareItem; // @synthesize finderLongVideoShareItem;
 @property(retain, nonatomic) MMSnsFinderShareToMomentsItem *finderShareToMomentsItem; // @synthesize finderShareToMomentsItem;

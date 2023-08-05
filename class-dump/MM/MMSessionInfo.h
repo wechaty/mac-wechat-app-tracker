@@ -27,6 +27,7 @@
     BOOL _m_isPattedUnread;
     BOOL _m_isAnnounceMentUnread;
     BOOL _isInGroupBox;
+    BOOL _unreadCountForAccessibility;
     unsigned int m_syncSessionOrder;
     unsigned int _intRes1;
     unsigned int _intRes2;
@@ -56,6 +57,7 @@
 + (const void *)AllProperties;
 + (const void *)objectRelationalMappingForWCDB;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL unreadCountForAccessibility; // @synthesize unreadCountForAccessibility=_unreadCountForAccessibility;
 @property(nonatomic) unsigned int chatSyncFirstLocalId; // @synthesize chatSyncFirstLocalId=_chatSyncFirstLocalId;
 @property BOOL isInGroupBox; // @synthesize isInGroupBox=_isInGroupBox;
 @property(nonatomic) BOOL m_isAnnounceMentUnread; // @synthesize m_isAnnounceMentUnread=_m_isAnnounceMentUnread;

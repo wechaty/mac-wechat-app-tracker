@@ -40,7 +40,6 @@
 @property(retain, nonatomic) NSString *m_nsUsername; // @synthesize m_nsUsername=_m_nsUsername;
 @property(retain, nonatomic) NSString *m_nsThumbPath; // @synthesize m_nsThumbPath=_m_nsThumbPath;
 - (void)onCheckBigFileDownloadResult:(BOOL)arg1 resp:(id)arg2 clientMsgID:(id)arg3 errMsg:(id)arg4;
-- (void)OnCdnDownloadFinished:(id)arg1;
 - (void)_startDownload;
 - (BOOL)_checkBigFileIfNeeded;
 - (void)cancel;

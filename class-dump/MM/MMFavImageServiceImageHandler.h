@@ -18,8 +18,11 @@
 }
 
 - (void).cxx_destruct;
-- (void)onCdnDownloadFinishWithTaskID:(id)arg1;
+- (void)onDownloadRecordExpired:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadRecordFail:(id)arg1 key:(id)arg2 context:(id)arg3;
 - (void)onDownloadRecordOK:(id)arg1 key:(id)arg2 context:(id)arg3;
+- (void)onDownloadFinishWithTaskID:(id)arg1;
+- (void)onDownloadFailedWithTaskID:(id)arg1;
 - (void)processFavThumbRequest:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;

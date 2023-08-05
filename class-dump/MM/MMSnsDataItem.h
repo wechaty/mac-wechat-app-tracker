@@ -63,6 +63,8 @@
     NSString *_contentDescPattern;
     NSArray *_blackUsers;
     NSArray *_visibleUsers;
+    NSMutableArray *_groupContactTags;
+    NSMutableArray *_blackContactTags;
     NSString *_statExtStr;
     NSString *_canvasInfoXml;
     SnsWeAppInfo *_snsWeAppInfo;
@@ -124,6 +126,8 @@
 @property(nonatomic) int sightFolded; // @synthesize sightFolded=_sightFolded;
 @property(retain, nonatomic) NSString *canvasInfoXml; // @synthesize canvasInfoXml=_canvasInfoXml;
 @property(retain, nonatomic) NSString *statExtStr; // @synthesize statExtStr=_statExtStr;
+@property(retain, nonatomic) NSMutableArray *blackContactTags; // @synthesize blackContactTags=_blackContactTags;
+@property(retain, nonatomic) NSMutableArray *groupContactTags; // @synthesize groupContactTags=_groupContactTags;
 @property(retain, nonatomic) NSArray *visibleUsers; // @synthesize visibleUsers=_visibleUsers;
 @property(retain, nonatomic) NSArray *blackUsers; // @synthesize blackUsers=_blackUsers;
 @property(nonatomic) BOOL noChange; // @synthesize noChange=_noChange;
@@ -175,6 +179,7 @@
 - (void)afterPBCodingProcess;
 - (void)beforePBCodingProcess;
 - (id)toPBCodingBuffer;
+- (void)updateShareScopeWithVisibilityChangeOp:(id)arg1;
 - (unsigned long long)tidNumber;
 - (BOOL)isValid;
 - (const void *)getValueTagIndexMap;

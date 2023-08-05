@@ -6,13 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MMSpaceCleanSessionItem, NSString;
+@class MMSpaceCleanSessionItem, NSSet, NSString;
 
 @protocol MMSpaceCleanSessionRowViewDelegate <NSObject>
 
 @optional
 - (void)asyncLocateVideoMsgWithItem:(MMSpaceCleanSessionItem *)arg1;
-- (void)onUnSelectSessionRowView:(NSString *)arg1 dirPath:(NSString *)arg2 spaceSize:(long long)arg3;
-- (void)onSelectSessionRowView:(NSString *)arg1 dirPath:(NSString *)arg2 spaceSize:(long long)arg3;
+- (void)onUnSelectSessionRowView:(NSString *)arg1 dirPathList:(NSSet *)arg2 spaceSize:(long long)arg3;
+- (void)onSelectSessionRowView:(NSString *)arg1 dirPathList:(NSSet *)arg2 spaceSize:(long long)arg3;
 @end
 

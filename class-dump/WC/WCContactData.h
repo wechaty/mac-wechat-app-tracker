@@ -36,6 +36,7 @@
     unsigned int m_uiChatRoomVersion;
     unsigned int m_uiChatRoomMaxCount;
     unsigned int m_uiChatRoomType;
+    unsigned int m_uiDeleteFlag;
     WCContactDataPackedInfo *m_packedInfo;
     ChatRoomData *m_chatRoomData;
     NSString *m_nsUsrName;
@@ -98,6 +99,7 @@
 + (BOOL)IsReservedGroupTopic:(id)arg1;
 + (id)getMicroBlogUsrDisplayName:(id)arg1;
 + (void)initialize;
++ (void)PBArrayAdd_m_uiDeleteFlag;
 + (void)PBArrayAdd_m_arrPhoneItem;
 + (void)PBArrayAdd_m_arrCardItem;
 + (void)PBArrayAdd_richChatRoomDesc;
@@ -210,6 +212,7 @@
 @property(copy, nonatomic) NSString *m_nsDisplayNamePY; // @synthesize m_nsDisplayNamePY=_m_nsDisplayNamePY;
 @property(retain, nonatomic) NSData *m_dtUsrImg; // @synthesize m_dtUsrImg=_m_dtUsrImg;
 @property(retain, nonatomic) EncryptSecretInfo *m_encryptSecretInfo; // @synthesize m_encryptSecretInfo=_m_encryptSecretInfo;
+@property(nonatomic) unsigned int m_uiDeleteFlag; // @synthesize m_uiDeleteFlag;
 @property(retain, nonatomic) NSArray *m_arrPhoneItem; // @synthesize m_arrPhoneItem;
 @property(retain, nonatomic) NSArray *m_arrCardItem; // @synthesize m_arrCardItem;
 @property(retain, nonatomic) NSString *richChatRoomDesc; // @synthesize richChatRoomDesc;
@@ -309,11 +312,13 @@
 - (id)getGroupShowName;
 - (BOOL)isInGroupBox;
 - (BOOL)isUserInGroup:(id)arg1;
+- (BOOL)isAccountDeleted;
 - (BOOL)isHolderContact;
 - (BOOL)isNormalContact;
 - (BOOL)isUpgradeOpenIMChatroom;
 - (BOOL)isMatchType:(unsigned int)arg1 conType:(unsigned int)arg2;
 - (BOOL)isTopSession;
+- (BOOL)isChatRoomOnlyAdminModTopic;
 - (id)adminList;
 - (BOOL)isAdmin;
 - (BOOL)isGroupOwner;

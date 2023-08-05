@@ -15,16 +15,23 @@
     unsigned int hasMemberid:1;
     unsigned int hasCallerOpenid:1;
     unsigned int hasCallerUsername:1;
+    unsigned int hasSubAppid:1;
+    unsigned int hasSubCall:1;
+    unsigned int subCall_:1;
     unsigned int roomType;
     unsigned int memberid;
     unsigned long long roomid;
     NSString *callerOpenid;
     NSString *callerUsername;
     NSMutableArray *mutableUsernameListList;
+    NSString *subAppid;
 }
 
 + (id)parseFromData:(id)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL hasSubCall; // @synthesize hasSubCall;
+@property(retain, nonatomic, setter=SetSubAppid:) NSString *subAppid; // @synthesize subAppid;
+@property(readonly, nonatomic) BOOL hasSubAppid; // @synthesize hasSubAppid;
 @property(retain, nonatomic) NSMutableArray *mutableUsernameListList; // @synthesize mutableUsernameListList;
 @property(retain, nonatomic, setter=SetCallerUsername:) NSString *callerUsername; // @synthesize callerUsername;
 @property(readonly, nonatomic) BOOL hasCallerUsername; // @synthesize hasCallerUsername;
@@ -42,6 +49,7 @@
 - (int)serializedSize;
 - (void)writeToCodedOutputStream:(id)arg1;
 - (BOOL)isInitialized;
+@property(nonatomic, setter=SetSubCall:) BOOL subCall; // @synthesize subCall=subCall_;
 @property(retain, nonatomic) NSMutableArray *usernameList; // @dynamic usernameList;
 - (id)usernameListList;
 - (id)init;

@@ -43,6 +43,8 @@
 - (id)draggingImage;
 - (BOOL)draggingEnabled;
 - (void)onDownloadImageFinished:(id)arg1 key:(id)arg2;
+- (void)downloadThumbnailByHttp;
+- (void)downloadThumbnailByCDN;
 - (void)layoutThumbImage;
 - (void)loadData;
 - (BOOL)alwaysDisableMessageTextViewSelectableProperty;

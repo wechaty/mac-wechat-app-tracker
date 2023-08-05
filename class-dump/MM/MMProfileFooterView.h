@@ -18,9 +18,11 @@
     MMFooterButtonView *_sendMsgViewBtn;
     MMFooterButtonView *_voiceCallViewBtn;
     MMFooterButtonView *_videoCallViewBtn;
+    MMFooterButtonView *_accountDeleteBtn;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MMFooterButtonView *accountDeleteBtn; // @synthesize accountDeleteBtn=_accountDeleteBtn;
 @property(retain, nonatomic) MMFooterButtonView *videoCallViewBtn; // @synthesize videoCallViewBtn=_videoCallViewBtn;
 @property(retain, nonatomic) MMFooterButtonView *voiceCallViewBtn; // @synthesize voiceCallViewBtn=_voiceCallViewBtn;
 @property(retain, nonatomic) MMFooterButtonView *sendMsgViewBtn; // @synthesize sendMsgViewBtn=_sendMsgViewBtn;
@@ -30,12 +32,14 @@
 @property(retain, nonatomic) MMOutlineButton *sendMsgBtn; // @synthesize sendMsgBtn=_sendMsgBtn;
 @property(copy, nonatomic) CDUnknownBlockType didButtonClick; // @synthesize didButtonClick=_didButtonClick;
 - (double)getsuitFontSize;
+- (void)onDeleteFriendAction;
 - (void)onAddFriendAction;
 - (void)onVideoCallAction;
 - (void)onVoiceCallAction;
 - (void)onSendMsgAction;
 - (void)addFriendViews:(double)arg1;
 - (void)setupSelfViews:(double)arg1;
+- (void)setupAccountDeleteViews:(double)arg1;
 - (void)setupFriendViews:(double)arg1;
 - (double)updateUIAndCalculateHeight:(int)arg1;
 - (void)initUI;
