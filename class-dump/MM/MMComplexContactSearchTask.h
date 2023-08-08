@@ -18,6 +18,8 @@
 @property BOOL isCancelled; // @synthesize isCancelled=_isCancelled;
 @property(retain, nonatomic) NSDate *createDate; // @synthesize createDate=_createDate;
 - (BOOL)_isValidContact:(id)arg1;
+- (BOOL)isHideOrBookGroupContact:(id)arg1 contact:(id)arg2;
+- (id)getGroupSessionInfoConfNameSet;
 - (void)doComplexContactSearch:(id)arg1 allSessionInfo:(id)arg2 allContacts:(id)arg3 allGroups:(id)arg4 searchScene:(unsigned long long)arg5 complete:(CDUnknownBlockType)arg6;
 - (void)cancel;
 - (id)init;

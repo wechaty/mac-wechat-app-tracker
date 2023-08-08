@@ -52,10 +52,10 @@
 - (BOOL)updaterShouldPromptForPermissionToCheckForUpdates:(id)arg1;
 - (id)feedURLStringForUpdater:(id)arg1;
 - (BOOL)useForceUpdateVersion;
-- (BOOL)isSameMainVersion:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)startBackgroundUpdatesCheck:(BOOL)arg1;
 - (void)checkForUpdates:(id)arg1;
+- (BOOL)isSameMainVersion:(id)arg1;
 - (long long)getCurrentUserLoginVersion;
 - (void)saveUserLoginVersion;
 - (void)saveToDiskWithVersion:(id)arg1;

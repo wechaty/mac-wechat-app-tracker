@@ -144,7 +144,7 @@
 - (unsigned char)FFDataSvrMgrSvrFavZZ;
 - (void)syncSessionOrder:(id)arg1;
 - (void)removeSessionInfoInArray:(id)arg1;
-- (void)removeSessionInfo:(id)arg1;
+- (void)removeSessionInfo:(id)arg1 justHidden:(BOOL)arg2;
 - (void)updateSessionInfo:(id)arg1;
 - (void)addOrUpdateSessionInfo:(id)arg1 isNew:(char *)arg2;
 - (long long)indexInSessionArray:(id)arg1 withUserName:(id)arg2;
@@ -213,6 +213,7 @@
 - (void)buildUserGroupRelationIfNeed:(id)arg1 allGroupNameSet:(id)arg2;
 - (void)storageDeleteBrandSessionInfo:(id)arg1;
 - (void)storageSaveBrandSessionInfos:(id)arg1;
+- (void)storageDeleteSessionInfo:(id)arg1 justHidden:(BOOL)arg2;
 - (void)storageDeleteSessionInfo:(id)arg1;
 - (void)storageSaveSessionInfos:(id)arg1;
 - (void)storageUninit;
@@ -221,6 +222,7 @@
 - (void)notifyIfUnreadCountChange;
 - (void)countUnreadCount;
 - (id)getSessionContact:(id)arg1;
+- (void)removeSessionOfUser:(id)arg1 isDelMsg:(BOOL)arg2 justHidden:(BOOL)arg3;
 - (void)removeSessionOfUser:(id)arg1 isDelMsg:(BOOL)arg2;
 - (void)clearSessionChatLog:(id)arg1;
 - (BOOL)isHideSession:(id)arg1;
