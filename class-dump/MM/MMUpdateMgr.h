@@ -48,6 +48,7 @@
 - (void)updater:(id)arg1 willDownloadUpdate:(id)arg2 withRequest:(id)arg3;
 - (void)updaterDidNotFindUpdate:(id)arg1 error:(id)arg2;
 - (void)updater:(id)arg1 didFindValidUpdate:(id)arg2;
+- (BOOL)updater:(id)arg1 shouldProceedWithUpdate:(id)arg2 updateCheck:(long long)arg3 error:(id *)arg4;
 - (void)updater:(id)arg1 didFinishLoadingAppcast:(id)arg2;
 - (BOOL)updaterShouldPromptForPermissionToCheckForUpdates:(id)arg1;
 - (id)feedURLStringForUpdater:(id)arg1;
